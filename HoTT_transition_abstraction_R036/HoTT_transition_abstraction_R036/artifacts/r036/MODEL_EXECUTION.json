@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "scripts/research/r036_transition_abstraction.py",
+    "--output",
+    "artifacts/r036/RESULTS.json"
+  ],
+  "cwd": "/mnt/data/HoTT_transition_abstraction_rev36",
+  "started_utc": "2026-09-11T13:29:49.477094+00:00",
+  "ended_utc": "2026-09-11T13:29:50.206780+00:00",
+  "duration_seconds": 0.7296856959999332,
+  "exit_code": 0,
+  "timeout": false,
+  "stdout": "{\n  \"source\": {\n    \"states\": [\n      \"a\",\n      \"b\",\n      \"done\"\n    ],\n    \"edges\": [\n      [\n        0,\n        1\n      ],\n      [\n        1,\n        2\n      ]\n    ],\n    \"initial\": 0,\n    \"done\": [\n      2\n    ],\n    \"strict_rank\": [\n      2,\n      1,\n      0\n    ],\n    \"all_runs_complete\": true,\n    \"all_prefixes\": [\n      [\n        0\n      ],\n      [\n        0,\n        1\n      ],\n      [\n        0,\n        1,\n        2\n      ]\n    ],\n    \"exact_longest_run_edges\": 2\n  },\n  \"quotient\": {\n    \"alpha\": [\n      0,\n      0,\n      1\n    ],\n    \"labels\": [\n      \"working\",\n      \"Done\"\n    ],\n    \"edges\": [\n      [\n        0,\n        0\n      ],\n      [\n        0,\n        1\n      ]\n    ],\n    \"done\": [\n      1\n    ],\n    \"edge_witnesses\": {\n      \"0->0\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"0->1\": [\n        [\n          1,\n          2\n        ]\n      ]\n    },\n    \"all_runs_complete\": false,\n    \"reachable_cycle_certificate\": [\n      0,\n      0\n    ],\n    \"infinite_run_definition\": \"beta(n)=working for every natural n; reuse the proved abstract edge, not a concrete run\"\n  },\n  \"finite_obstruction\": {\n    \"abstract_prefix\": [\n      0,\n      0,\n      0\n    ],\n    \"abstract_valid\": true,\n    \"compatible_concrete_representatives\": [\n      [\n        0\n      ],\n      [\n        1\n      ],\n      []\n    ],\n    \"independent_edge_witnesses_accept\": true,\n    \"compatible_full_lift_exists\": false\n  },\n  \"missing_back_conditions\": [\n    [\n      0,\n      1\n    ],\n    [\n      1,\n      0\n    ]\n  ],\n  \"positive_control\": {\n    \"alpha\": [\n      0,\n      1,\n      2\n    ],\n    \"rank\": [\n      2,\n      1,\n      0\n    ],\n    \"all_runs_complete\": true,\n    \"valid_trace\": [\n      0,\n      1,\n      2\n    ],\n    \"lift\": [\n      [\n        0\n      ],\n      [\n        1\n      ],\n      [\n        2\n      ]\n    ]\n  }\n}\n",
+  "stderr": ""
+}

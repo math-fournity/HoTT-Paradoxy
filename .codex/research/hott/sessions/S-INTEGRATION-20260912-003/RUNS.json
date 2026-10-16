@@ -1,0 +1,14 @@
+{
+  "schema_version": "session-runs/v1",
+  "session_id": "S-INTEGRATION-20260912-003",
+  "runs": [
+    {"run_id": "RUN-HEAD-BASELINE-003", "command": "rtk python3 scripts/audit/initialize_cognition_head.py", "status": "PASS", "result": "STATE revision 2 accepted as explicit checkpoint base", "evidence": [".codex/cognition/HEAD.json"]},
+    {"run_id": "RUN-COGNITION-CHECKPOINT-003A", "command": "rtk python3 scripts/audit/apply_integration_checkpoint.py", "status": "REJECTED_AS_DESIGNED", "result": "DEPENDENCY_REVIEW_REQUIRED: A-UNDERSTANDING-RECONCILIATION-001; no write was published", "evidence": [".codex/research/hott/sessions/S-INTEGRATION-20260912-003/SESSION.md"]},
+    {"run_id": "RUN-COGNITION-CHECKPOINT-003B", "command": "rtk python3 scripts/audit/apply_integration_checkpoint.py", "status": "PASS", "result": "CHECKPOINT_COMMITTED; STATE revision 3; before/after/result receipt preserved", "evidence": [".codex/cognition/checkpoints/S-INTEGRATION-20260912-003/result.json"]},
+    {"run_id": "RUN-CORE-VERIFY-003", "command": "rtk python3 scripts/audit/verify_core_cognition.py", "status": "PASS", "result": "903 contiguous core units and source hashes", "evidence": ["核心认知.manifest.json"]},
+    {"run_id": "RUN-HISTORY-VERIFY-003", "command": "rtk python3 scripts/audit/verify_history_ledgers.py", "status": "PASS", "result": "historical denominator, pairing and Gemini inline contracts pass", "evidence": ["audit/verification-report.json"]},
+    {"run_id": "RUN-COGNITION-PLAN-003", "command": "rtk python3 .codex/tools/cognition_runtime.py plan", "status": "PASS", "result": "review_required dependency chain preserved; model context not certified", "evidence": [".codex/cognition/LOAD_SET.json", ".codex/research/hott/STATE.json"]}
+  ],
+  "mathematics": "NOT_RUN_IN_THIS_INTEGRATION_SESSION",
+  "model_understanding": "NOT_CERTIFIED"
+}

@@ -1,0 +1,50 @@
+{
+  "claim_ids": [
+    "CG001-C-53"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/rzk-v0.11.3-macos-arm64/rzk",
+    "typecheck",
+    "HoTT/formal/claude-cg001/pedometer-ablation-rzk/CarriedMonotone.rzk"
+  ],
+  "completed_at_utc": "2026-09-25T14:26:43.754305+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.239687,
+  "environment": {
+    "bytes": 478,
+    "path": "environment.txt",
+    "sha256": "667feaff3eb66032c4a63878c9396a2d789f28b4b19d8572f76f73cd73aac6b8"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "does not construct a non-discrete base or a covariant family whose transport is successor (Rzk 0.11.3 has no directed univalence and no directed HITs); the existence side is the set-level model (C-51, C-52) and GWB (source, not replayed)",
+    "does not prove Bool or N discrete or non-discrete",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only)"
+  ],
+  "proof_assistant": "Rzk",
+  "proof_assistant_version": "0.11.3",
+  "proof_id": "MP-CG001-PEDOMETER-ABLATION-RZK-001",
+  "run_id": "20260925-CG001-PEDOMETER-ABLATION-RZK-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Rzk 0.11.3 (sHoTT), no postulates, no assumed axioms, no modalities: CG001-C-53 exactly as in CLAIM.md (paths: carrying there and back returns the value; a reading never lowered by carrying along paths is never changed (any antisymmetric relation); if carrying along p and along rev p both apply s then the start reading r satisfies r = s (s r); arrows: for a covariant family (RS17 Def 8.2) covariant transport along an identity arrow is the identity and along hom-eq p equals transport along p; over a discrete base (RS17 Def 7.1) a covariant reading never lowered along arrows is never changed along arrows). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 1504,
+    "path": "source-manifest.json",
+    "sha256": "22e7443b399d790482355f3f686702c17e75310f1f32111465d6ef9fa0556033"
+  },
+  "started_at_utc": "2026-09-25T14:26:43.514374+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 1191,
+    "path": "stderr.txt",
+    "sha256": "37ea2c26e647739bfde9318884b3a49aca46a27696b78dff4fff6310df3ab416"
+  },
+  "stdout": {
+    "bytes": 18,
+    "path": "stdout.txt",
+    "sha256": "a8556b63c8a266fd32519f6532b6139fb3537c45dc5de8f6e60c786426346002"
+  },
+  "theory_variant": "sHoTT (Riehl-Shulman simplicial type theory) as implemented by Rzk"
+}

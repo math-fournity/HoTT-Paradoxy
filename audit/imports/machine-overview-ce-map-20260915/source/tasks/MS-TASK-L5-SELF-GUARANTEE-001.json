@@ -1,0 +1,49 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L5-SELF-GUARANTEE-001",
+  "revision": 1,
+  "research_relation": "m3_generic_diagonal_precondition_exploration",
+  "purpose": "Exercise L5 by separating checking one supplied proof from a much stronger exact self-coding section for every Bool predicate over the same domain.",
+  "source_basis": {
+    "kind": "post-freeze M3 generic diagonal precondition, informed by ERCF-3 but not completing it",
+    "references": ["HoTT/formal/ercf3-t3/README.md", "核心认知.md KC-000025 KC-000026 KC-000036"]
+  },
+  "answer_visibility": {
+    "class": "POST_FREEZE_SAME_DESIGNER_EXPLORATION_NOT_BLIND",
+    "engine_freeze": "machine-overview/evaluations/M3-BREADTH-001/ADAPTER-FREEZE.json",
+    "engine_freeze_sha256": "35eaea083a25c514bcb0f8047a744f7c1cf1ad7881ea1e0731923adf9ff4be46",
+    "calibration_answer_available_to_search": false,
+    "limitation": "The designing AI knew the standard Boolean diagonal shape. This is a mechanized prerequisite case, not novelty or Gödel incompleteness."
+  },
+  "input": {"type_ref": "encode : A → A → Bool, decode : (A → Bool) → A, and a proposed section encode (decode p) = p for every p", "available_information": "the exact total section assumption and ordinary Boolean negation; no proof predicate, provability arithmetization or soundness reflection"},
+  "environment": {"reality_model": "a checker may accept one already supplied proof", "theory_model": "the stronger interface exactly represents every Bool predicate by a self object in A", "arrival_policy": "not applicable", "nondeterminism": "none", "fairness": "not applicable"},
+  "observation": {
+    "value": "whether the exact section survives diagonal instantiation",
+    "trace": "liar x = not (encode x x), self = decode liar",
+    "time_structure": {"reality": "finite given-proof checking has no self-search loop", "theory": "the total section closes a self-referential dependency", "temporal_order": "evaluation order is not the theorem; the diagonal dependency is"}
+  },
+  "completion": {"kind": "internal_total_self_guarantee_precondition", "criterion_ref": "provide an exact section for every A → Bool predicate"},
+  "quantifiers": {"instances": "all Type0 A and all proposed encode/decode/section triples", "realization": "native Cubical Agda Boolean diagonal target"},
+  "allowed_resources": "function Path congruence, Boolean negation and declared symbolic rules through depth 4",
+  "prohibited_extra_information": "no claim that encode/decode model syntax, proofs, truth or HoTT's own kernel; no appeal to Gödel as a proof shortcut",
+  "assumptions": ["the exact section is the deliberately strong target under test", "checking one supplied proof is retained as an independent positive control"],
+  "obligations": ["the witness must instantiate the section at liar, evaluate at self and invoke no-fixed-point", "removing section_at_liar must remove every goal witness", "given-proof checking must remain accepted", "the result must not be called Gödel incompleteness, ERCF-3 completion or a HoTT-specific bug"],
+  "known_positive_controls": [{"id": "GIVEN-PROOF-CHECK", "description": "checkGiven returns an already supplied true=true proof", "source": "machine-overview/formal/M3BreadthSupport.agda"}],
+  "known_negative_controls": [{"id": "BOOLEAN-NO-FIXED-POINT", "description": "false cannot be definitionally used as a proof of false = not false", "expected": "NATIVE_TYPE_REJECTION"}],
+  "claim_refs": [],
+  "correspondence": {
+    "original_activity": "check one supplied finite proof",
+    "theoryization_steps": ["generalize from one proof to exact representation of every Bool predicate", "decode the diagonal predicate into the same domain", "require the section at that self-reference"],
+    "preserved_fields": ["ordinary Boolean observation", "the same A domain", "the exact section statement"],
+    "changed_fields": ["the total self-coding section is much stronger than checking a supplied proof"],
+    "observation_justification": "the given-proof and total-section tasks are declared separately before search",
+    "declared_observation_kinds": ["self_guarantee_diagonal_boundary"],
+    "consumer_requirements": {"self_guarantee_diagonal_boundary": {"required_rules": ["section_at_liar", "evaluate_at_self", "boolean_no_fixed"]}},
+    "preservation_label": "EXACT_SECTION_TARGET_PRESERVED",
+    "correspondence_status": "STRONG_SELF_CODING_PRECONDITION_REJECTED",
+    "reality_correspondence": "TASK_STRENGTH_MISMATCH_IDENTIFIED",
+    "reality_bridge_status": "NO_GODEL_OR_KERNEL_CONSUMER_ESTABLISHED",
+    "reality_bridge_detail": "The native theorem refutes the exact section precondition; it does not show an actual HoTT checker promises that interface.",
+    "open_obligations": ["connect a fixed proof predicate and actual self-guarantee consumer before any Gödel/HoTT upgrade", "keep ERCF-3 gated"]
+  }
+}

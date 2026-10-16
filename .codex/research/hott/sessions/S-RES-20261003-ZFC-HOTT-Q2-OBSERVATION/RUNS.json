@@ -1,0 +1,62 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261003-ZFC-HOTT-Q2-OBSERVATION",
+  "tier": "T2",
+  "role": "RESEARCH_GENERATION",
+  "status": "Q2_COMPARATIVE_SEED_NARROWED_KLV_MODEL_DONE_IDENTIFIED_EXACT_Q_VARIANT_NOT_BRIDGED_NO_ZFC_Q_OR_MATH_CLAIM",
+  "new_formal_runs": [],
+  "source_reads": [
+    {
+      "id": "SRC-HOTT-MODEL-001",
+      "source": "HoTT Book, chapters 8 and 10 source text",
+      "identity": "HoTT/theory-schema/upstream/book-578b85cc/homotopy.tex and reals.tex",
+      "scope": "set-built-model visibility control and model-inside-ZFC statement",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-HOTT-MODEL-002",
+      "source": "Kapulkin and Lumsdaine, The simplicial model of Univalent Foundations (after Voevodsky), JEMS 2021",
+      "identity": "https://ems.press/journals/jems/articles/274693",
+      "scope": "simplicial model and relative consistency with ZFC plus two inaccessible cardinals",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-HOTT-MODEL-003",
+      "source": "Kapulkin–Lumsdaine–Voevodsky main theorems and HoTT Book foundation passages",
+      "identity": "https://www.math.uwo.ca/faculty/kapulkin/papers/simplicial-model.pdf#p=39; HoTT Book pp. 17, 423; local book-578b85cc",
+      "scope": "KLV model/relative-consistency Done is explicit but does not cover the fixed Cubical Agda Q variant; representability/foundation language has no process-completion interface",
+      "status": "PRIMARY_SOURCE_READING_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-CUBICAL-PROCESS-004",
+      "source": "Cavallo–Harper, Higher Inductive Types in Cubical Computational Type Theory",
+      "identity": "https://www.cs.cmu.edu/~rwh/papers/higher/paper.pdf",
+      "scope": "0-truncation and canonicity supply a process-sensitive semantic control in a related cubical calculus; no exact Cubical Agda QuestioningDelay translation",
+      "status": "PRIMARY_SOURCE_PARTIAL_POSITIVE_CONTROL"
+    },
+    {
+      "id": "SRC-HOTT-Q-001",
+      "source": "QuestioningDelay.agda / CG001-C-75/77/78 / H015-H018",
+      "identity": "HoTT/formal/claude-cg001/questioning-delay/QuestioningDelay.agda",
+      "scope": "fixed universe questioning process, formal never/non-halting result and user A-direction task judgment",
+      "status": "FORMAL_PROCESS_AND_USER_JUDGMENT_WITH_SCOPE"
+    }
+  ],
+  "p_dag_runs": [
+    {
+      "id": "H083-ZFC-HOTT-Q2-SOURCE-MATCH",
+      "status": "PASS / METATHEORETIC_SCOPE_CONTROL / Q_NARROW",
+      "model": "gpt-5.6-terra",
+      "effort": "max",
+      "final_sha256": "31f12e6209ef7be90588fdbe096237702a85837998991bdb6fa285b52e89c322",
+      "trajectory": "private direct App Server wire; L1 NOT_FULLY_CERTIFIED, L2 NOT_OBSERVED_EXPECTED, L3 NOT_TESTED, L4 MASTER_REVIEWED_WITH_SCOPE, L5 NODE_ACCEPTED_WITH_SCOPE",
+      "public_report": "audit/20261003-P-DAG-ZFC-HOTT-083-Terra-Max.md"
+    }
+  ],
+  "non_goals": [
+    "No claim that model/relative consistency results are false.",
+    "No bare-ZFC or all-HoTT generalization from scoped model sources.",
+    "No machine proof of the user UR judgment or real-world task correspondence.",
+    "No P4, Power Set station change, ZFC Q convergence or mathematical theorem."
+  ]
+}

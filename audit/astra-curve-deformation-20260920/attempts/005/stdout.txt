@@ -1,0 +1,32 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:57:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ ((orderIsoIooNegOneOne ℝ).symm (centeredOrder u) / (1 + |(orderIsoIooNegOneOne ℝ).symm (centeredOrder u)|))
+    ↑(centeredOrder u)
+but is expected to have type
+  @Eq ℝ (unboundedParameter u / (1 + |unboundedParameter u|)) (2 * ↑u - 1)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:75:2: error: Type mismatch
+  add_lt_add_right (mul_lt_mul_of_pos_left h hp) ?m.81
+has type
+  ?m.81 + (1 + t ^ 2) / 2 * squash ((1 - t) ^ 2) (unboundedParameter u) <
+    ?m.81 + (1 + t ^ 2) / 2 * squash ((1 - t) ^ 2) (unboundedParameter v)
+but is expected to have type
+  (1 + t ^ 2) / 2 * squash ((1 - t) ^ 2) (unboundedParameter u) + (1 - t) / 2 <
+    (1 + t ^ 2) / 2 * squash ((1 - t) ^ 2) (unboundedParameter v) + (1 - t) / 2
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:217:6: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:248:10: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:252:2: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'AstraRealGeometry.deformation_isEmbedding' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_start' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.exists_curve_deformation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

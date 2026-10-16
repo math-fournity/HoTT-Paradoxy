@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-09-24T01:51:39.183972+00:00",
+  "commands": [
+    {
+      "name": "formal-run",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-BOUQUET-ORDER-001-02"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "selected-evidence",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-MO3-BOUQUET-ORDER-001"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "global-evidence",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only"
+      ],
+      "exit": 2
+    }
+  ],
+  "builtin_drift": [],
+  "wrong_order_expected_rejection": true,
+  "mathematics_scope": "C331-334 only; global failure retained separately; local Git closure not yet asserted"
+}

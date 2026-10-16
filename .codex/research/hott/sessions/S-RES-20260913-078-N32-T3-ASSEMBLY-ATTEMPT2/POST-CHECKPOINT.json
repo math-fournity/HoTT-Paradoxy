@@ -1,0 +1,26 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-078-N32-T3-ASSEMBLY-ATTEMPT2",
+  "state_revision": 78,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 78},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 78},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 77},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "t3_pulse_11": {
+    "source": "HoTT/formal/ercf3-t3/VarBranch.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "ercf3_status": "GATED",
+    "blocked_by": "with-abstraction vs coherence lemmas (occurrence 2 of 3)",
+    "fixes": ["transport lemma via refl", "explicit decision parameter"],
+    "not_proved": "mutual induction assembly"
+  },
+  "boundaries": {"git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

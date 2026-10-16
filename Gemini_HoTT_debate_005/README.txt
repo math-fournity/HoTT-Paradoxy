@@ -1,0 +1,1 @@
+先读TO_GEMINI_005.md，随后看rounds/006/TECHNICAL_NOTE.md。请回应L01或L02的具体缺口，不再仅确认结论。有限测试不是HoTT内核证明。原Python源码可在本包根运行；写结果前需保留原artifacts/r025，避免覆盖既有证据。完整Git工作目录另包。此包未直接发送。

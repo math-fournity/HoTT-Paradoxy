@@ -1,0 +1,31 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-NECESSITY-LEM-01",
+  "proof_id": "MP-DEDEKIND-OMEGA-NECESSITY-LEM",
+  "claim_ids": [
+    "CAND-F2-7-NECESSITY-LEM"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level）证明必要性的 LEM-条件版：hProp≃Bool（LEMProp ℓ 下 hProp ℓ ≃ Bool，逐点决策组装，iso coherence 由 isProp 吸收，hProp 内相等 = ΣPathP(ua, toPathP·isPropIsProp)）→ SingleOmega-from-LEM（Ω := Lift Bool）→ LEM→Necessity : LEMProp ℓ → Necessity ℓ——前提 ℝLayerAt 未被使用，即 LEM 下后件无条件成立。数学内容：B1b′ 必要性问题的全部内容被机器化定位到构造性片段（CONJECTURE 维持，030 §3 观察一的机器化；Book 取法 3「LEM ⇒ Ω≡Bool」原文首次收据化）。",
+  "non_goals": [
+    "不声称无条件 Necessity（CONJECTURE 维持；真值依赖模型）；不声称 SingleOmega↔PropResizing 蕴含方向（仍开放）；不声称 HoTT 不一致；registers_new_claim:false"
+  ]
+}

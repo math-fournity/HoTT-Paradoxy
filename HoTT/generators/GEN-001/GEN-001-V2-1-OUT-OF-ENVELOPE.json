@@ -1,0 +1,42 @@
+{
+ "schema_version": "machine-overview-out-of-envelope/v1",
+ "search_run": "SEARCH-GEN001-V2-1-001",
+ "family_short": "GEN-001-V2-1",
+ "claim": "Every reduced V2-A witness that binds a new declared V2 continuation or uses a V2 structural op lies outside every pre-existing delay grammar, with a unique rejection reason",
+ "method": "machine_overview.search.within_grammar_witness (L1 predicate) evaluated for each witness against each pre-existing delay grammar; V2 values are erased to their delay axis and V2 continuations to their delay maps by the L1 reader, which is exactly the claim being tested",
+ "proof_kind": "mechanical_membership_check",
+ "existing_grammar_count": 7,
+ "existing_grammars": [
+  "l1-v0.json",
+  "l1-v1.json",
+  "l1-v2.json",
+  "l1-witness-recovery-v1.json",
+  "l1-completion-process-v1.json",
+  "l1-divisibility-v1.json",
+  "l1-existence-v1.json"
+ ],
+ "scoped": {
+  "rows": 50624,
+  "rejected_by_all": 50624,
+  "all_reasons_unique": true,
+  "reason_buckets": {
+   "BIND_CONTINUATION": 1536,
+   "CONTEXT_DEPTH": 44928,
+   "UNKNOWN_OP:between": 192,
+   "UNKNOWN_OP:supply": 3776,
+   "UNKNOWN_OP:tower": 192
+  },
+  "definition": "作用域化: 只有绑定新 V2 continuation 或使用 V2 结构 op 的归约见证才计入越界分母 (修订片 012 §2.3)"
+ },
+ "ingress": {
+  "rows": 1280,
+  "disclosure": "pure race/deadline witnesses with no structural op and no new continuation; their mechanisms (value_mismatch / deadline_observation) are L1-reproducible and are shared with the five delay families (012 §2.3 ingress)",
+  "status": "L1_SHARED_INGRESS: 纯 race/deadline 见证, 无结构 op 无新 continuation; 其机制可由 L1 delay 文法复现, 不构成 V2 新颖性"
+ },
+ "kernel_witness_membership": {
+  "WV-0001": null,
+  "WV-23233": null,
+  "WV-0785": null,
+  "WV-0786": null
+ }
+}

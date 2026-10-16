@@ -1,0 +1,26 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-076-N30-T3-ATTEMPT-STATUS",
+  "state_revision": 76,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 76},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 76},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 75},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "t3_pulse_9": {
+    "source": "HoTT/formal/ercf3-t3/MutualInduction.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "ercf3_status": "GATED",
+    "proved": ["var cases via CodeStoreFix lemmas", "num case"],
+    "blocked_by": "with-abstraction alignment (helper must carry the decision value)",
+    "not_proved": "full mutual induction"
+  },
+  "boundaries": {"git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

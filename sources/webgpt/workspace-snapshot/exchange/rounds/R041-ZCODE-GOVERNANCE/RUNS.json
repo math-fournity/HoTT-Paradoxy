@@ -1,0 +1,67 @@
+{
+  "schema": "hott.run-ledger.v1",
+  "status": "RUNS_RECORDED_PARTIAL_OUTPUT_SUMMARIZED",
+  "note": "原始输出见 ZCode 会话工具记录；此处为逐项摘要与退出状态。包验证输出另存包外层 validation/ 由 R040 生成，本轮为重跑。",
+  "runs": [
+    {
+      "argv": ["python3", "-B", "workspace/scripts/handoff/verify_package.py", "--package-root", "."],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit_code": 1,
+      "note": "首次运行失败：Unexpected files: HoTT_AI_HANDOFF_20260911.zip（包自身 ZIP 被放在包根内）。处置：移出至 /Volumes/D/HoTT_AI_HANDOFF_20260911.zip。"
+    },
+    {
+      "argv": ["python3", "-B", "workspace/scripts/handoff/verify_package.py", "--package-root", "."],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit_code": 0,
+      "result": "PACKAGE_INTEGRITY_AND_RESTORE_METADATA_VERIFIED; files=5729; head_commit=6581d1a2e75e9f931a77e7021c2197c7f4381de6; revision=40; core_documents=488; source_files=324; source_bytes=748544776"
+    },
+    {
+      "argv": ["git", "-C", "workspace", "rev-parse", "HEAD"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit_code": 0,
+      "result": "6581d1a2e75e9f931a77e7021c2197c7f4381de6"
+    },
+    {
+      "argv": ["git", "-C", "workspace", "status", "--short"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit_code": 0,
+      "result": "empty (clean)"
+    },
+    {
+      "argv": ["git", "-C", "workspace", "fsck", "--full"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit_code": 0,
+      "result": "no errors"
+    },
+    {
+      "argv": ["git", "-C", "workspace", "rev-parse", "handoff-r040^{commit}"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit_code": 0,
+      "result": "6581d1a2e75e9f931a77e7021c2197c7f4381de6 (== HEAD)"
+    },
+    {
+      "argv": ["python3", "-B", "scripts/handoff/govern.py", "plan", "--output", "exchange/outbox/zcode-takeover-plan.json"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911/workspace",
+      "exit_code": 0,
+      "result": "revision=40; snapshot=446bf75739e21b27a4de91bec5f64af375da0deaa329ece5fdc1bfe5a6801031; documents=488"
+    },
+    {
+      "argv": ["python3", "-B", "scripts/handoff/govern.py", "install-entry", "--directory", ".zcode"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911/workspace",
+      "exit_code": 0,
+      "result": "ENTRY_WRITTEN_NOT_HOST_AUTODISCOVERY_VERIFIED; path=.zcode/HOTT_ENTRYPOINT.md"
+    },
+    {
+      "argv": ["python3", "-B", "scripts/handoff/delta_tool.py", "round-init", "--id", "R041-ZCODE-GOVERNANCE", "--request-file", "/tmp/r041-user-request.md", "--base", "handoff-r040"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911/workspace",
+      "exit_code": 0,
+      "result": "round created at exchange/rounds/R041-ZCODE-GOVERNANCE"
+    },
+    {
+      "argv": ["python3", "-B", "scripts/handoff/govern.py", "checkpoint", "--snapshot", "<446bf757…>", "--payload", "<scripts/session/r041_checkpoint_payload.json>", "[--apply]"],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911/workspace",
+      "exit_code": null,
+      "note": "在本 RUNS 填写时尚未执行；执行后由 SESSION.md 与 git commit 记录最终状态。"
+    }
+  ]
+}

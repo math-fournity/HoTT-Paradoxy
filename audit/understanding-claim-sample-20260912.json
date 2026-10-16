@@ -1,0 +1,878 @@
+{
+  "schema_version": "understanding-claim-sample/v1",
+  "sampling_rule": {
+    "keyword_inclusion": {
+      "en": [
+        "univalence",
+        "ua",
+        "hit",
+        "truncation",
+        "cauchy",
+        "sip",
+        "cost",
+        "quotient"
+      ],
+      "zh": [
+        "单价",
+        "高阶归纳",
+        "截断",
+        "柯西",
+        "商",
+        "成本",
+        "表示",
+        "资格"
+      ]
+    },
+    "keyword_cap": 30,
+    "keyword_subsampling": "equal-spacing subsample of the keyword stratum when it exceeds the cap",
+    "equal_spacing_fill": "ordered by claim_id; take every k-th remaining claim to reach SAMPLE_SIZE",
+    "sample_size": 40
+  },
+  "counts": {
+    "total_claims": 2396,
+    "keyword_selected": 30,
+    "fill_selected": 10,
+    "sample_size": 40
+  },
+  "entries": [
+    {
+      "claim_id": "CL-000001",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "> 本章处理轮次：C-T15、C-T22、C-T23、C-T24、C-T25、W8、W13、W22、G2、G3、G9、G12（§一§二）。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000015",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "表示"
+      ],
+      "owner_document": "理解章节/A0-总目标.md",
+      "line": 13,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "**扩充**：这一轮实际上给出了研究的\"验收类型论\"——后来三问文献把它发展成三层交付（表示限制/解释越界/规则错误准入），但源头在此：用户要的是第二层（解释越界＝\"Thinking in HoTT 会产生的非现实性\"），第一层不够、第三层不必。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000161",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "成本"
+      ],
+      "owner_document": "理解章节/A1-Z铁律.md",
+      "line": 31,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "与 A3.6 的成本论合为完整的动机论：理论替换合取项是因为时序是成本。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000232",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/A10-怎么找.md",
+      "line": 27,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "理由（我的推断）：悖论候选需要的是规则组合的直觉联想，内在知识+已析探索才是正确的搜索空间；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000285",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "商"
+      ],
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 31,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "用户审美标准（鲜明如芝诺）与技术前沿（商下降条件）距离持续拉大。",
+      "direction_ids": [
+        "DIR-L-MATRIX-CONTINUITY",
+        "DIR-U-A-REALITY-RELATIVE",
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-L-CORPUS",
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000315",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "表示",
+        "资格"
+      ],
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 79,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "3. **A11.3 修正**：R010/R011/R034/R038 的 LPO/WLPO 双向定理、¬MereMove、Acc 终止迁移、A_k 逆极限分离是实质纸笔定理——A 方向的荒置不是\"没有能力\"而是\"注意力分配\"：这些定理全部服务于\"表示/证据/资格边界\"而非\"现实本无的完成困难\"的构造。",
+      "direction_ids": [
+        "DIR-W-CURRENT-STATE-LIFT",
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-W-R038",
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000440",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "成本"
+      ],
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "ASK 的演进：一句摘选（T11）→ 命名与本质化（W27/W28）→ 完整定义（G12）→ 理论化（G13 成本论）。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000473",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 29,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "G3（已在 A0 引）：\"还有一种情况是现实中，比如使用程序，无法完成，但是却在某个理论中，绕过了 ASK 过程，然后完成了？",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000492",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "表示",
+        "资格"
+      ],
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 37,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "某个问题原本具有求解资格，经过表示转换、等价运输、消去或组合之后，原有依据可能不再足够。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000504",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "资格"
+      ],
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 41,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "**扩充**：四变体与 A1.4 的否定五分层构成双轴：否定讲理论对现实做了什么，变体讲资格在推演中被做了什么。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000517",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "资格"
+      ],
+      "owner_document": "理解章节/A3-ASK计算合法性.md",
+      "line": 57,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "ASK 不是一条规则，是一套**资格理论**，五层结构：**维度层**（合法性与真值正交，T11）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000530",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "成本"
+      ],
+      "owner_document": "理解章节/A4-时间维度.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "核心命题的发展：定性（T6）→ 内化指令（T7）→ 现象学问句（W26）→ 成本论（G13，已在 A3.6 展开，此处补时间面）。",
+      "direction_ids": [
+        "DIR-L-TIME-WORK-DIMENSION",
+        "DIR-L-SAME-FUNCTION-DIFFERENT-TIME",
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-L-TIME-BOUNDARY",
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000612",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "资格"
+      ],
+      "owner_document": "理解章节/A5-HoTT怀疑演进.md",
+      "line": 55,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "未来 AI 接手时，第一优先级应是把 W51 命题化：以 RP-B01 为骨架，找\"自然 Think-in-HoTT 过程把数学分类资格当有效交付\"的第三层实例（OUT-005 已给出三层分解的脚手架）。",
+      "direction_ids": [
+        "DIR-U-B-EFFECTIVE-DELIVERY",
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-L-CORE-MATHEMATICAL",
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000633",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "资格"
+      ],
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 11,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "无条件把 Transport 判为 Bool 的检查器无验证资格。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000653",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "资格"
+      ],
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 22,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "- **OUT-002（G15）**：确立正确研究对象（\"哪种资格在哪一步被当成了另一种\"）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000716",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "商"
+      ],
+      "owner_document": "理解章节/A7-认识纪律.md",
+      "line": 40,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "\"反模型不是不配合\"原则在 R015（商正例）与 OUT-003（缠绕正例）中实际运用。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000728",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/A8-材料与保全.md",
+      "line": 19,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "**我的理解**：用户史料学的三原则。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000788",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "成本"
+      ],
+      "owner_document": "理解章节/A8-材料与保全.md",
+      "line": 86,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "- **Z-156**（外延成本不可因子化）=同函数异时的直接前驱（R-71/PA-73）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000873",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "hit"
+      ],
+      "owner_document": "理解章节/A8-材料与保全.md",
+      "line": 154,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "行号引用层（basics 1607-2274/categories 88-1357/hits 1183-1367/formal 383-1195/logic 598-838）已经 R006–R017 系列 TECHNICAL_NOTE 与 SOURCE_EXCERPTS 覆盖，处置=不整读。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-000963",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 17,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "C-T18-T21 → corpus 建造 E007/E008；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001013",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 27,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "3. **交接期**（09-09，T30-T38）：zvec 索引重建 → 三问/Schema 产出 → **browseros_neo 浏览器自动化**（T:H2 末段 4 次 browser.evaluate，执行 W38 的\"开启 Profile=Aurola 网页会话\"指令）——本地 GPT 的最后动作是把火炬递给网页版。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001065",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 58,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "三个 Z 型实例（带序事件→裸类型/identity 可逆 vs 因果不可逆——groupoid core 方向真值不可因子化，引 Riehl-Shulman directed interval/judgmental equality 压缩归约轨迹——Steps 不可从 normal form 恢复）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001077",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "成本"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 61,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "CATT/calf 文献印证（\"标准外延函数抽象确实不能同时保存成本\"）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001125",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 82,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "Riehl–Shulman directed interval 与 Guarded Cubical later modality 定为正确边界引注。",
+      "direction_ids": [
+        "DIR-L-GUARD-ERASURE",
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-L-GUARD-ERASURE",
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001153",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 99,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "- **T16（12:21）**：交接设计轮——四层结构（原文层/当前理论层/启动路由层/证据状态层）+ **原文优先原则**（\"先听用户原话→再看当前理论化→再检查证据\"，防 AI 摘要偏见）+ Z_LAW 与 INTRINSIC_TEMPORALITY 职责分工 + 现实相对悖论六 Gate + 候选排序（同函数异时第一/Guard-Erasure 主目标）+ 永久淘汰清单 + C-23~C-30 + Fresh Session 十问。",
+      "direction_ids": [
+        "DIR-L-GUARD-ERASURE",
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-L-GUARD-ERASURE",
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001184",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "成本",
+        "资格"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 115,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "- **T35（15:46）**：**九类时间方向表**（先后依赖/落定可用/生成资格/持续过程/执行成本/历史来源/方向不可逆/自指反射/运动可分）——\"最近的讨论应当增加线索而不是覆盖旧线索\"。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001215",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 130,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "本轮只对照未改文件（v0.2 落盘在 T38 执行）。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001261",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 164,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "交接期 rtk proxy cat+zvec 语义检索+node SHA+**browseros_neo browser.evaluate（W38 网页会话建立）**——B1§二 三阶段行为画像逐项证实。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001289",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "截断"
+      ],
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 27,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "**行为特征**：每轮诚实标注压缩/截断；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001315",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 59,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "交换等价 e(a,b)=(b,a) 经 ua+函数运输得 D'=e∘D∘e⁻¹=(b,0)，**C_o(D) 而 ¬C_o(D')**——信息零丢失（可逆重排），破坏的是\"先后可用性\"。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001356",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "hit",
+        "商"
+      ],
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 89,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "Q≃K 用 hits.tex 1321-1367 规范代表商引理；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001436",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "hit",
+        "商"
+      ],
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 66,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "商递归原文核对（hits.tex 1222-1234：f 尊重 R 即得 f̄ 且 f̄(η(w))≡f(w)，**不要求枚举商类**）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001460",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 72,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "\"用户完整原文\"非逐字（拼入旧料、省略开头、改措辞）。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001513",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "表示"
+      ],
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 78,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "\"T+R 中加公理 R 不表示 T 证明了 R\"。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001549",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "商"
+      ],
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 84,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "Bad 关系（最大不动点允许无限单边跳过）**不传递**（ω 关联 now(0) 与 now(1)）且商闭包合并不同返回值；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001577",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "ua"
+      ],
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 106,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "| `candidates/RP-B01/CLAIMS.json` | —（网页未展示） | **B01-TARGET: OPEN_ACTUAL_INTERFACE_NOT_IDENTIFIED**；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001607",
+      "selection_mode": "KEYWORD",
+      "matched_keywords": [
+        "资格"
+      ],
+      "owner_document": "理解章节/B3-网页GPT工作史-II.md",
+      "line": 117,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "实物新增 6 项（B01-TARGET OPEN 建档、R025 八步工作单、F/M/E/X 四级资格、R028 强化证明、L1/L2/L3 定形文件、ANALYSIS 的 §23 处置）。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001703",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 30,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "** 同理其 chunk15/72 的\"机器证明\"宣称已被 IN-002 撤回——撤回前的宣称不得引用为证据。",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-001939",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/README.md",
+      "line": 45,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "- 用户句级账本（上级目录 sentence_ledger_annotated.json，2369 条 0 缺锚，171 遍历单元）；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    },
+    {
+      "claim_id": "CL-002167",
+      "selection_mode": "EQUAL_SPACING_FILL",
+      "matched_keywords": [],
+      "owner_document": "理解章节/升级方案-v2.md",
+      "line": 47,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "verdict_in_ledger": "AUDIT_PENDING",
+      "text": "验证项：220 Codex 回复全部在 38 轮文档中带行号可定位、55 web 节全部枚举、24 Gemini chunk 全部登记、三个 git 仓库全部 commit 列出并与 B 章引用一致、A 类产物路径存在性抽查；",
+      "direction_ids": [
+        "DIR-E-LOCAL-HISTORY-COVERAGE"
+      ],
+      "result_ids": [
+        "OUT-TOP-LEDGERS"
+      ],
+      "semantic_status": "PENDING_DIRECT_SENTENCE_ADJUDICATION",
+      "review_verdict": null,
+      "review_reason": null
+    }
+  ]
+}

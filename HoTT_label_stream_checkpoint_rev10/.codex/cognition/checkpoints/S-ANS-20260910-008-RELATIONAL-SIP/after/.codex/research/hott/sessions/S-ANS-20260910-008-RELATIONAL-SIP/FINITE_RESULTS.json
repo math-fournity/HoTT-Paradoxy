@@ -1,0 +1,106 @@
+{
+  "schema_version": "hott-r8-finite-checks/v1",
+  "status": "PASS_FINITE_SCOPE",
+  "test_groups": 9,
+  "results": [
+    {
+      "id": "T01",
+      "status": "PASS_FINITE_SCOPE",
+      "claim": "Bijection plus forward relation hom is not structured iso",
+      "forward": true,
+      "inverse": false
+    },
+    {
+      "id": "T02",
+      "status": "PASS_FINITE_SCOPE",
+      "arbitrary_relation_bijection_cases": 516,
+      "forward_hom_cases": 165,
+      "two_way_iso_cases": 34
+    },
+    {
+      "id": "T03",
+      "status": "PASS_FINITE_SCOPE",
+      "equivalence_relation_bijection_cases": 5559,
+      "forward_hom_cases": 1519,
+      "two_way_iso_cases": 395
+    },
+    {
+      "id": "T04",
+      "status": "PASS_FINITE_SCOPE",
+      "late_observation_classes": [
+        2,
+        2,
+        4,
+        8
+      ],
+      "early_observation_classes": [
+        2,
+        4,
+        4,
+        8
+      ],
+      "same_unindexed_relation_family": true
+    },
+    {
+      "id": "T05",
+      "status": "PASS_FINITE_SCOPE",
+      "triangular_maps_checked": 16384,
+      "all_raw_maps": 16777216,
+      "raw_exhaustive_enumeration": false,
+      "completeness_basis": "Separate paper characterization, not assumed from enumeration"
+    },
+    {
+      "id": "T06",
+      "status": "PASS_FINITE_SCOPE",
+      "all_carrier_bijections_checked": 40320,
+      "time_preserving_structural_isomorphisms": 0
+    },
+    {
+      "id": "T07",
+      "status": "PASS_FINITE_SCOPE",
+      "question": "Return b at clock 1",
+      "early_available": true,
+      "late_available": false,
+      "counterexample_inputs": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "early_to_late_identity_hom": true,
+      "late_to_early_identity_hom": false
+    },
+    {
+      "id": "T08",
+      "status": "PASS_FINITE_SCOPE",
+      "bool_probes_enumerated": 256,
+      "late_per_clock": [
+        4,
+        4,
+        16,
+        256
+      ],
+      "early_per_clock": [
+        4,
+        16,
+        16,
+        256
+      ]
+    },
+    {
+      "id": "T09",
+      "status": "PASS_FINITE_SCOPE",
+      "relations_reconstructed_from_all_stage_bool_probes": 8
+    }
+  ],
+  "proof_assistant": "NOT_RUN",
+  "independent_review": "NOT_RUN",
+  "governance_full_cognition": "NOT_CERTIFIED",
+  "limits": "Finite checks and exact counts only; general statements rely on paper proofs."
+}

@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "label": "three-way",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "de7ddf27c4f7085b466de6ee2d837770ead64ff5a9cff3e12e9a21f6811812e0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "shards",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "b697e8a8e23ec67324e69229b850f5663d4c9bfdac7e486959f0bfe44b29f6ed",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "task-plan",
+      "argv": [
+        "python3",
+        "-B",
+        ".codex/tools/cognition_runtime.py",
+        "plan",
+        "--profile",
+        "research",
+        "--task",
+        "MO3-GOVERNED-A"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "c19c765e0fa4b55606358e10bf033b7ff7ef974fdf30ac41856ca8d79c5ee30f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "canonical_checkpoint": "CHECKPOINT_COMMITTED",
+  "revision": 269,
+  "transaction_paths_match": 37,
+  "snapshot": "0f9a9e1c8e80808a2e703480652497a4771559876dbc41ff2fda71762c9d103e",
+  "review_required": [],
+  "query_first_promoted": [],
+  "scope": "W0 state/structure consistency, not mathematics or model comprehension"
+}

@@ -1,0 +1,1427 @@
+===== PDF PAGE 1 / PRINTED PAGE 284 =====
+RECURSIVELY ENUMERABLE SETS OF POSITIVE 
+INTEGERS AND THEIR DECISION PROBLEMS 
+EMIL L. POST 
+Introduction. Recent developments of symbolic logic have con- 
+siderable importance for mathematics both with respect to its phi- 
+losophy and practice. That mathematicians generally are oblivious to 
+the importance of this work of Gédel, Church, Turing, Kleene, Rosser 
+and others as it affects the subject of their own interest is in part due 
+to the forbidding, diverse and alien formalisms in which this work is 
+embodied. Yet, without such formalism, this pioneering work would 
+lose most of its cogency. But apart from the question of importance, 
+these formalisms bring to mathematics a new and precise mathemati- 
+cal concept, that of the general recursive function of Herbrand-Gédel- 
+Kleene, or its proved equivalents in the developments of Church and 
+Turing.’ It is the purpose of this lecture to demonstrate by example 
+that this concept admits of development into a mathematical theory 
+much as the group concept has been developed into a theory of 
+groups. Moreover, that stripped of its formalism, such a theory ad- 
+mits of an intuitive development which can be followed, if not indeed 
+pursued, by a mathematician, layman though he be in this formal 
+field. It is this intuitive development of a very limited portion of a 
+sub-theory of the hoped for general theory that we present in this 
+lecture. We must emphasize that, with a few exceptions explicitly so 
+noted, we have obtained formal proofs of all the consequently mathe- 
+matical theorems here developed informally. Yet the real mathemat- 
+ics involved must lie in the informal development. For in every 
+instance the informal “proof” was first obtained; and once gotten, 
+transforming it into the formal proof turned out to be a routine chore. 
+We shall not here reproduce the formal definition of recursive func- 
+tion of positive integers. A simple example of such a function is an 
+An address presented before the New York meeting of the Society on February 26, 
+1944, by invitation of the Program Committee; received by the editors March 25, 
+1944. 
+1 For “general recursive function” see [9] ([8] a prerequisite), [12] and [11]; for 
+Church’s “d-defineability,” [1] and [6]; for Turing’s “computability,” [24] and the 
+writer's related [18]. To this may be added the writer’s method of “canonical systems 
+and normal sets” [19]. See pp. 39-42 and bibliography of [6] for a survey of the litera- 
+ture and further references. Numbers in brackets refer to the bibliography at the end 
+of the paper. 
+2 Our present formal proofs, while complete, will require drastic systematization 
+and condensation prior to publication. 
+284
+
+===== PDF PAGE 2 / PRINTED PAGE 285 =====
+RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 285 
+arbitrary polynomial P(x:, x2, - ++, %.), with say non-negative in- 
+tegral coefficients, and not identically zero. If the x’s are assigned 
+arbitrary positive integral values expressed, for example, in the arabic 
+notation, the algorithms for addition and multiplication in that nota- 
+tion enable us to calculate the corresponding positive integral value 
+of the polynomial. That is, P(x1, x2, - - - , Xs) is an effectively calculable 
+function of positive integers. The importance of the technical concept 
+recursive function derives from the overwhelming evidence that it is 
+coextensive with the intuitive concept effectively calculable function.* 
+A set of positive integers is said to be recursively enumerable if there 
+is a recursive function f(x) of one positive integral variable whose 
+values, for positive integral values of x, constitute the given set. The 
+sequence f(1), f(2), f(3), - - - is then said to be a recursive enumeration 
+of the set. The corresponding intuitive concept is that of an effectively 
+enumerable set of positive integers. To prepare us in part for our in- 
+tuitive approach, consider the following three examples of recursively 
+enumerable sets of positive integers. 
+(a): 1, 2?, 32,---. 
+(b): 1, 2, 2'+2, 
+(c): 2?, F, 
+2%, 3%,--- 
+14, 24, 34... 
+In the first example, the set is given by a recursive enumeration 
+thereof via the recursive function x*. In the second example, the set 
+is generated in a linear sequence, each new element being effectively 
+obtained from the elements previously generated, in this case by 
+raising 2 to the power the sum of the preceding elements. The set 
+is effectively enumerable, since the mth element of the sequence can 
+be found, given n, by regenerating the sequence through its first n 
+elements. In the third example, we rather imagine the positive in- 
+tegers 1, 2, 3,- +--+ generated in their natural order, and, as each 
+positive integer m is generated, a corresponding process set up which 
+generates n?, n*, n‘, - - - , all these to be in the set. Actually, the stand- 
+ard method for proving that an enumerable set of enumerable sets is 
+enumerable yields an effective enumeration of the set. 
+* See Kleene [13, footnote 2]. In the present paper, “recursive function” means 
+“general recursive function.”
+
+===== PDF PAGE 3 / PRINTED PAGE 286 =====
+286 E. L. POST [May 
+Several more examples would have to be given to convey the writ- 
+er’s concept of a generated set, in the present instance of positive 
+integers. Suffice it to say that each element of the set is at some time 
+written down, and earmarked as belonging to the set, as a result of 
+predetermined effective processes. It is understood that once an ele- 
+ment is placed in the set, it stays there. The writer elsewhere has re- 
+ferred to a generalization which may be restated every generated set of 
+positive integers is recursively enumerable.* For comparison purposes 
+this may be resolved into the two statements: every generated set is 
+effectively enumerable, every effectively enumerable set of positive 
+integers is recursively enumerable. The first of these statements is 
+applicable to generated sets of arbitrary symbolic expressions; their 
+converses are immediately seen to be true. We shall find the above 
+concept and generalization very useful in our intuitive development. 
+But while we shall frequently say, explicitly or implicitly, “set so 
+and so of positive integers is a generated, and hence recursively 
+enumerable set,” as far as the present enterprise is concerned that 
+is merely to mean “the set has intuitively been shown to be a gen- 
+erated set; it can indeed be proved to be recursively enumerable.” 
+Likewise for other identifications of informal concepts with corre- 
+sponding mathematically defined formal concepts. 
+At a few points in our informal development we have to lean upon 
+the formal development. The latter is actually yet another formalism, 
+due to the writer [19] but proved completely equivalent to that of 
+general recursive function. It will suffice to give the equivalent of 
+“recursively enumerable set of positive integers” in this development. 
+A positive integer m is represented in the most primitive fashion 
+by a succession 11 - - - 1 of m strokes. For working purposes, we in- 
+troduce the letter b, and consider “strings” of 1’s and 6’s such as 
+1161bb1. An operation on such strings such as “b1bP produces P1bb1” 
+we term a normal operation. This particular normal operation is ap- 
+plicable only to strings starting with b1b, and the derived string is 
+then obtained from the given string by first removing the initial 510, 
+and then tacking on 161 at the end. Thus 61bb becomes b1bb1. “gP 
+produces Pg’” is the form of an arbitrary normal operation. A system 
+in normal form, or normal system, is given by an initial string A of 
+1’s and 6’s, and a finite set of normal operations “g;P produces Pgi ,” 
+i=1, 2,---, uw. The derived strings of the system are A and all 
+strings obtainable from A be repeated applications of the » normal 
+* See [19, p. 201 and footnote 18]. In this connection note Kleene’s use of the word 
+“Thesis” in [14, p. 60]. We still feel that, ultimately, “Law” will best describe the 
+situation [18].
+
+===== PDF PAGE 4 / PRINTED PAGE 287 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 287 
+operations. Each normal system uniquely defines a set, possibly null, 
+of positive integers, namely the integers represented by those derived 
+strings which are strings of 1’s only. It can then be proved that every 
+recursively enumerable set of positive integers is the set of positive 
+integers defined by some normal system, and conversely.' We here, 
+as below, arbitrarily extend the concept recursively enumerable set to in- 
+clude the null set. 
+By the basis B of a normal system, and of the recursively enumer- 
+able set of positive integers it defines, we mean the string of letters 
+and symbols here represented by 
+A; giP produces Pgi,---,g,P produces Pg; . 
+When meaningfully interpreted, B determines the normal system, 
+and recursively enumerable set of positive integers, in question. Each 
+basis is but a finite sequence of the symbols 1, b, P, the comma, semi- 
+colon and the letters of the word “produces.” The set of bases is there- 
+fore enumerably infinite, and can indeed be effectively generated in 
+a sequence of distinct elements 
+O: Bs, Bs, By 
+Since each B; defines a unique recursively enumerable set of positive 
+integers and each such set is defined by at least one B;, O is also an 
+ordering of all recursively enumerable sets of positive integers, though 
+each set will indeed recur an infinite number of times in O. We may 
+then say, in classical terms, that whereas there are 2*¢ arbitrary sets 
+of positive integers, there are but No recursively enumerable sets. 
+By the decision problem of a given set of positive integers we mean 
+the problem of effectively determining for an arbitrarily given posi- 
+tive integer whether it is, or is not, in the set. While, in a certain sense, 
+the theory of recursively enumerable sets of positive integers is 
+potentially as wide as the theory of general recursive functions, the 
+decision problems for such sets constitute a very special class of deci- 
+sion problems. Nevertheless they are important, as is shown by the 
+following special and general examples. 
+One of the problems posed by Hilbert in his Paris address of 1900 
+[10, problem 10] is the problem of determining for an arbitrary di- 
+ophantine equation with rational integral coefficients whether it has, 
+or has not, a solution in rational integers. If the variables in a 
+5 We have thus restricted the normal operations and normal systems of [19] be- 
+cause of the following result. If in the initial string and in the normal operations of a 
+normal system with primitive letters 1, Gi, °**, a,’ , each ai, i=1,---, p’, is re- 
+placed by 61 - - - 16 with i 1’s, a normal system with primitive letters 1, 5 results, 
+defining the same set of strings on 1 only as the original normal system.
+
+===== PDF PAGE 5 / PRINTED PAGE 288 =====
+288 E. L. POST [May 
+diophantine equation be chosen from a given enumerably infinite 
+set of variables, it is clear that the set of diophantine equations is 
+enumerably infinite. Indeed they can be effectively put into one-one 
+correspondence with the set of positive integers. Since for any one di- 
+ophantine equation, and assignment of rational integral values to its 
+variables, it can be effectively determined whether or no the equa- 
+tion is satisfied by those values, the set of diophantine equations 
+having rational integral solutions can be generated. The correspond- 
+ing integers under the above one-one correspondence can then also 
+be generated, and, indeed, constitute a recursively enumerable set of 
+positive integers.* And under that correspondence, Hilbert’s problem 
+is transformed into the decision problem of that recursively enumer- 
+able set. 
+The assertions of an arbitrary symbolic logic’ constitute a gener- 
+ated set A of what may be called symbol-complexes or formulas. We 
+assume that A is a subset of an infinite generated set E of symbol- 
+complexes, which in one case may be the set of meaningful enuncia- 
+tions of the logic, in another the set of all symbol-complexes of a 
+given mode of symbolization. The decision problem of the logic, more 
+precisely its deducibility problem [3], is then the problem of deter- 
+mining of an arbitrary member of E whether it is, or is not, in A. 
+Granting that every generated set is effectively enumerable, the mem- 
+bers of E can be effectively set in one-one correspondence with the 
+set of positive integers. The positive integers corresponding to the 
+members of A then constitute a generated, and hence, under our gen- 
+eralization, a recursively enumerable set of positive integers. And un- 
+der that correspondence the decision problem of the symbolic logic 
+is transformed into the decision problem of this recursively enumer- 
+able set of positive integers. 
+Closely related to the technical concept recursively enumerable set 
+of positive integers is that of a recursive set of positive integers. This 
+is a set for which there is a recursive function f(x) such that f(x) is 
+say 2 when x is a positive integer in the set, 1 when x is a positive 
+integer not in the set. We may also make this the definition of the 
+decision problem of the set being recursively solvable. For 2 and 1 may 
+be regarded as the two possible truth-values, true, false, of the propo- 
+sition “positive integer x is in the set,” and the definition of recursive 
+set is equivalent to this truth-value being recursively calculable for 
+all positive integers x. If then recursive function is coextensive with 
+6 In view of [17] we inadvertantly carried through our formal verification with 
+“rational integral solution” replaced by “positive integral solution.” 
+7 See Church [5, p. 225] for our omitting the qualifying “finitary.”
+
+===== PDF PAGE 6 / PRINTED PAGE 289 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 289 
+effective calculability, recursive solvability is coextensive with solva- 
+bility in the intuitive sense. In particular, the decision problem of a 
+recursively enumerable set would be solvable or unsolvable according 
+as the set is, or is not, recursive. More generally than in our two illus- 
+trations, through the more precise mechanism of Gédel repre- 
+sentations [8], a wide variety of decision and other problems are 
+transformed into problems about positive integers; and whether 
+those problems are, or are not, solvable in the intuitive sense would 
+be equivajent to their being, or not being, recursively solvable in the 
+precise te-hnical sense. 
+Gédel’s classic theorem on the incompleteness and extendibility of 
+symbolic | ogics [8] in all but wording led him to the recursive un- 
+solvability of a generalization of the above problem of Hilbert [8, 9, 
+22]. Church explicitly formulated the concept of recursive unsolva- 
+bility, and arrived at the unsolvability of a number of problems; cer- 
+tainly he proved them recursively unsolvable [1-4]. The above prob- 
+lem of Hilbert begs for an unsolvability proof (see [17]). Like the 
+classic unsolvability proofs, these proofs are of unsolvability by means 
+of given instruments. What is new is that in the present case these in- 
+struments, in effect, seem to be the only instruments at man’s dis- 
+posal. 
+Related to the question of solvability or unsolvability of problems 
+is that of the reducibility or non-reducibility of one problem to an- 
+other. Thus, if problem P; has been reduced to problem P32, a solution 
+of P: immediately yields a solution of P:, while if P; is proved to be 
+unsolvable, P; must also be unsolvable. For unsolvable problems the 
+concept of reducibility leads to the concept of degree of unsolvability, 
+two unsolvable problems being of the same degree of unsolvability 
+if each is reducible to the other, one of lower degree of unsolvability 
+than another if it is reducible to the other, but that other is not 
+reducible to it, of incomparable degrees of unsolvability if neither 
+is reducible to the other. A primary problem in the theory of recur- 
+sively enumerable sets is the problem of determining the degrees of 
+unsolvability of the unsolvable decision problems thereof. We shall 
+early see that for such problems there is certainly a highest degree 
+of unsolvability. Our whole development largely centers on the single 
+question of whether there is, among these problems, a lower degree of 
+unsolvability than that, or whether they are all of the same degree 
+of unsolvability. Now in his paper on ordinal logics [26, section 4], 
+Turing presents as a side issue a formulation which can immediately 
+be restated as the general formulation of the “recursive reducibility” 
+of one problem to another, and proves a result which immediately
+
+===== PDF PAGE 7 / PRINTED PAGE 290 =====
+290 E. L. POST [May 
+generalizes to the result that for any “recursively given” unsolvable 
+problem there is another of higher degree of unsolvability.* While his 
+theorem does not help us in our search for that lower degree of un- 
+solvability, his formulation makes our problem precise. It remains a 
+problem at the end of this paper. But on the way we do obtain a 
+number of special results, and towards the end obtain some idea of 
+the difficulties of the general problem. 
+1. Recursive versus recursively enumerable sets. The relationship 
+between these two concepts is revealed by the following 
+THEOREM. A set of positive integers is recursive when and only when 
+both it and its complement with respect to the set of all positive integers 
+are recursively enumerable.® 
+For simplicity, we assume both the set S and its complement 5 to 
+be infinite. If, then, S is recursive, there is an effective method for 
+telling of any positive integer m whether it is, or is not, in S. Generate 
+the positive integers 1, 2, 3,--- in their natural order, and, as a 
+positive integer is generated, test its being or not being in S. Each 
+time a positive integer is thus found to be in S, write it down as be- 
+longing to S. Thus, an effective process is set up for effectively enu- 
+merating the elements of S. Hence, S is recursively enumerable. 
+Likewise 5 can be shown to be recursively enumerable. 
+Conversely, let both S and S be recursively enumerable, and let 
+M1, M2, M3, - - - be arecursive enumeration of S; m2, m3, - - - , of S. 
+Given a positive integer m, generate in order m1, m, M2, m2, 3, Ms, 
+and so on, comparing each with n. Since m must be either in S or in S, 
+in a finite number of steps we shall thus come across an m; or m; 
+identical with n, and accordingly discover n to be in S, or S. An effec- 
+tive method is thus set up for determining of any positive integer n 
+whether it is, or is not, in S. Hence, S is recursive. 
+Coro.iary. The decision problem of a recursively enumerable set is 
+recursively solvable when and only when its complement is recursively 
+enumerable. 
+For then and only then is the recursively enumerable set recursive. 
+It is readily proved that the logical sum and logical product of two 
+* Both our generalization of his formulation and of his theorem have been carried 
+through, rather hastily, by the formalism of [19], without, as yet, an actual equiva- 
+lence proof. It may be that Tarski’s Theorem 9.1 [23] can be transformed into a like 
+absolute theorem. 
+* The only portion of this theorem we can find in the literature is Rosser’s Corol- 
+lary II [20, p. 88].
+
+===== PDF PAGE 8 / PRINTED PAGE 291 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 291 
+recursively enumerable sets are recursively enumerable, the comple- 
+ment of a recursive set, and the logical sum, and hence logical prod- 
+uct, of two recursive sets are recursive. 
+Clearly, any finite set of positive integers is recursive. For if 
+%, M2, - - - , m, are the integers in question, we can test m being, or not 
+being, in the set by directly comparing it with m, m2, - - - , 2,.'° Like- 
+wise for a set whose complement is finite. For arbitrary infinite sets 
+we have the following result of Kleene [12]. An infinite set of positive 
+integers is recursive when and only when it admits of a recursive enumer- 
+ation without repetitions in order of magnitude. Indeed, if m1, m2, m3, - - - 
+is a recursive enumeration of S without repetitions in order of mag- 
+nitude, all ,’s beyond the mth must exceed m. Hence we can test n 
+being, or not being, in S by generating the first » members of the 
+given recursive enumeration of S, and seeing whether 1 is, or is not, 
+one of them. Conversely, if infinite S is recursive, the recursive enu- 
+meration thereof we set up in the proof of our first theorem is of the 
+elements of S without repetition, and in order of magnitude. 
+A direct consequence of the first half of the last result is the follow- 
+ing 
+THEOREM. Every infinite recursively enumerable set contains an in- 
+finite recursive set. 
+For, if 1, 2,3, - - + is a recursive enumeration of an infinite set S, 
+for each n; there must be, in this sequence, a later »;>mn,. Hence, 
+generate the elements m, m2, m3, - - - in order, and let m,=m, 
+the first m; greater than m, m3=n,,, the first m; beyond n;, greater 
+than m;,, and so on. The sequence m, m2, m3, -- - is then a recursive 
+enumeration of a subset of S without repetitions in order of magni- 
+tude. That subset is therefore infinite, and recursive. 
+Basic to the entire theory is the following result we must credit to 
+Church, Rosser, Kleene, jointly [1, 20, 12]. 
+THEOREM. There exists a recursively enumerable set of positive in- 
+tegers which is not recursive." 
+By our first theorem this is equivalent to the existence of a recur- 
+sively enumerable set of positive integers whose complement is 
+1° The mere existence of a general recursive function defining the finite set is in 
+question. Whether, given some definition of the set, we can actually discover what the 
+members thereof are, is a question for a theory of proof rather than for the present 
+theory of finite processes. For sets of finite sets the situation is otherwise, as seen in 
+§i1. 
+1 In each of our existence theorems we show how to set up the basis of the set in 
+question—at least, the corresponding formal proof does exactly that.
+
+===== PDF PAGE 9 / PRINTED PAGE 292 =====
+292 E. L. POST [May 
+not recursively enumerable. Generate in order the distinct bases 
+B,, Bz, Bs, - - - of all recursively enumerable sets of positive integers 
+as mentioned in the introduction, and keep track of these bases as 
+the first, second, third, and so on, in this enumeration O. As the nth 
+basis B, is generated, with n=1, 2, 3, - - - , set going the processes 
+whereby the corresponding recursively enumerable set is generated, 
+and whenever m is thus generated by B,, place m in a set U. Being a 
+generated set of positive integers, U is recursively enumerable. A 
+positive integer m, then, is, or is not, in U according as it is, or is not, 
+in the mth recursively enumerable set in O considered as an ordering 
+of all recursively enumerable sets. Hence, n is, or is not, in J, the 
+complement of U, according as it is not, or is, in the mth set in O. 
+We thus see that J differs from each recursively enumerable set in 
+the presence or absence of at least one positive integer. Hence J is 
+not recursively enumerable. 
+CoroLuary. There exists a recursively enumerable set of positive in- 
+tegers whose decision problem is recursively unsolvable. 
+Taken singly, finite sets, or sets whose complements are finite, are 
+rather trivial examples of recursive sets. On the other hand, if we 
+define two sets of positive integers to be abstractly the same if one can 
+be transformed into the other by a recursive one-one transformation 
+of the set of all positive integers into itself, then all infinite recursive 
+sets with infinite complements are abstractly the same. Our theory 
+being essentially an abstract theory of recursively enumerable sets, 
+our interest therefore centers in recursively enumerable sets that are 
+not recursive. Such sets, as well as their complements, are always 
+infinite. We do not further pursue the question of two sets being ab- 
+stractly the same, for that is but a special case of each set being one- 
+one reducible to the other (§4). 
+2. A form of Gédel’s theorem. Given any basis B, and positive 
+integer m, the couple (B, 2) may be used to represent the proposition, 
+true or false, “ is in the set generated by B.” By interlacing the proc- 
+ess for generating the distinct bases in the sequence Bi, Bz, B3, - - - 
+and the process for generating the positive integers in the sequence 
+1, 2, 3,--- by the addition of 1’s, we can effectively generate the 
+distinct couples (B, ) in the single infinite sequence 
+0’: (Bi, 1), (Bs, 1), (B1, 2), (Bs, 1), (Be, 2), (Bs, - 
+On the one hand, the set of all couples (B, 2) is thus a generated set 
+of expressions which we shall call E. On the other hand, O’ leads to 
+an effective 1-1 correspondence between the members of E and the
+
+===== PDF PAGE 10 / PRINTED PAGE 293 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 293 
+set of positive integers, (B, m) corresponding to m if (B, n) is the 
+mth member of O’. We may call m the Gédel representation" of 
+(B, n). Given a generated subset of E, the Gédel representations of its 
+members will constitute a generated set of positive integers, and con- 
+versely. Thus, in the former case we can generate the members of the 
+subset of E, and, as a couple (B, ) is generated, find its Gédel repre- 
+sentation m by regenerating O’. The set of these m’s is thus a gener- 
+ated set. Likewise for the converse. If, therefore, we formally define 
+a subset of E to be recursively enumerable if the set of Gédel repre- 
+sentations of its members is recursively enumerable,” we can con- 
+clude that every generated subset of E is recursively enumerable, and, 
+of course, conversely. Similarly for a like formal definition of a recur- 
+sive subset of E. 
+While E is just the set of couples (B, ), it may be interpreted as 
+the set of enunciations “n is in the set generated by B.” The subset 
+T of E consisting of those couples (B, 2) for which m is in the set 
+generated by B may then be interpreted as the set of true propositions 
+in E, while 7, the complement of T with respect to E, consists of the 
+false propositions in E. 
+Actually, T itself can be generated as follows. Generate B,, B:, 
+B;,- ~~ in order. As a B is generated, set up the process for generat- 
+ing the set of positive integers determined by B, and, whenever a 
+positive integer m is thus generated, write down the couple (B, 2). 
+Each (B, 2) for which n is in the set generated by B will thus be writ- 
+ten down, and conversely. This generated set of (B, )’s is then T. 
+We therefore conclude that T is recursively enumerable. 
+Now let F be any recursively enumerable subset of 7. If (B, m) is 
+in F, it is in T, and hence n is certainly not in the set generated by 
+B. Now generate the members of F, and if (B, m) is thus generated, 
+find the nth member B, of O:B,, Be, B3; - - - , and if B, is B, place n 
+in a set of positive integers So. Since S, is thus a generated set of 
+positive integers, it is recursively enumerable. It will therefore be 
+determined by some basis B. Let this basis be in the rth in O, that is, 
+let the basis be B,, and form the couple (B,, v). Now by construction, 
+S» consists of those ‘members of F of the form (B,, 2). Suppose that 
+(B,, v) is in F. Then, on the one hand, proposition (B,, v) being false, 
+2 Rather is the Gédel representation in [8] not just an effectively corresponding 
+positive integer, but one which, when expressed according to a specific algorithm, is 
+“formally similar,” in the sense of Ducasse [7, p. 51], to the symbolic expression 
+represented. 
+13 In our own development [19], “recursively enumerable subset of E” is defined 
+directly as a normal subset of E, or rather of the set of symbolic representations of the 
+members of E.
+
+===== PDF PAGE 11 / PRINTED PAGE 294 =====
+294 E. L. POST [May 
+v would not be in the set generated by B,, that is (1): » would not be 
+in So. But (B,, v) being of the form (B,, m), (2): v would be in So. 
+Our assumption thus leading to a contradiction, it follows that (B,, v) 
+is not in F. But v can only be in Sy by (B,, v) being in F. Hence, v is 
+not in So. Finally, (B,, v) as proposition says that v is in S». The 
+proposition (B,, v) is therefore false, that is (B,, v) is in T. 
+For any recursively enumerable subset F of T there is then always 
+this couple (B,, v) in T, but not in F. On the one hand, then, T can 
+never be F. Hence, T is not recursively enumerable. By the definitions 
+of this section, and the first theorem of the last, it follows that T, 
+while recursively enumerable, is not recursive. By the decision problem 
+of T we mean the problem of determining for an arbitrarily given 
+member of E whether it is, or is not, in 7. But that can be interpreted 
+as the decision problem for the class of recursively enumerable sets 
+of positive integers, that is, the problem of determining for any arbi- 
+trarily given recursively enumerable set, that is, arbitrarily given 
+basis B of such a set, and arbitrary positive integer m whether 1 is, 
+or is not, in the set generated by B. We may therefore say that the 
+decision problem for the class of all recursively enumerable sets of positive 
+integers is recursively unsolvable, and hence, in all probability, unsolva- 
+ble in the intuitive sense. 
+On the other hand, since (B,, v) of T is not in F, T and F together 
+can never exhaust E. Now T, or any recursively enumerable subset 
+T’ of T, in conjunction with F may be called a recursively generated 
+logic relative to the class of enunciations E. For the appearance 
+of (B, m) in T’ assures us of the truth of the proposition “n is in 
+the set generated by B,” while its presence in F would guarantee 
+its falseness. We can then say that no recursively generated logic rela- 
+tive to E is complete, since F alone will lead to the (B,, v) which is 
+neither in T’ nor in F. That is, (B,, v) is undecidable in this logic. 
+Moreover, if, with a given “basis” for F, the above argument is car- 
+ried through formally," the recursively enumerable Sy obtained above 
+will actually be given by a specific basis B which can be constructed 
+by that formal argument. Having found this B, we can then re- 
+generate O:B,, Bz, B3, - - - , until B is reached, and thus determine 
+the vy such that B=B,. That is, given the basis of F, the (B,, v) in T 
+and not in F can actually be found. If then we add this (B,, v) to F,a 
+wider recursively enumerable subset F’ of T results. We may then say 
+that every recursively generated logic relative to E can be extended. 
+Outwardly, these two results, when formally developed, seem to be 
+“ Here, the basis of F may be taken to be the basis of the recursively enumerable 
+set of Gédel representations of the members of F. But see the preceding footnote.
+
+===== PDF PAGE 12 / PRINTED PAGE 295 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 295 
+Gédel’s theorem in miniature. But in view of the generality of the 
+technical concept general recursive function, they implicitly, in all 
+probability, justify the generalization that every symbolic logic is 
+incomplete and extendible relative to the class of propositions con- 
+stituting EZ.“ The conclusion is unescapable that even for such a 
+fixed, well defined body of mathematical propositions, mathematical 
+thinking is, and must remain, essentially creative. To the writer's 
+mind, this conclusion must inevitably result in at least a partial 
+reversal of the entire axiomatic trend of the late nineteenth and 
+early twentieth centuries, with a return to meaning and truth as being 
+of the essence of mathematics. 
+3. The complete set K; creative sets. Return now to the effective 
+1-1 correspondence between the set E of distinct (B, m)’s and the set 
+of positive integers obtained via the effective enumeration OQ’ of E. 
+Since T is a recursively enumerable subset of E, the positive integers 
+corresponding to the elements of T constitute a recursively enumer- 
+able set of positive integers, K. We shall call K the complete set.* 
+Since T is not recursively enumerable, K, which consists of the posi- 
+tive integers corresponding to the elements of 7, is not recursively 
+enumerable. Now let B be the basis of a recursively enumerable sub- 
+set a of K. The elements of E corresponding to the members of a con- 
+stitute, then, a recursively enumerable subset F of T. Find then the 
+(B,, v) of T not in F, and, via O’, the positive integer m correspond- 
+ing to (B,, v). This n will then be an element of K not in a. 
+Actually, we have no general method of telling when a basis B 
+defines a recursively enumerable subset of K. Indeed, the above 
+method will yield a unique positive integer m for any basis B of a re- 
+cursively enumerable set a of positive integers. However, when a is a 
+subset of K, n will also be in K, but not in a. 
+Furthermore, even the formal proof of this result merely gives 
+an effective method for finding n, given B. But this method itself 
+can be formalized, so that, as a result, m is given as a “recursive 
+function of B.” This can mean that a recursive function f(m) can be 
+set up such that n=f(m) where B=B,,. We now isolate this property 
+of K by setting up the 
+DEFINITION. A creative set C is a recursively enumerable set of posi- 
+tive integers for which there exists a recursive function giving a unique 
+4 See Kleene’s Theorem XIII in [12] for a mathematically stateable theorem ap- 
+proximating the generality of our informal generalization. 
+6 “A complete set” might be better. Just how to abstract from K the property of 
+completeness is not, at the moment, clear. By contrast, see “creative set” below.
+
+===== PDF PAGE 13 / PRINTED PAGE 296 =====
+296 E. L. POST [May 
+positive integer n for each basis B of a recursively enumerable set of 
+positive integers a such that whenever a is a subset of C, n is also in 
+C, but not in a. 
+THEOREM. There exists a creative set; to wit, the complete set K. 
+Actually, the class of creative sets is infinite, and very rich indeed 
+as shown by the following easily proved results.’’ If C is a creative 
+set, and E a recursively enumerable set of positive integers, then if 
+E contains C, CE is creative, if C contains E, C+E is creative. Re- 
+sults of §1 enable us actually to construct creative sets according 
+to the first method by using E’s which are the complements of re- 
+cursive subsets of C. Results of the rest of this section lead to con- 
+structions using the second method. 
+It is convenient to talk as if the n in the definition of a creative set 
+were determined by the a thereof instead of by the basis B of a. Clearly 
+every creative set C is a recursively enumerable set which is not re- 
+cursive. For were C recursively enumerable, there could be no n in 
+€ not in the recursively enumerable subset C of C. The decision prob- 
+lem of each creative set is therefore recursively unsolvable. On the other 
+hand, the complement C of any creative set C contains an infinite re- 
+cursively enumerable set. Recall that every finite set is recursive, and 
+hence recursively enumerable. With, then, a of the definition of 
+creative set as the null set, find the n =m, of C “not in a.” With a the 
+unit set having m as sole member, =m, will be in C, and distinct 
+from m. With a@ consisting of m and m2, n=n; will be in C, and dis- 
+tinct from m, and m2, and so on. The set of positive integers m1, m2, 
+ms, -- - is then an infinite generated, and hence recursively enumer- 
+able, subset of C. 
+Actually, with this subset of C as a, a new element n, of C is ob- 
+tained, and so on into the constructive transfinite. But this process 
+is essentially creative. For any mechanical process could only yield 
+n’s forming a generated, and hence recursively enumerable, subset 
+a of C, and hence could be transcended by finding that n of C not 
+in 
+4. One-one reducibility, to K; many-one reducibility. Let S, and 
+S; be any two sets of positive integers. One of the simplest ways in 
+which the decision problem of S; would be reduced to the decision 
+problem of S; would arise if we had an effective method which would 
+determine for each positive integer m a positive integer m such that 
+n is, or is not, in S; according as m is, or is not, in S:. For if we could 
+17 Of course, all sets abstractly the same as a given creative set, in the sense of §1, 
+are creative. Likewise for our later simple and hyper-simple sets.
+
+===== PDF PAGE 14 / PRINTED PAGE 297 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 297 
+somehow determine whether m is, or is not, in S:;, we would deter- 
+mine # to be, or not be, in S; correspondingly. If “effective method” 
+be replaced by “recursive method,” we shall say, briefly, that 5S; is 
+then many-one reducible to S:. If, furthermore, different n’s always 
+lead to different m’s, we shall say that S; is one-one reducible to S.'* 
+“Recursive method” here can mean that m=f(n), where f(m) is a 
+recursive function. 
+THEOREM. The decision problem of every recursively enumerable 
+set of positive integers is one-one reducible to the decision problem of the 
+complete set K. 
+For let B’ be a basis of any one recursively enumerable set 5S’. 
+The effective one-one correspondence between all (B, )’s and all pos- 
+itive integers yielded by the effective enumeration O’ of E, the set 
+of all (B, m)’s, then yields a unique positive integer m for each 
+(B’, n), B’ fixed, and thus a unique m for each n, different n’s yielding 
+different m’s. Now 1 is, or is not, in S’ according as (B’, m) is in T, or 
+T, and hence according as m is in K, or K, whence our result. 
+Since K itself is recursively enumerable, we may say that for re- 
+cursively enumerable sets of positive integers with recursively un- 
+solvable decision problems there is a highest degree of unsolvability 
+relative to one-one reducibility, namely, that of K. Actually, one-one 
+reducibility is a special case of all the more general types of reduci- 
+bility later introduced, and, though the proof of this is still in the 
+informal stage, these latter are special cases of general recursive, 
+that is, Turing reducibility. The same result then obtains relative 
+to these special types of reducibility and, more significantly, for re- 
+ducibility in the general sense.'® 
+We have thus far explicitly obtained two recursively enumerable 
+sets with recursively unsolvable decision problems, the U of our first 
+section, and K. We may note that a certain necessary and sufficient 
+condition for the many-one reducibility of K to a recursively enumer- 
+able set, the proof of which is still in the informal stage, has as an 
+immediate consequence that K is many-one reducible to U. It would 
+then follow that K and U are of the same degree of unsolvability rel- 
+ative to many-one reducibility. 
+18 The resulting one-to-one correspondence is then between S,+.5, and a subset, 
+recursively enumerable indeed, of S:+S:. Of course, both S,;+S, and S:+S: consti- 
+tute the set of all positive integers. 
+19 It seems rather obvious that K and the problem of Church [1] are each at least 
+many-one reducible to the other; likewise for the problem of [1] and of [2, 3]. Had 
+we verified this in detail, we would have called this highest degree of unsolvability 
+of decisions problems of recursively enumerable sets the Church degree of unsolvability.
+
+===== PDF PAGE 15 / PRINTED PAGE 298 =====
+298 E. L. POST [May 
+5. Simple sets. It is readily proved that the necessary and suffi- 
+cient condition that every recursive set be one-one reducible to a 
+given recursively enumerable set of positive integers S is that S is 
+infinite, and S contains an infinite recursively enumerable set. We 
+are thus led to ask if there exist sets satisfying the following 
+DEFINITION. A simple set is a recursively enumerable set of posi- 
+tive integers whose complement, though infinite, contains no infinite 
+recursively enumerable set. 
+We now prove the 
+THEOREM. There exists a simple set. 
+Recall the set T of all couples (B, m) such that positive integer 
+n is in the recursively enumerable set of positive integers determined 
+by basis B. Since T is recursively enumerable, we can set up an ef- 
+fective enumeration 
+0”: (Bi,, m2), (Bi,, Ms), 
+of its members. The subscript of each B is its subscript in the effec- 
+tive enumeration O:B,, Bs, Bs, - - - of all distinct B’s. Now the com- 
+plement of a set containing no infinite recursively enumerable set is 
+equivalent to the set itself having an element in common with each 
+infinite recursively enumerable set. Generate then the distinct bases 
+Bi, Bz, Bs, ---, and as a B; is generated, regenerate the sequence 
+O”' of (B, )’s in T, and the first time, if ever, B is B;, and n is greater 
+than 2i, place m in a set S. The resulting set S is then a generated, 
+and hence recursively enumerable, set of positive integers. We pro- 
+ceed to prove it simple. 
+If S’ is an infinite recursively enumerable set of positive integers, 
+it will be determined by some basis B;, and will have some element 
+m greater than 2. Since (B;, m), being then in T, will appear in O’’, 
+our construction will place m in S, if some earlier (B;, ) of O’’ has 
+not already contributed an element of S’ to S. That is, S has an ele- 
+ment in common with each infinite recursively enumerable S’. As for 
+S being infinite, note that each B; contributes at most one element 
+to S. The first 2 B’s in O therefore contribute at most m elements to 
+S. Each B; with i2=-+-1 can only contribute to S an element greater 
+than 2n+-2. Of the first 2n+-2 positive integers, at most m are there- 
+fore in S, and hence at least +2 are in the consequently infinite 
+5.20 
+20 m>i can replace »>2i in the above construction, but the proof will then de- 
+pend on there being an infinite number of bases defining the null set.
+
+===== PDF PAGE 16 / PRINTED PAGE 299 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 299 
+Having one simple set, the method of our succeeding §8 can be 
+modified to yield a rich infinite class of simple sets. Clearly, every 
+simple set S is a recursively enumerable set that is not recursive. For 
+were S recursive, 5 would be an infinite recursively enumerable sub- 
+set of S. The decision problem of each simple set is therefore recursively 
+unsolvable. We thus have obtained two infinite mutually exclusive 
+classes of recursively enumerable sets with recursively unsolvable 
+decision problems, the class of creative sets, and the class of simple 
+sets. They are poles apart in that the complements of creative sets 
+have a creative infinity of infinite recursively enumerable subsets, 
+those of simple sets, not one. 
+In passing, we may note that every recursively enumerable set of 
+positive integers S with recursively unsolvable decision problem 
+leads to an incompleteness theorem for symbolic logics relative to 
+the class of propositions n€S, n an arbitrary positive integer. Creative 
+sets S are then exactly those recursively enumerable sets of this 
+type each of which admits a universal extendibility theorem as well, 
+simple sets S those for which, given S, each logic can prove the falsity 
+of but a finite number of the infinite set of false propositions nCS. 
+It is readily seen that no creative set C can be one-one reducible to 
+a simple set S. For under such a reduction, each infinite recursively 
+enumerable subset of C, proved above to exist, would be transformed 
+into an infinite recursively enumerable subset of 5, contradicting 
+the simplicity of S. Simple sets thus offer themselves as candidates 
+for recursively enumerable sets with decision problems of lower 
+degree of unsolvability than that of the complete set K. Even for 
+many-one reducibility the situation is no longer immediately ob- 
+vious; for an infinite recursively enumerable subset of C could thus 
+be transformed into a finite subset of 5, the complement of simple S, 
+without contradiction. However we can actually go much further 
+than that. 
+6. Reducibility by truth-tables. If S, is many-one reducible to Sz, 
+positive integer m being, or not being, in S; may be said to be deter- 
+mined by its correspondent m being, or not being, in S: in accordance 
+with the truth-table 
+(S2) m | n (Si) 
++ 
+Here, the two signs +, — under m represent the two possibilities m is 
+in S:, m is not in S3, respectively. And by the sign under m in the
+
+===== PDF PAGE 17 / PRINTED PAGE 300 =====
+300 E. L. POST (May 
+same horizontal row as the corresponding sign under m the table in 
+the same language tells whether m correspondingly is (+), or is not 
+(—), in S;. The table then says that when m is in S2, m is in S,, when 
+m is not in S3, m is not in S;, as required by many-one reducibility. 
+Now there are altogether four ways in which being, or not being, 
+in S; can be made to depend solely on m being, or not being, in Sz, 
+the signs under m being +, — as above; or +, +; —, —; —, +. If 
+then we have an effective method which for each positive integer n 
+will not only determine a unique corresponding positive integer m, 
+but also one of these four “first order” truth-tables, and if in each 
+case the table is such that for the correct statement of membership 
+or non-membership of m in S2, it gives the correct statement of mem- 
+bership or non-membership of m in S,, then the decision problem of 
+S; will thus be reduced to the decision problem of S:. For here also, 
+given n, if we could somehow determine whether m is, or is not, in Se, 
+we could thereby determine which row of the corresponding table cor- 
+rectly describes the membership or non-membership of m in S:, and 
+from that row correctly determine whether 7 is, or is not, in Sy. 
+More generally, let there be an effective method which for each 
+positive integer m determines a finite sequence of positive integers 
+1, M2, - - - , m,,v as well as the m’s depending on n. Let that method 
+correspondingly determine for each n a “vth order” truth-table of 
+the form 
+(S2) mM, n 
+Each horizontal row, to the left of the vertical bar, specifies one of 
+the 2” possible ways in which the v m,’s may, or may not, be in Ss, 
+to the right of the bar correspondingly commits itself to one of the 
+statements m is in S;, m is not in S;. If then for each m that row of 
+the corresponding table which gives the correct statements for the 
+m’s being or not being in S; also gives the correct statement regarding 
+the membership or non-membership of in S;, the decision problem 
+of S; is again thereby reduced to the decision problem of Ss. 
+If such a situation obtains with “effective method” replaced by 
+“recursive method,” we shall say that S, is reducible to Sz by truth- 
+tables. “Recursive method” here can mean that a suitable Gédel 
+representation of the couple consisting of the sequence my, ma, ---,
+
+===== PDF PAGE 18 / PRINTED PAGE 301 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 301 
+m, and the truth-table of order y is a recursive function of nm. If the 
+orders of the truth-tables arising in such a reduction are bounded, 
+we shall say that S,; is reducible to S; by bounded truth-tables. Since 
+there are 2” distinct truth-tables of order v, reducibility by bounded 
+truth-tables is equivalent to reducibility by truth-tables in which 
+but a finite number of distinct tables arise. 
+7. Non-reducibility of creative sets to simple sets by bounded 
+truth-tables. Let us suppose that creative set C is reducible to simple 
+set S by bounded truth-tables. Let 71, 72, - - - , 7, be the finite set 
+of distinct truth-tables entering into such a reduction. That reduction 
+then effectively determines for each positive integer m a finite se- 
+quence of positive integers m1, m2, - - - , m,, and a unique 7;, 1S7Sx. 
+The gist of our reductio-ad-absurdam proof consists in showing 
+that under the assumed reduction we can obtain for each natural 
+number p a sequence of m’s at least p of which are in S. We then im- 
+mediately have our desired contradiction. For in each case pv. The 
+finite set of v’s, the orders of the T;’s, being bounded, p cannot then 
+be arbitrarily large as stated. 
+More precisely we prove by mathematical induction that under the 
+assumed reduction the following would be true. For each natural num- 
+ber p an effective process Il, can be set up which will determine for each 
+recursively enumerable subset a of C an element n of C not in a, and 
+which for the corresponding m, m2,---, m, and T; yielded by the 
+assumed reduction will correctly designate p of these m’s as belonging 
+to S. The mode of designation may be assumed to be by specifying 
+the sequence of subscripts, i1, t2, - - - , tp, of the m’s to be designated, 
+with say - - - With the assumed reduction adjoined to 
+this process, II, then determines for each a in question the quad- 
+ruplet (m, M, T;, I), M being the sequence of m’s, I the sequence of 
+subscripts of the p designated m’s. 
+For p=0, II, is immediately given by the creative character of C. 
+For that immediately gives us for each recursively enumerable subset 
+a of C a definite element of C not in a. The assumed reduction 
+yields the corresponding M and 7;; and with no members of M desig- 
+nated as being in S, J is the null sequence. 
+Inductively, assume that we have the process II, for p=k. Let a be 
+any given recursively enumerable subset of C, and let (’, M’, Ty, I’) 
+be the corresponding quadruplet yielded by II. Now suppose 2 is a 
+positive integer for which the assumed reduction yields the same 
+table T;- as it did for nm’, and a sequence of m’s, M, consequently of 
+the same length as M’, having the following property. For each un-
+
+===== PDF PAGE 19 / PRINTED PAGE 302 =====
+302 E. L. POST [May 
+designated element of M’, the correspondingly placed element of M 
+is identical with that of M’; for each element of M’ designated as 
+being in S, the corresponding element of M is also in S. Such an m must 
+then be in C along with n’. For that row of Ty which correctly tells 
+of the m’s of M’ whether they are, or are not, in S will also be the 
+correct row for M. And since in the former case that row must say 
+that n’ is in C, in the latter case it will say that m is in C, and correct- 
+ly so. We proceed to show how all such m’s may be generated. 
+We first show how to generate all M’s obtainable from M’ by re- 
+placing the designated elements of M’ by arbitrary elements of S. For 
+any one such M, the replacing elements, being finite in number, will 
+be among the first N elements, for some positive integer N, of a 
+given recursive enumeration of S. Generate then the positive integers 
+1, 2, 3, ---, and as a positive integer N is generated, generate the 
+first N elements of the given recursive enumeration of S. For each 
+N place in a set 8 the at most N* sequences M that can be obtained 
+from M’ by replacing the designated elements of M’ by elements 
+chosen from the first N elements of S. The generated set of sequences 
+8 then consists of all M’s obtainable from M’ by replacing the desig- 
+nated elements of M’ by arbitrary elements of S. 
+The n’s we wish to generate are then those positive integers for 
+which the assumed reduction yields the table T; and a sequence of 
+m’s, M, such that M is a member of 8. Generate then the elements of 
+8. As an element M of 8 is generated, generate the positive integers 
+1, 2, 3, - - - , and as a positive integer m is generated, find the corre- 
+sponding sequence of m’s and table yielded by the reduction of C to 
+S. If then that sequence of m’s is M, and the table is T;-, add m to the 
+given set a. As seen above, each such will be in C. Hence the re- 
+sulting generated, and hence recursively enumerable, set a’ is a sub- 
+set of C containing a. Our reason for thus adding the desired n’s to 
+a instead of just forming the class thereof is that the iterative process 
+we are about to set up requires a cumulative effect. 
+As a result of our hypothesis and construction we thus have a 
+derived process IIj which for every recursively enumerable subset a 
+of C yields a definite recursively enumerable subset a’ of C contain- 
+ing a. Starting with a, we may then iterate the process II; to obtain 
+the infinite sequence A:a;, ae, a3, ---, where a1=@, Oa41=(a,)’. 
+Each member of A is thus a recursively enumerable subset of C, and 
+contained in the next member of A. By applying the original process 
+II, to the members of A we correspondingly obtain the infinite se- 
+quence 2:01, ¢2, os, - - - , where o; is the quadruplet (n, M®, TY’, 
+I) yielded by I, for a;. We then observe the following. If for j1~js
+
+===== PDF PAGE 20 / PRINTED PAGE 303 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 303 
+the T’s of o;, and o;, are the same, and the /’s are the same, then the 
+sequences obtained from the M’s by deleting the designated m’s can- 
+not be identical. For if they also were identical, then, with say j;<je, 
+ni) would have been assigned to a‘4+, whereas it actually is outside 
+of a) which contains a‘4+, Hence, the infinite sequence 2’, ob- 
+tained from 2 by deleting from each o; the integer m and the desig- 
+nated m’s of M, itself consists of distinct elements. 
+It follows that there are an infinite number of distinct undesignated 
+m’s appearing in Y. Indeed, the distinct T’s of = are at most «x 
+in number. With 7” fixed, the order v of TY is fixed; and since 
+<i< --- <i? <y, the number of distinct I’s is finite. 
+Finally, with T and J fixed, were the total number of distinct undesig- 
+nated m’s finite, the number of distinct ways in which those v“—k 
+undesignated m’s could assume values would be finite. Hence 2’ 
+would be finite, not infinite. 
+Now were each of this infinite set of undesignated m’s in S, we 
+could regenerate the elements of 2, and as an element a; thereof is 
+generated, place all of its undesignated m’s in a set y, and thus ob- 
+tain an infinite generated, and hence recursively enumerable, subset 
+of S. As this contradicts the simplicity of S, it follows that at least 
+one undesignated m arising in = is in S. 
+We can then find a unique such m, as well as a @ in which it oc- 
+curs, as follows. With N=1, 2, 3, - -- , generate the first N elements 
+of the given recursive enumeration of S, and the first N elements of 
+2, and test the latter in order to see if any undesignated m is among 
+those first N elements of S. If a particular undesignated m of = in 
+S, proved above to exist, is the Lth member of S, and in the Kth 
+member ox of 2, then an affirmative answer to the above test will 
+certainly be obtained for N=max (L, K). Find then the first N for 
+which an affirmative answer is obtained, and let (m, M, T;, I) be the 
+first o to yield the affirmative answer for this N, m; the first un- 
+designated m of M thus found to be in S. We can then add m; to the 
+designated m’s of M, thus obtaining a quadruplet (n, M, Ti, lh), 
+where J, designates (k-+1) of the m's of M as being in S, and where n 
+is certainly 2a member of C not in the originally given a. But the whole 
+process leading up to (nm, M, T;, I;) is determined by that a. It is 
+therefore the desired process II, for p=k+1. 
+Under the assumed reduction of C to S, II, would therefore exist 
+for every natural number p. With a say the null set, we would thus 
+obtain for every natural number p a quadruplet (,, M,, T;,, Ip) 
+such that » of the members of the sequence M, are in S. Yet the total 
+length of M, is the order of T;,, and hence bounded. Hence the
+
+===== PDF PAGE 21 / PRINTED PAGE 304 =====
+304 E. L. POST [May 
+THEOREM. No creative set is reducible to a simple set by bounded 
+truth-tables. 
+We recall that every recursively enumerable set of positive in- 
+tegers is one-one reducible to the creative set K, the complete set. 
+Hence the 
+CoroLiary. Every simple set is of lower degree of unsolvability 
+than the complete set K relative to reducibility by bounded truth-tables. 
+8. Counter-example for unbounded truth-tables. We recall that for 
+the particular simple set S constructed in §5, of the first 2m+2 
+positive integers at most m were in S, m being any positive integer. 
+Hence, of the m+1 integers m+2, m+3, - - - , 2m+2, at least one is 
+in 5. By setting m=2*—1, with n=1, 2, 3, - - - , we can effectively 
+generate the infinite sequence of mutually exclusive finite sequences 
+(3, 4), (S, 6, 7, 8),---, (2% + 1, 2% + 2,---, 2**),--- 
+such that each sequence in ¢ has at least one member thereof in S. An 
+effective one-one correspondence between the positive integers 1, 2, 
+3,---+ and the elements of o is then obtained by making the positive 
+integer m correspond to the sequence (2*+1, 2*+2,---, 2*+) 
+constituting the mth element of ¢. 
+Given a creative set C, regenerate the elements of S, placing each 
+in a set S,;. Furthermore, regenerate the elements of C, and as an 
+element nm thereof is generated, place all of the positive integers in 
+the mth sequence of o in S;. The resulting set S; is a generated, and 
+hence recursively enumerable, set of positive integers. Since S; con- 
+tains S, 5 contains 5;. As S is simple, S, and hence 5;, does not have 
+an infinite recursively enumerable subset. Moreover, 5; is also infinite. 
+For C is infinite. And, for each element of C, the corresponding se- 
+quence in o has only those of its members that are already in S also 
+in S;, and hence at least one element in 5;. Hence, 5; is simple. 
+Likewise we see that a positive integer m is in C, or C, according 
+as all of the integers in the mth sequence of ¢@ are in S,, or at least 
+one is in 5;. If then we make correspond to each positive integer m 
+the sequence of 2* positive integers (2*+1, 2*+2, - - - , 2+"), and the 
+truth-table of order 2* in which the sign under a is + in that row in 
+which the signs under the 2* “m’s” are all +, and in every other row 
+the sign under m is —, we have a reduction of C to S, by truth-tables. 
+Hence the 
+THEOREM. For each creative set C a simple set S can be constructed 
+such that C is reducible to S by unbounded truth-tables.
+
+===== PDF PAGE 22 / PRINTED PAGE 305 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 305 
+Coro.iary. A simple set S can be constructed which is of the same 
+degree of unsolvability as the complete set K relative to reducibility by 
+truth-tables unrestricted. 
+Simple sets as such do not therefore give us the absolutely lower 
+degree of unsolvability than that of K we are seeking. 
+9. Hyper-simple sets. The counter-example of the last section sug- 
+gests that we seek a set satisfying the following 
+DEFINITION. A hyper-simple set H is a recursively enumerable set 
+of positive integers whose complement H is infinite, while there is no 
+infinite recursively enumerable set of mutually exclusive finite sequences 
+of positive integers such that each sequence has at least one member 
+thereof in 
+In this definition we may use the original Gédel method for 
+representing a finite sequence of positive integers 1, m2,---, m, 
+by the single positive integer 2% 3% - - - p™, where 2, 3,---, p, 
+are the first vy primes in order of magnitude. A set of finite sequences 
+of positive integers is then recursively enumerable if the set of Gédel 
+representations of those sequences is recursively enumerable. 
+THEOREM. A hyper-simple set exists. 
+Our intuitive argument must again draw upon the formal develop- 
+ment to the effect that each recursively enumerable set of finite se- 
+quences of positive integers will be determined by a “basis” B*, 
+and that all such bases can be generated in a single infinite sequence 
+of distinct bases 
+O°: By, Bs, Bs,--- 
+As in §2, generate the elements of O*, and as an element B* is gen- 
+erated, set up the process for generating the set of sequences deter- 
+mined by B*, and as a sequence s is thus generated, write down the 
+couple (B*, s). The resulting set of couples is then a generated set, 
+and can indeed be effectively ordered in a sequence of distinct 
+couples 
+O:: (Bey 51), (Bay $2), (Bi 53), 
+™ Mutually exclusive sequences here mean no element of one sequence is an ele- 
+ment of another. Curry suggests that “hyper-simple” is linguistically objectionable, 
+and should be replaced by “super-simple.” But we would not then know what to use 
+in place of the letter H.
+
+===== PDF PAGE 23 / PRINTED PAGE 306 =====
+306 E. L. POST [May 
+O,* then consists of all distinct couples (B*, s) such that finite se- 
+quence s is a member of the recursively enumerable set of finite se- 
+quences of positive integers determined by basis B*. 
+Now the condition that no infinite recursively enumerable set of 
+mutually exclusive finite sequences of positive integers has the prop- 
+erty that each sequence has at least one positive integer thereof in 
+HZ is equivalent to each such set of sequences having at least one se- 
+quence all of whose members are in H. Our method of constructing 
+the desired hyper-simple set H will then consist in placing in H for 
+certain B*’s in O* all of the positive integers in a sequence in the 
+set of sequences determined by B*. For purposes of presentation we 
+shall call each such basis B* a contributing basis, while every B* 
+determining an infinite recursively enumerable set of mutually ex- 
+clusive sequences will be called a relevant basis. Set H, if recursively 
+enumerable, will then be hyper-simple if each relevant basis is a con- 
+tributing basis, and H7 is infinite. 
+If B* is a relevant basis, then among the infinite number of mutu- 
+ally exclusive sequences generated by B* there must be a sequence 
+each of whose elements exceeds an arbitrarily given positive integer 
+N. For did every sequence generated by B* have as element one of 
+the integers 1, 2,---, N, for any N+1 of these sequences at least 
+two would have one of these integers in common. We shall then gen- 
+erate H by regenerating sequence O,*, and, as an element (BE, Sn) 
+thereof is generated, we shall place all the elements of s, in H if Bf 
+has not thus been made a contributing basis earlier in the process, 
+while the elements of s, are all greater than a certain positive integer 
+N,, about to be determined; otherwise none. Inductively, assume N,, 
+to have been determined for 1<m<n, and thus the entire process 
+up to the time (Bf, s,) was brought up for consideration. Let 
+By, By, - - - » By, be the bases that have thus far contributed to H, 
+and in the order in which they became contributing bases. These 
+bases are then distinct, and hence their subscripts, which give their 
+position in the sequence O* of all distinct bases, are distinct. Let 
+ki, ke, - --, k, be the largest integer placed in H by the first con- 
+tributing basis, by the first two, ---, by the first »v. The result 
+being cumulative, kiSkeS - - - <k,. The crux of our construction 
+is to make N, depend not on the history of all these v contributions 
+to H, but only on that part of that history up to and including the 
+last contribution, if any, made by a B* preceding Bf in O*. Specifi- 
+cally, if BY, is the last of the above v contributing bases preceding Bf 
+in O*, that is, with j,<7,, N, is to be one more than the largest integer 
+present in H as a result of all the contributions made up to and in-
+
+===== PDF PAGE 24 / PRINTED PAGE 307 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 307 
+cluding the contribution made by Bf. That is, N,=k,+1. Actually, 
+if none of the v contributing bases precede Bf in O*, no condition is 
+to be placed on s,, and all of its elements are placed in H so long as 
+Bé is distinct from the v contributing bases obtained thus far. 
+Furthermore, in our induction assume that we have been able to 
+keep a record of the sequence BY, BY,---, Bf, of ki, ke, -- +, Re, 
+and also of j:, jz, - - - ,j, up to the time (Bf, s,) was about to be gen- 
+erated. We then generate (Bf, s,), and by regenerating O* find the 
+place of B& in O* thus determining the subscript i,. Our criterion 
+for determining whether, or no, the elements of s, are to be placed 
+in H then becomes effective. In the latter case, the record is un- 
+changed as we generate (Be. Sn41)- In the former, Bf is written into 
+the record as Bf 4a ts 8S jr41 while we can write in for k,: the maxi- 
+mum of k, and the largest integer in s,. The entire process is thus 
+effective at each stage, and H is thus a generated, and hence recur- 
+sively enumerable, set of positive integers. We proceed to prove it 
+hyper-simple. 
+Let B* be any relevant basis. Of the finite number of bases pre- 
+ceding B* in O*, but a finite number can be contributing bases. Let 
+Bj, be the last of these contributing bases, if any, appearing in the 
+sequence Bf, Bt, Bf, - - - of distinct contributing bases determined 
+by the above generation of H. There will then be a sequence s gen- 
+erated by B* each of whose elements is greater than k,+1. When then 
+(B*, s), a definite element of Of, is generated in the course of generat- 
+ing H, B* will contribute each element of s to H unless it became a 
+contributing basis earlier in the process. Hence, every relevant basis 
+is a contributing basis. 
+It also follows, or is easily seen directly, that the number of con- 
+tributing bases is infinite. Consider then the infinite sequence of 
+contributing bases Bf, Bf, Bf, ---, the corresponding infinite se- 
+quence of subscripts j:, je, js, ---°, and the associated infinite se- 
+quence ki, ke, ks, - - - . Since the contributing bases are distinct, so 
+are their subscripts. Hence, for each jn, among the infinite set of j’s 
+following j,, there is a unique least 7, jm. Consider then the resulting 
+infinite sequence j,,, jr,» jr» * °° » Where ja, is the least 7 in the whole 
+infinite sequence of j’s, while As=(A2)’, -- -. Now R, is 
+the largest integer contributed to H through the contributing basis 
+with subscript j,,. Since j,, is the smallest j following j,__, it is less 
+than all succeeding j’s. Hence B* with subscript j,, precedes in O* 
+all bases following that B* in the above infinite sequence of con- 
+tributing bases. Hence, each element added to H by contributing 
+bases thus following B* with subscript j,, must exceed k,,+1. It fol-
+
+===== PDF PAGE 25 / PRINTED PAGE 308 =====
+308 E. L. POST [May 
+lows, on the one hand, that for each positive integer , k,,+1 is in H. 
+On the other hand, itself exceeds k,,+1 so that .+1>k,+1. 
+These members of H therefore constitute an infinite subset of the 
+consequently infinite H. Hence, H is hyper-simple. 
+Clearly, every hyper-simple set H is simple. For an infinite recur- 
+sively enumerable subset of H/, as set of unit sequences, would con- 
+tradict H being hyper-simple. Our construction of §6, in view of §8, 
+gives us, however, a simple set which is not hyper-simple. Hyper- 
+simple sets thus constitute a third class of recursively enumerable sets 
+with recursively unsolvable decision problems—a class which is a 
+proper subclass of the class of simple sets. 
+10. Non-reducibility of creative sets to hyper-simple sets by truth- 
+tables unrestricted. Let creative set C be reducible by truth-tables to 
+a recursively enumerable set of positive integers H. The given re- 
+duction will again determine for each positive integer m a finite se- 
+quence of positive integers , m2, ---, m,, and a truth-table T of 
+order v such that that row of the table which correctly tells of the m’s 
+whether they are, or are not, in H will correctly tell of m whether it is, 
+or is not, in C. Of course v and T as well as the m’s depend on n, and 
+the set of distinct T’s now entering into our reduction may be in- 
+finite, and hence the set of distinct v’s unbounded. 
+Let h, hb, - - -, 1, be any given finite sequence of distinct positive 
+integers. A particular hypothesis on the /’s being, or not being, in H 
+may then be symbolized by a sequence of yu signs, each + or —, such 
+as +— --- +, such that the ith sign is +, or —, according as the 
+hypothesis says that /; is in H, or H, respectively. We shall speak of 
+such a sequence of signs as a éruth-assignment for the I’s, the ith sign 
+in that sequence as the sign of 1; in that truth-assignment. Of the 2 
+possible truth-assignments for the /’s, constituting a set Vi, one and 
+only one correctly tells of each /; whether it is, or is not, in H. Every 
+set V of truth-assignments for the /’s is then a subset of Vi, and will 
+be called a possible set of truth-assignments if it includes this correct 
+truth-assignment. 
+Let then V be any given possible set of truth-assignments for the 
+l’s. Let be a positive integer with corresponding m, ma, - - - , 
+T yielded by the given reduction of C to H such that each m not an 1 
+is in H. The correct row of table T must then have the following two 
+properties. First, the sign under each m not an / must be +. Second, 
+the signs under those m’s which are /’s must be the same as the signs 
+of those integers in some one and the same truth-assignment for the 
+’s in V, in fact, as in the correct truth assignment for the /’s. Any row
+
+===== PDF PAGE 26 / PRINTED PAGE 309 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 309 
+of T having these two properties, given the /’s, m’s and V, will be 
+called a relevant row of T. Since for our n the correct row of T is thus 
+a relevant row, it follows that n will surely be in C if for each relevant 
+row of T the sign under n is —. 
+Generate then the positive integers 1, 2, 3, - - - , and as a positive 
+integer N is generated, generate the first N members of a given re- 
+cursive enumeration of H, and for each n, with 1SnZN, find the 
+corresponding , m2, - - -, m,, T yielded by the given reduction of 
+C to H. Of those m’s, if any, which are not /’s, see if each is one of 
+those first N members of H. If they all are, see if for each relevant 
+row of T the sign under is —. If that also is true, place m in a set ay. 
+Since each such m must be in C, as seen above, ay is a subset of C. 
+And being a generated set, ay is therefore a recursively enumerable 
+subset of C. 
+C being creative, we can therefore find a definite positive integer 
+n' in C but not in ay, and, by the given reduction, the corresponding 
+m;, ™m3,---, my, T’. Let pr, pe, - - Px be those m’’s, if any, which 
+are not /’s. Now suppose that each p is in H. Then for at least one 
+relevant row of T’ the sign under m’ must be +. For otherwise, if ; 
+is say the k,th element in the given recursive enumeration of H, n’ 
+would have been placed in ay in the above generation thereof for 
+N=max (hi, ks, - , kx, ’). Since n’ is in C, such a relevant row 
+cannot be the correct row. But, with each p in H, the signs in that 
+row under m’s that are not /’s are correctly +. Hence the sign under 
+at least one m’ that is an / must be incorrect. But, by our definition 
+of a relevant row, the signs under all such m’’s are the same as the 
+signs of those integers in at least one truth-assignment in V. Such a 
+truth-assignment in V cannot therefore be the correct truth-assign- 
+ment for the /7’s, and hence may be deleted from V. Perform this 
+deletion for all such truth-assignments in V, and for all such relevant 
+rows of 7’, to obtain the set of truth-assignments V’. Under our 
+hypothesis that each p is in H, V’ will then be a proper subset of V, 
+and yet a possible set of truth-assignments for the /’s. 
+Actually, let V be any given set of truth-assignments for the /’s, 
+possible or not. Each step of the above construction can then still be 
+carried out, though the constructed entities need not now have all 
+the properties they otherwise possess.” In particular, the set of in- 
+tegers, possibly null, 1, 2, - - - , Px can be found, all different from 
+any |. Likewise, whether the p’s are, or are not, all in H, the subset 
+V’ of V can be found. What we can say is that if V is a possible set, 
+* Recall that in the definition of creative set, §3, each B determines an n, whether 
+the a determined by B is, or is not, a subset of C.
+
+===== PDF PAGE 27 / PRINTED PAGE 310 =====
+310 E. L. POST [May 
+and if furthermore each p is in H, then V’ is a proper subset of V, and 
+itself is also a possible set of truth-assignments for the /’s. 
+For the given sequence of /’s, start then with V= Vi, the possible 
+set of all 2* truth-assignments for the /’s, obtain the corresponding 
+P's, Pi, * Px and corresponding V’, With V=Vz2, 
+likewise find pj’, p3', - - - , and V;=(V2)’, and so on. Now each 
+Vix: is a subset of V;, while V; is but a finite set of 2" members. Hence 
+in at most 2* steps we shall come across a V, such that either V,4, is 
+identical with V,, or is null. But if all the p’’s, p’”’s, - - - , p®’s were 
+in H, V; being a possible set, V2, - - - , V. as well as V,41 would all be 
+possible sets, each a proper subset of the preceding. V.4;: could not 
+then either be identical with V,, or null. It follows that at least one 
+of the p's with 1Sj<x is in H. Each p¥ is an integer that is not 
+one of the /’s. If then we take this finite set of pY’s and arrange them 
+in a sequence of distinct elements in say order of magnitude, we ob- 
+tain for our arbitrarily given sequence of distinct positive integers 
+- -- , a sequence of distinct positive integers ki, ke, ---, k, 
+having no element in common with the former sequence, and having 
+at least one element in H. 
+Starting with the null sequence as the sequence of /’s, we can thus 
+find the sequence of k’s, (kj, kj, - - - , k}) of distinct positive integers 
+at least one of which is in H. Inductively, let us have thus generated 
+the sequences kj, ---, kL), ---, (k™, R&,---, 2B), mutually 
+exclusive, of distinct positive integers, each having at least one ele- 
+ment in H. With the single sequence kj, - - - , 4, as the sequence of 
+I’s, we can find the corresponding sequence of k’s, (k“*”, R#*”, - - -, 
+k4&E9) of distinct positive integers with no element in common with 
+any of the preceding sequences, and having at least one element in H. 
+With creative C reducible to recursively enumerable H by truth- 
+tables we can thus obtain an infinite generated, and hence recursively 
+enumerable, set of mutually exclusive finite sequences of positive 
+integers each having an element in H. The set H is therefore not 
+hyper-simple. Hence the 
+THEOREM. No creative set is reducible to a hyper-simple set by truth- 
+tables. 
+COROLLARY. Every hyper-simple set is of lower degree of unsolvability 
+than the complete set K relative to reducibility by truth-tables. 
+Despite this result, the brief discussion of Turing reducibility, still 
+in the informal stage, entered into in the next section makes it dubi- 
+ous that hyper-simple sets as such will give us the desired absolutely
+
+===== PDF PAGE 28 / PRINTED PAGE 311 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 311 
+lower degree of unsolvability than that of K. But, in the absence of a 
+counter-example, they remain candidates for this position. 
+11. General (Turing) reducibility. The process envisaged in our 
+concept of a generated set may be said to be polygenic. In a monogenic 
+process act succeeds act in one time sequence. The intuitive picture 
+is that of a machine grinding out act after act (Turing [24]) or a set 
+of rules directing act after act (Post [18]). The actual formulations 
+are in terms of “atomic acts,” the first leading to a development 
+proved by Turing [25] equivalent to those arising from general recur- 
+sive function or A-definability, and hence of the same degree of gen- 
+erality. In our intuitive discussion the acts may be “molecular.” 
+An effective solution of the decision problem for a recursively 
+enumerable set 5S; of positive integers may therefore be thought of as 
+a machine, or set of rules, which, given any positive integer n, will 
+set up a monogenic process terminating in the correct answer, “yes” 
+or “no,” to the question “is m in S,.” Now suppose instead, says 
+Turing [26] in effect, this situation obtains with the following modifi- 
+cation. That at certain times the otherwise machine determined 
+process raises the question is a certain positive integer in a given re- 
+cursively enumerable set S2 of positive integers, and that the machine 
+is so constructed that were the correct answer to this question sup- 
+plied on every occasion that arises, the process would automatically 
+continue to its eventual correct conclusion. We could then say that 
+the machine effectively reduces the decision problem of S; to the deci- 
+sion problem of S;. Intuitively this should correspond to the most gen- 
+eral concept of the reducibility of S, to S:. For the very concept of the 
+decision problem of S; merely involves the answering for an arbi- 
+trarily given single positive integer m of the question is m in S2; and 
+in finite time but a finite number of such questions can be asked. A 
+corresponding formulation of “Turing reducibility” should then be 
+the same degree of generality for effective reducibility as say general 
+recursive function is for effective calculability.™ 
+We may note that whereas in reducibility by truth-tables the posi- 
+% Turing picturesquely suggests access to an “oracle” which would supply the cor- 
+rect answer in each case. The “if” of mathematics is however more conducive to the 
+development of a theory. 
+% A reading of McKinsey [16] suggested generalizing the reducibility of a recur- 
+sively enumerable set S to a recursively enumerable set S’ to the reducibility of S 
+to a finite set of recursively enumerable sets S;, Sz, - - - , S.. However, no absolute 
+gain in generality is thus achieved, as a single recursively enumerable set S’ can be 
+constructed such that reducing S to (Si, Ss, -- +, S,) is equivalent to reducing S 
+to S’. Points of interest, however, do arise.
+
+===== PDF PAGE 29 / PRINTED PAGE 312 =====
+312 E. L. POST [May 
+tive integers m of which we ask the questions “is m in S,” are effec- 
+tively determined, for given m, by the reducibility process, in Turing 
+reducibility, except for the first such m, the very identity of the m’s 
+for which this question is to be asked depends, in general, on the cor- 
+rect answers having been given to these questions for all preceding 
+m’s. The mode of this dependence is, however, effective, hence we 
+still have effective reducibility in the intuitive sense. 
+Let now creative set C be Turing reducible to a recursively enumer- 
+able set S of positive integers. We shall talk as if our intuitive dis- 
+cussion has already been formalized. Generate the positive integers 
+1, 2,3, - - - , and as a positive integer N is generated, for each m with 
+1sn<N proceed as follows. Set going the reducibility process of C 
+to S for n. Each time a question of the form “is m in S” is met, see if 
+m is among the first N integers in a given recursive enumeration of S. 
+If it is, supply the answer “yes,” thus enabling the reducibility 
+process to continue. Finally, if under these circumstances the process 
+terminates in a “no” for the initial question of m being in C, place n 
+in a set a. This a is then a recursively enumerable subset of C con- 
+sisting of all members thereof for which the given Turing reduction of 
+C to S leads only to questions of the form “is m in S” whose answer is 
+“yes.” 
+Find then mp» of C not in a, and set the reducibility process going 
+for mo. Now if at any time a wrong answer is supplied to a question 
+“is m in S,” we can nevertheless expect our machine for reducing C 
+to S either to effectively pick up the wrong answer and operate on it 
+to give a next step in the process, or to cease operating. Generate then 
+the positive integers 1, 2, 3, - - - , and as a positive integer N is gen- 
+erated, generate the first N members of the given recursive enumera- 
+tion of S, and make the reducibility process for mo effective though 
+perhaps incorrect as follows. Each time a question of the form “is m 
+in S” is reached, see if m is among the first N members of S. If it is, 
+answer the question “yes,” and correctly so; if not, answer the ques- 
+tion “no,” whether that answer be correct or no. If now this pseudo- 
+reduction terminates in a “no,” place the finite number of m’s thus 
+arising in a set B,,. Note that §,, consists of all such m’s for all such 
+pseudo-reductions for the given mo. Being a generated set of positive 
+integers, 8,, is recursively enumerable. 
+Now let the correct, though possibly non-effective, reducibility 
+process for mo involve the u questions “is m; in S,” +=1, 2,---,4y. 
+Let m,, mi,, - ~~, m;, be those of these m’s actually in S, and let 
+them be the mst, mend, - - - , m,th members of the given recursive 
+enumeration of S. If then N= M =max (m, m2, -- - , m,), or M=1 if
+
+===== PDF PAGE 30 / PRINTED PAGE 313 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 313 
+y=0, the corresponding psuedo-reduction for m becomes the correct 
+reduction. For, inductively, if that be so through the time a question 
+“is m in S” is raised, m will be m, mz, - - - , or m,, hence will, or will 
+not, be in S according as it is, or is not, one of the first N members of 
+S. The answer is then correctly given by that pseudo-reduction, 
+which therefore continues to be correct through the raising of the next 
+question. Finally, since mo is in C, the correct reduction, now the 
+pseudo-reduction, must terminate with a “no.” 
+It follows that all N’s with N>M merely repeat the contribution 
+to B,, made by N= M, that is, of the integers m, ma, - - - , m,. Since 
+but a finite number of m’s are contributed by N’s with N <M, it fol- 
+lows that 8,, is a finite set. Finally, were each of the integers 
+Mm, M2, ---, m, in S, mg would be in ap. Hence, at least one member of 
+Ba, ts in S. 
+Formally, we would thus obtain a basis for a finite recursively 
+enumerable set of positive integers at least one of whose members is 
+in 5. Instead of recursively enumerable sets of finite sequences of 
+positive integers, we would thus be led to consider recursively enu- 
+merable sets of bases for finite recursively enumerable sets of positive 
+integers. Though, in the last analysis, each sequence in the former 
+case must be generated atom by atom, there will come a time for 
+each sequence when the process will say “this sequence is completed.” 
+In the latter case, in general, we cannot have an effective method 
+which, for each basis, will give a point in the ensuing process at which 
+it can say all members of the finite set in question have already been 
+obtained, even though, with the process made monogenic, there al- 
+ways is such a stage in the process. 
+This suggests, then, that we strengthen the condition of hyper- 
+simplicity still further by replacing “infinitive recursively enumerable 
+set of mutually exclusive finite sequences of positive integers” in the 
+definition of §9 by “infinite recursively enumerable set of bases 
+defining mutually exclusive finite recursively enumerable sets of 
+positive integers.” Whether such a “hyper-hyper-simple” set exists, 
+or whether, if it exists, it will lead to a stronger non-reducibility 
+result than that of the last section we do not know. 
+On the other hand, an equivalent definition of hyper-simple set is 
+obtained if, for example, we replace the quoted phrase by “recur- 
+sively enumerable set of finite sequences of positive integers having 
+for each positive integer a member each of whose elements exceeds 
+n.” We now can say that with this as the definition of a hyper-simple 
+set, the corresponding extension to a hyper-hyper-simple set cannot 
+be made. For we prove the
+
+===== PDF PAGE 31 / PRINTED PAGE 314 =====
+314 E. L. POST [May 
+THEOREM. For any recursively enumerable set of positive integers S, 
+with infinite S, there exists a recursively enumerable set of bases defining 
+finite recursively enumerable sets of positive integers, each set having at 
+least one element in S, and at least one set having each of its elements 
+greater than an arbitrarily given positive integer n. 
+Briefly, with m given, for each positive integer N, and each positive 
+integer m, place all of the integers +1, n+2, ---, m-+m in a set 
+a, if all, or all but the last, are among the first N members of a given 
+recursive enumeration of S. It is readily seen that a, is a generated, 
+and hence recursively enumerable, set of positive integers. A corre- 
+sponding basis B“™) can actually be found, and the set of B™’s, 
+n=1, 2, 3, - - - , being a generated set, is therefore recursively enu- 
+merable. Moreover, if », is the smallest integer in the infinite 5 
+greater than 2, a, will consist of exactly the integers n+1,"+2,---, 
+v,, and hence will be finite, with indeed v, as the only element in S, 
+and with each element greater than n. 
+As a result we are left completely on the fence as to whether there 
+exists a recursively enumerable set of positive integers of absolutely 
+lower degree of unsolvability than the complete set K, or whether, 
+indeed, all recursively enumerable sets of positive integers with re- 
+cursively unsolvable decision problems are absolutely of the same 
+degree of unsolvability. On the other hand, if this question can be 
+answered, that answer would seem to be not far off, if not in time, 
+then in the number of special results to be gotten on the way.” 
+Such then is the portion of “Recursive theory” we have thus far 
+developed. In fixing our gaze in the one direction of answering the 
+lower degree of unsolvability question, we have left unanswered many 
+questions that stud even the short path we have traversed. Moreover, 
+both our special, and the general Turing, definitions of reducibility 
+are applicable to arbitrary decision problems whose questions in 
+symbolic form are recursively enumerable, and indeed to problems 
+with recursively enumerable set of questions whose answers belong to 
+a recursively enumerable set. Thus, only partly leaving the field of 
+decisions problems of recursively enumerable sets, work of Turing 
+[26] suggests the question is the problem of determining of an arbi- 
+trary basis B whether it generates a finite, or infinite, set of positive 
+% This is a matter of practical concern as well as of theoretical interest. For accord- 
+ing as the second or first of the above alternatives holds will the method of reducing 
+new decision problems to problems previously proved unsolvable be, or not be, the 
+general method for proving the unsolvability of decision problem either of recursively 
+enumerable sets of positive integers or of problems equivalent thereto.
+
+===== PDF PAGE 32 / PRINTED PAGE 315 =====
+1944] RECURSIVELY ENUMERABLE SETS OF POSITIVE INTEGERS 315 
+integers of absolutely higher degree of unsolvability than K. And if 
+so, what is its relationship to that decision problem of absolutely 
+higher degree of unsolvability than K yielded by Turing’s theorem. 
+Actually, the theory of recursive reducibility can be but one chap- 
+ter in the theory of recursive unsolvability, and that, but one volume 
+of the theory and applications of general recursive functions. Indeed, 
+if general recursive function is the formal equivalent of effective cal- 
+culability, its formulation may play a réle in the history of combina- 
+tory mathematics second only to that of the formulation of the 
+concept of natural number. 
+BIBLIOGRAPHY 
+1. Alonzo Church, An unsolvable problem of elementary number theory, Amer. J. 
+Math. vol. 58 (1936) pp. 345-363. 
+2. , A note on the Entscheidungsproblem, Journal of Symbolic Logic vol. 1 
+(1936) pp. 40-41. 
+3. , Correction to a note on the Entscheidungsproblem, ibid. pp. 101-102. 
+4. , Combinatory logic as a semi-group, Preliminary report, Bull. Amer. 
+Math. Soc. abstract 43-5-267. 
+Ss. , The constructive second number class, ibid. vol. 44 (1938) pp. 224-232. 
+6. , The calculi of lambda-conversion, Annals of Mathematics Studies, no. 6, 
+Princeton University Press, 1941. 
+7. C. J. Ducasse, Symbols, signs, and signals, Journal of Symbolic Logic vol. 4 
+(1939) pp. 41-52. 
+8. Kurt Gédel, Uber formal unentscheidbare Sitze der Principia Mathematica und 
+verwandter Systeme 1, Monatshefte fiir Mathematik und Physik vol. 38 (1931) pp. 
+173-198. 
+9. , On undecidable propositions of formal mathematical systems, mimeo- 
+graphed lecture notes, The Institute for Advanced Study, 1934. 
+10. David Hilbert, Mathematical problems. Lecture delivered before the Interna- 
+tional Congress of Mathematicians at Paris in 1900. English translation by Mary 
+Winston Newsom, Bull. Amer. Math. Soc. vol. 8 (1901-1902) pp. 437-479. 
+11. David Hilbert and Paul Bernays, Grundlagen der Mathematik, vol. 2, Julius 
+Springer, Berlin, 1939. 
+12. S. C. Kleene, General recursive functions of natural numbers, Math. Ann. vol. 
+112 (1936) pp. 727-742. 
+13. , On notation for ordinal numbers, Journal of Symbolic Logic vol. 3 
+(1938) pp. 150-155. 
+14. , Recursive predicates and quantifiers, Trans. Amer. Math. Soc. vol. 53 
+(1943) pp. 41-73. 
+15. C. I. Lewis, A survey of symbolic logic, Berkley, 1918, chap. 6, §3. 
+16. J. C. C. McKinsey, The decision problem for some classes of sentences without 
+quantifiers, Journal of Symbolic Logic vol. 8 (1943) pp. 61-76. 
+17. Rozsa Péter, Az axiomatikus médszer korlétai (The bounds of the axiomatic 
+method), Review of, Journal of Symbolic Logic vol. 6 (1941) pp. 111. 
+18. Emil L. Post, Finite combinatory processes—formulation 1, ibid. vol. 1 (1936) 
+pp. 103-105.
+
+===== PDF PAGE 33 / PRINTED PAGE 316 =====
+316 E. L. POST 
+19. , Formal reductions of the general combinatorial decision problem, Amer. 
+J. Math. vol. 65 (1943) pp. 197-215. 
+20. J. B. Rosser, Extensions of some theorems of Gidel and Church, Journal of Sym- 
+bolic Logic vol. 1 (1936) pp. 87-91. 
+21. , An informal exposition of proofs of Gidel’s theorems and Church's theo- 
+rem, ibid. vol. 4 (1939) pp. 53-60. 
+22. Th. Skolem, Einfacher beweis der unmiglichkeit eines allgemeinen losungsver- 
+fahrens fiir arithmetische probleme, Review of, Mathematical Reviews vol. 2 (1941) 
+p. 210. 
+23. Alfred Tarski, On undecidable statements in enlarged systems of logic and the 
+concept of truth, Journal of Symbolic Logic vol. 4 (1939) pp. 105-112. 
+24. A. M. Turing, On computable numbers, with an application to the Entscheidungs- 
+problem, Proc. London Math. Soc. (2) vol. 42 (1937) pp. 230-265. 
+25. , Computability and d-definability, Journal of Symbolic Logic vol. 2 
+(1937) pp. 153-163. 
+26. , Systems of logic based on ordinals, Proc. London Math. Soc. (2) vol. 45 
+(1939) pp. 161-228. 
+Tue City CoLLece, 
+New 
+bi

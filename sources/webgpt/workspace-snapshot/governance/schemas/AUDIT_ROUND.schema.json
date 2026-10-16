@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "hott.audit-round.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "round_id",
+    "base_commit",
+    "request_sha256",
+    "status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "hott.audit-round.v1"
+    },
+    "round_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$"
+    },
+    "base_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "request_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,26 @@
+#lang rzk-1
+
+-- Negative control for CG001-C-45 (b) (expected rejection by Rzk 0.11.3).
+-- proof id : MP-CG001-DIRECTED-NATIVE-NEG-001
+--
+-- Without the discreteness hypothesis a reading need not freeze along an
+-- arrow: claiming f x = f y by refl for an arbitrary arrow must be rejected.
+-- This shows that C-45 (b) uses its hypothesis.
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define freeze-without-discreteness
+  ( A B : U)
+  ( f : A → B)
+  ( x y : A)
+  ( α : hom A x y)
+  : f x = f y
+  := refl

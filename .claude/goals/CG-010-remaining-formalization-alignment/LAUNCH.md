@@ -1,0 +1,1 @@
+继续 CG-010（worktree /Volumes/D/HoTT-worktrees/012-opus-w8，分支 claude/012-opus-w8）。先用 Read 读 .claude/goals/CG-010-remaining-formalization-alignment/ 下的 认知对齐.md、方案.md、工作台.md，以及 形式化追踪/README.md，写一段恢复说明，然后从 工作台.md 的“下一步”继续。每个单元按 方案.md §3 的固定流程做：源码、正式捕获、负控制、--rerun 精确重放、CLAIM.md、登记、提交（按精确路径，不推送）。完成条件：在对话里列出 GOAL.md §1 完成门的审计表，每一门给出证据位置（收据目录、提交号），或写明 BLOCKED 的精确剩余义务。

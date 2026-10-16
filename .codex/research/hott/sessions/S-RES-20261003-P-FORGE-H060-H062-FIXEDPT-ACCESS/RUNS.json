@@ -1,0 +1,46 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-FORGE-H060-H062-FIXEDPT-ACCESS",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "H060",
+      "status": "FIXEDPOINT_BOUNDED_GUARD_CANDIDATE_GUARD_BLOCKED",
+      "thread_id": "01a0fff1-e91c-7490-a216-8cac77ec189b",
+      "turn_id": "01a0fff1-e9e9-7031-b5cb-fe53a93560b5",
+      "wire_sha256": "41dec9e5883076c00fe9c4c47f43f32f4e9d64a68d905f3535ec9a63017a6659",
+      "final_sha256_normalized": "43ac6c888dde7cfb22e1c0b4121b2cfe17daa80b89f1e504bf2b99121686fdbb"
+    },
+    {
+      "id": "H061",
+      "status": "MATCHTRACE_FIELD_DRIFT_EXECUTION_SPEC_INCOMPLETE",
+      "thread_id": "01a0fffa-5a12-7492-8cba-de464cc27c43",
+      "turn_id": "01a0fffa-5acc-72b2-9144-a95efc95b11b",
+      "wire_sha256": "e8073ba6c86459890070894f45640975a62e35336cdec9015e58bc6ed1b112cc",
+      "final_sha256_normalized": "b4236ecaf5e9baa59023c3e470991ad3efa36fdaa803e2d2b992bd405a499de7"
+    },
+    {
+      "id": "H062",
+      "status": "FIELD_RELAY_REGRESSION_PASS_WITH_SCOPE",
+      "thread_id": "01a0fffc-f0fb-7f13-8e57-07d933b88f7f",
+      "turn_id": "01a0fffc-f1ae-7512-80bf-d4240ce3754e",
+      "wire_sha256": "f071cef5c2fa77ecb9ad7766b901600c61cff805802423028c9a49442644e1e5",
+      "final_sha256_normalized": "0cd7bbadef56ac727358595b55a6921b10ecd83f54e7c450ce94fd9cd714a867"
+    },
+    {
+      "id": "P-FORGE-H060-H062-DOCUMENT-VALIDATION",
+      "status": "PASS",
+      "commands": [
+        "git diff --check",
+        "verify_governance_shards.py",
+        "verify_pattern_p_tool_history_sources.py",
+        "RUNS JSON parse",
+        "62-KC row count",
+        "session_trajectory catalog/tree/coverage/terminal-inspect"
+      ],
+      "evidence": "2026-10-03: git diff --check, RUNS JSON parse, 62-KC row count, governance shard validator and Pattern-P source verifier all passed. The validators establish document/source structure, not a mathematical conclusion."
+    }
+  ]
+}

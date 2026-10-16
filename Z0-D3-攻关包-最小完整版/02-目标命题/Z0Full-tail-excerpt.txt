@@ -1,0 +1,46 @@
+  exact con_unprovable (𝔅 := zfcTr) hc
+
+/-- **完整的 Z0**：在 D3 下，𝗭𝗙𝗖 证明不了“𝗭𝗙𝗖 一致”（Foundation 的一致性句经翻译）。 -/
+theorem zfc_z0_full [zfcTr.HBL3] :
+    𝗭𝗙𝗖 ⊬ arithTrln.translate (𝗭𝗙𝗖.consistent : ArithmeticSentence) :=
+  fun h ↦ sh_z0_full ((Sh_provable_iff _).mpr h)
+
+/-- **正对照**：D3 在标准模型 ℕ 中成立。 -/
+theorem zfcTr_D3_standard (σ : ArithmeticSentence) :
+    ℕ↓[ℒₒᵣ] ⊧ (zfcTr σ 🡒 zfcTr (zfcTr σ)) := by
+  rw [Semantics.Imp.models_imply, models_zfcTr_iff, models_zfcTr_iff, provable_iff_provable,
+    provable_iff_provable]
+  intro h
+  exact (Sh_provable_iff _).mp (WeakerThan.pbl (zfcTr.D1 ((Sh_provable_iff σ).mpr h)))
+
+/-- **正结果**：一旦 `Z0Blocked.lean` 中的阻塞引理成立，Z0 的完整形式 `𝗭𝗙𝗖 ⊬ (𝗭𝗙𝗖.consistent)ᵗ`
+立即随之成立（本定理无未证标记，只以待证引理为显式前提）。 -/
+theorem zfc_z0_full_of_D3_internalize
+    (h : ∀ (V : Type) [ORingStructure V] [V↓[ℒₒᵣ] ⊧* 𝗜𝚺₁] (τ : ArithmeticSentence),
+      Provable 𝗭𝗙𝗖 (⌜arithTrln.translate τ⌝ : V) → Provable 𝗭𝗙𝗖 (⌜arithTrln.translate (zfcTr τ)⌝ : V)) :
+    𝗭𝗙𝗖 ⊬ arithTrln.translate (𝗭𝗙𝗖.consistent : ArithmeticSentence) := by
+  have h3 : zfcTr.HBL3 := by
+    refine ⟨fun {σ} ↦ ?_⟩
+    apply complete 𝗜𝚺₁ _
+    intro V hV1 hV2
+    apply Semantics.Imp.models_imply.mpr
+    intro hp
+    -- `V ⊧ zfcTr σ` 即 `Provable 𝗭𝗙𝗖 ⌜translate σ⌝`（`models_zfcTr_iff`）。
+    -- D3 要 `V ⊧ zfcTr (zfcTr σ)`，即 `Provable 𝗭𝗙𝗖 ⌜translate (zfcTr σ)⌝`。
+    -- 唯一缺的一步：`Provable 𝗭𝗙𝗖 ⌜translate σ⌝ → Provable 𝗭𝗙𝗖 ⌜translate (zfcTr σ)⌝`，
+    -- 也就是“𝗭𝗙𝗖 证明 τ 的翻译 ⟹ 𝗭𝗙𝗖 证明 τ 的可证性句的翻译”。
+    have hout : Provable 𝗭𝗙𝗖 (⌜arithTrln.translate (zfcTr σ)⌝ : V) :=
+      @h V _ _ σ (models_zfcTr_iff V σ |>.mp hp)
+    exact (models_zfcTr_iff V (zfcTr σ)).mpr hout
+  exact zfc_z0_full
+
+end GodelQ.Z0Full
+
+#print axioms GodelQ.Z0Full.zfcTr
+#print axioms GodelQ.Z0Full.zfcTr_HBL2
+#print axioms GodelQ.Z0Full.zfcTr_con_iff
+#print axioms GodelQ.Z0Full.sh_z0_full
+#print axioms GodelQ.Z0Full.zfc_z0_full
+#print axioms GodelQ.Z0Full.zfcTr_D3_standard
+#print axioms GodelQ.Z0Full.zfcTr_sigma1
+#print axioms GodelQ.Z0Full.zfc_z0_full_of_D3_internalize

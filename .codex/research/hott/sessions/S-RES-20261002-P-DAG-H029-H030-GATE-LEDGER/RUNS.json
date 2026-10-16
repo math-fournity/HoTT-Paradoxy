@@ -1,0 +1,42 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261002-P-DAG-H029-H030-GATE-LEDGER",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "P-DAG-ZFC-SOURCE-029-AC-POW-PROOF",
+      "kind": "controlled_app_server_source_match",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "max",
+      "source_sha256": "8f02e7ec0a2396972a1693572bc046d9906cc430b67b45a072eb1ffbd1e2e126",
+      "prompt_sha256": "87c1406f25e85ec5bcbff4a676b94d9e17bd0e73c124e116db80a528adb904b0",
+      "wire_sha256": "ab4104489f52d147b5d57e30eb6bb3832ee8ade1ca7c8d61559018d3fb2db20d",
+      "status": "MATCHTRACE_GATE_LABEL_DRIFT",
+      "scope": "correct proof-system payment chain, invalid per-gate labelling"
+    },
+    {
+      "id": "P-DAG-ZFC-SOURCE-030-AC-POW-PROOF-GATELEDGER",
+      "kind": "controlled_app_server_source_match_regression",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "max",
+      "source_sha256": "8f02e7ec0a2396972a1693572bc046d9906cc430b67b45a072eb1ffbd1e2e126",
+      "prompt_sha256": "fdc7e86008f761510adb4131e8c31a92243befd0b93601d178b05e2c6ccf2dd5",
+      "wire_sha256": "5613cac4a190705f12e98abc684e6c8fa5a65e20387fc037d39d784a2f7c4652",
+      "status": "GATE_LEDGER_REGRESSION_PASS_WITH_SCOPE",
+      "scope": "proof-system layer only; SOURCE_PACKET_DIRECT_PAYMENT; not ZFC_Q_LOCATED"
+    },
+    {
+      "id": "P-DAG-H029-H030-DOCUMENT-VALIDATION",
+      "kind": "project_structure_and_trajectory_validation",
+      "status": "PASS_WITH_NONBLOCKING_SHARD_NOTICES",
+      "commands": [
+        "git diff --check",
+        "python3 -B scripts/audit/verify_governance_shards.py",
+        "session_trajectory catalog/tree/coverage/search/inspect"
+      ],
+      "result": "62-KC audit count=62; governance-shard validation PASS with 14 nonblocking soft-target notices"
+    }
+  ]
+}

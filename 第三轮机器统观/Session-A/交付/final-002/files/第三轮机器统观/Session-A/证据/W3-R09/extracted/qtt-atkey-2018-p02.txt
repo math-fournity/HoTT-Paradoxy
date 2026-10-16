@@ -1,0 +1,118 @@
+LICS ’18, July 9–12, 2018, Oxford, United Kingdom Robert Atkey
+form the types S2, . . . ,Sn and T . This dual usage is illustrated in
+the judgement:
+n : Nat, x : Fin(n) ⊢ x : Fin(n) (1)
+where Nat is the type of natural numbers, and Fin(n) is the type
+of numbers less than n. The variables n and x play two different
+roles: x is used as a reference to a resource that is transferred from
+the input to the output; and n is used to define the type of x. The
+fact that n is not used in the computation being described is not
+explicitly recorded.
+Linear Logic [14] uses presence or absence in a context to explic-
+itly record used resources. A linear typing judgement,
+x1 : X1, . . . ,xn : Xn ⊢ M : Z
+indicates that the term M uses the resources named by the xi each
+precisely once.
+Linear Logic’s resource accounting via presence conflicts with
+type dependency. If a variable’s referenced resources are not used
+computationally, it must not appear in the context and so is not
+available for use in type formation. Judgement 1 is thus not linear:
+both because n is not used in the term, and because it is used twice
+in types.
+To resolve this conflict, several authors have used formulations of
+Linear Logic that distinguish between unrestricted (“intuitionistic”)
+variables and restricted (“linear”) variables. For simple types, this
+originates in Barber’ work [5], where judgements have two contexts
+separated by a vertical bar:
+x1 : S1, . . . ,xm : Sm |y1 : X1, . . . ,yn : Xn ⊢ M : Y
+The variables xi may be used without restriction, zero, one, or
+many times. The variables yi must be used exactly once. Thus,
+the judgement tracks information about the two different kinds of
+usage. Cervesato and Pfenning [9], and later Krishnaswami et al.
+[18] and Vákár [35] adapted this to dependent types. Exploiting
+the fact that variables in the unrestricted context act as they do
+in normal Type Theory, there is no problem in allowing types to
+depend on the variables xi . If we wish to treat elements of Fin(n)
+as non-duplicable resources, Judgement 1 can be reformulated as:
+n : Nat | x : Fin(n) ⊢ x : Fin(n)
+The variables in the unrestricted context now inherit the ambigu-
+ous status of variables from standard Type Theory. They can be
+used purely contemplatively in types and they can be used for com-
+putation. The difference is not recorded in the typing judgement. A
+further restriction is that types cannot depend on linear variables.
+There is no way that we can contemplate the extensional content
+of a linear resource for the purposes of typing, for example:
+n : Nat | x : Fin(n) ⊢ (x, refl(x )) : (y : Fin(n)) × (x ≡y)
+where we are trying to state that the value we return has the same
+extensional content as the input by pairing the computational rep-
+resentation of the value with proof of equality.
+Systems that rely on split contexts still adhere to Linear Logic’s
+discipline of using presence or absence in a context to track how a
+variable is used. This restricts what kinds of “use” we can express:
+either a variable is used or it is not. To lift this latter restriction,
+systems that annotate variables of the context with information
+about how they are used have been proposed by Brunel et al. [8],
+Ghica and Smith [13], and Petricek et al. [29] (the general idea of
+marking variable bindings rather than their types was originally
+called “discharged assumptions” by Terui [33]). In all these systems,
+information about how variables are used is recorded using a semir-
+ing. Semirings are a natural structure to use: addition is used to
+sum up multiple uses of a variable, and multiplication is used to
+account for nested use. In the notation we will use in this paper, a
+judgement in these systems looks like:
+x1
+ρ1
+: S1, . . . ,xn
+ρn
+: Sn ⊢ M : T (2)
+where theρ1, . . . ,ρn are elements of the semiring indicating how
+the corresponding variable is used. In these systems, the zero of
+the semiring is used to indicate that a variable is not used at all:
+x 0: S is a complicated way of stating that x may as well be absent.
+However, when we move to dependent types, 0 usage variables
+have a useful meaning. McBride [25] reads the usage annotations
+ρi as indications of computational usage, so a variable with usage
+0 indicates that it has no “run-time” presence, but may still be used
+in the formation of types. The properties of semirings means that 0
+usage is ideal for tracking use in types: we always have 0 +ρ=ρ,
+so combining a computational use with a use in a type retains the
+original usage; and 0ρ= 0, so nesting an apparently computational
+use within a type treats the whole usage as noncomputational. Thus
+McBride’s system incorporates both erasure (see also Miquel [26]
+and Mishra-Linger and Sheard [27]) with linearity.
+Term typing judgements now have the form:
+x1
+ρ1
+: S1, . . . ,xn
+ρn
+: Sn ⊢ M σ: T (3)
+where the difference from Judgement 2 is that the output is anno-
+tated with a usageσ, whereσis restricted to either be the0 or the 1
+of the semiring. This annotation means that we can construct terms
+that are only to be used in the formation of types. McBride allowed
+arbitrary usagesρon the final colon. However, this yields a system
+that does not admit substitution as we show in Section 2.3.
+We now introduce our formulation of McBride’s system, extend-
+ing it with a data type of booleans, and dependent tensor product
+types. McBride presented a bidirectional system suited for imple-
+mentation, and did not distinguish between proper types and terms
+representing types. We are interested in a semantical investigation
+of the theory and so switch to a system with an explicit separa-
+tion of types and representations of types, and with a “declarative”
+presentation of the rules.
+2.1.1 Semirings for Usage Accounting
+A semiring R is a structure consisting of a carrier set R, binary
+operations (+) : R × R → R, (·) : R × R → R and constants 1, 0 ∈ R,
+such that (R, +, 0) is a commutative monoid, (R, ·, 1) is a monoid,
+(+) and (·) distribute, and 0ρ= ρ0 = 0, for all ρ∈ R. We also
+require that the semiring R is positive, meaning that ρ+π= 0
+impliesρ= 0 andπ= 0, and has the zero-product property:ρπ= 0
+impliesρ= 0 orπ= 0. These latter two properties are required for
+the admissibility of substitution.
+Suitable semirings include the zero-one-many semiring {0, 1,ω},
+whereρ+ω=ωandω·ω=ω; the natural numbers with addition
+and multiplication; and the boolean semiring {0, 1}, which we can
+read as “erased” and “present”.
+2.1.2 Presyntax
+Quantitative Type Theory (QTT) is defined over the syntactic cate-
+gories of usages,ρ,π, precontexts Γ, pretypes S,T , R, and preterms

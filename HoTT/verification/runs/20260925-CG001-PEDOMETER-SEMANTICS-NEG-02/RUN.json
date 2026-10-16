@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CG001-C-56"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "HoTT/formal/claude-cg001/pedometer-semantics/WrongReverseFixesGo.agda"
+  ],
+  "completed_at_utc": "2026-09-25T15:38:51.194646+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 31.758879,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "shows only that reverse moves go; the equivalence and its effect on the counter are C-56"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PEDOMETER-SEMANTICS-NEG-002",
+  "run_id": "20260925-CG001-PEDOMETER-SEMANTICS-NEG-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-56 (expected KERNEL_REJECTED): the claim by refl that the town-fixing symmetry reverse also fixes the road go (cong reverse go = go) must be rejected; it sends go to sym back.",
+  "source_manifest": {
+    "bytes": 2925,
+    "path": "source-manifest.json",
+    "sha256": "4d1fe976ab350a3285eb00d1c436bf90ea69515cf98b7dd5c625788e1c520401"
+  },
+  "started_at_utc": "2026-09-25T15:38:19.435767+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 17013,
+    "path": "stdout.txt",
+    "sha256": "8c976a94c0b1a921564e268c0b23706113fcd9035ee3af939c08c9d3cd76cfac"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

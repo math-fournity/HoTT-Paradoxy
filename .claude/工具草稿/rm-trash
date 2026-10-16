@@ -1,0 +1,59 @@
+#!/bin/zsh
+# rm-trash：alias rm 的目标。删除交给废纸篓（/usr/bin/trash），接受 rm 的常用参数。
+#
+# 行为：
+#   -r -R -d   忽略：trash 本来就整棵移动目录，不需要递归开关
+#   -f         忽略不存在的路径，不报错
+#   -v         成功后打印 removed '路径'
+#   --         之后的参数一律当作路径（以 - 开头的文件名也能处理）
+#   其他选项   报错，且不移动任何东西（拼错的选项不会被静默忽略）
+#   拒绝移动   . .. / $HOME /Users /Volumes（误写的根路径不会整棵搬走）
+#
+# 安装（草稿，尚未安装）：
+#   cp 本文件 ~/bin/rm-trash && chmod +x ~/bin/rm-trash
+#   把 ~/.zshrc 中的 alias rm='trash' 改为 alias rm='/Users/aurolafly/bin/rm-trash'
+
+force=0 verbose=0 end_opts=0 rc=0
+paths=()
+(( $# )) || { print -u2 "rm: missing operand"; exit 1 }
+for a in "$@"; do
+  if (( ! end_opts )) && [[ $a == -- ]]; then
+    end_opts=1
+  elif (( ! end_opts )) && [[ $a == -?* ]]; then
+    flags=${a#-}
+    for (( k = 1; k <= ${#flags}; k++ )); do
+      c=${flags[k]}
+      case $c in
+        [rRd]) ;;
+        f) force=1 ;;
+        v) verbose=1 ;;
+        *) print -u2 "rm: illegal option -- $c"; exit 1 ;;
+      esac
+    done
+  else
+    paths+=("$a")
+  fi
+done
+(( $#paths )) || { print -u2 "rm: missing operand"; exit 1 }
+for p in "${paths[@]}"; do
+  orig=$p
+  case $p in
+    .|..|*/.|*/..) print -u2 "rm: \"$p\" may not be removed"; rc=1; continue ;;
+  esac
+  norm=${p:a}
+  norm=${norm%/}
+  case $norm in
+    ''|/|$HOME|/Users|/Volumes) print -u2 "rm: refusing to remove \"$p\""; rc=1; continue ;;
+  esac
+  if [[ ! -e $p && ! -L $p ]]; then
+    (( force )) || { print -u2 "rm: $p: No such file or directory"; rc=1 }
+    continue
+  fi
+  [[ $p == -* ]] && p=./$p
+  if /usr/bin/trash "$p"; then
+    (( verbose )) && print -- "removed '$orig'"
+  else
+    rc=1
+  fi
+done
+exit $rc

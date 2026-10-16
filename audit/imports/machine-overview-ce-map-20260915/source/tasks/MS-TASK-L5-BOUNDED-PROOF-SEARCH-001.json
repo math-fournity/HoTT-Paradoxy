@@ -1,0 +1,22 @@
+{
+  "schema_version": "machine-overview-task/v1",
+  "task_id": "MS-TASK-L5-BOUNDED-PROOF-SEARCH-001",
+  "revision": 1,
+  "research_relation": "l5_capability_separation_positive_control",
+  "purpose": "Run one explicitly fuel-bounded proof search and package its successful result with a checked derivation, while preserving that this is not an unbounded theoremhood decision.",
+  "source_basis": {"kind": "fixed local bounded-search model", "references": ["machine-overview/formal/L5ConsumerSupport.agda", "核心认知.md KC-000012 KC-000028"]},
+  "answer_visibility": {"class": "POST_FREEZE_SAME_DESIGNER_NOT_BLIND", "engine_freeze": "machine-overview/evaluations/L5-CONSUMER-QUALIFICATION-001/ADAPTER-FREEZE.json", "engine_freeze_sha256": "00b7fdb2bfa6da513acf40652a5ef048cc0d99e7b9bb6df0b5b5132b25731664", "calibration_answer_available_to_search": false, "limitation": "One-fuel positive control only."},
+  "input": {"type_ref": "searchK (suc zero) for the fixed K-formula", "available_information": "one unit of fuel and the finite candidate space"},
+  "environment": {"reality_model": "finite search budget", "theory_model": "search success is paired with a derivation", "arrival_policy": "stop after declared fuel", "nondeterminism": "none", "fairness": "not applicable"},
+  "observation": {"value": "search success plus a proof of the target formula", "trace": "execute at one fuel, validate found result, package both", "time_structure": {"reality": "one bounded search step", "theory": "fuel is an explicit input", "temporal_order": "search runs before its result is checked"}},
+  "completion": {"kind": "bounded_search_found_checked_proof", "criterion_ref": "searchK 1 = true and ObjectSyntax.⊢ kFormula"},
+  "quantifiers": {"instances": "one fixed formula and one fixed fuel", "realization": "native Agda record target"},
+  "allowed_resources": "one fuel and the fixed candidate",
+  "prohibited_extra_information": "no unbounded completeness, theoremhood decision or all-truth claim",
+  "assumptions": ["the finite search space contains the K candidate"],
+  "obligations": ["the result must contain both execution and sound derivation", "zero fuel must be rejected as success", "removing execute_search removes the goal"],
+  "known_positive_controls": [{"id": "ONE-FUEL", "description": "one fuel reports success and decodes to the K derivation", "source": "machine-overview/formal/L5ConsumerSupport.agda"}],
+  "known_negative_controls": [{"id": "ZERO-FUEL", "description": "zero fuel cannot report success", "expected": "NATIVE_TYPE_REJECTION"}],
+  "claim_refs": [],
+  "correspondence": {"original_activity": "find a proof within one declared search step", "theoryization_steps": ["fix a finite search budget", "run the search", "check the found derivation"], "preserved_fields": ["formula", "fuel", "found derivation"], "changed_fields": ["unbounded proof search is deliberately outside the task"], "observation_justification": "fuel and result pair are declared before search", "declared_observation_kinds": ["bounded_proof_search_capability"], "consumer_requirements": {"bounded_proof_search_capability": {"required_rules": ["execute_search", "validate_found_result", "package_search_result"]}}, "preservation_label": "BOUNDED_SEARCH_TASK_EXACTLY_PRESERVED", "correspondence_status": "BOUNDED_PROOF_SEARCH_POSITIVE_CONTROL", "reality_correspondence": "TASK_MODEL_EXACT_WITH_FUEL", "reality_bridge_status": "BOUNDED_ONLY", "reality_bridge_detail": "The explicit fuel blocks any inference to unbounded proof search.", "open_obligations": ["unbounded theoremhood remains outside scope"]}
+}

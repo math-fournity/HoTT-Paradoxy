@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-311",
+    "C-312"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-native-motion-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/NativeMotionBridge.agda"
+  ],
+  "completed_at_utc": "2026-09-20T21:48:21.367700+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 241.719743,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "3555bc89824be178b3d939d7c2e3f2d990c354b46602c36a83ca73947f5e040f"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "Intermediate-slice embeddings, closed-parameter extension for the full time family, its endpoint/fiber classification, and a uniform spatial bound are not yet proved here.",
+    "No formal cross-kernel translation of Lean, no physical execution/speed/length claim, and no preservation of the stronger AmbientStep task.",
+    "No unconditional coverage of the original weak puncture: the final graph is the original strong-puncture parametrization. Inherited native-library postulates remain explicit; no global consistency or completed four-stage claim."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-NATIVE-MOTION-001",
+  "run_id": "20260920-MP-ASTRA-NATIVE-MOTION-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For the existing Dedekind Real, plane product metric and original open interval, define the rational stretch-bend-turn time family and its fixed second-coordinate reflection. All open-parameter denominator witnesses are constructed; joint pointwise continuity holds on Real times Interval and on closed time [0,1] times Interval. Initial and final maps agree pointwise with the pre-existing nCompletion and mCompletion interior diagrams. Reflection is involutive, fixes the initial line, and precisely relates the raw final orientation.",
+  "source_manifest": {
+    "bytes": 16775,
+    "path": "source-manifest.json",
+    "sha256": "bb7109e16e40ef9978507914aa18e5870a9580db06b254b4d00211625f9f3043"
+  },
+  "started_at_utc": "2026-09-20T21:44:19.647957+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 211468,
+    "path": "stdout.txt",
+    "sha256": "a4354bbf50847fca1daa3a5b2d5f727cbd7377df52d1d04dbaa850512b9d2bfd"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

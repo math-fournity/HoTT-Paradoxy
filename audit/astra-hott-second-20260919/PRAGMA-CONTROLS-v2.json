@@ -1,0 +1,72 @@
+{
+  "verifier_source_sha256": "559ddb60652ec2dae907cfe5a2a4b1433eddcb3fa5ee30c6d21767aefc79d1f7",
+  "scope": "Three synthetic option controls. No global parser completeness claim.",
+  "results": [
+    {
+      "case": "SafePositive",
+      "kernel_exit": 0,
+      "verification": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "SYNTHETIC-SafePositive",
+        "proof_id": "SYNTHETIC-OPTION-TEST",
+        "claim_ids": [
+          "SYNTHETIC-CONTROL"
+        ],
+        "source_paths": [
+          "SafePositive.agda"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "git_status": null,
+        "scope": "Synthetic option test, no theorem claim",
+        "non_goals": null
+      },
+      "effective_safe_expected": true,
+      "fixture": "audit/astra-hott-second-20260919/synthetic-verifier-controls-v2/SafePositive"
+    },
+    {
+      "case": "UnsafeNegative",
+      "kernel_exit": 0,
+      "verification": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_PRAGMA_REQUIRED:UnsafeNegative.agda"
+      },
+      "effective_safe_expected": false,
+      "fixture": "audit/astra-hott-second-20260919/synthetic-verifier-controls-v2/UnsafeNegative"
+    },
+    {
+      "case": "CommentPragma",
+      "kernel_exit": 0,
+      "verification": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "SYNTHETIC-CommentPragma",
+        "proof_id": "SYNTHETIC-OPTION-TEST",
+        "claim_ids": [
+          "SYNTHETIC-CONTROL"
+        ],
+        "source_paths": [
+          "CommentPragma.agda"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "git_status": null,
+        "scope": "Synthetic option test, no theorem claim",
+        "non_goals": null
+      },
+      "effective_safe_expected": false,
+      "fixture": "audit/astra-hott-second-20260919/synthetic-verifier-controls-v2/CommentPragma",
+      "forced_safe_exit": 42,
+      "forced_safe_diagnostic": "Checking CommentPragma (/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-hott-second-20260919/synthetic-verifier-controls-v2/CommentPragma/CommentPragma.agda).\n/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-hott-second-20260919/synthetic-verifier-controls-v2/CommentPragma/CommentPragma.agda:6.11-24: error: [SafeFlagPostulate]\nCannot postulate witness with safe flag\nwhen scope checking the declaration\n  witness : Set\n"
+    }
+  ]
+}

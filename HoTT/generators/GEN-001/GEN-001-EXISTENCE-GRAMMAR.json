@@ -1,0 +1,107 @@
+{
+ "schema_version": "machine-overview-grammar/v1",
+ "grammar_id": "L1-EXISTENCE-v1",
+ "family": "TASK-FAMILY-EXISTENCE-VERSUS-AVAILABILITY",
+ "premise_ref": "PREMISE-D-04 / PREMISE-G-05 (PREMISE-001/006, AI-adjudicated pending external audit; the lowest-confidence pair of the batch, explicitly flagged as the two entries most likely to be overturned to 'realistic' by external audit; registered as SUPPLY-005 / SUPPLY-009 in PREMISE-001/007)",
+ "value_type": "Bool (Cubical.Data.Bool.Base)",
+ "include_omega": true,
+ "delay_index_max": 2,
+ "race_partner_index_max": 2,
+ "context_depth_max": 2,
+ "deadline_horizons": [
+  0,
+  1,
+  2
+ ],
+ "negative_control_policy": "choose the least declared horizon at or above both finite input indices; if none exists, report CONTROL_NOT_AVAILABLE_IN_GRAMMAR",
+ "reduction_guard": {
+  "never_drop_kinds": [
+   "bind"
+  ],
+  "never_drop_continuation_ids": [
+   "existence_verdict_exists_but_never_available"
+  ],
+  "reason": "The bind is the declared existence-versus-availability verdict consumer and existence_verdict_exists_but_never_available is its in-boundary branch; reduction must keep the task-declared verdict-consumer shape. Every parameter change is rechecked for grammar membership and separation."
+ },
+ "bind_continuations": [
+  {
+   "id": "existence_verdict_exists_but_never_available",
+   "map": {
+    "true": {
+     "kind": "omega"
+    },
+    "false": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   }
+  },
+  {
+   "id": "existence_verdict_supply_without_object",
+   "map": {
+    "true": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "false": {
+     "kind": "omega"
+    }
+   }
+  },
+  {
+   "id": "existence_verdict_avail_opposite_at_frontier",
+   "map": {
+    "true": {
+     "kind": "ret",
+     "n": 2,
+     "value": true
+    },
+    "false": {
+     "kind": "ret",
+     "n": 2,
+     "value": false
+    }
+   }
+  },
+  {
+   "id": "deliver_business",
+   "map": {
+    "true": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "false": {
+     "kind": "omega"
+    }
+   }
+  },
+  {
+   "id": "const_omega",
+   "map": {
+    "true": {
+     "kind": "omega"
+    },
+    "false": {
+     "kind": "omega"
+    }
+   }
+  }
+ ],
+ "calibration_benchmark": null,
+ "out_of_envelope_declaration": {
+  "new_declared_constructs": [
+   "existence_verdict_exists_but_never_available",
+   "existence_verdict_supply_without_object",
+   "existence_verdict_avail_opposite_at_frontier"
+  ],
+  "proof_method": "within_grammar_witness of any witness binding these continuations against l1-v0/v1/v2 and the four GEN-001 delay families returns false with reason BIND_CONTINUATION: every input atom of this grammar lies within the old declared index bound (delay_index_max 2), every race partner within race_partner_index_max 2 and every deadline horizon within {0,1,2}, so the new continuation map is the only failing dimension",
+  "shared_constructs_kept_for_calibration_continuity": [
+   "deliver_business",
+   "const_omega"
+  ]
+ },
+ "declared_bounds_note": "Complete enumeration of the finite constructor product: atoms = 1 + 2*(delay_index_max+1) = 7; contexts = non-empty well-typed op sequences up to context_depth_max with a deadline only as the final op; denominator is finite and closed. Bounds are deliberately aligned with the existing L1 index horizons (delay_index_max 2, partner 2, horizons {0,1,2}) so that an out-of-envelope witness fails the old grammars on exactly one dimension (BIND_CONTINUATION). EXISTENCE shape note: the three verdict continuations express the premise pair's shared omission shape (existence is treated as a constructively callable resource, so 'exists' is read as 'in place'; the supply process that would carry existence to availability is the omitted condition) in three genuinely distinct map shapes: divergence on the exists branch (exists_but_never_available: the existence verdict is granted but the supply process never delivers an observable availability, while the non-existence branch settles to a late negative verdict), divergence on the not-exists branch (supply_without_object: the availability verdict is always reachable as a late negative, but when the existence premise is not granted the supply process has no object to deliver and never completes), and same-delay/opposite-value at the availability frontier (avail_opposite_at_frontier: the theory renders opposite verdicts at one shared accumulated availability limit where the reality task has a single answer). Structural consequence derived from the engine semantics, not assumed: because bind adds its own round on top of the continuation index, the frontier continuation (inner index 2 on both branches) reaches accumulated index at least 3 after a bind and therefore cannot be separated by a deadline inside horizons {0,1,2}; only the two inner-index-1 continuations admit a bind-then-deadline separation. The pair members of every separating witness are delay-equivalent (the theory's identity criterion judges them the same), and separation must come from a race or deadline, never from the continuation alone, because bind always preserves delay equivalence."
+}

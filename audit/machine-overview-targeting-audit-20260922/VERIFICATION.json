@@ -1,0 +1,48 @@
+{
+  "schema_version": "agent-recorded-validation-summary/v1",
+  "evidence_boundary": "Summary of commands actually executed this turn; canonical checkpoint result is linked separately. This is not a new kernel run or a model-understanding certificate.",
+  "state_revision": 259,
+  "core_verification": {
+    "command": "python3 -B scripts/audit/verify_core_cognition.py --curation scripts/audit/core-cognition-curation-v8.json --transition audit/core-cognition-generation-8-transition-20260922.json",
+    "exit_code": 0,
+    "status": "PASS_WITH_SCOPE",
+    "core_units": 48,
+    "previous_mapping_count": 46,
+    "mapping_remainder": 0
+  },
+  "three_way_verification": {
+    "command": "python3 -B scripts/audit/verify_three_way_cognition.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "directions": 36,
+    "outcomes": 184
+  },
+  "shard_verification": {
+    "command": "python3 -B scripts/audit/verify_governance_shards.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "indexes_including_checkpoint_copies": 1359,
+    "canonical_indexes": 83,
+    "nonblocking_line_notices": 5,
+    "reader_banner_issues": []
+  },
+  "essay_quote_reconciliation": {
+    "method": "parse core payloads with canonical builder; remove Markdown quote prefix within each original marker; compare exact strings",
+    "distinct_core_quotes": 48,
+    "missing": [],
+    "mismatch": []
+  },
+  "plan": {"profile": "governance", "review_required": [], "query_first_promoted": [], "tracked_hash_mismatch": []},
+  "checkpoint": {
+    "path": ".codex/cognition/checkpoints/S-AUD-20260922-ASTRA-MACHINE-OVERVIEW-TARGETING/result.json",
+    "status": "CHECKPOINT_COMMITTED",
+    "completed_at_utc": "2026-09-23T03:41:28.592130+00:00"
+  },
+  "known_evidence_gaps": [
+    "Three historical I probe command.json bytes differ from their RUN artifact hashes; argv agrees and stdout/stderr/environment hashes match. See EVIDENCE.json.",
+    "External registry is dirty relative to its HEAD and has been preserved as an exact source sample.",
+    "Nested session-audit shard writer remains unimplemented; checkpoint uses the complete 48-KC legacy single-file bundle."
+  ],
+  "new_math_claims": [],
+  "new_kernel_runs": []
+}

@@ -1,0 +1,326 @@
+{
+  "proof_kind": "mechanical_membership_check",
+  "claim": "Each kernel-verified witness is outside every one of the 15 pre-existing declared grammars: False with BIND_CONTINUATION against l1-v0/v1/v2, and BACKEND_MISMATCH against the 12 symbolic-horn grammars which cannot express delay-fragment witnesses at all.",
+  "method": "machine_overview.search.within_grammar_witness(witness ops, pair) evaluated against each existing L1 grammar; backend classification for symbolic-horn grammars.",
+  "existing_grammar_count": 15,
+  "rows": [
+    {
+      "verify_run": "20260916-VERIFY-GEN001-WITNESS-RECOVERY-040",
+      "witness_id": "WV-0040",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 2,
+          "kind": "deadline"
+        }
+      ],
+      "observation_mode": "deadline",
+      "separation_kind": "deadline_observation",
+      "uses_new_declared_continuation": true,
+      "new_continuation_ids_bound": [
+        "downstream_guard"
+      ],
+      "membership_against_existing_grammars": {
+        "l1-v0.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l1-v1.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l1-v2.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l2-truncated-limit-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-event-boundary-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-finite-to-exact-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-path-positive-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-symbolic-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l4-sip-observation-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-bounded-proof-search-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-finite-truth-decision-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-given-proof-check-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-lob-self-certification-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-self-guarantee-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l6-compensation-coherence-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        }
+      }
+    },
+    {
+      "verify_run": "20260916-VERIFY-GEN001-WITNESS-RECOVERY-041B",
+      "witness_id": "WV-0041",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "observation_mode": "delay",
+      "separation_kind": "value_mismatch",
+      "uses_new_declared_continuation": true,
+      "new_continuation_ids_bound": [
+        "downstream_guard"
+      ],
+      "membership_against_existing_grammars": {
+        "l1-v0.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l1-v1.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l1-v2.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l2-truncated-limit-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-event-boundary-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-finite-to-exact-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-path-positive-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-symbolic-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l4-sip-observation-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-bounded-proof-search-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-finite-truth-decision-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-given-proof-check-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-lob-self-certification-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-self-guarantee-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l6-compensation-coherence-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        }
+      }
+    },
+    {
+      "verify_run": "20260916-VERIFY-GEN001-WITNESS-RECOVERY-049",
+      "witness_id": "WV-0049",
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 1,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 3,
+            "value": false
+          }
+        }
+      ],
+      "observation_mode": "delay",
+      "separation_kind": "value_mismatch",
+      "uses_new_declared_continuation": true,
+      "new_continuation_ids_bound": [
+        "downstream_guard"
+      ],
+      "membership_against_existing_grammars": {
+        "l1-v0.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l1-v1.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l1-v2.json": {
+          "within": false,
+          "reason": "BIND_CONTINUATION"
+        },
+        "l2-truncated-limit-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-event-boundary-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-finite-to-exact-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-path-positive-m4-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l3-symbolic-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l4-sip-observation-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-bounded-proof-search-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-finite-truth-decision-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-given-proof-check-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-lob-self-certification-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l5-self-guarantee-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        },
+        "l6-compensation-coherence-m3-v1.json": {
+          "within": false,
+          "reason": "BACKEND_MISMATCH: grammar enumerates symbolic proof trees, cannot produce a delay-fragment race/bind/deadline witness at all"
+        }
+      }
+    }
+  ],
+  "verdict": "OUT_OF_ENVELOPE_MECHANICALLY_PROVEN"
+}

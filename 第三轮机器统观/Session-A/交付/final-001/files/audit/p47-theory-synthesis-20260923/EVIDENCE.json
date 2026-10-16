@@ -1,0 +1,974 @@
+{
+  "schema_version": "bounded-theory-synthesis/v1",
+  "baseline": "fbe12679bf7a4e144d1b94f3a3de774d60047816",
+  "waves": [
+    {
+      "wave": 40,
+      "commit": "df5fbcd7f341a6f89291a86d7c2d653bdd36ec7e",
+      "evidence": "audit/p40-theory-inspection-20260923/EVIDENCE.json",
+      "evidence_sha256": "e90357e60aaf8aa26ebae116b1917d5d28e5463d415f0bfef45346bab03b60db",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T04:18:20.337517+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P40-THEORY-FOUNDATIONS/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P40-THEORY-FOUNDATIONS/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P40-THEORY-FOUNDATIONS/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 261,
+        "session_id": "S-RES-20260923-ASTRA-P40-THEORY-FOUNDATIONS",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/CORE_RULES.md",
+          "expected_sha256": "abda06089759fca5f0e4f48c4fd4a40054827cf7d210ac2a9b5c662ad1da695b",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/DERIVED_STRUCTURES.md",
+          "expected_sha256": "858659b25e161c3e4d225e5136e9b19f1c78ee90eabf4c0c743f0e1dc9355302",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": false
+        },
+        {
+          "path": "HoTT/theory-schema/SEMANTICS_AND_COHERENCE.md",
+          "expected_sha256": "bbfe8c452d0ce1cc44fd0f898a86b51f305ad0cfcbf44be04ce0d27d6cb68c98",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/EXTENSIONS_AND_METATHEORY.md",
+          "expected_sha256": "67493b934681e88ce425b58f20085576906d0f9ead2f7fd68366326275b91716",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "audit/PREMISE-001-V1信封外遗漏审计-20260916.md",
+          "expected_sha256": "fa32bb083930c9c5710872e7cd05f16e20fdfbd4e71c326ebb38d0f420333bbe",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+          "expected_sha256": "5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/README.md",
+          "expected_sha256": "79d6220e154e2774e6682eefb923bd8a26d7f7e6ded3dd49b0d3a87f44c5e81b",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/basics.tex",
+          "expected_sha256": "516b469d7356e9d20df5539e726a0468760f9fa7b7f440b9c054981e803d7533",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/categories.tex",
+          "expected_sha256": "141332f0b27d5ab055419e02bada9664561758d129ebe4d52e43bb8e290b275f",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/equivalences.tex",
+          "expected_sha256": "037dce18db74526a3f7148c353bb5459da1c4b65e046780a208de39633df1722",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/formal.tex",
+          "expected_sha256": "e621484e2e457e70536a92367cca452f34df8ecfc9a17a3bdf0e4ee67e5f0cec",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/front.tex",
+          "expected_sha256": "784de150ef5e64967618c712fe81f40ac41f6fa0b68f5a02b76ce23a5306b4c4",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/hits.tex",
+          "expected_sha256": "d43dac381da7f978fb1d2ff6c2c2d3cca7f9b0dab90c96cd20815c13e7ab8454",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/hlevels.tex",
+          "expected_sha256": "cfa75d289487f91affc4f5a9907857135c8a307b59dbc1cb9e3e9f41399618cc",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/homotopy.tex",
+          "expected_sha256": "c3b15506e3237564e9f76376668bac1e2d57e80db680f924d11edd10e0af4a32",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/induction.tex",
+          "expected_sha256": "475792764d6f41ea2269a4f7ced701bb54220bb404a29af0160f3141eb5316c1",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/introduction.tex",
+          "expected_sha256": "a1319432c822d71ee54cd8edd644d3bce1c8d816bd9f2ff6111b8d3db8e28ac4",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/logic.tex",
+          "expected_sha256": "76ac2e06ffa133ede0612584fef4b9c81d698d4e0b7a4ec683131448edfed2f2",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/macros.tex",
+          "expected_sha256": "822b658eb6e2f74e9c8557c607de08b151ff3b8174fc3dc8fdba3a9a21d23fe3",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/main.labelnumbers.first-edition",
+          "expected_sha256": "16ff1b8c75b4864467b41c18be1db9d54005012f7d7b77177ba8eda4f3b0b476",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/main.tex",
+          "expected_sha256": "d7040138bd803cefb4c714b5b83dcc1599e589b19f0c188b479c902a2f638dc2",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/preface.tex",
+          "expected_sha256": "6dd80d576634b081b32f7c89e302eae9222170d997d4d8bbf9701ae73f05890c",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/preliminaries.tex",
+          "expected_sha256": "c459282fc0b789cd6f11a4a7bf401fcb1074c12c417b63fccdeee25927ed99d9",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/reals.tex",
+          "expected_sha256": "f5e4803e17abdb2fbb75a6ebd30022a9587a914711f3ca77dc8fcce50fda39e7",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/references.bib",
+          "expected_sha256": "40068943869f35b6627894f3183f3e0be071abf7b54ad4e88b7b4d5904f5f9a0",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/setmath.tex",
+          "expected_sha256": "c9684dffba31892b12839e60eac769706faa2301b7fba7b930f5acf4b097563e",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/symbols.tex",
+          "expected_sha256": "17d0ca29a5a42f2d658afb432b97b019e09e6f324d83cfff725c7936db3da70c",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    },
+    {
+      "wave": 41,
+      "commit": "e8d5b917883ee41daec002c6aef01213ebf877bf",
+      "evidence": "audit/p41-theory-identity-20260923/EVIDENCE.json",
+      "evidence_sha256": "3b5fcc399368e4a2864654a5a0a1f0e7a208f93052685e010e4b0ba6373826d9",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T04:30:44.677827+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P41-THEORY-IDENTITY/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P41-THEORY-IDENTITY/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P41-THEORY-IDENTITY/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 262,
+        "session_id": "S-RES-20260923-ASTRA-P41-THEORY-IDENTITY",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/logic.tex",
+          "expected_sha256": "76ac2e06ffa133ede0612584fef4b9c81d698d4e0b7a4ec683131448edfed2f2",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/formal.tex",
+          "expected_sha256": "e621484e2e457e70536a92367cca452f34df8ecfc9a17a3bdf0e4ee67e5f0cec",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/basics.tex",
+          "expected_sha256": "516b469d7356e9d20df5539e726a0468760f9fa7b7f440b9c054981e803d7533",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/equivalences.tex",
+          "expected_sha256": "037dce18db74526a3f7148c353bb5459da1c4b65e046780a208de39633df1722",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/categories.tex",
+          "expected_sha256": "141332f0b27d5ab055419e02bada9664561758d129ebe4d52e43bb8e290b275f",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/CORE_RULES.md",
+          "expected_sha256": "abda06089759fca5f0e4f48c4fd4a40054827cf7d210ac2a9b5c662ad1da695b",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+          "expected_sha256": "517265f41a8949a3372bd08fa5aa4471d65eb1ed10759cb75603162d05b71e93",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/two-level-fibrant-replacement-uip/TwoLevelReplacementUIP.agda",
+          "expected_sha256": "8afe5a04f5a644cd23a4de0b002074518b1ad9490682b62c4f516f4a977778b3",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+          "expected_sha256": "5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md",
+          "expected_sha256": "3764c13307e84636abe47bfa77ef0967bbbd1766bf6842a72cb7db052e68a71f",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md",
+          "expected_sha256": "fd3c990f6c10d780533090e53880e637cf78b50908665b7607cf4a04be83bbbd",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+          "expected_sha256": "f4bb3b2ee83287cb90f82a3553ae35e291c96fa4a3a97ff46aae3becbd0ce48c",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+          "expected_sha256": "751921bc7c2841124733bff54267bf8ba39418986ca9e86ef041000a0f2f112d",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+          "expected_sha256": "5e15f4933e0cf1c405b9bee48da9ecc7a40e8ab67b6501ed1fb193fffc2be184",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+          "expected_sha256": "f43380906f35daa93926e2a670ac3c040afaf5129be9fc8c620c7912b36b9040",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    },
+    {
+      "wave": 42,
+      "commit": "95886878d0352492b8ed63e372208f66d97d3310",
+      "evidence": "audit/p42-induction-hit-20260923/EVIDENCE.json",
+      "evidence_sha256": "3f8b1c8989231683bb4304265beb7cfc2cb74fc5f503649cf7a62359a62824fa",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T04:48:15.597478+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P42-CONSTRUCTION/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P42-CONSTRUCTION/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P42-CONSTRUCTION/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 263,
+        "session_id": "S-RES-20260923-ASTRA-P42-CONSTRUCTION",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/formal.tex",
+          "expected_sha256": "e621484e2e457e70536a92367cca452f34df8ecfc9a17a3bdf0e4ee67e5f0cec",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/induction.tex",
+          "expected_sha256": "475792764d6f41ea2269a4f7ced701bb54220bb404a29af0160f3141eb5316c1",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/hits.tex",
+          "expected_sha256": "d43dac381da7f978fb1d2ff6c2c2d3cca7f9b0dab90c96cd20815c13e7ab8454",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/hlevels.tex",
+          "expected_sha256": "cfa75d289487f91affc4f5a9907857135c8a307b59dbc1cb9e3e9f41399618cc",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/logic.tex",
+          "expected_sha256": "76ac2e06ffa133ede0612584fef4b9c81d698d4e0b7a4ec683131448edfed2f2",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+          "expected_sha256": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+          "expected_sha256": "fd0d7f3b891911b455ba74f922a44b169b3900d34cfa2c27de06dee1c4ad8de1",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md",
+          "expected_sha256": "5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md",
+          "expected_sha256": "3764c13307e84636abe47bfa77ef0967bbbd1766bf6842a72cb7db052e68a71f",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/003 - P2 逐条登记 C-G 恒等等价与设计决策.md",
+          "expected_sha256": "fd3c990f6c10d780533090e53880e637cf78b50908665b7607cf4a04be83bbbd",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/004 - P3P4 判定表（用户填写）.md",
+          "expected_sha256": "f4bb3b2ee83287cb90f82a3553ae35e291c96fa4a3a97ff46aae3becbd0ce48c",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+          "expected_sha256": "751921bc7c2841124733bff54267bf8ba39418986ca9e86ef041000a0f2f112d",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md",
+          "expected_sha256": "5e15f4933e0cf1c405b9bee48da9ecc7a40e8ab67b6501ed1fb193fffc2be184",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/007 - SUPPLY_REGISTRATION 与任务族冻结（AI 执行）.md",
+          "expected_sha256": "f43380906f35daa93926e2a670ac3c040afaf5129be9fc8c620c7912b36b9040",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    },
+    {
+      "wave": 43,
+      "commit": "bd43d8468af68d775ea62814238cc6a266bf7f68",
+      "evidence": "audit/p43-logic-reals-20260923/EVIDENCE.json",
+      "evidence_sha256": "d6817ea87187f56f82ffd9f7b434b29e12201612aa33ffc4613dd58d4b40ed05",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T05:01:12.449323+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P43-LOGIC-REALS/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P43-LOGIC-REALS/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P43-LOGIC-REALS/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 264,
+        "session_id": "S-RES-20260923-ASTRA-P43-LOGIC-REALS",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/logic.tex",
+          "expected_sha256": "76ac2e06ffa133ede0612584fef4b9c81d698d4e0b7a4ec683131448edfed2f2",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/reals.tex",
+          "expected_sha256": "f5e4803e17abdb2fbb75a6ebd30022a9587a914711f3ca77dc8fcce50fda39e7",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/setmath.tex",
+          "expected_sha256": "c9684dffba31892b12839e60eac769706faa2301b7fba7b930f5acf4b097563e",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/DERIVED_STRUCTURES.md",
+          "expected_sha256": "15bed1b6656c6fa96f869c45e8be4567d0b28ddd3317791d26b480d5a435b2ab",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/dedekind-omega-missile/CutRealLayer.agda",
+          "expected_sha256": "63f6951aba44660dc78e2e46a925d74f874fb54e281b30cc8adc1cce0731ca05",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda",
+          "expected_sha256": "0ab6f4ecadaa08ccd108909dd7a15715e12a4f6b38f808069a0547d4846a3424",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/cauchy-modulus/CauchyModulus.agda",
+          "expected_sha256": "35fa559186b0debb49d1e9e35330239dd8590a64a125677e67ca603723101b5d",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/008 - SUPPLY-010 F2 缺口层两问与两枚导弹（Dedekind-Ω 簇）.md",
+          "expected_sha256": "32e8685eab006e6982ae73b1d1fb8ebaac6cc70f5f4e726f8f0d1a8738eb3cb4",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "audit/p17-cubical-hott-cauchy-reals-corpus-20260921/P17-CUBICAL-HOTT-CAUCHY-REALS-CORPUS-REPORT.md",
+          "expected_sha256": "e97aff6db57b92c91c0410f4bba2f5048a07065ed33ccacfb2c7aa286a3076a1",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "audit/p17-cubical-hott-cauchy-reals-corpus-20260921/P17-CUBICAL-HOTT-CAUCHY-REALS-SOURCE-FREEZE.json",
+          "expected_sha256": "4f7b9afb4278d4f73daf4a1f07c256b3a4ad409991c91839d60838208f2979f2",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告/001 - 原四弹逐项对账.md",
+          "expected_sha256": "5df75159edd95473e2a132d4084eb94b644cbc895c2a83c92f3de7ac1751daf6",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    },
+    {
+      "wave": 44,
+      "commit": "29fc16c6cc87db24436ba8a968e6a6b7b7e82b5d",
+      "evidence": "audit/p44-derived-theory-20260923/EVIDENCE.json",
+      "evidence_sha256": "16e3c84f0d6cc9997bdd6e5c8db16e195ee6b9d60fdd4e6e2a0c1bda9f0894fa",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T05:12:49.913611+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P44-DERIVED/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P44-DERIVED/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P44-DERIVED/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 265,
+        "session_id": "S-RES-20260923-ASTRA-P44-DERIVED",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/homotopy.tex",
+          "expected_sha256": "c3b15506e3237564e9f76376668bac1e2d57e80db680f924d11edd10e0af4a32",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/hlevels.tex",
+          "expected_sha256": "cfa75d289487f91affc4f5a9907857135c8a307b59dbc1cb9e3e9f41399618cc",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/categories.tex",
+          "expected_sha256": "141332f0b27d5ab055419e02bada9664561758d129ebe4d52e43bb8e290b275f",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/setmath.tex",
+          "expected_sha256": "c9684dffba31892b12839e60eac769706faa2301b7fba7b930f5acf4b097563e",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT理论充分检视/003 - P41同一性、等价与前提资格.md",
+          "expected_sha256": "3e4260b76b1a92ff44600416649e8488426066ea0b3f1e5cfc5c92de46b9d05a",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+          "expected_sha256": "517265f41a8949a3372bd08fa5aa4471d65eb1ed10759cb75603162d05b71e93",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    },
+    {
+      "wave": 45,
+      "commit": "34ad06c695de7f4239dd3e7492a4f1d5687188f9",
+      "evidence": "audit/p45-metatheory-models-20260923/EVIDENCE.json",
+      "evidence_sha256": "08a683c74cd73c70a81559a5de34e46906c3ef86b33812afdbdf0480247d67b8",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T05:24:21.501100+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P45-METATHEORY/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P45-METATHEORY/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P45-METATHEORY/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 266,
+        "session_id": "S-RES-20260923-ASTRA-P45-METATHEORY",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/upstream/book-578b85cc/formal.tex",
+          "expected_sha256": "e621484e2e457e70536a92367cca452f34df8ecfc9a17a3bdf0e4ee67e5f0cec",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/SEMANTICS_AND_COHERENCE.md",
+          "expected_sha256": "bbfe8c452d0ce1cc44fd0f898a86b51f305ad0cfcbf44be04ce0d27d6cb68c98",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/theory-schema/EXTENSIONS_AND_METATHEORY.md",
+          "expected_sha256": "67493b934681e88ce425b58f20085576906d0f9ead2f7fd68366326275b91716",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/002 - P2 逐条登记 A-B 构造子与判定.md",
+          "expected_sha256": "3764c13307e84636abe47bfa77ef0967bbbd1766bf6842a72cb7db052e68a71f",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": ".codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md",
+          "expected_sha256": "751921bc7c2841124733bff54267bf8ba39418986ca9e86ef041000a0f2f112d",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "expected_sha256": "03b90871c389139a715a9c83b1ee2e8ce8cc1e2a8c08eb49301c3fe39591333a",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    },
+    {
+      "wave": 46,
+      "commit": "fbe12679bf7a4e144d1b94f3a3de774d60047816",
+      "evidence": "audit/p46-cubical-extensions-20260923/EVIDENCE.json",
+      "evidence_sha256": "da66201e248d72fc9e8c9c993faa0ff74b2c5a907dfe6acee490695ec3aa6352",
+      "checkpoint": {
+        "completed_at_utc": "2026-09-23T05:43:35.248370+00:00",
+        "mathematics": "NOT_CERTIFIED",
+        "model_understanding": "NOT_CERTIFIED",
+        "paths": [
+          "MEMORY.md",
+          "MEMORY/001 - 当前执行队列.md",
+          "MEMORY/002 - 当前证据上限与恢复入口.md",
+          "MEMORY/003 - 当前验证状态与顺序日志.md",
+          "方向追踪.md",
+          "方向追踪/001 - 三方职责与状态语义.md",
+          "方向追踪/002 - 治理与用户方向.md",
+          "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+          "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+          "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+          "全景视野.md",
+          "全景视野/001 - 使用规则与状态语义.md",
+          "全景视野/002 - 治理、门禁与骨架结果.md",
+          "全景视野/003 - 当前机器证明包与原生重放.md",
+          "全景视野/004 - 距离综合与消费者审计.md",
+          "全景视野/005 - 证据队列抽样与证据卫生.md",
+          "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+          "全景视野/007 - 历史来源结果与关系.md",
+          "全景视野/008 - 当前未完成.md",
+          "扩展认知.md",
+          "扩展认知/001 - 问题意识与理论的简化.md",
+          "扩展认知/002 - 前提改变、结果与时间.md",
+          "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+          "扩展认知/004 - 走进 HoTT 与理论自反.md",
+          "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+          "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+          "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+          "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+          "扩展认知/009 - 从可疑前提到针对性过程.md",
+          ".codex/research/hott/FRONTIER.md",
+          ".codex/research/hott/LESSONS.md",
+          ".codex/research/hott/RESUME.md",
+          ".codex/research/hott/STATE.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P46-EXTENSIONS/SESSION.md",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P46-EXTENSIONS/RUNS.json",
+          ".codex/research/hott/sessions/S-RES-20260923-ASTRA-P46-EXTENSIONS/CORE_COGNITION_AUDIT.md",
+          ".codex/cognition/HEAD.json"
+        ],
+        "revision": 267,
+        "session_id": "S-RES-20260923-ASTRA-P46-EXTENSIONS",
+        "status": "CHECKPOINT_COMMITTED"
+      },
+      "source_checks": [
+        {
+          "path": "HoTT/theory-schema/EXTENSIONS_AND_METATHEORY.md",
+          "expected_sha256": "67493b934681e88ce425b58f20085576906d0f9ead2f7fd68366326275b91716",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+          "expected_sha256": "207735163b26d857d4ccd98512b1cb13ed8ec0c163673b045fa8e8449dc0722e",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+          "expected_sha256": "d6ac0ecb7b0824f396e94aec1cb246b04df31ef7f90320767d54a5f33b2527ea",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "audit/p33-2ltt-v5-self-metatheory-boundary-audit-20260922/P33-2LTT-V5-SELF-METATHEORY-BOUNDARY-AUDIT-REPORT.md",
+          "expected_sha256": "ccf38d3c801981721359e07b9a101d46291099842469ab8c3f3396ae502ff4ea",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        },
+        {
+          "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "expected_sha256": "03b90871c389139a715a9c83b1ee2e8ce8cc1e2a8c08eb49301c3fe39591333a",
+          "status": "PINNED_COMMIT_MATCH",
+          "current_matches": true
+        }
+      ]
+    }
+  ],
+  "source_hashes": {
+    "HoTT后续研究总体方案/006 - 理论充分检视的首轮范围与验收.md": "d551e56874f8902543018a018c609e421cb4a7ddaef18f955e6b4eb53d802b77",
+    "goal-3.md": "e83aafdc78a5bac2f111e8e65d5cace2b48d7f50bbf3dd10c35ddc16c8953f48",
+    "核心认知.md": "6a94bec28b18a05e268bf82e55add1a030b086b73773874bc34dc82f0dd014cf",
+    ".codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md": "5cd1b44fb49fc9dc6afeeddaad6e3a8b3a0430d04f752b45979a851505c9c3be",
+    "HoTT/theory-schema/upstream/book-578b85cc/reals.tex": "f5e4803e17abdb2fbb75a6ebd30022a9587a914711f3ca77dc8fcce50fda39e7",
+    "HoTT/theory-schema/upstream/book-578b85cc/hlevels.tex": "cfa75d289487f91affc4f5a9907857135c8a307b59dbc1cb9e3e9f41399618cc",
+    "HoTT/theory-schema/upstream/book-578b85cc/formal.tex": "e621484e2e457e70536a92367cca452f34df8ecfc9a17a3bdf0e4ee67e5f0cec",
+    ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/002 - HoTT构造与程序化激发算子全景.md": "620c58ed4a040a479288d86f4c3ccded72d2a60664d2e3e01858b335a6b5b250"
+  },
+  "report_hashes": {
+    "HoTT理论充分检视/001 - 范围、来源与全局覆盖.md": "21c25f30eba5c268783fffabb70c3bc7e2dbfdb58521c4c5729005291d50c622",
+    "HoTT理论充分检视/002 - P40基础判断、上下文与结构规则.md": "849bee28370a63bb85e22e240adb4ade0161bd838b9f38339d94b71da67867c7",
+    "HoTT理论充分检视/003 - P41同一性、等价与前提资格.md": "3e4260b76b1a92ff44600416649e8488426066ea0b3f1e5cfc5c92de46b9d05a",
+    "HoTT理论充分检视/004 - P42归纳、HIT、截断与构造资格.md": "ac9e67780094f2618c57dcd643c7b658772a49a1d3731a8322620cd38f28ae85",
+    "HoTT理论充分检视/005 - P43逻辑、宇宙与实数能力.md": "aff3a8e68549e8933c780d3b04ec5f830c005ddf4e1915a0ba920b5c072ead5d",
+    "HoTT理论充分检视/006 - P44派生同伦、范畴与集合.md": "648d76beedcb64f84d7f283dc9ca92e6996f5210cc30e43fffb96e8e219978ab",
+    "HoTT理论充分检视/007 - P45计算、元理论与模型保证.md": "d67cea17149f93714eef735ed483389275a59b1bcd3aa0f5b68d866f580d011b",
+    "HoTT理论充分检视/008 - P46立方规则与相关扩展的边界.md": "f080045399c301fa3f780b45db45ef833fd8f9dd5ded04f7093100cbde6af4bf",
+    "HoTT理论充分检视/009 - P47首轮范围验收与旧前提总对账.md": "561c57ccc14a1946d7cd1f5499ebe78a4658ac9d200167cf091dda882ae29ac0",
+    "HoTT理论充分检视/010 - P47候选排序、下一实验与完整反思.md": "958853226a3601388a9a29df134556385f667a8f1f5534ab9b1f69ad77dfbc37"
+  },
+  "new_read_ranges": {
+    "PREMISE001": "full P1 entries; not all P2/P3P4 historical sentences",
+    "reals.tex": [
+      [
+        2180,
+        2458
+      ]
+    ],
+    "hlevels.tex": [
+      [
+        27,
+        95
+      ]
+    ],
+    "formal.tex": [
+      [
+        620,
+        644
+      ]
+    ],
+    "reports001-010": "full"
+  },
+  "premise_qualification_count": 35,
+  "source_errors": [],
+  "external_sources": [
+    {
+      "url": "https://cs.ru.nl/~nweide/fsets/finitesets.html",
+      "read": "author project page complete; no artifact replay",
+      "status": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "url": "https://arxiv.org/abs/1801.08172v2",
+      "read": "metadata and abstract",
+      "status": "NEARBY_NOT_SAME_TASK_ABSTRACT_ONLY"
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/abs/tychonoffs-theorem-in-the-framework-of-formal-topologies/EFEF3FFCBF72DA38599C51304EEED36A",
+      "read": "publisher page; proof body unavailable",
+      "status": "LOCATOR_ONLY"
+    }
+  ],
+  "local_search": {
+    "roots": [
+      "HoTT/formal",
+      "audit",
+      "Astra继续尝试",
+      ".codex/research/hott/sessions"
+    ],
+    "pattern": "finite[-_ ]?subcover|inductive[-_ ]?cover|有限子覆盖|Heine[- _]?Borel",
+    "scope": "md/agda/lean/json; excludes PAYLOAD/PLAN/STATE JSON; before P47 report creation",
+    "hit": "L3 KEYWORD-INVENTORY deterministic.sources[0].scan.captured_hits.interval[32]: NC-01-HOTT-BOOK, PDF page420; only keyword inventory"
+  },
+  "new_math_claims": [],
+  "new_kernel_runs": [],
+  "scope_verdict": "FIRST_PASS_COMPLETE_WITH_DECLARED_SCOPE",
+  "next_experiment_status": "PROPOSED_NOT_EXECUTED",
+  "limitations": "Counts/hash/receipts do not certify semantic understanding. Scope, exclusions, seven criteria and ranking are report009/010 human-authored judgments; no all-theory safety or paradox proof."
+}

@@ -1,0 +1,3 @@
+在本仓库执行 Claude goal CG-003（A7 自审与深化：在交给 Terra 之前，把能自己做的全部做完）。开工和每次压缩或恢复后：先调用 goal-x Skill（resume CG-003），按 `.claude/goals/CG-003-a7-self-audit/GOAL.md` 用 Read 重读闭包文件（《最高指示-Claude版》、核心认知全文、扩展认知 003/004/005/009、CN-035、CN-036、回信 019、WildSST2.agda、工作台），再读 `.claude/总索引.md` 全文，写出恢复说明，然后从 STATE 的“下一步”继续。每完成一个自然单元运行 `python3 ~/.claude/skills/goal-x/goalx.py checkpoint CG-003 --phase <阶段> --next "…" --note "…"`，并按总索引 001 §3 维护。只按 GOAL.md 的七个完成门判断完成（G0 开工、G1 P₄ 相干机器化、G2 相干公式正对照、G3 相同层数与相干层数、G4 自指缩影的最强反对、G5 回源、G6 交付与登记），局部任务完成不算。不调用 Agent 工具，不提交 Git，不改 Terra 的文件与研究 current owner，不替用户把信交给 Terra。
+
+完成条件：对话中出现 CG-003 的完成门审计表，G0–G6 每一门都有证据位置且判 PASS，随后出现 `goal-x close CG-003 status=COMPLETE` 的输出；或者出现阻塞报告并已执行 `close --status BLOCKED` 或 `--status PAUSED`。

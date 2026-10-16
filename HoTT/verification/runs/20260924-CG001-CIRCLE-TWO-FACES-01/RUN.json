@@ -1,0 +1,60 @@
+{
+  "claim_ids": [
+    "CG001-C-21",
+    "CG001-C-22"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/circle-two-faces",
+    "HoTT/formal/claude-cg001/circle-two-faces/CircleTwoFaces.agda"
+  ],
+  "completed_at_utc": "2026-09-25T03:18:34.702813+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 32.586019,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "no physical claim; coordinate/circle/taking a point away are bridge labels",
+    "does not claim to answer the user's circle paradox; point-set results are Astra C-283..C-324 and were not replayed here",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only); not original mathematics"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-CIRCLE-TWO-FACES-001",
+  "run_id": "20260924-CG001-CIRCLE-TWO-FACES-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-21..C-22 exactly as stated in CLAIM.md (a type with an injective map into a set is a set via Book Theorem 7.2.2, so its loops are trivial and it has no non-trivial loop; S1 loop is not refl via winding, S1 has no injective map into any set, and the subtype of S1 of points not equal to base is empty). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2697,
+    "path": "source-manifest.json",
+    "sha256": "f65ac39148f8dc03d839d3164f21aeb8516d87246d7ff2a37963e49c0e87375c"
+  },
+  "started_at_utc": "2026-09-25T03:18:02.116794+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16882,
+    "path": "stdout.txt",
+    "sha256": "8fc24a98264b6a9ee67e2d17317b34d99d19a95c89bc04a334d86f7fed28db88"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-088-N42-UNIMATH-REPLAY",
+  "state_revision": 88,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 88},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 88},
+    "three_way_cognition": {"status": "PASS", "state_revision": 88},
+    "core_cognition": {"status": "PASS_WITH_SCOPE", "core_units": 36},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"},
+    "understanding_merge": {"status": "PASS"},
+    "history_ledgers": {"status": "PASS"},
+    "cross_source_reconciliation": {"status": "PASS"},
+    "per_kc_audit": {"status": "PASS", "kc_count": 36, "relation_counts": {"ALIGNED": 10, "DEEPENED": 2, "TENSION": 1, "NOT_TOUCHED": 23}}
+  },
+  "tests": {
+    "cognition_runtime": "28/28 OK",
+    "full_closure_loading": "17/17 OK",
+    "core_cognition": "7/7 OK",
+    "three_way_cognition": "4/4 OK",
+    "math_proof_delivery_governance": "4/4 OK"
+  },
+  "proof_runs": {
+    "final": {"run_id": "20260913-MP-UNIMATH-NOSECTION-REPLAY-02", "status": "PASS_WITH_SCOPE", "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE", "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH", "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH", "modules_rechecked": 486},
+    "retained_failure": {"run_id": "20260913-MP-UNIMATH-NOSECTION-REPLAY-01", "status": "KERNEL_REJECTED", "exit_code": 42, "cause": "include-root configuration (ModuleNameDoesntMatchFileName)"},
+    "regression": ["MP-NOCANONICAL-001-02 PASS_WITH_SCOPE", "MP-TRUNC-NORECOVERY-001-03 PASS_WITH_SCOPE", "MP-ERCF-001-02 PASS_WITH_SCOPE"]
+  },
+  "external_library": {
+    "name": "agda-unimath",
+    "commit_sha": "7b81411d9f60afec359d29ed1e4edf43f4711c8a",
+    "archive_sha256": "552bc6102be8ce952226528dbc256c07f2993038dd182e501c877cc096b664b6",
+    "tree_sha256": "88460bc7d2e0ffd2bc85d60ca7fa0ea8e0b833bc12e1e6e9cd18ccd517db41c5",
+    "publisher_sha256": null
+  },
+  "e6_scan": {"verdict": "BOUNDED_NEGATIVE_WITH_STRONGEST_COUNTEREXAMPLE", "e6_found": false},
+  "state_updates": {
+    "new_records": ["A-UNIMATH-NOSECTION-REPLAY-001", "A-UNIMATH-E6-SCAN-001", "S-RES-20260913-088-N42-UNIMATH-REPLAY"],
+    "updated_records": ["A-E6-DERIVED-SCAN-001 (source-reported -> replayed)"],
+    "refreshed_source_hash_pins": {"records": 32, "pins": 35},
+    "hydration_review_required": [],
+    "matrix_rows": ["new proof row MP-UNIMATH-NOSECTION-REPLAY-001", "C-05 updated in place", "legacy row gate status updated"]
+  },
+  "engineering": {
+    "verifier_changes": ["theory-variant-aware Agda option check (without-K first)", "external tree label set extended"],
+    "index_manifest_refreeze": {"old_sha256": "25ac098cc68fd7b4407a0c6526a76c85c426ba475ca5d8b500c4650fe015a346", "new_sha256": "45d025fb392957dff0505b51cbd75b2464170d302263cc11d94adc121e17ace2"}
+  },
+  "boundaries": {"no_new_user_core_input": true, "git_commit": "NOT_AUTHORIZED_THIS_TURN", "e6_status": "OPEN", "next_work_package": "N43: T3 joint recursion / batch 13 / other-library external scans"}
+}

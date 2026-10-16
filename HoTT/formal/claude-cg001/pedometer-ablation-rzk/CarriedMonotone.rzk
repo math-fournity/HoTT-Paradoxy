@@ -1,0 +1,305 @@
+#lang rzk-1
+
+-- Carrying in simplicial HoTT: where direction can and cannot live
+-- (Claude, session 91a6cdaa, 2026-09-25), part of the pedometer ablation.
+--
+-- proof id : MP-CG001-PEDOMETER-ABLATION-RZK-001
+-- claim    : CG001-C-53 (full statement in CLAIM.md)
+--
+-- Theory: Riehl-Shulman simplicial type theory as implemented by Rzk 0.11.3,
+-- with no postulates, no assumed axioms and no modalities.  Definitions follow
+-- RS17 (hom and dependent hom as extension types over the 1-simplex,
+-- Definition 7.1 for discrete types, Definition 8.2 for covariant families)
+-- in the spelling of the rzk-lang/sHoTT library, restated here so that the
+-- file is self-contained.
+--
+-- C-53 (a) paths: carrying there and back returns what was carried;
+--      (b) paths: a carried reading that no carrying lowers is never raised
+--          (any relation R with antisymmetry);
+--      (c) paths: if carrying along p and along its reverse both apply s to
+--          the reading, then the start reading r satisfies r = s (s r); for
+--          a pedometer (s = successor on the natural numbers) no such r exists;
+--      (d) arrows: for a covariant family, covariant transport along an
+--          identity arrow is the identity;
+--      (e) arrows: along an arrow that comes from a path, covariant transport
+--          is ordinary transport;
+--      (f) arrows over a discrete base: a covariant reading that no arrow
+--          lowers is never changed by any arrow.
+-- Reading: inside the directed theory the groupoid law still governs paths,
+-- and over a discrete base it governs arrows too.  An irreversible carried
+-- change can only live in covariant transport over a base with genuinely
+-- non-invertible arrows.  Whether such a base and family exist is not decided
+-- here (Rzk 0.11.3 has neither directed univalence nor directed higher
+-- inductive types); the set-level model of C-51 and C-52 exhibits one.
+
+-- ------------------------------------------------------------------
+-- Paths
+
+#define transport
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : C y
+  := idJ (A , x , \ y' _ → C y' , u , y , p)
+
+#define rev
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : y = x
+  := idJ (A , x , \ y' _ → y' = x , refl , y , p)
+
+#define concat
+  ( A : U)
+  ( x y z : A)
+  ( p : x = y)
+  ( q : y = z)
+  : x = z
+  := idJ (A , y , \ z' _ → x = z' , p , z , q)
+
+#define ap
+  ( A B : U)
+  ( f : A → B)
+  ( x y : A)
+  ( p : x = y)
+  : f x = f y
+  := idJ (A , x , \ y' _ → f x = f y' , refl , y , p)
+
+-- (a) carrying there and back returns what was carried
+#define transport-there-and-back
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : transport A C y x (rev A x y p) (transport A C x y p u) = u
+  := idJ
+    ( A , x
+    , \ y' p' → transport A C y' x (rev A x y' p') (transport A C x y' p' u) = u
+    , refl , y , p)
+
+-- (b) a reading that no carrying lowers is never raised
+#define monotone-is-invariant
+  ( A : U)
+  ( C : A → U)
+  ( N : U)
+  ( R : N → N → U)
+  ( antisym : ( m : N) → ( n : N) → R m n → R n m → m = n)
+  ( r : ( x : A) → C x → N)
+  ( mono : ( x : A) → ( y : A) → ( p : x = y) → ( u : C x)
+         → R (r x u) (r y (transport A C x y p u)))
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : r y (transport A C x y p u) = r x u
+  := antisym
+    ( r y (transport A C x y p u))
+    ( r x u)
+    ( transport (C x) (\ w → R (r y (transport A C x y p u)) (r x w))
+      ( transport A C y x (rev A x y p) (transport A C x y p u))
+      ( u)
+      ( transport-there-and-back A C x y p u)
+      ( mono y x (rev A x y p) (transport A C x y p u)))
+    ( mono x y p u)
+
+-- (c) walking a path and walking it back cannot both apply s,
+--     unless s applied twice has a fixed point
+#define two-way-forces-fixed-point
+  ( A : U)
+  ( C : A → U)
+  ( a b : A)
+  ( p : a = b)
+  ( N : U)
+  ( s : N → N)
+  ( ra : C a → N)
+  ( rb : C b → N)
+  ( there : ( u : C a) → rb (transport A C a b p u) = s (ra u))
+  ( back : ( v : C b) → ra (transport A C b a (rev A a b p) v) = s (rb v))
+  ( start : C a)
+  : ra start = s (s (ra start))
+  := concat N
+    ( ra start)
+    ( ra (transport A C b a (rev A a b p) (transport A C a b p start)))
+    ( s (s (ra start)))
+    ( rev N
+      ( ra (transport A C b a (rev A a b p) (transport A C a b p start)))
+      ( ra start)
+      ( ap (C a) N ra
+        ( transport A C b a (rev A a b p) (transport A C a b p start))
+        ( start)
+        ( transport-there-and-back A C a b p start)))
+    ( concat N
+      ( ra (transport A C b a (rev A a b p) (transport A C a b p start)))
+      ( s (rb (transport A C a b p start)))
+      ( s (s (ra start)))
+      ( back (transport A C a b p start))
+      ( ap N N s (rb (transport A C a b p start)) (s (ra start)) (there start)))
+
+-- ------------------------------------------------------------------
+-- Arrows
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define id-hom
+  ( A : U)
+  ( x : A)
+  : hom A x x
+  := \ t → x
+
+#define hom-eq
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : hom A x y
+  := idJ (A , x , \ y' p' → hom A x y' , id-hom A x , y , p)
+
+#define is-equiv
+  ( A B : U)
+  ( f : A → B)
+  : U
+  := Σ ( r : B → A)
+    , Σ ( s : B → A)
+    , Σ ( η : ( a : A) → r (f a) = a)
+    , ( ( b : B) → f (s b) = b)
+
+-- RS17 Definition 7.1
+#define is-discrete
+  ( A : U)
+  : U
+  := ( x : A) → ( y : A) → is-equiv (x = y) (hom A x y) (hom-eq A x y)
+
+#define is-contr
+  ( A : U)
+  : U
+  := Σ ( a : A) , ( ( b : A) → a = b)
+
+-- dependent arrows over an arrow
+#define dhom
+  ( A : U)
+  ( x y : A)
+  ( f : hom A x y)
+  ( C : A → U)
+  ( u : C x)
+  ( v : C y)
+  : U
+  := ( t : Δ¹) → C (f t) [ t ≡ 0₂ ↦ u , t ≡ 1₂ ↦ v ]
+
+-- RS17 Definition 8.2: every arrow lifts uniquely from every point of the fibre
+#define is-covariant
+  ( A : U)
+  ( C : A → U)
+  : U
+  := ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+   → is-contr (Σ ( v : C y) , dhom A x y f C u v)
+
+#define covariant-transport
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x y : A)
+  ( f : hom A x y)
+  ( u : C x)
+  : C y
+  := first (first (is-cov x y f u))
+
+-- (d) along an identity arrow, covariant transport is the identity
+#define covariant-transport-id
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x : A)
+  ( u : C x)
+  : covariant-transport A C is-cov x x (id-hom A x) u = u
+  := ap
+    ( Σ ( v : C x) , dhom A x x (id-hom A x) C u v)
+    ( C x)
+    ( \ vd → first vd)
+    ( first (is-cov x x (id-hom A x) u))
+    ( u , \ t → u)
+    ( second (is-cov x x (id-hom A x) u) (u , \ t → u))
+
+-- (e) along an arrow that comes from a path, covariant transport is transport
+#define covariant-transport-hom-eq
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : covariant-transport A C is-cov x y (hom-eq A x y p) u = transport A C x y p u
+  := idJ
+    ( A , x
+    , \ y' p' → covariant-transport A C is-cov x y' (hom-eq A x y' p') u = transport A C x y' p' u
+    , covariant-transport-id A C is-cov x u
+    , y , p)
+
+-- a reading that no arrow lowers is, in particular, lowered by no path
+#define covariant-monotone-to-path-monotone
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( N : U)
+  ( R : N → N → U)
+  ( r : ( x : A) → C x → N)
+  ( mono : ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+         → R (r x u) (r y (covariant-transport A C is-cov x y f u)))
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : R (r x u) (r y (transport A C x y p u))
+  := transport (C y) (\ w → R (r x u) (r y w))
+    ( covariant-transport A C is-cov x y (hom-eq A x y p) u)
+    ( transport A C x y p u)
+    ( covariant-transport-hom-eq A C is-cov x y p u)
+    ( mono x y (hom-eq A x y p) u)
+
+-- (f) over a discrete base, a covariant reading that no arrow lowers is
+--     never changed by any arrow
+#define discrete-covariant-monotone-is-invariant
+  ( A : U)
+  ( is-discrete-A : is-discrete A)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( N : U)
+  ( R : N → N → U)
+  ( antisym : ( m : N) → ( n : N) → R m n → R n m → m = n)
+  ( r : ( x : A) → C x → N)
+  ( mono : ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+         → R (r x u) (r y (covariant-transport A C is-cov x y f u)))
+  ( x y : A)
+  ( f : hom A x y)
+  ( u : C x)
+  : r y (covariant-transport A C is-cov x y f u) = r x u
+  := concat N
+    ( r y (covariant-transport A C is-cov x y f u))
+    ( r y (transport A C x y (first (second (is-discrete-A x y)) f) u))
+    ( r x u)
+    ( ap (C y) N (r y)
+      ( covariant-transport A C is-cov x y f u)
+      ( transport A C x y (first (second (is-discrete-A x y)) f) u)
+      ( concat (C y)
+        ( covariant-transport A C is-cov x y f u)
+        ( covariant-transport A C is-cov x y
+          ( hom-eq A x y (first (second (is-discrete-A x y)) f)) u)
+        ( transport A C x y (first (second (is-discrete-A x y)) f) u)
+        ( ap (hom A x y) (C y) (\ g → covariant-transport A C is-cov x y g u)
+          ( f)
+          ( hom-eq A x y (first (second (is-discrete-A x y)) f))
+          ( rev (hom A x y)
+            ( hom-eq A x y (first (second (is-discrete-A x y)) f))
+            ( f)
+            ( (second (second (second (is-discrete-A x y)))) f)))
+        ( covariant-transport-hom-eq A C is-cov x y (first (second (is-discrete-A x y)) f) u)))
+    ( monotone-is-invariant A C N R antisym r
+      ( covariant-monotone-to-path-monotone A C is-cov N R r mono)
+      x y (first (second (is-discrete-A x y)) f) u)

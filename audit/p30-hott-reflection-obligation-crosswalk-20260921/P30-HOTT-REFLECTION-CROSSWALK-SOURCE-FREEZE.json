@@ -1,0 +1,53 @@
+{
+  "schema_version": "p30-hott-reflection-crosswalk-source-freeze/v1",
+  "task_id": "P30-HOTT-REFLECTION-OBLIGATION-CROSSWALK-001",
+  "observed_at": "2026-09-21",
+  "local_source_sha256": {
+    "audit/p24-ercf3-proof-predicate-qualification-20260921/P24-ERCF3-PROOF-PREDICATE-QUALIFICATION-REPORT.md": "7639f8a348852e55cd540bc3526ed4f8add3c9999b4f6869da8c4453892aa15c",
+    "audit/p25-hottlean-mltt-syntax-semantics-corpus-20260921/P25-HOTTLEAN-MLTT-SYNTAX-SEMANTICS-CORPUS-REPORT.md": "e09f683e08885808641e008576db66e0386ee937afa010430f1b1491d96b69ff",
+    "audit/p26-ttasqiirt-intrinsic-type-theory-corpus-20260921/P26-TTASQIIRT-INTRINSIC-TYPE-THEORY-CORPUS-REPORT.md": "15a3e718310571c522e17be2d32538152e5e88f2818057afba8a441b5f80ee91",
+    "audit/p28-cftt-staged-quotation-splice-unstaging-corpus-20260921/P28-CFTT-STAGED-QUOTATION-SPLICE-UNSTAGING-CORPUS-REPORT.md": "5399bfb52e89513eff5f1778c5e4d665b759f32616b05938b59a5d77470de0cb",
+    "audit/p29-climber-object-provability-soundness-corpus-20260921/P29-CLIMBER-OBJECT-PROVABILITY-SOUNDNESS-CORPUS-REPORT.md": "b78b89064ff6f1e6b9252186396a82574798ada185eee7f514c63505af5fe66f"
+  },
+  "local_reconnaissance": {
+    "anchors": [
+      "tt-provability",
+      "GallagherCommaJack",
+      "reflection-by-erasure",
+      "P24 through P29"
+    ],
+    "search_scope": "Current working tree and registered historical material, excluding checkpoint snapshots and Python caches.",
+    "result": "NO_EXISTING_TT_PROVABILITY_ASSET_FOUND; P24-P29 are PARTIAL_REUSE through their fixed reports."
+  },
+  "public_search": {
+    "queries": [
+      "\"homotopy type theory\" provability reflection",
+      "\"homotopy type theory\" Gödel provability",
+      "\"cubical type theory\" provability reflection",
+      "\"type theory\" \"internal provability\" formalization Agda",
+      "site:github.com \"provability\" \"type theory\" Agda Gödel"
+    ],
+    "results_classification": {
+      "general_godel_hott_discussion": "NEARBY_NOT_SAME_TASK",
+      "internal_type_theory_model_work": "NEARBY_NOT_SAME_TASK",
+      "proof_assistant_reflection": "NEARBY_NOT_SAME_TASK",
+      "tt_provability_candidate": "VERSION_PINNED_P31_CANDIDATE"
+    }
+  },
+  "p31_candidate": {
+    "repository": "https://github.com/GallagherCommaJack/tt-provability.git",
+    "branch_observed": "master",
+    "head": "69de7983019f2f044a40624b81662d862aca3dff",
+    "public_page": "https://github.com/GallagherCommaJack/tt-provability",
+    "public_description": "Systems for doing provability logic in type theory",
+    "visible_source_entries": [
+      "Syntax/",
+      "Universes/",
+      "WTLob.agda",
+      "lib.agda"
+    ],
+    "language": "Agda",
+    "candidate_boundary": "Selection evidence only. P30 does not assert that this source uses HoTT, Cubical Agda, univalence, HITs, an object provability predicate, a reflection theorem, or a same-task consumer."
+  },
+  "verdict": "CLOSE_WITH_SCOPE / SIX_OBLIGATION_CROSSWALK_COMPLETED / NO_FIXED_HOTT_RELATED_ASSET_ESTABLISHES_THE_FULL_STRONG_REFLECTION_CHAIN / P31_TT_PROVABILITY_SOURCE_CANDIDATE_SELECTED / NO_NEW_HOTT_DEFECT_CLAIM"
+}

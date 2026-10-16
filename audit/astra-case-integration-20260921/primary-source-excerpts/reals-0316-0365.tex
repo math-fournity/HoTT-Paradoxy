@@ -1,0 +1,50 @@
+\end{equation}
+%
+At first sight it might not be clear what~\eqref{eq:RD-linear-order} has to do with
+linear order. But if we take $x \jdeq u - \epsilon$ and $y \jdeq u + \epsilon$ for
+$\epsilon > 0$, then we get
+%
+\begin{equation*}
+  (u - \epsilon < z) \lor (z < u + \epsilon).
+\end{equation*}
+%
+This is linearity ``up to a small numerical error'', i.e., since it is unreasonable to
+expect that we can actually compute with infinite precision, we should not be surprised
+that we can decide~$<$ only up to whatever finite precision we have computed.
+
+To see that~\eqref{eq:RD-linear-order} holds, suppose $x < y$. Then there merely exists $q : \Q$ such that $U_x(q)$ and
+$L_y(q)$. By roundedness there merely exist $r, s : \Q$ such that $r < q < s$, $U_x(r)$
+and $L_y(s)$. Then, by locatedness $L_z(r)$ or $U_z(s)$. In the first case we get $x < z$
+and in the second $z < y$.
+
+Classically, multiplicative inverses exist for all numbers which are different from zero.
+However, without excluded middle, a stronger condition is required. Say that $x, y : \RD$
+are \define{apart}
+\indexdef{apartness}%
+from each other, written $x \apart y$, when $(x < y) \lor (y < x)$:
+%
+\symlabel{apart}
+\begin{equation*}
+  (x \apart y) \defeq (x < y) \lor (y < x).
+\end{equation*}
+%
+If $x \apart y$, then $\lnot (x = y)$.
+The converse is true if we assume excluded middle, but is not provable constructively.
+\index{mathematics!constructive}%
+Indeed, if $\lnot (x = y)$ implies $x\apart y$, then a little bit of excluded middle follows; see \cref{ex:reals-apart-neq-MP}.
+
+\begin{thm} \label{RD-inverse-apart-0}
+  A real is invertible if, and only if, it is apart from $0$.
+\end{thm}
+
+\begin{rmk}
+  We observe that a real is invertible if, and only if, it is merely
+  invertible.  Indeed, the same is true in any ring,\index{ring} since a ring is a set, and
+  multiplicative inverses are unique if they exist.  See the discussion
+  following \cref{cor:UC}.
+\end{rmk}
+
+\begin{proof}
+  Suppose $x \cdot y = 1$. Then there merely exist $a, b, c, d : \Q$ such that
+  $a < x < b$, $c < y < d$ and $0 < \min (a c, a d, b c, b d)$. From $0 < a c$ and $0 < b c$ it follows
+  that $a$, $b$, and $c$ are either all positive or all negative.

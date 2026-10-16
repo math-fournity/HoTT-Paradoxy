@@ -1,0 +1,5045 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "CLASSES OF RECURSIVELY ENUMERABLE SETS AND THEIR DECISION PROBLEMS  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{(1)}"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                166,
+                172,
+                869,
+                210
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "BY"
+                    }
+                ]
+            },
+            "bbox": [
+                503,
+                221,
+                534,
+                234
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "H. G. RICE"
+                    }
+                ]
+            },
+            "bbox": [
+                453,
+                236,
+                581,
+                252
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "1. Introduction. In this paper we consider classes whose elements are recursively enumerable sets of non-negative integers. No discussion of recursively enumerable sets can avoid the use of such classes, so that it seems desirable to know some of their properties. We give our attention here to the properties of complete recursive enumerability and complete recursiveness (which may be intuitively interpreted as decidability). Perhaps our most interesting result (and the one which gives this paper its name) is the fact that no nontrivial class is completely recursive."
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                261,
+                938,
+                402
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We assume familiarity with a paper of Kleene [5](2), and with ideas which are well summarized in the first sections of a paper of Post [7]."
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                402,
+                938,
+                439
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "I. FUNDAMENTAL DEFINITIONS"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                351,
+                451,
+                688,
+                468
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "2. Partial recursive functions. We shall characterize recursively enumerable (r.e.) sets of non-negative integers by the partial recursive functions of Kleene. The set characterized (or, as we shall say more frequently, enumerated) by a partial recursive function of one variable will be taken as the range of values of the function. A function undefined for all arguments (and thus producing no values) will be considered to produce an enumeration of the empty set o."
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                473,
+                938,
+                598
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Kleene has shown [5, pp. 50–58] that a Gödel enumeration of the partial recursive functions is possible, so that we may designate any partial recursive function of one variable as  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi_n(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a Gödel number of the function. Actually, it requires only a minor adjustment of Kleene's constructions to insure that, not only does every function have at least one number, but that every non-negative integer  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the number of some function. We shall assume this to be the situation, and shall make one other minor adjustment:  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\phi_0(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the identity function."
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                598,
+                940,
+                741
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Kleene further showed the existence of a recursive predicate   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T(x, y, z)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  and a primitive recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "U(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  such that"
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                741,
+                938,
+                778
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "Presented to the Society, December 28, 1951; received by the editors of the Journal for Symbolic Logic, November 16, 1951, subsequently transferred to the Transactions, and received in revised form May 26, 1952."
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                784,
+                938,
+                830
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "(1) Most of the results in this paper were contained in a thesis written under Professor Paul Rosenbloom, to whom the author wishes to express his gratitude, and presented toward the degree of Doctor of Philosophy at Syracuse University."
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                829,
+                940,
+                875
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "(2) Numbers in brackets refer to the bibliography at the end of the paper."
+                    }
+                ]
+            },
+            "bbox": [
+                144,
+                873,
+                809,
+                890
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "358"
+                    }
+                ]
+            },
+            "bbox": [
+                501,
+                897,
+                543,
+                912
+            ]
+        }
+    ],
+    [
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\phi_ {n} (x) = \\Phi (n, x) = U (\\mu y T (n, x, y))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/30358ad94074eb68c3acd457bb88cf473b63cc1b98683d0b97127050a5692afd.jpg"
+                }
+            },
+            "bbox": [
+                308,
+                126,
+                691,
+                145
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "so that every partial recursive function of one variable can be written as  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for some  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                153,
+                907,
+                188
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This numbering enables us to characterize a class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " of sets by the set of all  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates a set of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", which leads to the definitions in the following section."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                188,
+                907,
+                240
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3. Definitions  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{(3)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                109,
+                242,
+                296,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "DEFINITION. A class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is recursively enumerable if there exists a partial recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " with the following property: a set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha \\in A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " if and only if there is a number  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, a), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerated by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is called a recursive enumeration of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                260,
+                907,
+                331
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "DEFINITION. A class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is completely recursively enumerable (c.r.e.) if there exists a partial recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " with the following property: a partial recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(a, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates a set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": " of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " if and only if there exists a number  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, b) = a"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The set of all  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates a set of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " we shall denote by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": ".  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is c.r.e. if and only if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is r.e. From the fact that there are infinitely many partial recursive functions enumerating each r.e. set, it follows that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is always either infinite or empty (in case  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the empty class)."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                331,
+                907,
+                473
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Lemma A is immediately evident from the definition, and Lemma B from Lemma A."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                473,
+                904,
+                509
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "LEMMA A.   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a complete (not necessarily recursive) enumeration of some class A if and only if it has the following property: if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  and   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  enumerate the same set, then either both m and n are in   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , or neither is."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                517,
+                904,
+                572
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "LEMMA B. If two sets   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  and   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{B}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  are complete enumerations of the classes A and B, then their union and intersection (  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A} + \\theta_{B}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  and   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}\\theta_{B}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ) are complete enumerations of the classes   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A + B"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  and AB. This holds also for infinite unions and intersections."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                579,
+                907,
+                650
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "DEFINITION. A class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is completely recursive (c.r.) if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a recursive set. If we denote the class of all r.e. sets by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "F"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then the complement of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{F-A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". So when  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is c.r., both  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "F-A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " are c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                659,
+                904,
+                713
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This definition, after Post, is equivalent to the following: A is c.r. when there exists a general recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  such that if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a partial recursive function enumerating a set of A, then   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, n) = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , and if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a partial recursive function enumerating a set of F - A,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, n) = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                713,
+                907,
+                784
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We shall refer to this as the strong definition of complete recursiveness. The weak definition is as follows: there exists a partial recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  such that if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a general recursive function enumerating a set of A, then   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r,n)=1"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , and if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n,x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a general recursive function enumerating a set of F-A,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r,n)=0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . Clearly, if a class is c.r. by the strong definition, it is c.r. by the weak."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                784,
+                907,
+                839
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "CLASSES OF RECURSIVELY ENUMERABLE SETS"
+                    }
+                ]
+            },
+            "bbox": [
+                225,
+                93,
+                750,
+                108
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "359"
+                    }
+                ]
+            },
+            "bbox": [
+                864,
+                92,
+                907,
+                106
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "(a) These concepts, in somewhat different form, were first mentioned by J. C. E. Dekker in his thesis (Syracuse University, 1950). See also his abstract, Bull. Amer. Math. Soc. Abstract 57-2-83."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                843,
+                907,
+                891
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                97,
+                124,
+                935,
+                179
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Two trivial classes are immediately c.r. by the strong definition. F is completely recursively enumerated by the identity function, and the empty class F-F by any function enumerating the empty set. Hereafter we consider only proper subclasses of F."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                179,
+                935,
+                252
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "II. COMPLETE RECURSIVE ENUMERABILITY"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                287,
+                260,
+                757,
+                277
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "4. Existence of c.r.e. classes."
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                135,
+                283,
+                465,
+                301
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 1. The class of all sets containing a given number  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "k"
+                    },
+                    {
+                        "type": "text",
+                        "content": " (we denote this class by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "L(k)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ") is c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                97,
+                309,
+                935,
+                346
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof.   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{L(k)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is the range of the partial recursive function"
+                    }
+                ]
+            },
+            "bbox": [
+                133,
+                353,
+                748,
+                372
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "K (x) \\cdot (1 \\div | \\Phi (K (x), L (x)) - k |)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/030def367ad1ef0d426afead89431454adf42571aab7b49ced55314639dc8872.jpg"
+                }
+            },
+            "bbox": [
+                330,
+                375,
+                700,
+                396
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "K(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "L(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " are the Cantor diagonal functions:"
+                    }
+                ]
+            },
+            "bbox": [
+                97,
+                404,
+                712,
+                423
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c c c c c c c c c} x & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\\\ K (x) & 0 & 0 & 1 & 0 & 1 & 2 & 0 & \\text { etc. } \\\\ L (x) & 0 & 1 & 0 & 2 & 1 & 0 & 3 \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/dbc41ffd2319515d9d523a5ea07e479410e59a93ed7974e3114e7d93efac4a6f.jpg"
+                }
+            },
+            "bbox": [
+                249,
+                427,
+                840,
+                494
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "(The reader will recall from I, 2 the assumption that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(0, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the identity function.)"
+                    }
+                ]
+            },
+            "bbox": [
+                97,
+                502,
+                933,
+                537
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We now give a method for constructing c.r.e. classes which seems to be very general. We suppose given a recursively enumerable sequence (the key array) of finite sets (the key sets), each set given by a finite sequence of numbers."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                537,
+                935,
+                610
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c c c c c} a _ {0} ^ {0} & a _ {1} ^ {0} & a _ {2} ^ {0} \\cdot \\cdot \\cdot & a _ {n (0)} ^ {0} \\\\ a _ {0} ^ {1} & a _ {1} ^ {1} & a _ {2} ^ {1} \\cdot \\cdot \\cdot & a _ {n (1)} ^ {1} \\\\ a _ {0} ^ {j} & a _ {1} ^ {j} & a _ {2} ^ {j} \\cdot \\cdot \\cdot & a _ {n (j)} ^ {j} \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ a _ {0} ^ {j} & a _ {1} ^ {j} & a _ {2} ^ {j} \\cdot \\cdot \\cdot & a _ {n (j)} ^ {j} \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ \\cdot & \\cdot & \\cdot & \\cdot & \\cdot \\\\ a _ {0} ^ {0} = 0, a _ {1} ^ {0} = 0, a _ {2} ^ {0} = 0, a _ {3} ^ {0} = 0, a _ {4} ^ {0} = 0, a _ {5} ^ {0} = 0, a _ {6} ^ {0} = 0, a _ {7} ^ {0} = 0, a _ {8} ^ {0} = 0, a _ {9} ^ {0} = 0, a _ {1 0} ^ {0} = 0, a _ {1 1} ^ {0} = 0, a _ {1 2} ^ {0} = 0, a _ {1 3} ^ {0} = 0, a _ {1 4} ^ {0} = 0, a _ {1 5} ^ {0} = 0, a _ {1 6} ^ {0} = 0, a _ {1 7} ^ {0} = 0, a _ {1 8} ^ {0} = 0, a _ {1 9} ^ {0} = 0, a _ {2 0} ^ {0} = 0, a _ {2 1} ^ {0} = 0, a _ {2 2} ^ {0} = 0, a _ {2 3} ^ {0} = 0, a _ {2 4} ^ {0} = 0, a _ {2 5} ^ {0} = 0, a _ {2 6} ^ {0} = 0, a _ {2 7} ^ {0} = 0, a _ {2 8} ^ {0} = 0, a _ {2 9} ^ {0} = 0, a _ {3 0} ^ {0} = 0, a _ {3 1} ^ {0} = 0, a _ {3 2} ^ {0} = 0, a _ {3 3} ^ {0} = 0, a _ {3 4} ^ {0} = 0, a _ {3 5} ^ {0} = 0, a _ {3 6} ^ {0} = 0, a _ {3 7} ^ {0} = 0, a _ {3 8} ^ {0} = 0, a _ {3 9} ^ {0} = 0, a _ {4 0} ^ {0} = 0, a _ {\\mathrm{foot}} ^ {\\mathrm{foot}}. \\\\ a _ {\\mathrm{foot}} ^ {\\mathrm{foot}} = b (\\mathrm{foot}) - b (\\mathrm{foot}) + b (\\mathrm{foot}) - b (\\mathrm{foot}) + b (\\mathrm{foot}) - b (\\mathrm{foot}) + b (\\mathrm{foot}) - b (\\mathrm{foot}) + b (\\mathrm{foot}) - b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (\\mathrm{foot}) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b) + b (b). \\\\ c o m p o r e s t i n g e d i s t i o n e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s. \\\\ c o m p o r e s t i n g e d i s t i o n e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m f o r e d i s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m f o r e d i s t i m e r s t i m e r s t i m e r s t i m e r s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d i s t i m f o r e d j u l l y n o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w | | | \\\\ c o m p o r e s t i n g e d i s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i n g. \\\\ c o m p o r e s t i n g e d i s t i m e r s t i m e r s t i m e r s t i m e r s t i m e r s t i n g. \\\\ c o m p o r e s t i n g e d j u l l y n o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w h o w | | | \\\\ c o m p o r e s t i n g e d j u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y. \\\\ c o m p o r e s t i n g e d j u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y. \\\\ c o m p o r e s t i n g e d j u l l y n u l l y n u l l y n u l l x y n x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x. \\\\ c o m p o r e s t i n g e d j u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y n u l l y. \\\\ c o m p o r e s t i n g e d j u l l y n u l l y n u l l Y N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X IN X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I NX I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X I N X | | | | \\\\ c o m p q / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / | | | | \\\\ c o m p q / / | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| c o m p q / / | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| c o m p q / / | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| c o m p q / / | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| c o m p q / / | | | | | | | | | | | | | | | | | | |\n| c o m p q / / ] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b] [a,b]",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/fc77d0ec962613d5ff8d9fee47403727f19ae11c9847c66269021d80da190205.jpg"
+                }
+            },
+            "bbox": [
+                406,
+                610,
+                627,
+                726
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 2. To every key array corresponds constructively a c.r.e. class; i.e., given the key array, we can construct a complete enumeration of the corresponding class."
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                739,
+                935,
+                793
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Intuitively, we set all the partial recursive functions generating their values, and as soon as we see that the set enumerated by a function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  includes one of the key sets, we put n into   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . This must happen, if it is going to happen at all, in a finite length of time. A is then the class of all sets which include at least one of the key sets, and we have a constructive procedure for generating   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . (A simple formal proof of the recursive enumerability of   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  will follow Theorem 3.)"
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                800,
+                935,
+                893
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "360"
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                92,
+                144,
+                106
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "H. G. RICE"
+                    }
+                ]
+            },
+            "bbox": [
+                456,
+                92,
+                581,
+                108
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "March"
+                    }
+                ]
+            },
+            "bbox": [
+                864,
+                92,
+                935,
+                108
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                76,
+                120,
+                912,
+                157
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Moreover, whether or not n is placed in   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  depends only on a property (inclusion) of the set enumerated by   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , and not on the order in which   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  may produce its values. To the author's intuition, this procedure for constructing an enumeration of   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is as general as any procedure can be and still satisfy the two essential requirements: first, it is effectively constructive, and second, it gives a complete enumeration of a class of sets. On this basis (to be further supported by Theorem 7, Corollary A) we venture the conjecture that every c.r.e. class has a key array, or, in the language of Theorem 3, the c.r.e. classes are just the   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum \\prod L"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  classes."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                157,
+                914,
+                317
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 3. A is a c.r.e. class determined by a key array if and only if A can be written as a r.e. union of finite intersections of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "L(k)'s"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                325,
+                912,
+                362
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Suppose a set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": " of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " includes the  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "j"
+                    },
+                    {
+                        "type": "text",
+                        "content": "th key set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_0^j, \\cdots, a_{n(j)}^j\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". This is a necessary and sufficient condition that"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                369,
+                914,
+                407
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\alpha \\in \\prod_ {i = 0} ^ {i = n (j)} L (a _ {i} ^ {j}).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/12c450055d87a8d246c7c364bfaa820008dbdc7b2f01c64d5e50a1ffe5e073e3.jpg"
+                }
+            },
+            "bbox": [
+                410,
+                414,
+                581,
+                456
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " can then be written as"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                460,
+                358,
+                479
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\sum_ {j} \\prod_ {i = 0} ^ {i = n (j)} L \\left(a _ {i} ^ {j}\\right).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/cfa8b051fef9d19fe64157c0b932a40a892d0fe2683b207edc53f7403b056528.jpg"
+                }
+            },
+            "bbox": [
+                422,
+                485,
+                581,
+                528
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The union, if infinite, is recursively enumerable."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                534,
+                615,
+                552
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Conversely, any class composed of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "L(k)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s in finite intersections and r.e. unions determines a key array. For since the associative and distributive laws hold for these operations, any such class can be reduced to the form"
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                552,
+                912,
+                609
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\sum_ {\\mathbf {r . e .}} \\prod_ {\\text { finite }} L (k)",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/6deb24f4bdaee67c228d0300090e262343058336e16a7e1d42cbe5f4f59d49ab.jpg"
+                }
+            },
+            "bbox": [
+                420,
+                612,
+                565,
+                646
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and a key array constructed from the k's appearing in the operations."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                653,
+                836,
+                673
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This theorem suggests the name “  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum \\prod L"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  class” for any class determined by a key array."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                671,
+                909,
+                707
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof of Theorem 2. If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum \\prod L"
+                    },
+                    {
+                        "type": "text",
+                        "content": " class, then, by Lemma B,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_A = \\sum \\prod \\theta_{L(k)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". We need only note that finite intersections and r.e. unions of r.e. sets are again r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                707,
+                912,
+                760
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We have excluded intersections of infinitely many  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "L(k)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s. This case is disposed of in a corollary to Theorem 4."
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                760,
+                909,
+                796
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "5. Existence of classes which are not c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                796,
+                593,
+                815
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 4. No class containing only infinite sets is c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                114,
+                823,
+                729,
+                842
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Let A be a class containing only infinite sets, and let   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  be a general recursive function enumerating an infinite set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha \\subset \\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . Then each of the functions  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates an infinite set of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Using Kleene's representation of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " as"
+                    }
+                ]
+            },
+            "bbox": [
+                78,
+                849,
+                914,
+                887
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "1953'"
+                    }
+                ]
+            },
+            "bbox": [
+                80,
+                87,
+                130,
+                102
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "CLASSES OF RECURSIVELY ENUMERABLE SETS"
+                    }
+                ]
+            },
+            "bbox": [
+                232,
+                87,
+                757,
+                102
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "361"
+                    }
+                ]
+            },
+            "bbox": [
+                869,
+                87,
+                909,
+                102
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                85,
+                120,
+                923,
+                157
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "U (\\mu y T (n, x, y)),",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/e2f393a0c332efa9cc9e003c71c4d42a7a77166b8dfd7439546cae2f4688c1fc.jpg"
+                }
+            },
+            "bbox": [
+                389,
+                164,
+                574,
+                182
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "we define"
+                    }
+                ]
+            },
+            "bbox": [
+                85,
+                191,
+                199,
+                208
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{c} u (0) = K (\\mu y T (\\Phi (r, 0), K (y), L (y))), \\\\ u (n + 1) = K (\\mu y \\big [ T (\\Phi (r, n + 1), K (y), L (y)) \\& K (y) > u (n) + 1 \\big ]), \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/0d83611260f24c4c4497e90312fc8c8aa53453e61eb0844da1fd710badbfb80f.jpg"
+                }
+            },
+            "bbox": [
+                133,
+                216,
+                871,
+                261
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and"
+                    }
+                ]
+            },
+            "bbox": [
+                87,
+                268,
+                137,
+                285
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{r l} v (n) = U (L (\\mu y \\big [ T (\\Phi (r, 0), K (y), L (y)) \\& \\\\ & \\qquad \\Phi (\\Phi (r, 0), K (y)) \\neq \\Phi (\\Phi (r, n), u (n)) ])). \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/fa0533f74aba7a1fe22216c6d911dce9a23fff71ec7b9e05b43a97c4d503c38d.jpg"
+                }
+            },
+            "bbox": [
+                185,
+                291,
+                826,
+                334
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Now the task of   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "u(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is to find an argument for which   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is defined and which is greater by at least 2 than the corresponding argument found for any m < n. Since each of the   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  produces infinitely many values,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "u(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is always defined and produces its values in strictly increasing order.   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "v(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , on the other hand, finds a value produced by   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, 0), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  which is different from the value of   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, n), u(n))"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                85,
+                341,
+                926,
+                448
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Finally, let us define   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "w(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  as the recursive characteristic function of the infinite complement of the recursive set enumerated by   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "u(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . We are now ready to construct a function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  such that   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s \\in \\theta_{A} - \\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                87,
+                448,
+                923,
+                500
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "w(x) = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(x) = \\Phi(\\Phi(r, 0), \\sum_{z=0}^{z=x} w(z) \\div 1)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                125,
+                502,
+                662,
+                518
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "w(x) = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", then there exists a unique  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "y"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "u(y) = x"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(x) = v(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                125,
+                520,
+                916,
+                537
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "With a little more trouble, such a definition of   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  may be given as will formally establish it as a partial recursive function, say   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . Now   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s \\in \\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , for   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  enumerates the same set as does   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, 0), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . On the other hand,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s \\notin \\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , for   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  differs from every function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(\\Phi(r, n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  for at least the argument   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x = u(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                87,
+                537,
+                923,
+                627
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Thus we see that no infinite r.e. set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  can exhaust   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ; nor can any finite set, so that   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is not r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                87,
+                625,
+                926,
+                662
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY A. No infinite intersection of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "L(k)'s"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                125,
+                670,
+                729,
+                689
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY B. The set of all partial recursive functions enumerating a given infinite set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is not r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                87,
+                696,
+                923,
+                732
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For take the A of Theorem 4 as the unit class   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "I(\\alpha)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                125,
+                742,
+                691,
+                760
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 5. The unit class  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "I(o)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " of the empty set is not c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                125,
+                768,
+                790,
+                786
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. We assume the contrary, and note that since  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "F - I(o) = \\sum_{\\text{all } k} L(k)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is c.r.e. by Theorem 3,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{I(o)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a recursive set, so there exists a recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t, n) = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": " whenever  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates the empty set (i.e., produces no values), and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t, n) = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " otherwise."
+                    }
+                ]
+            },
+            "bbox": [
+                90,
+                794,
+                926,
+                866
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Now consider an arbitrary partial recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                128,
+                867,
+                798,
+                884
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "362"
+                    }
+                ]
+            },
+            "bbox": [
+                87,
+                87,
+                130,
+                101
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "H. G. RICE"
+                    }
+                ]
+            },
+            "bbox": [
+                441,
+                87,
+                567,
+                102
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "[March"
+                    }
+                ]
+            },
+            "bbox": [
+                850,
+                87,
+                921,
+                102
+            ]
+        }
+    ],
+    [
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Phi (m, x) = U (\\mu y T (m, x, y))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/1607f8df667cbf6be9b5aac63d5a46528ecccd80eb48482fdec4d6ff46b50c13.jpg"
+                }
+            },
+            "bbox": [
+                339,
+                126,
+                634,
+                144
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and there is a recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r(m, x, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " which equals 1 when  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T(m, x, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " holds, and 0 otherwise. We define"
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                151,
+                902,
+                188
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "f (y) = \\mu z [ z + 1 = r (m, m, y) ].",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/493f034c2b744411b95d733b0b0f0fe73a3ca0cf68c33f38e4c57f46bcee9151.jpg"
+                }
+            },
+            "bbox": [
+                315,
+                196,
+                655,
+                216
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "f(y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a partial recursive function, so there is an  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(y) = \\Phi(r, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The Gödel enumeration of the partial recursive functions yields a recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r = g(m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                222,
+                904,
+                277
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Now whenever  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is undefined,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "o"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", so that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t, r) = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is defined,  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t, r) = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                277,
+                904,
+                313
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Finally, there exists an integer  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s"
+                    },
+                    {
+                        "type": "text",
+                        "content": " such that"
+                    }
+                ]
+            },
+            "bbox": [
+                106,
+                313,
+                574,
+                329
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Phi (s, m) = \\mu y [ y + 1 = \\Phi (t, g (m)) ].",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/d0479c99eb6d60dbe1b27dbb9ea82207b229fda7947f00db90bc2b81db902aba.jpg"
+                }
+            },
+            "bbox": [
+                299,
+                337,
+                676,
+                356
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is undefined whenever  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is defined, and is defined and equal to 0 whenever  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, m)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is undefined. A contradiction arises from the case of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, s)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                365,
+                904,
+                419
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "III. COMPLETE RECURSIVENESS"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                313,
+                427,
+                662,
+                445
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "6. The main theorem and the strong definition. We now give a theorem which shows that too many classes are not c.r.e. for any class to be c.r."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                451,
+                904,
+                488
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 6. Let A be a class which contains a finite set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_{0},\\cdots,a_{k}\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , but omits a set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  which includes   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_{0},\\cdots,a_{k}\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . Then A is not c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                71,
+                494,
+                902,
+                533
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. For any partial recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", we define"
+                    }
+                ]
+            },
+            "bbox": [
+                106,
+                540,
+                774,
+                558
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "f (n) = \\mu z T (n, K (z), L (z)).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/0923941d9e944feb8b8d6105477f3124078e453f23bc9ed87572b76402bb2ee1.jpg"
+                }
+            },
+            "bbox": [
+                344,
+                567,
+                629,
+                585
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "f(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is undefined if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "o"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", but assumes some value otherwise. Let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be defined by the equations"
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                594,
+                904,
+                630
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{r l r} {g (0)} & & {= b _ {0},} \\\\ {g (1)} & & {= b _ {1},} \\\\ {\\cdot \\cdot \\cdot} & & \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/671a77925d680f147a7b6b2c7b48be5f98031cddddf5349a888852ccb56a3bae.jpg"
+                }
+            },
+            "bbox": [
+                377,
+                637,
+                598,
+                699
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{l l} {g (k)} & {= b _ {k},} \\\\ {g (x + k + 1)} & {= 0} \\end{array}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/8276a7f331942b627e2927cc87b13bb8816ecd0d0bbb9adf62862a26b45b5ce1.jpg"
+                }
+            },
+            "bbox": [
+                380,
+                708,
+                598,
+                751
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "h(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " by"
+                    }
+                ]
+            },
+            "bbox": [
+                73,
+                754,
+                211,
+                772
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "h (x) = 1 \\div (1 \\div (x \\div k))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/ea09175910f044b43d07422648aa32ebb09b91f7873fa1907397ba0add8a01ec.jpg"
+                }
+            },
+            "bbox": [
+                346,
+                774,
+                634,
+                791
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a \\div b = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a < b"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "a - b"
+                    },
+                    {
+                        "type": "text",
+                        "content": " otherwise.  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "h(x) = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x \\leq k"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", and 1 for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x > k"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Finally, let  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " be any partial recursive function. Now consider"
+                    }
+                ]
+            },
+            "bbox": [
+                73,
+                800,
+                904,
+                836
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "g (x) + 0 \\cdot f (n \\cdot h (x)) + \\Phi (t \\cdot h (x), x \\div (k + 1)).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/87d195ed7607fc820e9ab309cd40a5970fb1304ca307ad887b796cb17f56f949.jpg"
+                }
+            },
+            "bbox": [
+                242,
+                845,
+                738,
+                863
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "When  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b_0, \\cdots, b_k"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t"
+                    },
+                    {
+                        "type": "text",
+                        "content": " are chosen, this is a partial recursive function  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ","
+                    }
+                ]
+            },
+            "bbox": [
+                76,
+                870,
+                904,
+                891
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "1953]"
+                    }
+                ]
+            },
+            "bbox": [
+                73,
+                93,
+                128,
+                108
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "CLASSES OF RECURSIVELY ENUMERABLE SETS"
+                    }
+                ]
+            },
+            "bbox": [
+                225,
+                92,
+                750,
+                108
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "363"
+                    }
+                ]
+            },
+            "bbox": [
+                859,
+                92,
+                902,
+                106
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and the Gödel enumeration gives  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " as a recursive function of  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                123,
+                824,
+                141
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the class of the theorem, we now take  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b_{i} = a_{i}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "t = t_{0}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(t_{0}, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". We define  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\bar{\\theta}_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " as the set of all  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n"
+                    },
+                    {
+                        "type": "text",
+                        "content": "'s such that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s(n) \\in \\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". If  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is r.e., so is  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\bar{\\theta}_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". For suppose  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\bar{\\theta}_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the range of the partial recursive function"
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                141,
+                933,
+                213
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "K (x) + \\mu y [ y + 1 = 1 \\div | \\Phi (r, L (x)) - s (K (x)) | ].",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/80653491460dc58e1e001d4d7752115870a2481341744a01eaf6b3c7a30035de.jpg"
+                }
+            },
+            "bbox": [
+                237,
+                219,
+                790,
+                240
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The crux of the proof lies in the fact that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\bar{\\theta}_A = \\theta_{I(o)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Suppose  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "o"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x \\leq k"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "h(x) = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and"
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                248,
+                928,
+                283
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Phi (s (n), x) = g (x) + 0 \\cdot f (0) + \\Phi (0, 0).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/b7726335f839ecd02c7d4c8426917d4dfe1c8a9ae2f7acf2f273d103050a0621.jpg"
+                }
+            },
+            "bbox": [
+                285,
+                292,
+                695,
+                310
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In this range  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s(n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is defined (recall again that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(0, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " was taken as the identity function in I, 2) and equal to  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g(x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". So the set enumerated by  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s(n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " includes  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_0, \\cdots, a_k\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". However, for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x > k"
+                    },
+                    {
+                        "type": "text",
+                        "content": ","
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                317,
+                931,
+                375
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Phi (s (n), x) = 0 + 0 \\cdot f (n) + \\Phi (t _ {0}, x \\div (k + 1))",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/0685192aea259e9a6220c7d12dccf34da211acc0e625c36bc36bb4955c1b27a2.jpg"
+                }
+            },
+            "bbox": [
+                266,
+                381,
+                760,
+                399
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s(n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is not defined, since  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is not. So  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s(n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates just the set  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_0, \\cdots, a_k\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", which is in  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": ".  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s(n) \\in \\theta_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n \\in \\bar{\\theta}_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                407,
+                931,
+                444
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "On the other hand, suppose  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " does not enumerate  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "o"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Then, for  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x > k"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is defined, so that"
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                444,
+                931,
+                479
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Phi (s (n), x) = 0 + 0 + \\Phi (t _ {0}, x \\div (k + 1)).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/ebdaa74f5046a692cedffee64864e156a55c4713b837c424e235df0cee4c8e8a.jpg"
+                }
+            },
+            "bbox": [
+                287,
+                487,
+                738,
+                506
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "x = k + y"
+                    },
+                    {
+                        "type": "text",
+                        "content": ",  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s(n), x) = \\Phi(t_0, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". So  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(s(n), x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " enumerates  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", which is not in  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": ".  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "s(n) \\in \\theta_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "n \\in \\overline{\\theta}_A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                514,
+                931,
+                549
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We have, then, that if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is r.e.,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\overline{\\theta}_{A}=\\theta_{I(o)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is r.e., which by Theorem 5 is not the case. So   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is not r.e., and A is not c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                549,
+                931,
+                586
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY A. Every c.r.e. class includes a  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum \\prod L"
+                    },
+                    {
+                        "type": "text",
+                        "content": " class."
+                    }
+                ]
+            },
+            "bbox": [
+                130,
+                594,
+                748,
+                613
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For by Theorem 4, a c.r.e. class A contains a finite set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_{0},\\cdots,a_{k}\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . By Theorem 6, A contains all sets   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  which include   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\{a_{0},\\cdots,a_{k}\\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . That is, A includes   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\prod_{i=0}^{i=k}L(a_{i})"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . (In fact, it can be shown  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "^{(4)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ) that the finite sets of A can be recursively enumerated, so that A includes the   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\sum\\prod L"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  class generated by its finite sets.)"
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                619,
+                931,
+                711
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY B. There are no nontrivial c.r. classes by the strong definition."
+                    }
+                ]
+            },
+            "bbox": [
+                130,
+                719,
+                904,
+                738
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For every nontrivial c.r.e. class A must contain the set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\epsilon"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  of all nonnegative integers, and it is impossible for both A and F-A to contain the same set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\epsilon"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                95,
+                745,
+                931,
+                800
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY C. No nontrivial c.r.e. class A contains o."
+                    }
+                ]
+            },
+            "bbox": [
+                130,
+                806,
+                710,
+                826
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For o is included in every set, so A would have to be F."
+                    }
+                ]
+            },
+            "bbox": [
+                133,
+                833,
+                748,
+                852
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "364"
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                89,
+                144,
+                104
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "H. G. RICE"
+                    }
+                ]
+            },
+            "bbox": [
+                453,
+                90,
+                577,
+                106
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "[March"
+                    }
+                ]
+            },
+            "bbox": [
+                862,
+                90,
+                931,
+                106
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "(4) This was pointed out to the author by J. C. E. Dekker."
+                    }
+                ]
+            },
+            "bbox": [
+                135,
+                870,
+                669,
+                888
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY D. No unit class is c.r.e."
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                104,
+                120,
+                498,
+                136
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We have already that if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is infinite,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "I(\\alpha)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is not c.r.e. (Theorem 4, Corollary A), and if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is empty,   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "I(\\alpha)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is not c.r.e. (Theorem 5). The result if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is finite follows from Theorem 6."
+                    }
+                ]
+            },
+            "bbox": [
+                64,
+                145,
+                902,
+                199
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "If we identify properties with classes, and “effective” with “recursive,” we can give an intuitive interpretation of Corollary B. If P is any property possessed by some, but not all, r.e. sets, then there exists no effective general method for deciding, given a set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  by means of a partial recursive function enumerating it, whether or not   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  has the property P. In stronger terms, there exists no effective general method for obtaining, from a partial recursive function, any information about the set of which the function is a characterization! Of course there will exist special methods for particular functions."
+                    }
+                ]
+            },
+            "bbox": [
+                64,
+                199,
+                902,
+                341
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This situation is not a result of admitting functions not always defined, for we now establish the same result for the weak definition."
+                    }
+                ]
+            },
+            "bbox": [
+                66,
+                341,
+                902,
+                377
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7. The weak definition."
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                104,
+                378,
+                368,
+                395
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 7. If a class A is c.r. by the weak definition, then   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A - I(o)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                404,
+                897,
+                423
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Under the hypothesis, there is a partial recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(r, n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  which is equal to 1 if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a general recursive function enumerating a set of A, and equal to 0 if   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is a general recursive function enumerating a set of F-A."
+                    }
+                ]
+            },
+            "bbox": [
+                66,
+                430,
+                902,
+                502
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We must show that from an arbitrary partial recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(n, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  enumerating a set   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha \\neq o"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , we can construct a general recursive function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , also enumerating   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , in such a way that m is a recursive function of n."
+                    }
+                ]
+            },
+            "bbox": [
+                66,
+                500,
+                902,
+                558
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We first define"
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                555,
+                273,
+                573
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "x _ {0} = K (\\mu z T (n, K (z), L (z))).",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/ca4d649317543467e7b1cd39c3e140188f8d4827db838cc69b180a780c81945e.jpg"
+                }
+            },
+            "bbox": [
+                334,
+                579,
+                634,
+                595
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Since  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\alpha \\neq o"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", such a  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "z"
+                    },
+                    {
+                        "type": "text",
+                        "content": " exists. Then"
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                603,
+                429,
+                619
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi (m,0) = \\Phi (n,x_0);"
+                    }
+                ]
+            },
+            "bbox": [
+                106,
+                621,
+                313,
+                638
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, x) = \\Phi(n, x_0)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " if  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T(n, K(x), L(x))"
+                    },
+                    {
+                        "type": "text",
+                        "content": " does not hold;"
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                638,
+                681,
+                656
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Phi (m, x) = \\Phi (n, K (x)) \\text {   if   } T (n, K (x), L (x)) \\text {   holds. }",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/d3cb4443388b6b8238a5cede1b855775b4b42db0540c7103947ceccc898e52fc.jpg"
+                }
+            },
+            "bbox": [
+                104,
+                656,
+                622,
+                673
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is defined for all arguments, and a more formal definition in terms of the representing function   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r(n, x, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  of   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T(n, x, y)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  would establish that   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Phi(m, x)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is recursive, and that the Gödel enumeration of the partial recursive functions would yield m as a recursive function of n. Say   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "f(n) = m"
+                    },
+                    {
+                        "type": "text",
+                        "content": " ."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                673,
+                902,
+                744
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To show that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A - I(o)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is c.r.e., we note that  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{A - I(o)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is the range of the partial recursive function"
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                744,
+                902,
+                781
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "g (n) + \\mu y [ y + 1 = \\Phi (r, f (g (n))) ]",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/358b30f687d4046cf9e9c1c80e785891085eea9b3775f88b81f1cc4093a89b5f.jpg"
+                }
+            },
+            "bbox": [
+                301,
+                784,
+                667,
+                803
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "g(n)"
+                    },
+                    {
+                        "type": "text",
+                        "content": " is a partial recursive function enumerating  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\theta_{F - I(o)}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                809,
+                731,
+                827
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "COROLLARY. If A is c.r. by the weak definition, then   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "F-I(o)-A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is c.r.e."
+                    }
+                ]
+            },
+            "bbox": [
+                106,
+                836,
+                902,
+                854
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "THEOREM 8. No nontrivial class is c.r. by the weak definition."
+                    }
+                ]
+            },
+            "bbox": [
+                106,
+                863,
+                767,
+                881
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "1953]"
+                    }
+                ]
+            },
+            "bbox": [
+                68,
+                87,
+                121,
+                101
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "CLASSES OF RECURSIVELY ENUMERABLE SETS"
+                    }
+                ]
+            },
+            "bbox": [
+                220,
+                86,
+                748,
+                99
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "365"
+                    }
+                ]
+            },
+            "bbox": [
+                857,
+                84,
+                900,
+                99
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Proof. Suppose   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A - I(o)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is c.r.e. Then A contains   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\epsilon"
+                    },
+                    {
+                        "type": "text",
+                        "content": " , and so   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "F - I(o) - A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  does not contain   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\epsilon"
+                    },
+                    {
+                        "type": "text",
+                        "content": " . Thus   "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "F - I(o) - A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "  is not c.r.e., and by the corollary to Theorem 7, A is not c.r. by the weak definition."
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                120,
+                940,
+                173
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We find, then, that the same unfortunate situation exists whether we agree to characterize sets by partial recursive functions, or whether we restrict characterization to the better-behaved general recursive functions. Nor does further restriction to the primitive recursive functions bring any improvement, for Rosser [8] has shown that from a given general recursive function we can effectively construct a primitive recursive function enumerating the same set. Arguments paralleling the proofs of Theorem 7 and 8 will then give the analogue of Theorem 8 for the primitive recursive functions."
+                    }
+                ]
+            },
+            "bbox": [
+                99,
+                173,
+                942,
+                317
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "BIBLIOGRAPHY"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                439,
+                328,
+                603,
+                344
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "1. Alonzo Church, An unsolvable problem of elementary number theory, Amer. J. Math. vol. 58 (1936) pp. 345–363."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                350,
+                938,
+                381
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "2. Kurt Gödel, Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I, Monatshefte für Mathematik und Physik vol. 38 (1931) pp. 173–198."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                381,
+                938,
+                410
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "3. S. C. Kleene, General recursive functions of natural numbers, Math. Ann. vol. 112 (1936) pp. 727–766."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                410,
+                935,
+                439
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "4. ——, On notation for ordinal numbers, J. Symbolic Logic vol. 3 (1938) pp. 150–155."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                140,
+                439,
+                935,
+                454
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "5. ——, Recursive predicates and quantifiers, Trans. Amer. Math. Soc. vol. 53 (1943) pp. 41–73."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                102,
+                454,
+                935,
+                484
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "6. A. Mostowski, On definable sets of positive integers, Fund. Math. vol. 34 (1946) pp. 81-112."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                484,
+                935,
+                512
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "7. E. L. Post, Recursively enumerable sets of positive integers and their decision problems, Bull. Amer. Math. Soc. vol. 50 (1944) pp. 284–316."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                512,
+                935,
+                543
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "8. J. B. Rosser, Extensions of some theorems of Gödel and Church, J. Symbolic Logic vol. 1 (1936) pp. 87–91."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                104,
+                543,
+                935,
+                573
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "366"
+                    }
+                ]
+            },
+            "bbox": [
+                106,
+                87,
+                149,
+                101
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "H. G. RICE"
+                    }
+                ]
+            },
+            "bbox": [
+                460,
+                87,
+                584,
+                102
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "SYRACUSE UNIVERSITY,"
+                    }
+                ]
+            },
+            "bbox": [
+                142,
+                580,
+                353,
+                597
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "SYRACUSE, N. Y."
+                    }
+                ]
+            },
+            "bbox": [
+                180,
+                595,
+                339,
+                612
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "UNIVERSITY OF NEW HAMPSHIRE,"
+                    }
+                ]
+            },
+            "bbox": [
+                142,
+                610,
+                444,
+                627
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "DURHAM, N. H."
+                    }
+                ]
+            },
+            "bbox": [
+                180,
+                625,
+                332,
+                641
+            ]
+        }
+    ]
+]

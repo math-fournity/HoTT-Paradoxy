@@ -1,0 +1,28 @@
+{
+  "schema_version": "source-inventory/v1",
+  "source": {
+    "path": "/Volumes/D/HoTT-downloads/godel-q-setmm-160ebb/set.mm",
+    "commit": "160ebb63ec17ff00a809520a420c92914a424622",
+    "sha256": "d8420798bcedcd04fcfe337736e2609b66914c76f8f2db967fa79673d5026b2a",
+    "bytes": 51466065
+  },
+  "parser": {
+    "method": "Remove non-nested $( ... $) comments, split remaining bytes on whitespace, then collect tokens between each $v/$c marker and its following $. marker.",
+    "comment_delimiters_balanced": true,
+    "token_count_without_comments": 5066740
+  },
+  "inventory": {
+    "v_declaration_tokens_total": 368,
+    "v_declaration_tokens_unique": 355,
+    "c_declaration_tokens_total": 1474,
+    "c_declaration_tokens_unique": 1474,
+    "v_declaration_lines": 370,
+    "c_declaration_lines": 1374
+  },
+  "formal_system_control": {
+    "source_label": "ismfs",
+    "source_requirement": "For every variable typecode, the corresponding preimage under the type function is not finite.",
+    "reading": "A literal mapping from the finite raw source token pool to the entire mFS variable universe cannot discharge this requirement. A valid actual-database mapping must explicitly provide an infinite variable extension and prove its relation to the finite source representation.",
+    "scope": "This is a direct-source mapping control, not a theorem that set theory cannot represent infinity or a proof that no companion construction exists."
+  }
+}

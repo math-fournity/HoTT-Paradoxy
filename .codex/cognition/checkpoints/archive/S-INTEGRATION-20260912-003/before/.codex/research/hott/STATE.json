@@ -1,0 +1,126 @@
+{
+  "schema_version": "hott-working-state/v1",
+  "revision": 2,
+  "latest_session": "S-INTEGRATION-20260912-002",
+  "active": [
+    "A-UNDERSTANDING-RECONCILIATION-001"
+  ],
+  "review_due": [
+    "A-AISTUDIO-COVERAGE-001",
+    "A-HISTORICAL-MATH-CLAIMS-001"
+  ],
+  "unresolved": [
+    "A-AISTUDIO-COVERAGE-001",
+    "A-HISTORY-LEDGERS-001",
+    "A-UNDERSTANDING-RECONCILIATION-001",
+    "A-HISTORICAL-MATH-CLAIMS-001"
+  ],
+  "execution_control": {
+    "background_work": false,
+    "status": "LEDGERS_BUILT_RECONCILIATION_PENDING",
+    "new_math_research_started": false,
+    "source_policy": "preserve historical snapshots; do not restore user-removed aistudio-docs",
+    "next_minimal_verification": "reconcile understanding chapters and map material claims to direct artifact/Git evidence",
+    "last_checkpoint_session": "S-INTEGRATION-20260912-002"
+  },
+  "records": {
+    "S-INTEGRATION-20260912-001": {
+      "kind": "session",
+      "path": ".codex/research/hott/sessions/S-INTEGRATION-20260912-001/SESSION.md",
+      "status": "closed",
+      "scope": "Top-level repo initialization, source preservation, core cognition build, local governance construction",
+      "full_sources": [
+        "实施方案-三AI历史整合与核心认知治理.md",
+        "audit/governance-impact.md",
+        "sources/SOURCE_MANIFEST.json",
+        "核心认知.md",
+        "核心认知.manifest.json"
+      ],
+      "depends_on": [],
+      "resolution": {
+        "reason": "Initial integration session was completed and retained immutably; final checkpoint is recorded by session 002.",
+        "evidence": [
+          ".codex/research/hott/sessions/S-INTEGRATION-20260912-001/SESSION.md",
+          "audit/verification-report.json"
+        ]
+      }
+    },
+    "S-INTEGRATION-20260912-002": {
+      "kind": "session",
+      "path": ".codex/research/hott/sessions/S-INTEGRATION-20260912-002/SESSION.md",
+      "status": "closed",
+      "scope": "Final source/ledger/governance integration checkpoint and explicit handoff of remaining reconciliation work",
+      "full_sources": [
+        "理解章节/C0-当前整合审计与证据边界-20260912.md",
+        "audit/ledger-summary.json",
+        "audit/verification-report.json",
+        "audit/external-validation-20260912.json",
+        "核心认知.md"
+      ],
+      "depends_on": ["S-INTEGRATION-20260912-001"],
+      "resolution": {
+        "reason": "Integration wave reached its accepted handoff boundary; semantic chapter reconciliation and mathematical claim review remain open records.",
+        "evidence": [
+          ".codex/research/hott/sessions/S-INTEGRATION-20260912-002/SESSION.md",
+          "理解章节/C0-当前整合审计与证据边界-20260912.md",
+          "audit/verification-report.json"
+        ]
+      }
+    },
+    "A-HISTORY-LEDGERS-001": {
+      "kind": "historical_audit",
+      "path": "audit/coverage-summary.json",
+      "status": "review_required",
+      "scope": "Visible AI responses, canonical trajectory events, WebGPT sections, Gemini executable/inline records, artifacts and claims",
+      "full_sources": [
+        "sources/SOURCE_MANIFEST.json",
+        "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
+        "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
+        "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md"
+      ],
+      "depends_on": ["S-INTEGRATION-20260912-001"]
+    },
+    "A-UNDERSTANDING-RECONCILIATION-001": {
+      "kind": "understanding_chapter_reconciliation",
+      "path": "理解章节/README.md",
+      "status": "active",
+      "scope": "Reconcile old counts, AI-side audit anchors, work history and outcome ledger after the full response/tool ledger exists",
+      "full_sources": [
+        "理解章节/README.md",
+        "理解章节/读遍账本.md",
+        "理解章节/B0-工作史总览.md",
+        "理解章节/B1-本地GPT工作史.md",
+        "理解章节/B2-网页GPT工作史-I.md",
+        "理解章节/B3-网页GPT工作史-II.md",
+        "理解章节/B4-Gemini工作史.md",
+        "理解章节/B5-成果总账.md",
+        "核心认知.md"
+      ],
+      "depends_on": ["A-HISTORY-LEDGERS-001"]
+    },
+    "A-AISTUDIO-COVERAGE-001": {
+      "kind": "source_gap",
+      "path": "sources/local-gpt/HoTT_is_GONE_COMPLETE.md",
+      "status": "review_required",
+      "scope": "Determine whether the user-removed aistudio-docs content is actually covered by the preserved GONE artifact; no restoration authorized",
+      "full_sources": [
+        "sources/local-gpt/HoTT_is_GONE_COMPLETE.md",
+        "sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md",
+        "sources/SOURCE_MANIFEST.json"
+      ],
+      "depends_on": ["S-INTEGRATION-20260912-001"]
+    },
+    "A-HISTORICAL-MATH-CLAIMS-001": {
+      "kind": "historical_claim_review",
+      "path": "理解章节/B5-成果总账.md",
+      "status": "review_required",
+      "scope": "Separate AI claims, finite checks, executable toy code, proof-assistant status and reality-relative hypotheses",
+      "full_sources": [
+        "理解章节/B5-成果总账.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "sources/webgpt/workspace-snapshot/.codex/research/hott/STATE.json"
+      ],
+      "depends_on": ["A-UNDERSTANDING-RECONCILIATION-001"]
+    }
+  }
+}

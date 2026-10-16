@@ -1,0 +1,45 @@
+{
+  "status": "FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE",
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-RICH-TASK-001-02"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-RICH-TASK-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "fresh_kernel_run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-RICH-TASK-001-02",
+  "extra_kernel_rerun": false,
+  "kernel_seconds": 261.898364,
+  "source_graph_matches_final_draft": true,
+  "import_modules": 1084,
+  "claim_ids": [
+    "C-293",
+    "C-294"
+  ],
+  "unproved": [
+    "Unconditional weak Lift",
+    "Exact user-source Input/Denotes and original process correspondence beyond this model",
+    "Physical realizability and full original case integration",
+    "Complete four-stage redo"
+  ],
+  "native_intrinsic_geometry_directly_proved": true,
+  "whole_Lean_interpreter_is_not_a_prerequisite_for_these_native_claims": true
+}

@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-05"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-native-real-20260920/20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-01.dot",
+    "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda"
+  ],
+  "completed_at_utc": "2026-09-20T10:53:45.917480+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 135.022312,
+  "environment": {
+    "bytes": 836,
+    "path": "environment.txt",
+    "sha256": "15a51fe42d1e695b039050539ca2e34d42945699ab78464018e16d7478fa7762"
+  },
+  "exit_code": 0,
+  "expected_exit_for_control": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "fc3f3d4d5dd395eb492362652aa3f2dbe80d2530fd60a0627e4e4bedb2cb4951"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No ordinary HoTT inconsistency claim.",
+    "No global soundness certification of Agda, all library postulates, or the derivative.",
+    "No complete four-stage redo, physical realization, or general faithful translation claim."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-NOSECTION-RESTRICTED-001",
+  "run_id": "20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Same historical derived NoCanonicalPoint source replayed against the local identity-preserving derivative; inherited foundation postulates remain. This removes the observed erasure rule for this check, not every possible source of inconsistency.",
+  "source_manifest": {
+    "bytes": 14671,
+    "path": "source-manifest.json",
+    "sha256": "93c183d74ee53270a48989ae5c38b058050b2eda5e0a3245bc298466841c21b6"
+  },
+  "started_at_utc": "2026-09-20T10:51:30.895168+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 90421,
+    "path": "stdout.txt",
+    "sha256": "2f462a6e732289fa757646708f7bbf60ac1849ba0042ba6ea483ef514f652aaa"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

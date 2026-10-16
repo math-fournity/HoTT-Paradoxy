@@ -1,0 +1,60 @@
+10 EMILY RIEHL AND MICHAEL SHULMAN
+Ξ |Φ ⊢ ⊥
+Ξ |Φ |Γ ⊢ rec⊥ :A
+Ξ |Φ ⊢ ⊥ Ξ |Φ |Γ ⊢ a :A
+Ξ |Φ |Γ ⊢ a ≡ rec⊥
+Ξ |Φ ⊢ φ ∨ ψ Ξ |Φ |Γ ⊢ A type
+Ξ |Φ,φ |Γ ⊢ aφ :A Ξ |Φ,ψ |Γ ⊢ aψ :A Ξ |Φ,φ ∧ ψ |Γ ⊢ aφ ≡ aψ
+Ξ |Φ |Γ ⊢ recφ,ψ
+∨ (aφ,aψ ) : A
+Ξ |Φ ⊢ φ ∨ ψ Ξ |Φ |Γ ⊢ A type
+Ξ |Φ,φ |Γ ⊢ aφ :A Ξ |Φ,ψ |Γ ⊢ aψ :A Ξ |Φ,φ ∧ ψ |Γ ⊢ aφ ≡ aψ
+Ξ |Φ,φ |Γ ⊢ recφ,ψ
+∨ (aφ,aψ ) ≡ aφ
+Ξ |Φ ⊢ φ ∨ ψ Ξ |Φ |Γ ⊢ A type
+Ξ |Φ,φ |Γ ⊢ aφ :A Ξ |Φ,ψ |Γ ⊢ aψ :A Ξ |Φ,φ ∧ ψ |Γ ⊢ aφ ≡ aψ
+Ξ |Φ,ψ |Γ ⊢ recφ,ψ
+∨ (aφ,aψ ) ≡ aψ
+Ξ |Φ ⊢ φ ∨ ψ Ξ |Φ |Γ ⊢ a :A
+Ξ |Φ |Γ ⊢ a ≡ recφ,ψ
+∨ (a,a )
+Figure 3. Type elimination for tope disjunction
+Unfortunately, because rule (
+2.2) as stated has a not-fully-general context Γ[ s/x ]
+in the conclusion, it breaks admissibility of substitution into judgment al equality:
+(∗) Ξ |Φ |Γ ⊢ a :A Ξ |Φ |Γ,x :A, ∆ ⊢ b ≡ b′
+Ξ |Φ |Γ, ∆[a/x ] ⊢ b[a/x ] ≡ b[a′/x ]
+There are various potential ways to resolve this, but since judgme ntal equality is
+proof-irrelevant and we are not considering implementation questio ns in this paper,
+the simplest is to take ( ∗) as a primitive rule. We thank Dan Licata for pointing
+this out.
+2.2. Extension types along coﬁbrations. Finally, we come to the reason for
+introducing this whole three-layer theory: extension types along c oﬁbrations. As
+our notion of “coﬁbration” we use a shape inclusion, i.e. a pair of shapes {t :I |φ}
+and {t : I |ψ } in the same cube such that t : I |φ ⊢ ψ . We will sometimes
+abbreviate this as {t :I |φ} ⊆ { t :I |ψ }.
+The rules for extension types are shown in Figure
+4. In the formation rule, the
+judgment Ξ |Φ ⊢ Γ ctx means that Γ is a well-formed context of types relative to
+Ξ |Φ. The point is that Γ is not allowed to depend on t orψ , and (implicitly) that
+Φ is also not allowed to depend on t. The type A, however, is allowed to depend on
+t and ψ , i.e. we allow “dependent extensions”. The rest of the rules say ess entially
+that an extension type behaves like an ordinary dependent functio n type, with β
+andη rules, except that all its elements act like the supplied section a :A whenever
+φ holds.
+As with ordinary dependent function types, if the codomain type A does not
+actually depend on the domain shape {t :I |ψ }, instead of
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐φ
+a
+⟩
+we write⟨
+{t :I |ψ } → A
+⏐
+⏐φ
+a
+⟩
+.

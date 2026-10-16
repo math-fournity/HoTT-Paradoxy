@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-09-24T02:59:50.792370+00:00",
+  "commands": [
+    {
+      "name": "formal-run",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260924-MO3-FINITE-COVER-001-08"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "selected-evidence",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-MO3-FINITE-COVER-001"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "global-evidence",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only"
+      ],
+      "exit": 2
+    }
+  ],
+  "wrong_touching_expected_rejection": true,
+  "builtin_drift": [],
+  "math_scope": "C335-339 only; computation warnings retained; source compactness theorem not replayed; local Git closure pending"
+}

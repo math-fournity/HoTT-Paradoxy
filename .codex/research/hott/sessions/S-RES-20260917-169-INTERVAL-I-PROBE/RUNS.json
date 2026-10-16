@@ -1,0 +1,63 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260917-169-INTERVAL-I-PROBE",
+ "runs": [
+  {
+   "id": "probe-interval-i-forms",
+   "kind": "git",
+   "commit": "36d27e0",
+   "note": "IntervalIForms.agda (machine-overview/formal/): ACCEPT exit 0. Writable separation forms on I = (a) type families over I + PathP; (b) the cofibration condition layer: IsOne i1, endpointCases : (r:I) -> Partial (r or ~r) Bool, endpointFamily, meetCases : (r s:I) -> Partial (r and s) Type1, intervalFamily : I -> SSet2, pathOverConstant. Positive writability evidence; falsifier = kernel REJECT of any of these definitions. expectation_met=True; stdout 2,400 bytes."
+  },
+  {
+   "id": "probe-interval-i-bool-disc",
+   "kind": "git",
+   "commit": "36d27e0",
+   "note": "IntervalIBoolDiscriminator.agda: REJECT exit 42 [SplitError.NotADatatype] Cannot split on argument of non-datatype I (line 32.18-20). The I -> Bool endpoint observer (the DM3/point-set oracle form, route c2) is structurally unwritable on I. Bounded negative result about an expressive boundary; scope fixed to Cubical Agda 2.8.0 + cubical v0.9; falsifier = a kernel-ACCEPTED non-constant I -> Bool. expectation_met=True; stdout 2,644 bytes."
+  },
+  {
+   "id": "probe-interval-i-eq-attempt",
+   "kind": "git",
+   "commit": "36d27e0",
+   "note": "IntervalIEqualityAttempt.agda: REJECT exit 42 [UnequalSorts] IUniv != Type (line 16.32-33). PathP (\\ i -> I) r s (route c1, the precondition of a decidable equality on I) cannot be formed at all. Not-formation is not non-termination; the two are not interchangeable. expectation_met=True; stdout 568 bytes."
+  },
+  {
+   "id": "probe-interval-i-receipts",
+   "kind": "git",
+   "commit": "36d27e0",
+   "note": "Three run dirs machine-overview/runs/PROBE-INTERVAL-I-{FORMS,BOOL-DISC,EQ-ATTEMPT}/ each carry RUN.json (schema machine-overview-probe-interval-i-run/v1: question/answer/status/expectation_met/registers_new_claim/design_source/kernels[argv,cwd,exit_code,stdout+stderr sha256,environment,artifacts]/toolchain_identity/git_state_engine/git_state_handoff/oracle_scope/key_adjudication_audit_trail) + stdout.txt + stderr.txt + environment.txt + command.json + source-manifest.json. All three expectation_met=True. Toolchain identity identical to VERIFY-GAP-A-DM3-BLI-001 (Cubical Agda 2.8.0-3d04bac, cubical v0.9, no network)."
+  },
+  {
+   "id": "main-repo-deliverable",
+   "kind": "git",
+   "commit": "pending (this commit)",
+   "note": "HoTT/generators/PROBE-INTERVAL-I/ (PROBE-INTERVAL-I-REPORT.md 10,057 bytes + PROBE-INTERVAL-I-INDEX.md 3,056 bytes): verdict INTERVAL_I_SEPARATION_FORMS_FAMILY_AND_COFIBRATION_BOOL_OBSERVER_UNWRITABLE, EXP-001 closure (faithful translation exists but the carrier layer changes), registers_new_claim:false. Committed together with the checkpoint-169 transaction in the main repo."
+  },
+  {
+   "id": "revision-shard-021",
+   "kind": "file",
+   "path": "Atria的方案/修订片/021 - 区间 I 设计探针：可写形态与表达界限（EXP-001 收尾）.md",
+   "note": "Step-output plan landing (source=reflection), not a new proposal: registers the measured branch of the STATE-revision-168 conditional, the verdict grading, the EXP-001 closure, and the hand-off to SUPPLY-010. Index Atria的方案/修订片.md updated (last_shard -> 021, banner 20 -> 21 shards)."
+  },
+  {
+   "id": "core-cognition-audit-s169",
+   "kind": "file",
+   "path": ".codex/research/hott/sessions/S-RES-20260917-169-INTERVAL-I-PROBE/CORE_COGNITION_AUDIT.md",
+   "note": "Second sharded audit set under the revision-020 contract (index + 8 shards: contract/baseline, KC-000001-024, KC-000025-046, essay shards 001-003, 004-006, 007-008, course review, rerouting adjudication). 46 KC exact coverage; relation changes vs 168: KC-000002 ALIGNED->DEEPENED, KC-000031/035 NOT_TOUCHED->DEEPENED. Shard 008 ruling: continue the 168 sequence, next unit = SUPPLY-010; KC-000037-000039 tension upgraded to STATE-level T-OBVIOUSNESS-GAP-001. The eight shards cannot enter the checkpoint transaction (allowed_write admits only [A-Za-z0-9_.-]+ names) and are committed in the same git commit."
+  }
+ ],
+ "session_records": [
+  {
+   "id": "gap-a-interval-i-probe",
+   "kind": "verdict",
+   "adjudication": "INTERVAL_I_SEPARATION_FORMS_FAMILY_AND_COFIBRATION_BOOL_OBSERVER_UNWRITABLE",
+   "class": "ENGINEERING_ACCEPTANCE_ONLY",
+   "registers_new_claim": false,
+   "note": "Gap-A interval-I branch closed with a positive expressive-boundary conclusion (not with a V2 value interpretation). interval_i_confirmed stays false; V2-DM3 witnesses remain inadmissible as evidence about interval I. EXP-001 closed: faithful translation exists but the carrier layer changes (Partial (phi) fragment != Bool global observation)."
+  },
+  {
+   "id": "kc-037-039-tension-upgrade",
+   "kind": "state",
+   "note": "KC-000037/000038/000039 'obvious / should-not-be-hard' gap upgraded to STATE-level structural tension T-OBVIOUSNESS-GAP-001 after three consecutive units (167 enumeration / 168 enumeration / 169 probe) with no regression; first-priority reason for SUPPLY-010."
+  }
+ ]
+}

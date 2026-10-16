@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-283",
+    "C-284"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-puncture-apartness-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/PunctureApartness.agda"
+  ],
+  "completed_at_utc": "2026-09-20T11:28:54.282716+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 233.3664,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "ffe2b6e2614adc1d3907439438e1ee28227a1846e95110d81194cce8453575ad"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No unconditional LocalStability, its negation, independence, or global LEM necessity.",
+    "No complete circle/interval homeomorphism, inverse parametrization, continuity, physical deformation or complete four-stage redo.",
+    "Declared library postulates remain; no full consistency certification."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-PUNCTURE-APARTNESS-001",
+  "run_id": "20260920-MP-ASTRA-PUNCTURE-APARTNESS-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Actual Dedekind circle: weak puncture iff double-negated x-coordinate apartness; point-preserving refinement and uniform denominator inverses iff local stability; optional propositional DNE/LEM sufficiency; arbitrary inverse implies apartness; forward coordinate, north control and no missing-inverse witness.",
+  "source_manifest": {
+    "bytes": 14876,
+    "path": "source-manifest.json",
+    "sha256": "4642593324abd44c45502b0a703414540200d674cde9dc2b0af5d9b018029709"
+  },
+  "started_at_utc": "2026-09-20T11:25:00.916316+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 208703,
+    "path": "stdout.txt",
+    "sha256": "3fb1e42bac6c879a0b606a467a9fc5d8e2e5bc72f83145e831732e6cf324adcf"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

@@ -1,0 +1,57 @@
+{
+  "audit_notes": [
+    "Linux replay (Lean 4.34.0 Linux release asset, same source commit 293d5d0c as the macOS toolchain) of the Opus run of 2026-09-26; the original receipt is left untouched. The driver lean_check.py of goal CG-001 is used unchanged."
+  ],
+  "audit_session": "Cloud-Opus (Claude Code cloud session), branch claude/charming-pasteur-mvzlio",
+  "claim_ids": [
+    "CG001-C-72"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
+    "--toolchain",
+    "HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json",
+    "HoTT/formal/claude-cg001/universe-set-lean/UniverseIsSet.lean",
+    "HoTT/formal/claude-cg001/universe-set-lean/WrongCastFlips.lean"
+  ],
+  "completed_at_utc": "2026-09-27T08:58:44.106306+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 1.378728,
+  "environment": {
+    "bytes": 742,
+    "path": "environment.txt",
+    "sha256": "097c01d3b5a95377fe253fccb0543d958e8004a6de3eab312f1fc0ed89c43c11"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-UNIVERSE-SET-LEAN-NEG-001",
+  "rejection_stage": "ELABORATION_TYPE_ERROR",
+  "run_id": "20260927-COPUS-REPLAY-CG001-UNIVERSE-SET-LEAN-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-CG001-UNIVERSE-SET-LEAN-NEG-01: castFlips (p : Bool = Bool) : cast p true = false := rfl must be rejected (cast p true is not definitionally false). The rejection happens in the elaborator (type mismatch), before any term reaches the kernel.",
+  "source_manifest": {
+    "bytes": 3805,
+    "path": "source-manifest.json",
+    "sha256": "15478529dd84b030a3e61881e370c64ea7a77a737d08ab7144c3df54826d21b5"
+  },
+  "started_at_utc": "2026-09-27T08:58:42.727511+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 269,
+    "path": "stdout.txt",
+    "sha256": "f1a5bda40049c54504226d29a6d253d9a133083e6be1940f43f7f659f3d302d6"
+  },
+  "theory_variant": "Lean 4 kernel; set-level model statements only"
+}

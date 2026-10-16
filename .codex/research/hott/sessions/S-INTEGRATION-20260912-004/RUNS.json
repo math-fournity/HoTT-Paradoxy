@@ -1,0 +1,12 @@
+{
+  "schema_version": "session-runs/v1",
+  "session_id": "S-INTEGRATION-20260912-004",
+  "runs": [
+    {"run_id": "RUN-COGNITION-REFRESH-004", "command": "rtk python3 scripts/audit/refresh_integration_checkpoint.py", "status": "PASS", "result": "CHECKPOINT_COMMITTED; STATE revision 4; MEMORY/LESSONS/RESUME aligned", "evidence": [".codex/cognition/checkpoints/S-INTEGRATION-20260912-004/result.json"]},
+    {"run_id": "RUN-CORE-VERIFY-004", "command": "rtk python3 scripts/audit/verify_core_cognition.py", "status": "PASS", "result": "903 contiguous core units and source hashes", "evidence": ["核心认知.manifest.json"]},
+    {"run_id": "RUN-HISTORY-VERIFY-004", "command": "rtk python3 scripts/audit/verify_history_ledgers.py", "status": "PASS", "result": "historical denominator, pairing and Gemini inline contracts pass", "evidence": ["audit/verification-report.json"]},
+    {"run_id": "RUN-COGNITION-PLAN-004", "command": "rtk python3 .codex/tools/cognition_runtime.py plan", "status": "PASS", "result": "review_required reconciliation and source-gap records remain visible", "evidence": [".codex/cognition/LOAD_SET.json", ".codex/research/hott/STATE.json"]}
+  ],
+  "mathematics": "NOT_RUN_IN_THIS_INTEGRATION_SESSION",
+  "model_understanding": "NOT_CERTIFIED"
+}

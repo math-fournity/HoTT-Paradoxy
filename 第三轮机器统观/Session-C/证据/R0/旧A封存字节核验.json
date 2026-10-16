@@ -1,0 +1,27 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "第三轮机器统观/整备/handoff_snapshot.py",
+    "verify",
+    "--seal",
+    "第三轮机器统观/Session-A/交付/final-002",
+    "--expected-sha",
+    "e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"status\": \"VERIFIED_BYTES_ONLY\",\n  \"manifest_sha256\": \"e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd\",\n  \"subject_commit\": \"4b4dd07607d7e989293474fc61d3372ad89ef0c3\",\n  \"file_count\": 2189,\n  \"live_checked\": false,\n  \"not_certified\": [\n    \"semantic completeness\",\n    \"mathematics\",\n    \"author authenticity\",\n    \"clean source tree\"\n  ]\n}\n",
+  "result": {
+    "status": "VERIFIED_BYTES_ONLY",
+    "manifest_sha256": "e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd",
+    "subject_commit": "4b4dd07607d7e989293474fc61d3372ad89ef0c3",
+    "file_count": 2189,
+    "live_checked": false,
+    "not_certified": [
+      "semantic completeness",
+      "mathematics",
+      "author authenticity",
+      "clean source tree"
+    ]
+  }
+}

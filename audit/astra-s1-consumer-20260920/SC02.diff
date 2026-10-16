@@ -1,0 +1,11 @@
+--- upstream-fixed-core
++++ SC02
+@@ -21,7 +21,7 @@
+ decodeSquare : (n : ℤ) → PathP (λ i → base ≡ loop i) (intLoop (predℤ n)) (intLoop n)
+ decodeSquare (pos zero) i j    = loop (i ∨ ~ j)
+ decodeSquare (pos (suc n)) i j = hfill (λ k → λ { (j = i0) → base
+-                                                ; (j = i1) → loop k } )
++                                                ; (j = i1) → base } )
+                                        (inS (intLoop (pos n) j)) i
+ decodeSquare (negsuc n) i j = hfill (λ k → λ { (j = i0) → base
+                                              ; (j = i1) → loop (~ k) })

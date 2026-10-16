@@ -1,0 +1,77 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-82"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/product-questioning/WrongBoundedStopsEarly.agda"
+  ],
+  "completed_at_utc": "2026-09-30T17:13:29.954561+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 86.379754,
+  "environment": {
+    "bytes": 1069,
+    "path": "environment.txt",
+    "sha256": "cbd00f4009170502115509a2ffa5d4e2bfe33c49ee7417faaec278fddee5b49f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning/WrongBoundedStopsEarly.agda:18.9-13: error: [UnequalTerms]\nCubical.Data.Maybe.nothing != just 1 of type\nCubical.Data.Maybe.Maybe Agda.Builtin.Nat.Nat\nwhen checking that the expression refl has type\nrunFor 0 (question (Bounded 0) (judgeBounded 0)) ≡ just 1",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Only the instance b = 0 is run here."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PRODUCT-QUESTIONING-NEG-004",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260930-CG001-PRODUCT-QUESTIONING-NEG-04",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-82: claims by refl that Q on the bounded product (n : N) -> K 0 stops at stage 1 (fuel 0 returns 1); expected rejection nothing != just 1 (the bounded product is not a set).",
+  "source_manifest": {
+    "bytes": 3732,
+    "path": "source-manifest.json",
+    "sha256": "479e9d46fecbf5705d15278cfd0c8ddfd790867a0fcce05daa0d57d6c754bdb3"
+  },
+  "started_at_utc": "2026-09-30T17:12:03.574807+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29863,
+    "path": "stdout.txt",
+    "sha256": "457b43b98b5cfd538f18d0ca0d035cb4fbb01e7c70856e86244c9f3f778bbb72"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

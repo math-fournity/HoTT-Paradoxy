@@ -1,0 +1,50 @@
+{
+ "schema_version": "atria-evidence-receipt/v1",
+ "generated_at_utc": "2026-09-16T11:37:14.684617+00:00",
+ "project_root": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+ "round": "2026-09-16 phase-0 closure + report 09 / shard 008 authoring",
+ "purpose": "Independent re-verification feeding Atria audit report 09 and revision shard 008: A3 engine-capacity recheck, A2 version-closure recount after recent commits, governance shard validation after adding shard 008.",
+ "receipts": [
+  {
+   "step": "A3-recheck-mo-selftest",
+   "command": [
+    "python3",
+    "-B",
+    "/Volumes/D/HoTT-machine-overview/machine-overview/mo.py",
+    "selftest"
+   ],
+   "exit_code": 1,
+   "stdout_tail": "",
+   "stderr_tail": "hon@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/loader.py\", line 341, in discover\n    raise ImportError('Start directory is not importable: %r' % start_dir)\nImportError: Start directory is not importable: '/Volumes/D/HoTT_AI_HANDOFF_20260911/machine-overview/tests'\n"
+  },
+  {
+   "step": "A2-recheck-verify-proof-version-closure",
+   "command": [
+    "python3",
+    "-B",
+    "scripts/audit/verify_proof_version_closure.py"
+   ],
+   "exit_code": 2,
+   "stdout_tail": "{\"status\": \"BLOCKED\", \"error\": \"LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-MACHINE-HALTING-001:20260914-MP-CUBICAL-MACHINE-HALTING-001-01:Cubical.Core.Glue\"}\n",
+   "stderr_tail": ""
+  },
+  {
+   "step": "A2-recheck-per-package-closure",
+   "command": "python3 -B - <<'EOF'\nimport importlib.util, json\nfrom pathlib import Path\nspec = importlib.util.spec_from_file_location('vc','scripts/audit/verify_proof_version_closure.py')\nvc = importlib.util.module_from_spec(spec); spec.loader.exec_module(vc)\nreg = json.loads(Path('HoTT/verification/PROOF_VERSION_CLOSURE.json').read_text())\nlater = reg['later_packages']; gap = reg.get('later_package_dependency_gap_allowlist') or {}\nok=0; fails={}\nfor pkg in later:\n    try:\n        vc.check_later_package(Path(pkg['run']), pkg, gap); ok+=1\n    except Exception as e:\n        fails.setdefault(str(e).split(':')[0], []).append(pkg['proof_id'])\nprint('later_packages:', len(later), 'OK:', ok)\nfor k,v in fails.items(): print(k, len(v), v[:4])\nEOF",
+   "exit_code": 0,
+   "stdout_tail": "later_packages: 25 OK: 6\nLATER_DEPENDENCY_GAP_NOT_ALLOWLISTED 11 ['MP-ERCF3-T3-ARITH-TAGS-001', 'MP-ERCF3-T3-BIT-CODING-001', 'MP-ERCF3-T3-STREAMING-PARSER-001', 'MP-ERCF3-T3-FORMULA-CODING-001']\nLATER_COMMAND_SOURCE_MISMATCH 7 ['MP-COQ-MM2-UNDECIDABILITY-REPLAY-001', 'MP-COQ-MM2-PROGRAMCODE-BRIDGE-001', 'MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001', 'MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001']\nLATER_SOURCE_HASH_DRIFT 1 ['MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001']\n",
+   "stderr_tail": ""
+  },
+  {
+   "step": "shard-validate-after-008",
+   "command": [
+    "python3",
+    "-B",
+    "scripts/audit/verify_governance_shards.py"
+   ],
+   "exit_code": 0,
+   "stdout_tail": "c9e0ba966560ad4862cbe2067465f3a584099640328de0fe\",\n  \"command\": [\n    \"/opt/homebrew/opt/python@3.14/bin/python3.14\",\n    \"-B\",\n    \"/Volumes/D/HoTT_AI_HANDOFF_20260911/scripts/audit/validate_governance_shards.py\",\n    \"--scan\",\n    \"/Volumes/D/HoTT_AI_HANDOFF_20260911\"\n  ],\n  \"exit_code\": 0,\n  \"stdout\": \"PASS: governance shard indexes=456; soft-target notices=0; v1/v2 compatible; line targets are non-blocking\\n\",\n  \"stderr\": \"\",\n  \"status\": \"PASS\",\n  \"indexes\": 456,\n  \"soft_target_notices\": 0,\n  \"line_targets_blocking\": false,\n  \"canonical_indexes_checked\": 17,\n  \"reader_banner_issues\": []\n}\n",
+   "stderr_tail": ""
+  }
+ ]
+}

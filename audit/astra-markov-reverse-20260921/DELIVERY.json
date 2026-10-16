@@ -1,0 +1,48 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_WITH_SCOPE",
+  "claim_ids": [
+    "C-323",
+    "C-324"
+  ],
+  "primary_run": "HoTT/verification/runs/20260921-MP-ASTRA-MARKOV-REVERSE-001-01",
+  "primary_seconds": 439.51911,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260921-MP-ASTRA-MARKOV-REVERSE-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-MARKOV-REVERSE-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "compiled_local_modules": 34,
+  "import_modules": 1108,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 1,
+  "draft_checks": 4,
+  "draft_rejections": 2,
+  "draft_repairs": [
+    "001 missing is-section-diff-ℚ import; added additive-group module without changing statement",
+    "003 Set name ambiguity; qualified foundation.sets.Set without changing the family"
+  ],
+  "theory": "Pinned without-K no-erasure agda-unimath with inherited foundation postulates. BookMarkov and level-ACℕ lzero are explicit arguments, not supplied global postulates.",
+  "unproved": [
+    "Unconditional Markov-to-RNZA on all arbitrary Dedekind reals; extra data/choice is not silently removed.",
+    "Necessity/independence of countable choice or Markov; baseline unprovability and necessity of LEM/resizing.",
+    "Physical execution, unconditional full Weak recovery, false HoTT promise and completed four-stage objective."
+  ],
+  "parent_goal": "OPEN"
+}

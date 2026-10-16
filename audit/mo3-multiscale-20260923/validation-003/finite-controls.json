@@ -1,0 +1,182 @@
+{
+  "identity": "synthetic finite specification; not HoTT evidence or AI discovery",
+  "inputs": {
+    "atoms": [
+      {
+        "id": "a",
+        "consumer": "shared-2",
+        "slots": 1
+      },
+      {
+        "id": "b",
+        "consumer": "shared-2",
+        "slots": 1
+      },
+      {
+        "id": "c",
+        "consumer": "shared-2",
+        "slots": 1
+      },
+      {
+        "id": "d",
+        "consumer": "shared-3",
+        "slots": 1
+      },
+      {
+        "id": "e",
+        "consumer": "shared-3",
+        "slots": 1
+      },
+      {
+        "id": "f",
+        "consumer": "shared-3",
+        "slots": 1
+      }
+    ],
+    "limits": {
+      "shared-2": 2,
+      "shared-3": 3
+    }
+  },
+  "observations": {
+    "old_single_pair_schedule": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ],
+      [
+        "c"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "a",
+        "c"
+      ],
+      [
+        "b",
+        "c"
+      ],
+      [
+        "d"
+      ],
+      [
+        "e"
+      ],
+      [
+        "f"
+      ],
+      [
+        "d",
+        "e"
+      ],
+      [
+        "d",
+        "f"
+      ],
+      [
+        "e",
+        "f"
+      ]
+    ],
+    "old_outputs": [
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET",
+      "WITHIN_BUDGET"
+    ],
+    "structural_schedule": [
+      [
+        "a",
+        "b",
+        "c"
+      ],
+      [
+        "d",
+        "e",
+        "f"
+      ]
+    ],
+    "structural_outputs": [
+      "OVER_BUDGET",
+      "WITHIN_BUDGET"
+    ],
+    "regrouped_layouts": [
+      {
+        "shared-2": [
+          "a",
+          "b",
+          "c"
+        ],
+        "shared-3": [
+          "d",
+          "e",
+          "f"
+        ]
+      },
+      {
+        "shared-2": [
+          "a",
+          "b",
+          "c"
+        ],
+        "shared-3": [
+          "d",
+          "e",
+          "f"
+        ]
+      },
+      {
+        "shared-2": [
+          "a",
+          "b",
+          "c"
+        ],
+        "shared-3": [
+          "d",
+          "e",
+          "f"
+        ]
+      }
+    ],
+    "orders": [
+      [
+        "add",
+        "double"
+      ],
+      [
+        "double",
+        "add"
+      ]
+    ],
+    "ordered_outputs": [
+      2,
+      1
+    ],
+    "leaf_only_missing_questions": [
+      "joint-shared-2",
+      "joint-shared-3"
+    ]
+  },
+  "checks": {
+    "single_pair_controls_all_normal": true,
+    "joint_task_difference_visible": true,
+    "same_sources_repartition_preserves_declared_groups": true,
+    "erase_joint_relationship_loses_both_group_questions": true,
+    "full_declared_question_set_is_accepted": true,
+    "order_preserves_different_observations": true,
+    "unordered_projection_would_merge_distinct_orders": true
+  }
+}

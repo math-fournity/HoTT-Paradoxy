@@ -1,0 +1,103 @@
+<!-- governance-shard:v2
+logical_id: T_PRECISION_DIAGONAL_PLAN
+shard_id: 004
+index: ../理论精度与哥德尔式自反方案.md
+-->
+
+# T-ZFC实例化、执行闭包与停止条件
+
+> **状态：** PLAN_READY / EXECUTION_NOT_STARTED / DOES_NOT_REOPEN_F050_CLOSED_WITH_SCOPE。
+
+## 1. 与既有路线的关系
+
+T-PRECISION-DIAGONAL-SOP 不废止：
+
+- GODEL-Q-REFLECTION-SOP 的实际 completion-interface G0--G5：它是 T-DIAG 的具体执行模块，保留自身的独立调用入口和既有闭包；
+- BARE-ZFC-Q-PRECISION-SOP 的 interface-relative control；
+- ZFC-Q-ACTUAL-INSTANCE-FORMALIZATION-SOP 的 A1–A5 实际同 Q 分母；
+- ZFC-H0-FINAL-PROOF-CLOSURE-SOP 的 M0–M5：F-050 已以有界、formal-target-underdetermined 结论收尾；它们保留为控制与重开条件，而不是被本方案自动恢复的总闭环；
+- P1/P2/P3 三刀和 P-FORGE 的理论定位、计算翻译、构造准入职责。
+
+它把这些视为 T-ZFC 的已有 calibration，而不是把已有 C-359、C-364 或 C-366 重新命名成想法 T 已得证。
+
+## 2. 执行阶段
+
+| 阶段 | 最小动作 | 可交付结果 | 不可声称 |
+|---|---|---|---|
+| T0 | 读取本方案、T-PRECISION-DIAGONAL-001、两轮原文、KC-000024/027/059 与现有 proof owners；冻结本轮 theory/task/interface | TaskPrecisionCard 与来源分母 | T 已得证 |
+| T1 / T-OBS | 固定 W、πL、πH、r、D 和碰撞 witness；机器检查 abstract non-factorization 与 rich-interface control | 相对观察边界定理 | bare ZFC 缺陷 |
+| T2 / Gödel基线 | 用一份标准、版本固定的形式理论证明或现有成熟形式化核对 coding、Proof、Prov、substitution、diagonal 的精确前提 | 哥德尔机制的来源／机器基线 | 当前 Q 已适用对角化 |
+| T3 / T-DIAG | 选择真实 Accept_T，并加载 GODEL-Q-REFLECTION-SOP 的 G0--G5 与 GodelizationCard；再验证 code、consumer、diag、bridge、DifferentTask 与 BridgePaid 控制 | 受限反射／不完备结果，或有界拒绝 | ZFC 不一致 |
+| T4 / T-Meta | 审核编码与原过程的同一任务、OriginDone、现实解释和来源 payment | task-preservation / bridge verdict | 元层结果自动等于现实结论 |
+| T5 / T-ZFC | 将满足 T0–T4 的 schema 接到 fixed bare-ZFC-facing interface；再与 H0、A/B 合成 | 实际实例化或范围拒绝 | 单个 fixture 是 ZFC |
+
+每阶段都先写自己的候选构造、反证条件和较小替代，再查一手论文、官方文档、GitHub/open-source proof code，并写明二者是否真是同一 calculus／同一 consumer。
+
+**连续执行规则。** 上表的一行是一个可审计的原子单元，不是一次用户审批的边界。某一行得到正面结果、受限负结论或 source-target 未支付的判词后，Master 必须把该结果作为下一行的输入，自动选择仍能改变总体结论的最小后继单元。只有用户明确暂停、取消或以新理论对象替换想法 T 时，才暂停这条连续链。
+
+### T0 当前执行记录：T-OBS-001
+
+本方案的第一个 T0 已选择 T-OBS：冻结一般 World/View/project/observe 与 collision witness，来源分母由 HoTT Book §6.10 Lemma 6.10.3、Lean core Quotient.lift 和 C-364 concrete control 组成。C-367 现已由 MP-T-PRECISION-TOBS-001 在 Lean 4.34.1 core 中机器检查，包含 identity/rich observation 正控制和 Bool/Unit 伪 decoder 的 expected-negative rejection。
+
+这只完成抽象观察边界；它没有支付 G0 actual acceptance interface、Code/diag、RealityMap、OriginDone 或 bare-ZFC-facing instance。因此 T-DIAG、T-Meta 和 T-ZFC 仍须以新的最小单元重新冻结，而不能把 C-367 当作想法 T 的全域定理。
+
+### T-DIAG 当前执行记录：T-DIAG-001
+
+G0 已提供真实 `set.mm` proof-acceptance interface 与 Foundation generic Gödel baseline；T-DIAG-001 将其不可省略的逻辑铰链固定为 C-368。它机器证明 paid self-code/diagonal/bridge 的条件性拒绝，并以 bridge-missing control 保留“自指本身不矛盾”的反控制。来源审计随即确认：当前 `set.mm` interface 仍未支付 parent `OriginDone`、ρ、internal-provability adequacy 或 actual diagonal。因此此单元关闭的是**条件性逻辑核**，下一最小单元必须是 T-Meta 的 same-task / bridge-payment 裁决；T-ZFC 不能越过该裁决直接开始实例化。
+
+### T-Meta 当前执行记录：T-Meta-001
+
+T-Meta-001 将 C-365 H0 trace、C-366 Zermelo sequence representation、C-368 conditional bridge、`set.mm` full verifier replay和IEP/Norton completion contract放在同一字段表中。它得到的不是“没有过程”或“没有 ZFC interface”，而是：proof/database validity、process representation和revised continuum completion分别支付不同任务。`set.mm` comment-scan 的 exact hash control还显示其 completion/motion/homotopic注释分别指向 uniform/metric completion、geometry isometry和homotopic retraction。没有同源 `ρ` 或 `Accept(ρ(p)) → OriginDone(p)`，故判 `T_META_SAME_TASK_BRIDGE_UNPAID_WITH_SCOPE`。
+
+### T-ZFC 当前执行记录：T-ZFC-001
+
+对唯一已冻结的 actual `set.mm` interface，T-ZFC-001逐项审查 `T/Process/ρ/Accept/OriginDone/Bridge/Diag`。`T`和proof acceptance由来源及47,917 proof verifier replay支付；parent Process、ρ、parent OriginDone和bridge没有来源支付，actual database→mFS/adequate `Prv`/target diagonal亦未支付。因此该**接口候选**被判 `T_ZFC_CURRENT_INTERFACE_REJECTED_WITH_SCOPE`，而 bare-ZFC parent completion interface 的 formal target 保持 `UNDERDETERMINED_WITH_SCOPE`。
+
+## 3. 跨 Session 认知闭包合同
+
+开始、压缩恢复、换 worktree 或从 T0–T5 切换时，必须先加载：
+
+1. 本索引及 001–004 全部 shard；
+2. 认知闭包/T-PRECISION-DIAGONAL-001.md；
+3. 当前核心认知中 KC-000024、KC-000027、KC-000036、KC-000059 与相关扩展认知；
+4. 与所选阶段对应的 proof source、run receipt、来源卡和 current Feature/MEMORY/rulings；
+5. 当前 worktree 的 branch/HEAD/status，确认没有将 candidate worktree 当 current truth。
+6. 若选中 T-DIAG：GODEL-Q-REFLECTION-SOP、其 GodelizationCard 状态与 CC-20261004-godel-q-reflection；它们是执行模块输入，不是同名第二 Goal。
+
+每个自然单元写回：本轮 T0–T5 身份、对象/接口/来源、已经支付的条件、失败条件、剩余未知、下一最小判别动作和 reopen 条件。写回后重读 current owner，不能继续消费旧摘要。若总体 Goal 仍处于 active，下一最小判别动作由 Master 自动启动；它不需要研究发起人对每一个原子单元再次授权。
+
+## 4. 原子路由与总体的停止条件
+
+下列状态只结束**其对应的冻结路由**，并且必须立即成为总体方案选择下一单元的输入：
+
+1. `T_OBS_AND_T_DIAG_MACHINE_PROVED_WITH_SCOPE`：抽象定理与满足严格前提的对角化边界都完成机器证明；
+2. `T_DIAG_PRECONDITIONS_UNPAID_WITH_SCOPE`：固定理论或真实接口无法支付 code/diag/bridge 的某一必要条件；
+3. `T_ZFC_INSTANCE_REJECTED_WITH_SCOPE`：T 的抽象骨架成立，但当前 ZFC-facing source interface 不是其实际实例；
+4. `FORMAL_TARGET_UNDERDETERMINED`：冻结的用户／来源分母不能确定 D 或 actual consumer。
+
+**总体方案**只有在以下条件同时满足时才可停止：
+
+1. T1–T5 的每个已承诺路由都有一个来源和反控制支撑的 machine-proof 结果、受限负结论或明确的外部不可支付条件；
+2. 每一个路由级负结论都已检查它是否释放另一个尚未尝试的 T-DIAG、T-Meta 或 T-ZFC 后继；
+3. 剩余的开放项只依赖于已明确登记的外部新来源、用户重定 D／原任务、或新的版本固定 actual interface；
+4. 方案、closure、Feature、MEMORY、来源／证据 owner 与 Git 谱系都已经写回并复读。
+
+以上仍不等于“所有理论没有问题”或“ZFC 没有问题”。它只表示这个由研究发起人授权的 T 路线已经把可执行、可判别的证据路径耗尽或完成；不能用“一个原子单元完成”或“一个 source route 结束”提前声明总体收尾。
+
+### 4.1 当前来源分母的总体收束
+
+`audit/20261005-T-PRECISION-CURRENT-SOURCE-DENOMINATOR-CLOSEOUT.md` 对 T1–T5 逐项复核：C-367、Foundation technical baseline、C-368、T-Meta same-task audit和T-ZFC current-interface audit均已有相称证据或受限负结论；残余项只依赖于该报告列出的新 actual source、用户重定原过程或新 proof run。故当前分母满足本节的总体停止条件，身份为 `CURRENT_T_PRECISION_SOURCE_DENOMINATOR_CLOSED_WITH_SCOPE`。
+
+## 5. /goal 启动词
+
+~~~text
+按照SOP=T-PRECISION-DIAGONAL-SOP，持续完成想法 T 的可执行证据链：
+完整加载 T-PRECISION-DIAGONAL-001 与本方案全部分片，
+将 T-OBS、哥德尔机制基线、T-DIAG、T-Meta、T-ZFC 逐个拆为最小原子判别单元；
+每个单元先冻结理论、任务域、观察投影、判词、来源分母、候选构造与反证条件，
+再核对一手学术来源、GitHub/open-source proof code，最后构造并运行相称的机器证明。
+单元完成后自动根据证据缺口选择下一单元；不得把抽象观察边界、条件性对角化、来源沉默或项目自定义接口升级为想法 T 已得证、
+bare ZFC 已有缺陷或 ZFC 对象语言矛盾。每个自然单元更新
+T-PRECISION-DIAGONAL-001、Feature、MEMORY、来源/证据 owner 与精确 Git 谱系；
+只有所有已承诺路径形成机器证明、受限负结论或明确的外部不可支付条件后才停止。
+~~~

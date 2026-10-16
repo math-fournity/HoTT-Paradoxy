@@ -1,0 +1,1373 @@
+Erkenn (2014) 79:257–281
+DOI 10.1007/s10670-013-9491-y
+ORIGINAL ARTICLE
+
+Sets and Functions in Theoretical Physics
+Adonai S. Sant’Anna • Otávio Bueno
+
+Received: 14 September 2012 / Accepted: 17 May 2013 / Published online: 5 June 2013
+ Springer Science+Business Media Dordrecht 2013
+
+Abstract It is easy to show that in many natural axiomatic formulations of
+physical and even mathematical theories, there are many superfluous concepts
+usually assumed as primitive. This happens mainly when these theories are formulated in the language of standard set theories, such as Zermelo–Fraenkel’s. In
+1925, John von Neumann created a set theory where sets are definable by means of
+functions. We provide a reformulation of von Neumann’s set theory and show that it
+can be used to formulate physical and mathematical theories with a lower number of
+primitive concepts very naturally. Our basic proposal is to offer a new kind of settheoretic language that offers advantages with respect to the standard approaches,
+since it doesn’t introduce dispensable primitive concepts. We show how the proposal works by considering significant physical theories, such as non-relativistic
+classical particle mechanics and classical field theories, as well as a well-known
+mathematical theory, namely, group theory. This is a first step of a research program
+we intend to pursue.
+
+1 Introduction
+Loosely speaking, in an axiomatic system S, a primitive term or concept c is
+definable by means of the remaining primitive concepts if and only if there is an
+appropriate formula, provable in the system, that ‘‘fixes the meaning’’ of c as a
+function of the other primitive terms of S. When c is not definable in S, it is said to
+be independent of the other primitive terms. Every definable concept is eliminable,
+A. S. Sant’Anna
+Department of Mathematics, Federal University of Paraná, Curitiba, PR 81531-990, Brazil
+e-mail: adonai@ufpr.br
+O. Bueno (&)
+Department of Philosophy, University of Miami, Coral Gables, FL 33124-4670, USA
+e-mail: otaviobueno@mac.com
+
+123
+
+258
+
+A. S. Sant’Anna, O. Bueno
+
+in the sense that the definiendum can be replaced by the definiens in either a given
+context or in an explicit way.
+There is a method, roughly introduced by Padoa (1900) and further developed by
+other logicians, which can be employed to show either the independence or the
+dependence of concepts with respect to the remaining concepts (primitive and
+previously defined). In fact, Padoa’s method gives a necessary and sufficient
+condition for independence of concepts in many formal situations.
+In order to present Padoa’s method, some preliminary remarks are necessary. If
+we are working in set theory as our basic framework, an axiomatic system S is
+characterized by a species of structures (da Costa and Chuaqui 1988). Actually,
+there is a close relation between species of structures and Suppes predicates (2002)
+(for details see da Costa and Chuaqui 1988). However, if our underlying logic is a
+higher-order logic (type theory), S determines a usual higher-order structure (Carnap
+1958). In the first case, our language is the first-order language of set theory, and, in
+the second, it is the language of some type theory. Tarski (1983) showed that
+Padoa’s method is valid in the second case, and Beth (1953) that it is applicable in
+the first. A simplified and sufficiently rigorous formulation of Padoa’s method,
+adapted to our exposition from (Suppes 1957), can now be described.
+Let S be an axiomatic system whose primitive concepts are c1 ; c2 ; . . .; cn : One of
+these concepts, say ci, is independent (undefinable) from the remaining if and only if
+there are two models of S in which c1 ; . . .; ci1 ; ciþ1 ; . . .; cn have the same
+interpretation, but the interpretations of ci in such models are different. (Of course, a
+model of S is a set-theoretic structure in which all axioms of S are true, according to
+the interpretation of its primitive terms (Mendelson 1997).)
+As an example, consider a very simple axiomatic system, namely, a minimalist
+space hX; f i; whose axioms are:
+MS1 X is a non-empty set.
+MS2 f is a function whose domain and codomain are both X.
+By using Padoa’s method we can easily prove, e.g., that f is undefinable, since we
+can exhibit two models of a minimalist system such that X has the same
+interpretation in both models but f has two different interpretations within these
+models. Consider, for example, the Model A, where X is interpreted as the set of real
+numbers R and f is the identity function f(x) = x defined on X; and the Model B,
+where X is interpreted again as the set R, but f is the function f(x) = 2x, with the
+same domain X. This means that the interpretation of X does not fix the
+interpretation of f. In other words, f cannot be defined (or fixed) from X. However, X
+is definable, since any two models with two different interpretations for X would
+unavoidably entail different interpretations for f. The reason for this is based on the
+fact that the domain and the codomain of a function f are ingredients of the function
+itself, at least within the scope of a standard set theory like Zermelo–Fraenkel’s.
+Different domains imply different functions.
+So, at least two questions remain:
+1.
+2.
+
+How to define X?
+What does it mean to say that X is eliminable?
+
+123
+
+Sets and Functions in Theoretical Physics
+
+259
+
+The answers are:
+1.
+2.
+
+X = dom(f) = cod(f) (X is the domain and the codomain of f).
+We do not need to explicitly mention X. We could rephrase the definition of a
+minimalist system by saying that a minimalist system is just a function f whose
+domain is equal to its codomain.
+
+In a similar way, it is possible to prove that in usual axiomatic frameworks for
+physical theories, time and spacetime are concepts that are definable, and so,
+eliminable. This happens because time and spacetime are usually considered as
+domains of functions that describe forces, fields, currents, and so on. For example,
+according to Padoa’s principle, the primitive concept time (described as an interval
+of real numbers) in a physical theory is independent from the remaining primitive
+concepts (mass, position, force, speed, magnetic field etc.) if, and only if, there are
+two models of the physical theory such that time has two interpretations and the
+remaining primitive symbols have the same interpretation. But usually these two
+interpretations are not possible, since mass, position, force, speed, magnetic field
+and other physical concepts are in general described as functions whose domains are
+time. If we change the interpretation of time, we change the interpretation of the
+other primitive concepts. So, time is not independent and hence can be defined.
+Since time is definable, it is eliminable. Time is eliminable in the sense that many
+physical theories can be rewritten without any explicit mention of time. A similar
+argument can be used to dispense with spacetime. (Details about this approach can
+be found in da Costa and Sant’Anna 2001, 2002.)
+Results of this kind suggest the idea that functions are indispensable, but the explicit
+presence of sets as the domains of these functions is questionable. From an intuitive
+point of view, our results may shed some new light on the explanatory role of sets in
+theoretical physics, especially at a foundational level. Sets seem to be carried along as
+just a surplus structure of the mathematical framework in which these theories are
+formulated. Moreover, in the context of standard set theories, such as Zermelo–
+Fraenkel’s, to reformulate a physical theory without any explicit mention of either
+time or spacetime is not an easy task—after all, the latter notions are typically
+expressed in terms of sets. Such reformulations of physical theories in Zermelo–
+Fraenkel are also unnatural, given that usually the functions that are invoked in the
+theories demand an explicit mention of their domains, and in this way, sets are brought
+back. (For an example of a mathematical description of thermodynamics without any
+explicit mention of time, see da Costa and Sant’Anna 2002.)
+What would happen if we could avoid any explicit mention of domains of
+functions? Could we obtain better axiomatic formulations of physical theories?
+Could we avoid the presence of time and spacetime structures in a natural way?
+Could we go more directly to the point, i.e., to the functions that usually describe
+fields and forces, tensors and metrics, speeds and accelerations?
+It may be thought that category theory provides a framework to develop this sort
+of approach. After all, category theory deals primarily with ‘‘functions’’, called
+morphisms (see Mac Lane 1994). However, even morphisms have domains, which
+are other morphisms, and so we still wouldn’t have the appropriate framework to
+develop the approach we have in mind.
+
+123
+
+260
+
+A. S. Sant’Anna, O. Bueno
+
+What we are looking for is a mathematical theory where functions have no
+domains at all. In this way, we would immediately avoid the introduction of
+superfluous primitive notions, such as sets or domains, when we use this theory as
+the mathematical basis for the formulation of physical theories.
+There’s also an additional reason to take functions as primitive rather than sets:
+the notion of a function seems to be more basic. Sets, in an intuitive sense, are the
+result of a process of collecting objects. An object is collected if it is assigned to a
+given set. But more fundamental than to collect something is to be able to attribute
+something to a certain collection. After all, to collect an object means to attribute it
+to a given collection. But this notion of attributing something to a given collection
+looks like a function.
+From another point of view (closer to what is done in formal theories), we should
+recall that sets and functions are meant to correspond to an intuitive notion of
+properties. Usually properties allow to define either classes or sets (see, for example,
+the Separation Schema in Zermelo–Fraenkel set theory, in the next section). But
+another possibility is that properties correspond to functions. Talking about objects
+that have a given property P corresponds to associate certain objects to a label that
+represents P; and any other remaining objects are supposed to be associated to a
+different label. The correspondence itself between P and a given label does have a
+functional, rather than a set-theoretical, appeal. And usually, those labels are called
+sets. So, why do we need sets? Why can’t we deal only with functions? In other
+words, why can’t we label those intended properties with functions instead of sets?
+In 1925, John von Neumann (1967) introduced his axiomatization of set theory.
+There are two major assumptions in his approach, namely, the use of two kinds of
+collections, sets and classes, and the use of functions as the intuitive basic notion,
+instead of sets or classes. More specifically, von Neumann deals with three kinds of
+terms: I-objects (arguments), II-objects (characteristic functions of classes), and
+I-II-objects (characteristic functions of sets). The axiomatic system originally
+proposed was further developed by R. M. Robinson, P. Bernays, and Kurt Gödel,
+and it came to be known as the von Neumann–Bernays–Gödel (NBG) set theory.
+However, NBG is not faithful to the idea of the priority of functions instead of
+collections. In the end, NBG is a standard approach to set theory, where the novelty
+is the use of classes (mainly proper classes: those classes which are not sets) besides
+sets.
+In this paper, we modify von Neumann’s set theory in a way quite different from
+the NBG proposal. In fact, our approach is quite different even from the original
+proposal of von Neumann’s. We wont focus on the use of classes, since classes do
+not seem to be very useful for physicists interested in basic applications. (In any
+case, such classes are typically relevant to deal with set-theoretic paradoxes.) But
+we keep the idea of considering functions as basic objects. At the same time, we
+show that this new theory, called N , can be used to formulate all standard
+mathematics as well as set-theoretical axiomatic systems for physical theories.
+Von Neumann was very clear about his commitment to the priority of functions in
+his formulation of set theory. He was perfectly aware that in the usual axiomatizations of set theory, particularly the one proposed by Zermelo and Fraenkel, the
+
+123
+
+Sets and Functions in Theoretical Physics
+
+261
+
+notion of set was taken as primitive, and functions were defined in terms of sets.
+However, von Neumann carefully considered the role that functions play even in
+those axiomatizations, and noted, in particular, the fact that the central axioms of
+these set theories invoke the notion of function. As a result, instead of starting with
+sets and obtain functions from them, it made perfect sense to introduce functions
+directly as a primitive notion, bypassing altogether the need for assuming sets as
+primitive. To provide a formally simpler characterization of set theory—one that
+was, in particular, finitely axiomatizable even using a first-order language—was a
+major goal for von Neumann. As he points out (von Neumann 1967):
+The reason for this departure from the usual way of proceeding [avoiding sets
+as primitive notions] is that every axiomatization of set theory uses the notion
+of function (axiom of separation, axiom of replacement, ½. . .), and thus it is
+formally simpler to base the notion of set on that of function than conversely.
+Roughly speaking, we take the notion of a ‘‘formally simple axiomatization’’ to
+stand for an axiomatization of a theory in which, as much as possible, only
+indispensable primitive notions are introduced. Of course, this is just an intuitive
+notion. But it highlights a significant point: a formally simple axiomatization in
+principle allows for more direct formulations of the relevant theories, in the sense
+that it requires less concepts that are definable (eliminable). In particular, by
+dispensing with unnecessary primitive notions, a formally simple axiomatization is
+not cluttered with a baggage of redundant commitments that can make it more
+difficult to analyze the explanatory role of the theory’s components, especially when
+we consider the foundations of physical theories. This is significant when we
+consider that some mathematical terms in a physical theory often are not used in
+explanations. One simple example is the use of real numbers. No physical measure
+can really correspond to a real number, since any real number can be represented by
+an infinite sequence of digits. The best physical measures can deal only with a finite
+number of decimal places. This elementary example helps us see how difficult it is
+to analyze the epistemological character of physical theories.
+Now, if these mathematical terms end up playing some role in the physical
+theory—that is, if they are assigned a physical interpretation that turns out to be
+empirically supported—then these terms will definitely be included in the axiomatization. Otherwise, we are better off simply dispensing with them, whenever this is
+possible.
+It is important to note that the same motivation of finding formally simple
+axiomatizations that von Neumann had in set theory also applies to the foundations
+of physics. After all, just as in the case of set theory, physical theories are primarily
+formulated in terms of functions rather than sets. For example, functions figure
+centrally in the formulation of the main axioms of standard physical theories.
+Moreover, differential equations play a crucial role in physical theories, and their
+solutions are, again, functions. Some few examples are the functions that describe
+force, linear momentum, position, speed, torque and energy in classical mechanics
+(Goldstein 1980), the functions that correspond to electromagnetic field, charge and
+current density and force in classical electrodynamics (Jackson 1975), and the
+
+123
+
+262
+
+A. S. Sant’Anna, O. Bueno
+
+operators (functions) that describe position, time evolution, spin, and momentum in
+quantum theories (Haag 1992).
+So, it is no surprise that someone who has always been engaged with the
+foundations of physics, as von Neumann was, would insist on the priority of
+functions. We aim to extend this goal of von Neumann’s, by trying to simplify the
+use of set theory in mathematics and physics.
+We should point out, however, that there are at least two significant differences
+between von Neumann’s proposal and ours. One is the fact that in von Neumann’s
+theory, there are two kinds of terms: functions and arguments. The universes of
+arguments and functions can overlap, but there are objects that are only arguments
+and there terms that are just functions. In N ; the set theory that we will provide
+inspired in von Neumann’s work, there is only one kind of term: functions.
+Furthermore, in von Neumann’s set theory there is a binary functional letter that
+produces ordered pairs. In our approach, this manoeuvre is unnecessary.
+
+2 ZFC Set Theory
+Let’s start by presenting the standard approach to Zermelo–Fraenkel set theory with
+the axiom of choice (ZFC). There are two reasons for referring to ZFC at this point.
+First, by presenting the theory, we can compare our proposal to the standard
+formulation of set theory. Second, having ZFC in place will be useful for our proof
+that we can still use standard mathematical results when we adopt N . After all, as
+we’ll show shortly, there’s a translation from the language of ZFC into N such that
+every translated axiom of ZFC is a theorem in N . However, as we will see, to adopt
+N has the significant advantage of providing a whole new universe to work with.
+ZFC is a first-order theory with identity and with one predicate letter f21, such that
+the formula f21(x,y) is abbreviated as x 2 y, if x and y are terms, and is read as
+‘‘x belongs to y’’ or ‘‘x is an element of y’’. The negation :ðx 2 yÞ is abbreviated as
+x 62 y:
+The axioms of ZFC are the following:
+ZF1—Extensionality 8x8yð8zðz 2 x , z 2 yÞ ) x ¼ yÞ
+ZF2—Empty set 9x8yð:ðy 2 xÞÞ
+ZF3—Pair 8x8y9z8tðt 2 z , t ¼ x _ t ¼ yÞ
+The pair z is denoted by {x, y} if x = y. Otherwise, z = {x} = {y}.
+Definition 1
+
+x  y ¼def 8zðz 2 x ) z 2 yÞ
+
+ZF4—Power set 8x9y8zðz 2 y , z  xÞ
+If F(x) is a formula in ZFC, such that there are no free occurrences of the variable
+y, then the next formula is an axiom of ZFC:
+ZF5F—Separation schema 8z9y8xðx 2 y , x 2 z ^ FðxÞÞ
+The set y is denoted by fx 2 z=FðxÞg:
+
+123
+
+Sets and Functions in Theoretical Physics
+
+263
+
+If a(x, y) is a formula where all occurrences of x and y are free, then the following
+is an axiom of ZFC:
+ZF6a—Replacement schema
+8x9!yaðx; yÞ ) 8z9w8tðt 2 w , 9sðs 2 z ^ aðs; tÞÞÞ
+ZF7—Union set 8x9y8zðz 2 y , 9tðz 2 t ^ t 2 xÞÞ
+The set y from ZF7 is abbreviated as
+y¼
+
+[
+
+t
+
+t2x
+
+The intersection among sets is defined by using the separation schema as follows:
+(
+)
+\
+[
+t ¼def z 2
+t=8tðt 2 x ) z 2 tÞ
+t2x
+
+t
+
+ZF8—Infinite 9xð; 2 x ^ 8yðy 2 x ) y [ fyg 2 xÞÞ
+ZF9—Choice 8xð8y8zððy 2 x ^ z 2 x ^ y 6¼ zÞ ) ðy 6¼ ; ^ y \ z ¼ ;ÞÞ ) 9y8z
+ðz 2 x ) 9wðy \ z ¼ fwgÞÞÞ
+As is well known, most if not all classical mathematics can be reformulated in
+ZFC. As a result, ZFC provides a rich framework for the formulation of physical
+theories—although perhaps not the most economical. As an alternative, we will now
+consider a different version of set theory, and explore its use in the foundations of
+physics.
+
+3 N Theory
+The theory N is a first-order theory with identity, where the formula x = y should
+be read as ‘‘x is equal to y’’. The formula :ðx ¼ yÞ is abbreviated as x 6¼ y: N has
+two constants, namely, 0 and 1. It also has one functional letter f21(f, x), where f and
+x are terms. If y = f21(f, x), we abbreviate this by f(x) = y, and we say that y is the
+image of x by f. All terms of N are called functions. The axioms of N are the
+following:
+N1—Constants :ð0 ¼ 1Þ:
+In other words, the constants 0 and 1 are different.
+Definition 2
+
+x 2 f iff f ðxÞ ¼ 1
+
+This last definition can be seen as a kind of generalization of the concept of
+characteristic function. In ZFC, characteristic functions are such that if f(x) = 1,
+then f(x) = 0. In N , that does not happen. If f ðxÞ 6¼ 1, we cannot guarantee that
+f ðxÞ ¼ 0. If x 2 f , then we say that x belongs to f. We can also say that x is an
+element of f. We use x 62 f as an abbreviation of :ðx 2 f Þ:
+
+123
+
+264
+
+A. S. Sant’Anna, O. Bueno
+
+We show in Sect. 5. that the predicate letter 2 can be easily translated as the
+membership relation 2 of standard ZFC set theory.
+We can still generalize the membership relation 2 as follows:
+Definition 3
+
+x 2w f iff f(x) = w
+
+In this sense, x 2 f is equivalent to x 21 f . We believe that the predicate letter 2w
+can be used to generalize fuzzy set theory, since we are generalizing the notion of
+standard characteristic function. But that is a task for another paper.
+Definition 4
+
+S(f) iff 8xðf ðxÞ ¼ 1 _ f ðxÞ ¼ 0Þ
+
+We read S(f) either as ‘‘the function f is a set’’ or ‘‘f is a set’’. We will write VS and
+AS as an abbreviation for the universal and existential quantifiers restricted to the
+predicate S. In other words, any formula VSx(A) in N should be read as Vx(S(x))
+A), where A is a formula and S is the predicate given by Definition 4. Any formula
+ASx(A) is supposed to be read as Ax(S(x) ^ A).
+N2—Correspondence 8f 9s8xððf ðxÞ ¼ 1 ) sðxÞ ¼ 1Þ ^ ðf ðxÞ 6¼ 1 ) sðxÞ ¼ 0ÞÞ
+In other words, for every function there is a corresponding set. We denote the set
+s as s ¼ Sðf Þ and read this as ‘‘s is the setification of f’’.
+N3—Extensionality VfVg(Vx(f(x) = g(x)) ) f = g))
+Axiom N3 states that if two functions have the same images, then they are the
+same. In other words, a function is defined by its images.
+Theorem 1
+
+VfVg(f = g ) Vx ((f(x) = g(x)))
+
+The proof is obtained by using the substitutivity of identity in the formula
+f(x) = f(x), which is a theorem in any first-order theory with identity, if f(x) is a
+term. Since f = g, then f(x) = g(x).
+N4—Empty function 9f 8xðf ðxÞ 6¼ 1Þ
+This last axiom guarantees the existence of a function f such that no other
+function belongs to it (see Definition 2). Such a function is called an empty function.
+Given the axiom N2, for every function there is a corresponding set. In this case, for
+any empty function there is an empty set f such that 8xðf ðxÞ ¼ 0Þ. When the empty
+function is a set we denote it by ;.
+Theorem 2
+
+The empty set is unique.
+
+Proof Suppose that there is another empty set ;0 . If ;0 is a set, then its images are
+supposed to be either 0 or 1. However, ;0 cannot have 1 as an image, because it is
+empty. Then, 8xð;0 ðxÞ ¼ 0Þ. Since 8xð;ðxÞ ¼ 0Þ, then 8xð;ðxÞ ¼ ;0 ðxÞÞ, which,
+according to axiom N3, entails that ;0 ¼ ;:
+N5—Pair 8x8y9f 8tðf ðtÞ ¼ 1 , t ¼ x _ t ¼ yÞ
+
+h
+
+Any function f that satisfies axiom N5 is denoted by f = {x, y}, which is called a
+pair. Intuitively speaking, f may have infinite images, but only arguments x and
+
+123
+
+Sets and Functions in Theoretical Physics
+
+265
+
+y have images equal to 1. If x = y, the pair is called a singleton and is denoted by
+either {x} or {y}. Ordered pair is defined as:
+ðx; yÞ ¼def ffxg; fx; ygg
+An ordered n-tuple ðx1 ; x2 ; . . .; xn Þ can be defined analogously. It can be denoted by
+hx1 ; x2 ; . . .; xn i:
+Definition 5
+
+f : g iff 8xðf ðxÞ ¼ 1 , gðxÞ ¼ 1Þ
+
+Theorem 3
+1.
+2.
+3.
+
+Vf(f : f)
+VfVg(f : g ) g : f)
+VfVgVh((f : g ^ g : h) ) f : h)
+
+The proof of this theorem is straightforward. We read f : g as ‘‘f is equivalent to
+g’’. The negation :ðf  gÞ is abbreviated as f 6 g:
+Theorem 4
+
+If f : g, then Sðf Þ ¼ SðgÞ:
+
+The proof is immediate from the definition of setification and from the axiom of
+extensionality.
+Definition 6
+
+f  g iff 8xðf ðxÞ ¼ 1 ) gðxÞ ¼ 1Þ
+
+Definition 7
+
+f  g iff f  g ^ f 6 g
+
+N6—Power function 8f 9g8xðgðxÞ ¼ 1 , x  f Þ
+The function g is called a power function of f. If f is a set, then a corresponding
+power function g is not necessarily unique. But according to axiom N2 there is a
+corresponding power set. This power set of the set f is unique and is denoted by Pðf Þ.
+The proof of uniqueness is analogous to the proof of the uniqueness of the empty set.
+Theorem 5
+
+The empty set ; is subset of any set x.
+
+The proof is straightforward.
+Definition 8
+
+C(f) iff AyVx (f(x) = y).
+
+We read C(f) as ‘‘f is a constant function’’. One obvious example of a constant
+function is the empty set, since ;ðxÞ ¼ 0 for any x.
+N7F—Separation schema If F(x) is a formula where all occurrences of x are free
+and such that g does not occur in F(x), then the following formula is an axiom:
+8Z f 9g8xðgðxÞ ¼ 1 , f ðxÞ ¼ 1 ^ FðxÞÞ
+where Z is a unary predicate recursively defined in N as follows:
+Definition 9
+
+If f and x are functions, then:
+
+(i) Z(f) ) S(f)
+(ii) ðZðf Þ ^ f ðxÞ ¼ 1Þ ) ZðxÞ
+(iii) ðZðf Þ ^ :ZðxÞÞ ) f ðxÞ ¼ 0
+
+123
+
+266
+
+A. S. Sant’Anna, O. Bueno
+
+Roughly speaking, Z(f) means that f is a function that behaves like a set in the
+Zermelo–Fraenkel sense. We read Z(f) as ‘‘f is a ZF-set’’. Such a terminology is used
+because there is a copy of ZFC in N theory. The meaning of this claim is clarified in
+Sect. 5, where we prove that the standard mathematics represented by ZF set theory
+is preserved in N . In other words, the reason why the first quantifier is restricted to
+Z is to allow us to run the Proof of Lemma 5 in Sect. 5. As noted above, one of our
+constraints is to preserve classical mathematics in N :
+In other words, the separation schema works only for ZF-sets. The reason for
+such a restriction is to avoid some paradoxes, like the one entailed by the existence
+of a function g such that gðxÞ ¼ 0 , ;ðxÞ ¼ 0 ^ xðxÞ 6¼ 0 (if the universal quantifier
+was unrestricted). Since ;ðxÞ ¼ 0 for any x, then we have a function g such that
+gðgÞ ¼ 0 and gðgÞ 6¼ 0, which is some sort of N version of Russell’s Paradox.
+N8a—Replacement schema If a(x, y) is a formula, where all the occurrences of
+x and y are free, then the following formula is an axiom
+8x9!Z yðaðx; yÞÞ ) ð8f 9g8yðgðyÞ ¼ 1Þ , 9Z xðf ðxÞ ¼ 1 ^ aðx; yÞÞÞ
+N9—Union of functions 8f 9g8xðgðxÞ ¼ 1 , 9Z yðyðxÞ ¼ 1 ^ f ðyÞ ¼ 1ÞÞ
+Just as above, the last quantifier is restricted so that we can run the Proof of
+Lemma 7 in the next section. The function g is called the union of sets y that belong
+to the function f. If g is a set, then there is no other set that is the union of sets y that
+belong to f. In this case, we denote g by:
+[
+y
+y2f
+
+If there are only two functions a and b that belong to y, and if g is a set, then we
+denote the union g as a [ b.
+N10—Infinite function
+9iðið;Þ ¼ 1 ^ 8xðiðxÞ ¼ 1 ) 8yðx  y ) iðyÞ ¼ 1ÞÞÞ
+
+The function i is called ‘‘infinite’’ because there are infinitely many functions that
+belong to it. The word ‘‘infinite’’ here has still an intuitive meaning.
+N11—Choice
+8Z f ð8x8yððf ðxÞ ¼ 1 ^ f ðyÞ ¼ 1 ^ x 6¼ yÞ )
+ðx 6¼ ; ^ :9sðxðsÞ ¼ yðsÞ ¼ 1ÞÞÞ )
+9t8rðf ðrÞ ¼ 1 ) 9!Z wðtðwÞ ¼ rðwÞ ¼ 1ÞÞÞ
+As we noted, the restricted quantifiers in some axioms emerge from the fact that
+they were originally written for sets rather than functions. So, some axioms are not
+perfectly adequate for functions. However, since we want our axiomatic system to
+reflect the usual set-theoretic approach, we think the procedure is worthwhile. In
+order to have a better adjustment to a function-based approach in our axiomatic
+system, we introduce one last axiom that will be quite useful in our applications.
+
+123
+
+Sets and Functions in Theoretical Physics
+
+267
+
+If a(x, y) is a formula where all the occurrences of x and y are free, then what
+follows is an axiom:
+N12a—Fitness
+8x9!yðaðx; yÞÞ ) 8Z x9Z f 8t8rðxðtÞ ¼ 1 ) ðaðt; rÞ ) ðf ðtÞ ¼ rÞÞÞ
+
+Roughly speaking, the central idea of this axiom is to connect functions in ZFC
+with functions in N . We can think of ZFC functions as particular sets of ordered
+pairs. From an intuitive point of view, the axiom above guarantees the existence of
+functions f in N such that, in the scope of the ordered pairs of terms that occur in a
+formula a, corresponding to a function in ZFC, there is a coincidence between the
+images by f and the ‘‘images’’ by a. This is important to ensure that ZFC functions
+can be expressed in N , and so no expressive power is lost when we move to the
+latter. We will return to this point in Sect. 5, where we’ll examine in detail the
+connection between ZFC and N . Before doing that, let’s consider a more intuitive
+understanding of the theory we propose.
+4 Naive Function Theory
+For the working mathematician, as well as for the physicist and the philosopher, it will
+be more interesting to provide an intuitive approach to our set theory, rather than
+emphasize its formal part. This is one of the purposes of the present section. The other
+is to highlight key roles that functions play in scientific and mathematical practice.
+Our primitive concept is that of a function. Intuitively, a function works as some
+kind of procedure that assigns objects to other objects; it establishes a mapping
+between them. Given these mappings, functions have ubiquitous roles in scientific
+and mathematical theorizing.
+•
+
+•
+
+•
+
+First, applied to linguistic items (e.g., terms in a theory), functions are
+sometimes used to express relations between the basic concepts of a theory. In
+particular, the primitive terms of a theory are often connected by suitable
+functions. One simple example is the function ?:V 9 V? V that corresponds to
+the addition of vectors in a vector space V. If u and v are vectors (they belong to
+V), then ?(u, v) is another vector.
+Second, applied to propositions (e.g., the axioms of a theory), functions are
+employed to establish connections between different parts of the same theory. In
+this way, certain logical relations between components of the theory can be
+determined and studied. One simple example is the notion of axiom schema.
+Consider the case of the separation schema ZF5F, which establishes a
+correspondence between any possible formula F of ZF language (with the
+usual syntactic constraints) and an axiom.
+Third, applied to models, functions are also used to show how different theories are
+connected to each other. This is accomplished by establishing mappings between
+certain models of the theories in question. One example is the concept of forgetful
+functor in category theory. (For details see, for example, Mac Lane 1994.)
+
+123
+
+268
+
+•
+
+A. S. Sant’Anna, O. Bueno
+
+Finally, applied to a mathematical formalism, functions are used to interpret a
+mathematical theory, assigning a physical interpretation to purely mathematical
+expressions. Without this central role of functions, most work in applied
+mathematics and in physics wouldn’t be possible. One example is the concept of
+a physical theory by Günther Ludwig. (For details, see Jenč et al. 1983.)
+
+All the concepts introduced in the formal presentation of N can be easily
+examined in the scope of a naive function theory. This theory provides a context to
+study the functions studied in N . The central feature of functions, as we have
+already noted, is that they provide mappings connecting objects. In this respect,
+nothing requires functions to have domains. In fact, the requirement of domains
+emerges as an artifact of the standard, set-theoretic understanding of functions. In
+N , an intuitive notion of function, according to which the mapping of objects is the
+crucial aspect, is preserved.
+But, without specifying a domain, what would be for a function to double a real
+number? The answer, in N , is not a single function—which is as it should be if what
+counts is the mapping. The answer could be, e.g., a function f such that
+f(x) = 2x when x is a real number, and f(x) = x when x is not a real number.
+Another option would be a function g such that g(x) = 2x when x is a real number,
+and gðxÞ ¼ 0 otherwise. Since, in N , functions are not associated with domains, a
+change of domain doesn’t affect a function. In fact, strictly speaking, the idea of
+changing domains is not even part of N —we just have functions.
+As a result, we have here a notion of function that captures central, intuitive
+aspects of this concept. Interestingly, as we’ll also see, the notion of function in N
+can be easily reduced, in suitable contexts, to the standard, domain-dependent
+notion. Thus, in the end, what we offer is a genuine generalization of the concept of
+function, while still preserving its crucial features.
+
+5 Standard Mathematics
+Having presented the main features of N , we can now prove that standard
+mathematics, as formulated in Zermelo–Fraenkel set theory with the axiom of
+choice (ZFC), is preserved in N . In other words, we prove the following theorem:
+Theorem 6 There is a translation from the language of ZFC into N such that
+every translated axiom of ZFC is a theorem in N :
+To prove this theorem, we need to exhibit a translation from ZFC into N . This
+translation is given by the table below:
+Translating ZFC into N
+
+123
+
+ZFC
+
+N
+
+V
+
+VZ
+
+A
+
+AZ
+
+2
+
+2
+
+Sets and Functions in Theoretical Physics
+
+Lemma 1
+Proof
+
+269
+
+The translation of ZF1 is a theorem in N :
+
+The translation of ZF1 is
+8Z x8Z yð8Z zðz 2 x , z 2 yÞ ) x ¼ yÞ
+
+which is a straightforward consequence of Definitions 2, 4, and 9 and axiom N3. h
+Lemma 2
+Proof
+
+The translation of ZF2 is a theorem in N :
+
+The translation of ZF2 is
+9Z x8Z yð:ðy 2 xÞÞ
+
+which is a straightforward consequence of Definitions 2, 4, and 9 and axioms N2
+and N4.
+h
+Lemma 3
+Proof
+
+The translation of ZF3 is a theorem in N :
+
+The translation of ZF3 is
+8Z x8Z y9Z z8Z tðt 2 z , t ¼ x _ t ¼ yÞ
+
+which is a straightforward consequence of Definitions 2, 4, and 9 and axioms N2
+and N5.
+h
+Lemma 4
+Proof
+
+The translation of ZF4 is a theorem in N :
+
+The translation of ZF4 is
+8Z x9Z y8Z zðz 2 y , z  xÞ
+
+which is a straightforward consequence of Definitions 2, 4, and 9 and axioms N2
+and N6.
+h
+Lemma 5
+Proof
+
+The translation of every axiom ZF5F is a theorem in N :
+
+The translation of each axiom ZF5F is
+8Z z9Z y8Z xðx 2 y , x 2 z ^ FðxÞÞ
+
+where F(x) is a formula in which there is no free occurrence of the variable y. This is
+a straightforward consequence of Definitions 2, 4, and 9, and axioms N2 and N7F.
+Observe that N7F may be rewritten as
+8Z f 9g8xðx 2 g , x 2 f ^ FðxÞÞ:
+There is no need for VZx, since f ðxÞ ¼ 1 (x 2 f ) entails that x is a ZF-set. It is also
+unnecessary to write AZg, since we may have the setification (see axiom N2) of
+g whenever we want to.
+h
+Lemma 6
+Proof
+
+The translation of every axiom ZF6a is a theorem in N :
+
+The translation of each axiom ZF6a is
+
+123
+
+270
+
+A. S. Sant’Anna, O. Bueno
+
+8Z x9Z !yaðx; yÞ ) 8Z z9Z w8Z tðt 2 w , 9Z sðs 2 z ^ aðs; tÞÞÞ
+where a(x, y) is a formula. This is a straightforward consequence of Definitions 2, 4,
+and 9 and axioms N2 and N8a.
+h
+The translation of axiom ZF7 is a theorem in N :
+
+Lemma 7
+Proof
+
+The translation of axiom ZF7 is
+8Z x9Z y8Z zðz 2 y , 9Z tðz 2 t ^ t 2 xÞÞ
+
+which is a straightforward consequence of Definitions 2, 4, and 9 and axioms N2
+and N9.
+h
+The translation of axiom ZF8 is a theorem in N :
+
+Lemma 8
+Proof
+
+The translation of axiom ZF8 is
+9Z xð; 2 x ^ 8Z yðy 2 x ) y [ fyg 2 xÞÞ
+
+Now, a straightforward consequence of Definitions 2, 4, and 9 and axioms N2
+and N10 is the formula:
+9Z xð; 2 x ^ 8Z yðy 2 x ) ð8Z zðy  z ) z 2 xÞÞÞÞ
+It happens that if z = y [ {y}, then y  z. Hence, the translated axiom is a
+theorem in N .
+h
+The translation of axiom ZF9 is a theorem in N :
+
+Lemma 9
+Proof
+
+The translation of axiom ZF9 is
+8Z xð8Z y8Z zððy 2 x ^ z 2 x ^ y 6¼ zÞ ) ðy 6¼ ; ^ y \ z ¼ ;ÞÞ )
+9Z y8Z zðz 2 x ) 9Z wðy \ z ¼ fwgÞÞÞ
+
+which is a straightforward consequence of Definitions 2, 4, and 9 and axioms N2
+and N11.
+h
+This last lemma concludes the Proof of Theorem 6. With this theorem in place, we
+can use standard results from analysis, calculus, linear algebra, geometry, algebra
+and other branches of mathematics when we reformulate various theories within N :
+But before engaging into this reformulation project, something should be said
+about the axiom N12a, the axiom of fitness. Since N ’s language encompasses that of
+ZFC, one could ask: are functions in ZFC translated as functions in N ? The answer is
+obviously negative, since functions in N have no domains. However, in ZFC, any
+function is a set of ordered pairs (x, y) with a given domain and a codomain, where
+both are sets. And, in N , we can define the concept of a ZF-function. As a result, we
+will be able to reproduce in N the central features that functions have in ZFC.
+Definition 10 A ZF-function with domain a and codomain b in N is a set f such
+that a and b are ZF-sets and
+
+123
+
+Sets and Functions in Theoretical Physics
+
+271
+
+8xðaðxÞ ¼ 1 ) 9!yðbðyÞ ¼ 1 ^ f ðx; yÞ ¼ 1ÞÞ^
+8zðf ðzÞ ¼ 1 ) 9x9yðaðxÞ ¼ 1 ^ bðyÞ ¼ 1 ^ z ¼ ðx; yÞÞÞ
+
+We are using f(x, y) as an abbreviation for f((x, y)). If f ðx; yÞ ¼ 1, we say that y is
+a ZF-image of x by f. In other words, ZF-functions in N are sets. Recall that,
+analogously, functions in ZFC are sets as well. So, every ZF-function is a function,
+but the converse is not necessarily the case.
+Recall that axiom N12a states that
+8x9!yðaðx; yÞÞ ) 8x9f 8t8rðxðtÞ ¼ 1 ) ðaðt; rÞ ) ðf ðtÞ ¼ rÞÞÞ
+This means that if an ordered pair (t, r) belongs to a ZF-function g (gðt; rÞ ¼ 1)—
+which is guaranteed by the replacement schema—then there is another function
+f such that f(t) = r. This guarantees the existence of functions f (in the sense of N )
+such that, in the scope of the ordered pairs that belong to a given ZF-function g,
+there is a coincidence between the images by f and the ZF-images by g. As a result,
+we can capture in N the standard, domain-dependent notion of function found in
+ZFC. In particular, N12a guarantees that any function expressible in ZFC
+corresponds to a function in N . Thus, since there are functions in N that are not
+ZF-functions, we have in N a generalization of the notion of function. And this
+generalization still preserves, in the case of ZF-functions, the central feature that
+functions have in ZFC, namely, they are mappings from a domain to a codomain.
+Here is a list of some functions that can be expressed in N , with their respective
+justifications:
+•
+•
+•
+•
+
+9f 8xðf ðxÞ ¼ 0Þ—from axioms N4 and N2. This function f is a set and it is
+abbreviated as ;.
+9f ðf ð;Þ ¼ 1 ^ 8xðx 6¼ ; ) f ðxÞ ¼ 0ÞÞ—from axioms N6 and N2. This function
+f is also a set and it is abbreviated as {;}.
+9f ðf ð;Þ ¼ 1 ^ f ðf;gÞ ¼ 1 ^ 8xððx 6¼ ; ^ x 6¼ f;gÞ ) ðf ðxÞ ¼ 0ÞÞÞ—from axioms N6 and N2. This function f is a set and it is abbreviated as {;, {;}}.
+9f ð8xððx ¼ ; ) f ðxÞ ¼ f;gÞ ^ ðx 6¼ ; ) f ðxÞ ¼ 0ÞÞÞ—from axioms N12a and
+N6. This function f is not a set.
+
+In the next sections, we will show that our formal approach is more economical in
+the process of axiomatization than the one based on ZFC axioms, by considering the
+case of significant physical and mathematical theories. Our approach is based on the
+use of suitable predicates for axiomatization, as introduced by Suppes (2002). But
+instead of using ZFC as the basic set-theoretic setting, we will use N . In particular,
+instead of invoking sets, we will employ functions as our primitive notions.
+
+6 A Standard Example in Physics
+Our first example of application of N is an axiomatic framework for a very simple
+form of non-relativistic classical particle mechanics. The approach is essentially
+
+123
+
+272
+
+A. S. Sant’Anna, O. Bueno
+
+based on the axiomatization of classical particle mechanics due to Suppes (1957),
+which, in turn, is a variant of the formulation by McKinsey et al. (1953). We call
+this McKinsey–Sugar–Suppes system of classical particle mechanics ‘‘MSS
+system’’. A discussion of the MSS system is important because it will allow us to
+examine the issue of the definability—and, hence, dispensability—of physical
+concepts, such as set of particles, mass, time and force. For contrast, we will initially
+present the MSS system in ZFC. We will later reformulate it in N :
+It should be pointed out that we don’t think that the MSS system faithfully
+captures every idea behind Newtonian mechanics. But it does seem to capture, in an
+intuitive manner, at least some of the main aspects of Newton’s ideas concerning
+mechanics.
+The MSS system has six primitive notions: P, T, m, s, f, and g. P and T are sets;
+m is a real-valued unary function defined on P; s and g are vector-valued functions
+defined on the Cartesian product P 9 T, and f is a vector-valued function defined on
+the Cartesian product P 9 P 9 T. Intuitively, P corresponds to the set of particles
+and T is to be physically interpreted as a set of real numbers measuring elapsed
+times (in terms of some unit of time, and measured from some origin). In turn,
+m(p) is to be interpreted as the numerical value of the mass of p 2 P; whereas sp(t),
+with t 2 T, is a three-dimensional vector which should be physically interpreted as
+the position of p at instant t. Moreover, f(p, q, t), with p; q 2 P, corresponds to the
+internal force that the particle q exerts over p at instant t. Finally, the function
+g(p, t) is understood as the external force acting on the particle p at instant t.
+We can now give the axioms for the MSS system:
+Definition 11 P ¼ hP; T; s; m; f; gi is a MSS system if and only if the following
+axioms are satisfied:
+P1 P is a non-empty, finite set.
+P2 T is an interval of real numbers.
+P3 If p 2 P and t 2 T, then sp(t) is a three-dimensional vector (sp ðtÞ 2 R3 ) such
+d2 s ðtÞ
+
+that dtp2 exists.
+P4 If p 2 P, then m(p) is a positive real number.
+P5 If p; q 2 P and t 2 T, then f(p, q, t) = -f(q, p, t).
+P6 If p; q 2 P and t 2 T, then [sp(t), f(p, q, t)] = -[sq(t), f(q, p, t)].
+P
+d 2 s ðtÞ
+P7 If p; q 2 P and t 2 T, then mðpÞ dtp2 ¼ q2P fðp; q; tÞ þ gðp; tÞ:
+Some remarks regarding the axioms are in order here: (a) The brackets in Axiom
+P6 denote the external product. (b) Axiom P5 corresponds to a weak version of
+Newton’s Third Law: to every force there is always a counter-force. (c) Axioms P6
+and P5 correspond to the strong version of Newton’s Third Law. Axiom P6
+establishes that the direction of force and counter-force is the direction of the line
+defined by the coordinates of particles p and q. (d) Axiom P7 corresponds to
+Newton’s Second Law.
+Now, in the study of a MSS system, it’s sometimes useful to consider only certain
+parts of the system—perhaps only a subsystem needs to be considered. But is the
+subsystem of a MSS system still a MSS system? In (McKinsey et al. 1953) this
+
+123
+
+Sets and Functions in Theoretical Physics
+
+273
+
+question is positively answered in full details. But the point here is not to raise this
+kind of question. We are interested on the use of Padoa’s Principle and its
+consequences. Now we have all the resources in place to start asking questions
+regarding the independence of primitive notions in a MSS system. Using Padoa’s
+method, it’s not difficult to prove the following theorem:
+Theorem 7 Mass and internal force are each independent of the remaining
+primitive notions of a MSS system.
+After presenting the MSS system, and in light of the last theorem, Suppes raised a
+significant issue regarding the definability of the notions of force in the system. As
+he points out (Suppes 1957):
+Some authors have proposed that we convert the second law [of Newton], that
+is, P7, into a definition of the total force acting on a particle. ½. . . It prohibits
+within the axiomatic framework any analysis of the internal and external
+forces acting on a particle. That is, if all notions of force are eliminated as
+primitive and P7 is used as a definition, then the notions of internal and
+external force are not definable within the given axiomatic framework.
+It was natural then to extend Suppes’ point even further, by examining the
+concepts of time and spacetime. And in (da Costa and Sant’Anna 2001, 2002), the
+authors have proved that time is definable—and, thus, dispensable—in some very
+natural axiomatic frameworks for classical particle mechanics and even thermodynamics. Furthermore, they have established, in the first paper, that spacetime is also
+eliminable in general relativity (GR), classical electromagnetism, Hamiltonian
+mechanics, classical gauge theories, and in the theory of Dirac’s electron. Having an
+axiomatic framework in place allows one to obtain results of this type.
+In particular, returning to the MSS system, here is one of the theorems proved in
+the papers quoted above:
+Theorem 8
+
+Time is eliminable in a MSS system.
+
+The proof is quite simple. According to Padoa’s principle, the primitive concept
+T in a MSS system is independent from the remaining primitive concepts (mass,
+position, internal force, and external force) iff there are two models of MSS system
+such that T has two interpretations and the remaining primitive symbols have the
+same interpretation. But these two interpretations are not possible, since position s,
+internal force f, and external force g are functions whose domains depend on T. If
+we change the interpretation of T, then we change the interpretation of three other
+primitive concepts, namely, s, f, and g. So, time is not independent and hence can be
+defined. Since time is definable, it is eliminable.
+In (da Costa and Sant’Anna 2002), the authors have shown that time is dispensable
+in thermodynamics as well, at least in a particular (although very natural) axiomatic
+framework for the theory. Moreover, in the same paper, they have shown how to define
+time and how to restate thermodynamics without any explicit reference to time. In the
+case of the MSS system, time can be defined by means of the domain of the functions s,
+f, and g. A similar procedure is used in da Costa and Sant’Anna (2002).
+
+123
+
+274
+
+A. S. Sant’Anna, O. Bueno
+
+7 Reformulating the MSS System
+We can now reformulate the MSS system in the language of N :R3 is the usual
+three-dimensional vector space of ordered triples of real numbers. Rþ is the usual
+set of nonnegative real numbers.
+Definition 12 P ¼ hm; s; f; gi is an N -MSS system if and only if the following
+axioms are satisfied:
+P1 For all p; Rþ ðmðpÞÞ ¼ 1 and there is at least one function p such that
+m(p) [ 0. Moreover, if P is a set such that PðpÞ ¼ 1 iff m(p) [ 0, then P is a
+finite ZF-set.
+2
+2
+P2 For all p and for all t; R3 ðsðp; tÞÞ ¼ 1 and dtd 2 sðp; tÞ exists, where dtd 2 sðp; tÞ is
+defined as the second derivative of s(p,t) with respect to t if RðtÞ ¼ 1, and is
+the null vector if RðtÞ 6¼ 1. If m(p) = 0, then s(p, t) is a constant vector with
+respect to t.
+P3 For all p, for all q and for all t; R3 ðfðp; q; tÞÞ ¼ 1. If either m(p) = 0 or
+m(q) = 0, then f(p, q, t) = (0, 0, 0).
+P4 For all p and for all t; R3 ðgðp; tÞÞ ¼ 1. If m(p) = 0, then g(p, t) = (0, 0, 0).
+P5 For all p, for all q and for all t, f(p, q, t) = -f(q, p, t).
+P6 For all p, for all q and for all t, [s(p, t), f(p, q, t)] = -[s(q, t), f(q, p, t)].
+P7 For all p, for all q and for all t,
+X
+d2 sðp; tÞ
+mðpÞ
+¼
+fðp; q; tÞ þ gðp; tÞ:
+2
+dt
+q=mðqÞ [ 0
+
+This axiomatic system is not exactly equivalent to the MSS system as formulated
+in ZFC. This emerges from the fact that, in N , functions do not have domains. But an
+interesting feature emerges from this axiomatization, and it comes very naturally
+from the emphasis on functions. If p is a function such that m(p) [ 0, then we say that
+p is a particle (or a physical particle). Otherwise, we say that p is a virtual particle.
+Virtual particles, within this system, have zero mass and interact among them with
+null forces. Furthermore, virtual particles interact with ‘‘real’’ particles with null
+forces. This feature may sound suspicious at first sight, but we believe that it reflects
+an important aspect of the practice of physicists. After all, the possibility of picking
+up a virtual particle and promoting it to the rank of a ‘‘real’’ particle is sometimes
+useful—for example, in the explanation of perturbations in physical systems.
+A classical example is the discovery of Neptune. After Uranus was found,
+astronomers were having trouble figuring out that planet’s orbit. They hypothesized
+that there was another planet, farther away from Uranus, which was disturbing the
+orbit of the latter. But Newtonian mechanics alone couldn’t determine the precise
+position of that planet. To help in this task, astronomers used an empirical
+generalization, called Bode’s law. According to this law, the mean distances of the
+planets from the Sun in astronomical units (AU) follow a pattern. This pattern
+correctly described, within the range of experimental error, the distances to the Sun
+
+123
+
+Sets and Functions in Theoretical Physics
+
+275
+
+of all the seven planets that were known at the time, including Uranus. Now, Bode’s
+law is a function, mapping individual planets to their mean distances from the Sun.
+And by following the pattern generated by this function, astronomers were able to
+make the required mathematical calculations to determine the position of the new
+planet. Shortly after that, they were able to observe the planet for the first time—
+even though the planet turned out to be closer to the Sun than Bode’s law predicted
+(30.07 AU, rather than 38.80 AU). In any case, Neptune was found.
+Before its discovery, Neptune obviously wasn’t taken to exist. So, following our
+terminology, Neptune had the behavior of a virtual particle, since there was no nonzero mass attributed to it. With the observed perturbations on Uranus’ orbit, and the
+eventual observation of Neptune, the latter was promoted to a particle with finite
+and non-null mass. At this point, it became a particle within the scope of our
+axiomatization. Note also that the function that corresponds to Bode’s Law does not
+have a specific domain. It worked even for a planet that had not been discovered yet,
+namely, Neptune. This episode illustrates both the significant heuristic role of
+(suitably interpreted) functions, and the importance of virtual particles in scientific
+research.
+A similar (and more recent) phenomenon happened in quantum electrodynamics.
+It is well known that the zero point energy of the quantum vacuum state cannot be
+associated with zero energy. There is a finite and non-null energy and even a nonnull linear momentum associated with the quantum vacuum. Some physicists
+associate this residual and unavoidable energy with virtual photons that are
+constantly being created and annihilated. And, once again, this association is made
+in terms of functions, connecting the virtual photons with the remaining energy.
+This is another example of a promotion of virtual particles (with zero energy and
+zero linear momentum) to the rank of physical particles with finite energy and finite
+linear momentum. This linear momentum is even measurable and is currently
+associated with the Casimir effect (for details, see Sant’Anna and de Freitas 2000;
+Suppes et al. 1996). Nevertheless, we should point out that the usual sense of
+‘‘virtual particle’’ in quantum electrodynamics has a different meaning from our
+virtual particles, since the latter are supposed to have null linear momentum.
+Since the emphasis on functions often has a significant heuristic role—such as the
+one involving virtual particles just mentioned—it’s no surprise that physicists
+present their theories in terms of functions. But functions play additional roles in the
+foundations of physics and mathematics—as we’ll discuss in the next sections.
+
+8 Classical Field Theories
+A significant feature of certain axiomatic approaches to physical theories is the
+unified treatment for these theories that these approaches provide. By exploring
+suitable predicates for physical theories, it is possible to articulate a unified
+perspective to accommodate theories as diverse as: Hamiltonian mechanics,
+classical gauge field theories, Maxwell electromagnetism, the theory of Dirac’s
+electron, and Einstein’s GR (for details, see da Costa and Doria 1992). This unified
+treatment is given by the following axiomatic system:
+
+123
+
+276
+
+A. S. Sant’Anna, O. Bueno
+
+Definition 13
+the 9-tuple:
+
+The species of structures of a classical physical theory is given by
+R ¼ hM; G; P; F ; A; I ; G; B; 5u ¼ ii
+
+where
+1.
+
+2.
+3.
+
+4.
+5.
+
+M is a finite-dimensional smooth real manifold endowed with a Riemannian
+metric (associated with spacetime), and G is a finite-dimensional Lie group
+(associated with transformations among coordinate systems).
+P is a principal fiber bundle P(M, G) over M with Lie group G.
+F ; A, and I are cross-sections of bundles associated with P(M, G), which
+correspond, respectively, to the field space, potential space, and current or
+source space.
+G  Diff ðMÞ  G0 is the symmetry group of diffeomorphisms of M, and G0 is
+the group of gauge transformations of the principal fiber bundle P(M, G).
+5u ¼ i is a Dirac-like equation, where u 2 F is a field associated with its
+potential by means of a field equation, and i 2 I is a current. This differential
+equation is subject to the boundary or initial conditions B.
+
+This species of structures provides the mathematical core of a huge variety of
+classical physical theories, from Hamiltonian mechanics to Einstein’s GR.
+Ultimately, to obtain the particular theories, it’s a matter of providing suitable
+physical interpretations of the relevant mathematical structures. From the dynamical
+point of view, this can be achieved with specific boundary conditions B.
+Some physicists may consider that our suggested interpretation of spacetime as a
+manifold endowed with a metric does not correspond to the usual way of thinking
+about spacetime in GR. In this context, spacetime may be thought of as a class of
+diffeomorphically invariant Riemannian geometries. In this sense, the conceptualization of GR underlying the axiomatic approach is somehow idealized (or, perhaps,
+naive). In fact, a similar criticism could be made to the axiomatic framework for
+classical particle mechanics given above (MSS system). After all, forces in classical
+mechanics are also responsible for deformations (in the case of continuum
+mechanics), rather than just accelerations. But in the axiomatic approach to classical
+mechanics above, mass is a constant function. Hence, this approach is not able to
+accommodate the dynamics of a rocket, which loses fuel during its flight and has a
+mass loss. Any physical theory admits many possible formulations, and the
+axiomatic approach just discussed provide some, and certainly not all, of them.
+Despite the fact that the axiomatization program in physics (in the sense of what
+mathematicians understand axiomatization nowadays) has existed for many
+decades, additional developments and refinements are still needed. We chose these
+examples of physical theories (classical particle mechanics, GR, hamiltonian
+mechanics, and other field theories) just to illustrate a first comparison between the
+usual set-theoretic approach and our function-theoretic formal system.
+With this axiomatic system for field theories in place, we can now study the issue
+of the dispensability of various concepts employed in this system. In particular, we
+obtain the following result:
+
+123
+
+Sets and Functions in Theoretical Physics
+
+Theorem 9
+
+277
+
+Spacetime M is dispensable in a classical physical theory.
+
+Proof As we saw, Padoa’s principle states that a primitive concept M in R is
+independent from the remaining primitive concepts if and only if there are two
+models of R such that M has two different interpretations, while all the other
+primitive concepts have the same interpretation. But there aren’t two models of R
+satisfying this condition, given that any modification in the interpretation of
+M entails a modification in the interpretations of the concepts P; F ; A; I ; G, and
+B. Therefore, spacetime is not independent and, hence, is definable. This means that
+spacetime is dispensable.
+h
+Since the Lie group G is used to obtain the principal fiber bundle (G acts freely
+on P), a similar argument can be employed to prove that G is definable. After all,
+any modification in the interpretation of G entails a modification in the way that
+G acts on P, and thus we have a modification in the interpretation of P.
+Once again, the underlying set theory used in this axiomatization is ZFC. If we
+try to rewrite a classical physical theory without any explicit mention of either M or
+G, the resultant reformulation would be awkward and difficult to understand. What
+will happen if we adopt N instead?
+
+9 Reformulating Classical Field Theories
+To reformulate classical physical theories in N , we will start by defining a suitable
+structure. The resulting structure will be similar to the one in Definition 13.
+However, there won’t be any explicit mention of either the spacetime M or the
+action group G, although, for convenience, they are left implicit in the principal
+fiber bundle P.
+Definition 14
+the 7-tuple:
+
+The species of structures of a classical physical theory is given by
+R ¼ hP; F ; A; I ; G; B; 5u ¼ ii
+
+where
+1.
+
+2.
+
+3.
+
+4.
+
+P is a principal fiber bundle P(M, G), when M is a finite-dimensional smooth
+real manifold endowed with a Riemannian metric, and G is a finite-dimensional
+Lie group.
+F ; A, and I are cross-sections of bundles associated with the principal fiber
+bundle P(M, G), which correspond, respectively, to the field space, potential
+space, and current or source space.
+G  Diff ðMÞ  G0 is the symmetry group of diffeomorphisms of the base space
+M of P, and G0 is the group of gauge transformations of the principal fiber
+bundle P(M, G).
+5u ¼ i is a Dirac-like equation, where u 2 F is a field associated with its
+potential by means of a field equation, and i 2 I is a current. This differential
+equation is subject to the boundary or initial conditions B.
+
+123
+
+278
+
+A. S. Sant’Anna, O. Bueno
+
+The projection p : P? M of the principal fiber bundle may be considered to have
+images p(p) equal to 0 if p does not belong to the fiber bundle P.
+Consider the case of GR, which is accommodated into our axiomatic system (for
+details, see da Costa and Doria 1992). GR is often understood as a spacetime theory,
+since it provides a geometric interpretation of gravitation. However, as we saw, if
+we understand spacetime as a manifold endowed with a metric, such a manifold is
+dispensable. So, the explanatory role of spacetime is a little more subtle, even in the
+limited version of GR presented here.
+We take the main goal of GR, from the point of view of the working physicist, to
+be the development of solutions to Einstein’s equations. These equations are a
+coupled system of ten non-linear differential equations (that are reducible to a
+Dirac-like equation, according to da Costa and Doria 1992). The equations establish
+a relation between the energy tensor and a given metric. Both metric and energy
+tensor are functions. Thus, the main purpose of GR is to establish a particular
+relation between functions, namely, the energy tensor and the metric. This should be
+the first point to look for in order to determine the meaning of GR in our formal
+framework, which we consider to be closer to the practice of physicists than the
+usual axiomatization by means of Zermelo–Fraenkel set theory. We intend to pursue
+this point further in future works dealing with the applications of N theory.
+Mathematical physics explores a sophisticated correspondence between mathematics and physics. As the examples of physical theories considered above
+illustrate, the relational aspect of these theories seems to be clearer when we
+formulate them in a set theory that considers functions to be more fundamental than
+sets. As we saw, this was a significant motivation to introduce N :
+After considering the case of reformulating physical theories in N , it’s worth
+exploring the changes that N brings to the axiomatization of mathematical theories.
+To illustrate the latter point, we will now examine the effect of N in the formulation
+of the concept of group.
+
+10 A Mathematical Example: Groups
+In the standard approach, a group is an ordered triple hG; ; ei that satisfies the
+following axioms:
+G1 G is a non-empty set.
+G2 * is a function (* : G 9 G ? G), such that if a and b belong to G, then
+*(a, b) is abbreviated as a*b.
+G3 e 2 G:
+G4 8a8b8cða 2 G ^ b 2 G ^ c 2 G ) a  ðb  cÞ ¼ ða  bÞ  cÞ:
+G5 8aða 2 G ) a  e ¼ aÞ:
+G6 8aða 2 G ) 9bðb 2 G ^ a  b ¼ eÞÞ:
+In the language of N , we can rewrite group theory very naturally. In group
+theory, all we need are two constants: * and e. If f = (a, b), then we abbreviate
+
+123
+
+Sets and Functions in Theoretical Physics
+
+279
+
+*(f) as a * b. Moreover, the sequence of symbols a * b corresponds to the image
+*(f) of a function f, which is an ordered pair (a, b).
+A group then is an ordered pair h; ei that satisfies the following axioms:
+NG1 8aða  e ¼ a _ a  e ¼ 0Þ:
+NG2 VaVbVc(a * (b * c) = (a * b) * c).
+NG3 8að9bða  b ¼ e _ a  b ¼ 0ÞÞ:
+Given a group h; ei, if there is a set G such that 8a8bððGðaÞ ¼ GðbÞ ¼
+1Þ , ða  b 6¼ 0 ^ Gða  bÞ ¼ 1ÞÞ, we say that hG; ; ei is a set group. Set groups
+correspond to the groups in ZFC. From the concept of a set group, it is easy to define
+subgroups, homomorphisms, isomorphisms, finite and infinite groups, and so on.
+From this point, the whole of group theory can be reformulated.
+Mathematicians are more interested in the actions of groups—described by the
+function *—than in sets of elements of a given group. In other words, what matters
+to them are the functions rather than the sets. This is the main motivation for this
+reformulation of group theory.
+
+11 Final Remarks
+Standard axiomatizations of physical and mathematical theories in the language of
+ZFC present several superfluous concepts that are usually introduced as primitive.
+For example, if functions are understood as set-theoretic constructs, their domains
+need to be specified. This leads to a commitment to these domains even when the
+physical theories themselves don’t require them. However, if we try to formulate
+these physical theories in ZFC without referring to the dispensable concepts, the
+new axiomatizations become quite awkward.
+As an alternative framework, we propose a new set theory, inspired in von
+Neumann’s seminal work, but still following certain features of ZFC, given our goal
+of capturing classical mathematics. In the proposed framework, functions, rather
+than sets, are assumed as primitive, and the result is the theory N : Based on the
+examples provided, it seems that the axiomatization of physical and mathematical
+theories in N ’s language is more economical than standard axiomatizations based
+on ZFC. After all, there’s no need to assume superfluous concepts as primitive.
+Moreover, the emphasis on functions is closer to scientific practice. To conclude this
+paper, let’s spell out these points.
+In ZFC, if we change the domain of a function, we change the function itself. In
+N , functions have no domains at all. Since working mathematicians and physicists
+usually seem to understand functions as formulas expressing certain mappings
+instead of sets of ordered pairs, we believe that our approach is more easily
+identifiable with, and more sensitive to, the common practice of scientists. In
+mathematics and physics, functions are, of course, extremely important. After all, as
+we saw, it’s in terms of them that scientists ultimately (1) establish the relevant
+connections between the various concepts introduced in a theory, (2) determine how
+the different parts of a theory are interrelated, and (3) show how a given theory is
+
+123
+
+280
+
+A. S. Sant’Anna, O. Bueno
+
+connected with other theories in related fields. In contrast, domains and
+codomains—the required components of the set-theoretic characterization of
+functions—seem to have at best a technical purpose with minor significance for
+scientists. The set-theoretic conception forces one to focus not at the most relevant
+places.
+For example, if we understand spacetime as a medium where events happen
+(similarly to the ether in the late nineteenth century), this spacetime is logically
+dispensable. In contrast, fields, potentials, and currents are the truly indispensable
+concepts. These concepts—which are usually described by means of functions—are
+among the main objects of interest to scientists. Moreover, physical theories are
+concerned with relations between and among events. And, once again, such
+relations are usually described in terms of functions. In the end, physics can easily
+survive without sets. But any reformulation of physics without functions would
+demand an unimaginable effort.
+There’s also an additional benefit of adopting the framework put forward here.
+The framework allows us to preserve central aspects of the traditional set-theoretic
+approach. This is done in two ways. First, as we saw, the ZFC axioms (suitably
+translated) are theorems in N , and so virtually all classical mathematics can be
+captured in our framework—at least the mathematics that can be expressed in ZFC.
+Second, the framework allows us to preserve even the intuition of those who insist
+that functions must have domains. All we need to do is qualify how functions act in
+N . For instance, the sine function is a function f that satisfies the boundary problem:
+f 00 ðxÞ þ f ðxÞ ¼ 0;
+
+f ð0Þ ¼ 0;
+
+f 0 ð0Þ ¼ 1
+
+when x is a real number. In the remaining cases, we can consider f(x) as having any
+arbitrary value without any trouble.
+In this respect, following von Neumann, what we offer here is not only an
+alternative to, but also a generalization of, the classical set-theoretic, ZFC-based
+approach to the axiomatization of physical and mathematical theories.
+This paper should be seen as a first step toward a more comprehensive functiontheoretic approach to mathematics and theoretical physics. There is still much to do,
+of course. For example, given that our approach provides, in some sense, a
+generalization of the concept of characteristic function, how does it compare with
+topos theory? Topos theory (Johnstone 1977) is, of course, a very elegant
+foundational proposal for mathematics that has some similarities with the approach
+presented in this paper. But the explicit presence of two constants in our framework
+(0 and 1) could suggest, at a first sight, that we will not be able to define any notion
+which is equivalent (by means of a suitable translation) to a subobject classifier in
+topos theory. In order to address this issue, we need first to establish if it is possible
+to define categories in N theory, which we believe we can. Our approach allows us
+to work with classes, which we refer to as sets in our theory (remember that only
+ZF-sets work as traditional sets). Since we can define standard functions in our
+framework, as well as classes of functions, it is conceivable (in principle) that such
+functions may work as morphisms in a category (class), including monic morphisms
+(which are essential for the definition of subobject classifiers). In other words, we
+
+123
+
+Sets and Functions in Theoretical Physics
+
+281
+
+believe it is possible to develop some kind of algebraic structure which goes far
+beyond our two constants 0 and 1. If that is possible, we should be able to pursue
+applications of N theory in computer science, besides theoretical physics. After all,
+Cartesian closed categories (which are equivalent to typed lambda calculus) have
+been a major source of interest to computer scientists (Peirce 1991). But these are
+tasks for another occasion.
+Another interesting area that demands research is homotopy theory. As noted, the
+so-called sets, in N theory, work as classes, while ZF-sets work as standard sets. In
+this context, we should be able to talk about classes of topological objects up to
+homotopy equivalence. And since all concepts of ZF set theory can be incorporated
+into our approach (Theorem 6), we can certainly talk about domains and codomains,
+as it happens in standard homotopy theory (Peirce 1991). We intend to develop
+these points in future works.
+Acknowledgments We wish to express our deep gratitude to Alberto Levi, who raised relevant
+questions concerning a previous version of our separation schema in N theory. We have also benefitted
+enormously from insightful comments made by Newton da Costa and two anonymous referees for this
+journal. To all of them, our sincere thanks.
+
+References
+Beth, E. W. (1953). On Padoa’s method in the theory of definition. Indagationes Mathematicæ, 15, 330–339.
+Carnap, R. (1958). Introduction to logic and its applications. New York: Dover.
+da Costa, N. C. A., & Chuaqui, R. (1988). On Suppes’ set theoretical predicates. Erkenntnis, 29, 95–112.
+da Costa, N. C. A., & Doria, F. A. et al. (1992). Suppes predicates for classical physics. In J. Echeverria
+(Ed.), The space of mathematics (pp. 168–191). Berlin: Walter de Gruyer.
+da Costa, N. C. A., & Sant’Anna, A. S. (2001). The mathematical role of time and spacetime in classical
+physics. Foundations of Physics Letters, 14, 553–563.
+da Costa, N. C. A., & Sant’Anna, A. S. (2002). Time in thermodynamics. Foundations of Physics, 32,
+1785–1796.
+Goldstein, H. (1980). Classical mechanics. Reading: Addison-Wesley.
+Haag, R. (1992). Local quantum physics: fields, particles, algebras. Berlin: Springer.
+Jackson, J. D. (1975). Classical electrodynamics. New York: Wiley.
+Jenč, F., Maass, W, Melsheimer, O., & Neumann, H, van der Merwe, A. (1983). Gunther Ludwig and the
+foundations of physics. Foundations of Physics, 13, 639–641.
+Johnstone, P. T. (1977). Topos theory. New York: Academic Press.
+Mac Lane, S. (1994). Categories for the working mathematician. New York: Springer.
+McKinsey, J. C. C., Sugar, A. C., & Suppes, P. (1953). Axiomatic foundations of classical particle
+mechanics. Journal of Rational Mechanics and Analysis, 2, 253–272.
+Mendelson, E. (1997). Introduction to mathematical logic. London: Chapman & Hall.
+Padoa, A. (1900). Essai d’une théorie algébrique des nombres entiers, précédé d’une introduction logique à
+une théorie déductive quelconque. Bibliothèque du Congrès International de Philosophie, 3, 309–365.
+Peirce, B. (1991). Basic category theory for computer scientists. Cambridge: MIT Press.
+Sant’Anna, A. S., & de Freitas, D. C. (2000). The statistical behavior of the quantum vacuum virtual
+photons in the Casimir effect. International Journal of Applied Mathematics, 2, 283–290.
+Suppes, P. (1957). Introduction to logic. Princeton: van Nostrand.
+Suppes, P. (2002). Representation and invariance of scientific structures. CSLI, Stanford.
+Suppes, P., Sant’Anna, A.S., & de Barros, J.A. (1996). A particle theory of the Casimir effect.
+Foundations of Physics Letters, 9, 213–223.
+Tarski, A. (1983). Some methodological investigations on the definability of concepts. In A. Tarski (Ed.),
+Logic, semantics, metamathematics (pp. 296–319). Indianapolis: Hacket.
+von Neumann, J. (1967). An axiomatization of set theory. In J. Heijenoort (Ed.), From Frege to Gödel
+(pp. 346–354). Cambridge: Harvard University Press.
+
+123
+
+

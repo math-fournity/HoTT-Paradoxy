@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-309",
+    "C-310"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-book-scope-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/RealPrincipleBookScope.agda"
+  ],
+  "completed_at_utc": "2026-09-20T20:03:08.561396+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 230.513688,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "407673be07238f799d74e3e59b440160fea2400f40113fdc35731d39713ea00a"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No inhabitant, negation or independence proof of either principle.",
+    "No real-principle-to-binary-Markov or converse bridge, no full interpretation of all Book universes/real constructions.",
+    "No chosen witness or finite search bound, physical/source-history mismatch, complete four-stage result or full-theory consistency certificate; inherited library postulates remain explicit."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-REAL-PRINCIPLE-SCOPE-001",
+  "run_id": "20260920-MP-ASTRA-REAL-PRINCIPLE-SCOPE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C309: on the original Dedekind Real0, the zero/nonzero-apartness principle is logically equivalent to the all-pairs inequality/apartness principle by actual difference operations; the pair form is connected to original Circle Lift and uniform real inverse contracts. C310: the Book binary Markov form with double-negated mere existence of true is logically equivalent to library Markovs-Principle, via explicit Boolean polarity reversal and proposition-valued existential elimination.",
+  "source_manifest": {
+    "bytes": 16000,
+    "path": "source-manifest.json",
+    "sha256": "f519d0ca7f7bf712c9085c71cb8f84b10774389a9c99f9db96fd42c3e84f04fe"
+  },
+  "started_at_utc": "2026-09-20T19:59:18.047708+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 209702,
+    "path": "stdout.txt",
+    "sha256": "7f2a66d337395799291828444f1b40c63a853d2741f1b58272c36a197dae8cc6"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

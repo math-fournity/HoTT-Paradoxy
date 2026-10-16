@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "C-05"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/hott-z",
+    "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda"
+  ],
+  "completed_at_utc": "2026-09-13T07:38:34.898129+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.042069,
+  "environment": {
+    "bytes": 1118,
+    "path": "environment.txt",
+    "sha256": "5d42bd91fb5486b74e6f2d34f62f7eb1168c1319d9079af32b235e11dc880a3b"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "No claim of originality: the theorem is agda-unimath's own; this run only replays the derived file's import under pinned versions.",
+    "No claim about other agda-unimath modules, other commits, or future library versions.",
+    "No HoTT inconsistency and no natural-use-chain (E6) claim follows from this replay."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+  "run_id": "20260913-MP-UNIMATH-NOSECTION-REPLAY-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Native kernel replay, under the project's pinned Agda 2.8.0-3d04bac, of the user-authored derived file hott-z/NoCanonicalPoint.agda against a pinned agda-unimath commit (7b81411d9f60afec359d29ed1e4edf43f4711c8a): the imported no-section-type-2-Element-Type statement (C-05) typechecks, so the derived development's use of the library's no-canonical-point theorem is replayable evidence rather than a source-reported claim.",
+  "source_manifest": {
+    "bytes": 2550,
+    "path": "source-manifest.json",
+    "sha256": "cfa1cfd3e7281dc32229e9fd938ba5505e87a902fd3d71e451099077642af602"
+  },
+  "started_at_utc": "2026-09-13T07:38:34.856060+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 922,
+    "path": "stdout.txt",
+    "sha256": "de549f286ceec416960c759a2e0ca308d2ad1f8d9a9bb2cb3fb8b15c2a2a27ad"
+  },
+  "theory_variant": "Agda without-K homotopy type theory (agda-unimath library, no cubical features)"
+}

@@ -1,0 +1,99 @@
+#lang rzk-1
+
+-- Negative control for CG001-C-58 (expected KERNEL_REJECTED).
+-- proof id : MP-CG001-TWO-TOWN-NEG-001
+--
+-- In the path branch the return step is free: back = rev p, the same route
+-- walked backwards (P-rev).  In the arrow branch there is no such formal
+-- reverse: the outbound arrow Gl A B phi, an element of hom S A B, cannot be
+-- used as the return step, an element of hom S B A.  The definition below
+-- tries exactly that and must be rejected.  The return has to be a second,
+-- independent step (Gl B A psi in TwoTownRoundTrip.rzk).
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define is-equiv
+  ( A B : U)
+  ( f : A → B)
+  : U
+  := Σ ( r : B → A)
+    , Σ ( s : B → A)
+    , Σ ( η : ( a : A) → r (f a) = a)
+    , ( ( b : B) → f (s b) = b)
+
+#define is-contr
+  ( A : U)
+  : U
+  := Σ ( a : A) , ( ( b : A) → a = b)
+
+#define dhom
+  ( A : U)
+  ( x y : A)
+  ( f : hom A x y)
+  ( C : A → U)
+  ( u : C x)
+  ( v : C y)
+  : U
+  := ( t : Δ¹) → C (f t) [ t ≡ 0₂ ↦ u , t ≡ 1₂ ↦ v ]
+
+#define is-covariant
+  ( A : U)
+  ( C : A → U)
+  : U
+  := ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+   → is-contr (Σ ( v : C y) , dhom A x y f C u v)
+
+#define covariant-transport
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x y : A)
+  ( f : hom A x y)
+  ( u : C x)
+  : C y
+  := first (first (is-cov x y f u))
+
+#define arrow-action
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( A B : S)
+  ( f : hom S A B)
+  : El A → El B
+  := \ u → covariant-transport S El is-cov A B f u
+
+#define is-directed-univalent
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  : U
+  := ( A : S) → ( B : S) → is-equiv (hom S A B) (El A → El B) (arrow-action S El is-cov A B)
+
+#define Gl
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( φ : El A → El B)
+  : hom S A B
+  := ( first (second (du A B))) φ
+
+-- wrong: the outbound arrow used as the return step
+#define return-along-go
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( φ : El A → El B)
+  : hom S B A
+  := Gl S El is-cov du A B φ

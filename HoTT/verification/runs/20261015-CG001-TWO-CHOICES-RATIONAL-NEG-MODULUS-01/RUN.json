@@ -1,0 +1,59 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-010 line, Claude Code desktop session 95a1a81b (012-Opus), worktree /Volumes/D/HoTT-worktrees/012-opus-w8, branch claude/012-opus-w8, 2026-10-15",
+  "claim_ids": [
+    "CG001-C-425"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/two-choices-rational",
+    "GodelQ/TwoChoices/Core.lean",
+    "GodelQ/TwoChoices/RationalConstructive.lean",
+    "GodelQ/Negative/WrongZenoModulus.lean"
+  ],
+  "completed_at_utc": "2026-10-15T07:37:29.009991+00:00",
+  "cwd": "/Volumes/D/HoTT-worktrees/012-opus-w8",
+  "duration_seconds": 4.165798,
+  "environment": {
+    "bytes": 1087,
+    "path": "environment.txt",
+    "sha256": "2fb53473b5c3c53a1d25026c0abffd31e58126ead5d29af3b057da48431f6afe"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Only the uniform step 0 is tried; the general refutation is zeno_modulus_zero_false."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-TWO-CHOICES-RATIONAL-NEG-002",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261015-CG001-TWO-CHOICES-RATIONAL-NEG-MODULUS-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for C-425: the Cauchy step of the Zeno positions is independent of the precision and can uniformly be step 0 (the proof of zenoQp_cauchy reused with step 0). Expected rejection: omega cannot prove k + 1 <= m. Positive counterparts: zenoQp_cauchy (step k+1) and zeno_modulus_zero_false (steps 0 and 2 differ by 3/4 at precision 1/2).",
+  "source_manifest": {
+    "bytes": 200846,
+    "path": "source-manifest.json",
+    "sha256": "3e0474631fed156751aa5537d4d930a23c5a2f04ef60b0550b1240310717f82e"
+  },
+  "started_at_utc": "2026-10-15T07:37:24.843932+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 1465,
+    "path": "stdout.txt",
+    "sha256": "f82abf2b88377217fcb076f209ecb78065725d068cc258ec81107b543a46aea5"
+  },
+  "theory_variant": "Lean 4 kernel; self-written rationals (Int x Nat, cross-multiplication); Mathlib imported only for the ring tactic; theorems machine-audited (Lean.collectAxioms) not to depend on Classical.choice; never HoTT paths"
+}

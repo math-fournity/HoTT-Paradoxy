@@ -1,0 +1,33 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260917-MP-DEDEKIND-OMEGA-BP-01",
+  "proof_id": "MP-DEDEKIND-OMEGA-BP",
+  "claim_ids": [
+    "CAND-F2-7-BP"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda",
+    "HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_COMMITTED_NOT_PUSHED",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness，无追加公理）中证明：decGapAt : (n : ℕ) → (D n ≡ pos 0) ⊎ ¬ (D n ≡ pos 0)（序列层存在命题逐点可判定，且判定为「否」——已完成对象）与 noGapWitness : ¬ (Σ n : ℕ, D n ≡ pos 0)（Σ 形式居住性否定，与第二枚 spec-B-empty 同形、证据路径独立）。机械确认「序列层存在命题可判定、搜索过程不可停机」这一对必须分开登记的事实（修订片 025 §5）。",
+  "non_goals": [
+    "不声称这是第三枚导弹或 A=B 对撞（025 片 §5：判定已完成 ≠ 搜索不停机，二者分开登记）",
+    "不声称 HoTT 不一致"
+  ]
+}

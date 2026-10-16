@@ -1,0 +1,59 @@
+{
+  "audit_notes": [
+    "Linux replay (Lean 4.34.0 Linux release asset, same source commit 293d5d0c as the macOS toolchain) of the Opus run of 2026-09-26; the CG-001 driver lean_check.py is used unchanged."
+  ],
+  "audit_session": "Cloud-Opus (Claude Code cloud session), branch claude/charming-pasteur-mvzlio",
+  "claim_ids": [
+    "CG001-C-65"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
+    "--toolchain",
+    "HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json",
+    "--leanchecker",
+    "HoTT/formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean"
+  ],
+  "completed_at_utc": "2026-09-27T09:28:41.111959+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 71.481089,
+  "environment": {
+    "bytes": 743,
+    "path": "environment.txt",
+    "sha256": "df4b30e81b0d478a17abcada98f7a2fa61e750612f7faa6aaae502fc66123106"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "A statement in a type theory with UIP, used as a contrast; not a HoTT statement"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-WILD-SST-LEAN-001",
+  "rejection_stage": null,
+  "run_id": "20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-CG001-WILD-SST-LEAN-01: the same one-line definition in Lean 4 (UIP): theorem coh2 (S : WildSST) : Coh2 S := fun _ _ _ _ _ _ _ => rfl, no axioms.",
+  "source_manifest": {
+    "bytes": 4813,
+    "path": "source-manifest.json",
+    "sha256": "345ae848fbf7cbe0fe61f912ed8a47d85bd97f0f724c310202121178224943ce"
+  },
+  "started_at_utc": "2026-09-27T09:27:29.630799+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 343,
+    "path": "stdout.txt",
+    "sha256": "a23afb72634cf3158080cefc292580de1b5600de9341a14c00ab67131590011a"
+  },
+  "theory_variant": "Lean 4 kernel; set-level model statements only"
+}

@@ -1,0 +1,79 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-09",
+  "claim_ids": [
+    "CG001-C-116"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/idea-t-c6-p",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/Turing.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/TuringZFC.lean",
+    "GodelQ/Zeno/Attainment.lean",
+    "GodelQ/Zeno/Runners.lean",
+    "GodelQ/C6Review.lean",
+    "GodelQ/PTwoSides.lean",
+    "GodelQ/Negative/WrongRealP1.lean"
+  ],
+  "completed_at_utc": "2026-10-09T05:50:33.885027+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 64.991291,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "cd2adb72d0739a015968de2442c12fab35c0b378a2cf47d025ec93b6a4156074"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the rejection shows quantization is load-bearing for semantic P1; on the dense reals it fails"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-IDEA-T-C6-P-NEG-003",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261009-CG001-IDEA-T-C6-P-NEG-03",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "negative control for CG001-C-116: semantic P1 at the endpoint 1 of the dense real line, proved through the grid theorem, must be rejected; it needs every real sequence to take grid values (unsolved goal)",
+  "source_manifest": {
+    "bytes": 204702,
+    "path": "source-manifest.json",
+    "sha256": "cc9286fa53dc4ecc84dbc494c8c01fcc5c95123f28f948fa09c2f6992b8aa837"
+  },
+  "started_at_utc": "2026-10-09T05:49:28.893485+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16482,
+    "path": "stdout.txt",
+    "sha256": "e4fd9539237e7a32eda8ebe12404b483da2421ab96ad96ee34524266a7025ada"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

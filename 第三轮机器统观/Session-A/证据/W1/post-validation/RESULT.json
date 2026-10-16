@@ -1,0 +1,28 @@
+{
+  "schema": "mo3-post-validation/v1",
+  "revision": 270,
+  "checks": {
+    "three-way": {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "exit": 0
+    },
+    "shards": {
+      "argv": [
+        "python3",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0
+    }
+  },
+  "transaction_rows": 37,
+  "drift": [],
+  "review_required": [
+    "MO3-GOVERNED-A"
+  ],
+  "query_first_promoted": [],
+  "snapshot": "4accd7169aa79dab23398de501f02a06da028653c8b7a2f2c9bca7b7f0e957b2",
+  "scope": "mechanical structure/source identity only, no mathematics or understanding certification"
+}

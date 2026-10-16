@@ -1,0 +1,51 @@
+{
+  "schema_version": "p13-ambient-pair-rmin-requalification-verification/v1",
+  "task_id": "P13-AMBIENT-PAIR-RMIN-REQUALIFICATION-001",
+  "status": "PASS_WITH_SCOPE",
+  "verdict": "R_AMBIENT_SPECIALIZATION_ACCEPTED_WITH_SCOPE / OPERATION_CLASS_SPLIT_REQUIRED / P14_AMBIENT_OPERATION_K_SUCCESSOR_DISCOVERY_NEXT / NO_ACTUAL_K / NO_NEW_HOTT_DEFECT_CLAIM",
+  "scope": "Checks declared existing-source identities, preserved kernel-receipt identities, and the report's operation-class distinction. It does not rerun Lean, prove a general isotopy-extension theorem, formalize native HoTT, find K, or prove a HoTT defect.",
+  "sources": {
+    "audit/p13-ambient-pair-rmin-requalification-20260921/P13-AMBIENT-PAIR-RMIN-REQUALIFICATION-REPORT.md": "2b55a658ae09230e99a79e7736b8bf11a1ba53df2e396835ca39891e5e2eb543",
+    "audit/p13-ambient-pair-rmin-requalification-20260921/P13-AMBIENT-PAIR-EVIDENCE-FREEZE.json": "77db35f32f7da7c2ff131efada7cb6557ca44143290849df58eca51303f24151",
+    "HoTT/formal/astra-real-geometry/PuncturedCircle.lean": "ec67947933a44a059d1694d33b0ab8e0fe2c0dbcc4116243f2b3f379181aaa9b",
+    "HoTT/formal/astra-real-geometry/AmbientCircle.lean": "21212e0aca957eaee871f746c98adb861ae6494163e057a512fb0ee8fe524ed0",
+    "HoTT/formal/astra-real-geometry/DeformationCircle.lean": "7326d9fb280b35183aaa09e32723f0e4a84f82502c2ab2b0346193dc0ef73724",
+    "HoTT/formal/astra-real-geometry/EndpointClosure.lean": "68f91c2ccba510c120be08bf81d79a0566781c1c8fef756bb580e55d0bde21bd",
+    "HoTT/formal/astra-real-geometry/StructuredCurve.lean": "d46605371967a90fdfa0d0cb0a76d0fc49a33d3c5dac3a135210db99abc88d45",
+    "HoTT/verification/runs/20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02/RUN.json": "918aa3da0061bba16e197f708c026f0341d707c7dcaf8a03993ecd06f44cb12d",
+    "HoTT/verification/runs/20260920-MP-ASTRA-CURVE-DEFORMATION-001-02/RUN.json": "918f4b1f70ffacafe4a3e00a80cf174b52f0ae22588def809f2e2f367325a298",
+    "HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02/RUN.json": "28009bf958e476d4a9b9d6ae9f8eb3db070328b905c20bc7e5be693dc17c9654"
+  },
+  "missing_required_tokens": [],
+  "run_details": {
+    "ambient": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-AMBIENT-CIRCLE-001-02/RUN.json",
+      "sha256": "918aa3da0061bba16e197f708c026f0341d707c7dcaf8a03993ecd06f44cb12d",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    "curve": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-CURVE-DEFORMATION-001-02/RUN.json",
+      "sha256": "918f4b1f70ffacafe4a3e00a80cf174b52f0ae22588def809f2e2f367325a298",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    },
+    "structured": {
+      "path": "HoTT/verification/runs/20260920-MP-ASTRA-STRUCTURED-CURVE-001-02/RUN.json",
+      "sha256": "28009bf958e476d4a9b9d6ae9f8eb3db070328b905c20bc7e5be693dc17c9654",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED"
+    }
+  },
+  "manifest_checks": {
+    "AmbientCircle.lean": true,
+    "DeformationCircle.lean": true,
+    "StructuredCurve.lean": true
+  },
+  "source_markers_ok": {
+    "ambient": true,
+    "curve": true,
+    "structured": true
+  },
+  "external_sources_checked": [
+    "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/rolfsen.pdf",
+    "https://mathworld.wolfram.com/AmbientIsotopy.html"
+  ]
+}

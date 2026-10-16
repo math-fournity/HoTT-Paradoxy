@@ -1,0 +1,31 @@
+{
+ "checkpoint_result": ".codex/cognition/checkpoints/S-RES-20260916-157-PREMISE-001-STEP3-P3P4-SHEET/result.json",
+ "formal_runs": [],
+ "governance_runs": [
+  {
+   "command": "verify_governance_shards.py (after adding shard 004 and updating PREMISE-001 index)",
+   "generation": "n/a",
+   "run_id": "20260916-PREMISE-001-STEP3-SHARD-VERIFY-01",
+   "status": "PASS (18 canonical indexes; no soft notices on 004)",
+   "tool": "scripts/audit/verify_governance_shards.py"
+  },
+  {
+   "command": "git commit PREMISE-001(step-3)",
+   "generation": "P3/P4 adjudication sheet delivered (35 rows, blank P3/P4 columns)",
+   "run_id": "20260916-PREMISE-001-STEP3-COMMIT-01",
+   "status": "6a8f9f6 (reflection=no-plan-change)",
+   "tool": "git"
+  }
+ ],
+ "math_status_change": "NONE",
+ "new_math_claims": [],
+ "next": [
+  "A-PREMISE-001",
+  "A-R4-HOTT-NAT-EFFECTIVITY-001"
+ ],
+ "note": "S-RES-20260916-157 PREMISE-001 step-3: P3/P4 adjudication sheet delivered as shard 004 (35 rows, one adjudicable object per row, P3/P4 columns blank for the user). No adjudication made by the AI; no math claim. Awaiting user P3/P4.",
+ "push_policy": "NOT_AUTHORIZED",
+ "schema_version": "hott-session-runs/v2",
+ "session_id": "S-RES-20260916-157-PREMISE-001-STEP3-P3P4-SHEET",
+ "session_kind": "PREMISE_001_STEP3_P3P4_HANDOFF"
+}

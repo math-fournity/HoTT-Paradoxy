@@ -1,0 +1,25 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-073-N27-T3-CODE-FIX",
+  "state_revision": 73,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 73},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 73},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 72},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "t3_pulse_6": {
+    "source": "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "ercf3_status": "GATED",
+    "finding": "naive term-level identity is FALSE (k vs 5+k); code-level substitution must store a code",
+    "remaining": ["adjusted identity", "mutual induction for non-variable constructors"]
+  },
+  "boundaries": {"git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

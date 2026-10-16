@@ -1,0 +1,72 @@
+{
+  "schema_version": "contextual-equiv-post-evidence/v1",
+  "captured_at_utc": "2026-09-12T23:22:04.533972+00:00",
+  "session_id": "S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE",
+  "state_revision": 35,
+  "latest_session": "S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE",
+  "head_revision": 35,
+  "post_checks": [
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true
+    },
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true
+    }
+  ],
+  "proof_replays": [
+    {
+      "name": "lean-ercf-001",
+      "exit_code": 0,
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "ok": true
+    },
+    {
+      "name": "agda-truncation",
+      "exit_code": 0,
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "ok": true
+    },
+    {
+      "name": "agda-race-timeout",
+      "exit_code": 0,
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "ok": true
+    },
+    {
+      "name": "agda-contextual-equiv",
+      "exit_code": 0,
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "ok": true
+    }
+  ],
+  "write_lock_present": false,
+  "transaction_present": false,
+  "failures": [],
+  "status": "PASS"
+}

@@ -1,0 +1,276 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000,
+    "max_contexts": 4,
+    "max_witnesses": 500
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L6-COMPENSATION-COHERENCE-001",
+  "case_identity_sha256": "a8f15fd37824799f65282865e5b650393f462df6d0cd11406159bf18ea14199d",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L6-COMPENSATION-COHERENCE-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T19:23:14.292961+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "path_compensation"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "path_evidence"
+      ],
+      "reachable": [
+        "path_evidence"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L6-COMPENSATION-COHERENCE-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 308,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 320,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 4,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 4,
+      "rule_application_checks": 0,
+      "rule_count": 4,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['path_compensation']"
+  },
+  "inputs": {
+    "case_sha256": "491143ceb24d11f952b66ecf8c0442c56f2d112bd8e609fd6bde54503104c593",
+    "grammar_path": "machine-overview/grammars/l6-compensation-coherence-m3-v1.json",
+    "grammar_sha256": "a7a61395d0fab680b8fa310ad39f2b6a1ff0ffb7b518606181f79c28bae38dab",
+    "profile_sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb",
+    "task_path": "machine-overview/tasks/MS-TASK-L6-COMPENSATION-COHERENCE-001.json",
+    "task_sha256": "eb1d2284a114f269c82e71673f6e786138e6b7b48ff4680546d7071041847779",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l6-compensation-coherence-m3-v1.json",
+        "sha256": "a7a61395d0fab680b8fa310ad39f2b6a1ff0ffb7b518606181f79c28bae38dab"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/m3-breadth-v1.json",
+        "sha256": "c738d63130bac0331600726a07fb534704e2b38af34b0b4d2d5063c517d56bdb"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L6-COMPENSATION-COHERENCE-001.json",
+        "sha256": "eb1d2284a114f269c82e71673f6e786138e6b7b48ff4680546d7071041847779"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "M3-CUBICAL-BREADTH-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L6-M3-COMP-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "5344e1f148d765afb4b3fef2e400f408a6dcd02e5aabefb212625de6bb661cc4"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T19:23:14.290177+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 4,
+    "proof_depth_bound": 4,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 4,
+    "rule_application_checks": 90,
+    "rule_count": 5,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "b2776ba84685650a08e7184b4bce5f8f2573f89691216d1583eb3163338b0ae3",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [],
+            "rule": "path_compensation"
+          }
+        ],
+        "rule": "apart_compensation"
+      },
+      "proof_term": "apart (path)",
+      "separation_kind": "compensation_coherence_conflict",
+      "size": {
+        "depth": 2,
+        "nodes": 2
+      },
+      "used_rules": [
+        "apart_compensation",
+        "path_compensation"
+      ],
+      "witness_id": "WV-0001"
+    },
+    {
+      "ast_sha256": "9bfdd8d4e9c711afcebf46af4b93c3a78062519d2a87f4462bc875f05c804074",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "rule": "path_compensation"
+              }
+            ],
+            "rule": "path_identity_decoy"
+          }
+        ],
+        "rule": "apart_compensation"
+      },
+      "proof_term": "apart (path)",
+      "separation_kind": "compensation_coherence_conflict",
+      "size": {
+        "depth": 3,
+        "nodes": 3
+      },
+      "used_rules": [
+        "apart_compensation",
+        "path_identity_decoy",
+        "path_compensation"
+      ],
+      "witness_id": "WV-0002"
+    },
+    {
+      "ast_sha256": "20c1576fcd7d85075ba061923edc0766b01d477b66ed8d6b03ad65fe6d144ce4",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "path_compensation"
+                  }
+                ],
+                "rule": "path_identity_decoy"
+              }
+            ],
+            "rule": "path_identity_decoy"
+          }
+        ],
+        "rule": "apart_compensation"
+      },
+      "proof_term": "apart (path)",
+      "separation_kind": "compensation_coherence_conflict",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "apart_compensation",
+        "path_identity_decoy",
+        "path_identity_decoy",
+        "path_compensation"
+      ],
+      "witness_id": "WV-0003"
+    },
+    {
+      "ast_sha256": "fa5f2b74c78aa0ae623d8f4c2752ba1aec520c51d8224150d06d540ae68f9fe7",
+      "backend": "symbolic-horn-v1",
+      "goal": "bottom",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "rule": "path_compensation"
+                  }
+                ],
+                "rule": "path_sym_decoy"
+              }
+            ],
+            "rule": "path_sym_back_decoy"
+          }
+        ],
+        "rule": "apart_compensation"
+      },
+      "proof_term": "apart (sym (sym (path)))",
+      "separation_kind": "compensation_coherence_conflict",
+      "size": {
+        "depth": 4,
+        "nodes": 4
+      },
+      "used_rules": [
+        "apart_compensation",
+        "path_sym_back_decoy",
+        "path_sym_decoy",
+        "path_compensation"
+      ],
+      "witness_id": "WV-0004"
+    }
+  ]
+}

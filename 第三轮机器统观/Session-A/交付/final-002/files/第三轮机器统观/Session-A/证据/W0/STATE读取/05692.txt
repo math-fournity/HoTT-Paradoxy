@@ -1,0 +1,323 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 5692, "end_line": 6009, "total_lines": 18474, "next_start_line": 6010, "chunk_sha256": "cb4c92444bf448b084722865cbd0df2c833ebbe4fb2074a37b68a0f0ddaf77a3", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/quotient-monad机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "RESULT_QUOTIENT_SPLIT_AND_QUOTIENT_VALUED_MONAD_CONSTRUCTED",
+      "path": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+      "proof_id": "MP-QUOTIENT-MONAD-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/quotient-monad机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, dependency, toolchain and index-row hashes match; exact replay passed. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-QUOTIENT-MONAD-001-01",
+      "scope": "Native Cubical Agda monad structure on the result quotient of the R041 delay fragment: canonical section (C-84), quotient-valued continuation bind (C-85), unit laws (C-86) and associativity (C-87 representative-level up to ≈, C-88 quotient-level). Positive structure result; no general-quotient claim, no HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md": "483d4267d982fcf23f8de1cfeecb38d2aa68c4ba6307f950281554503459695a",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda": "fd0d7f3b891911b455ba74f922a44b169b3900d34cfa2c27de06dee1c4ad8de1",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json": "9a62332e3da3bcc8be4ab577f2c19c4159ca77a9a2a4f4c299c2f6485e820fb3",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json": "590a8c20ed2492592f62b6ebf6f31072338f297f8e0f79340a5f1ef115e80ffd",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/source-manifest.json": "1991ce7f2c189c47a466f8bf803c2775a076fc5ec817a8001bcf9b3e44915c45",
+        "audit/quotient-monad机器证明实施证据-20260912.md": "ed440f352e9111b02fff0e2cb41f70bc16c2d9bbd04007d635b64259a89b9118"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-R2-CROSS-KERNEL-CORRESPONDENCE-001": {
+      "classification": "R2_DUAL_KERNEL_SCOPED_CORRESPONDENCE",
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / NO_NEW_MATH_CLAIM",
+      "full_sources": [
+        "HoTT/formal/cubical-machine-halting/R2-TASKSPEC.json",
+        "HoTT/formal/cubical-machine-halting/R2-CROSS-KERNEL-CORRESPONDENCE.md",
+        "audit/R2-cross-kernel-correspondence-20260914.json",
+        "scripts/audit/verify_r2_cross_kernel_correspondence.py",
+        "audit/R2通用性源模型资格化-20260914.md",
+        "audit/R2-MM2编译桥机器证明-20260914.md",
+        "audit/R2-Coq-MM2同核归约机器证明-20260914.md"
+      ],
+      "kind": "cross_kernel_correspondence",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/cubical-machine-halting/R2-CROSS-KERNEL-CORRESPONDENCE.md",
+      "related_records": [
+        "A-COQ-MM2-SOURCE-QUALIFICATION-001",
+        "A-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+        "A-CUBICAL-MM2-BRIDGE-001",
+        "A-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "S-RES-20260914-144-R2-SYNTHETIC-DUAL-KERNEL",
+        "S-GOV-20260914-145-R2-REGRESSION-SEMANTICS"
+      ],
+      "research_parent": "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+      "resolution": {
+        "evidence": [
+          "audit/R2-cross-kernel-correspondence-20260914.json",
+          "HoTT/formal/cubical-machine-halting/R2-TASKSPEC.json",
+          "HoTT/formal/cubical-machine-halting/R2-CROSS-KERNEL-CORRESPONDENCE.md"
+        ],
+        "reason": "Three formal packages, 28 source anchors and 282 branch/field controls passed. Universal claims come from the separate kernels; cross-kernel definitional equality is not claimed."
+      },
+      "revalidation": "S-GOV-20260914-145-R2-REGRESSION-SEMANTICS: correspondence proof/receipt unchanged; only the higher-level regression literal was corrected and re-pinned.",
+      "scope": "Four-model state/instruction/label/branch/finality/halting correspondence with explicit Coq-exists versus Agda-truncation boundary.",
+      "source_hashes": {
+        "HoTT/formal/cubical-machine-halting/R2-CROSS-KERNEL-CORRESPONDENCE.md": "88dc031229ff4033f2d3812b1576bce1c4bfe12de94a9557d21a15ee98517398",
+        "HoTT/formal/cubical-machine-halting/R2-TASKSPEC.json": "dc869360843ae083d3e3bebf66ef5baa80561ea55a9133fc1fd061b829c6b022",
+        "audit/R2-Coq-MM2同核归约机器证明-20260914.md": "a20662810ca790598729f3b8a97ddd2f0477a9317deb2fcb39e520c03a8a042c",
+        "audit/R2-MM2编译桥机器证明-20260914.md": "bbd10b8866aa39c948ef7fe9b862b8b18396101fdd9c5a7be3a9ba0a8969b9c1",
+        "audit/R2-cross-kernel-correspondence-20260914.json": "c7bb0b581ac6a989d8c5c53019f1ca409f747a137646abce1d0b069d1920ac8f",
+        "audit/R2通用性源模型资格化-20260914.md": "95944ed4a0b0cb722a52f03ca41b8e6abe2bb96bc014764230f07bd4822c77f1",
+        "scripts/audit/verify_r2_cross_kernel_correspondence.py": "4c3f6ef5b936ad4f7b5618ef8d86c13f515b271911afb97a19cc7bf30b750b30"
+      },
+      "status": "complete"
+    },
+    "A-R3-R4-GODEL-RETURN-001": {
+      "classification": "EXACT_R3_INDEPENDENT_SENTENCE_TO_HOTT_R4_FAITHFULNESS_BRIDGE",
+      "depends_on": [],
+      "evidence_status": "R3_SOURCE_REPLAY_COMPLETE / R4_OBLIGATION_MATRIX_COMPLETE / R4_CHILD_ACTIVE",
+      "full_sources": [
+        ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+        ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
+        "audit/r3-r4-godel/REPORT.md",
+        "audit/r3-r4-godel/RECEIPT.json",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/RUN.json",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/index-row-manifest.json",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md",
+        "goal.md"
+      ],
+      "kind": "candidate_search_task",
+      "lifecycle_status": "ACTIVE_WORK",
+      "path": ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+      "related_records": [
+        "A-CE-MAP-001",
+        "A-G-HOTT-SYNTAX-001",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-LIT-CLASSICS-001",
+        "A-LIT-HOTT-COMPUTABILITY-001",
+        "S-RES-20260915-150-CE-MAP-V1",
+        "A-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+        "A-R3-R4-OBLIGATION-MATRIX-001",
+        "A-R4-HOTT-NAT-EFFECTIVITY-001",
+        "S-RES-20260915-151-R3-SOURCE-REPLAY"
+      ],
+      "research_parent": "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+      "revalidation": "S-RES-20260915-151-R3-SOURCE-REPLAY: exact R3 source replay completed; parent remains active for R4 and reality/essentiality obligations. S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at .codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md, audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md, goal.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
+      "scope": "General R3 baseline C-244-C-249 complete; exact HoTT R4 has 2 scoped present, 3 absent and 7 open obligations; Nat/effectivity child active.",
+      "source_hashes": {
+        ".codex/research/hott/R3-R4-GODEL-RETURN-001.md": "f9711223583664212e34b9b104cb67d93dc16e1124a3717143002e3aac1afe7b",
+        ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md": "38f0e65db71e24f6b040b7709b1b0ec741af5f74b120dc1a0dc7f0ac48b30e91",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/RUN.json": "b0c43216d1cdd992c818eb51056117742d46ae6c9de95ad1c5a37cdfb898dab5",
+        "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01/index-row-manifest.json": "c4be6d3c10312a55d1f4873810645ab4f7992bfa11bf12d7a4b8bce161cbd4b4",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md": "9501119e6b44a4a7b8a7e306c1efe1a73b7d9d050d4dfc4d0c719e8b01577a8d",
+        "audit/r3-r4-godel/RECEIPT.json": "58729cb6e5049ae97ded080144a88d2ba7e5fd767f75e419def581976adf21f2",
+        "audit/r3-r4-godel/REPORT.md": "413597e950998ae7ed3974cc572e19db1f6568892e0c5daca8982ff6f741df22",
+        "goal.md": "5c21d3ffed766244988ea4751d2259d7563d9a1ecc03ecbd15ad81b6e001e5c5"
+      },
+      "status": "active"
+    },
+    "A-R3-R4-OBLIGATION-MATRIX-001": {
+      "artifact_hashes": {
+        "audit/r3-r4-godel/R3-R4-OBLIGATIONS.json": "04c90b1b81a45eb5fd04d5b22d62fa775a5ddfa85aa57a0b960028226ad8fa32",
+        "audit/r3-r4-godel/RECEIPT.json": "58729cb6e5049ae97ded080144a88d2ba7e5fd767f75e419def581976adf21f2",
+        "audit/r3-r4-godel/REPORT.md": "413597e950998ae7ed3974cc572e19db1f6568892e0c5daca8982ff6f741df22"
+      },
+      "classification": "R3_TO_EXACT_HOTT_R4_TWELVE_OBLIGATION_MATRIX",
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE / 2_PRESENT_3_ABSENT_7_OPEN",
+      "full_sources": [
+        "audit/r3-r4-godel/README.md",
+        "audit/r3-r4-godel/REPORT.md",
+        "audit/r3-r4-godel/RECEIPT.json",
+        "scripts/audit/build_r3_r4_obligations.py",
+        "scripts/audit/test_r3_r4_obligations.py",
+        ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+        ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md"
+      ],
+      "kind": "cross_kernel_correspondence",
+      "lifecycle_status": "CURRENT",
+      "machine_managed_canonical": "audit/r3-r4-godel/R3-R4-OBLIGATIONS.json",
+      "path": "audit/r3-r4-godel/REPORT.md",
+      "related_records": [
+        "A-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+        "A-G-HOTT-SYNTAX-001",
+        "A-R4-HOTT-NAT-EFFECTIVITY-001",
+        "S-RES-20260915-151-R3-SOURCE-REPLAY"
+      ],
+      "research_parent": "A-R3-R4-GODEL-RETURN-001",
+      "revalidation": "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at .codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md, audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
+      "scope": "Complete status registration of twelve R3-to-R4 obligations for the current R3 source and groupoid-syntax target; absence/open does not prove impossibility.",
+      "source_hashes": {
+        ".codex/research/hott/R3-R4-GODEL-RETURN-001.md": "f9711223583664212e34b9b104cb67d93dc16e1124a3717143002e3aac1afe7b",
+        ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md": "38f0e65db71e24f6b040b7709b1b0ec741af5f74b120dc1a0dc7f0ac48b30e91",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md": "9501119e6b44a4a7b8a7e306c1efe1a73b7d9d050d4dfc4d0c719e8b01577a8d",
+        "audit/r3-r4-godel/README.md": "3cad278c0b06528ec8f039db0ba6347327915119070bd05221a0a794545b3441",
+        "audit/r3-r4-godel/RECEIPT.json": "58729cb6e5049ae97ded080144a88d2ba7e5fd767f75e419def581976adf21f2",
+        "audit/r3-r4-godel/REPORT.md": "413597e950998ae7ed3974cc572e19db1f6568892e0c5daca8982ff6f741df22",
+        "scripts/audit/build_r3_r4_obligations.py": "86a8a1068d7aeb8868993043378f5f91f919dd46091f71de2f91e3ed3dbd33f9",
+        "scripts/audit/test_r3_r4_obligations.py": "8b82fe4c8c915ed67cdaaa86b9834c69d05194aaa6f1d65509a442a8e0f0f545"
+      },
+      "status": "complete_with_scope"
+    },
+    "A-R4-HOTT-NAT-EFFECTIVITY-001": {
+      "classification": "EXECUTABLE_CUBICAL_NAT_PATH_CONVERSION_CERTIFIED_INPUT_TARGET",
+      "depends_on": [],
+      "evidence_status": "PARKED_PENDING_EXPLICIT_PHASE2_TRIGGER",
+      "full_sources": [
+        ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
+        ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+        "audit/r3-r4-godel/REPORT.md",
+        "audit/r3-r4-godel/RECEIPT.json",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md",
+        "goal.md"
+      ],
+      "kind": "candidate_search_task",
+      "lifecycle_status": "SUPERSEDED",
+      "path": ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md",
+      "related_records": [
+        "A-HOTT-MACHINE-OVERVIEW-GOAL-002",
+        "A-HOTT-PROGRAMMATIC-COMPLETENESS-001",
+        "A-COMPUTABILITY-LITERATURE-COVERAGE-AUDIT-001",
+        "A-LIT-HOTT-COMPUTABILITY-001",
+        "A-G-HOTT-SYNTAX-001",
+        "A-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+        "A-R3-R4-OBLIGATION-MATRIX-001",
+        "S-RES-20260915-151-R3-SOURCE-REPLAY",
+        "A-PREMISE-001",
+        "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001"
+      ],
+      "research_parent": "A-R3-R4-GODEL-RETURN-001",
+      "resolution": {
+        "evidence": [
+          "goal.md",
+          "Astra继续尝试/断点与证明机制系统检查/第三十五轮执行报告.md",
+          "audit/astra-assumption-integration-20260921/DELIVERY.json"
+        ],
+        "reason": "The user replaced the current goal with a two-phase redo. These remain historical or phase-two candidates and cannot auto-start."
+      },
+      "revalidation": "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: user 2026-09-16 epistemological correction reorders the next action to PREMISE-001 (HoTT premise set as the first finite denominator); R4 is retained in active without lifecycle change and its TaskSpec remains valid in parallel. S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001: rebound source hashes at .codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md, audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md, goal.md (content evolved during revisions 152-154 while the canonical checkpoint machinery was being repaired); prior mathematical and scope conclusions remain unchanged.",
+      "scope": "Qualify exact cubical implementations and define a certified acceptance relation excluding incomplete terms and unchecked recursion; advance only Nat/Path/conversion/effectivity obligations.",
+      "source_hashes": {
+        ".codex/research/hott/R3-R4-GODEL-RETURN-001.md": "f9711223583664212e34b9b104cb67d93dc16e1124a3717143002e3aac1afe7b",
+        ".codex/research/hott/R4-HOTT-NAT-EFFECTIVITY-001.md": "38f0e65db71e24f6b040b7709b1b0ec741af5f74b120dc1a0dc7f0ac48b30e91",
+        "audit/R3一般不完备性机器重放与HoTT-R4义务矩阵-20260915.md": "9501119e6b44a4a7b8a7e306c1efe1a73b7d9d050d4dfc4d0c719e8b01577a8d",
+        "audit/r3-r4-godel/RECEIPT.json": "58729cb6e5049ae97ded080144a88d2ba7e5fd767f75e419def581976adf21f2",
+        "audit/r3-r4-godel/REPORT.md": "413597e950998ae7ed3974cc572e19db1f6568892e0c5daca8982ff6f741df22",
+        "goal.md": "5c21d3ffed766244988ea4751d2259d7563d9a1ecc03ecbd15ad81b6e001e5c5"
+      },
+      "status": "parked_by_four_stage_redo_goal"
+    },
+    "A-RACE-TIMEOUT-FORMAL-001": {
+      "claim_ids": [
+        "C-71",
+        "C-72",
+        "C-73",
+        "C-74",
+        "C-75",
+        "C-76"
+      ],
+      "classification": "REPRESENTATION_BOUNDARY",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/formal/partiality-race-timeout/README.md",
+        "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+        "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "PARTIALITY_QUOTIENT_OPERATION_BOUNDARY_NOT_PARADOX",
+      "path": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "proof_id": "MP-RACE-TIMEOUT-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/partiality-race-timeout机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, toolchain, external dependency and index-row hashes match; exact replay passed. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-RACE-TIMEOUT-001-01",
+      "scope": "Native Cubical Agda over the R041 deterministic delay model: bind congruence and fixed-continuation set-quotient descent (C-71, C-72); race non-congruence, completion gap and deadline separation (C-73 to C-75); no quotient-level race selector (C-76). REPRESENTATION_BOUNDARY, not a HoTT paradox; no reality bridge or originality claim.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/formal/partiality-race-timeout/README.md": "3718403ac2124eca82be0d65fa23941a9fcd48fd792296a23d9eb2239a7069e4",
+        "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json": "b16984dc89677f049652468ab3b77ef82c24034b25465277947ffc5838774b4b",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json": "e12df196549279b621bcf45f65dcd5fff7aec5356e183d808095502b55df96f9",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/source-manifest.json": "2a799a2efd56d800b054ce6287720320489287ca29a7599037c78c98ce8a921c",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md": "0cfa6771a4f1d4f7a62fa79398177f573a9942de900f5c28fb78437a330dfd5b",
+        "scripts/audit/mark_proof_run_indexed.py": "d737de39ffd825065bcfca67b1644de490461a748e2d2b8ef244d85e12d6befa"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-RP-B01-EXTRACTION-AUDIT-001": {
+      "classification": "DEFENSE_WORKS_SCOPED",
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/rp-b01-extraction-interface审计-20260912.md",
+        "audit/natural-consumer审计-20260912.md",
+        "理解章节/C5-十机证明后的悖论距离与自然消费者审计-20260912.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/LemClassifier.agda",
+END_FULL_TEXT
+END_COGNITION_CHUNK

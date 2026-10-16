@@ -1,0 +1,4076 @@
+Non-Standard Semantics of Hybrid Systems ModelersI
+Albert Benvenistea,∗, Timothy Bourkea , Benoı̂t Caillauda , Marc Pouzetb
+a INRIA-Rennes, Campus de Beaulieu, 35042 Rennes cedex, France
+b Ecole Normale Supérieure, 45 rue d’Ulm, 75005 Paris, France
+
+Abstract
+Hybrid system modelers have become a corner stone of complex embedded system development. Embedded systems include not only control components and
+software, but also physical devices. In this area, Simulink is a de facto standard design framework, and Modelica a new player. However, such tools raise
+several issues related to the lack of reproducibility of simulations (sensitivity to
+simulation parameters and to the choice of a simulation engine).
+In this paper we propose using techniques from non-standard analysis to
+define a semantic domain for hybrid systems. Non-standard analysis is an extension of classical analysis in which infinitesimal (the ε and η in the celebrated
+generic sentence ∀ε∃η . . . of college maths) can be manipulated as first class
+citizens. This approach allows us to define both a denotational semantics, a
+constructive semantics, and a Kahn Process Network semantics for hybrid systems, thus establishing simulation engines on a sound but flexible mathematical
+foundation. These semantics offer a clear distinction between the concerns of
+the numerical analyst (solving differential equations) and those of the computer
+scientist (generating execution schemes).
+We also discuss a number of practical and fundamental issues in hybrid
+system modelers that give rise to non reproducibility of results, nondeterminism, and undesirable side effects. Of particular importance are cascaded mode
+changes (also called “zero-crossings” in the context of hybrid systems modelers).
+
+Foreword: in memory of Amir Pnueli
+When we were invited to contribute to this special issue in honor of Amir
+Pnueli, we first felt deeply honored. Then, we asked ourselves what we could
+contribute that would best fit the recollection our community has of him. Amir
+loved opening new avenues, rich in surprises. While he established himself as a
+leading figure in computer science, he had a profound mathematical background.
+I This work was supported by the SYNCHRONICS large scale initiative of INRIA.
+∗ Corresponding author
+
+Email addresses: Albert.Benveniste@inria.fr (Albert Benveniste),
+Timothy.Bourke@inria.fr (Timothy Bourke), Benoit.Caillaud@inria.fr (Benoı̂t
+Caillaud), Marc.Pouzet@ens.fr (Marc Pouzet)
+
+Preprint submitted to Elsevier
+
+July 8, 2011
+
+Finally, Amir is one of the founders of the area of hybrid systems from the
+perspective of the computer science community. These considerations led us to
+contribute to this special issue with a new approach to hybrid systems modelers
+that builds on the heterodox — but, we think, nonetheless useful — mathematical
+area of non-standard analysis.
+1. Introduction
+Hybrid system modelers have become in the last two decades the corner stone
+of complex embedded system development, with embedded systems involving
+not only control components or software, but also physical devices. Simulink1
+has become the de facto standard for physical system modeling and simulation.
+Noticeably, by building on top of the success of Simulink, The Mathworks was
+able to take over the market of embedded systems design, in many industries.
+This speaks for itself regarding the importance of such tools.
+Hybrid system modelers mix discrete time reactive (or dynamical) systems
+with continuous time ones defined using Ordinary Differential Equations (ODE)
+or their extensions. In this paper we focus on general modelers, aimed at modeling and simulation of any type of hybrid system and we refer the reader to [14]
+for an overview of all tools related to hybrid systems modeling and analysis.
+Besides Simulink with its state-based extension Stateflow, several such hybrid systems modelers have been developed. Scicos2 is a free-ware developed by
+Ramine Nikoukhah at INRIA.
+As quoted from the web site of its supporting association, Modelica3 is a
+non-proprietary, object-oriented, equation based language to conveniently model
+complex physical systems containing, e.g., mechanical, electrical, electronic, hydraulic, thermal, control, electric power or process-oriented subcomponents.
+While4 Modelica resembles object-oriented programming languages, such as
+C++ or Java, it differs in two important respects. First, Modelica is a modeling language. Equations do not describe assignment but equality. In Modelica
+terms, equations have no pre-defined causality. The simulation engine may (and
+usually must) manipulate the equations symbolically to determine their order
+of evaluation and which components in the equation are inputs and which are
+outputs. Said differently, Modelica not only manipulates functions and ODEs,
+but also equations and Differential Algebraic Equations (DAE) in which variables and their derivatives are involved in constraints. Commercial front-ends
+for Modelica include Dymola5 from the Swedish company Dynasim AB (now
+part of Dassault Systèmes), MathModelica6 from the Swedish company Math1 http://www.mathworks.com/products/simulink/
+2 http://www-rocq.inria.fr/scicos/
+3 http://www.modelica.org/
+4 The following is quoted from Wikipedia
+5 http://en.wikipedia.org/wiki/Dymola
+6 http://en.wikipedia.org/wiki/MathModelica
+
+2
+
+Core Engineering AB, SimulationX7 from the German company ITI GmbH, and
+MapleSim8 from the Canadian company Maplesoft. Dassault Systèmes selected
+Modelica for their product CATIA9 (CATIA is one of the major CAD systems).
+The goal of the OpenModelica10 project is to create a complete Modelica modeling, compilation and simulation environment based on free software distributed
+in source code form intended for research purposes. The free simulation environment Scicos uses a subset of Modelica for component modeling. Support for a
+larger part of the Modelica language is currently under development. Recently,
+Mathworks has issued a similar tool dedicated to physical systems modeling,
+called Simscape.11
+Hybrid systems modelers raise a number of difficult issues, both practical
+and fundamental. Some major practical issues are the following:
+(i) Depending on the options selected by the user, simulation results may
+differ. Of course, simulation results are sensitive to the choice of the integration method — we discuss this unavoidable aspect later. Since simulations use a single, global, solver, the choice and tuning of the integration
+method is global to the system, which may have strange effects such as
+undesirable interactions between sub-systems that seemingly should not
+interact.
+(ii) Mode changes occur in the considered hybrid systems by means of zerocrossings, which are mode switching boundaries where the dynamics experience a sudden change. The handling of zero-crossings is difficult for
+two reasons. First, zero-crossings are areas where maximal stiffness is
+encountered and the solvers must be very cautious not to miss them —
+variable step size integration methods are therefore mandatory. Second,
+mode changes triggered by zero-crossings can involve a combination of
+complex operations whose scheduling can be delicate. Indeed, the different simulation engines for Modelica sometimes give different results on
+identical programs. Of particular difficulty is the handling of cascades of
+zero-crossings, which are successive zero-crossings arising when a mode
+change leads to a next mode where the guard is immediately violated.
+Other issues exist that are more fundamental:
+(iii) How discrete is the semantics of the discrete part of a hybrid system
+modeler? Recall that, in earlier versions, Simulink saw everything as continuous time. In particular, discrete time flows were seen as piecewise
+constant continuous time signals.
+7 http://en.wikipedia.org/wiki/SimulationX
+8 http://en.wikipedia.org/wiki/MapleSim
+9 http://en.wikipedia.org/wiki/CATIA
+10 http://www.openmodelica.org/
+11 http://www.mathworks.com/products/simscape/
+
+3
+
+(iv) Physical systems often obey balance equations resulting from applying
+first principles. Such balance equations are better specified using nondirected systems of DAEs, with no pre-defined input/output roles. This
+observation goes back to the old work on Bond Graphs [35] as a modeling
+paradigm for physical systems from first principles, and lead to the development of Modelica. How can compilation techniques adapt to this more
+constraint oriented style of specification?
+Efforts developed in the community of hybrid systems have improved the situation regarding issue (iii), see, e.g., the efforts made in the design of Scicos [13, 32].
+Improvements have reduced the previously existing gaps between the results of
+simulation of a hybrid system and the simulation of its discrete time part in
+isolation for the purpose of generating code.
+Issue (iv) seems solved in practice. However, the discrepancies sometimes
+observed between different tools for the execution of a same program of the
+standardized Modelica language reveal that difficulties still remain. Also, a
+closer investigation reveals that the part of Modelica language to handle mode
+changes is not compositional, which impairs full compositionality of Modelica
+as a whole.
+Overall, we think that no fundamental answer has been provided to the
+difficulty raised by the following well justified but nevertheless contradictory requirements that underpin the development of a formally sound execution engine
+for hybrid systems modelers:
+(a) The semantic function, mapping a hybrid systems specification to its executable mathematical model (its operational semantics), should be statically definable. Such a mapping is indeed the basis for designing formally
+sound compilation schemes. In particular, this semantic function should
+not get polluted by assumptions such as “f shall be Lipschitz over [1, 2]”
+or “boolean condition b shall not be Zeno”, or “the system shall not be
+stiff”, etc., as the above are typically value-dependent properties that can
+only be handled properly at run time.
+(b) Computers can only run according to discrete steps, hence discretizing
+must be part of defining the semantic map. Indeed, early hybrid systems
+modelers such as MATRIXx 12 in its 90’s generation had made the choice
+of using fixed step discretization for ODEs in order to achieve a clean
+combination of continuous time parts and mode changes or discrete time
+parts. Unfortunately, this design choice contradicted the next (essential)
+requirement.
+(c) To achieve high computational quality with high flexibility, the discretization scheme must be adaptive, meaning that it is determined at run time.
+We recall later the background for this.
+12 http://www.ni.com/matrixx/
+
+4
+
+We strongly believe that lack of a theory providing adequate answers to the
+above seemingly contradictory requirements (a)–(c) has been the cause for some
+of the problems faced by hybrid systems modelers today. Our overall objective
+is to address these issues properly.
+Contribution of the paper. First, we propose a semantics based on non-standard
+analysis after an original idea due to Bliudze and Krob [10]. Roughly speaking,
+non standard analysis is an extension of classical analysis in which infinitesimals
+(the ε and η in the celebrated generic sentence ∀ε∃η . . . in college maths) can
+be manipulated as first class citizens. This provides a “synchronous-like” interpretation of the whole system where the base clock is an infinite sequence of
+infinitesimals — it is both dense and discrete. This interpretation clarifies the
+treatment of zero-crossings in modelers and provides a firm basis for rejecting
+or accepting programs.
+Second, by building on top of this non-standard semantics, we develop two
+more semantics. The constructive semantics à la Berry [7, 8] allows for a sound
+definition of compilation schemes. The Kahn semantics provides the support
+for handling cascades of zero-crossings at compile-time and structuring the use
+of several ODE solvers.
+Third, we discuss how to slice a hybrid systems language into its discrete
+part (for handling by off-the-shelf synchronous language compilers( and its continuous part (for handling by off-the-shelf numerical ODE solvers). Accordingly,
+hybrid systems appear as conservative extensions of discrete-time synchronous
+languages.
+These contributions are substantiated in SimpleHybrid, a simple formalism that incorporates zero-crossings and parallel composition of discrete computations and ordinary differential equations. It is not intended to be a real
+language. In particular, it lacks essential features such as function definition
+and application. We make it minimal to focus on semantical issues. We report
+experiments with a prototype tool based on the material presented in the paper
+in Appendix A.
+This paper does not address DAEs, supported by Modelica, for example.
+We restrict ourselves to a “functional” language in static single assignment form
+corresponding to, e.g., a subset of Simulink or a synchronous Lustre-like [20]
+language extended with ODEs.
+Organization of the paper. In sections 2 to 5 the paper is motivated and the
+necessary background material is developed. In particular, section 2 presents
+some example programs that employ zero-crossings in subtle ways; these examples lead us to pose several motivating questions. Sections 3 and 4 present,
+respectively, background material on numerical integration and non-standard
+analysis. Section 5 develops the fundamental ideas behind the non-standard
+semantics and relates them to more standard models.
+Sections 6 to 10 present the definition, semantics, and various properties of
+the SimpleHybrid language. The language is defined in section 6. A nonstandard semantics follows in section 7. A complementary constructive seman-
+
+5
+
+tics is presented in section 8, and applied to the analysis of causality, including
+Bond Graphs [35, 29]. In section 9, a Kahn semantics is defined and applied
+to the analysis of zero-crossing cascades and multiple solver interactions. Some
+practical issues in the compilation of SimpleHybrid programs are outlined
+in section 10 and Appendix A contains some results from a related prototype
+implementation.
+The final part of the paper comprises section 11, on related work, and section 12, some concluding remarks.
+2. Issues raised by zero-crossings
+The following examples illustrate some of the inherent subtleties of zerocrossings. In these examples, the resetting mechanisms involve tuples of zerocrossings. For instance, the statement “ reset [1, −1] every up[x, −x]” specifies
+that the signals x and −x are monitored for upward crossings of zero (from < 0
+to ≥ 0), and further that the signal is reset to 1 when a zero-crossing occurs on
+x, and to −1 when a zero-crossing occurs on −x, with priority to the former if
+both events occur simultaneously. In Appendix A, examples are expressed in
+Simulink and a prototype implementation of SimpleHybrid.
+Example 1.
+ẏ = 0 init − 1 reset [1, −1] every up[x, −x]
+ẋ = 0 init − 1 reset [−1, 1, 1] every up[y, −y, z]
+ż = 1 init − 1
+In this example, during the interval [0, 1], x and y remain steady (their slope is 0
+with an initial value of −1) while z increases at constant speed 1. At t = 1, there
+is a zero-crossing of z, which causes the reset of x to 1, which in turn causes a
+cascaded zero-crossing of x, which causes the value of y to be reset to 1, which
+causes a zero-crossing on y; this then causes a second zero-crossing on x, which
+then causes a second reset of the value of y to 1, and so on, unboundedly. These
+cascaded zero-crossings occur while time remains stalled at t = 1. The following
+figure illustrates this behavior; ε > 0 is a “very small” step size, in that finitely
+many ε’s still sum up to ≈ 0. The linear interpolation is only a convenience to
+make the diagram more readable.
++1
+
+x
+−1
+
+y
+
+1
+
+ε
+
+2ε
+
+3ε
+
+This example is certainly pathological.
+
+4ε
+
+5ε
+
+6ε
+
+
+
+6
+
+Example 2. In contrast,
+ẋ = 0 init − sgn(y0 ) reset [−1, 1] every up[y, −y]
+ẏ = x init y0
+is the simplest case of sliding mode control [19, 36]. Suppose y0 < 0, and hence
+x0 > 0. Then, y increases at constant speed until its first zero-crossing, just
+after time t = |y0 |. From then on, y chatters infinitesimally around 0 as its
+speed alternates between −1 and +1 with infinitesimal steps, as shown below
+with y0 < 0.
++1
+
+x
+
++ε
+−ε
+y
+−1
+|y0 |
+
+ε
+
+2ε
+
+3ε
+
+4ε
+
+5ε
+
+6ε
+
+This simple example captures the behavior of systems like ABS in automobile
+brakes. An adequate interpretation of the behavior of y is averaging over time,
+thus resulting in the mean dynamics y, depicted in the thick shaded dynamics
+of the figure, where:
+
+−sgn(y0 ), for the interval [0, |y0 | )
+ẏ =
+0
+for [ |y0 |, ∞),
+Example 3. For our third example, operator last (x), where x is a signal,
+delivers at instant t the left-limit lims%t xs :
+ẋ = 0 init 0 reset [last (x) + 1, last (x) + 2] every up[y, z]
+ż = 1 init −1
+ẏ = 0 init −1 reset [1] every up[z]
+Signal z has a zero-crossing right after t = 1, which causes y to have a cascaded
+zero-crossing.
++3
++2
++1
+
+x
+
+−1 y
+
+1
+
+ε
+
+2ε
+
+3ε
+
+7
+
+4ε
+
+5ε
+
+6ε
+
+We illustrate the behavior of x that results if we consider the cascaded zerocrossings of z and y as successive “micro-steps”: x has two successive jumps, of
+2 and then 1. z is not shown. Alternatively, one could consider that the two
+zero-crossings occur simultaneously and then the zero-crossing of y preempts
+that of z (since y is listed first), which yields a single jump of 1 for x. Which
+semantics is best?
+
+Example 4. As a fourth example, we consider the case of two balls colliding
+next to a wall as shown below.
+1
+
+w1
+
+2
+
+d1
+
+The figure shows the initial condition w1 > 0 and d1 < d2 = w2 = 0, meaning
+that ball 2 is motionless against the wall, and ball 1 is approaching it at a
+constant velocity. To simplify, we consider ideal balls of zero diameter. For
+convenience, the system is activated at initial time t = −d1 /w1 , so that the first
+hit occurs right after t = 0. The corresponding equations are:
+ẋ1
+ẋ2
+v̇1
+v̇2
+
+= v1 init d1
+= v2 init d2
+= 0 init w1 reset last (v2 ) every up[x1 − x2 ]
+= 0 init w2 reset [last (v1 ) , −last (v2 )] every up[x1 − x2 , x2 ]
+
+Ideally, after the collision, ball 2 would still be motionless against the wall and
+ball 1 would be moving toward the left with velocity −w1 . But this state is
+only reached after a sequence of interactions between both balls and the wall,
+the details of which are presented in section 5.3.
+
+The above examples raise a number of issues:
+• Can we propose a semantic domain for these examples?
+• Can we use it
+– to identify example 1 as pathological, but not example 2?
+– to decide on the semantics of example 3?
+– to give a semantics to example 4?
+• More generally, can we develop a semantic domain to serve as a mathematical basis for the management of (possibly cascaded) zero-crossings?
+Some of the above questions have been addressed by mathematicians. Sliding
+mode control, of which example 2 is an instance, has been studied in control
+science [19, 36]. Similarly, dynamical systems involving subsystems of different
+time scales have been studied by mathematicians under the name of singular
+perturbations and addressed using averaging techniques [22]. We seek here,
+however, techniques based on analyses that compilers can support, not mathematical theories that can only be applied manually.
+8
+
+3. Background on numerical integration of ODEs
+Throughout this paper, N (resp. N+ ) is the set of non-negative (resp.
+positive) integers; Z is the set of integers; R is the set of real numbers and
+R+ = [0, +∞).
+To motivate our consideration of non-standard analysis, we find it useful to
+start with some classical background on the numerical integration of ODEs [12].
+R1
+Given a continuous function f : [0, 1] → R, we wish to compute 0 f (t) dt. The
+k-stage quadrature formula is
+Z 1
+≈
+
+f (t) dt
+0
+
+k
+X
+
+bi f (ci )
+
+(1)
+
+i=1
+
+where ci are the knots and bi are the weights. Now, with h = (b − a)/N and
+tj = a + jh, we have
+Z b
+f (t) dt =
+a
+
+N
+−1 Z tj+1
+X
+j=0
+
+f (t) dt
+
+=
+
+tj
+
+N
+−1
+X
+j=0
+
+≈
+
+Z 1
+h
+
+f (tj + th) dt
+0
+
+N
+k
+X
+X
+h
+bi f (tj + ci h)
+j=1
+
+(2)
+
+i=1
+
+using (1). The quadrature formula is of order p ∈ N+ if the equality actually
+holds in (1) for f a polynomial of degree at most p − 1. This implies that, if f
+is q-times differentiable, then the approximation error in (2) is hmin(p,q) . It is
+known that (1) has order p iff
+k
+X
+
+bi cq−1
+= 1/q holds for 1 ≤ q ≤ p.
+i
+
+(3)
+
+i=1
+
+Fixing the knots in (3) yields a Vandermonde linear system with a unique solution for the bi ’s, which yields an order p = k. So-called superconvergence can
+be reached, however, meaning that p > k. Techniques based on orthogonal
+polynomials allow reaching up to p = 2k (e.g., with Gauss formulas).
+Next, consider ODE ẏ = f (t, y), y(t0 ) = y0 on interval [t0 , t0 + h], written
+Z t0 +h
+y(t0 + h) = y0 +
+f (u, y(u)) du
+(4)
+t0
+
+Runge-Kutta (RK) methods for approximating (4) use the following formulas:
+K1
+
+=
+
+f (t0 , y0 )
+
+K2
+
+=
+
+f (t0 + c2 h, y0 + ha2,1 K1 )
+
+K3
+
+=
+
+f (t0 + c3 h, y0 + h(a3,1 K1 + a3,2 K2 ))
+
+Kk
+
+=
+
+f (t0 + ck h, y0 + h(ak,1 K1 + . . . + ak,k−1 Kk−1 ))
+
+y1
+
+=
+
+y0 + h(b1 K1 + . . . + bk Kk ) ≈ y(t0 + h)
+
+...
+
+9
+
+They are obtained by applying quadrature formula (2) when approximating
+R t0 +h
+f (u, y(u)) du in (4). Multistep methods are also possible. They consist in
+t0
+using past values of y before t0 in computing (4): (4) is replaced by
+Z t0 +h
+y(t0 + h) = y0 +
+p0 (u) du
+(5)
+t0
+
+where p0 is a polynomial of degree q − 1 satisfying
+p(tj ) = f (tj , yj ) for j = −1, . . . , −q.
+
+(6)
+
+Here, t−q < t−q+1 < . . . < t−1 < t0 are the previous instants where an approximation y−q , . . . , y0 has already been computed and therefore the yj ’s are known.
+RK formulas can then be used in solving (5). In all the above approximation
+methods, the step size h can be adaptively selected to satisfy given accuracy
+requirements by computing nested approximations with different values for h
+and comparing them when solving an ODE for a specified horizon.
+The crux is that the generic form of an approximation formula for (4) is
+y(t0 + h)
+
+= y0 + hF (t0 , y−q , . . . , y0 )
+
+(7)
+
+where h is small, q ≥ 0, and y−q , . . . , y0 are as in (6). In (7), h can vary
+adaptively, as can F (particularly if multi-step methods are used). The above
+discussion is also valid for systems of ODEs, i.e., when y takes values in Rn .
+The foregoing formulas are used to approximate the evolution of continuous
+variables over a time interval. In a hybrid system these evolutions may be interrupted by discrete events that result in mode changes or discontinuous jumps in
+variable values. The instants of occurrence of such events are usually expressed
+as a zero-crossing in some quantity g(y), where y are variables constrained by
+ODEs and g yields a real value. As a solver progressively advances the simulation time to approximate integral values, it monitors the sign of the value of g,
+and if it changes from negative to positive from one approximated instant to the
+next the solver enters a phase where it searches for the precise instant where g
+crosses zero. When two (or more) zero-crossings that are being monitored both
+become very small, a solver will usually take particular care to find the one that
+first crosses zero as this could determine which mode is subsequently activated.
+The slope of g may be used in determining the gap between successive instants and also in the iterative search, which is usually based on a variant of the
+secant method. That said, it is still sometimes necessary to bound the step size
+for a particular model to avoid missing zero-crossings where the function being
+monitored passes through zero an even number of times in rapid succession.
+At this point, it should be clear that it is hopeless to include discretization
+schemes of ODEs or DAEs in our semantics. Which is, in any case, impossible
+for adaptive schemes where the discretization evolves at run time. We instead
+propose non-standard analysis [34, 17] as a semantic domain. In non-standard
+analysis, the statement ẏ = x means, by definition of the derivative of a function:
+∀∂ ≃ 0
+
+:
+
+yt+∂ − yt
+≃ xt
+∂
+10
+
+(8)
+
+where expression “u ≃ v” is a non-standard expression that reads: “v − u is
+infinitesimal”. The use of the heterodox symbol ∂ in (8) is deliberate. It intends
+to indicate that the real number referred to is non-standard.
+4. Background on non-standard analysis
+Non-standard analysis was proposed by Abraham Robinson in the 1960s
+to allow the explicit manipulation of “infinitesimals” in analysis [34, 17, 18].
+Robinson’s approach is axiomatic; he proposes adding three new axioms to the
+basic Zermelo-Fraenkel (ZFC) framework. There has been much debate in the
+mathematical community as to whether it is worth considering non-standard
+analysis instead of staying with the traditional one. We do not enter this debate.
+The important thing for us is that non-standard analysis allows the use of the
+non-standard discretization of continuous dynamics “as if” it was operational.
+To our surprise, such an idea is indeed not new. Iwasaki et al. [23] first
+proposed using non-standard analysis to discuss the nature of time in hybrid
+systems. Bliudze and Krob [10, 9] have also used non-standard analysis as a
+mathematical support for defining a system theory for hybrid systems. They
+discuss in detail the notion of “system” and investigate computability issues.
+The formalization they propose closely follows that of Turing machines, with a
+memory tape and a control mechanism.
+The introduction to non-standard analysis in [9] is very pleasant and we take
+the liberty to borrow it. This presentation was originally due to Lindstrøm,
+see [28]. Its interest is that it does not require any fancy axiomatic material
+but only makes use of the axiom of choice — actually a weaker form of it.
+The proposed construction bears some resemblance to the construction of R as
+the set of equivalence classes of Cauchy sequences in Q modulo the equivalence
+relation (un ) ≈ (vn ) iff limn→∞ (un − vn ) = 0.
+4.1. Motivation and intuitive introduction
+We begin with an intuitive introduction to the construction of the nonstandard reals. The goal is to augment R ∪ {±∞} by adding, to each x in
+the set, a set of elements that are “infinitesimally close” to it. We will call
+the resulting set ? R. Another requirement is that all operations and relations
+defined on R should extend to ? R.
+A first idea is to represent such additional numbers as convergent sequences
+of reals. For example, elements infinitesimally
+close to the real number zero
+√
+are the sequences un = 1/n, vn = 1/ n and wn = 1/n2 . Observe that the
+above three sequences can be ordered: vn > un > wn > 0 where 0 denotes the
+constant zero sequence. Of course, infinitely large
+√ elements (close to +∞) can
+also be considered, e.g., sequences xu = n, yn = n, and zn = n2 .
+Unfortunately, this way of defining ? R does not yield a total order since two
+sequences converging to zero cannot always be compared: if un and u0n are two
+such sequences, the three sets {n | un > u0n }, {n | un = u0n }, and {n | un < u0n }
+may even all be infinitely large. The beautiful idea of Lindstrøm is to enforce
+
+11
+
+that exactly one of the above sets is important and the other two can be neglected.
+This is achieved by fixing once and for all a finitely additive positive measure µ
+over the set N of integers with the following properties:13
+1. µ : 2N → {0, 1};
+2. µ(X) = 0 whenever X is finite;
+3. µ(N) = 1.
+Now, once µ is fixed, one can compare any two sequences: for the above case,
+exactly one of the three sets must have µ-measure 1 and the others must have
+µ-measure 0. Thus, say that u > u0 , u = u0 , or u < u0 , if µ({n | un > u0n } = 1),
+µ({n | un = u0n }) = 1, or µ({n | un < u0n }) = 1, respectively. Indeed, the
+same trick works for many other relations and operations on non-standard real
+numbers, as we shall see. We now proceed with a more formal presentation.
+4.2. Construction of non-standard domains
+For I an arbitrary set, a filter F over I is a family of subsets of I such that:
+1. the empty set does not belong to F,
+2. P, Q ∈ F implies P ∩ Q ∈ F, and
+3. P ∈ F and P ⊂ Q ⊆ I implies Q ∈ F.
+Consequently, F cannot contain both a set P and its complement P c . A filter
+that contains one of the two for any subset P ⊆ I is called an ultra-filter. At this
+point we recall Zorn’s lemma, known to be equivalent to the axiom of choice:
+Lemma 1 (Zorn’s lemma). Any partially ordered set (X, ≤) such that any
+chain in X possesses an upper bound has a maximal element.
+A filter F over I is an ultra-filter if and only if it is maximal with respect to set
+inclusion. By Zorn’s lemma, any filter F over I can be extended to an ultrafilter over I. Now, if I is infinite, the family of sets F = {P ⊆ I | P c is finite}
+is a free filter, meaning it contains no finite set. It can thus be extended to a
+free ultra-filter over I:
+Lemma 2. Any infinite set has a free ultra-filter.
+Every free ultra-filter F over I uniquely defines, by setting µ(P ) = 1 if P ∈ F
+and otherwise 0, a finitely additive measure14 µ : 2I 7→ {0, 1}, which satisfies
+µ(I) = 1 and, if P is finite, then µ(P ) = 0.
+Now, fix an infinite set I and a finitely additive measure µ over I as above. Let X
+be a set and consider the Cartesian product XI = (xi )i∈I . Define (xi ) ≈ (x0i ) iff
+13 The existence of such a measure is non trivial and is explained later.
+14 Observe that, as a consequence, µ cannot be sigma-additive (in contrast to probability
+S
+P
+measures or Radon measures) in that it is not true that µ( n An ) = n µ(An ) holds for an
+infinite denumerable sequence An of pairwise disjoint subsets of N.
+
+12
+
+µ{i ∈ I | xi 6= x0i } = 0. Relation ≈ is an equivalence relation whose equivalence
+classes are denoted by [xi ] and we define
+?
+
+X = XI / ≈
+
+(9)
+
+X is naturally embedded into ? X by mapping every x ∈ X to the constant
+tuple such that xi = x for every i ∈ I. Any algebraic structure over X (group,
+ring, field) carries over to ? X by almost point-wise extension. In particular, if
+[xi ] 6= 0, meaning that µ{i | xi = 0} = 0 we can define its inverse [xi ]−1 by
+taking yi = x−1
+if xi 6= 0 and yi = 0 otherwise. This construction yields µ{i |
+i
+yi xi = 1} = 1, whence [yi ][xi ] = 1 in ? X. The existence of an inverse for any nonzero element of a ring is indeed stated by the formula: ∀x (x = 0 ∨ ∃y (xy = 1)).
+More generally:
+Lemma 3 (Transfer Principle). Every first order formula is true over ? X iff
+it is true over X.
+4.3. Non-standard reals and integers
+The above general construction can simply be applied to X = R and I = N.
+The result is denoted ? R; it is a field according to the transfer principle. By the
+same principle, ? R is totally ordered by [un ] ≤ [vn ] iff µ{n | vn > un } = 0. We
+claim that, for any finite [xn ] ∈ ? R, there exists a unique st([xn ]), call it the
+standard part of [xn ], such that
+st([xn ]) ∈ R
+
+and st([xn ]) ≈ [xn ] .
+
+(10)
+
+To prove this, let x = sup{u ∈ R | [u] ≤ [xn ]}, where [u] denotes the constant
+sequence equal to u. Since [xn ] is finite, x exists and we only need to show
+that [xn ] − x is infinitesimal. If not, then there exists y ∈ R, y > 0 such
+that y < |x − [xn ]|, that is, either x < [xn ] − [y] or x > [xn ] + [y], which both
+contradict the definition of x. The uniqueness of x is clear, thus we can define
+st([xn ]) = x. Infinite non-standard reals have no standard part in R.
+It is also of interest to apply the general construction (9) to X = I = N,
+which results in the set ? N of non-standard natural numbers. The non-standard
+set ? N differs from N by the addition of infinite natural numbers, which are
+equivalence classes of sequences of integers whose essential limit is +∞.
+4.4. Integrals and differential equations: the standardization principle
+Any sequence (gn ) of functions gn : R 7→ R point-wise defines a function
+[gn ] : ? R 7→ ? R by setting
+[gn ]([xn ]) = [gn (xn )]
+
+(11)
+
+A function ? R → ? R so obtained is called internal. Properties of and operations
+on ordinary functions extend point-wise to internal functions of ? R → ? R. The
+non-standard version of g : R → R is the internal function ?g = [g, g, g, . . .].
+
+13
+
+The same notions apply to sets. An internal set A = [An ] is called hyperfinite
+if µ{n | An finite} = 1; the cardinal |A| of A is defined as [|An |].
+Now, consider an infinite number N ∈ ? N and the set
+
+
+1 2 3
+N −1
+T = 0, , , , . . .
+,1
+(12)
+N N N
+N
+By definition, if N = [Nn ], then T = [Tn ] with
+
+
+1
+2
+3
+Nn − 1
+Tn = 0,
+,
+,
+,...
+,1
+Nn Nn Nn
+Nn
+hence |T | = [|Tn |] = [Nn + 1] = N + 1. Now, consider an internal function
+g = [gn ] and a hyperfinite set A = [An ]. The sum of g over A can be defined:
+"
+#
+X
+X
+g(a) =def
+gn (a)
+a∈A
+
+a∈An
+
+If t is as above, and f : R → R is a standard function, we obtain
+"
+#
+X 1
+X 1
+?
+f (t) =
+f (tn )
+N
+Nn
+
+(13)
+
+t∈Tn
+
+t∈T
+
+Now, f continuous implies
+
+1
+t∈Tn Nn f (tn ) →
+
+P
+
+Z 1
+f (t) dt = st
+0
+
+X 1
+t∈T
+
+N
+
+R1
+0
+
+f (t) dt, so,
+!
+
+?
+
+f (t)
+
+Under the same assumptions, for any t ∈ [0, 1],
+
+
+Z t
+X
+1?
+f (u) du = st 
+f (t) 
+N
+0
+
+(14)
+
+(15)
+
+u∈T,u≤t
+
+Now, consider the following ODE:
+ẋ = f (x, t), x(0) = x0
+
+(16)
+
+Assume (16) possesses a solution [0, 1] 3 t 7→ x(t) such that the function
+t 7→ f (x(t), t) is continuous. Rewriting (16) in its equivalent integral form
+Rt
+x(t) = x0 + 0 f (x(u), u) du and using (15) yields
+
+
+X
+1
+?
+f (x(u), u) 
+(17)
+x(t) = st  x0 +
+N
+u∈T,u≤t
+
+The substitution in (17) of ∂ = 1/N , which is positive and infinitesimal, yields
+T = {tn = n∂ | n = 0, . . . , N }. The expression in parentheses on the right hand
+14
+
+side of (17) is the piecewise-constant right-continuous function ?x(t), t ∈ [0, 1]
+such that, for n = 1, . . . , N :
+?
+
+x(tn )
+x(t0 )
+
+?
+
+= ?x(tn−1 ) + ∂ × ?f (?x(tn−1 ), tn−1 )
+= x0
+
+(18)
+
+By (17), the solutions x, of ODE (16), and ?x, as computed by algorithm (18),
+are related by x = st(?x). Formula (18) can be seen as a non-standard operational semantics for ODE (16); one which depends on the choice of infinitesimal
+step parameter ∂. Property (17), though, expresses the idea that all these nonstandard semantics are equivalent from the standard viewpoint regardless of the
+choice made for ∂. This fact is referred to as the standardization principle.
+5. Non-standard and standard semantics
+The standardization principle will be further developed in this section to
+widen the class of hybrid systems for which a semantics (in the standard, usual,
+sense) can be given. We build on the seminal paper [1] and we study the class
+of hybrid systems defined there.
+5.1. The Standardization Principle for Hybrid Systems
+We first recall the super-dense time semantics of [30, 26, 27] for hybrid
+systems defined in [1]. Then, we give a non-standard semantics for hybrid
+systems and formulate the associated standardization principle. Following [1],
+a hybrid system is a tuple
+H
+
+=
+
+(Loc, Var , Edg, Act, Inv , Ini )
+
+(19)
+
+where
+• Loc is a finite set of locations; whose representatives are denoted by `;
+• Var is a finite set of variables. A valuation v assigns, for each variable
+x ∈ Var , a real value v(x) ∈ R. V denotes the set of valuations. A state
+is a pair σ = (`, v);
+• Edg is a finite set of transitions e = (`, F, `0 ) where F ⊆ V × V .
+• Act, the continuous dynamics, assigns to each location ` a set of ODEs over
+variables in Var ; let O` denote the set of ODEs associated with location
+` ∈ Loc.15 O` has the form Ẋ = f` (s, X) where X is a vector containing
+all variables and s is the time index;
+• Inv assigns to each location ` an invariant G` ⊆ V ;
+• Ini = (`0 , v0 ) ∈ Loc × V is the initial condition.
+15 In [1], so-called activities are directly specified as trajectories; i.e., in our model, as the
+solution of a set of ODEs.
+
+15
+
+5.1.1. Super-dense time (standard) semantics
+A super-dense time semantics was proposed by [30, 26, 27] for a hybrid
+system H involving cascaded transitions. We recall it here for the sake of completeness. The super-dense time (standard) semantics of a hybrid system H is
+defined as follows. The time index set is
+S = R+ × N
+equipped with the lexicographic order: (s, m) < (t, n) if either s < t or s =
+t and m < n. A timeline is a function N : R+ 7→ N. N (s) indicates the
+number of additional instants that occur at a real date s, and each such timeline
+thus specifies a subset of super-dense time SN = {(s, n) ∈ S | n ≤ N (s)}. In
+particular, if N is the constant 0, then SN is isomorphic to R+ . A run of H is
+a finite or infinite sequence
+(s ,1)
+
+σ1,1 7→(s1 ,2) σ1,2 . . . 7→(s1 ,N1 ) σ1,N1
+
+(s ,1)
+
+σ2,1 7→(s2 ,2) σ2,2 . . . 7→(s2 ,N2 ) σ2,N2 . . .
+
+ρ : σ0,0 7→O01
+σ0,0 7→O12
+
+(20)
+
+of states σi = (`i , vi ), non-negative reals 0 < s1 < s2 < . . . , positive integers
+Ni , and sets of ODEs Oi , such that
+1. O0 = O`0 is defined over the interval (0, s1 ] and v0 is its initial condition;
+2. Oi = O`i is defined over the interval (si , si+1 ], has vi as its initial condition
+and possesses a solution that satisfies the invariant Gi = G`i ; let vi0 be the
+valuation of the solution of Oi at time si+1 ;
+3. the state σi+1,0 is an Edg-successor of the state σi0 = (`i , vi0 ); furthermore,
+when Ni > 1 and for 0 < n < Ni , the state σi,n+1 is an Edg-successor of
+the state σi,n .
+Observe that run ρ defined in (20) has timeline N equal to N (si ) = Ni and
+otherwise N (s) = 0.
+5.1.2. Non-standard semantics
+Fix a time base ∂ ∈ ? R, ∂ > 0, ∂ ≈ 0 and define the time index set
+T∂
+
+= {tn = n∂ | n ∈ ? N}
+
+The non-standard semantics of hybrid system H uses T∂ as its time set and is
+defined as follows. A non-standard run of H is a finite or infinite non-standard
+sequence:
+?
+
+ρ(∂)
+
+:
+
+?
+
+σ 0 7→∂ ?σ 1 . . . ?σ n 7→∂ ?σ n+1 . . .
+
+(21)
+
+of states ?σ n = (`n , ?v n ) for n ∈ ? N, such that one of two cases apply:
+1. ODE micro-step: ?v n ∈ G`n holds, which then implies `n+1 = `n and
+?
+v n+1 = ?v n + ∂ × f`n (tn , ?v n );
+
+16
+
+2. location change micro-step: ?v n 6∈ G`n holds, which then implies that state
+?
+σ n+1 is an Edg-successor of state ?σ n .
+To highlight the dependence of ?ρ(∂) on the time base ∂, we denote its successive
+states as ?σ n (∂) = (`n (∂), ?v n (∂)). Finally, we set
+∀t ∈ ? R+ : ?v t (∂) = ?v n (∂) where n = min{m ∈ ? N | t ≤ tm }
+Observe that we could give a non-standard semantics to a hybrid system whose
+dynamics, invariants, and edges, are defined using non-standard functions. We
+will not, however, develop the idea here; in the sequel, all hybrid systems we
+consider are defined in standard terms.
+5.1.3. The Standardization Principle
+The following theorem plays an essential role in defining the class of hybrid
+systems that can be given a semantics in the usual (standard) sense:
+Theorem 1 (Standardisation Principle). Assume the following properties:
+1. for any location `, the continuous dynamics O` have a unique solution v
+such that s 7→ f` (v(s), s) is continuous while v satisfies G` ;
+2. when activated in any location `, the continuous dynamics will continue
+to satisfy G` for some positive non-infinitesimal duration;
+3. the transition relations F , arising in Edg, and guards G` are continuous;16
+4. there are only finitely many successive cascaded location changes.
+Let (tm ) be the finite or infinite sequence of instants of zero-crossing, and set
+t∞ =def +∞ if (tm ) is a finite sequence, and otherwise t∞ =def limm%∞ tm
+≤ +∞. A hybrid system H possesses a unique (standard) solution v over [0, t∞ )
+such that
+v
+
+= st(?v(∂))
+
+(22)
+
+for any choice of time base ∂ in the non-standard semantics of H.
+Comments. Theorem 1 expresses that, under conditions 1–4, the non-standard
+∂-semantics is intrinsic in that its standardization does not depend on the choice
+of discretization step ∂.
+Conditions 1–3 are smoothness conditions. Condition 1 requires a smooth
+continuous-time solution for the dynamics of each location — we used exactly
+the same condition while deriving the standardization principle (17) for ODEs.
+Condition 2 precludes the situation where an invariant is satisfied when a location is entered, only to be violated immediately when the ODE starts. Condition 3 prevents the reset valuation from having a discontinuity exactly at the
+instant of location change — this is trivially satisfied if, for example, reset values
+16 Formally, x 7→ {y | F (x, y)} is continuous and G
+
+17
+
+` is closed.
+
+are constant in each location. Sufficient conditions for Conditions 1–3 to hold
+are known but are typically beyond the reach of compilers.
+In contrast, Condition 4 is interesting as sufficient conditions for it can be
+statically checked by a compiler, as shown in section 9.2.1. Additionally, Condition 4 only involves the discrete parts of a hybrid system; see sections 6 and 10.
+Finally, note that defining the semantics over the whole of R+ using Theorem 1 requires that t∞ = +∞; a non-Zenoness condition.
+
+Proof. The proof is a rather technical extension of the proof of (17). We nevertheless provide the details for the sake of completeness. To simplify the proof,
+we assume that transition relation Edg gives raise to a deterministic function
+for the next location and valuation; this simplifying assumption prevents us
+from dealing with the non-determinism that would otherwise result and that
+would complicate the proof in a technical but unimportant way. The reasoning
+proceeds by induction on successive groups of cascaded zero-crossings.
+Consider an instant t(∂) ∈ ? R+ that is at the head of a cascade of location
+changes for the non-standard semantics ?v(∂), meaning that it does not directly
+follow any other location change. If no such instant exists, then the theorem is
+trivial. Hence, we focus on the other case. Our induction hypothesis consists of
+the following two conditions:
+(H1) t =def st(t(∂)), which belongs to R+ , does not depend on ∂;
+(H2) The conclusion of Theorem 1 holds on [0, t].
+Let
+t(∂)
+`1 (∂)
+
+v`1 (∂) t(∂) + ∂
+
+, t(∂) + ∂
+, . . . , t(∂) + (n − 1)∂
+, `2 (∂)
+
+ , . . . , `n (∂)
+, . . . , v`n (∂) t(∂) + n∂
+, v`2 (∂) t(∂) + 2∂
+
+be the finite cascade of n successive instants of zero-crossing starting from t(∂),
+the corresponding successive visited locations, and the corresponding reset values. Using (H1),
+map t(∂), t(∂) + ∂, . . . , t(∂) + n∂ to (t, 0), (t, 1), . . . , (t, n) ∈ R+ × N.
+
+(23)
+
+Applying hypothesis (H2) to the guard and using Condition 3 proves that
+`0 =def `(t(∂) − ∂) does not depend on ∂.
+Next, using the definition (9) of non-standard reals as sequences of reals modulo ≈, write t(∂) = [tn ] and ∂ = [δn ]. By (H1), limk→∞ tnk = t, where
+N − {nk | k ∈ N} is negligible, i.e., has µ-measure 0. Since ∂ is infinitesimal,
+limj→∞ δnj = 0, where N − {nj | j ∈ N} has µ-measure 0. Since µ is additive,
+the union of the above two subsets of N again has µ-measure 0. Reordering
+this set as a sequence ni , i ∈ N, we get limi→∞ tni = t, limi→∞ δni = 0, and
+
+18
+
+µ(N − {ni | i ∈ N}) = 0. Using hypothesis (H2) regarding F and condition 3 of
+Theorem 1, we obtain that
+st(v`1 (t(∂) + ∂)) = limi→∞ v`1 (tni + δni ) = v`1 (t) does not depend on ∂.
+Thus we can define, for (t, 1) as in (23), v(t, 1) = st(v`1 (t(∂) + ∂)) = v`1 (t). Applying this reasoning inductively allows the definition of successive reset values
+v(t, k)
+
+=
+
+st(v`k (t(∂) + k∂)) = v`k (t), for k = 1, . . . , n
+
+(24)
+
+Using Condition 2, we can then start the ODE in the final location `n and
+apply the reasoning proving (17) until the next location change. This extends
+the induction hypothesis and proves the theorem.
+
+Theorem 1 can be further refined by weakening its assumptions. Referring to
+the non-standard semantics of H, call infinitesimal a micro-step that is an ODE
+step where neither ?v(t) nor ?v(t + ∂) violate the guard. Other micro-steps are
+called non-infinitesimal. Accordingly, an ODE step in which ?v(t) is the reset
+value resulting from a location change and the guard is violated by ?v(t + ∂) is
+non-infinitesimal. Non-infinitesimal micro-steps must be either location changes
+or ODE steps as above, in which the violation of the guard is immediate, i.e.,
+occurs within one ∂-step.
+Theorem 2 (Standardisation Principle, refined). The conclusion of Theorem 1 still holds under the following weakened conditions:
+1. for any location `, the continuous dynamics O` have a unique solution v
+such that s 7→ f` (v(s), s) is continuous while v satisfies G` ; [unchanged]
+2. [suppressed]
+3. the transition relations F , arising in Edg, and guards G` are continuous;
+[unchanged]
+4. successive non-infinitesimal micro-steps are always finitely many. [new]
+The suppression of Condition 2 is critical. It allows the treatment of situations
+like that of the colliding balls example (4), which are not addressed by Theorem 1. The proof of Theorem 2 is essentially the same as that of Theorem 1 but
+with a change to the last paragraph of the proof of the latter, where Condition 2
+is invoked. After (24), we must distinguish two cases:
+(i) After the last location change of the cascade, the system can run the
+ODE for a positive period of time; for this case, the proof terminates as
+in Theorem 1.
+(ii) After the last location change of the cascade, the system performs one
+more non-infinitesimal micro-step by reaching a location change right after
+starting the ODE. Since only finitely many such micro-steps can occur by
+the new Condition 4, we are then back to case (i) after the cascade.
+
+19
+
+The reason for still considering Theorem 1 is that its Condition 4 can be checked
+at compile time, whereas Condition 4 of Theorem 2 can only be checked at
+run-time, since it requires checking that an active ODE violates the guard immediately upon starting.
+Theorems 1 and 2 widen the class of hybrid systems for which the existence
+and uniqueness of a semantics can be statically checked by a compiler. A larger
+class of systems can probably be given a semantics through our approach, as
+evidenced by the analysis of sliding mode example 2 in section 5.3. Providing a
+systematic study of this type of system is left for future research.
+5.2. Non-Standard Analysis as a semantic domain for hybrid systems
+Applying non-standard analysis to define a semantic domain for hybrid systems has several advantages.
+1. The time set T is both discrete — since each instant has unique previous
+and next instants, see formula (18) and section 7 — and dense in R.
+2. Since T is discrete, we can specify dynamical systems over T in full generality, without needing to refer to any kind of smoothness condition. Formula (18) is one such instance. As a result, the non-standard semantics
+presented in section 7 is simple and elegant.
+3. Having a simple operational semantics allows us to develop a comprehensive constructive semantics for hybrid systems in their full generality.
+Constructive semantics is a mathematical basis from which sound execution schemes can be derived.
+4. The problem with the smoothness condition does not miraculously disappear. But it is postponed to run time, thanks to Theorem 1 (Standardisation Principle): if, in each state of the hybrid system under consideration,
+the continuous dynamics have a unique solution in the usual mathematical
+sense, then the Standardisation of our operational semantics computes it.
+Observe that the generation of execution schemes only depends on items 1–3,
+and not on item 4, which is related rather to issues of variable-step discretization.
+In other words, our approach separates the concerns of the computer scientist
+(defining a sound operational semantics and related execution schemes), from
+those of the numerical analyst (properly configuring numerical solvers).
+5.3. Back to the examples
+Figures in examples 1–3 plot the non-standard ∂-semantics of examples
+(1)–(3) using ∂ = ε. We now discuss these examples in detail together with
+example 4.
+Example 1. The mysterious behavior of example 1 can now be clarified: the first
+zero-crossing occurs at time t = 1+ε (corresponding to 1+ of Example 1). Then,
+zero-crossings occur repeatedly and forever with a period of 4ε, thus filling the
+timeline until +∞. The non-standard time domain T = {nε | n ∈ ? N} permits
+several successive zero-crossings each of zero duration, with time still diverging
+20
+
+eventually, since we can always find n infinitely large enough so that nε > t for
+any t ∈ R+ . The key feature of example 1 is that, despite being well defined
+within a non-standard analysis framework, there is no possible standardization.
+In fact, this example does not satisfy condition 4 of Theorems 1 or 2.
+Example 2. In contrast, consider example 2. We claim that the standardization
+y = st(y) exists and has the averaged dynamics given just before (3). To show
+this, we use a variation of the argument developed in analyzing formulas (12)–
+(14), see sections 4.3 and 4.4. Let (x, y) be the non-standard semantics of (2),
+i.e., given by Example 2. Again, let εn be the sequence of positive (standard)
+reals converging to 0 such that ε = [εn ]. Consider the following sequence of
+(standard) dynamical systems y n
+ẋn =
+
+0 init − sgn(y0 ) reset [−1, 1] every up[y n − εn , −y n + εn ]
+
+ẏ n = xn init y0
+
+(25)
+
+The behavior of y n can again be seen in Example 2, with, however, εn substituted for ε. For any k ∈ ? N, we have kε = [kεn ] and thus, since x alternates between −1 and +1 at multiples of ε (see Example 2), it follows that
+x(kε) = [xn (kεn )], expressing that x = [xn ], see (11). The same reasoning
+shows that y = [y n ]. On the other hand, using elementary arguments from
+standard analysis, (25) defines a sequence of functions ytn , t ≥ 0 that converge
+uniformly to y defined just before (3) when n % +∞.17 The above analysis
+shows that y = st(y) where y is given by (2) and y is given just before (3).
+Still, this example is not easy in that it is neither covered by Theorem 1 nor by
+Theorem 2.
+Example 3. This example satisfies conditions 1–4 of Theorem 1, which provides
+it with a standard semantics using super-dense time [26, 27].
+Example 4. In the ∂-non-standard semantics, the colliding balls example behaves as follows:
+1. At t = ∂, x1 = ∂ · w1 > 0, which causes a zero-crossing on x1 − x2 .
+2. As a result, at t = 2∂ the balls exchange velocities: v1 = 0 and v2 = w1 .
+3. At t = 3∂, x1 = 2∂ · w1 and x2 = ∂ · w1 , and there is thus a zero-crossing
+on x2 . Observe that this zero-crossing is immediate; there is no “standard
+time” in which the ODEs can evolve.
+4. Hence at t = 4∂, x1 = x2 = 2∂ · w1 , v1 = 0 and v2 = −w1 .
+5. At t = 5∂, x1 = 2∂ · w1 and x2 = ∂ · w1 , and x1 − x2 crosses zero.
+6. Hence at at t = 6∂, x1 = 2∂ · w1 , x2 = 0, v1 = −w1 and v2 = 0.
+Then, ball 1 moves toward −∞ according to the ODEs and no further zerocrossings occur. Due to the above step 3, Condition 1 of Theorem 1 is violated
+17 This is the part of the argument that cannot be invoked for example 1.
+
+21
+
+and thus Theorem 1 is not sufficient to give a semantics to the colliding balls
+example. Indeed, the successive steps 1–6 do not constitute a single cascade
+of zero-crossings, but rather of two successive cascades separated by an ODE
+phase of infinitesimal length, a situation not covered by Theorem 1, but covered
+by Theorem 2, provided that we prove that only finitely many non-infinitesimal
+micro-steps can occur. Executing the non-standard semantics symbolically indeed reveals that only steps 1–6 are non-infinitesimal.
+6. The SimpleHybrid Formalism
+In this section we develop a minimalist language for hybrid systems called
+SimpleHybrid which is designed primarily to facilitate mathematical manipulations and focus on the semantics of hybrid systems. This formalism has some
+essential features of a language — a small set of primitive entities and statements
+plus a composition operator — but lacks essential features such as function definition and application (i.e., modularity). This is addressed in paper [5]. The
+statements of SimpleHybrid are equations of the form:
+Eq 1 :
+Eq 2 :
+Eq 3 :
+Eq 4 :
+Eq 5 :
+Eq 6 :
+
+y = f ([x])
+y = last (x)
+ζ = up(x)
+ẏ = x init y0 reset z
+y = [x] every [ζ] init y0
+y = pre (x) init y0
+
+(26)
+
+Formally, SimpleHybrid consists of the following program kernel:
+Eq
+
+::= Eq 1 | Eq 2 | Eq 3 | Eq 4 | Eq 5 | Eq 6
+
+S
+
+::= Eq 1 | S k S
+
+(27)
+
+A system S is an equation of the form Eq 1 –Eq 6 or a parallel composition of
+systems. It resembles a Static Single Assignment (SSA) form with intermediate values stored in variables; a fact which simplifies subsequent mathematical
+developments.
+Symbols x, y, z, u, . . . denote variables, taken from an underlying set X of
+variables, and having respective domains Dx , Dy , etc. [x] = [x1 , . . . , xn ] is a
+tuple of variables. Symbols x0 , y1 , etc. denote immediate values (e.g., 42, 1.5).
+A dotted variable ẏ denotes a derivative. The symbol ζ denotes a zero-crossing
+variable taken from a set T ⊂ X of clock variables (generically denoted by the
+symbol τ ). Clock variables take their values from the set of all clocks, where
+a clock is any subset of R+ . Equations Eq 1 –Eq 6 define dynamical systems,
+or, equivalently, sets of behaviors with time index set R+ = [0, +∞). For
+example, an equation y = x (form Eq 1 , taking f as the identity function)
+means ∀t ∈ R+ : yt = xt . Hybrid systems are specified via sets of equations of
+the form Eq 1 –Eq 6 , taken conjunctively.
+
+22
+
+Well formation rules. Any system S made by composing equations Eq 1 —Eq 6
+must verify the following constraints:
+1. An equation Eq 2 (y = last (x)) is well formed if the variable x is defined
+by an equation of the form Eq 4 or Eq 5 .
+2. An equation Eq 4 (ẏ = x init v0 reset z) is well formed if the variable z is
+defined by an equation of the form Eq 5 .
+3. An equation Eq 6 (y = pre (x) init v0 ) is well formed if the variable x is
+defined by an equation of the form Eq 5 .
+In the following we give an informal explanation of the language primitives,
+without making explicit the necessary continuity and smoothness assumptions
+for them to make sense. A more precise mathematical semantics will be given
+in the next section.
+We identify any clock τ with the boolean predicate it defines (the same
+convention also applies to zero-crossings):
+τt
+
+=
+
+if t ∈ τ then t else f
+
+(28)
+
+Q
+For X ⊆ X finite, a state over X is an element s ∈ DX where DX = x∈X Dx
+and a behavior over X is an element σ ∈ (R+ → DX ). For all x ∈ X, let
+σ(x) ∈ (R+ → Dx ) be the x-coordinate of σ, termed a signal. By abuse of
+notation, and as no confusion will result, we write xt instead of σ → σ(t)(x)
+and ζt instead of σ → σ(t)(ζ). We now briefly review the primitives listed in
+(26).
+Eq 1 : means that yt = f (x1t , . . . , xnt ) holds for all t, where f is a total function
+over its domain; and the tuple [x] = [x1 , . . . , xn ];.
+Eq 2 : means yt = xt− =def lims%t xs , i.e., yt is the left-limit of xs when s
+approaches t from below.
+Eq 3 : defines the clock ζ such that, using convention (28):
+ζt
+
+=
+
+[bt− = f] ∧ [bt = t] where bt = [zt ≥0]
+
+Thus ζ selects the instants t at which zt crosses zero from below, we
+call such a clock a zero-crossing. We consider tuples [ζ 1 , . . . , ζ k ] of zerocrossings, denoted by the symbol [ζ].
+Eq 4 : Given two signals x and y, a value y0 , and a discrete signal z (see below),
+Eq 4 states that ODE ẏt = xt holds with initial condition y0 and is reset
+to the value given by z at each instant of the discrete clock of z.
+Eq 5 : Given a signal y, a value y0 ∈ Rn , two matching18 tuples of zero-crossings
+and signals [ζ] = [ζ 1 , . . . , ζ k ] and [x] = [x1 , . . . , xk ], Eq 5 states that yt = y0
+18 [x1 , . . . , xk ] and [y 1 , . . . , y l ] are matching if k = l.
+
+23
+
+Sk
+for t < t1 , the first
+instant of ζ that y has a clock ζ = i=1 ζ i , and that for
+S
+every t ∈ ζ i \ ( j<i ζ j ), zt = (xi )t . That is, when there are simultaneous
+zero-crossings, priority is given to the one with the lowest index.
+Eq 1 –Eq 5 are sufficient to define systems of ODEs with mode changes and reset
+conditions. The statement Eq 6 allows the embedding of discrete time systems.
+Before explaining it, we must first clarify what we mean by discrete time.
+Signals are typed discrete or continuous. For each signal x, we assume a clock
+τx such that x is guaranteed constant on the complement of τx . We call τx the
+clock of x and take the following convention:
+A signal is termed discrete if it has been declared as such, or if its
+clock is a zero-crossing. Otherwise it is termed continuous.
+Thus, Eq 3 defines a discrete clock. Eq 5 and Eq 6 define discrete signals. Well
+formation rules are a weak form of typing constraints: for being properly defined,
+the reset argument z from Eq 4 must be discrete, hence the sufficient condition
+that it must be defined by an equation Eq 5 . Note that y defined by equation
+Eq 5 is discrete but [x] is possibly continuous. Finally, x in Eq 6 must be discrete,
+hence the constraint that it is defined by an equation Eq 5 .
+Appendix A.3 gives an example in Simulink where a discrete signal is used
+where a continuous is expected and conversely. This kind of wrongly typed program leads to a strange behavior. The well-formation rule is a simple syntactic
+criteria to propertly separate discrete from continuous signals.
+While mathematically a clock is discrete if its restriction to any bounded
+interval of R+ is finite, the property of being discrete or not cannot be statically checked in general. Hence the declaration or zero-crossing definition of
+“discrete”:
+(i) It is a syntactic criterion and can thus be statically enforced;
+(ii) it usually corresponds with the mathematical definition.
+For instance, the set of zero-crossings of a continuous function f :
+zero(f ) =def {t ∈ R+ | f (t− ) < 0 ∧ f (t)≥0}
+is a closed subset of R+ . If, furthermore, all instants belonging to zero(f ) are
+isolated, i.e., if a non-empty interval separates each pair of adjacent instants,
+then zero(f ) is either a finite set or a diverging sequence; in either case it is
+discrete in the mathematical sense. Functions f from which zero-crossings are
+constructed would typically possess such properties. Of course, property (ii) is
+not guaranteed in all cases; the sets of zero-crossings of certain, tricky signals
+may very well be Zeno, Cantor, or even an interval of the reals (see example 2).
+Statically checking whether a clock is discrete in the pure mathematical sense is
+simply not possible. With this definition of discrete clocks, we can now describe
+Eq 6 :
+
+24
+
+Eq 6 : assumes that x is discrete and defines y as the delayed version of x; i.e.
+the clock of y equals that of x, τy = τx . At the first instant of this clock
+y takes the initial value of x, and thereafter the nth value of y equals the
+(n − 1)th value of x. Initially, i.e., before any discrete instant, y equals y0 .
+Remark. Compound statements are expressed in SimpleHybrid as the conjunction of equations. For example, combining ẏ = y 0 init u0 reset z 0 (form
+Eq 4 ), with y 0 = f (x, y) (form Eq 1 ), z 0 = [v] every [ζ] init u0 (form Eq 5 ) and
+ζ i = up(z i ) (form Eq 3 ) yields the ODE:
+ẏ = f (x, y) init u0 reset [v] every up [z]
+
+(29)
+
+which means that ẏt = f (yt , vt ) holds with initial condition y0 = u0 and that it
+is reset to the value vi each time zero-crossing ζ i occurs on z i .
+7. Non-standard semantics of SimpleHybrid
+The following defines a semantics based on non-standard analysis for SimpleHybrid. We fix the infinitesimal base step as ∂ ≈ 0. Without loss of
+generality, we assume that ∂ = [εn ] for some decreasing sequence εn of reals
+converging to 0, see section 4.3. Following [10], as our universal time base we
+replace R+ by the non-standard set:
+T = {tn = n∂ | n ∈ ? N}
+
+(30)
+
+For t ∈ T, define
+•
+
+t = max{s | s ∈ T, s < t}
+
+t• = min{s | s ∈ T, s > t}
+
+(31)
+
+Thus •tn = tn−1 and t•n = tn+1 . The most important characteristic of T is that
+for every u ∈ R+ there exists a unique t ∈ T such that •t < u ≤ t and t − u
+is infinitesimal. Thus although T is dense in R+ ,19 it can still be treated as
+discrete and totally ordered.
+A hybrid system is a pair S = (X, Σ) of a finite set of variables X ⊆ X
+and a set of behaviors Σ over X. The variables include a subset T ⊂ X of
+clock variables, i.e., T ⊆ T . For Y ⊇ X, we can lift Σ to Y , written Σ↑Y ,
+by taking all behaviors over Y whose projection onto X is in Σ. Then, for
+Si = (Xi , Σi ), i = 1, 2, we define the parallel composition
+
+
+S1 k S2 = X1 ∪ X2 , Σ1 ↑X1 ∪X2 ∩ Σ2 ↑X1 ∪X2 .
+(32)
+The non-standard semantics of SimpleHybrid is given in Table 1, mid
+column. Note the semantics of ζ = up(z) is a “weak preemption” since a
+19 “T is dense in R ” means that, for every t ∈ R and every  > 0, the interval (t − , t + )
++
++
+intersects T.
+
+25
+
+statement
+
+non-standard semantics
+
+transition relation
+
+y = f ([x])
+
+yt = f ([xt ])
+
+y = f ([x])
+
+y = last (x)
+
+yt = x•t
+
+y = •x
+
+ζ = up(x)
+
+ζt• = [x•t < 0] ∧ [xt ≥0]
+
+ζ • = [•x < 0] ∧ [x ≥ 0]
+
+ẏ = x init y0
+ẏ = x reset z
+
+t ∈ τ \ τz ⇒ yt = y•t + ∂ × x•t
+t ∈ τ z ⇒ y t = zt
+S
+t < min( i ζi ) ⇒ yt = y0
+S
+t ∈ ζi \ ( j<i ζj ) ⇒ yt = xi,t
+
+on τ \ τz : y = •y + ∂ × •x
+on τz : y = z
+S
+before min( i ζi ) : y = y0
+S
+on ζi \ ( j<i ζj ) : y = xi
+
+y = pre (x)
+y = init y0
+
+τy = τx
+t < min(τy ) ⇒ yt = y0
+t ∈ τy ⇒ yt = x•t
+
+τy = τx
+before min(τy ) : y = y0
+on τy : y = •x
+
+S1 k S2
+S1 = (X1 , Σ1 )
+S2 = (X2 , Σ2 )
+
+
+X, Σ1 ↑X ∩ Σ2 ↑X
+where X = X1 ∪ X2
+
+conjunction
+
+y = [x] every [ζ]
+y = [x] init y0
+
+Table 1: Non-standard semantics of SimpleHybrid.
+change in the sign of z at instant t does not result in a zero-crossing until the
+next instant t• .
+This non-standard semantics defines a transition system acting on T, which is
+obtained by abstracting away the time index t from the non-standard semantics
+of Table 1, mid column. To this end, for each variable x ∈ X in a given system
+S = (X, Σ), we augment X with the two auxiliary variables •x and x•, such
+that, for every t
+•
+
+xt = x• t (assuming t > 0), and x•t = xt•
+
+(33)
+
+Using auxiliary these variables, the transition relation is obtained by abstracting
+away index t from Table 1, mid column. The result is shown in Table 1, right
+column. In this column, statement “on τ ” is an abstraction for “∀t ∈ τ ” and
+statement “before min(τ )” is an abstraction for “∀t < min(τ )”, where τ is seen
+as a subset of T.
+An important characteristic of this non-standard semantics is that, unlike
+for a fixed step-size (standard) semantics, it does not suffer from overshoot problems for zero-crossings, or even Zenoness, or any need for mentioning continuity
+properties, since steps are infinitesimal but “discrete”. Yet the semantics is still
+statically defined, as was desired.
+8. Constructive semantics of SimpleHybrid
+A constructive semantics [7] formalizes how a synchronous reaction should
+be executed, that is, how actions should be scheduled within an instant while
+26
+
+respecting the causality constraints of a program. G. Berry [7] advocates using
+a Scott domain with an extra value “undefined”, to be interpreted as “not
+executed yet”; the domain of values is made a flat partial order by setting
+“undefined is less than any other value”. Esterel reactions are encoded as sets of
+equations over the domain and the minimal fix-point is sought by iterating from
+the configuration where all variables and signals are undefined. If all variables
+are uniquely defined in the fix-point then the reaction is deterministic and can
+be executed. An earlier approach was proposed by F. Boussinot [11] based on
+micro-step automata, which are automata describing the allowed schedules, and
+the decomposition of a reaction into micro-steps of atomic operations. These
+two approaches were also developed and shown equivalent for Signal [3].
+8.1. The constructive semantics
+statement
+
+constructive semantics
+
+y = f ([x])
+
+[x] B y
+
+y = last (x)
+ẏ = x init y0 reset z
+
+[ τz , z ] B y
+
+y = [v] every [ζ] init y0
+
+[ [ζ] , [v], y0 ] B y
+
+y = pre (x) init y0
+
+τx B y
+
+S1 k S2
+
+conjunction
+
+Table 2: Constructive semantics of SimpleHybrid.
+In this section we develop a Scott semantics for SimpleHybrid. Let ⊥
+be a special value not belonging to any domain Dx , to be interpreted as “not
+evaluated yet”.20 For x ∈ X , let Dx⊥ = Dx ∪ {⊥}, and write x = > to mean
+that x 6= ⊥. Let B be the scheduling constraint that relates any two variables
+u and v, that have, respectively, domains Du⊥ and Dv⊥ :
+uBv
+
+=def
+
+[u = >] ∨ [v = ⊥]
+
+(34)
+
+i.e., u B v means [v = >] ⇒ [u = >], which formalizes that “v cannot be
+evaluated strictly before u”. In particular, for any clock τ ,
+∀t ∈ τ ⇒ xt B yt
+
+=def
+
+[xt = >] ∨ [yt = ⊥] ∨ [τt = f]
+
+where τt is defined in (28). Observe that statements of the form v = f (u),
+where f is a function, are abstracted to u B v since v can always be replaced
+20 This notation deviates from the historically established use of the symbol ⊥ in synchronous
+languages to denote absence. Signal absence is a well-defined status obtained during the
+calculation of a reaction. Thus “absence” and “not evaluated yet” should not be confused.
+
+27
+
+by f (u). The relation B expresses causality constraints within systems of equations. The constructive semantics is obtained from the non-standard semantics
+by 1/ replacing any statement of the form yt = exp where expression exp involves variables xt , ut , τt for t ∈ T, by the more abstract scheduling constraints
+xt B yt , ut B yt , and τt B yt , 2/ abstracting away any context (such as induced
+by reset , init , every ), and 3/ abstracting away dummy time index t. The
+result is shown in Table 2, where [u, v] B x means the conjunction of u B x and
+vBx .
+Remark. It is tempting to extend SimpleHybrid with the statement x B y,
+which would be treated similarly to Eq 1 . Doing so would make it possible to
+express the causality analysis of a SimpleHybrid program, and even additional scheduling constraints that the programmer may want to enforce, in the
+language itself. Such ideas already exist, in fact, in the Signal synchronous
+language [4].
+8.2. Various uses of the constructive semantics
+In this section we develop various uses of the constructive semantics.
+8.2.1. Avoiding causality cycles
+Using the above abstraction, the transitive closure of relation B is a preorder on X, which we will also, by abuse of notation, call B. If S is such
+that B is a partial order, then S is free of causality cycles and its variables
+can be evaluated according to any order compatible with B. The only possible
+cause of cycles in relation B is through sets of statements of form Eq 1 . This
+justifies the requirement that programs must not have any delay-free, derivativefree, data-flow cycles. If this condition is satisfied, topological sorting yields the
+required scheduling. In other words, the classical technique used in synchronous
+languages (e.g., Lustre, Lucid Synchrone, Scade) also applies here. For the
+remainder of this section, we assume that this requirement is met.
+8.2.2. Single-assignment condition
+We say that a system S obeys the single-assignment condition if no variable
+of S sits on the left-hand side of two or more equations. The following lemma is
+instrumental in obtaining the correct schedulings for executing a SimpleHybrid
+system.
+Lemma 4. If S is free of causality cycles and obeys the single-assignment condition, then it defines a deterministic input-output transition system and the
+partial order B specifies all correct schedulings for the execution of S.
+The correct schedulings are obtained by applying topological sorting on the
+graph defined by the relation B used in the constructive semantics of Table 2.
+
+28
+
+8.2.3. Bond Graph’s causality analysis
+Our constructive semantics can be enhanced to encompass the “causality
+analysis” performed in Modelica or in Bond Graphs [35, 29]. Suppose that the
+causal equality of Eq 1 were replaced by a more general form of constraint:
+Eq 10
+
+: C(X), where
+C is solvable for Y ⊂ X
+
+(35)
+
+C(X) denotes a constraint that relates the tuple of variables belonging to X.
+The additional clause states that, for every variable y ∈ Y , there exists a function fy of the set of variables X/y = X \ {y}, such that C(X) holds if and only
+if y = fy (X/y ). Typical examples are the constraints defined by the series and
+parallel junctions in Bond Graphs [35, 29], where, respectively, so-called “efforts” and “flows” sum to zero. Consider x + y + z = 0, for example. We have
+X = Y = {x, y, z}, since we can rewrite the junction as x = −y − z, y = −x − z,
+or z = −x − y. This kind of junction arises, for example, from the application of
+Kirchoff’s laws in electrical circuits. Of course, solving such constraints requires
+a suitable rewriting engine.
+In the constructive semantics, statement (35) becomes
+_
+Eq 10 :
+(X − {y}) B y
+(36)
+y∈Y
+
+which consists of a disjunction of causality constraints. Then, the causality analysis “à la Bond Graph” consists in computing the disjunction of all compatible
+conjunctions of causality constraints selected from each instance of equation of
+the form Eq 10 in the SimpleHybrid system. If, furthermore, inputs to the system (called “sources” in the terminology of bond graphs) are specified by the
+designer, then the subset of solutions compatible with this specification can be
+inferred.
+9. Kahn semantics of SimpleHybrid
+The theory of Kahn Process Networks [24] provides a semantics for networks
+of dataflow actors. We show how an extension of this theory [15] can be applied to SimpleHybrid by considering primitive equations as dataflow actors.
+The semantics we obtain in this way refines the constructive semantics of Section 8. The resulting Kahn semantics will be useful in managing cascades of
+zero-crossings as well as multiple ODE solvers.
+9.1. The Kahn semantics
+To simplify we assume a unique domain D for all variables x ∈ X and we
+reuse the extended domain D⊥ = D ∪ {⊥} introduced in section 8. We define
+an ordering ≤ on D⊥ such that for all u, v ∈ D, ⊥ ≤ v, and otherwise u ≤ v iff
+u = v. Let (T, ≤) be a partial order of instants. Consider the set X⊥ of total
+functions:
+X⊥
+
+= T 7→ D⊥
+29
+
+We define a partial order relation on X⊥ : for x, y ∈ X⊥, x is a prefix of y,
+written x v y, if
+∀t ∈ T :
+
+y(t) 6= x(t) ⇒ ∀t0 ≥ t : x(t0 ) = ⊥
+
+(37)
+
+Note that (37) only requires T to be partially ordered. Note also that the
+definition allows “gaps” in the defined values. For instance:
+x : 1, ⊥, 2, ⊥, ⊥, ⊥, . . . v y : 1, ⊥, 2, ⊥, 3, ⊥, . . .
+For u ∈ T we denote by xu an arbitrary stream such that x(v) = ⊥ for every
+v ≥ u. An increasing chain of such functions is denoted by {xu }u∈T . Adapting
+the reasoning of [15], Proposition 1, we now show that
+Lemma 5. (X⊥ , v) is a Complete Partial Order (CPO).
+Proof. There is a least element of v in X⊥ : ⊥(t) = ⊥, for all t ∈ T. Given
+x v y in X⊥ , then x(t) ≤ y(t) holds for all t ∈ T. Thus, if {xu }u∈T is a chain
+in X⊥, then,
+for any t F∈ T, {x(t) | x ∈ {xu }u∈T } is a chain in D and we can
+F
+define
+
+u∈T xu (t) =
+u∈T xu (t).
+From now on we further assume that T is totally ordered. Consider the subset
+of X ⊂ X⊥ of streams consisting of those elements of X⊥ having no gap:
+X =
+
+{x ∈ X⊥ | x(t) 6= ⊥ ⇒ ∀s ≤ t, x(s) 6= ⊥}
+
+Since T is totally ordered, streams consist of a (possibly infinite) prefix of defined
+values, followed by a tail of ⊥s. X is closed in X⊥ under supremum, hence
+Lemma 6. (X, v) is also a CPO.
+A stream is equally well characterized by its prefix of non-⊥ entries (its defined
+prefix ), and this is the representation we will use in the sequel. Accordingly, v
+is simply the prefix order on X. A function f : X 7→ X is order-preserving if,
+for any two streams x and y, x v y implies f (x) v f (y). Furthermore, f is
+continuous if
+G
+G 
+f (xu ) = f
+xu
+u∈T
+
+u∈T
+
+for any chain {xu }u∈T of streams. The fix-point theorem for CPO’s states that
+any continuous function has a unique least fix-point x such that x = f (x), we
+call it the Kahn Process Network semantics (KPN semantics) of f . It is known
+that products of CPO are CPO and that KPN compose.
+We now apply this general framework to our case where T is given by (30).
+Theorem 3. If a SimpleHybrid system S = (X, Σ) is free of causality cycles
+and obeys the single-assignment condition (see Lemma 4), then it possesses a
+K
+KPN semantics S K . Furthermore, if S = S1 k S2 holds, then S K = S1K k S2K
+K
+follows, where k denotes the composition of KPN.
+
+30
+
+statement S
+
+Kahn actor network [[S]]K
+
+y = f ([x])
+
+[x] −→ y
+
+y = last (x)
+
+•
+
+ẏ = x init y0 reset z
+
+[ τz , •x, y0 , z ] −→ y
+
+y = [v] every [ζ] init y0
+
+[ [ζ] , [v] , y0 ] −→ y
+
+y = pre (x) init y0
+
+[ τx , •x, y0 ] −→ y
+
+S1 k S2
+
+[[S1 ]]K ∪ [[S2 ]]K
+
+x −→ y
+
+Table 3: Kahn actors of SimpleHybrid.
+Proof. Partition the set X of variables into its inputs and outputs: X = X in ]X out ,
+where input variables are those which do not appear on the left hand side of
+any statement of S. By Lemma 4, S is a deterministic input-output transition
+system, whose transition function
+FS
+
+•
+
+: DX
+
+out
+
+× DX
+
+in
+
+7→ DX
+
+out
+
+(38)
+
+is obtained by applying the rules of Table 1, right column. Consequently, system
+S performs a non-terminating while loop of steps of the form (38) indexed by
+t ∈ T and starting from some given initial condition for the output variables;
+whence the following model for S:
+S
+
+•
+
+: DX
+
+out
+
+in
+
+× (DX )T 7→ (DX
+
+out
+
+)T
+
+(39)
+
+Model (39) expresses that S maps a pair, consisting of an initial condition for
+X out and an input stream of vectors X in , to an output stream of vectors X out .
+Using Curry isomorphism, we can equivalently regard S as a function mapping
+an input vector of streams to an output vector of streams, thus obtaining in this
+way its KPN semantics:
+SK
+
+•
+
+: DX
+
+out
+
+× (DT )X
+
+in
+
+7→ (DT )X
+
+out
+
+(40)
+
+Now, if S decomposes as S = S1 k S2 , we claim that
+SK
+
+K
+
+= S1K k S2K
+
+K
+
+(41)
+
+where k denotes the composition according to the Kahn Process Network
+(KPN) semantics. To show this, note that S K is a KPN semantics of the system
+of equations defined by the pair (S1K , S2K ). Since, by the fix-point theorem for
+CPOs, this KPN semantics is unique, equality (41) holds.
+
+Using Theorem 3, we can interpret Table 1, right column, as KPN nodes,
+also called actors. Networks of actors for SimpleHybrid statements are given
+in Table 3. Notation [u, x] −→ y denotes an actor having u and x as input
+streams and y as output stream. The symbol ∪ denotes the union of KPNs,
+seen as graphs.
+31
+
+statement
+
+[[S]]ZC : zero-crossing calculus
+
+y = f ([x])
+
+y = f ([x])
+
+y = last (x)
+
+y = last (x)
+
+ζ = up(z)
+
+ζ = up(z)
+
+ẏ = x init y0 reset z
+
+y=z
+
+y = [v] every [ζ] init y0
+
+y = [v] every [ζ]
+
+y = pre (x) init y0
+
+y = pre (x)
+
+S1 k S2
+
+[[S1 ]]ZC k [[S2 ]]ZC
+
+Table 4: The zero-crossing calculus of SimpleHybrid.
+9.2. Various uses of the Kahn semantics
+We now review various uses of the Kahn semantics, for the detection of
+unbounded cascades of zero-crossings and for the management of multiple ODE
+solvers.
+9.2.1. Bounding cascades of zero-crossings
+Theorem 1, the Standardisation Principle, requires that cascades of successive zero-crossings contain only finitely many zero-crossings (Condition 4). In
+this section we develop an abstraction to check whether a program satisfies this
+condition. The principle is to erase, in every primitive statement of SimpleHybrid, the fields that relate either to initial conditions or to the progress of an
+ODE. Doing so yields the zero-crossing calculus of Table 4. Since initial conditions are constants, there is no need to keep them in the zero-crossing calculus.
+This calculus can be applied to the examples of section 2, as we now show.
+Example 1. The zero-crossing calculus yields:
+k
+
+y = 1 every up(x)
+y = −1 every up(−x)
+
+k
+k
+k
+
+x = −1 every up(y)
+x = 1 every up(−y)
+x = 1 every up(z)
+
+(42)
+
+To calculate the Kahn actor semantics of (42) we make the various zero-crossings
+explicit by setting ζx+ = up(x), ζx− = up(−x), with corresponding definitions
+for ζy± and ζz . Using these notations, the Kahn semantics of (42) is:
+x −→ ζx− •
+∪ y −→ ζy− •
+∪ z −→ ζz •
+
+∪ x −→ ζx+ •
+∪ y −→ ζy+ •
+∪ ζz −→ x
+
+∪ ζx− −→ y ∪
+∪ ζy− −→ x ∪
+
+ζx+ −→ y
+ζy+ −→ x
+
+(43)
+
+which exhibits a cycle of zero-crossings: ζx± −→ ζy± • −→ ζx± •• . Therefore,
+there is a risk that condition 4 of theorem 1 does not hold. We can refine
+32
+
+this analysis by considering (42) directly. As soon as x and y are initialized to
+negative values, the following cascade of zero-crossings repeats for ever and is
+triggered by the occurrence of ζz : ζx+ , ζy+ , ζx− , ζy− , ζx+ , . . ., and such an infinite
+periodic cascade indeed occurs in the non-standard semantics.
+Example 2. The zero-crossing calculus yields:
+x = −1 every up(y)
+
+k
+
+x = 1 every up(−y)
+
+(44)
+
+The Kahn semantics becomes
+y −→ ζy+ • ∪ ζy+ −→ x ∪ y −→ ζy− • ∪ ζy− −→ x
+which, in turn, exhibits no cycles of zero-crossings. And thus, condition 4 of
+theorem 1 holds. Condition 1 does not, however, hold for this sliding mode
+example, showing that the analysis of zero-crossing cycles is no panacea.
+Example 3. The zero-crossing calculus yields:
+k
+
+x = last (x) + 1 every up(y)
+x = last (x) + 2 every up(z)
+
+k
+
+y = 1 every up(z)
+
+(45)
+
+which, in the Kahn semantics, becomes
+∪
+∪
+
+y −→ ζy •
+z −→ ζz •
+z −→ ζz •
+
+∪ ζy −→ x
+∪ ζz −→ x
+∪ ζz −→ y
+
+∪
+∪
+
+•
+
+x −→ x every ζy
+x −→ x every ζz
+
+•
+
+and the lack of zero-crossing cycles implies that condition 4 of theorem 1 holds
+for this example.
+Example 4. It is not covered by this analysis and requires Theorem 2.
+An autonomous ODE with reset. In addition, consider the following example:
+ẋ = f (x) init 0 reset g(last (x)) every up(x − λ)
+where λ is a real parameter. The zero-crossing calculus yields
+x = g(last (x)) every up(x − λ)
+
+(46)
+
+which, in the Kahn semantics and with some obvious notation, becomes
+x −→ ζxλ • ∪ ζxλ −→ x ∪ last (x) −→ x every ζxλ
+which contains a path ζxλ −→ ζxλ • . But, there will be no cascaded zero-crossings
+because for x to exceed λ requires a strictly non-zero period of time, whatever
+the value of λ.
+
+33
+
+A criterion. A risk of cascading zero-crossings can be detected for a system
+S, whose set of variables of zero-crossing is denoted ZS , by considering, for
+ζ, ζ 0 ∈ ZS , the relation:
+•
+
+ζ → ζ 0 if
+ζ 6= ζ 0 and ζ −→∗ ζ 0• holds in the abstract Kahn semantics of [[S]]ZC
+
+(47)
+
+where superscript ∗ indicates iteration. An occurrence of ζ followed immediately,
+that is, at the next ∂-step, by an occurrence of ζ 0 indicates the possibility of a
+cascade of zero-crossings. Whence the following criterion:
+Lemma 7 (cascaded zero-crossings). Let ZS be the directed graph collecting all relations of the form (47). If ZS contains no cycles, then all cascades of
+successive zero-crossings of S are provably finite.
+The study of the examples shows that, when ZS does contain a cycle, a refined study can be performed by statically analyzing [[S]]ZC . The corresponding
+developments are not detailed here.
+9.2.2. Managing Multiple ODE solvers
+Let ./ be the least equivalence relation on the set of variables of S such that
+•
+
+x −→∗ y and •y −→∗ x ⇒ x ./ y
+
+(48)
+
+Equivalence classes for ./ are written between braces, e.g., {{x}}, {{y}}. We
+regard them as sets of variables and call them clusters. Cluster {{x}} is such
+that every component of it causally depends on every component of •{{x}}. For
+two distinct clusters {{x}} and {{y}}, let {{x}}  {{y}} if u −→∗ v or •u −→∗ v
+holds, for some pair (u, v) such that u ∈ {{x}}, v ∈ {{y}}. Relation  is a partial
+order if the system under consideration is free of causality cycles.
+By the non-standard and Kahn semantics of SimpleHybrid, variables belonging to the same cluster must be handled as a system of interconnected
+ODEs with associated zero-crossings. For a system with two clusters such that
+{{x}}  {{y}}, a first ODE solver could be given the variables belonging to {{x}},
+and some of its output variables could serve as inputs for another ODE solver
+associated with {{y}}.
+Managing solvers in this way can improve some aspects of variable step size
+tuning. More precisely, when using a single ODE solver to simulate a system,
+the choice of step size is governed by the sub-systems of strongest stiffness. This
+is undesirable when not all of the sub-systems actually interact, i.e., when some
+of them belong to different equivalence classes of ./. When combined with loose
+handling of the distinction between continuous and discrete behaviours (as is
+the case in Simulink), this fact can result in the manifestation, in simulation
+results, of strange couplings between seemingly non-interacting sub-systems.
+10. Off-the-shelf compilers
+In this section we explain how to derive a SimpleHybrid compiler by reusing
+a legacy synchronous compiler in combination with a legacy ODE solver. The
+34
+
+synchronous language engine will regard the activation of ODE between two
+successive zero-crossings as just another (big) step, abstracting away from the
+fact that this step is managed by an external engine, namely the ODE solver.
+Throughout this section, the following assumption is in force:
+Assumption 1. The system S satisfies the assumptions of Theorem 1.
+The key idea is to structure SimpleHybrid systems in a specific way. Decompose every SimpleHybrid system S as
+S
+
+=
+
+SODE k SnoODE ,
+
+(49)
+
+where SODE and SnoODE are constructed as shown in Table 5. This structuring
+is explained next.
+statement of S
+
+Assigned to SnoODE
+
+Assigned to SODE
+
+y = f ([x])
+
+on ζS : y = f ([x])
+
+outside ζS : y = f ([x])
+
+y = last (x)
+
+on ζS : y = last (x)
+
+outside ζS : y = last (x)
+
+ζ = up(x)
+
+ζ = up(x)
+
+ẏ = x init y0
+ẏ = x reset z
+
+ẏ = x init y0
+ẏ = x reset z
+
+y = [x] every [ζ]
+y = [x] init y0
+
+y = [x] every [ζ]
+y = [x] init y0
+
+y = pre (x)
+y = init y0
+
+y = pre (x)
+y = init y0
+
+Table 5: Structuring a system into its discrete and ODE parts. The added
+guards are shown in red.
+
+Subsystem SODE is the part of S that is to be submitted to an ODE solver. Numerical solvers like the CVODE or CVODES solvers in the Sundials suite [21]
+solve systems of ODEs with initial conditions with respect to an independent
+variable (usually denoting time); they typically also include a feature for detecting and halting at zero-crossings Accordingly, SODE must include all equations
+of S of forms Eq 1 –Eq 4 . Indeed, Eq 4 (ẏ = x init y0 reset u) denotes an ODE
+with its initial condition and reset signal. The actual expression defining x
+in Eq 4 uses equations of the form Eq 1 (instantaneous function) and Eq 2 (last
+state). Since the ODE solver is in charge of detecting zero-crossings, equations
+of the form Eq 3 must also be included in SODE .
+Subsystem SnoODE is the part of S to be handled by a synchronous language
+engine. SnoODE must include all those equations of S that have one of the forms
+Eq 1 , Eq 2 , Eq 5 , or Eq 6 . Equations of forms Eq 1 and Eq 2 are needed because the
+35
+
+variables they define may occur in expressions defining tuples of reset signals [v].
+Equations of form Eq 5 describe the discrete parts of S, i.e. those parts triggered
+by zero-crossing tuples [ζ], that may incorporate discrete states defined by Eq 6 .
+Guards must be added to equations of forms Eq 1 and Eq 2 . This addition is
+necessary to preserve the single-assignment property. Equations of forms Eq 1
+and Eq 2 are considered as part of SnoODE at instants of zero-crossing, and
+otherwise as part of SODE . This is achieved by reusing the technique of guards
+already used in Table 1 for the definition of the transition relations associated
+to SimpleHybrid. For instance, statements
+“on ζS : y = f ([x])”
+
+and
+
+“outside ζS : y = f ([x])”
+
+respectively mean
+∀t ∈ ζS : yt = f ([xt ])
+
+and ∀t 6∈ ζS : yt = f ([xt ]).
+
+u
+
+ζnoODE
+
+u
+
+SnoODE
+
+SODE
+
+ζODE
+
+ζODE
+
+Figure 1: Two-mode automaton. Left: synchronous engine. Right: ODE solver.
+The following observations can be formulated using decomposition (49) and
+Table 5, see Figure 1. Using Theorem 1, partition clock ζS into the instants ζODE
+of zero-crossing triggered by the activation of the ODE part, and the instants
+ζnoODE of cascaded zero-crossings. The discrete part SnoODE is activated on
+ticks of clock ζS = ζnoODE ∨ ζODE . SnoODE is responsible for setting the reset
+signals u of the ODE part SODE . The left mode is handled by the synchronous
+engine, whereas the right mode requires an activation of the ODE solver.
+What happens if the assumptions of Theorem 1 are not satisfied? We will not
+provide a comprehensive solution for this case, but we can offer some hints for
+when the weaker assumptions of Theorem 2 apply — such as in the colliding
+balls example 4. Instead of SnoODE being triggered by (possibly cascaded) zerocrossings, we must consider that SnoODE is triggered by the larger set of so-called
+“non-infinitesimal” steps. This includes runs of the ODE part that violate the
+guard immediately upon starting, see step 3 of the non-standard semantics of
+Example (4). A new difficulty arises in this case, namely: no static typing seems
+to exist that can separate the duties of SnoODE from those of SODE . Of course,
+the handling of example 2 is even more difficult.
+
+36
+
+11. Related work
+There are not very many studies on hybrid systems modelers in terms of
+programming language semantics. We discuss the few that we know of and
+consider relevant for comparison. First of all, we would like to recall the legacy
+work [2] by one of the authors. In fact, the agenda presented in that paper
+closely resembles the one we develop here. Except that the tool of non-standard
+analysis was not used. As a consequence, [2] suffers from some hand waving, as
+careful readers will notice. A very preliminary version of this work was presented
+in [6].
+The Ptolemy project. Perhaps the work the most similar to ours is that of
+E.A. Lee and H. Zheng [26, 27] in the context of the Ptolemy project. One of
+the problems it addresses is the handling of discontinuities in hybrid systems
+modelers. For a typical situation where discontinuities occur consider an ODE
+ẋ = f (x, u), where u is some input signal and the initial condition is discarded.
+Suppose that, at the first instant where g(x) ≤ 0 for some real-valued function
+g, the above ODE is reset to x = h(v) for some other input signal, and then it
+restarts and the same thing happens again. To properly handle this resetting
+mechanism, the following critical values of x must be considered: 1) the first
+x where g(x) ≤ 0 holds in the ODE; and 2) the resetting value x0 = h(v) at
+the same instant. From the mathematical viewpoint, the two values for x occur
+at the same time, but they are causally ordered. This schizophrenia for x is
+unavoidable. Following the idea of tagged signals initially proposed in [25], the
+solution taken in [26, 27] is to tag events with an extended time index taken
+from index set R+ × N equipped with the lexicographic order. In this approach,
+the two values for x would be indexed respectively as xt,0 and xt,1 = x0 , where
+t ∈ R+ is the common real instant at which the two events occur. The tag set
+R+ × N is referred to by the authors as super-dense time.
+Our present approach avoids using this mechanism of super-dense time, because non-standard index set T is both discrete and dense. The existence of
+previous instants •t and next instants t• was used in Table 2 as an alternative to the multi-dimensional instants (t, 0) and (t, 1) of [26, 27]. The operator
+last (x) of SimpleHybrid in particular uses the previous instant •t. Note that
+this complies in fact with the integration operator that is provided in Simulink:
+equation (x, lx) = integr(x0 , x0 , r) defines x to be the integral of signal x with
+initial value x0 . In this equation, r is a reset condition. Then, lx stands for the
+internal state; lx equals x except at instants of reset, where it is used to avoid
+algebraic loops. Thus, lx corresponds to last (x) in SimpleHybrid.
+On another aspect, the work [26, 27] is made complicated by issues of
+smoothness, Lipschitzness, existence and uniqueness of solutions, Zenoness, etc.
+This is particularly evident in Section 6 of [26] on “Ideal Solver Semantics” and
+Section 7 of [27] on “Continuous-Time Models”. In our approach — compare
+section 7 of this paper with the above mentioned Sections of [26, 27] — these
+issues are postponed to the very end, after execution schemes have been built
+and the result is submitted to solvers. The problems do not disappear from
+
+37
+
+the whole process, rather they are postponed to run time, as per the desire
+expressed in the introduction. Our job, as computer scientists, is thus nicely
+isolated and cleanly separated from that of numerical analysts.
+The work performed at The Mathworks. The work performed by P. Mosterman
+and his co-workers at The Mathworks [31] is also very interesting, in its attempt
+to establish the Simulink modeler on a solid semantic basis. The authors begin
+by acknowledging the need for variable step solvers. The contribution of this
+paper is to show how (a restricted class of) variable step solvers can be given a
+functional stream semantics [16].
+To achieve this, the class of solvers is first restricted to those relying on
+explicit schemes, as implicit ones cannot directly be manipulated into explicit
+functional form. The second difficulty consists in the use of iterative solving
+in order to adapt the variable step size online — see our discussion following
+equation (6) in section 3. This mechanism, again, does not have a functional
+shape since several successive integrations with different step sizes are compared,
+for a single time interval, in order to select the appropriate step size. [31]
+proposes to re-cast the above procedure to a functional form by replacing a
+repeated integration with smaller step size, by its increment with respect to the
+previous integration. If explicit schemes are used, then an explicit form for this
+increment can be found and added to the previous integration. Observe that this
+technique requires using the mechanism of super-dense time since a single time
+interval is processed several times until an adequate step size is found. The same
+principle can be applied to the detection of zero-crossings, but this requires using
+the counterpart of explicit schemes, namely cautious zero-crossing detection by
+slowing down without overshoot. While this indeed provides a hybrid systems
+modeler with a stream semantics, this semantics is rather complex since it makes
+the discretization method explicit; in particular, changing the latter changes
+the semantics. This approach forbids the use of implicit schemes, although they
+are valuable from the numerical analysis point of view. We also believe that
+this method cannot easily support the kind of clock-configuration-dependent
+causality analysis like that provided by our constructive and Kahn semantics.
+The work of Ramine Nikoukhah. In [33], R. Nikoukhah discusses cascaded zerocrossings. He advocates using a micro-step style of interpretation, where cascaded zero-crossings are interleaved non-deterministically. We prefer a synchronous interpretation in which the programmer makes explicit what to do
+when two zero-crossings occur. Then non-determinism arises solely from numerical solvers, and not from the semantics of a program. Because the effect of
+up(e) is delayed by one cycle of T, a cascade of zero-crossing can last for several
+successive instants of T. Note that the synchronous interpretation coincides
+with that of Simulink (see discussion in Appendix A) where zero-crossings have
+an immediate effect.
+
+38
+
+12. Conclusion
+We have proposed a novel approach to defining the semantics of hybrid systems modelers with the following objectives: To leave the choice of integration
+method for ODEs totally free, as such a choice must be governed by numerical considerations only; To cast hybrid systems as a conservative extension of
+discrete time ones; To give semantic support for the following tasks:
+• Scheduling different actions triggered by zero-crossings;
+• Safely typing operators that are only defined in discrete contexts;
+• Rejecting programs with causality cycles (or, at least, providing precise
+warnings); Supporting a causality analysis à la Bond Graph;
+• Allowing the use of several local solvers instead of a single, global, one,
+with the objective of limiting side effects between non-interacting subsystems, due to step size adjustments.
+Achieving these objectives was made possible thanks to the use of non-standard
+analysis as a semantic domain. The main point is that a non-standard semantics
+allows a clean separation between the tasks of the computer scientist (answering
+the above questions) and that of the numerical analyst (tuning solvers). Also,
+we believe that non-standard semantics is not a fancy thing for math addicts,
+but rather a very natural way of viewing continuous-time and hybrid systems in
+a syntactic manner, as computer scientists usually prefer. While the first author
+has been aware of non-standard analysis since the mid-eighties, it is only the
+presentation by Lindstrøm [28], as reported in [9], that allowed the authors to
+become familiar with the subject.
+Are we done with semantic issues? Not quite. Our standardization principle
+(Theorem 1) provides an adequate answer for Examples 1 (no semantics) and 3
+(super-dense time semantics). Example 4 (colliding balls) was covered by our
+extended standardization principle (Theorem 2). However, the example 2 (sliding mode control) is not covered by our theory. yet, it is physically relevant and
+we would like to give it a meaningful standard semantics, and, possibly, provide
+effective execution schemes for it.21 This is left for future research. The study
+of DAE compliant hybrid systems modelers, such as Modelica, with the same
+objectives is also left as a future objective.
+Acknowledgment
+The authors are indebted to Ramine Nikoukhah and Sébastien Furic for detailed discussions regarding Modelica and to Daniel Krob and Simon Bliudze for
+comments on their work.
+21 Analyses of such examples can be performed manually by a mathematician. For example,
+sliding mode control is known to control scientists [19, 36]. Similarly, systems with time scales
+differing by orders of magnitude are known to mathematicians and referred to as singularly
+perturbed systems [22]. What we want instead are automatic compilation techniques able to
+handle such systems.
+
+39
+
+References
+[1] R. Alur, C. Courcoubetis, N. Halbwachs, T. A. Henzinger, P.-H. Ho,
+X. Nicollin, A. Olivero, J. Sifakis, and S. Yovine. The algorithmic analysis
+of hybrid systems. Theor. Comput. Sci., 138(1):3–34, 1995.
+[2] A. Benveniste. Compositional and uniform modelling of hybrid systems.
+IEEE Trans. on Automatic Control, 43(4):579–584, April 1998.
+[3] A. Benveniste, B. Caillaud, and P. Le Guernic. Compositionality in
+dataflow synchronous languages: Specification and distributed code generation. Inf. Comput., 163(1):125–171, 2000.
+[4] A. Benveniste, P. Caspi, S.A. Edwards, N. Halbwachs, P. Le Guernic, and
+R. de Simone. The synchronous languages 12 years later. Proceedings of
+the IEEE, 91(1):64–83, 2003.
+[5] Albert Benveniste, Timothy Bourke, Benoit Caillaud, and Marc Pouzet.
+Divide and recycle: types and compilation for a hybrid synchronous language. In ACM SIGPLAN/SIGBED Conference on Languages, Compilers,
+Tools and Theory for Embedded Systems (LCTES’11), Chicago, USA, April
+2011.
+[6] Albert Benveniste, Benoı̂t Caillaud, and Marc Pouzet. The fundamentals
+of hybrid systems modelers. In CDC, pages 4180–4185. IEEE, 2010.
+[7] G. Berry. Constructive semantics of Esterel: From theory to practice (abstract). In AMAST ’96: Proceedings of the 5th International Conference
+on Algebraic Methodology and Software Technology, page 225, London, UK,
+1996. Springer-Verlag.
+[8] Gérard Berry. The Constructive Semantics of Esterel. 2002. Draft book,
+current version 3.0.
+[9] S. Bliudze. Un cadre formel pour l’étude des systèmes industriels complexes: un exemple basé sur l’infrastructure de l’UMTS. PhD thesis, Ecole
+Polytechnique, 2006.
+[10] S. Bliudze and D. Krob. Modelling of complex systems: Systems as dataflow
+machines. Fundam. Inform., 91(2):251–274, 2009.
+[11] F. Boussinot. Une sémantique du langage Esterel . Technical Report 577,
+INRIA, 1986.
+[12] J.C. Butcher. Numerical Methods for Ordinary Differential Equations. Wiley, 2003. ISBN 0-471-96758-0.
+[13] Stephen L. Campbell, Jean-Philippe Chancelier, and Ramine Nikoukhah.
+Modeling and Simulation in Scilab/Scicos. Springer, 2006. ISBN 0-38727802-8.
+40
+
+[14] L.P. Carloni, R. Passerone, A. Pinto, and A.L. Sangiovanni-Vincentelli.
+Languages and tools for hybrid systems design. Foundations and Trends
+in Electronic Design Automation, 1(1/2), 2006.
+[15] P. Caspi, A. Benveniste, R. Lublinerman, and S. Tripakis. Actors without
+directors: A Kahnian view of heterogeneous systems. In Rupak Majumdar
+and Paulo Tabuada, editors, Hybrid Systems: Computation and Control
+(HSCC), volume 5469 of Lecture Notes in Computer Science, pages 46–60.
+Springer, 2009.
+[16] P. Caspi and M. Pouzet. A co-iterative characterization of synchronous
+stream functions. Electr. Notes Theor. Comput. Sci., 11, 1998.
+[17] F. Diener and G. Reeb. Analyse non standard. Hermann, 1989.
+[18] N. Cutland (ed.). Nonstandard analysis and its applications. Cambridge
+Univ. Press, 1988.
+[19] A.F. Filippov. Differential Equations with Discontinuous Right-hand Sides.
+Wiley, 1988. ISBN 978-9027726995.
+[20] N. Halbwachs, P. Caspi, P. Raymond, and D. Pilaud. The synchronous
+dataflow programming language lustre.
+Proceedings of the IEEE,
+79(9):1305–1320, September 1991.
+[21] A.C. Hindmarsh, P.N. Brown, K.E. Grant, S.L. Lee, R. Serban, D.E. Shumaker, and C.S. Woodward. SUNDIALS: Suite of nonlinear and differential/algebraic equation solvers. ACM Transactions on Mathematical Software, 31(3):363–396, September 2005.
+[22] F. Hoppensteadt. Properties of solutions of ordinary differential equations
+with small parameters. Comm. on Pure and Applied Math., 24:807–840,
+1971.
+[23] Y. Iwasaki, A. Farquhar, V.A. Saraswat, D.G. Bobrow, and V. Gupta.
+Modeling time in hybrid systems: How fast is “instantaneous”? In IJCAI,
+pages 1773–1781, 1995.
+[24] G. Kahn. The semantics of a simple language for parallel programming. In
+IFIP 74 Congress, pages 471–475, 1974.
+[25] E.A. Lee and A.L. Sangiovanni-Vincentelli. A framework for comparing
+models of computation. IEEE Trans. on CAD of Integrated Circuits and
+Systems, 17(12):1217–1229, 1998.
+[26] E.A. Lee and H. Zheng. Operational semantics of hybrid systems. In HSCC,
+pages 25–53, 2005.
+[27] Edward A. Lee and Haiyang Zheng. Leveraging synchronous language principles for heterogeneous modeling and design of embedded systems. In
+EMSOFT, pages 114–123, 2007.
+41
+
+[28] T. Lindstrøm. An invitation to nonstandard analysis. In N.J. Cutland,
+editor, Nonstandard Analysis and its Applications, pages 1–105. Cambridge
+Univ. Press, 1988.
+[29] L. Ljung and T. Glad. Modeling of Dynamic Systems. Prentice Hall Information and System Science Series, 1994.
+[30] O. Maler, Z. Manna, and A. Pnueli. From timed to hybrid systems. In J. W.
+de Bakker, Cornelis Huizing, Willem P. de Roever, and Grzegorz Rozenberg, editors, REX Workshop, volume 600 of Lecture Notes in Computer
+Science, pages 447–484. Springer, 1991.
+[31] P.J. Mosterman, J. Zander, G. Hamon, and B. Denckla. Towards computational hybrid system semantics for time-based block diagrams. In 3rd
+IFAC Conference on Analysis and Design of Hybrid Systems (ADHS’09),
+pages 376–385, Zaragoza, Spain, September 2009. keynote paper.
+[32] M. Najafi and R. Nikoukhah. Implementation of Hybrid Automata in Scicos. In IEEE Multi-conference on Systems and Control, 2007.
+[33] R. Nikoukhah. Hybrid dynamics in modelica: Should all events be considered synchronous? In First Internation Workshop on Equation-Based
+Object Oriented Languages and Tools (EOOLT 2007), pages 37–48, Berlin,
+Germany, 2007.
+[34] A. Robinson. Non-Standard Analysis. Princeton Landmarks in Mathematics, 1996. ISBN 0-691-04490-2.
+[35] R.C. Rosenberg and D.C. Karnopp. Introduction to Physical System Dynamics. McGraw-Hill, New York, 1983.
+[36] V. Utkin. Sliding mode control in mechanical systems. In Industrial Electronics, Control and Instrumentation, 1994. IECON ’94., 20th International Conference on, volume 3, pages 1429 –1431 vol.3, September 1994.
+
+42
+
+Appendix A. Experimental results
+We have modeled Examples 1 to 3 in both Simulink (version 7.7.0.471,
+R2008b) and a prototype tool based on the Sundials (version 2.4.0) CVODE
+library [21]. The results are presented and discussed in this appendix.
+Appendix A.1. Using Simulink
+Example 1. The implementation of Example 1 in Simulink is shown in Figure A.2a. It can be written as the set of equations:
+y = 1/s(iy, updown(lx), 0)
+x, lx = 1/s(ix, updown(zx ), 0)
+z = 1/s(−1, 1)
+iy = switchup(lx, 1, −1)
+ix = switchup(y, −1, switchup(−y, 1, switchup(z, 1, −1)))
+zx = switchup(y, −1, switchup(−y, 1, switchup(z, 1, −1)))
+where:
+1/s(init, zero, input) is the integral of a signal input with initial value init that
+is reset on the zero-crossing zero (which is sometimes omitted). This
+operator may return a second output; the so-called state port which corresponds to the left limit of signal x. The second output is written lx in
+the above equations.
+updown(r) outputs 1 when a rising or falling zero-crossing is detected on r otherwise it outputs 0; up(r) is similar but only detects rising zero-crossings.
+switchup(x, e1 , e2 ) returns the value of e1 when x crosses zero, and the value
+of e2 otherwise. In Simulink, switchup(x, e1 , e2 ) is implemented with a
+switch operator and a (rising) hit-crossing operator applied to x.
+The zero-crossing handler [−1, 1, 1] every [y, −y, z] is encoded with two equations: the equation ix defines the initial value for x, and the equation zx detects
+zero-crossings on y, −y and z. The latter equation cannot simply be written
+switchup(y, 1, switchup(−y, 1, switchup(z, 1, −1)))
+because its value must alternate with each successive zero-crossing. In this case,
+as we know that zero-crossings occur first on z, then on y, and then on −y, we
+choose the values so as to go from −1 to 1 when there is a zero-crossing on z,
+then to −1 for a zero-crossing on y, and then to 1 for a zero-crossing on −y.
+The simulation results are presented in Figure A.2b. Between time 0.0 and
+time 1.0 the value of z increases while those of x and y remain constant. When
+z crosses 0, just after time 1.0, the signal labeled ixxx in Figure A.2a changes
+from −1 to 1, this value is passed through onto ixx, and then to ix and zx
+which causes the reset of the integrator for x to 1. The value of lx, the state
+port of the integrator for x, does not change from −1 to 1 immediately, but
+43
+
+rather on the subsequent step, this gives a rising zero-crossing which causes
+the reset of the integrator for y to 1. This reset is detected immediately as a
+zero-crossing on y that causes the reset of the integrator for x to −1. (Note
+that ixxx, and ixx both fall back to −1 during this step, but this does not
+cause any new zero-crossings.) A step later, the value of lx also changes from
+1 to −1, which causes the reset of y to −1, which, in turn, causes a zerocrossing on −y, which causes ixx to become 1, which leads to a reset of the
+integrator for x to 1. The system is then locked into a pattern of interrelated
+oscillations of x, lx, and y. This is the expected behavior, but in contrast
+to our interpretation in the non-standard semantics section 2, and also to the
+implementation in Sundials, see Appendix A.2, the time in Simulink advances
+by a very small amount (1.7 × 10−14 ) every step. Furthermore, after a certain
+number of oscillations, the simulation stops with an error message:
+At time 1.000000000017115, simulation hits (1000) consecutive zero
+crossings. Consecutive zero crossings will slow down the simulation
+or cause the simulation to hang. To continue the simulation, you may
+1) Try using Adaptive zero-crossing detection algorithm or 2)
+Disable the zero crossing of the blocks shown in the following table.
+------------------------------------------------------------------------No. of Consecutive Zcs |
+Block type
+|
+Block path
+------------------------------------------------------------------------500
+HitCross
+"Example1/Hit Crossing: up(lx)"
+500
+HitCross
+"Example1/Hit Crossing: up(y)"
+499
+HitCross
+"Example1/Hit Crossing: up(-y)"
+1
+HitCross
+"Example1/Hit Crossing: up(z)"
+
+Whether a zero-crossing on an integral is detected instantaneously or only
+after a very small delay, depends on whether the output port or the state port,
+respectively, is monitored. In this example, the state ports of either or both x
+and y, rather than their output ports, must be included in the feedback loop to
+avoid the rejection of the model due to instantaneous dependencies.
+Interestingly, if a fixed-step solver with a step size of 0.2 is used, the same
+values for x, y, and z are observed, but t becomes
+0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, . . .
+and there are no error messages since there are no zero-crossing options for
+fixed-step solvers. The values of t chosen by the variable-step solver are not
+affected by the minimum step size setting.
+Example 2. The Simulink model is shown in Figure A.3a (with y0 set to −1).
+The corresponding equations are:
+x = 1/s(ix, updown(y), 0)
+y = 1/s(y0 , x)
+ix = switchup(y, −1, switchup(−y, 1, −y0 ))
+In normal mode, the simulation fails with a similar error message as Example 1
+because there are too many zero-crossings at instant t = 1. The results plotted
+in Figure A.3b were generated with adaptive zero-crossing detection enabled.
+The value of y hovers around 0 while x alternates between −1 and 1, resting at
+each for a period determined by the adaptive zero-crossings algorithm.
+44
+
+0
+
+All Hit Crossings have rising zero−crossing detection.
+They output 1 when there is a zero−crossing and 0 otherwise.
+
+1
+s
+
+All switches output the upper input value when the middle input is 1,
+and the bottom input value otherwise.
+
+y
+
+xo
+
+1
+
+Integrator: y
+iy
+
+0
+−1
+Hit Crossing: up(y)
+
+−1
+zx
+
+−1
+
+ix
+
+Hit Crossing: up(−y)
+
+lx
+
+Hit Crossing: up(lx)
+
+1
+s
+xo
+Integrator: x
+
+−1
+
+x
+
+ixx
+
+1
+1
+1
+1
+s
+−1
+
+xo
+
+ixx
+ixx
+ixxx
+
+z
+
+Hit Crossing: up(z)
+−1
+
+Integrator: z
+
+(a) Simulink model
+t
+0.000000000000000
+0.200000000000000
+0.400000000000000
+0.600000000000000
+0.800000000000000
+1.000000000000000
+1.000000000000017
+1.000000000000034
+1.000000000000051
+1.000000000000068
+1.000000000000085
+1.000000000000103
+1.000000000000120
+1.000000000000137
+1.000000000000154
+1.000000000000171
+1.000000000000188
+1.000000000000205
+1.000000000000222
+1.000000000000239
+1.000000000000256
+.
+.
+.
+
+x
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+.
+.
+.
+
+y
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+1.000000000000000
+-1.000000000000000
+.
+.
+.
+
+z
+-1.000000000000000
+-0.800000000000000
+-0.600000000000000
+-0.400000000000000
+-0.200000000000000
+-0.000000000000000
+0.000000000000017
+0.000000000000034
+0.000000000000051
+0.000000000000068
+0.000000000000085
+0.000000000000103
+0.000000000000120
+0.000000000000137
+0.000000000000154
+0.000000000000171
+0.000000000000188
+0.000000000000205
+0.000000000000222
+0.000000000000239
+0.000000000000256
+
+(b) Simulation results
+
+Figure A.2: Example 1 in Simulink
+Example 3. The Simulink model is shown in Figure A.4a, and the corresponding
+set of equations is:
+x, lx = 1/s(ix, up(zx), 0)
+z = 1/s(−1, 1)
+y = 1/s(iy, up(z), 0)
+ix = switchup(y, lx + 1, switchup(z, lx + 2, 0))
+zx = switchup(y, 1, switchup(z, 1, −1))
+iy = switchup(z, 1, −1)
+The result of simulating this system is shown in Figure A.4b. The value of z
+increases from −1 until it crosses 0 at time 1. That triggers two hit crossings
+and the reset of the integrator for y. The top hit crossing causes the connected
+45
+
+0
+1
+s
+−1
+
+x
+
+xo
+
+1
+
+1
+s
+Integrator: y
+
+Integrator: x
+
+Hit Crossing: up(y)
+−1
+All Hit Crossings have rising zero−crossing detection.
+They output 1 when there is a zero−crossing and 0 otherwise.
+
+y0
+
+Hit Crossing: up(−y)
+1
+
+All switches output the upper input value when the middle input is 1,
+and the bottom input value otherwise.
+
+(a) Simulink model
+x
+1
+0.5
+0
+−0.5
+−1
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+16
+
+18
+
+20
+
+12
+
+14
+
+16
+
+18
+
+20
+
+y
+0.5
+
+0
+
+−0.5
+
+−1
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+Time
+
+(b) Simulation results
+
+Figure A.3: Example 2 in Simulink
+
+46
+
+y
+
+2
+
+All Hit Crossings have rising zero−crossing detection.
+They output 1 when there is a zero−crossing and 0 otherwise.
+
+1
+0
+lx
+
+All switches output the upper input value when the middle
+input is1, and the bottom input value otherwise.
+1
+s
+ix
+
+−1
+
+Integrator: x
+
+Hit Crossing: up(y): 1
+
+1
+
+1
+s
+xo
+
+z
+
+ixx
+
+xo
+
+y
+
+Hit Crossing: up(z): 1
+0
+
+Integrator: z
+
+1
+0
+1
+s
+
+y
+
+zx
+
+xo
+
+1
+iy
+
+Hit Crossing: up(y): 2
+
+Integrator: y
+
+x
+
+iy
+z
+
+Hit Crossing: up(z): 2
+−1
+
+(a) Simulink model
+x
+1
+
+0.5
+
+0
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+6
+
+7
+
+8
+
+9
+
+10
+
+6
+
+7
+
+8
+
+9
+
+10
+
+y
+1
+0.5
+0
+−0.5
+−1
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+z
+
+10
+5
+0
+−5
+−10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+Time
+
+(b) Simulation results
+
+Figure A.4: Example 3 in Simulink
+
+47
+
+switch output (labeled ixx in the figure) to become 2 (lx + 2). The bottom
+one causes the switch output (labeled iy) to become 1, which is taken as the
+new value of the integrator for y. The change in y from −1 to 1 triggers the
+two connected hit crossings. The top one causes the output of the connected
+switch (labeled ix) to become 1 (lx + 1) which overrides the value of ixx due
+to the zero-crossing on z. The other hit crossing sets the related switch output
+(labeled zx) to 1 and this zero-crossing resets the integrator for x to 1. Note
+that, in contrast to the non-standard interpretation explained in section 2, the
+zero-crossings on z and y are treated as simultaneous within Simulink. There
+is no delay between the two, even though the former causes the latter, and x
+immediately takes the value 1 rather than first taking the value 2 and then the
+value 3. That is, the definition of a zero-crossing in Simulink is effectively
+up(x)t = [x•t ≤ 0] ∧ [xt > 0]
+which means that the effect of a zero-crossing is instantaneous. This highlights
+a central benefit of using non-standard analysis as a model for reasoning about
+hybrid systems and the treatment of zero-crossings. The behavior of Simulink
+can be interpreted simply by changing the definition of up(.).
+Appendix A.2. Using the Sundials-based Prototype
+We have developed a prototype implementation of our language in Caml. It
+comprises a generic interface to the Sundials CVODE library [21] (using serial
+vectors), and an implementation of the algorithm that alternates between continuous phases and discrete phases in response to zero-crossings. Each example
+was manually translated into a single Ocaml function that is called by Sundials
+during continuous phases, and by the algorithm directly during discrete phases.
+Example 1. The results of running the prototype tool on Example 1 are shown
+in Table A.6. The first row (‘I’) shows the initial state values, it is followed
+by a series of executions of the CVODE solver (‘C’) during which the states
+evolve according to their derivatives, and then just after 1.0, a zero-crossing
+is detected (‘Z’). The values of the continuous states at the time of the zerocrossing (‘C0 ’), become last values during the subsequent discrete phase (‘D’).
+The first zero-crossing occurs for up(z). It triggers an unbounded cascade of
+discrete phases, after each of which another (single and non-simultaneous) zerocrossing is detected. The sequence up(x), up(y), up(−x), up(−y) is repeated
+indefinitely without the continuous solver ever being re-invoked.
+Example 2. The results for Example 2 are shown in Table A.7. The value of y
+exceeds zero and triggers the zero-crossing up(y) just after t = 1.0. Then, the
+value of x is changed from 1.0 to −1.0 during the discrete phase, but as there
+are no further zero-crossings the continuous solver is called again. Another zerocrossing, up(−y), is discovered almost immediately and another discrete phase
+is triggered during which x is changed back to 1.0. This process is repeated
+indefinitely; time is advanced in small increments by the continuous solver,
+
+48
+
+phase
+I
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C0
+Z
+D
+Z
+D
+Z
+D
+Z
+D
+Z
+D
+
+time
+0.000000e+00
+1.000000e-01
+2.000000e-01
+3.000000e-01
+4.000000e-01
+5.000000e-01
+6.000000e-01
+7.000000e-01
+8.000000e-01
+9.000000e-01
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+
+x
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+up(z)
+1.000000e+00
+up(x)
+1.000000e+00
+up(y)
+-1.000000e+00
+up(-x)
+-1.000000e+00
+up(-y)
+1.000000e+00
+
+y
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+
+z
+-1.000000e+00
+-9.000000e-01
+-8.000000e-01
+-7.000000e-01
+-6.000000e-01
+-5.000000e-01
+-4.000000e-01
+-3.000000e-01
+-2.000000e-01
+-1.000000e-01
+-2.235451e-14
+7.786350e-14
+
+-1.000000e+00
+
+7.786350e-14
+
+1.000000e+00
+
+7.786350e-14
+
+1.000000e+00
+
+7.786350e-14
+
+-1.000000e+00
+
+7.786350e-14
+
+-1.000000e+00
+
+7.786350e-14
+
+Table A.6: Log of example 1 (prototype tool)
+
+phase
+I
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C0
+Z
+D
+C0
+Z
+D
+C0
+Z
+D
+C0
+Z
+D
+C0
+Z
+D
+C0
+Z
+D
+C0
+
+time
+0.000000000000000e+00
+1.000000000000000e-01
+2.000000000000000e-01
+3.000000000000000e-01
+4.000000000000000e-01
+5.000000000000000e-01
+6.000000000000000e-01
+7.000000000000000e-01
+7.999999999999999e-01
+8.999999999999999e-01
+9.999999999999999e-01
+1.000000000000100e+00
+1.000000000000100e+00
+1.000000000000100e+00
+1.000000000000175e+00
+1.000000000000175e+00
+1.000000000000175e+00
+1.000000000000195e+00
+1.000000000000195e+00
+1.000000000000195e+00
+1.000000000000215e+00
+1.000000000000215e+00
+1.000000000000215e+00
+1.000000000000234e+00
+1.000000000000234e+00
+1.000000000000234e+00
+1.000000000000254e+00
+1.000000000000254e+00
+1.000000000000254e+00
+1.000000000000274e+00
+
+x
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+up(y)
+-1.000000e+00
+-1.000000e+00
+up(-y)
+1.000000e+00
+1.000000e+00
+up(y)
+-1.000000e+00
+-1.000000e+00
+up(-y)
+1.000000e+00
+1.000000e+00
+up(y)
+-1.000000e+00
+-1.000000e+00
+up(-y)
+1.000000e+00
+1.000000e+00
+
+y
+-1.000000e+00
+-9.000000e-01
+-8.000000e-01
+-7.000000e-01
+-6.000000e-01
+-5.000000e-01
+-4.000000e-01
+-3.000000e-01
+-2.000000e-01
+-1.000000e-01
+-4.464441e-14
+5.557360e-14
+5.557360e-14
+-1.974954e-14
+-1.974954e-14
+9.288416e-18
+9.288416e-18
+-1.972025e-14
+-1.972025e-14
+3.853879e-17
+3.853879e-17
+-1.969104e-14
+-1.969104e-14
+6.770241e-17
+
+Table A.7: Log of example 2 (prototype tool)
+
+49
+
+phase
+I
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C0
+Z
+D
+Z
+D
+C
+C
+
+time
+0.000000e+00
+1.000000e-01
+2.000000e-01
+3.000000e-01
+4.000000e-01
+5.000000e-01
+6.000000e-01
+7.000000e-01
+8.000000e-01
+9.000000e-01
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.000000e+00
+1.100000e+00
+1.200000e+00
+
+x
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+0.000000e+00
+up(z)
+2.000000e+00
+up(y)
+3.000000e+00
+3.000000e+00
+3.000000e+00
+
+y
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+-1.000000e+00
+
+z
+-1.000000e+00
+-9.000000e-01
+-8.000000e-01
+-7.000000e-01
+-6.000000e-01
+-5.000000e-01
+-4.000000e-01
+-3.000000e-01
+-2.000000e-01
+-1.000000e-01
+-1.500536e-16
+1.000680e-13
+
+1.000000e+00
+
+1.000680e-13
+
+1.000000e+00
+1.000000e+00
+1.000000e+00
+
+1.000680e-13
+1.000000e-01
+2.000000e-01
+
+Table A.8: Log of example 3 (prototype tool)
+and the value of x is alternated between 1.0 and −1.0 by intervening discrete
+phases. The observed behavior thus approximates the ideal behavior; a small
+overshoot, which is proportional to step size chosen by the continuous solver,
+effectively simulates the ε of the non-standard semantics. Note that the time
+column is given with a greater precision than in the other examples. Without
+the extra significant figures, it appears as if the simulation iterates without
+bound at t = 1.0. As it is, time barely advances just as is in Simulink when the
+adaptive zero-crossing detection algorithm is not used.
+Example 3. The results for Example 3 are shown in Table A.8. Both x and y
+are constant throughout the initial continuous phases, but z increases steadily
+from −1.0. The first zero-crossing, up(z), is triggered just after z crosses 0.0.
+The ensuing discrete phase sees x incremented by 2.0 and y set to 1.0. The latter
+update triggers the zero-crossing up(y), which causes another discrete phase to
+be executed at the same instant of time. During this second discrete phase, x is
+incremented by 1.0. The simulation then continues with an unbounded number
+of continuous phases. Note that, during a discrete phase, the effects of changes
+to variables on zero-crossing expressions are not detected immediately, rather
+any new zero-crossings are detected after the discrete phase, i.e. after variables
+have been reset as necessary, when the last values of zero-crossing expressions
+are compared with their new values. There is thus no question of priority in this
+example: up(x) occurs strictly before up(y), even though no simulation time
+elapses between them.
+Appendix A.3. A ‘badly-typed’ example
+We have argued that compositions of discrete and continuous expressions
+must be rejected when it is not clear how discrete (logical) instants are related
+to (absolute) continuous time. Even when such compositions are well defined
+
+50
+
+1
+
+1
+s
+
+wi
+
+xo
+
+0
+
+All of the unit delay blocks have
+an inherited sample time (−1)
+
+1
+w
+z
+Unit Delay: w
+
+Integrator
+1
+1
+
+xd
+z
+Unit Delay: xd
+
+1
+s
+
+The ’discrete used as continuous’
+parameter is set to ’warning’.
+
+x
+
+Integrator: x
+
+z
+
+Hit Crossing
+
+1
+1
+s
+
+yii
+
+0
+1
+
+xo
+
+1
+yi
+
+y
+z
+Unit Delay: y
+
+Sine Wave
+
+Integrator: yi
+
+Figure A.5: A ‘badly-typed’ Simulink Example: model
+in the non-standard semantics, they cannot be simulated by the usual numerical methods. It is instructive to model a strange combination of discrete and
+continuous blocks in Simulink and to observe the results.
+The model shown in Figure A.5 contains three strange combinations of discrete and continuous elements. At the top, the value of an integrator, wi , is fed
+into a discrete expression w = (pre (w) init 0) + wi . In the middle, the output
+of a similar discrete expression, xd , is fed into an integrator x. At the bottom,
+the value of an integrator with reset, yi , is fed into a discrete expression for y.
+All of the unit delays have an inherited sample time; their rate of execution is
+determined by those of their inputs and outputs. In parallel, a sinusoid is fed
+through a hit crossing block. We will see that changing the frequency of the
+sinusoid, changes the values of the three other signals (w, x and y).
+In Simulink, there are a number of user-configurable analyses for deciding
+whether to accept a model, accept it with warnings, or reject it with an error
+message. The default settings are fairly liberal; Simulink usually prefers to
+execute problematic models after displaying a warning message. The model of
+Figure A.5 is, however, too much. By default, it is rejected with the message:
+’Example4/Unit Delay: w’ is discrete, yet is inheriting a continuous sample time; consider
+replacing unit delay with a memory block. When a unit delay block inherits continuous
+sample time, its behavior is the same as the memory block. Unit delay block’s time delay
+will not be fixed and could change with each time step. This might be unexpected behavior.
+Normally, a unit delay block uses discrete sample time. You can disable this diagnostic by
+setting the ’Discrete used as continuous’ diagnostic to ’none’ in the Sample Time group on
+the Diagnostics pane of the Configuration Parameters dialog box.
+
+The discrete used as continuous setting must be changed from ‘error’ to ‘warning’ before the model can be simulated. Even then, there is another warning that
+explicit conversions are required between the discrete and continuous blocks:
+Warning: The configuration of the Unit Delay ’Example4/Unit Delay: w’ is incorrect for
+handling a rate transition. Consider using the Rate Transition block to handle the data
+transfer between rates. Alternatively, you can control the diagnostic action for
+unspecified rate transitions on the Sample Time Diagnostics pane of the Configuration
+Parameters dialog box.
+
+51
+
+w
+1000
+500
+0
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+x
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+yi
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+y
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+z
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+Time
+
+6
+
+7
+
+8
+
+9
+
+10
+
+1000
+500
+0
+1
+0.5
+0
+100
+50
+0
+1
+0.5
+0
+
+(a) Sine Wave frequency = 1 rad/s
+w
+1000
+500
+0
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+x
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+yi
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+y
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+z
+
+6
+
+7
+
+8
+
+9
+
+10
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+Time
+
+6
+
+7
+
+8
+
+9
+
+10
+
+1000
+500
+0
+1
+0.5
+0
+100
+50
+0
+1
+0.5
+0
+
+(b) Sine Wave frequency = 10 rad/s
+
+Figure A.6: A ‘badly-typed’ Simulink Example: results
+
+52
+
+t
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000401901829042
+0.000803803658083
+0.001607607316166
+0.003215214632332
+0.006430429264665
+0.012860858529329
+0.025721717058658
+0.051443434117316
+0.102886868234632
+0.205773736469265
+0.405773736469265
+0.605773736469265
+0.805773736469265
+1.000000000000000
+1.000000000000014
+1.200000000000014
+1.400000000000014
+1.600000000000014
+1.800000000000014
+2.000000000000014
+2.000000000000045
+2.200000000000045
+2.400000000000046
+2.600000000000046
+2.800000000000046
+3.000000000000004
+
+w
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000602852743562
+0.001406656401645
+0.003014263717812
+0.006229478350144
+0.012659907614808
+0.025520766144137
+0.051242483202795
+0.102685917320112
+0.205572785554744
+0.411346522024009
+0.817120258493274
+1.422893994962538
+2.228667731431803
+3.228667731431803
+4.228667731431817
+5.428667731431831
+6.828667731431845
+8.428667731431858
+10.228667731431871
+12.228667731431885
+14.228667731431930
+16.428667731431975
+18.828667731432020
+21.428667731432064
+24.228667731432111
+
+x
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000401901829042
+0.001004754572604
+0.002612361888770
+0.006631380179185
+0.016277024076182
+0.038783526502508
+0.090226960619824
+0.205974687383786
+0.463191857970367
+1.029069633260845
+2.263712052076434
+4.863712052076434
+7.663712052076435
+10.663712052076436
+13.771332268568196
+13.771332268568424
+17.371332268568423
+21.171332268568424
+25.171332268568424
+29.371332268568423
+33.771332268568422
+33.771332268569140
+38.571332268569137
+43.571332268569137
+48.771332268569140
+54.171332268569138
+59.771332268567946
+
+.
+.
+.
+
+.
+.
+.
+
+.
+.
+.
+
+t
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000401901829042
+0.000803803658083
+0.001607607316166
+0.003215214632332
+0.006430429264665
+0.012860858529329
+0.025721717058658
+0.051443434117316
+0.102886868234632
+0.205773736469265
+0.314159265358979
+0.314159265358985
+0.314159265358992
+0.514159265358992
+0.628318530717959
+0.628318530717969
+0.628318530717980
+0.828318530717980
+0.942477796076923
+0.942477796076938
+0.942477796076954
+1.000000000000000
+1.000000000000016
+1.057522203923062
+1.115044407846108
+1.230088815692200
+
+w
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000602852743562
+0.001406656401645
+0.003014263717812
+0.006229478350144
+0.012659907614808
+0.025520766144137
+0.051242483202795
+0.102685917320112
+0.205572785554744
+0.411346522024009
+0.725505787382988
+1.039665052741973
+1.353824318100966
+1.867983583459958
+2.496302114177917
+3.124620644895885
+3.752939175613866
+4.581257706331846
+5.523735502408769
+6.466213298485707
+7.408691094562661
+8.408691094562661
+9.408691094562677
+10.466213298485739
+11.581257706331847
+
+x
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000401901829042
+0.001004754572604
+0.002612361888770
+0.006631380179185
+0.016277024076182
+0.038783526502508
+0.090226960619824
+0.205974687383786
+0.463191857970367
+1.029069633260845
+2.263712052076434
+3.672723927642722
+3.672723927642797
+3.672723927642907
+6.872723927642907
+8.813431438745333
+8.813431438745503
+8.813431438745727
+12.813431438745727
+15.210776011283528
+15.210776011283837
+15.210776011284210
+16.591308905437309
+16.591308905437696
+18.086886207436887
+19.639985713359124
+22.861229133049690
+
+.
+.
+.
+
+.
+.
+.
+
+.
+.
+.
+
+yi
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000401901829042
+0.000803803658083
+0.001607607316166
+0.003215214632332
+0.006430429264665
+0.012860858529329
+0.025721717058658
+0.051443434117316
+0.102886868234632
+0.205773736469265
+0.405773736469265
+0.605773736469265
+0.805773736469265
+1.000000000000000
+0.000000000000000
+0.200000000000000
+0.400000000000000
+0.600000000000000
+0.800000000000000
+1.000000000000000
+0.000000000000000
+0.200000000000000
+0.400000000000000
+0.600000000000000
+0.800000000000000
+0.999999999999957
+
+y
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000602852743562
+0.001406656401645
+0.003014263717812
+0.006229478350144
+0.012659907614808
+0.025520766144137
+0.051242483202795
+0.102685917320112
+0.205572785554744
+0.411346522024009
+0.817120258493274
+1.422893994962538
+2.228667731431803
+3.228667731431803
+3.228667731431803
+3.428667731431803
+3.828667731431803
+4.428667731431803
+5.228667731431803
+6.228667731431803
+6.228667731431803
+6.428667731431803
+6.828667731431803
+7.428667731431803
+8.228667731431804
+
+z
+1.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+
+y
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000602852743562
+0.001406656401645
+0.003014263717812
+0.006229478350144
+0.012659907614808
+0.025520766144137
+0.051242483202795
+0.102685917320112
+0.205572785554744
+0.411346522024009
+0.725505787382988
+1.039665052741973
+1.353824318100966
+1.867983583459958
+2.496302114177917
+3.124620644895885
+3.752939175613866
+4.581257706331846
+5.523735502408769
+6.466213298485707
+7.408691094562661
+8.408691094562661
+8.408691094562661
+8.466213298485707
+8.581257706331799
+
+z
+1.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+1.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+1.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+1.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+
+(a) Sine Wave frequency = 1 rad/s
+yi
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000200950914521
+0.000401901829042
+0.000803803658083
+0.001607607316166
+0.003215214632332
+0.006430429264665
+0.012860858529329
+0.025721717058658
+0.051443434117316
+0.102886868234632
+0.205773736469265
+0.314159265358979
+0.314159265358985
+0.314159265358992
+0.514159265358992
+0.628318530717959
+0.628318530717969
+0.628318530717980
+0.828318530717980
+0.942477796076923
+0.942477796076938
+0.942477796076954
+1.000000000000000
+0.000000000000000
+0.057522203923046
+0.115044407846092
+0.230088815692183
+
+(b) Sine Wave frequency = 10 rad/s
+
+Table A.9: A ‘badly-typed’ Simulink example: result detail
+
+53
+
+The simulation is performed anyway, and the result with a Sine Wave frequency
+of 1 rad/s is shown in Figure A.6a, and the result with a frequency of 10 rad/s
+is shown in Figure A.6b. The only value that is, more or less, the same is that
+of yi , the integrator with reset. That the value of z differs between the two
+runs is expected: increasing the frequency of the sine way increases the number
+of zero-crossings. All of the other values, however, finish larger in the run at
+10 rad/s than in the run at 1 rad/s. Changing the behaviour of the Sine Wave
+block has changed the behaviour of unrelated components running in parallel!
+This happens because the behaviour of a discrete component without explicit triggering depends on the discretization scheme chosen by the simulation
+engine. That is, the discrete components with inherited sample times that are
+connected to continuous components are triggered at every major time step of
+the simulation. When the number of zero-crossings is increased, by changing
+the sine wave frequency, there are more major time steps in the simulation and
+the unit delays accumulate samples at a higher rate. This can be seen in the
+detailed log extracts of Figure A.9.
+
+54
+
+

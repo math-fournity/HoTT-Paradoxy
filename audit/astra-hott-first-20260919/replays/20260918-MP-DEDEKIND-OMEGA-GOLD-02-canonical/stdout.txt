@@ -1,0 +1,29 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260918-MP-DEDEKIND-OMEGA-GOLD-02",
+  "proof_id": "MP-DEDEKIND-OMEGA-GOLD",
+  "claim_ids": [
+    "CAND-F2-7-GOLD"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/CutGoldForm.agda",
+    "HoTT/formal/dedekind-omega-missile/CutInfra.agda",
+    "HoTT/formal/dedekind-omega-missile/compile.sh",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "HoTT/formal/dedekind-omega-missile/CutGoldForm-DESIGN.md"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_COMMITTED_NOT_PUSHED",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness --two-level，无 LEM/resizing/追加公理）中机器检查 √2 的金形态 Dedekind cut 全部四条件：CutInfra（<-≤ 弱化、crux ·-mono-≤-nn 非负乘子保 ≤、·-mono-<-nn 正乘子保 <）与 CutGoldForm 的勘误版谓词（L q := (q<0r) ⊎ ((0r≤q)×(q·ℚq<2r))；U q := (0r<q)×(2r<q·ℚq)）、isPropL/isPropU、Lₚ/Uₚ hProp 包装、inhabL/inhabU、disjoint（条件 iii）、rounded→ 双向（下/上集圆整的 → 方向，located 消费 M2 √2-irrational）、以及 rounded← 双向（下/上集圆整的 ← 见证方向，δ := t·¼r 内在路线，sq-minus 差平方展开）——四条件首次全部机器接受。",
+  "non_goals": [
+    "不声称 HoTT 内部矛盾或不一致（「击毁」= 非现实锚定，非不一致）",
+    "不声称 LEM/propositional-resizing 收费位置命题已被机械化（Book §11.2 取等价类、把「ℝ 取值命题」塌缩到单一 Ω 的下一升格按 DESIGN §4 仅登记）",
+    "registers_new_claim:false——本证明是 ℚ 层标准可构造计算，非 HoTT 元定理"
+  ]
+}

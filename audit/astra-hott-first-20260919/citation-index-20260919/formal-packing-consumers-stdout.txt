@@ -1,0 +1,50 @@
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:3:-- CutGoldForm：√2 的金形态 Dedekind cut（Ω/hProp 值 L/U + 四条件，Book §11.2）
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:7:-- 设计依据：CutGoldForm-DESIGN.md（§2 勘误版：U 带正性合取）。
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:20:module CutGoldForm where
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:134:-- Ω/hProp 值形态：Lₚ/Uₚ 即 Book §11.2 意义下 cut 的取值（无 resizing 时
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:137:Lₚ Uₚ : ℚ → hProp ℓ-zero
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:138:Lₚ q = L q , isPropL q
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:139:Uₚ q = U q , isPropU q
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:12:-- 本模块钉死「收费命题」的精确形态（B0），并证明 (a) 充裕性 sufficiency
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:117:DedekindReals : (ℓ : Level) → Type (ℓ-suc ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:118:DedekindReals ℓ =
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:122:-- 即 DedekindReals ℓ 等价于一个 ℓ 层的集合。
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:124:ℝLayerAt : (ℓ : Level) → Type (ℓ-suc ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:125:ℝLayerAt ℓ =
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:126:  Σ[ R ∈ Type ℓ ] (isSet R × (R ≃ DedekindReals ℓ))
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:141:Sufficiency ℓ = SingleOmega ℓ → ℝLayerAt ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:147:Necessity : (ℓ : Level) → Type _
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:148:Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:151:-- 7. (a) 充裕性（B1a）：SingleOmega ℓ → ℝLayerAt ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:154:--   step1  dcut 是 set（DedekindReals 是 set 的依据，Book 自陈）。
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:158:--          由 Σ-cong-equiv 与 Π 的等价同余，它与 DedekindReals ℓ 等价。
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:164:--      （Book：Ω is a set），纤维是 set ⇒ DedekindReals 是 set。
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:177:-- 7.2 DedekindReals ℓ 是 set（Book 自陈「the Dedekind reals form a set」）。
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:178:DedekindReals-isSet : (ℓ : Level) → isSet (DedekindReals ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:179:DedekindReals-isSet ℓ =
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:185:DedekindReals* : (ℓ : Level) → SingleOmega ℓ → Type ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:186:DedekindReals* ℓ (Ω* , Ω*-set , e) =
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:191:DedekindReals*-isSet : (ℓ : Level) (so : SingleOmega ℓ) → isSet (DedekindReals* ℓ so)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:192:DedekindReals*-isSet ℓ (Ω* , Ω*-set , e) =
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:241:--      carrier-iso) 在绑定变量上纯 β 归约到 DedekindReals* 的定义形态
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:244:--      R-≃-RD 是跨层等价：R : Type ℓ 而 DedekindReals ℓ : Type (ℓ-suc ℓ)，
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:246:sufficiency : (ℓ : Level) → Sufficiency ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:247:sufficiency ℓ so@(Ω* , Ω*-set , e) = R , (R-set , R-≃-RD)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:250:    R = DedekindReals* ℓ so
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:253:    R-set = DedekindReals*-isSet ℓ so
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:268:    -- 代理空间 ≃ DedekindReals ℓ：Σ-cong-iso-fst-cross 的定义域
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:270:    -- 经 β 归约恰为 DedekindReals* ℓ so 的定义（B 由Expected codomain
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:271:    -- 与 DedekindReals ℓ 的统一解出）。
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:272:    R-≃-RD : R ≃ DedekindReals ℓ
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:3:-- MissileFourNecessityLEM：必要性的 LEM-条件版（2026-09-19）
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:6:-- 定理：LEMProp ℓ → SingleOmega ℓ，从而 LEMProp ℓ → Necessity ℓ
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:7:-- （Necessity ℓ = ℝLayerAt ℓ → SingleOmega ℓ；前提 ℝLayerAt 在证明中未被使用）。
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:15:-- 边界：不声称无条件 Necessity；不声称 HoTT 不一致；本定理 = Book 取法 3
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:18:module MissileFourNecessityLEM where
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:34:open import CutRealLayer using (LEMProp; SingleOmega; Necessity)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:119:-- 定理三：LEM ⇒ Necessity（前提 ℝLayerAt 未被使用——必要性无经典内容）
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:122:LEM→Necessity : {ℓ : Level} → LEMProp ℓ → Necessity ℓ
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:123:LEM→Necessity lem _ = SingleOmega-from-LEM lem
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:3:-- CutInfra：金形态 cut 的 ℚ 序算术基础设施（CutGoldForm-DESIGN §5 步骤 2）
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:5:-- proof id : MP-DEDEKIND-OMEGA-GOLD（与 CutGoldForm 共用发射单元）
+HoTT/formal/partiality-race-timeout/GuardErasure.agda:12:--         (sufficiency) — so erasure-while-keeping-the-law is equivalent to

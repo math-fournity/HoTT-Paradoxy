@@ -1,0 +1,80 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-83"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/truncation-questioning/WrongTruncSilent.agda"
+  ],
+  "completed_at_utc": "2026-09-30T21:44:39.364229+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 91.490552,
+  "environment": {
+    "bytes": 1061,
+    "path": "environment.txt",
+    "sha256": "5d54aede851177a7681374f2385f242875920498ae091aa4a73c8091feb85453"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning/WrongTruncSilent.agda:20.20-24: error: [UnequalTerms]\njust 1 != nothing of type Maybe Agda.Builtin.Nat.Nat\nwhen checking that the expression refl has type\nrunFor 0 (question TU judgeTU) ≡ nothing",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Rejection shows the claimed value is wrong for this run; the general statement (a) is proved in the main package."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-TRUNCATION-QUESTIONING-NEG-001",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260930-CG001-TRUNCATION-QUESTIONING-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-83: claims by refl that Q on the set truncation of the universe with judgeTU is still silent at fuel 0; expected rejection just 1 != nothing (the kernel runs the program and the judge answers yes at stage 1).",
+  "source_manifest": {
+    "bytes": 3946,
+    "path": "source-manifest.json",
+    "sha256": "b403397df05f9073690b6f876bc78a86e6f7426a17fdaf04110c2ab2bfa5fc16"
+  },
+  "started_at_utc": "2026-09-30T21:43:07.873677+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29944,
+    "path": "stdout.txt",
+    "sha256": "794a8054973c4dbd207e00452aea92575fc8db7616a89808bba8fe090295a326"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "session-runs/v1",
+  "session_id": "S-INTEGRATION-20260912-002",
+  "runs": [
+    {"run_id": "RUN-CORE-VERIFY-002", "command": "rtk python3 scripts/audit/verify_core_cognition.py", "status": "PASS", "result": "903 contiguous core units and source hashes", "evidence": ["核心认知.manifest.json"]},
+    {"run_id": "RUN-HISTORY-VERIFY-002", "command": "rtk python3 scripts/audit/verify_history_ledgers.py", "status": "PASS", "result": "125 user; 384 response; 3146 tool; 111 WebGPT; 21/17/17/2 Gemini; 16152 products; 2397 claims", "evidence": ["audit/verification-report.json"]},
+    {"run_id": "RUN-EXTERNAL-MATRIX-002", "command": "rtk python3 HoTT/tools/matrix_book_paradox_extract.py validate", "cwd": "/Volumes/D/ALL-Markdown", "status": "PASS_WITH_DECLARED_SCOPE", "result": "uncovered_hit_count=0", "evidence": ["audit/external-validation-20260912.json"]},
+    {"run_id": "RUN-EXTERNAL-CORPUS-002", "command": "rtk python3 HoTT/tools/hott_discussion_corpus.py validate", "cwd": "/Volumes/D/ALL-Markdown", "status": "BLOCKED_SOURCE_REMOVED", "result": "exit 3; missing aistudio-docs source", "evidence": ["audit/external-validation-20260912.json"]},
+    {"run_id": "RUN-COGNITION-PLAN-002", "command": "rtk python3 .codex/tools/cognition_runtime.py plan", "status": "PASS", "result": "55 fixed/dynamic documents; review_required records preserved; model context not certified", "evidence": [".codex/cognition/LOAD_SET.json", ".codex/research/hott/STATE.json"]}
+  ],
+  "mathematics": "NOT_RUN_IN_THIS_INTEGRATION_SESSION",
+  "model_understanding": "NOT_CERTIFIED"
+}

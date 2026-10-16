@@ -1,0 +1,57 @@
+{
+  "base_snapshot": "8da0ed5513a34a0fc16de4b0c5d39726dca80cfac5dbc65d0e71943287780404",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20261008-CLAUDE-CG006-CORE-GENERATION-14/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v14.json --transition-output audit/core-cognition-generation-14-transition-20261008.json --transition-from-ref 1f60cd57ccc2cf582c56b3269ca6084c93dc62fb --write",
+      "generation": "core-cognition-generation-13/62 -> core-cognition-generation-14/75",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=62 / remainder=0",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "command": "--curation scripts/audit/core-cognition-curation-v14.json --transition audit/core-cognition-generation-14-transition-20261008.json",
+      "status": "PASS_WITH_SCOPE expected; see the commit message for the observed output",
+      "tool": "scripts/audit/verify_core_cognition.py"
+    },
+    {
+      "command": "--output <payload> --essay-template .claude/goals/CG-006-zfc-complete-formalization/essay-013-template.md",
+      "status": "PREPARED",
+      "tool": "scripts/audit/prepare_claude_cg006_core_generation_14_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "note": "Core entry of the research sponsor's thirteen ZFC messages with essay shard 013, and registration of the CG-005/006 results, the branch imports and the two-route target profile.",
+  "push_policy": "push of dev and release of main after this checkpoint, under the research sponsor's 2026-10-07 authorization",
+  "related_goal_local_runs": {
+    "claims": "CG001-C-84 to CG001-C-103",
+    "imported_branch_runs": ".claude/goals/CG-006-zfc-complete-formalization/verification/20261008-S7C-IMPORT-REPLAY.json",
+    "index": ".claude/goals/CG-001-targeted-overview/证据索引.md",
+    "main_runs": [
+      "20261007-CG001-GODEL-Q-01",
+      "20261008-CG001-GODEL-Q-ZFC-01",
+      "20261008-CG001-GODEL-Q-ZFC-Z0-01"
+    ],
+    "negative_control_runs": [
+      "20261007-CG001-GODEL-Q-NEG-SOUNDNESS-01",
+      "20261007-CG001-GODEL-Q-NEG-CONSISTENCY-01",
+      "20261007-CG001-GODEL-Q-NEG-EFFECTIVENESS-01",
+      "20261007-CG001-GODEL-Q-NEG-GODEL-II-01",
+      "20261008-CG001-GODEL-Q-ZFC-NEG-SOUNDNESS-01",
+      "20261008-CG001-GODEL-Q-ZFC-NEG-DELTA1-01",
+      "20261008-CG001-GODEL-Q-ZFC-NEG-CONSISTENCY-01",
+      "20261008-CG001-GODEL-Q-ZFC-Z0-NEG-ISIGMA1-01"
+    ],
+    "note": "same session; proof packages registered in the shared claim matrix before this checkpoint; projected here, not re-delivered",
+    "verification": "verify_cg001_run.py --rerun: PASS_WITH_SCOPE for the main runs and NEGATIVE_CONTROL_REJECTED_AS_EXPECTED for the controls, EXACT_EXIT_STDOUT_STDERR_MATCH"
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20261008-CLAUDE-CG006-CORE-GENERATION-14",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_ESSAY_SHARD_AND_RESULT_REGISTRATION"
+}

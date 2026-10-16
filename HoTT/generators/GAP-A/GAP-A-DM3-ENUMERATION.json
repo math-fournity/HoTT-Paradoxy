@@ -1,0 +1,243 @@
+{
+  "schema_version": "machine-overview-enumeration-snapshot/v1",
+  "unit": "GAP-A-DM3",
+  "search_run_id": "SEARCH-GAP-A-DM3-001",
+  "engine_run_path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/SEARCH-GAP-A-DM3-001",
+  "engine_commit": "776e6b7",
+  "evidence_class": "ENUMERATOR_ONLY",
+  "proof_kind": "machine_overview.search complete enumeration within a frozen declared grammar (denominator = 40 contexts x 1404 equivalent pairs = 56,160 pair-context checks; no sampling, no heuristic pruning)",
+  "denominator": {
+    "v2_atoms": 55,
+    "contexts": 40,
+    "contexts_examined": 40,
+    "equivalent_pairs": 1404,
+    "pair_context_checks_planned": 56160,
+    "pair_context_checks_executed": 56160,
+    "checks_budget_exhausted": false,
+    "context_budget_exhausted": false,
+    "truncated": false,
+    "witness_capture_truncated": false,
+    "complete_within_declared_grammar": true,
+    "grammar_violations": 0,
+    "remainder": 0
+  },
+  "reduction": {
+    "separations_seen": 9720,
+    "witnesses_captured": 9720,
+    "reduced_witnesses": 396,
+    "proof_kind": "grammar-preserving reduction: each reduction step re-checks grammar membership and separation",
+    "separation_kind_histogram": {
+      "availability_observation": 1944,
+      "density_observation": 2592,
+      "level_observation": 5184
+    }
+  },
+  "order_independence": {
+    "counts": [
+      396,
+      396
+    ],
+    "separations": [
+      9720,
+      9720
+    ],
+    "statistics_match": true,
+    "witness_sets_equal": true
+  },
+  "calibration_match": {
+    "status": "ALL_PRESENT",
+    "rows": [
+      {
+        "present": true,
+        "reduced_key": "{\"left\": {\"dm3\": 1, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}, \"ops\": [{\"d\": 1, \"kind\": \"supply\"}, {\"kind\": \"fill\"}], \"right\": {\"dm3\": 2, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}}",
+        "witness_id": "WV-A-availability"
+      },
+      {
+        "present": true,
+        "reduced_key": "{\"left\": {\"dm3\": 1, \"kind\": \"ret\", \"level\": 2, \"n\": 0, \"value\": true}, \"ops\": [{\"kind\": \"tower\", \"level\": 0}], \"right\": {\"dm3\": 1, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}}",
+        "witness_id": "WV-L-level"
+      },
+      {
+        "present": true,
+        "reduced_key": "{\"left\": {\"dm3\": 1, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}, \"ops\": [{\"a\": 0, \"b\": 2, \"kind\": \"between\"}], \"right\": {\"dm3\": 2, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}}",
+        "witness_id": "WV-D-density"
+      }
+    ]
+  },
+  "declared_witness_check": {
+    "all_match": true,
+    "delay_invisible": {
+      "WV-A-availability": true,
+      "WV-D-density": true,
+      "WV-L-level": true
+    },
+    "rows": [
+      {
+        "computed": [
+          true,
+          [
+            "availability",
+            "available"
+          ],
+          [
+            "availability",
+            "pending"
+          ],
+          "availability_observation"
+        ],
+        "expected": [
+          true,
+          [
+            "availability",
+            "available"
+          ],
+          [
+            "availability",
+            "pending"
+          ],
+          "availability_observation"
+        ],
+        "matches_mirror": true,
+        "witness_id": "WV-A-availability"
+      },
+      {
+        "computed": [
+          true,
+          [
+            "tower",
+            false
+          ],
+          [
+            "tower",
+            true
+          ],
+          "level_observation"
+        ],
+        "expected": [
+          true,
+          [
+            "tower",
+            false
+          ],
+          [
+            "tower",
+            true
+          ],
+          "level_observation"
+        ],
+        "matches_mirror": true,
+        "witness_id": "WV-L-level"
+      },
+      {
+        "computed": [
+          true,
+          [
+            "density",
+            true
+          ],
+          [
+            "density",
+            false
+          ],
+          "density_observation"
+        ],
+        "expected": [
+          true,
+          [
+            "density",
+            true
+          ],
+          [
+            "density",
+            false
+          ],
+          "density_observation"
+        ],
+        "matches_mirror": true,
+        "witness_id": "WV-D-density"
+      },
+      {
+        "computed": [
+          false,
+          [
+            "availability",
+            "available"
+          ],
+          [
+            "availability",
+            "available"
+          ],
+          null
+        ],
+        "expected": [
+          false,
+          [
+            "availability",
+            "available"
+          ],
+          [
+            "availability",
+            "available"
+          ],
+          null
+        ],
+        "matches_mirror": true,
+        "witness_id": "CTRL-A-same-value"
+      },
+      {
+        "computed": [
+          false,
+          [
+            "density",
+            true
+          ],
+          [
+            "density",
+            true
+          ],
+          null
+        ],
+        "expected": [
+          false,
+          [
+            "density",
+            true
+          ],
+          [
+            "density",
+            true
+          ],
+          null
+        ],
+        "matches_mirror": true,
+        "witness_id": "CTRL-D-same-value"
+      }
+    ]
+  },
+  "non_embedding_check": {
+    "claim": "NO meet-and-negation-preserving embedding of DM3 into the point-set boolean face lattice exists",
+    "counterexamples_found": [],
+    "domain": {
+      "candidate_functions": 4096,
+      "dm3": "3-element non-boolean De Morgan algebra (mirror sec 10)",
+      "faces": "16 truth functions over the 4-point boolean cube (point-set mirror)",
+      "functions_preserving_meet_and_neg": 0
+    },
+    "proof_kind": "model_exhaustive_negative_check",
+    "registers_new_claim": false,
+    "result": true,
+    "scope": "the two declared finite structures only; NOT a claim about the real interval I (F-011 / 015 sec 5)"
+  },
+  "witness_manifest": {
+    "bytes": 206712,
+    "count": 396,
+    "path": "witness-manifest.json",
+    "sha256": "22283e8a78a4b8ff43d47b22fc2ac94c070885c0826103621b5374560875c5fe"
+  },
+  "runner": {
+    "bytes": 4532,
+    "path": "runner-manifest.json",
+    "sha256": "cd930c7a2bcdc2303d285e1be2aec5e52f42f660d97c5d5c918afbb61df6fb66"
+  },
+  "scope_disclosure": "ORACLE SCOPE (015 §5 / F-011 / 017 §5, upgraded by this unit): the oracle of this grammar is the Cubical Agda 2.8.0 native kernel on formal/V2DM3.agda.  DM3 is a NON-BOOLEAN De Morgan algebra, not the real cubical interval I (whose equality is not decidable, so no Bool-valued separates can be written on it).  The confirmed content is the NEGATIVE statement that no boolean law is needed (boolLawIndependence, kernel-accepted): the three structural separations are produced in an algebra where x&&~x=x!=0.  Scope identifier: DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT; interval_i_confirmed = false.  Lifting DM3 to all De Morgan algebras or to I is NOT claimed.  registers_new_claim: false except the negative mechanical fact that the boolean law is not needed, which the kernel checks on this specific algebra."
+}

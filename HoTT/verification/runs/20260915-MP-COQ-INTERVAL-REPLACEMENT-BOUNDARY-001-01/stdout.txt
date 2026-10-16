@@ -1,0 +1,279 @@
+COQ_INTERVAL_REPLAY_PHASE:VERSION
+The Coq Proof Assistant, version 8.13.2 (March 2026)
+compiled on Mar 30 2026 14:44:08 with OCaml 4.07.1
+COQ_INTERVAL_REPLAY_PHASE:NEGATIVE_AND_POSITIVE_TARGETS
+COQDEP VFILES
+COQC Overture.v
+COQC Strict_eq.v
+COQC Interval.v
+COQC Cof.v
+COQC Fibrations.v
+COQC Inconsistency.v
+COQC Paths.v
+COQC Id.v
+COQC FibRepl.v
+Axioms:
+η : forall A : Type, A -> repl A
+Interval.zero_one : Interval.zero <> Interval.one
+Interval.zero : Interval.I
+repl_rec'
+  : forall A B : Type,
+    Fibrations.RFib (fun _ : unit => B) -> (A -> B) -> repl A -> B
+repl : Type -> Type
+Overture.propext : forall A B : Prop, Overture.iff A B -> A = B
+Interval.one : Interval.I
+Cof.join_l
+  : forall (A : Type) (φ φ' : Prop) (Hφ : Cof.cof φ) 
+      (Hφ' : Cof.cof φ') (f : φ -> A) (g : φ' -> A)
+      (H : forall (u : φ) (v : φ'), f u = g v) (u : φ),
+    Cof.join f g H (or_introl u) = f u
+Cof.join
+  : forall (A : Type) (φ φ' : Prop),
+    Cof.cof φ ->
+    Cof.cof φ' ->
+    forall (f : φ -> A) (g : φ' -> A),
+    (forall (u : φ) (v : φ'), f u = g v) -> φ \/ φ' -> A
+Cof.cof1 : forall i : Interval.I, Cof.cof (i = Interval.one)
+Cof.cof0 : forall i : Interval.I, Cof.cof (i = Interval.zero)
+Cof.cof : Prop -> Prop
+RFib_repl
+  : forall (A : Type) (P : A -> Type),
+    Fibrations.RFib
+      ((fun (g0 : Type -> Type) (f0 : A -> Type) (x : A) => g0 (f0 x)) repl P)
+Interval.I : Type
+Axioms:
+η : forall A : Type, A -> repl A
+Interval.zero_one : Interval.zero <> Interval.one
+Interval.zero : Interval.I
+repl_rec'
+  : forall A B : Type,
+    Fibrations.RFib (fun _ : unit => B) -> (A -> B) -> repl A -> B
+repl : Type -> Type
+Overture.propext : forall A B : Prop, Overture.iff A B -> A = B
+Overture.proof_irr : forall (P : Prop) (x y : P), x = y
+Interval.one : Interval.I
+Cof.join_l
+  : forall (A : Type) (φ φ' : Prop) (Hφ : Cof.cof φ) 
+      (Hφ' : Cof.cof φ') (f : φ -> A) (g : φ' -> A)
+      (H : forall (u : φ) (v : φ'), f u = g v) (u : φ),
+    Cof.join f g H (or_introl u) = f u
+Cof.join
+  : forall (A : Type) (φ φ' : Prop),
+    Cof.cof φ ->
+    Cof.cof φ' ->
+    forall (f : φ -> A) (g : φ' -> A),
+    (forall (u : φ) (v : φ'), f u = g v) -> φ \/ φ' -> A
+Cof.cof1 : forall i : Interval.I, Cof.cof (i = Interval.one)
+Cof.cof0 : forall i : Interval.I, Cof.cof (i = Interval.zero)
+Cof.cof : Prop -> Prop
+RFib_repl
+  : forall (A : Type) (P : A -> Type),
+    Fibrations.RFib
+      ((fun (g0 : Type -> Type) (f0 : A -> Type) (x : A) => g0 (f0 x)) repl P)
+Interval.I : Type
+Fib_repl
+     : DFib repl
+repl_ind'
+     : forall P : repl ?A -> Type,
+       RFib P -> (forall a : ?A, P (η a)) -> forall w : repl ?A, P w
+where
+?A : [ |- Type]
+repl_rec'
+     : (?A -> repl ?A0) -> repl ?A -> repl ?A0
+where
+?A : [ |- Type]
+?A0 : [ |- Type]
+repl_f_compose
+     : forall (f : ?A -> ?B) (g : ?B -> ?C) (x : repl ?A),
+       repl_f g (repl_f f x) = repl_f (fun x0 : ?A => g (f x0)) x
+where
+?A : [ |- Type]
+?B : [ |- Type]
+?C : [ |- Type]
+RFib_DFib
+     : forall P : ?A -> Type, RFib P -> DFib P
+where
+?A : [ |- Type]
+RFib_Trans
+     : forall P : ?A -> Type, RFib P -> Trans P
+where
+?A : [ |- Type]
+TransFib_HFib
+     : forall P : ?A -> Type, DFib P -> Trans P -> RFib P
+where
+?A : [ |- Type]
+repl_J
+     : forall P : forall y : ?A, η ?x I~ η y -> Type,
+       RFib2 P -> forall (y : ?A) (p : η ?x I~ η y), P ?x I1 -> P y p
+where
+?A : [ |- Type]
+?x : [ |- ?A]
+Axioms:
+zero : I
+qq
+  : forall (A : Type) (e : OI) (φ : Cof)
+      (a : forall i : I, φ \/ i = e -> repl A),
+    extends (φ; fun x : φ => a !e (or_introl x)) (hcomp e φ a)
+one : I
+join_l
+  : forall (A : Type) (φ φ' : Prop) (Hφ : cof φ) (Hφ' : cof φ') 
+      (f : φ -> A) (g : φ' -> A) (H : forall (u : φ) (v : φ'), f u = g v)
+      (u : φ), join f g H (or_introl u) = f u
+join
+  : forall (A : Type) (φ φ' : Prop),
+    cof φ ->
+    cof φ' ->
+    forall (f : φ -> A) (g : φ' -> A),
+    (forall (u : φ) (v : φ'), f u = g v) -> φ \/ φ' -> A
+cof1 : forall i : I, cof (i = 1)
+cof0 : forall i : I, cof (i = 0)
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero_sup : forall i : I, sup 0 i = i
+zero_one : 0 <> 1
+zero_inf : forall i : I, inf 0 i = 0
+zero : I
+sup_zero : forall i : I, sup i 0 = i
+sup_one : forall i : I, sup i 1 = 1
+sup : I -> I -> I
+qq
+  : forall (A : Type) (e : OI) (φ : Cof)
+      (a : forall i : I, φ \/ i = e -> repl A),
+    extends (φ; fun x : φ => a !e (or_introl x)) (hcomp e φ a)
+propext : forall A B : Prop, A <-> B -> A = B
+proof_irr : forall (P : Prop) (x y : P), x = y
+one_sup : forall i : I, sup 1 i = 1
+one_inf : forall i : I, inf 1 i = i
+one : I
+inf_zero : forall i : I, inf i 0 = 0
+inf_one : forall i : I, inf i 1 = i
+inf : I -> I -> I
+funext
+  : forall (A : Type) (P : A -> Type) (f g : forall x : A, P x),
+    f == g -> f = g
+cof_or : forall P Q : Prop, cof P -> cof Q -> cof (P \/ Q)
+cof1 : forall i : I, cof (i = 1)
+cof0 : forall i : I, cof (i = 0)
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero : I
+qq
+  : forall (A : Type) (e : OI) (φ : Cof)
+      (a : forall i : I, φ \/ i = e -> repl A),
+    extends (φ; fun x : φ => a !e (or_introl x)) (hcomp e φ a)
+proof_irr : forall (P : Prop) (x y : P), x = y
+one : I
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero : I
+qq
+  : forall (A : Type) (e : OI) (φ : Cof)
+      (a : forall i : I, φ \/ i = e -> repl A),
+    extends (φ; fun x : φ => a !e (or_introl x)) (hcomp e φ a)
+proof_irr : forall (P : Prop) (x y : P), x = y
+one : I
+join_r
+  : forall (A : Type) (φ φ' : Prop) (Hφ : cof φ) (Hφ' : cof φ') 
+      (f : φ -> A) (g : φ' -> A) (H : forall (u : φ) (v : φ'), f u = g v)
+      (v : φ'), join f g H (or_intror v) = g v
+join_l
+  : forall (A : Type) (φ φ' : Prop) (Hφ : cof φ) (Hφ' : cof φ') 
+      (f : φ -> A) (g : φ' -> A) (H : forall (u : φ) (v : φ'), f u = g v)
+      (u : φ), join f g H (or_introl u) = f u
+join
+  : forall (A : Type) (φ φ' : Prop),
+    cof φ ->
+    cof φ' ->
+    forall (f : φ -> A) (g : φ' -> A),
+    (forall (u : φ) (v : φ'), f u = g v) -> φ \/ φ' -> A
+funext
+  : forall (A : Type) (P : A -> Type) (f g : forall x : A, P x),
+    f == g -> f = g
+cof1 : forall i : I, cof (i = 1)
+cof0 : forall i : I, cof (i = 0)
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero : I
+one : I
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero : I
+proof_irr : forall (P : Prop) (x y : P), x = y
+one : I
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero_sup : forall i : I, sup 0 i = i
+zero_one : 0 <> 1
+zero_inf : forall i : I, inf 0 i = 0
+zero : I
+sup_zero : forall i : I, sup i 0 = i
+sup_one : forall i : I, sup i 1 = 1
+sup : I -> I -> I
+propext : forall A B : Prop, A <-> B -> A = B
+proof_irr : forall (P : Prop) (x y : P), x = y
+one_sup : forall i : I, sup 1 i = 1
+one_inf : forall i : I, inf 1 i = i
+one : I
+inf_zero : forall i : I, inf i 0 = 0
+inf_one : forall i : I, inf i 1 = i
+inf : I -> I -> I
+funext
+  : forall (A : Type) (P : A -> Type) (f g : forall x : A, P x),
+    f == g -> f = g
+cof1 : forall i : I, cof (i = 1)
+cof0 : forall i : I, cof (i = 0)
+cof : Prop -> Prop
+I : Type
+Axioms:
+zero_sup : forall i : I, sup 0 i = i
+zero_one : 0 <> 1
+zero_inf : forall i : I, inf 0 i = 0
+zero : I
+sup_zero : forall i : I, sup i 0 = i
+sup_one : forall i : I, sup i 1 = 1
+sup : I -> I -> I
+qq
+  : forall (A : Type) (e : OI) (φ : Cof)
+      (a : forall i : I, φ \/ i = e -> repl A),
+    extends (φ; fun x : φ => a !e (or_introl x)) (hcomp e φ a)
+propext : forall A B : Prop, A <-> B -> A = B
+proof_irr : forall (P : Prop) (x y : P), x = y
+one_sup : forall i : I, sup 1 i = 1
+one_inf : forall i : I, inf 1 i = i
+one : I
+join_r
+  : forall (A : Type) (φ φ' : Prop) (Hφ : cof φ) (Hφ' : cof φ') 
+      (f : φ -> A) (g : φ' -> A) (H : forall (u : φ) (v : φ'), f u = g v)
+      (v : φ'), join f g H (or_intror v) = g v
+join_l
+  : forall (A : Type) (φ φ' : Prop) (Hφ : cof φ) (Hφ' : cof φ') 
+      (f : φ -> A) (g : φ' -> A) (H : forall (u : φ) (v : φ'), f u = g v)
+      (u : φ), join f g H (or_introl u) = f u
+join
+  : forall (A : Type) (φ φ' : Prop),
+    cof φ ->
+    cof φ' ->
+    forall (f : φ -> A) (g : φ' -> A),
+    (forall (u : φ) (v : φ'), f u = g v) -> φ \/ φ' -> A
+inf_zero : forall i : I, inf i 0 = 0
+inf_one : forall i : I, inf i 1 = i
+inf : I -> I -> I
+funext
+  : forall (A : Type) (P : A -> Type) (f g : forall x : A, P x),
+    f == g -> f = g
+extension_rule__emptyctx
+  : forall (A : Type) (P : A -> Type),
+    RFib P -> ∃ lift : repl A -> Type, RFib lift × lift o η == P
+cof_or : forall P Q : Prop, cof P -> cof Q -> cof (P \/ Q)
+cof_and : forall P Q : Prop, cof P -> (P -> cof Q) -> cof (P /\ Q)
+cof1 : forall i : I, cof (i = 1)
+cof0 : forall i : I, cof (i = 0)
+cof : Prop -> Prop
+I : Type
+COQ_INTERVAL_REPLAY_PHASE:COMPLETE

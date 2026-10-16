@@ -1,0 +1,14 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-DAG-H054-H057-THESEUS-POWERSET",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {"id":"H054","status":"SYNTHETIC_TRACE_SNAPSHOT_IDENTITY_CLUE","wire_sha256":"c82c3cf7da3f3147274458f020533037e9a8c34d6664568d52bc34e55ba9c464"},
+    {"id":"H055","status":"HISTORY_PRESERVING_NEGATIVE_CONTROL","wire_sha256":"cdc1bcad44ac29f151c3fd54e4b3aff5bd994e774c8d464c92fd184453d58e5c"},
+    {"id":"H056","status":"SOURCE_TRACE_CONSUMER_ABSENT","wire_sha256":"0d737bd823e913c6168db226021d6fbdd1b6bbb7038816b307d8f7855e7dcaeb"},
+    {"id":"H057","status":"TOOL_BIRTH_NOT_ENOUGH_EVIDENCE","wire_sha256":"b746d4e9ef8c807c6729a7583feb0abf586b315e04c4815829bb37181e2489c8"},
+    {"id":"P-DAG-H054-H057-DOCUMENT-VALIDATION","status":"PASS","commands":["git diff --check","verify_governance_shards.py","session_trajectory catalog/tree/coverage/terminal-inspect"],"evidence":"2026-10-03：git diff --check、RUNS JSON parse、62-KC row count和governance shard validator通过；H054--H057 private wires均按catalog/tree/coverage/assistant-terminal审计。"}
+  ]
+}

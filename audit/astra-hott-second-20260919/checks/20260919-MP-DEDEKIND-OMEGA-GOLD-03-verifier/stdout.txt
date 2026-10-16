@@ -1,0 +1,34 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260919-MP-DEDEKIND-OMEGA-GOLD-03",
+  "proof_id": "MP-DEDEKIND-OMEGA-GOLD",
+  "claim_ids": [
+    "CAND-F2-7-GOLD-FULL"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/CutGoldForm.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/CutInfra.agda",
+    "HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda",
+    "HoTT/formal/dedekind-omega-missile/CutGoldForm-DESIGN.md",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "GOLD 四条件完整版的 A08 修复重捕获：CutGoldForm.agda:67-68 导入并在 locatedness 分支（:232）消费 M2 的 √2-irrational——本收据显式 pin MissileTwoUniversalIrrationality.agda（-02 漏列），并保留 CutInfra/DESIGN。命题与 -02 完全相同（源码未改）。另登记一处 Astra 未点名的代码瑕疵：:67-68 存在重复导入行（无害，待下次源码变更时顺手清理）。",
+  "non_goals": [
+    "GOLD 属 ℚ 层单实例非 ℝ 层命题；不声称 HoTT 不一致；registers_new_claim:false"
+  ]
+}

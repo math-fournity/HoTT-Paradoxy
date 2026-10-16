@@ -1,0 +1,26 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE",
+  "requirement": "F-011 MATH_PROOF_BEFORE_DELIVERY_V1",
+  "software_verification": {
+    "unit_tests": "4/4 PASS",
+    "static_verifier": "PASS_WITH_SCOPE marker_files=9",
+    "negative_cases": [
+      "missing business Skill marker",
+      "authoritative /tmp run root",
+      "missing stderr.txt contract"
+    ]
+  },
+  "mathematics": "NO_MATHEMATICAL_CONCLUSION_THIS_SESSION",
+  "proof_package": "NOT_APPLICABLE_GOVERNANCE_ONLY",
+  "post_checkpoint_required": [
+    "36/36 KC audit",
+    "three-way 27/27 references",
+    "fresh receipt revision 26",
+    "projection freshness",
+    "static gate tests",
+    "full regression",
+    "git diff --check"
+  ],
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

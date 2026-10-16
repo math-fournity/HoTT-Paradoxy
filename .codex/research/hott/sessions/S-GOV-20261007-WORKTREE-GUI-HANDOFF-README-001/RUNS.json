@@ -1,0 +1,35 @@
+{
+  "session_id": "S-GOV-20261007-WORKTREE-GUI-HANDOFF-README-001",
+  "runs": [
+    {
+      "id": "README_DIFF_CHECK",
+      "kind": "documentation_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS",
+      "scope": "current worktree diff only"
+    },
+    {
+      "id": "HANDOFF_LOCAL_LINKS",
+      "kind": "documentation_check",
+      "command": "python3 inline local-link check over the new handoff section",
+      "exit_code": 0,
+      "result": "17 markdown links checked; 0 missing"
+    },
+    {
+      "id": "BRANCH_ASSET_PATHS",
+      "kind": "documentation_check",
+      "command": "git cat-file -e for branch-linked files",
+      "exit_code": 0,
+      "result": "17 paths checked across origin/dev-01, origin/dev-02, origin/dev-03, origin/dev-04, origin/dev-06, origin/dev-07, and origin/dev-09; 0 missing"
+    },
+    {
+      "id": "GOVERNANCE_SHARDS",
+      "kind": "documentation_validator",
+      "command": "python3 -B scripts/audit/verify_governance_shards.py",
+      "exit_code": 0,
+      "result": "PASS; 2,156 indexes; 16 non-blocking soft-target notices; 0 reader-banner issues"
+    }
+  ],
+  "note": "本任务不交付数学结论，没有 proof-assistant/kernel run。以上结果仅核验文档差异、README 导航链接、分支资产路径及分片结构；本文件不是 proof-run receipt。"
+}

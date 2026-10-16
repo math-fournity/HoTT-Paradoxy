@@ -1,0 +1,38 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-087-N41-BATCH12",
+  "state_revision": 87,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 87},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 87},
+    "three_way_cognition": {"status": "PASS", "state_revision": 87},
+    "core_cognition": {"status": "PASS_WITH_SCOPE", "core_units": 36},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"},
+    "understanding_merge": {"status": "PASS"},
+    "history_ledgers": {"status": "PASS"},
+    "cross_source_reconciliation": {"status": "PASS"},
+    "per_kc_audit": {"status": "PASS", "kc_count": 36, "relation_counts": {"ALIGNED": 5, "NOT_TOUCHED": 31}}
+  },
+  "tests": {
+    "cognition_runtime": "28/28 OK",
+    "full_closure_loading": "17/17 OK",
+    "core_cognition": "7/7 OK",
+    "three_way_cognition": "4/4 OK",
+    "math_proof_delivery_governance": "4/4 OK"
+  },
+  "batch12": {
+    "sampled": 40,
+    "verdicts": {"SUPPORTED": 20, "SUPERSEDED_BY_MACHINE_RESULT": 2, "UNSUPPORTED": 0, "PENDING": 18},
+    "cumulative": {"sampled": 482, "denominator": 2396, "coverage": "20.1%", "SUPPORTED": 308, "SUPERSEDED": 14, "UNSUPPORTED": 0, "PENDING": 160},
+    "e6_found": false,
+    "caliber_items": ["2,091 vs 2,087 sources (CL-000994)", "238 vs 237 lines (CL-002292)"],
+    "site_checks": ["workspace 44 SESSION / 9 PROOF_NOTE / 10 reviews", "r006-r015 artifacts archive-only", "4,330 finite models", "Gemini 24/24"]
+  },
+  "state_updates": {
+    "new_records": ["A-BATCH12-001", "S-RES-20260913-087-N41-BATCH12"],
+    "hydration_review_required": [],
+    "next_work_package": "N42: (a) pinned agda-unimath external E6 scan + native replay of the hott-z derived file; (b) T3 shared-decision joint recursion; (c) batch 13"
+  },
+  "boundaries": {"no_new_user_core_input": true, "no_claim_rows": true, "git_commit": "NOT_AUTHORIZED_THIS_TURN", "e6_status": "OPEN"}
+}

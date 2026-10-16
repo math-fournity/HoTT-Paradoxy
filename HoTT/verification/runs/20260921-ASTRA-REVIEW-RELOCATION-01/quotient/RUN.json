@@ -1,0 +1,69 @@
+{
+  "schema_version": "astra-scoped-relocation-replay/v1",
+  "case_id": "quotient",
+  "proof_id": "MP-ASTRA-QUOTIENT-CONSUMER-001",
+  "source_primary_run": "HoTT/verification/runs/20260920-MP-ASTRA-QUOTIENT-CONSUMER-001-01",
+  "status": "RELOCATION_REPLAY_PASS_WITH_SCOPE",
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/compiler/agda",
+    "--ignore-interfaces",
+    "--no-default-libraries",
+    "--library-file=/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/quotient/libraries",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/quotient/work/sources/HoTT/formal/astra-quotient-consumer",
+    "-i",
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/quotient/work/sources/HoTT/formal/dedekind-omega-missile",
+    "--dependency-graph=/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/quotient/imports.dot",
+    "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/quotient/work/sources/HoTT/formal/astra-quotient-consumer/QuotientConsumer.agda"
+  ],
+  "cwd": "/Volumes/D/HoTT-toolchain-cache/astra-review-20260921/relocated with spaces/outputs-01/quotient/work",
+  "exit_code": 0,
+  "expected_exit": 0,
+  "seconds": 60.18557004199829,
+  "observation_timeout": false,
+  "input_files_unchanged": true,
+  "interface_cache_initially_empty": true,
+  "ignore_interfaces": true,
+  "fresh_primitive_hashes_matched": 36,
+  "observed_checking_lines": 158,
+  "observed_path_escapes": [],
+  "original_dependency_graph_equal": true,
+  "expected_diagnostic_matched": true,
+  "bundle_manifest_sha256": "bdc4f97faedf3849b92edee91ccedf3e411ea006d644e038e27d48c5fa9d2e52",
+  "compiler_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+  "replayer_sha256": "8fe74c040962770c27ba1ade70467a96a6d7b04cc80714c63a47fca398e84e15",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "artifacts": {
+    "START.json": {
+      "bytes": 1191,
+      "sha256": "0962684ec900838f9f8a907a958f29f4183c502ab7ce4a1db4020b119d3fd4a5"
+    },
+    "imports.dot": {
+      "bytes": 10841,
+      "sha256": "9eebe39c6d20c275130e0181ab754b526900c9c5e1b3aad88a65e7c9c5c651e8"
+    },
+    "libraries": {
+      "bytes": 133,
+      "sha256": "8f04d197d41109cb3f47f954d259c452fecc5824c34a473b42066340496884bc"
+    },
+    "setup.stderr.txt": {
+      "bytes": 9260,
+      "sha256": "893b252b714f61dc2691704d7da5b1f31e731135f603b8dd61a487d8c6350eac"
+    },
+    "setup.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.txt": {
+      "bytes": 31087,
+      "sha256": "f52f2948482a0885ed285fc2249950dd0fbedc5373d7e2be988ca10e5e557eae"
+    }
+  },
+  "scope": "Same machine/macOS arm64 exact compiler and fixed bytes in a distinct fresh directory. No OS access sandbox or network isolation claimed. Imported-source paths observed in compiler output; not an operating-system file-access trace. Negative controls are rejected fixed terms, not negative mathematical theorems."
+}

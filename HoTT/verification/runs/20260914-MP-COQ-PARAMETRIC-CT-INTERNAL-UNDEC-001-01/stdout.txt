@@ -1,0 +1,131 @@
+The Coq Proof Assistant, version 8.13.2 (March 2026)
+compiled on Mar 30 2026 14:44:08 with OCaml 4.07.1
+COQDEP VFILES
+COQC Shared/Dec.v
+COQC Synthetic/Definitions.v
+COQC Shared/FilterFacts.v
+COQC Shared/ListAutomation.v
+COQC Shared/mu_nat.v
+COQC Shared/equiv_on.v
+COQC Shared/Pigeonhole.v
+COQC Synthetic/FinitenessFacts.v
+COQC Synthetic/DecidabilityFacts.v
+COQC Shared/embed_nat.v
+COQC Shared/partial.v
+COQC Synthetic/EnumerabilityFacts.v
+COQC Synthetic/SemiDecidabilityFacts.v
+COQC Synthetic/ListEnumerabilityFacts.v
+COQC Synthetic/MoreEnumerabilityFacts.v
+COQC Synthetic/truthtables.v
+COQC Synthetic/reductions.v
+COQC Synthetic/ReducibilityFacts.v
+COQC Axioms/bestaxioms.v
+COQC Axioms/halting.v
+EPF_SCT_halting
+     : bestaxioms.EPF_bool + bestaxioms.SCT ->
+       exists K : nat -> Prop,
+         Definitions.semi_decidable K /\
+         ~ Definitions.semi_decidable (reductions.compl K) /\
+         ~ Definitions.decidable K /\
+         ~ Definitions.decidable (reductions.compl K)
+EPF_SCT_halting = 
+fun X : bestaxioms.EPF_bool + bestaxioms.SCT =>
+match X with
+| inl H => bestaxioms.EPF_halting H
+| inr H =>
+    let H0 := bestaxioms.SCT_to_CT H in
+    let (ϕ, c) := H0 in bestaxioms.CT_halting c
+end
+     : bestaxioms.EPF_bool + bestaxioms.SCT ->
+       exists K : nat -> Prop,
+         Definitions.semi_decidable K /\
+         ~ Definitions.semi_decidable (reductions.compl K) /\
+         ~ Definitions.decidable K /\
+         ~ Definitions.decidable (reductions.compl K)
+Closed under the global context
+K_nat_bool_undec
+     : bestaxioms.EPF_bool + bestaxioms.SCT ->
+       ~ Definitions.decidable (reductions.compl K_nat_bool)
+K_nat_bool_undec = 
+fun X : bestaxioms.EPF_bool + bestaxioms.SCT =>
+let X0 :
+  exists K : nat -> Prop,
+    Definitions.semi_decidable K /\
+    ~ Definitions.semi_decidable (reductions.compl K) /\
+    ~ Definitions.decidable K /\ ~ Definitions.decidable (reductions.compl K) :=
+  EPF_SCT_halting X in
+match X0 with
+| ex_intro _ K (conj SK (conj _ (conj _ HK))) =>
+    fun Hd : Definitions.decidable (reductions.compl K_nat_bool) =>
+    HK
+      (reductions.red_m_transports (reductions.compl K)
+         (reductions.compl K_nat_bool)
+         (reductions.red_m_complement K K_nat_bool
+            (let H2 :
+               forall p : nat -> Prop,
+               Definitions.semi_decidable p -> reductions.red_m p K_nat_bool :=
+               fun p : nat -> Prop =>
+               match K_nat_bool_complete p with
+               | conj x _ => x
+               end in
+             H2 K SK)) Hd)
+end
+     : bestaxioms.EPF_bool + bestaxioms.SCT ->
+       ~ Definitions.decidable (reductions.compl K_nat_bool)
+Closed under the global context
+K_nat_undec
+     : bestaxioms.EPF_bool + bestaxioms.SCT ->
+       ~
+       Definitions.decidable (fun f : nat -> nat => forall n : nat, f n = 0)
+K_nat_undec = 
+fun X : bestaxioms.EPF_bool + bestaxioms.SCT =>
+let X0 :
+  exists K : nat -> Prop,
+    Definitions.semi_decidable K /\
+    ~ Definitions.semi_decidable (reductions.compl K) /\
+    ~ Definitions.decidable K /\ ~ Definitions.decidable (reductions.compl K) :=
+  EPF_SCT_halting X in
+match X0 with
+| ex_intro _ K (conj SK (conj _ (conj _ HK))) =>
+    fun
+      Hd : Definitions.decidable
+             (fun f : nat -> nat => forall n : nat, f n = 0) =>
+    let H2 :
+      forall x y : (nat -> nat) -> Prop,
+      Morphisms.pointwise_relation (nat -> nat) iff x y ->
+      Definitions.decidable y -> Definitions.decidable x :=
+      fun (x y : (nat -> nat) -> Prop)
+        (H2 : Morphisms.pointwise_relation (nat -> nat) iff x y) =>
+      match DecidabilityFacts.Proper_decidable x y H2 with
+      | conj _ x1 => x1
+      end in
+    let Hd0 :
+      Definitions.decidable
+        (fun a : nat -> nat => reductions.compl K_nat_nat a) :=
+      H2 (fun a : nat -> nat => reductions.compl K_nat_nat a)
+        (fun f : nat -> nat => forall n : nat, f n = 0)
+        (fun a : nat -> nat => K_nat_equiv a) Hd in
+    HK
+      (reductions.red_m_transports (reductions.compl K)
+         (reductions.compl K_nat_nat)
+         (reductions.red_m_complement K K_nat_nat
+            (reductions.red_m_transitive K_nat_bool K_nat_nat
+               (let H3 :
+                  forall p : nat -> Prop,
+                  Definitions.semi_decidable p ->
+                  reductions.red_m p K_nat_bool :=
+                  fun p : nat -> Prop =>
+                  match K_nat_bool_complete p with
+                  | conj x _ => x
+                  end in
+                H3 K SK)
+               (let H3 : reductions.red_m K_nat_bool K_nat_nat :=
+                  match K_nat_bool_equiv with
+                  | conj x _ => x
+                  end in
+                H3))) Hd0)
+end
+     : bestaxioms.EPF_bool + bestaxioms.SCT ->
+       ~
+       Definitions.decidable (fun f : nat -> nat => forall n : nat, f n = 0)
+Closed under the global context

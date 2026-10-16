@@ -1,0 +1,78 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-AUD-20260915-GLM-PLAN-ROUND8",
+  "task_kind": "glm_deep_audit_of_gpt_cross_round_plan",
+  "main": {
+    "root": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "branch": "main",
+    "starting_head": "2bbf5c873dfa3ac1d512955301b163b2b6f311b0"
+  },
+  "inputs": {
+    "glm_round8": {
+      "path": "GLM的回应/对GPT七轮综合工作方案的深度审计-20260915.md",
+      "lines": 208,
+      "bytes": 14719,
+      "sha256": "c5ab72ea9823d6b74cbe12faf4f35fa8162d72a0e8f8cfba8db8a1d0135a746f"
+    },
+    "gpt_plan": {
+      "path": "GPT的回应/HoTT机器统观后续工作方案-七轮审计共识综合与执行论证-20260915.md",
+      "lines": 952,
+      "bytes": 62817,
+      "sha256": "f533840ad01fd1eae91f367dea0e632d3a834a53ce0451de99f96129546c66e4",
+      "glm_reported_lines": 953,
+      "line_count_verdict": "GLM_OFF_BY_ONE"
+    }
+  },
+  "direct_checks": {
+    "r4_gate_count": {
+      "unique_q_gates": 10,
+      "missing_from_gpt_plan_section_11_1": "Q-RAW-SYNTAX",
+      "verdict": "GLM_CORRECTION_ACCEPTED"
+    },
+    "active_record_mismatch": {
+      "goal_actual": "5c21d3ffed766244988ea4751d2259d7563d9a1ecc03ecbd15ad81b6e001e5c5",
+      "goal_pinned": "f302d37ac6732c4c742d5adfcc0fe89b2b89e1d3350910657e50602d15649311",
+      "r4_actual": "38f0e65db71e24f6b040b7709b1b0ec741af5f74b120dc1a0dc7f0ac48b30e91",
+      "r4_pinned": "6cb41c9b471075a12cdca8c2af4f0373776d85bc01fc863b9b4cdb05a59663b3",
+      "research_hydration": "BOTH_REVIEW_REQUIRED"
+    },
+    "timeline": {
+      "s151_checkpoint_completed_utc": "2026-09-15T06:38:03.740331Z",
+      "initial_glm_audit_readme_birth_utc": "2026-09-15T07:06:35Z",
+      "goal_mtime_utc": "2026-09-15T07:10:11Z",
+      "r4_mtime_utc": "2026-09-15T07:10:41Z",
+      "verdict": "OVERLAP_SUPPORTED_IF_PIN_WAS_FRESH / EXACT_TRANSITION_NOT_RECEIPTED / AUTHOR_UNKNOWN"
+    },
+    "pinned_byte_recovery": {
+      "git_tracked": false,
+      "git_history_hits": 0,
+      "checkpoint_session_audit_files_hashed": 7484,
+      "bytes_hashed": 217057276,
+      "matching_old_goal_or_r4_snapshots": 0,
+      "verdict": "NOT_RECOVERED_IN_CHECKED_REPO_EVIDENCE"
+    },
+    "glm_false_absence": {
+      "claim": "TEXT_ROUNDTRIP_TERMINATION_ONLY_IMPLICIT_OR_MISSING",
+      "counterevidence": "GPT plan section 4.1 item 14 explicitly states textual roundtrips are sufficient",
+      "verdict": "REJECTED"
+    }
+  },
+  "result": {
+    "path": "GPT的回应/GLM第八轮深度审计报告-20260915.md",
+    "lines": 372,
+    "bytes": 20125,
+    "sha256": "d618a5b997cd1efe60105f72e9731f67a19cf5d9e0987958376e179f3075eca3",
+    "local_links": "PASS / 2_OF_2_EXIST",
+    "text_structure": "PASS / UTF8 / FINAL_NEWLINE / GIT_DIFF_CHECK_CLEAN",
+    "core_cognition_audit": "PASS / 36_OF_36 / ALIGNED_8_CORRECTED_2_DEEPENED_3_NOT_TOUCHED_23 / REMAINDER_0",
+    "core_cognition_audit_sha256": "51b4b7439543db725c6359f5a9b2fe8dd1f44941a5d07dd191116bbd961f0d32",
+    "session_sha256": "04f4050be739f163235d3c0ef2d3ed3a677dbfae48bda71d00679401a2c62ebb",
+    "verification": "PASS"
+  },
+  "new_math_claims": [],
+  "proof_assistant_runs": [],
+  "checkpoint": "NOT_APPLIED_NO_CURRENT_OWNER_CHANGE",
+  "commit": "NOT_PERFORMED",
+  "tag": "NOT_CREATED",
+  "push": "NOT_PERFORMED"
+}

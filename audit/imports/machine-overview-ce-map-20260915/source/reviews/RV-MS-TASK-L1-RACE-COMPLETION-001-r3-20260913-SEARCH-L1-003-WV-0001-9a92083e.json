@@ -1,0 +1,160 @@
+{
+  "candidate_ast_sha256": "9a92083e109d41ff259ce8cef960422f14a37d1733cdff674c232395ef72c8b0",
+  "case_id": "MS-TASK-L1-RACE-COMPLETION-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001/case-revision-3.json",
+  "case_revision": 3,
+  "case_sha256": "5524651182b74edc02882b0f108bac1f0ff6d415cc4d9b4fd780838cc527e733",
+  "checklist": [
+    {
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json",
+        "revision 1"
+      ],
+      "item": "original activity and completion criterion are declared before search",
+      "status": "DECLARED"
+    },
+    {
+      "evidence": [
+        "L1-PARTIALITY-RACE-DEADLINE-v1: supported_operations",
+        "machine-overview/profiles/l1-partiality-v1.json"
+      ],
+      "item": "the theoryization step is an operation of the pinned model",
+      "status": "SUPPORTED"
+    },
+    {
+      "detail": "both consumers are declared in the pinned model; the deadline reads the round index that ret already carries, and the business continuation is part of the task declaration",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json"
+      ],
+      "item": "the separating observation is declared in the task, not an oracle added later",
+      "status": "DECLARED"
+    },
+    {
+      "detail": "The round index is part of the constructor already present in the frozen model; this is not recovery of n from a result quotient, and no quotient-level recovery is claimed.",
+      "evidence": [
+        "machine-overview/profiles/l1-partiality-v1.json"
+      ],
+      "item": "compensation class of the consumer",
+      "status": "READS_DECLARED_REPRESENTATION"
+    },
+    {
+      "detail": "the verified statement is a ground instance; no universal or physical claim is made",
+      "evidence": [
+        "machine-overview/grammars/l1-v1.json"
+      ],
+      "item": "quantifier scope of the claim",
+      "status": "FINITE_DECLARED_GRAMMAR_ONLY"
+    },
+    {
+      "detail": "the run is a model-level calibration instance; a real consumer would be a separate E6-style audit",
+      "evidence": [
+        "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json"
+      ],
+      "item": "reality bridge",
+      "status": "NOT_CLOSED_IN_M1"
+    }
+  ],
+  "conclusion": {
+    "correspondence_status": "MODEL_ONLY_OPERATIONALLY_SPECIFIED",
+    "new_claim": false,
+    "open_obligations": [
+      "a real consumer (E6-style) is out of scope for this calibration",
+      "the physical reading of time is not addressed by this fragment"
+    ],
+    "reality_correspondence": "UNRESOLVED",
+    "related_claims": [
+      "C-73",
+      "C-74",
+      "C-75",
+      "C-76"
+    ],
+    "research_relation": "calibration",
+    "task_preservation": "PRESERVED_AT_MODEL_LEVEL",
+    "task_preservation_basis": [
+      {
+        "detail": null,
+        "id": "grammar_membership",
+        "status": "PASS"
+      },
+      {
+        "detail": "search run case revision 3 vs case revision 3",
+        "id": "case_search_binding",
+        "status": "PASS"
+      },
+      {
+        "detail": "deadline_observation",
+        "id": "declared_observation_kind",
+        "status": "PASS"
+      },
+      {
+        "detail": "the witness must apply at least one declared consumer (deadline or race)",
+        "id": "declared_consumer_present",
+        "status": "PASS"
+      },
+      {
+        "detail": "READS_DECLARED_REPRESENTATION",
+        "id": "compensation_classified",
+        "status": "PASS"
+      }
+    ]
+  },
+  "context_summary": [
+    "deadline(0, □)"
+  ],
+  "created_at_utc": "2026-09-13T15:14:23.952432+00:00",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "e4ab45bcb6931861fa57cfa9f8ac8de2af12acce",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 13,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "mechanism_facts": {
+    "compensation": {
+      "class": "READS_DECLARED_REPRESENTATION",
+      "detail": "The round index is part of the constructor already present in the frozen model; this is not recovery of n from a result quotient, and no quotient-level recovery is claimed."
+    },
+    "has_business_bind": false,
+    "has_deadline": true,
+    "has_plain_bind": false,
+    "has_race": false
+  },
+  "mechanism_summary": "The declared deadline consumer reads the round index n that the pinned constructor `ret n a` already carries. Result equivalence ≈ identifies `ret n a` with `ret m a`, so it cannot see the difference the deadline consumer reads.",
+  "review_checks": [
+    {
+      "detail": null,
+      "id": "grammar_membership",
+      "status": "PASS"
+    },
+    {
+      "detail": "search run case revision 3 vs case revision 3",
+      "id": "case_search_binding",
+      "status": "PASS"
+    },
+    {
+      "detail": "deadline_observation",
+      "id": "declared_observation_kind",
+      "status": "PASS"
+    },
+    {
+      "detail": "the witness must apply at least one declared consumer (deadline or race)",
+      "id": "declared_consumer_present",
+      "status": "PASS"
+    },
+    {
+      "detail": "READS_DECLARED_REPRESENTATION",
+      "id": "compensation_classified",
+      "status": "PASS"
+    }
+  ],
+  "review_id": "RV-MS-TASK-L1-RACE-COMPLETION-001-r3-20260913-SEARCH-L1-003-WV-0001-9a92083e",
+  "schema_version": "machine-overview-correspondence-review/v1",
+  "source_search_run": {
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260913-SEARCH-L1-003/RUN.json",
+    "run_id": "20260913-SEARCH-L1-003",
+    "sha256": "d0e28a5c794ec45bb7300a1cf58bbfb1c97eb9316fbc672f9cc9914de5d70bd4"
+  },
+  "witness_id": "WV-0001"
+}

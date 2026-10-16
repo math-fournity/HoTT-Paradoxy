@@ -1,0 +1,50 @@
+{
+  "schema_version": "core-cognition-curation/v2",
+  "asset_class": "HUMAN_EDITED_CURATION_AUTHORITY",
+  "generation": "core-cognition-generation-7",
+  "previous_generation_ref": "d2862787",
+  "scope": "Preserve every generation-6 exact user unit (43/43) and add the current user's 2026-09-16 epistemological correction directed at audit report 09 section 5: theory is always an abstraction of reality, always a kind of analogy, an imitation that tries to extract reality's core skeleton; even a mathematical object absent from reality is a skeletal imitation of an imagined reality, so there is no such thing as a theory whose reality side cannot be grasped. Mathematics and HoTT necessarily map onto reality — one can explain a homotopy type in plain words with real examples — and it is precisely while interpreting theory with reality and aligning the two that one locates the premises a theory sacrificed for economy but should not have. AI is not unable to think reality, its training data is full of reality; what is missing is the attempt to understand theory by way of reality, as the user did for Russell, Better-Best and the Shenchen paradox, and as the original motivation of machine overview itself already was (whether one can build a non-halting program in HoTT is a reality question). Recorded as three semantic units.",
+  "inherits": {
+    "path": "scripts/audit/core-cognition-curation-v6.json",
+    "sha256": "83649f5211940d7edd597b0e4d2e54808869903c50f61cd6d6225a11e4ee63b4",
+    "generation": "core-cognition-generation-6"
+  },
+  "sources": [
+    {
+      "platform": "Codex",
+      "message_id_prefix": "CODEX-REALITY-SKELETON-20260916",
+      "path": "sources/prompts/Codex-理论是对现实的骨架式模仿-用户原文-20260916.md",
+      "sha256": "7beabdcb1e2b63a8c8013c5a76739da86e97a963d021435f9280324852833078"
+    }
+  ],
+  "message_decisions": [
+    {
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "disposition": "INCLUDED",
+      "reason": "用户对本轮审计报告 09 第 5 节原稿的直接修正。原稿主张 HoTT 的“现实”一侧没有一个像“运动是量子化的”那样预存的、可直接判定的标准；用户指出该提法是错的，并给出更根本的认识论前提：理论永远是对现实的骨架式模仿，假想中的现实也是现实，现实标准是在用现实诠释理论并不断对齐的过程中被构造出来的。这是对研究方法本身的明确修正（不是某个悖论候选），按三个语义单元原文保留；会话开场“我觉得你说的不对”属对话框架，不作为独立单元。修正后的结论已落回审计报告 09 第 5 节（改写）与修订片 008 的 reality_skeleton / divergence_point 必填项。"
+    }
+  ],
+  "units": [
+    {
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "semantic_label": "理论是对现实的骨架式模仿：非现实性内容恰恰是该认真考虑的，假想中的现实也是现实",
+      "source_lines": [7, 9],
+      "start_at": "恰恰就是这种非现实性的内容，才是应该认真考虑的",
+      "end_after": "只是你没有试着去尽力用现实去把握而已。"
+    },
+    {
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "semantic_label": "数学与HoTT必然可映射现实：在现实诠释与不断对齐中，定位理论为经济性舍弃了不该舍弃的前提",
+      "source_lines": [11, 13],
+      "start_at": "因为，数学是可以映射到现实的",
+      "end_after": "应该与现实对齐而没有对齐的理论前提？"
+    },
+    {
+      "source_message_id": "CODEX-REALITY-SKELETON-20260916-M-001",
+      "semantic_label": "AI缺的是用现实理解理论的动作而非思考现实的能力；机器统观的原始出发点本身就是一个现实问题",
+      "source_lines": [15, 17],
+      "start_at": "AI训练数据中充满了现实性的内容",
+      "end_after": "就是一个现实问题！"
+    }
+  ]
+}

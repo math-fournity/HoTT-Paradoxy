@@ -1,0 +1,75 @@
+{
+  "schema_version": "core-cognition-curation/v2",
+  "asset_class": "HUMAN_EDITED_CURATION_AUTHORITY",
+  "generation": "core-cognition-generation-9",
+  "previous_generation_ref": "4603eb2a5a6b27c7732931a171c1ab54e6d74b79",
+  "scope": "Preserve all 48 generation-8 user units exactly; append three complete user-authored items: (1) the 2026-09-24 attribution correction (Claude Code session), which withdraws the working-order force of the 'next story' clause in KC-000005 and KC-000020 (both stay verbatim as historical record, per the user's explicit choice); (2) the 2026-09-26 Russell principles P1-P3 (Claude Code session 7f138325); (3) the 2026-09-26 second-batch text on operators preceding the settling of existence (GLM session, round 5). The attribution correction had been prepared as a patch for the integrator on 2026-09-24; on 2026-09-27 the user explicitly asked for the Russell texts to enter the core and authorised the Cloud-Opus audit session to perform the core entry and the registration. Source timestamps of items (2) and (3) are upper bounds, stated in their source files. No AI claims or operational framing enter these units.",
+  "inherits": {
+    "path": "scripts/audit/core-cognition-curation-v8.json",
+    "sha256": "28bcccf37492157b93213e665a96e968d94e5aa8f82031f148671778775ed330",
+    "generation": "core-cognition-generation-8"
+  },
+  "sources": [
+    {
+      "platform": "Claude",
+      "message_id_prefix": "CLAUDE-ATTRIBUTION-CORRECTION-20260924",
+      "path": "sources/prompts/Claude-归因是正题-用户原文-20260924.md",
+      "sha256": "89076899be25f75c4bcc8bdb92d9a08aae347c52d7e8b0c8a0904a18a43019a9"
+    },
+    {
+      "platform": "Claude",
+      "message_id_prefix": "CLAUDE-RUSSELL-PRINCIPLE-20260926",
+      "path": "sources/prompts/Claude-罗素原则P1至P3-用户原文-20260926.md",
+      "sha256": "1b37b69fb305778006b10745a1bcff93e763a91ce932ca5142754d7f026ec226"
+    },
+    {
+      "platform": "GLM",
+      "message_id_prefix": "GLM-RUSSELL-OPERATOR-BEFORE-EXISTENCE-20260926",
+      "path": "sources/prompts/GLM-算符先行于存在性落定-用户原文-20260926.md",
+      "sha256": "ac9b6600d708cfb19b59299e087d1ab0e7a1a9043d3e7fbd4fc7b79457d49034"
+    }
+  ],
+  "message_decisions": [
+    {
+      "source_message_id": "CLAUDE-ATTRIBUTION-CORRECTION-20260924-M-001",
+      "disposition": "INCLUDED",
+      "reason": "用户明确修正 KC-000005、KC-000020 中“至于悖论作为矛盾，它到底是否定了哪个前提，那是未来的下一个故事”一句的工作次序效力，并要求改掉原始文档；随后在选择题中选定“保留原话并加修正”。原话作为历史记录保留；本单元只含用户本人的一句修正原文。上下文与选项文字由 Claude 记录，留在来源文件的说明里，不进入 KC。不认证任何具体归因结论。"
+    },
+    {
+      "source_message_id": "CLAUDE-RUSSELL-PRINCIPLE-20260926-M-001",
+      "disposition": "INCLUDED",
+      "reason": "用户 2026-09-26 在 Claude 会话中提出的罗素原则 P1–P3：理论无法拒绝其论域元素的存在性问题；对论域元素存在性的追问若在现实中引发无法停机的计算（无限追溯），即为成功。用户 2026-09-27 明确要求把它入核。两段是同一原则的组成部分，作为一个语义单元；消息首句是对上文 AI 表述的回应，保留在来源文件，不进入 KC。内容作为用户研究意识完整保留，不认证其必然性，也不认证任何 HoTT 上的具体结论。"
+    },
+    {
+      "source_message_id": "GLM-RUSSELL-OPERATOR-BEFORE-EXISTENCE-20260926-M-001",
+      "disposition": "INCLUDED",
+      "reason": "用户 2026-09-26 在 GLM 会话第 5 轮提交的同线第二批原文：算符先行于存在性落定的次序非法、对论域元素身份的合法性追溯有静态与动态两种读法，以及以“无限追溯”为成功判据。它比第一批 P1–P3 多出这三点，故不按重复排除；用户 2026-09-27 明确要求把它入核。整条五段是一个连贯的论证，作为一个语义单元。内容作为用户研究意识完整保留，不认证其必然性，也不认证任何 HoTT 上的具体结论。"
+    }
+  ],
+  "units": [
+    {
+      "source_message_id": "CLAUDE-ATTRIBUTION-CORRECTION-20260924-M-001",
+      "semantic_label": "归因是要与用户仔细探讨的正题，撤回“下一个故事”的工作次序",
+      "source_lines": [
+        9,
+        9
+      ]
+    },
+    {
+      "source_message_id": "CLAUDE-RUSSELL-PRINCIPLE-20260926-M-001",
+      "semantic_label": "论域元素的存在性是理论无法拒绝的问题；对它的追问若在现实中不停机，即为罗素式成功（P1–P3）",
+      "source_lines": [
+        13,
+        15
+      ]
+    },
+    {
+      "source_message_id": "GLM-RUSSELL-OPERATOR-BEFORE-EXISTENCE-20260926-M-001",
+      "semantic_label": "算符先于存在性落定是数学上不合理的次序；对论域元素身份的合法性追溯是永不停机的计算（罗素线第二批）",
+      "source_lines": [
+        11,
+        19
+      ]
+    }
+  ]
+}

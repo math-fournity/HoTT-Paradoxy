@@ -1,0 +1,103 @@
+Syntax and Semantics of Quantitative Type Theory
+Robert Atkey
+University of Strathclyde
+robert.atkey@strath.ac.uk
+Abstract
+We present Quantitative Type Theory, a Type Theory that records
+usage information for each variable in a judgement, based on a
+previous system by McBride. The usage information is used to give
+a realizability semantics using a variant of Linear Combinatory
+Algebras, refining the usual realizability semantics of Type Theory
+by accurately tracking resource behaviour. We define the semantics
+in terms of Quantitative Categories with Families, a novel extension
+of Categories with Families for modelling resource sensitive type
+theories.
+CCS Concepts •Theory of computation→ Linear logic; Type
+theory;
+Keywords Type Theory, Linear Logic
+ACM Reference Format:
+Robert Atkey. 2018. Syntax and Semantics of Quantitative Type Theory. In
+LICS ’18: 33rd Annual ACM/IEEE Symposium on Logic in Computer Science,
+July 9–12, 2018, Oxford, United Kingdom. ACM, New York, NY, USA, 10 pages.
+https://doi.org/10.1145/3209108.3209189
+1 Introduction
+Dependent Type Theory promises to combine “programming” and
+“verification” by combining both in a single system. The implementa-
+tions Agda [34] and Idris [7] advertise themselves as a “dependently
+typed functional programming language” and a “general purpose
+pure functional programming language with dependent types”, re-
+spectively. Coq [24] is primarily intended as a proof assistant, but
+also provides a program extraction facility.
+However, when trying to actually use Type Theory as a general
+purpose programming language, type dependency appears to ac-
+tively encourage inefficient code. This is caused by Type Theory’s
+use of variables for two purposes: as information to be used in
+the formation of types, for example, the type Fin(n) of naturals
+bounded by n depends on the natural number n when type check-
+ing, but not a runtime; and as computational information that is
+manipulated by programs at runtime. An example is illustrated by
+the type of the cons operation for length indexed vectors of Ss:
+cons : (n : nat) → S → vec n S → vec (succ n) S
+A naive implementation of length indexed vectors will store, for
+every element: a value s; a tail v; and a natural number n recording
+the length ofv. If a unary representation of natural numbers is used,
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than the
+author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior specific permission
+and/or a fee. Request permissions from permissions@acm.org.
+LICS ’18, July 9–12, 2018, Oxford, United Kingdom
+© 2018 Copyright held by the owner/author(s). Publication rights licensed to Associa-
+tion for Computing Machinery.
+ACM ISBN 978-1-4503-5583-4/18/07. . . $15.00
+https://doi.org/10.1145/3209108.3209189
+then this can easily lead to a runtime representation of vectors that
+consumes memory space quadratic in the length of the list!
+Related to the problem of distinguishing between type formation
+and computational use of data is distinguishing between different
+kinds of computational use of data. Such information can be used
+to generate more efficient code, or to ensure that programs only use
+computational resources in restricted ways (allowing, for example,
+in place update of memory). Linear Logic [14] initiated a body of
+research into such systems. Initially, this recorded zero, single, or
+multiple uses (made explicit by Mogensen [28]), but recent work
+in coeffects and quantitative types by Petricek et al. [29], Brunel
+et al.[8], and Ghica and Smith [13] refined this to track usage via
+semirings. However, extending these systems to dependent Type
+Theory is not straightforward due to the conflict between type
+formation and computational uses.
+McBride [25] has recently proposed a resolution to this conflict
+by combining the work on erasability and quantitative types. His
+insight is to use the 0 of the semiring to represent information
+that is erased at runtime, but is still available for use in types (i.e.,
+extensionally). McBride presented a syntax and typing rules for the
+system, as well as an erasure property that exploits the difference
+between “not used” and “used”, but does not do anything with the
+finer usage information available. In this paper, we fix and extend
+McBride’s system, and present semantic interpretations that fully
+exploit the usage information.
+Contributions
+1. Section 2 reformulates McBride’s system as Quantitative
+Type Theory (QTT) to add dependent tensor products and
+booleans, and to fix a bug in the original system that caused
+substitution to be inadmissible.
+2. Section 3 presents Quantitative Categories with Families , a
+novel class of categorical models for interpreting QTT.
+3. Section 4 presents several concrete realisability models of
+QTT as instances of QCwFs. These demonstrate that QTT
+allows resource sensitive interpretation of terms. Read con-
+structively, these interpretations yield an efficient extraction
+mechanism with precise control over resource usage.
+2 Quantitative Type Theory
+Combining dependency with linearity is not straightforward. We
+motivate McBride’s solution and our formulation of it.
+2.1 Dependency and Accountancy
+In Martin-Löf Type Theory, the term judgement has the form:
+x1 : S1, x2 : S2, . . . ,xn : Sn ⊢ M : T
+From Type Theory’s mixed computational/logical point of view,
+the context x1 : S1, x2 : S2, . . . ,xn : Sn has two uses. It describes
+the names used for resources which may be used byM to construct
+a resource of type T . It also describes the names used to refer to
+the extensional meanings represented by those resources used to

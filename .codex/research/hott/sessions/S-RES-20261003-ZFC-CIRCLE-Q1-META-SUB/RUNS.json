@@ -1,0 +1,68 @@
+{
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261003-ZFC-CIRCLE-Q1-META-SUB",
+  "tier": "T2",
+  "role": "RESEARCH_GENERATION",
+  "status": "Q1_SEED_NARROWED_SOURCE_CONSUMER_GAP_NO_ZFC_Q_OR_MATH_CLAIM",
+  "new_formal_runs": [],
+  "source_reads": [
+    {
+      "id": "SRC-METASUB-001",
+      "source": "Stanford Encyclopedia of Philosophy, Set Theory",
+      "identity": "https://plato.stanford.edu/entries/set-theory/index.html",
+      "scope": "ZFC first-order language, set representation and foundational role",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-METASUB-002",
+      "source": "Stanford Encyclopedia of Philosophy, Turing Machines",
+      "identity": "https://plato.stanford.edu/archives/spr2024/entries/turing-machine/",
+      "scope": "state/transition/successive-configuration form of a computation",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-METASUB-003",
+      "source": "Stanford Encyclopedia of Philosophy, Zeno’s Paradoxes",
+      "identity": "https://plato.stanford.edu/archives/sum2024/entries/paradox-zeno/",
+      "scope": "separation between a mathematical treatment and adequacy for actual space, time and motion",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    },
+    {
+      "id": "SRC-METASUB-004",
+      "source": "John D. Norton, Zeno’s Paradoxes of Motion",
+      "identity": "https://sites.pitt.edu/~jdnorton/teaching/paradox/chapters/Zeno/Zeno.html",
+      "scope": "explicit change from last-action completion to all-actions-without-last-action",
+      "status": "SOURCE_READ_WITH_SCOPE"
+    }
+  ],
+  "p_dag_runs": [
+    {
+      "id": "H081-ZFC-CIRCLE-Q1-PRELAUNCH",
+      "status": "INPUT_CONTRACT_FAILURE / NO_AGENT_OUTPUT",
+      "cause": "authorization omitted required R-035 reference; no model sampling",
+      "public_report": "audit/20261003-P-DAG-ZFC-CIRCLE-081-082-Terra-Max.md"
+    },
+    {
+      "id": "H082-ZFC-CIRCLE-Q1-SOURCE-MATCH",
+      "status": "PASS / SOURCE_SUMMARY_VALIDATION / Q_NARROW",
+      "model": "gpt-5.6-terra",
+      "effort": "max",
+      "final_sha256": "8c9b116dd8f125a4bec41278daafced9e34c550c3209c0a8c7aa984845ab9e54",
+      "trajectory": "private direct App Server wire; L1 NOT_FULLY_CERTIFIED, L2 NOT_OBSERVED_EXPECTED, L3 NOT_TESTED, L4 MASTER_REVIEWED_WITH_SCOPE, L5 NODE_ACCEPTED_WITH_SCOPE",
+      "public_report": "audit/20261003-P-DAG-ZFC-CIRCLE-081-082-Terra-Max.md"
+    }
+  ],
+  "reused_controls": [
+    {
+      "claim_ids": ["C-269", "C-272"],
+      "status": "SOURCE_REPORTED_CONTROL_NOT_RERUN",
+      "use": "reject a broad denial that continuum mathematics can state a final endpoint while preserving the distinction from physical/source-history Done"
+    }
+  ],
+  "non_goals": [
+    "No ZFC inconsistency or inability-to-represent-time claim.",
+    "No mathematical theorem, proof assistant run, or claim-matrix update.",
+    "No claim that all limit arguments change tasks or that the original circle Done is settled.",
+    "No Power Set station switch, CAL upgrade, P4, or ZFC Q convergence."
+  ]
+}

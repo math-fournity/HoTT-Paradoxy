@@ -1,0 +1,379 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 6010, "end_line": 6383, "total_lines": 18474, "next_start_line": 6384, "chunk_sha256": "6a6860f615e1d1bd050c0d93537da2aa44e66b3c1f09d82645c876c4f8a46176", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+        ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/out/MAlonzo/Code/LemClassifier.hs",
+        ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/lean/LemClassifier.lean"
+      ],
+      "kind": "extraction_interface_audit",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/rp-b01-extraction-interface审计-20260912.md",
+      "resolution": {
+        "evidence": [
+          "audit/rp-b01-extraction-interface审计-20260912.md",
+          ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/LemClassifier.agda",
+          ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/out/MAlonzo/Code/LemClassifier.hs",
+          ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/lean/LemClassifier.lean"
+        ],
+        "reason": "Real runs on Agda 2.8.0 and Lean 4.33.1: the audited extraction interfaces refuse a default effective implementation for the LEM classifier (postulate runtime-error stub; noncomputable evaluation refusal; Prop large-elimination restriction). Coq/GHC unavailable."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "scope": "Audit real object-layer to execution-layer interfaces for W51xRP-B01: does any audited interface promise a uniform effective implementation for the propositional-LEM classifier chi? Result: DEFENSE_WORKS (scoped); no mathematical claim upgraded.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/LemClassifier.agda": "5809301f70f17a96a78f9b3e3f813ee38081c454267a21f2580b55eb6046a063",
+        ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/out/MAlonzo/Code/LemClassifier.hs": "6a8a59ff0426a1860dc86a8816a8f9185bb9abdb0d4618e1079ed880fdf599a9",
+        ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/lean/LemClassifier.lean": "910ab13b0604575fb72aa68a79a80277d827ae1c647428d2fe5c9dab3aac9577",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "audit/natural-consumer审计-20260912.md": "51ea6b73e71093d2434c440d196d4162494f098c698ddde6e3e6e0e449b9cb0d",
+        "audit/rp-b01-extraction-interface审计-20260912.md": "7a50a97283e62975f5ef268df14e5ddec8ed797886ce2bf28fc6f6fc2030bb66",
+        "理解章节/C5-十机证明后的悖论距离与自然消费者审计-20260912.md": "e29b389828afd6935104abf172766e58d76d3fb64e6ab7d08f32d0adc042f73e"
+      },
+      "status": "complete"
+    },
+    "A-SIP-REPRESENTATION-FORMAL-001": {
+      "claim_ids": [
+        "C-124",
+        "C-125",
+        "C-126",
+        "C-127",
+        "C-128"
+      ],
+      "classification": "SIP_REPRESENTATION_BOUNDARY_WITH_POSITIVE_CONTROL",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/sip-representation/SIPRepresentation.agda",
+        "HoTT/formal/sip-representation/README.md",
+        "HoTT/formal/sip-representation/TOOLCHAIN.json",
+        "HoTT/formal/sip-representation/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/sip-representation机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "MINIMAL_NATIVE_SIP_UA_SUBSTITUTIVITY_BOUNDARY",
+      "path": "HoTT/formal/sip-representation/SIPRepresentation.agda",
+      "proof_id": "MP-SIP-REPRESENTATION-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/sip-representation机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0 with zero warnings; source, toolchain and index-row hashes match; exact replay passed. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-SIP-REPRESENTATION-001-01",
+      "scope": "Minimal native Cubical SIP/UA boundary: pointed structures (Bool,true) and (Bool,false) are identified by ua notEquiv (C-124); the outside-signature observable differs (C-125); any Bool-valued function on the structure type is constant on the pair (C-126); no uniform recovery exists (C-127); adding the observable to the signature recovers/distinguishes it (C-128). Boundary result with positive control; not a HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/sip-representation/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/sip-representation/README.md": "fb5c6eadc012c965be3c1eb228f64de6abcfcd99ce5190b27168edc5786d44e5",
+        "HoTT/formal/sip-representation/SIPRepresentation.agda": "517265f41a8949a3372bd08fa5aa4471d65eb1ed10759cb75603162d05b71e93",
+        "HoTT/formal/sip-representation/TOOLCHAIN.json": "db9b47dfad8d9c5c196df45b78691bda5bf8d33d62770dd4e675ccda609d2cd3",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/RUN.json": "fe45681aa7d6e1a9c7fb209b1d949011ab13aa71c2d6a70d12457fb8e56b587a",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/index-row-manifest.json": "92b73ce555a7940d0382087ac251088d91d227e11426dda3430c4a4c34df0f83",
+        "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01/source-manifest.json": "d876d562f9574238f465f8e09fcfd0b2b6270381949af9316add6a8cd68e12d4",
+        "audit/sip-representation机器证明实施证据-20260912.md": "26d42e69ff70a6771559b04aa14988309077f2a642c4180f725e21e7638db15d"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-T3-ASSEMBLY-ATTEMPT2-001": {
+      "classification": "T3_ASSEMBLY_BLOCKED_RECORD_2",
+      "depends_on": [
+        "A-T3-COHERENCE-LEMMAS-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/VarBranch.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-078-N32-T3-ASSEMBLY-ATTEMPT2/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/VarBranch.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/VarBranch.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-078-N32-T3-ASSEMBLY-ATTEMPT2/evidence/agda/stdout.txt"
+        ],
+        "reason": "Eleventh T3 pulse: second occurrence of the same with-abstraction blocker, with two mechanical fixes named and nothing unproved asserted."
+      },
+      "scope": "Status record only; mutual induction remains open; no claim row.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-078-N32-T3-ASSEMBLY-ATTEMPT2/evidence/agda/stdout.txt": "f6dffff28769d64770e2b63e39f056a86da7b9ce7e9da67147ec9ad1f2070ff9",
+        "HoTT/formal/ercf3-t3/VarBranch.agda": "2beb3fb6d3017879181b0e402a1a6b791d4a138d70f6a7df16f50356c7ba034f"
+      },
+      "status": "complete"
+    },
+    "A-T3-ATTEMPT-STATUS-001": {
+      "classification": "T3_MUTUAL_INDUCTION_ATTEMPT_STATUS",
+      "depends_on": [
+        "A-T3-SINGLE-OBLIGATION-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/MutualInduction.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-076-N30-T3-ATTEMPT-STATUS/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/MutualInduction.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/MutualInduction.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-076-N30-T3-ATTEMPT-STATUS/evidence/agda/stdout.txt"
+        ],
+        "reason": "Ninth T3 pulse records the attempt status: proved fragments and the concrete with-abstraction blocker; nothing unproved is written as proved. Exit 0, zero warnings."
+      },
+      "scope": "Status record only; mutual induction remains open; no claim row.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-076-N30-T3-ATTEMPT-STATUS/evidence/agda/stdout.txt": "53a266fa353a3abdfb5863ce19983b9a55c7d3aa78d290d5539aecd4e674a144",
+        "HoTT/formal/ercf3-t3/MutualInduction.agda": "301dab730d4d2fd3a97d59a0d7c17a39961d990c5763859f021f66ee77b5e965"
+      },
+      "status": "complete"
+    },
+    "A-T3-BLOCKER-CHARACTERIZED-001": {
+      "classification": "T3_BLOCKER_FINAL_CHARACTERIZATION",
+      "depends_on": [
+        "A-T3-DECISION-PARAM-FIX-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/TermIdentityFinal.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-080-N34-T3-BLOCKER-FINAL-CHARACTERIZATION/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/TermIdentityFinal.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/TermIdentityFinal.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-080-N34-T3-BLOCKER-FINAL-CHARACTERIZATION/evidence/agda/stdout.txt"
+        ],
+        "reason": "Thirteenth T3 pulse compiles (exit 0, zero warnings) and pins the blocker's final form: both sides perform the decision split, so the remaining step is a shared-decision joint recursion; the three local fixes are exhausted to their boundary."
+      },
+      "scope": "Characterization only; joint recursion remains open; no claim row.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-080-N34-T3-BLOCKER-FINAL-CHARACTERIZATION/evidence/agda/stdout.txt": "2e8f96735de108e3b715c2ccbaa8a130579f0b1a3c9ad4b6b9eb00920283ad70",
+        "HoTT/formal/ercf3-t3/TermIdentityFinal.agda": "557bd92d24be5b72c8c01c7cd3e42ff13b092c6e7e808421356ada8a27291c40"
+      },
+      "status": "complete"
+    },
+    "A-T3-CODE-FIX-001": {
+      "classification": "T3_CODE_STORE_FIX_FINDING",
+      "depends_on": [
+        "A-T3-CODE-IDENTITY-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-073-N27-T3-CODE-FIX/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-073-N27-T3-CODE-FIX/evidence/agda/stdout.txt"
+        ],
+        "reason": "Sixth T3 pulse compiles (exit 0, zero warnings) and records the formulation finding: naive term-level identity is false; adjusted reading fixed."
+      },
+      "scope": "Finding + anchors only; ERCF-3 gated.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-073-N27-T3-CODE-FIX/evidence/agda/stdout.txt": "55d75735a02a3eba14748d8f4b71f53e65129e16c932a7ba3a50c58709a0e5b0",
+        "HoTT/formal/ercf3-t3/CodeCommutation.agda": "859e91ed1ee201501cbf016a73dbb4a76fcd35984fd45bf3f0a05f3764f12081"
+      },
+      "status": "complete"
+    },
+    "A-T3-CODE-IDENTITY-001": {
+      "classification": "T3_CODE_IDENTITY_DEFINITIONAL_CORE",
+      "depends_on": [
+        "A-T3-REFLECTION-NAMED-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-072-N26-T3-CODE-IDENTITY/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-072-N26-T3-CODE-IDENTITY/evidence/agda/stdout.txt"
+        ],
+        "reason": "Fifth T3 pulse compiles (exit 0, zero warnings): the definitional core of the code-level identity is machine-checked; comparison-dependent cases remain open and are not postulated."
+      },
+      "scope": "Definitional core only; no claim row; ERCF-3 gated.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-072-N26-T3-CODE-IDENTITY/evidence/agda/stdout.txt": "55d75735a02a3eba14748d8f4b71f53e65129e16c932a7ba3a50c58709a0e5b0",
+        "HoTT/formal/ercf3-t3/CodeCommutation.agda": "859e91ed1ee201501cbf016a73dbb4a76fcd35984fd45bf3f0a05f3764f12081"
+      },
+      "status": "complete"
+    },
+    "A-T3-COHERENCE-LEMMAS-001": {
+      "classification": "T3_DECISION_COHERENCE_LEMMAS",
+      "depends_on": [
+        "A-T3-ATTEMPT-STATUS-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/MutualInduction2.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-077-N31-T3-COHERENCE-LEMMAS/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/MutualInduction2.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/MutualInduction2.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-077-N31-T3-COHERENCE-LEMMAS/evidence/agda/stdout.txt"
+        ],
+        "reason": "Tenth T3 pulse compiles (exit 0, zero warnings): the decision-coherence lemmas that the N30 blocker needed are machine-checked, so the var branch of the mutual induction is now reusable."
+      },
+      "scope": "Coherence lemmas only; full mutual induction remains open; no claim row.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-077-N31-T3-COHERENCE-LEMMAS/evidence/agda/stdout.txt": "1068507902b5373a8793efe58642fbe74e7d5a56465dc29512287a6a1061e084",
+        "HoTT/formal/ercf3-t3/MutualInduction2.agda": "e383ec274e72795985fafb5f239cb63431b2638b4338aa2cff95cca8bb85fdaa"
+      },
+      "status": "complete"
+    },
+    "A-T3-DECISION-PARAM-FIX-001": {
+      "classification": "T3_WITH_ABSTRACTION_BLOCKER_RESOLVED",
+      "depends_on": [
+        "A-T3-ASSEMBLY-ATTEMPT2-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/DecisionParam.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-079-N33-T3-DECISION-PARAM-FIX/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/DecisionParam.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/DecisionParam.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-079-N33-T3-DECISION-PARAM-FIX/evidence/agda/stdout.txt"
+        ],
+        "reason": "Twelfth T3 pulse compiles (exit 0, zero warnings): restating the code substitution with an explicit decision parameter makes the coherence equations definitional, dissolving the three-turn with-abstraction blocker."
+      },
+      "scope": "Blocker resolution; full mutual induction assembly remains open; no claim row.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-079-N33-T3-DECISION-PARAM-FIX/evidence/agda/stdout.txt": "c0a536c34abb9ca253f8edf0b8e587c2860e2009c584a0375fa5bb416b17f0b4",
+        "HoTT/formal/ercf3-t3/DecisionParam.agda": "c6d272220eaaebf1a2280182b8a45a4bba529e976d818d0c12d7d0ea82e84537"
+      },
+      "status": "complete"
+    },
+    "A-T3-DIAGONAL-BODY-001": {
+      "classification": "T3_DIAGONAL_BODY_ARITHMETIC_CORE",
+      "depends_on": [
+        "A-T3-PROV-PULSE-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-069-N23-T3-DIAGONAL-BODY/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-069-N23-T3-DIAGONAL-BODY/evidence/agda/stdout.txt"
+        ],
+        "reason": "Third T3 pulse compiles on pure Agda builtins (exit 0, zero warnings): the substitution-on-codes function that is the arithmetic heart of the diagonal lemma. No claim row added; ERCF-3 stays gated."
+      },
+      "scope": "Numerical substitution core only; reflection through P remains open.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-069-N23-T3-DIAGONAL-BODY/evidence/agda/stdout.txt": "df4e0c275b30639958b74c3404ad4f9a98c5852561d0a4e312fd14eda868b08a",
+        "HoTT/formal/ercf3-t3/DiagonalLemma.agda": "2b85ce9dd04c1e93fba5b5eb203f4ce708ffccff14a34ff4c96dcf4b19198576"
+      },
+      "status": "complete"
+    },
+    "A-T3-DIAGONAL-PULSE-001": {
+      "classification": "T3_DIAGONAL_REPRESENTATION_PULSE",
+      "depends_on": [
+        "A-ERCF3-PREREQUISITE-ASSESSMENT-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+        "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-067-N21-T3-DIAGONAL-PULSE/evidence/agda/stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260913-067-N21-T3-DIAGONAL-PULSE/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-067-N21-T3-DIAGONAL-PULSE/evidence/agda/stdout.txt",
+          ".codex/research/hott/sessions/S-RES-20260913-067-N21-T3-DIAGONAL-PULSE/evidence/agda/stdout.txt"
+        ],
+        "reason": "T3 pulse: concrete coding, diagonal instance and representation lemmas compile on pure Agda builtins (exit 0, stderr 0, zero warnings). No claim row is added because ERCF-3 stays gated by the C8 stop conditions (no natural consumer)."
+      },
+      "scope": "T3 sub-obligation evidence only; the diagonal lemma itself (Prov representability) remains open.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260913-067-N21-T3-DIAGONAL-PULSE/evidence/agda/stdout.txt": "991a4bf9215c7aa3d07a4ee07fc1e987f0014c70256ee2d7a0fb1dcbc00af81c",
+        "HoTT/formal/ercf3-t3/DiagonalCore.agda": "3c97a4a354c55eb0c9d3ce91e624089954471210ccb17458e5ec1c87d79e615c",
+        "HoTT/formal/ercf3-t3/ObjectSyntax.agda": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d"
+      },
+      "status": "complete"
+    },
+    "A-T3-PROV-PULSE-001": {
+      "classification": "T3_PROV_REPRESENTABILITY_PULSE",
+      "depends_on": [
+        "A-T3-DIAGONAL-PULSE-001"
+      ],
+      "evidence_status": "PULSE_EVIDENCE_ONLY",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/ProvRepresentability.agda",
+        ".codex/research/hott/sessions/S-RES-20260913-068-N22-T3-PROV-PULSE/evidence/agda/stdout.txt"
+      ],
+      "kind": "t3_pulse",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/ProvRepresentability.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/formal/ercf3-t3/ProvRepresentability.agda",
+          ".codex/research/hott/sessions/S-RES-20260913-068-N22-T3-PROV-PULSE/evidence/agda/stdout.txt"
+        ],
+END_FULL_TEXT
+END_COGNITION_CHUNK

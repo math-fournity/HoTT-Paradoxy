@@ -1,0 +1,44 @@
+{
+  "schema_version": "p31-tt-provability-source-freeze/v1",
+  "task_id": "P31-TT-PROVABILITY-TYPE-THEORY-CORPUS-001",
+  "observed_at": "2026-09-21",
+  "remote": {
+    "url": "https://github.com/GallagherCommaJack/tt-provability.git",
+    "branch_observed": "master",
+    "commit": "69de7983019f2f044a40624b81662d862aca3dff",
+    "commit_timestamp": "2015-12-03T21:28:03-08:00",
+    "commit_subject": "Add new well typed syntax definition",
+    "checkout_identity": "git clone --filter=blob:none --no-checkout; detached checkout; clean worktree"
+  },
+  "external_files_sha256": {
+    "lib.agda": "425239a14d82893d3d82ca164efb5e15f09fc6be9d5619fafffa2edc7db3fcf4",
+    "Syntax/Typed/Def.agda": "6bb2942f0371a326556df845480fe75bd2c9880dd2ff81f82188902826808082",
+    "Syntax/Typed/Defn.agda": "8e37ac5c33d16005b80c4a6687d2392956bad82b055ae9f4043d203709dbcc1a",
+    "Syntax/Typed/Outrageous/Def.agda": "df276822be5217b80757c498a51c70345cb2e84d1df4af6f719491dbf6397034",
+    "Syntax/Typed/Reflective.agda": "449fee566e21bdb12e2fe9eeda545eeb1eff4e524608dc8a9f59fcd898ff7d00",
+    "Syntax/Untyped/Def.agda": "829319f31a092c81966c550a3eda8272c9d68b21374cc90fd32256780d9617ba",
+    "Syntax/Untyped/EqDec.agda": "52107eaf7e95d9774ca54a79dc2e5c7c56d7ffafa235a7166b560f019fcf22bd",
+    "Syntax/Untyped/Interpreter.agda": "e5394f247a2d08299a9e9742c29ef8f66988b3042ac42c355a51ad88567ab8d3",
+    "Syntax/Untyped/Subst-Lemmas.agda": "5649d5ef72e3f19de521bac7e47e71c387891b8e2da9cf5eb222b3ad6639b100",
+    "Syntax/Untyped/Typing.agda": "6990ba0654ea3b270671da8799fbbd38e2b373cbdf00b60d320cb25f22f0604d",
+    "Universes/Tarski.agda": "9c0d247419cabc969e54e70c6a44c0948e17d4abe7cde115ca3e323229f7cd78",
+    "WTLob.agda": "dce9699694892ef76874562e7464c82a299607577d5eb47fd429f862159c2dfb"
+  },
+  "source_observations": {
+    "modal_syntax": [
+      "Syntax/Typed/Def.agda: ‘□’, ⌜_⌝t and Löb",
+      "Syntax/Typed/Defn.agda: box, ⌜_⌝t, Löb and derived löb"
+    ],
+    "attempted_interpretation": "WTLob.agda contains Tm⇓ and an unresolved quotation case.",
+    "trust_boundaries": [
+      "lib.agda: postulate ⋆⋆TODO⋆⋆ : ∀ {i}{A : Set i} → A",
+      "multiple postulate blocks",
+      "Syntax/Typed/Reflective.agda: --no-positivity-check",
+      "Syntax/Untyped/Typing.agda: --no-termination-check",
+      "multiple {!!} holes"
+    ],
+    "toolchain": "NOT_RUN_WITH_REASON_AGDA_EXECUTABLE_NOT_AVAILABLE_ON_HOST",
+    "hott_scope": "No implemented univalence, HIT, Cubical Agda option or HoTT consumer established within fixed source; a lone 'cubical syntax' comment is not an implementation feature."
+  },
+  "verdict": "CLOSE_WITH_SCOPE / MODAL_BOX_QUOTATION_AND_LOB_SYNTAX_CONFIRMED / NOT_A_GODEL_STYLE_OBJECT_PROVABILITY_CHAIN / SOUNDNESS_NOT_ESTABLISHED_AND_TRUST_BOUNDARIES_EXPLICIT / NOT_HOTT_AND_NO_SAME_TASK_CONSUMER / P32_HOTT_SPECIFIC_DISCOVERY_SELECTED / NO_NEW_HOTT_DEFECT_CLAIM"
+}

@@ -1,0 +1,9 @@
+platform=macOS-26.6.2-arm64-arm-64bit-Mach-O
+machine=arm64
+python=3.14.6
+coq_image=hott-coq-synthetic-incompleteness:cd7d849
+coq_image_id=sha256:d4a84f07bbfe0bf3f2dce5b07e7fb43423ff64f990678a114ec6b080d131010b
+coq_version=8.15.2
+upstream=uds-psl/coq-synthetic-incompleteness csl@cd7d8490f8542bfe85658c465bcb26b2ed163f53
+replay=fresh repo-contained archive extraction; fol_incompleteness.vo build; qualification twice
+trust_scope=Coq kernel plus explicit theorem parameters and pinned source/image

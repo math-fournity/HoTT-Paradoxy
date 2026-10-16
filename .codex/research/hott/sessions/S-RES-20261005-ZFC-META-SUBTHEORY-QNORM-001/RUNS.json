@@ -1,0 +1,25 @@
+{
+  "next": "C0-SUCCESSOR-RESELECTION-003: locate an actual version-fixed source contract that pays or explicitly delimits a physical FormalDone ↔ OriginDone bridge.",
+  "role": "RESEARCH_GENERATION",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261005-ZFC-META-SUBTHEORY-QNORM-001",
+  "status": "Q_NORM_EXTENSION_MACHINE_PROVED_WITH_SCOPE_NO_CORE_C6",
+  "tier": "T3",
+  "verification": [
+    {
+      "command": "python3 -B scripts/audit/verify_formal_proof_run.py --run-dir HoTT/verification/runs/20261005-MP-ZFC-NORMATIVE-PROCESS-AUDIT-001-02 --rerun",
+      "scope": "exact Lean command/source/output/index replay for C-370–C-374",
+      "status": "PASS_WITH_SCOPE"
+    },
+    {
+      "command": "python3 -B scripts/audit/verify_proof_version_closure.py --proof-id MP-ZFC-NORMATIVE-PROCESS-AUDIT-001 --evidence-only",
+      "scope": "source manifest, pinned Lean binary, primary run/index-row relation and registry binding",
+      "status": "LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED"
+    },
+    {
+      "command": "C6 admission re-read",
+      "scope": "Q_norm extension cannot substitute for actual bare-ZFC M/S/Q/P/Bridge/Adequacy source contract",
+      "status": "NOT_RELEASED"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "claim_ids": [
+    "CG001-C-45"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/rzk-v0.11.3-macos-arm64/rzk",
+    "typecheck",
+    "HoTT/formal/claude-cg001/directed-native/DirectedFreeze.rzk"
+  ],
+  "completed_at_utc": "2026-09-25T12:15:21.150247+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.139928,
+  "environment": {
+    "bytes": 478,
+    "path": "environment.txt",
+    "sha256": "667feaff3eb66032c4a63878c9396a2d789f28b4b19d8572f76f73cd73aac6b8"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "standard RS17 facts; not original mathematics",
+    "does not prove Bool, N or Z discrete in sHoTT (Rzk docs: not provable without a disconnectedness principle; source, not replayed)",
+    "does not check GWB triangulated type theory, its axioms or directed univalence; Rzk modalities not used",
+    "does not check that step counts become definable once inverses are dropped (no directed HITs in Rzk 0.11.3)",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only)"
+  ],
+  "proof_assistant": "Rzk",
+  "proof_assistant_version": "0.11.3",
+  "proof_id": "MP-CG001-DIRECTED-NATIVE-001",
+  "run_id": "20260925-CG001-DIRECTED-NATIVE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Rzk 0.11.3 (Riehl-Shulman simplicial type theory; no postulates, no assumptions, no modalities, no holes): CG001-C-45 exactly as stated in CLAIM.md ((a) every function acts on arrows and preserves identity arrows by refl; (b) if B is discrete (RS17 Def 7.1) then every f : A -> B takes path-equal values at the ends of every arrow; (c) with Bool and N declared by #data: if Bool is discrete, Bool-valued readings freeze along arrows and every arrow false -> true gives a path false = true; if N is discrete, N-valued readings freeze; (d) for any path p, p followed by its reverse is refl). Does not prove that Bool or N is discrete. Goal-local index only.",
+  "source_manifest": {
+    "bytes": 1475,
+    "path": "source-manifest.json",
+    "sha256": "7b823efb78d450a5b98898189e5d962dcc24f852e930b347edaf24792e03fecb"
+  },
+  "started_at_utc": "2026-09-25T12:15:21.010054+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 914,
+    "path": "stderr.txt",
+    "sha256": "111d2f5e0768dc6f992c0197cbc70514ab05c73d221a361be4c023af7ff08bbc"
+  },
+  "stdout": {
+    "bytes": 18,
+    "path": "stdout.txt",
+    "sha256": "a8556b63c8a266fd32519f6532b6139fb3537c45dc5de8f6e60c786426346002"
+  },
+  "theory_variant": "sHoTT (Riehl-Shulman simplicial type theory) as implemented by Rzk"
+}

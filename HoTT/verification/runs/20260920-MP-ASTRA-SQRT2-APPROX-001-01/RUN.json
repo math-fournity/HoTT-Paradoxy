@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-300",
+    "C-301"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-approx-20260920/formal-imports.dot",
+    "HoTT/formal/dedekind-omega-missile/ApproxPellComparison.agda"
+  ],
+  "completed_at_utc": "2026-09-20T16:49:14.834556+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 102.032859,
+  "environment": {
+    "bytes": 644,
+    "path": "environment.txt",
+    "sha256": "e7db6f6bf4b1bcd6856df143ec957520955dbfa5038320eca24672ab9ce103e1"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "1fd4944001938a7ef9573ac592816bf33f9f82396b2513ec4cc7dd5aba59ebac"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "Binary precision input n, not a new forall-positive-real-epsilon cofinality or complete real-metric convergence theorem.",
+    "Trace counts refinement calls, not CPU instructions/time/space; no once-for-all execution of every precision.",
+    "No numerical equality between Pell discriminant and interval width, no claimed Pell convergence/optimality, no physical circle restoration, same-level smallness or full four-stage closure."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-SQRT2-APPROX-001",
+  "run_id": "20260920-MP-ASTRA-SQRT2-APPROX-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C300: same GOLD rational type and predicates, explicit midpoint algebra, nested valid brackets from1/2 endpoints1and2, structurally recursive approx(n), exact dyadicWidth recurrence(1, multiplication by1/2), finite trace of n refinement calls and certificates, packed-cut membership, exact n=2 endpoints5/4and3/2. C301: every valid bracket has positive nonzero width and unequal endpoints, refinement strictly decreases width, initial bracket fails precision1; the same certified approximation succeeds with nonzero width. Original Pell D(n) nonzero and rational-root emptiness coexist with precision-indexed success; no finite exact meeting for this bisection.",
+  "source_manifest": {
+    "bytes": 16631,
+    "path": "source-manifest.json",
+    "sha256": "ccf5dff4849d7a5c6c6c72b8ed89f5035aef04b2ae5892a53aaed6fd6dc82234"
+  },
+  "started_at_utc": "2026-09-20T16:47:32.801697+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 26643,
+    "path": "stdout.txt",
+    "sha256": "430980f2be437878ea7f6390ea78587733bd1d91d443dcd2af4aea52fd247fbf"
+  },
+  "theory_variant": "cubical"
+}

@@ -1,0 +1,160 @@
+# Z0-D3 补充包：缺失的 Foundation 模块清单
+# 来源：项目模块/MATHLIB_CLOSURE.json 里 167 个 Foundation 模块，减去补充包实际带上的 27 个（29 个文件里 R0.Independence、LK.ForcingInterpretation 不在闭包内）
+# 共缺 140 个：第一档 19（必需）、第二档 77（读类型/引理时会用到）、第三档 44（底层，可最后补）
+#
+# 补包脚本（路径按 MATHLIB_CLOSURE.json 的 foundation_source.path；先把本清单里的模块名存成 missing_modules.txt，每行一个）：
+#   SRC=/Volumes/D/HoTT-toolchain-cache/foundation-src
+#   DST=./Foundation关键文件
+#   while read -r m; do
+#     rel="$(echo "${m#Foundation.}" | tr . /).lean"
+#     mkdir -p "$DST/$(dirname "$rel")"
+#     cp "$SRC/Foundation/$rel" "$DST/$rel" || echo "NOT FOUND: $SRC/Foundation/$rel"
+#   done < missing_modules.txt
+# 补完后请核对：Foundation关键文件/FirstOrder/Arithmetic/Bootstrapping/Syntax/Proof/{Basic,Typed,Coding}.lean 都在，
+# 并删掉补充包里那三个空目录 Foundation关键文件/Bootstrapping、Definability、LK、R0（路径写错留下的）。
+
+## 第一档（必需）：Arithmetic.Bootstrapping.*
+Foundation.FirstOrder.Arithmetic.Bootstrapping.FixedPoint
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.CraigTrick
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Basic
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Bounded
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Coding
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Functions
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Hierarchy
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Iteration
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Formula.Typed
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Language
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Proof.Basic
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Proof.Coding
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Proof.Typed
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Term.Basic
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Term.Coding
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Term.Functions
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Term.Typed
+Foundation.FirstOrder.Arithmetic.Bootstrapping.Syntax.Theory
+
+## 第二档
+Foundation.FirstOrder.Arithmetic.Basic
+Foundation.FirstOrder.Arithmetic.Basic.Hierarchy
+Foundation.FirstOrder.Arithmetic.Basic.Misc
+Foundation.FirstOrder.Arithmetic.Basic.Model
+Foundation.FirstOrder.Arithmetic.Collection.Basic
+Foundation.FirstOrder.Arithmetic.Collection.Equiv
+Foundation.FirstOrder.Arithmetic.Definability
+Foundation.FirstOrder.Arithmetic.Exponential
+Foundation.FirstOrder.Arithmetic.Exponential.Bit
+Foundation.FirstOrder.Arithmetic.Exponential.Exp
+Foundation.FirstOrder.Arithmetic.Exponential.Log
+Foundation.FirstOrder.Arithmetic.Exponential.PPow2
+Foundation.FirstOrder.Arithmetic.Exponential.Pow2
+Foundation.FirstOrder.Arithmetic.HFS
+Foundation.FirstOrder.Arithmetic.HFS.Basic
+Foundation.FirstOrder.Arithmetic.HFS.Coding
+Foundation.FirstOrder.Arithmetic.HFS.Fixpoint
+Foundation.FirstOrder.Arithmetic.HFS.PRF
+Foundation.FirstOrder.Arithmetic.HFS.Seq
+Foundation.FirstOrder.Arithmetic.HFS.Vec
+Foundation.FirstOrder.Arithmetic.IOpen.Basic
+Foundation.FirstOrder.Arithmetic.ISigma1.Prenex
+Foundation.FirstOrder.Arithmetic.Induction.Basic
+Foundation.FirstOrder.Arithmetic.Induction.Equiv
+Foundation.FirstOrder.Arithmetic.LE
+Foundation.FirstOrder.Arithmetic.LeastNumber.Basic
+Foundation.FirstOrder.Arithmetic.PeanoMinus.Basic
+Foundation.FirstOrder.Arithmetic.PeanoMinus.Functions
+Foundation.FirstOrder.Arithmetic.Prenex
+Foundation.FirstOrder.Arithmetic.Q.Basic
+Foundation.FirstOrder.Arithmetic.Schemata
+Foundation.FirstOrder.Arithmetic.TA.Basic
+Foundation.FirstOrder.Incompleteness.Consistency
+Foundation.FirstOrder.Incompleteness.Definability
+Foundation.FirstOrder.Incompleteness.First
+Foundation.FirstOrder.Incompleteness.Halting
+Foundation.FirstOrder.Incompleteness.ProvabilityAbstraction.Basic
+Foundation.FirstOrder.Incompleteness.RosserProvability
+Foundation.FirstOrder.Incompleteness.Second
+Foundation.FirstOrder.Incompleteness.StandardProvability
+Foundation.FirstOrder.Incompleteness.WitnessComparison
+Foundation.FirstOrder.LJ.Basic
+Foundation.FirstOrder.LJ.GoedelGentzen
+Foundation.FirstOrder.SetTheory.BST.BST
+Foundation.FirstOrder.SetTheory.BST.Basic
+Foundation.FirstOrder.SetTheory.Basic.Misc
+Foundation.FirstOrder.SetTheory.Basic.Model
+Foundation.FirstOrder.SetTheory.FunctionSet
+Foundation.FirstOrder.SetTheory.NaturalNumberRec
+Foundation.FirstOrder.SetTheory.Ordinal
+Foundation.FirstOrder.SetTheory.Schemata
+Foundation.FirstOrder.SetTheory.Universe
+Foundation.FirstOrder.SetTheory.Z.Basic
+Foundation.FirstOrder.SetTheory.Z.Model
+Foundation.FirstOrder.SetTheory.Z.Z
+Foundation.FirstOrder.SetTheory.ZF.Basic
+Foundation.FirstOrder.SetTheory.ZF.Model
+Foundation.FirstOrder.Syntax.Classical.BinderNotation
+Foundation.FirstOrder.Syntax.Classical.Bounding
+Foundation.FirstOrder.Syntax.Classical.Coding
+Foundation.FirstOrder.Syntax.Classical.Eq
+Foundation.FirstOrder.Syntax.Classical.Formula
+Foundation.FirstOrder.Syntax.Classical.Operator
+Foundation.FirstOrder.Syntax.Classical.Padding
+Foundation.FirstOrder.Syntax.Classical.PrimrecCoding
+Foundation.FirstOrder.Syntax.Classical.Rew
+Foundation.FirstOrder.Syntax.Intuitionistic.Formula
+Foundation.FirstOrder.Syntax.Intuitionistic.Rew
+Foundation.FirstOrder.Tarski.AesopInit
+Foundation.FirstOrder.Tarski.Basic
+Foundation.FirstOrder.Tarski.Definability
+Foundation.FirstOrder.Tarski.Elementary
+Foundation.FirstOrder.Tarski.Eq
+Foundation.FirstOrder.Tarski.Model
+Foundation.FirstOrder.Tarski.Monotone
+Foundation.FirstOrder.Tarski.Operator
+Foundation.FirstOrder.Tarski.Ultraproduct
+
+## 第三档
+Foundation.Logic.Calculus
+Foundation.Logic.Entailment
+Foundation.Logic.ForcingRelation
+Foundation.Logic.LogicSymbol
+Foundation.Logic.Semantics
+Foundation.Meta.ClProver
+Foundation.Meta.Lit
+Foundation.Meta.Qq
+Foundation.Meta.TwoSided
+Foundation.Propositional.Entailment.Cl
+Foundation.Propositional.Entailment.Int
+Foundation.Propositional.Entailment.Minimal
+Foundation.Syntax.Predicate.Language
+Foundation.Syntax.Predicate.Quantifier
+Foundation.Syntax.Predicate.Rew
+Foundation.Syntax.Predicate.Term
+Foundation.Vorspiel.AdjunctiveSet
+Foundation.Vorspiel.Arithmetic
+Foundation.Vorspiel.Computability
+Foundation.Vorspiel.Computability.Primrec
+Foundation.Vorspiel.Empty
+Foundation.Vorspiel.ExistsUnique
+Foundation.Vorspiel.Fin.Basic
+Foundation.Vorspiel.Fin.Matrix
+Foundation.Vorspiel.Finset.Basic
+Foundation.Vorspiel.Finset.Card
+Foundation.Vorspiel.Function
+Foundation.Vorspiel.Graph
+Foundation.Vorspiel.IsEmpty
+Foundation.Vorspiel.List.Basic
+Foundation.Vorspiel.Matrix
+Foundation.Vorspiel.Multiset
+Foundation.Vorspiel.Nat.Basic
+Foundation.Vorspiel.Nat.Matrix
+Foundation.Vorspiel.NotationClass
+Foundation.Vorspiel.Option
+Foundation.Vorspiel.Order.Dense
+Foundation.Vorspiel.Part
+Foundation.Vorspiel.Quotient
+Foundation.Vorspiel.Small
+Foundation.Vorspiel.String
+Foundation.Vorspiel.Tactic.Disj
+Foundation.Vorspiel.Tactic.Primrec
+Foundation.Vorspiel.Tactic.Primrec.Init

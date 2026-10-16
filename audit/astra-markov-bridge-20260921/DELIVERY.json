@@ -1,0 +1,44 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_WITH_SCOPE",
+  "claim_ids": [
+    "C-321",
+    "C-322"
+  ],
+  "primary_run": "HoTT/verification/runs/20260921-MP-ASTRA-WEAK-COVERAGE-MARKOV-001-01",
+  "primary_seconds": 440.840334,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260921-MP-ASTRA-WEAK-COVERAGE-MARKOV-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-WEAK-COVERAGE-MARKOV-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "compiled_local_modules": 32,
+  "import_modules": 1106,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 1,
+  "draft_checks": 3,
+  "draft_rejections": 0,
+  "theory": "Pinned without-K no-erasure agda-unimath, inherited foundation postulates; not safe Cubical and not global soundness certification.",
+  "unproved": [
+    "Markov implies RNZA for all arbitrary Dedekind reals; equivalence is not asserted.",
+    "Principle independence/unprovability relative to the pinned baseline or necessity of LEM/resizing.",
+    "Unconditional Weak coverage, any-homeomorphism necessity, original broad physical task mismatch or HoTT false promise and complete four-stage objective."
+  ],
+  "parent_goal": "OPEN"
+}

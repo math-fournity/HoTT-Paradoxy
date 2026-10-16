@@ -1,0 +1,58 @@
+An error occurred when typechecking!
+Type Error:
+Definitions in context:
+  Δ¹ : 2 → TOPE
+  hom : (A : U) → (x : A) → (y : A) → U
+  A : U
+  x : A
+  y : A
+  f : hom A x y
+  t : 2
+when typechecking
+  \ (A : U) → \ (x : A) → \ (y : A) → \ (f : hom A x y) → \ t → f t
+against type
+  (A : U) → (x : A) → (y : A) → (f : hom A x y) → hom A y x
+
+when typechecking
+  \ (x : A) → \ (y : A) → \ (f : hom A x y) → \ t → f t
+against type
+  (x : A) → (y : A) → (f : hom A x y) → hom A y x
+
+when typechecking
+  \ (y : A) → \ (f : hom A x y) → \ t → f t
+against type
+  (y : A) → (f : hom A x y) → hom A y x
+
+when typechecking
+  \ (f : hom A x y) → \ t → f t
+against type
+  (f : hom A x y) → hom A y x
+
+when typechecking
+  \ t → f t
+against type
+  hom A y x
+
+when typechecking
+  f t
+against type
+  A [t ≡ 0₂ ↦ y, t ≡ 1₂ ↦ x]
+
+when unifying term (expected)
+  y
+with term (actual)
+  f t : A [t ≡ 0₂ ↦ x, t ≡ 1₂ ↦ y]
+
+
+Local tope context:
+    t ≡ 0₂
+
+HoTT/formal/claude-cg001/pedometer-ablation-rzk/WrongArrowReverse.rzk (line 26, column 12):
+  Error occurred when checking
+    #define reverse-arrow
+
+cannot unify term
+  y
+with term
+  x
+

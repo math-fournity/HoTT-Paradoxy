@@ -1,0 +1,4 @@
+# S-RES-20260921-ASTRA-P16-FOURTH-SUCCESSOR-DISCOVERY
+
+- tier: T3 source-selection state mutation
+- status: COMPLETED_WITH_SCOPE / P17_NEXT

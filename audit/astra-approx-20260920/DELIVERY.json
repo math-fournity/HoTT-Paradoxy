@@ -1,0 +1,50 @@
+{
+  "status": "FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE",
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-SQRT2-APPROX-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-SQRT2-APPROX-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "fresh_kernel_run": "HoTT/verification/runs/20260920-MP-ASTRA-SQRT2-APPROX-001-01",
+  "extra_kernel_rerun": false,
+  "kernel_seconds": 102.032859,
+  "source_graph_matches_final_draft": true,
+  "import_modules": 218,
+  "local_source_count": 12,
+  "claim_ids": [
+    "C-300",
+    "C-301"
+  ],
+  "initial_endpoints": [
+    "1",
+    "2"
+  ],
+  "precision_width": "d(0)=1, d(suc n)=d(n)*(1/2)",
+  "trace_counts": "refine calls, not CPU or physical time",
+  "unproved": [
+    "Arbitrary-real-epsilon cofinality or complete real convergence",
+    "Pell convergence/optimality or equality of Pell D and interval width",
+    "Real-ring square-root equation and same-level smallness",
+    "Circle/arithmetic faithful reduction and full four-stage redo"
+  ]
+}

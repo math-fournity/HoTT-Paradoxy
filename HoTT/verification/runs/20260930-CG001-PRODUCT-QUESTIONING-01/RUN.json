@@ -1,0 +1,80 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-81",
+    "CG001-C-82"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/product-questioning/ProductQuestioning.agda"
+  ],
+  "completed_at_utc": "2026-09-30T17:07:43.005016+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 87.21739,
+  "environment": {
+    "bytes": 1069,
+    "path": "environment.txt",
+    "sha256": "cbd00f4009170502115509a2ffa5d4e2bfe33c49ee7417faaec278fddee5b49f"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Not an inconsistency of HoTT and not a proof that the product does not exist; the interpretation bridge and the reality-side premise are left to the user and to community audit.",
+    "Higher inductive types (Eilenberg-MacLane spaces) and univalence (inside the loop computations of C-75) are used; the universe appears as the codomain of the family K : N -> Type; nothing is claimed about type theory without universes.",
+    "The judge answers immediately; never is read through finite-fuel runs only; the product result is HoTT Book Example 8.8.6 with K n in place of S^n (no originality claimed); captured and replayed on macOS only."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PRODUCT-QUESTIONING-001",
+  "rejection_stage": null,
+  "run_id": "20260930-CG001-PRODUCT-QUESTIONING-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda: the questioning program Q of C-77 run on a type that is not the universe. HoTT Book Example 8.8.6 with K n = EM Z (1+n): the product (n : N) -> K n is not of h-level m for any m (the loop of C-75 is nontrivial at the base point; loops of a product are the product of loops); for every judge Q on the product is never, a judge exists and every judge equals it, the kernel runs fuel 1000 by refl, and the question 'settled at some level at all?' answers no at fuel 0. Control: the same product with bounded height, (n : N) -> K b, is of h-level 3+b and not of h-level 2+b, and for every judge Q returns 2+b at fuel 1+b and nothing at smaller fuel (it stops at stage 2+b).",
+  "source_manifest": {
+    "bytes": 3518,
+    "path": "source-manifest.json",
+    "sha256": "91bce50da3b782f8761ffc3b501284b9017e90b06bad10b507d38dd43b980600"
+  },
+  "started_at_utc": "2026-09-30T17:06:15.787626+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29066,
+    "path": "stdout.txt",
+    "sha256": "b238ecfb6f3b6fc0cb8543f0002b04ebbf9be29fd2462d1ada63b94b32fb72ed"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

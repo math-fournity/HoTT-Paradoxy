@@ -1,0 +1,25 @@
+{
+  "next": "C0-SUCCESSOR-RESELECTION-009: find a ZFC-specific temporal-operation contract; do not turn C-375–C-378 or the operational caveat into an actual core Q.",
+  "role": "RESEARCH_GENERATION",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261005-ZFC-META-SUBTHEORY-C0R8-MSS-CONTROLS-001",
+  "status": "C0R8_SOURCE_CONSUMER_SEED_WITH_REPRESENTATION_CONTROLS_C6_NOT_RELEASED",
+  "tier": "T3",
+  "verification": [
+    {
+      "command": "python3 -B scripts/audit/verify_formal_proof_run.py --run-dir HoTT/verification/runs/20261005-MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001-03 --rerun",
+      "scope": "C-375/C-376 exact Lean core replay",
+      "status": "PASS_WITH_SCOPE"
+    },
+    {
+      "command": "python3 -B scripts/audit/verify_formal_proof_run.py --run-dir HoTT/verification/runs/20261005-MP-ZFC-MSS-PHASE-ORDER-CONTROL-001 --rerun",
+      "scope": "C-377/C-378 exact Lean core replay",
+      "status": "PASS_WITH_SCOPE"
+    },
+    {
+      "command": "python3 -B scripts/audit/verify_proof_version_closure.py --proof-id MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001 --proof-id MP-ZFC-MSS-PHASE-ORDER-CONTROL-001 --evidence-only",
+      "scope": "source manifest, primary run/index-row relation and registry binding",
+      "status": "LOCAL_EVIDENCE_PASS_NOT_VERSION_CLOSED"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260917-MP-DEDEKIND-OMEGA-M3-UNC-01",
+  "proof_id": "MP-DEDEKIND-OMEGA-M3-UNC",
+  "claim_ids": [
+    "CAND-F2-7-M3-UNC"
+  ],
+  "source_paths": [
+    "HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda",
+    "HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda",
+    "HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda",
+    "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+    "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+  ],
+  "audit_tool_provenance_drift": [],
+  "external_dependencies": [
+    "agda-release-asset",
+    "agda-binary",
+    "cubical-release-asset",
+    "cubical-library-file",
+    "cubical-extracted-tree"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "NOT_RUN",
+  "git_status": "LOCAL_COMMITTED_NOT_PUSHED",
+  "scope": "纯 Cubical Agda（--safe --cubical --guardedness，无 LEM、无 resizing、无任何追加假设）中证明修订片 027 §5 待核发现属实并取得两条更强收据：(1) specA-inhabited-unc : Spec_A 无条件居住——判定表 f : ℚ → Bool（f q ≡ true ↔ q·ℚq < 2r）由 ℚ 序可构造判定 _≟_ : (m n : ℚ) → Trichotomy m n 直接定义，不需要 LEM；(2) M3-L1-unc : ¬ (Spec_A ≃ Spec_B) 识别拒绝去条件化（等价传输 + spec-B-empty）。债务定位：判定表在 ℚ 层免费（本包），理想元素本体（判定表升格为实数层对象、完整 cut）才收费——完成义务在承载层跨界处收费。识别层收据的去条件化加强，不是 HoTT 内部矛盾。",
+  "non_goals": [
+    "不声称 HoTT 不一致",
+    "不推翻 M3 条件版收据（LEMᵒ 条件版仍真；本包为其去条件化加强）",
+    "不声称完整 cut / 实数对象的无条件构造——债务定位（升格处收费）仅为本包的语义读法与后续靶位"
+  ]
+}

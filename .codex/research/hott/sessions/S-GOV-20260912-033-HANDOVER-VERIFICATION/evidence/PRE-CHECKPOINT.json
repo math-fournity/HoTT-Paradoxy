@@ -1,0 +1,343 @@
+{
+  "schema_version": "handover-verification-evidence/v1",
+  "phase": "pre-checkpoint",
+  "session_id": "S-GOV-20260912-033-HANDOVER-VERIFICATION",
+  "captured_at_utc": "2026-09-12T22:45:21.815357+00:00",
+  "git": {
+    "head": "636e4e52e05e3e9c3da6778d00dc97ff36767957",
+    "head_subject": "636e4e5 docs(governance): close project-local v3 release",
+    "dirty_entries": 108
+  },
+  "trio": [
+    {
+      "path": "核心认知.md",
+      "sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+      "bytes": 32253,
+      "lines": 337
+    },
+    {
+      "path": "方向追踪.md",
+      "sha256": "cb32181f3d742e99893e075c467513c8146aefae66747e657ae700e90959c7fa",
+      "bytes": 24772,
+      "lines": 161
+    },
+    {
+      "path": "全景视野.md",
+      "sha256": "9fcf3b0852474af918b7854e8357599fc4fe4a64869d1654e56b861b84a5ec99",
+      "bytes": 27570,
+      "lines": 144
+    }
+  ],
+  "replays": [
+    {
+      "name": "lean-factorization",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-ERCF-001-02",
+        "proof_id": "MP-ERCF-001",
+        "claim_ids": [
+          "C-59",
+          "C-60",
+          "C-61",
+          "C-62",
+          "C-63",
+          "C-64",
+          "C-65",
+          "C-66"
+        ],
+        "source_paths": [
+          "HoTT/formal/ercf-factorization/ERCF.lean",
+          "HoTT/formal/ercf-factorization/README.md"
+        ],
+        "external_dependencies": [],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "General Type-valued factorization controls exactly as stated in ERCF.lean; Lean equality and prelude only.",
+        "non_goals": [
+          "No univalence, cubical Path, HIT, truncation, HoTT-specific paradox, physical interpretation, or originality claim."
+        ]
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:13.199508+00:00",
+      "completed_at_utc": "2026-09-12T22:45:14.964612+00:00"
+    },
+    {
+      "name": "agda-truncation",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-ERCF-TRUNC-001-01",
+        "proof_id": "MP-ERCF-TRUNC-001",
+        "claim_ids": [
+          "C-67",
+          "C-68",
+          "C-69",
+          "C-70"
+        ],
+        "source_paths": [
+          "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+          "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+          "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES"
+        ],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+        "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda propositional-truncation HIT: proposition-valued recursor, truncation flattening with point beta, Bool-output constancy, and impossibility of point-preserving Bool extraction.",
+        "non_goals": [
+          "No HoTT inconsistency, paradox, reality bridge, unrestricted global-choice theorem, claim that every map from a truncation is absent, ERCF-3, or originality."
+        ]
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:14.964735+00:00",
+      "completed_at_utc": "2026-09-12T22:45:18.773603+00:00"
+    }
+  ],
+  "suites": [
+    {
+      "name": "core",
+      "exit_code": 0,
+      "ok": true,
+      "tail": "test_source_hash_drift_fails_closed (__main__.CoreCognitionTests.test_source_hash_drift_fails_closed) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.080s\n\nOK",
+      "started_at_utc": "2026-09-12T22:45:20.408621+00:00",
+      "completed_at_utc": "2026-09-12T22:45:20.563123+00:00"
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "ok": true,
+      "tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.010s\n\nOK",
+      "started_at_utc": "2026-09-12T22:45:20.563222+00:00",
+      "completed_at_utc": "2026-09-12T22:45:20.633413+00:00"
+    },
+    {
+      "name": "f011-governance",
+      "exit_code": 0,
+      "ok": true,
+      "tail": "test_tmp_authoritative_root_fails_closed (__main__.MathProofDeliveryGovernanceTests.test_tmp_authoritative_root_fails_closed) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.016s\n\nOK",
+      "started_at_utc": "2026-09-12T22:45:20.633481+00:00",
+      "completed_at_utc": "2026-09-12T22:45:20.709580+00:00"
+    },
+    {
+      "name": "cognition-runtime",
+      "exit_code": 0,
+      "ok": true,
+      "tail": "test_uncommitted_mutable_state_rejected (__main__.RuntimeTests.test_uncommitted_mutable_state_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 28 tests in 0.786s\n\nOK",
+      "started_at_utc": "2026-09-12T22:45:20.709653+00:00",
+      "completed_at_utc": "2026-09-12T22:45:21.566652+00:00"
+    },
+    {
+      "name": "full-closure-reader",
+      "exit_code": 0,
+      "ok": true,
+      "tail": "test_17_recovery_documents_have_no_skip_exemption (__main__.FullClosureLoadingTests.test_17_recovery_documents_have_no_skip_exemption) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.015s\n\nOK",
+      "started_at_utc": "2026-09-12T22:45:21.566748+00:00",
+      "completed_at_utc": "2026-09-12T22:45:21.648139+00:00"
+    }
+  ],
+  "verifiers": [
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "generation": "core-cognition-generation-4",
+        "core_units": 36,
+        "messages": 89,
+        "included_messages": 24,
+        "source_files": 4,
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+        "transition_mapping_count": 27,
+        "transition_remainder": 0,
+        "model_context": "NOT_CERTIFIED_BY_TOOL",
+        "mathematics": "NOT_CERTIFIED"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:18.773908+00:00",
+      "completed_at_utc": "2026-09-12T22:45:18.875566+00:00"
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS",
+        "schema_version": "integrated-three-way-cognition/v1",
+        "state_revision": 32,
+        "core_units_declared": 36,
+        "direction_count": 27,
+        "outcome_count": 29,
+        "fixed_order": [
+          "核心认知.md",
+          "方向追踪.md",
+          "全景视野.md"
+        ],
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:18.875669+00:00",
+      "completed_at_utc": "2026-09-12T22:45:18.926858+00:00"
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "state_revision": 32,
+        "core_generation": "core-cognition-generation-4",
+        "core_units": 36,
+        "reconciliation_entries": 22226,
+        "merge_entries": 29,
+        "fresh_receipt_revision": 32,
+        "model_context": "NOT_CERTIFIED_BY_TOOL",
+        "mathematics": "NOT_CERTIFIED"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:18.926961+00:00",
+      "completed_at_utc": "2026-09-12T22:45:19.239835+00:00"
+    },
+    {
+      "name": "understanding-merge",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS",
+        "union_files": 29,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 14,
+        "canonical": "理解章节",
+        "historical_source_retained": true,
+        "semantic_claim": "NO_MATHEMATICAL_EQUIVALENCE_CLAIM"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:19.239950+00:00",
+      "completed_at_utc": "2026-09-12T22:45:19.296245+00:00"
+    },
+    {
+      "name": "cross-source-reconciliation",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS",
+        "total_register_entries": 22226,
+        "source_rows": {
+          "webgpt_state": 91,
+          "ai_response": 384,
+          "local_tool_event": 3146,
+          "local_work_product": 16209,
+          "understanding_claim": 2396
+        },
+        "all_source_rows_have_direction_or_reason": true,
+        "all_source_rows_have_result_or_reason": true,
+        "mathematical_certification": "NOT_PERFORMED_BY_THIS_REGISTER"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:19.296362+00:00",
+      "completed_at_utc": "2026-09-12T22:45:19.637292+00:00"
+    },
+    {
+      "name": "history-ledgers",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS",
+        "user_messages": 125,
+        "responses": 384,
+        "local_primary_responses": 220,
+        "tool_events": 3146,
+        "webgpt_sections": 111,
+        "gemini_thoughts": 21,
+        "gemini_execution": {
+          "executableCode": 17,
+          "codeExecutionResult": 17,
+          "inlineFile": 2
+        },
+        "work_products": 16209,
+        "claims": 2396
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:19.637400+00:00",
+      "completed_at_utc": "2026-09-12T22:45:19.875143+00:00"
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "math-proof-delivery-governance-check/v1",
+        "marker_files": 9,
+        "proof_source_root": "HoTT/formal",
+        "proof_run_root": "HoTT/verification/runs",
+        "proof_index": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "required_run_files": [
+          "RUN.json",
+          "environment.txt",
+          "source-manifest.json",
+          "stderr.txt",
+          "stdout.txt"
+        ],
+        "model_behavior": "NOT_CERTIFIED_BY_STATIC_CHECK",
+        "mathematics": "NOT_CERTIFIED_BY_GOVERNANCE_CHECK"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:19.875253+00:00",
+      "completed_at_utc": "2026-09-12T22:45:19.929379+00:00"
+    },
+    {
+      "name": "fresh-three-way",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "revision": 32,
+        "governance_documents": 15,
+        "research_documents": 20,
+        "negative_cases": [
+          "wrong_snapshot",
+          "incomplete_coverage",
+          "tampered_chunk",
+          "profile_snapshot_mismatch"
+        ],
+        "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+      },
+      "stderr_tail": "",
+      "started_at_utc": "2026-09-12T22:45:19.929500+00:00",
+      "completed_at_utc": "2026-09-12T22:45:20.408509+00:00"
+    }
+  ],
+  "static_checks": {
+    "state_revision": 32,
+    "latest_session": "S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT",
+    "source_hash_entries": 60,
+    "source_hash_stale": 0,
+    "kc_audit_rows": {
+      "S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE": 36,
+      "S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT": 36
+    },
+    "write_lock_present": false,
+    "transaction_present": false
+  },
+  "failures": [],
+  "status": "PASS"
+}

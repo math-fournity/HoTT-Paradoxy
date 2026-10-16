@@ -1,0 +1,217 @@
+{
+  "schema_version": "cognition-load-set/v4",
+  "version": "4.2.0",
+  "policy": "TIERED_CLOSURE_WITH_RECEIPT_REATTESTATION_COMPATIBLE_V4",
+  "default_profile": "governance",
+  "tiers": {
+    "T0-lite": {
+      "boot": [
+        "AGENTS.md",
+        "MEMORY.md",
+        "MEMORY/001 - 当前执行队列.md",
+        ".codex/skills/hott-local-session-governance/SKILL.md",
+        ".codex/cognition/TASK_ROUTING.md",
+        "最高指示.md"
+      ],
+      "state": "hot_only",
+      "four_set": false,
+      "end_obligation": "none",
+      "hard_gates": [
+        "source_boundary",
+        "no_subagent",
+        "no_push"
+      ]
+    },
+    "T1-standard": {
+      "boot": [
+        "AGENTS.md",
+        "README.md",
+        "MEMORY.md",
+        "feature-list.md",
+        "rulings.md",
+        ".codex/AGENTS.md",
+        ".codex/skills/SKILL_ROLES.json",
+        ".codex/skills/hott-local-session-governance/SKILL.md",
+        ".codex/cognition/PROTOCOL.md",
+        ".codex/cognition/LOAD_SET.json",
+        ".codex/cognition/TASK_ROUTING.md",
+        "最高指示.md"
+      ],
+      "state": "hot_only",
+      "four_set": "task_scoped",
+      "end_obligation": "session_lite",
+      "hard_gates": [
+        "writeback_ownership",
+        "validator"
+      ]
+    },
+    "T2-research": {
+      "boot": [
+        "always_full_boot",
+        "always_full_documents",
+        "research_full"
+      ],
+      "state": "full",
+      "four_set": true,
+      "end_obligation": "audit_sharded_touched",
+      "hard_gates": [
+        "programmatic_completeness_when_triggered",
+        "evidence_scope"
+      ]
+    },
+    "T3-mutation": {
+      "boot": [
+        "always_full_boot",
+        "always_full_documents",
+        "research_full_when_the_task_is_research"
+      ],
+      "state": "full",
+      "four_set": true,
+      "end_obligation": "full_kc_audit_and_atomic_checkpoint",
+      "hard_gates": [
+        "math_proof_when_a_mathematical_conclusion_is_delivered",
+        "checkpoint_result_json"
+      ]
+    }
+  },
+  "state_hot_fields": [
+    "current_core",
+    "active",
+    "latest_session",
+    "unresolved",
+    "revision"
+  ],
+  "compaction": {
+    "mode": "receipt_reattestation",
+    "full_reload_triggers": [
+      "core_sha256_changed",
+      "tier_escalation",
+      "user_order"
+    ]
+  },
+  "tier_extension_compatibility": {
+    "runtime_schema": "cognition-load-set/v4",
+    "runtime_behavior": "The current graph() validates v4 and ignores these additive tier keys; do not pass an unsupported --tier flag.",
+    "contract_owner": ".codex/cognition/PROTOCOL.md"
+  },
+  "always_full_documents": [
+    "核心认知.md",
+    "方向追踪.md",
+    "全景视野.md",
+    "扩展认知.md"
+  ],
+  "full_set_roles": {
+    "核心认知.md": "用户原文唯一权威（USER_OWNED_DIRECT；由 curation + manifest hash 管理）",
+    "方向追踪.md": "方向组合与下一判别动作的当前投影",
+    "全景视野.md": "结果、正反例、失败与证据边界的当前投影",
+    "扩展认知.md": "AI 阐释层（AI_EXPOSITION_LAYER）：按思想关系连贯展开 STATE.current_core 所标识的当前用户原文，用于理解与启发；不是用户原文权威，不产出数学结论，不得反向改写 core"
+  },
+  "always_full_boot": [
+    "AGENTS.md",
+    "README.md",
+    "MEMORY.md",
+    "feature-list.md",
+    "rulings.md",
+    ".codex/AGENTS.md",
+    ".codex/skills/SKILL_ROLES.json",
+    ".codex/skills/hott-local-session-governance/SKILL.md",
+    ".codex/cognition/PROTOCOL.md",
+    ".codex/cognition/LOAD_SET.json",
+    ".codex/cognition/TASK_ROUTING.md",
+    "最高指示.md",
+    ".codex/research/hott/STATE.json"
+  ],
+  "research_full": [
+    ".codex/skills/hott-paradox-research/SKILL.md",
+    "HoTT/HoTT研究三问-找什么-怎么找-凭什么-20260909.md",
+    ".codex/research/hott/FRONTIER.md",
+    ".codex/research/hott/LESSONS.md",
+    ".codex/research/hott/RESUME.md"
+  ],
+  "query_first": [
+    "核心认知.manifest.json",
+    "sources/SOURCE_MANIFEST.json",
+    "audit/cross-source-reconciliation.json",
+    "audit/understanding-chapter-merge-manifest.json",
+    "audit/coverage-summary.json",
+    "audit/ledger-summary.json",
+    ".codex/research/hott/MEMORY-log/顺序日志-S093-S168.md",
+    ".codex/research/hott/RESUME-log",
+    ".codex/research/hott/LESSONS-log",
+    ".codex/research/hott/FRONTIER-log"
+  ],
+  "task_expand": [
+    "理解章节/README.md",
+    "理解章节/C0-当前整合审计与证据边界-20260912.md",
+    "理解章节/A0-总目标.md",
+    "理解章节/A11-开放问题与悬空接头.md",
+    "理解章节/B0-工作史总览.md",
+    "理解章节/B1-本地GPT工作史.md",
+    "理解章节/B2-网页GPT工作史-I.md",
+    "理解章节/B3-网页GPT工作史-II.md",
+    "理解章节/B4-Gemini工作史.md",
+    "理解章节/B5-成果总账.md",
+    "docs/quality/数学结论机器证明与证据留存规范.md",
+    "HoTT/verification/runs/README.md",
+    "HoTT/README.md",
+    "HoTT/CLAIM_EVIDENCE_MATRIX.md"
+  ],
+  "archive_verify_only": [
+    "audit/core-cognition-generation-transition-20260912.json",
+    "audit/core-cognition-generation-3-transition-20260912.json",
+    "audit/core-cognition-generation-4-transition-20260912.json",
+    "scripts/audit/verify_core_cognition.py",
+    "scripts/audit/verify_history_ledgers.py",
+    "scripts/audit/verify_understanding_merge.py",
+    "scripts/audit/verify_cross_source_reconciliation.py",
+    "scripts/audit/verify_fresh_three_way.py",
+    ".codex/tools/cognition_runtime.py"
+  ],
+  "dynamic_state": ".codex/research/hott/STATE.json",
+  "document_order": [
+    "核心认知.md",
+    "方向追踪.md",
+    "全景视野.md",
+    "扩展认知.md"
+  ],
+  "historical_session_auto_load": false,
+  "evidence_status_grants_load_eligibility": false,
+  "explicit_hydration": "plan --profile research --task <stable-record-id>",
+  "record_relationships": {
+    "depends_on": "verification dependency; recursively hydrated and stale-propagating",
+    "research_parent": "research lineage only; not recursively hydrated",
+    "related_records": "narrative/adjacent records only; not recursively hydrated"
+  },
+  "checkpoint_required_session_files": [
+    "SESSION.md",
+    "RUNS.json",
+    "CORE_COGNITION_AUDIT.md"
+  ],
+  "checkpoint_application_receipt": ".codex/cognition/checkpoints/<session-id>/result.json",
+  "model_context_certification": "NOT_PROVIDED_BY_TOOLS",
+  "source_removal_policy": "USER_REMOVED_PATHS_REMAIN_EXPLICIT_AND_UNPROVEN",
+  "owner": "root AGENTS + hott-local-session-governance; business owner hott-paradox-research",
+  "shard_contract": {
+    "schema": "governance-shard-index/v2",
+    "contract_doc": "docs/quality/长治理文档分片与索引合同.md",
+    "validated_by": "scripts/audit/verify_governance_shards.py",
+    "rule": "an indexed canonical path is a logical document: load the index table plus every shard in table order; runtime 3.3.0 expands and demands full shard coverage",
+    "sharded_now": [
+      "README.md",
+      "MEMORY.md",
+      "理解章节/C1",
+      "理解章节/C2",
+      "理解章节/C3",
+      "理解章节/C4",
+      "方向追踪.md",
+      "全景视野.md",
+      "扩展认知.md"
+    ],
+    "full_set_note": "方向追踪.md / 全景视野.md / 核心问题意识长文 are sharded but stay full-load: index + every shard is the logical document. 核心认知.md stays monolithic and is managed by the curation builder.",
+    "table_projection_rule": "row shards repeat the table header (the only permitted duplication) and must reconcile line-exactly; marker/source_state_revision/projection_generation/semantic_status stay in the index",
+    "reader_banner_rule": "every canonical index must show '> ⚠️ 逻辑文档索引：全文 = 本索引 + 下方 N 个分片；缺一片即未完成' within its first 15 lines; enforced by scripts/audit/verify_governance_shards.py",
+    "soft_line_target": 300,
+    "soft_line_target_is_not_a_cap": true
+  },
+  "projection_status": "CURRENT_STATUS_OWNED_BY_STATE_PROJECTION_AND_DIRECTION_PANORAMA_INDEXES"
+}

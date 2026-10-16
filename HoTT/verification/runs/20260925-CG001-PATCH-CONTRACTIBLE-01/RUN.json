@@ -1,0 +1,63 @@
+{
+  "claim_ids": [
+    "CG001-C-30",
+    "CG001-C-31",
+    "CG001-C-32",
+    "CG001-C-33"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/patch-contractible",
+    "HoTT/formal/claude-cg001/patch-contractible/PatchContractible.agda"
+  ],
+  "completed_at_utc": "2026-09-25T07:15:39.591105+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 33.125248,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "reconstructs the mathematical core of statements in the addendum and section 5.3 of Homotopical Patch Theory (expanded version); not a replication of that paper and not a claim about any version control system",
+    "not HoTT inconsistency and not a failure of patch theory: contractibility is the property the authors use to obtain the merge laws",
+    "does not say that a real repository did not change or that running programs cannot distinguish the states; the negative controls show definitional distinctness at the meta level",
+    "not indexed in HoTT/CLAIM_EVIDENCE_MATRIX.md (relay draft only); not original mathematics"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-PATCH-CONTRACTIBLE-001",
+  "run_id": "20260925-CG001-PATCH-CONTRACTIBLE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda 2.8.0-3d04bac + cubical 0.9, OPTIONS --safe --cubical --guardedness, no postulates: CG001-C-30..C-33 exactly as stated in CLAIM.md (the line-count context HIT and the Bool-list history-indexed context HIT are contractible; paths out of the empty context are classified by histories; parallel paths are equal; with the singleton model the total space is contractible, the states before and after an edit are equal, every non-dependent function agrees on them and no Bool-valued function on contexts separates them, while the histories differ; two maps into singleton types are equal while one computes the detour loop . sym loop to refl; winding (loop . loop) computes to pos 2). Goal-local index only.",
+  "source_manifest": {
+    "bytes": 2708,
+    "path": "source-manifest.json",
+    "sha256": "63286581447cfa52caddefbc27586a3d6410518ca8222dc23d3ed6f58a2acc1b"
+  },
+  "started_at_utc": "2026-09-25T07:15:06.465857+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16764,
+    "path": "stdout.txt",
+    "sha256": "7dbfcc3e8ff8f641ed2725e65fce400b7be134cf87749825d8d00690d0a4ace1"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

@@ -1,0 +1,7 @@
+diff --git a/MEMORY/001 - 当前执行队列.md b/MEMORY/001 - 当前执行队列.md
+index be81295..e177a91 100644
+--- a/MEMORY/001 - 当前执行队列.md	
++++ b/MEMORY/001 - 当前执行队列.md	
+@@ -43,0 +44,2 @@ index: ../MEMORY.md
++
++27. **MATH-FOURNITY 公开结果包规划修复（2026-09-19）**——用户明确要求“最终结果说明 + 已完成机器证明，不交付讨论过程、不给读者增加认知负担”。旧单文件规划已重构为 index + 6 个分片，P0=`DESIGN_REPAIRED_WITH_EXECUTABLE_CHECKLIST_NOT_IMPLEMENTED`；006 分片为 P0–P4 可执行 checklist（每项含 check ID、输入、行动、oracle、证据、失败/恢复与越阶禁止）。已冻结 10 个候选公开证据单位（M1/M2/M3/M3-UNC/BP/GOLD/TA/REAL-LAYER/ReboundDisarm/NecessityLEM），但它们尚未构成公开 manifest；下一最小可验结果仅在用户明确授权 Phase 1 后发生：建立 source snapshot + release manifest + in-scope remainder=0 的收录/排除表，并设计相对路径 portable replay runner。禁止把现有带 `/Volumes/D/...` 路径的历史 `command_argv` 直接承诺为 GitHub CI；禁止导出 AI对话录、四件套、dev-notes、trajectory、治理树或调试失败史；不 commit/push/release。

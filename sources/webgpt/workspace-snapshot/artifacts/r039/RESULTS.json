@@ -1,0 +1,344 @@
+{
+  "scope": "EXACT_FINITE_MODELS_NOT_HOTT_KERNEL",
+  "delay": {
+    "nodes": {
+      "ret0": {
+        "now": 0
+      },
+      "ret1": {
+        "now": 1
+      },
+      "spin": {
+        "later": "spin"
+      },
+      "wait0": {
+        "later": "ret0"
+      },
+      "wait1": {
+        "later": "ret1"
+      },
+      "two0": {
+        "later": "wait0"
+      }
+    },
+    "outcomes": {
+      "ret0": {
+        "kind": "RETURN",
+        "value": 0,
+        "delay_steps": 0,
+        "path": [
+          "ret0"
+        ]
+      },
+      "ret1": {
+        "kind": "RETURN",
+        "value": 1,
+        "delay_steps": 0,
+        "path": [
+          "ret1"
+        ]
+      },
+      "spin": {
+        "kind": "DIVERGENCE_LASSO",
+        "prefix": [],
+        "cycle": [
+          "spin"
+        ],
+        "repeated_state": "spin"
+      },
+      "wait0": {
+        "kind": "RETURN",
+        "value": 0,
+        "delay_steps": 1,
+        "path": [
+          "wait0",
+          "ret0"
+        ]
+      },
+      "wait1": {
+        "kind": "RETURN",
+        "value": 1,
+        "delay_steps": 1,
+        "path": [
+          "wait1",
+          "ret1"
+        ]
+      },
+      "two0": {
+        "kind": "RETURN",
+        "value": 0,
+        "delay_steps": 2,
+        "path": [
+          "two0",
+          "wait0",
+          "ret0"
+        ]
+      }
+    },
+    "bad_pairs": [
+      [
+        "ret0",
+        "ret0"
+      ],
+      [
+        "ret0",
+        "spin"
+      ],
+      [
+        "ret0",
+        "two0"
+      ],
+      [
+        "ret0",
+        "wait0"
+      ],
+      [
+        "ret1",
+        "ret1"
+      ],
+      [
+        "ret1",
+        "spin"
+      ],
+      [
+        "ret1",
+        "wait1"
+      ],
+      [
+        "spin",
+        "ret0"
+      ],
+      [
+        "spin",
+        "ret1"
+      ],
+      [
+        "spin",
+        "spin"
+      ],
+      [
+        "spin",
+        "two0"
+      ],
+      [
+        "spin",
+        "wait0"
+      ],
+      [
+        "spin",
+        "wait1"
+      ],
+      [
+        "two0",
+        "ret0"
+      ],
+      [
+        "two0",
+        "spin"
+      ],
+      [
+        "two0",
+        "two0"
+      ],
+      [
+        "two0",
+        "wait0"
+      ],
+      [
+        "wait0",
+        "ret0"
+      ],
+      [
+        "wait0",
+        "spin"
+      ],
+      [
+        "wait0",
+        "two0"
+      ],
+      [
+        "wait0",
+        "wait0"
+      ],
+      [
+        "wait1",
+        "ret1"
+      ],
+      [
+        "wait1",
+        "spin"
+      ],
+      [
+        "wait1",
+        "wait1"
+      ]
+    ],
+    "good_pairs": [
+      [
+        "ret0",
+        "ret0"
+      ],
+      [
+        "ret0",
+        "two0"
+      ],
+      [
+        "ret0",
+        "wait0"
+      ],
+      [
+        "ret1",
+        "ret1"
+      ],
+      [
+        "ret1",
+        "wait1"
+      ],
+      [
+        "spin",
+        "spin"
+      ],
+      [
+        "two0",
+        "ret0"
+      ],
+      [
+        "two0",
+        "two0"
+      ],
+      [
+        "two0",
+        "wait0"
+      ],
+      [
+        "wait0",
+        "ret0"
+      ],
+      [
+        "wait0",
+        "two0"
+      ],
+      [
+        "wait0",
+        "wait0"
+      ],
+      [
+        "wait1",
+        "ret1"
+      ],
+      [
+        "wait1",
+        "wait1"
+      ]
+    ],
+    "iterations": {
+      "bad": 5,
+      "good": 4,
+      "least_bad": 6
+    },
+    "bad_spin_ret0": true,
+    "bad_spin_ret1": true,
+    "bad_ret0_ret1": false,
+    "bad_transitivity_counterexample": [
+      "ret0",
+      "spin",
+      "ret1"
+    ],
+    "least_rejects_spin_ret0": true,
+    "good_rejects_spin_ret0": true,
+    "good_identifies_finite_delay": true,
+    "bad_equivalence_closure_merges_values": true
+  },
+  "nondeterminism": {
+    "edges": [
+      [
+        "fast",
+        "done",
+        "end"
+      ],
+      [
+        "retry",
+        "tau",
+        "retry"
+      ],
+      [
+        "retry",
+        "done",
+        "end"
+      ],
+      [
+        "wait",
+        "tau",
+        "fast"
+      ]
+    ],
+    "weak_pairs": [
+      [
+        "end",
+        "end"
+      ],
+      [
+        "fast",
+        "fast"
+      ],
+      [
+        "fast",
+        "retry"
+      ],
+      [
+        "fast",
+        "wait"
+      ],
+      [
+        "retry",
+        "fast"
+      ],
+      [
+        "retry",
+        "retry"
+      ],
+      [
+        "retry",
+        "wait"
+      ],
+      [
+        "wait",
+        "fast"
+      ],
+      [
+        "wait",
+        "retry"
+      ],
+      [
+        "wait",
+        "wait"
+      ]
+    ],
+    "weak_rounds": 3,
+    "fast_retry_weak": true,
+    "fast_retry_divergence_preserving": false,
+    "may": {
+      "fast": true,
+      "retry": true,
+      "end": false,
+      "wait": true
+    },
+    "must": {
+      "fast": true,
+      "retry": false,
+      "end": false,
+      "wait": true
+    },
+    "tau_divergence": {
+      "fast": false,
+      "retry": true,
+      "end": false,
+      "wait": false
+    },
+    "fairness_assumed": false
+  },
+  "general_proofs": "PAPER_ONLY",
+  "native_kernel": "NOT_RUN",
+  "HoTT_core_error": false,
+  "novelty": "KNOWN_CORE_NOT_CLAIMED"
+}

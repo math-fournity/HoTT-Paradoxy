@@ -1,0 +1,89 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-052-APPLICATION-LAYER-AUDIT",
+  "audit_kind": "application_layer_delivery",
+  "mathematical_claim_added": false,
+  "claim_matrix_unchanged": true,
+  "environment": {
+    "agda": "2.8.0-3d04bac (binary sha256 ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e)",
+    "cubical": "v0.9 (tag commit b150186d2544e7efeddd31e5d14a8b9ecbb100f7, tree sha256 73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81)",
+    "node": "v26.7.0",
+    "lean": "4.33.1 (commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6)",
+    "ghc": "NOT_AVAILABLE"
+  },
+  "probes": {
+    "JsBaseline": {
+      "check": 0,
+      "js": 0,
+      "node": 0,
+      "stdout": "BASELINE_OK"
+    },
+    "JsUaTransport": {
+      "check": 0,
+      "js": 42,
+      "ghc_source": 42,
+      "error": "CubicalCompilationNotSupported"
+    },
+    "JsHit": {
+      "check": 0,
+      "js": 42,
+      "ghc_source": 42,
+      "error": "CubicalCompilationNotSupported"
+    },
+    "JsQuotient": {
+      "check": 0,
+      "js": 42,
+      "ghc_source": 42,
+      "error": "CubicalCompilationNotSupported"
+    },
+    "ErasedCubicalPositive": {
+      "check": 0,
+      "js": 42,
+      "ghc_source": 0,
+      "erased_content_dropped": true
+    },
+    "ErasedCubicalNegative": {
+      "check": 42,
+      "error": "DefinitionIsErased"
+    },
+    "ErasedCubicalLibraryFunction": {
+      "check": 42,
+      "error": "DefinitionIsErased"
+    },
+    "ErasedCubicalImport": {
+      "check": 0,
+      "js": 42,
+      "ghc_source": 0
+    },
+    "PlainCubicalImport": {
+      "check": 42,
+      "error": "InfectiveImport"
+    },
+    "LeanQuotConsumer": {
+      "exit": 0,
+      "stdout": [
+        "true",
+        "true"
+      ]
+    },
+    "LeanQuotRespect": {
+      "exit": 1,
+      "error": "type_error_rfl_a_b"
+    },
+    "LeanQuotNoncomputable": {
+      "exit": 1,
+      "error": "dependsOnNoncomputable"
+    }
+  },
+  "verdict": "DEFENSE_WORKS_SCOPED",
+  "e6_found": false,
+  "stale_source_hash_repair": {
+    "observed": 0,
+    "unexpected_remainder": 0
+  },
+  "evidence": {
+    "audit": "audit/application-layer-consumer审计-20260912.md",
+    "session_evidence": ".codex/research/hott/sessions/S-RES-20260912-052-APPLICATION-LAYER-AUDIT/evidence/"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

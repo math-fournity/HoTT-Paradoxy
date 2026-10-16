@@ -1,0 +1,58 @@
+[
+  {
+    "queue_position": 32,
+    "corpus": "agda-unimath",
+    "entry": {
+      "declaration": "apply-universal-property-trunc-Set'",
+      "line": 208,
+      "signature": "apply-universal-property-trunc-Set' : {l1 l2 : Level} {A : UU l1} (t : type-trunc-Set A) (B : Set l2) → (A → type-Set B) → type-Set B",
+      "has_obligation_token": false,
+      "file": "foundation/set-truncations.lagda.md"
+    },
+    "source_path": "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/foundation/set-truncations.lagda.md",
+    "source_sha256": "78657b114c2934e99bbb7e91779f54f372eccbb5209cf6fb1c5781374093cfd2",
+    "source_excerpt": [
+      "apply-universal-property-trunc-Set' :",
+      "  {l1 l2 : Level} {A : UU l1} (t : type-trunc-Set A) (B : Set l2) →",
+      "  (A → type-Set B) → type-Set B",
+      "apply-universal-property-trunc-Set' t B f =",
+      "  map-universal-property-trunc-Set B f t",
+      "```",
+      "",
+      "### The set truncation of `X` is the set quotient by the mere equality relation",
+      "",
+      "```agda",
+      "reflecting-map-mere-eq-unit-trunc-Set :",
+      "  {l : Level} (A : UU l) →"
+    ],
+    "classification": "REAL_TRUNCATION_CONSUMER_WITH_EXPLICIT_INPUT_REQUIREMENTS_NOT_E6"
+  },
+  {
+    "queue_position": 34,
+    "corpus": "agda-unimath",
+    "entry": {
+      "declaration": "map-universal-property-set-quotient-trunc-Prop",
+      "line": 97,
+      "signature": "map-universal-property-set-quotient-trunc-Prop : {l1 l2 : Level} {A : UU l1} (B : Set l2) (f : A → type-Set B) → is-weakly-constant-map f → type-trunc-Prop A → type-Set B",
+      "has_obligation_token": false,
+      "file": "foundation/universal-property-propositional-truncation-into-sets.lagda.md"
+    },
+    "source_path": "/Volumes/D/HoTT-toolchain-cache/agda-unimath-7b81411d/src/foundation/universal-property-propositional-truncation-into-sets.lagda.md",
+    "source_sha256": "cf8053a8ed20ddccb003b000f5381f9186a542afa4e18436ec9dd1878319b51c",
+    "source_excerpt": [
+      "map-universal-property-set-quotient-trunc-Prop :",
+      "  {l1 l2 : Level} {A : UU l1} (B : Set l2) (f : A → type-Set B) →",
+      "  is-weakly-constant-map f → type-trunc-Prop A → type-Set B",
+      "map-universal-property-set-quotient-trunc-Prop B f H =",
+      "  ( pr1) ∘",
+      "  ( map-universal-property-trunc-Prop",
+      "    ( image-weakly-constant-map-Prop B f H)",
+      "    ( λ a → (f a , unit-trunc-Prop (a , refl))))",
+      "",
+      "map-universal-property-set-quotient-trunc-Prop' :",
+      "  {l1 l2 : Level} {A : UU l1} (B : Set l2) →",
+      "  Σ (A → type-Set B) is-weakly-constant-map → type-trunc-Prop A → type-Set B"
+    ],
+    "classification": "REAL_TRUNCATION_CONSUMER_WITH_EXPLICIT_INPUT_REQUIREMENTS_NOT_E6"
+  }
+]

@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""Verify P21's branch synthesis and guarded-cubical selection."""
+from __future__ import annotations
+import hashlib,json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2];O=Path(__file__).resolve().parent;R=O/'P21-CROSS-BRANCH-SYNTHESIS-REPORT.md';G=ROOT/'HoTT/formal/partiality-race-timeout/GuardErasure.agda';M=ROOT/'HoTT/CLAIM_EVIDENCE_MATRIX.md';P19=ROOT/'audit/p19-origin-directed-diagram-kernelization-20260921/P19-ORIGIN-DIRECTED-DIAGRAM-KERNELIZATION-REPORT.md';P20=ROOT/'audit/p20-cross-backend-origin-interface-fidelity-20260921/P20-CROSS-BACKEND-ORIGIN-INTERFACE-FIDELITY-REPORT.md'
+def h(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+ t=R.read_text();need=['P3_PAUSED_SAME_CLASS','P1_MINIMAL_EXPRESSIBILITY_POSITIVE_CONTROL','P4_NOT_TRIGGERED_BY_TRANSLATION_GAP_ALONE','GUARDED_CUBICAL_TRANSLATION_CANDIDATE_SELECTED','P22_NOT_STARTED','NO_NEW_HOTT_DEFECT_CLAIM'];miss=[x for x in need if x not in t];ok=all(x in G.read_text() for x in ('collapse-forces-fixed-point','no-fixed-point-of-not','collapse-exists-if-fixed-point')) and '| C-325 |' in M.read_text() and P19.is_file() and P20.is_file();d={'schema_version':'p21-cross-branch-synthesis-verification/v1','task_id':'P21-CROSS-BRANCH-SYNTHESIS-001','status':'PASS_WITH_SCOPE' if not miss and ok else 'FAIL','verdict':'P3_PAUSED_SAME_CLASS / P1_MINIMAL_EXPRESSIBILITY_POSITIVE_CONTROL / P4_NOT_TRIGGERED_BY_TRANSLATION_GAP_ALONE / GUARDED_CUBICAL_TRANSLATION_CANDIDATE_SELECTED / P22_NOT_STARTED / NO_NEW_HOTT_DEFECT_CLAIM','sources':{str(R.relative_to(ROOT)):h(R),str(G.relative_to(ROOT)):h(G),str(M.relative_to(ROOT)):h(M),str(P19.relative_to(ROOT)):h(P19),str(P20.relative_to(ROOT)):h(P20)},'missing_required_tokens':miss,'local_synthesis_anchors_ok':ok};(O/'P21-CROSS-BRANCH-SYNTHESIS-VERIFICATION.json').write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n');print(json.dumps(d,ensure_ascii=False,indent=2));raise SystemExit(0 if d['status']=='PASS_WITH_SCOPE' else 1)
+if __name__=='__main__':main()

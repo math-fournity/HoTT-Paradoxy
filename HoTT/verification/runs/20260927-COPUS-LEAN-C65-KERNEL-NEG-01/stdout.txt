@@ -1,0 +1,21 @@
+## lean HoTT/formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean
+'CG001.WildSSTUIP.LeF_trans' does not depend on any axioms
+'CG001.WildSSTUIP.weaken_le' does not depend on any axioms
+'CG001.WildSSTUIP.weaken_le_fsuc' does not depend on any axioms
+'CG001.WildSSTUIP.coh2' does not depend on any axioms
+## lean HoTT/formal/cloud-opus-glm-audit/lean-controls/KernelRoute.lean
+'CopusLeanControls.kernelRouteA' does not depend on any axioms
+'CopusLeanControls.kernelRouteA_states_routeA' does not depend on any axioms
+## lean HoTT/formal/cloud-opus-glm-audit/lean-controls/KernelRouteEndpoint.lean
+'CopusLeanControls.stepThreeWrong' does not depend on any axioms
+HoTT/formal/cloud-opus-glm-audit/lean-controls/KernelRouteEndpoint.lean:28:0: error: (kernel) application type mismatch
+  Eq.trans (stepTwo S m i j k p q x) (stepThreeWrong S m i j k p q x)
+argument has type
+  S.d m i (S.d (m + 1) (weaken i) (S.d (m + 2) (fsuc (weaken j)) x)) =
+    S.d m i (S.d (m + 1) (weaken j) (S.d (m + 2) (weaken (weaken i)) x))
+but function has type
+  S.d m k (S.d (m + 1) (weaken i) (S.d (m + 2) (weaken (fsuc j)) x)) =
+      S.d m i (S.d (m + 1) (weaken j) (S.d (m + 2) (weaken (weaken i)) x)) →
+    S.d m i (S.d (m + 1) (fsuc k) (S.d (m + 2) (weaken (fsuc j)) x)) =
+      S.d m i (S.d (m + 1) (weaken j) (S.d (m + 2) (weaken (weaken i)) x))
+## exit 1

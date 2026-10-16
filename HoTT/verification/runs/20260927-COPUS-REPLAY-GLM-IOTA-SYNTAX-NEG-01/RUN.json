@@ -1,0 +1,68 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [
+    "Linux replay (Agda v2.8.0 Linux asset, cubical v0.9 byte-identical) of the GLM run of 2026-09-26; GLM's original receipt is left untouched (hash-locked)."
+  ],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "GLM-R1-C03"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax",
+    "HoTT/formal/glm-russell/iota-syntax/WrongArtIsRefl.agda"
+  ],
+  "completed_at_utc": "2026-09-27T06:25:17.777509+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 28.92391,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax/WrongArtIsRefl.agda:13.9-13: error: [UnequalTerms]\nart i != boolTy of type TmA\nwhen checking that the expression refl has type art ≡ refl",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/iota-syntax"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-GLM-RUSSELL-IOTA-NEG-001",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260927-COPUS-REPLAY-GLM-IOTA-SYNTAX-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-GLM-IOTA-SYNTAX-NEG-01: art ≡ refl by refl is rejected (art i != boolTy). Audit reading: this control only shows art is not definitionally refl; it does not test the C03 argument (see MP-COPUS-GLM-FIX-NEG-003).",
+  "source_manifest": {
+    "bytes": 2745,
+    "path": "source-manifest.json",
+    "sha256": "b7f4b25e22a47a7622a2266a82979ab9f1bc419cdfcd4e98f7bbcefc6f7cea81"
+  },
+  "started_at_utc": "2026-09-27T06:24:48.853599+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9739,
+    "path": "stdout.txt",
+    "sha256": "f37cd2d86190c4d8bc7ddb4da88ffc177172e75a1445fcdc3ea702f27729595d"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

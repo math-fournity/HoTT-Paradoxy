@@ -1,0 +1,154 @@
+{
+  "attempt": {
+    "attempt": 1,
+    "rolled_over_from": null
+  },
+  "budget": {
+    "max_checks": 5000000,
+    "max_contexts": 200000,
+    "max_witnesses": 20000
+  },
+  "calibration_match": {
+    "status": "NOT_DECLARED"
+  },
+  "case_id": "MS-TASK-L5-FINITE-TRUTH-DECISION-001",
+  "case_identity_sha256": "4ca9cec0a454e177b91183e38290417e98ad5040e585aadb419e46904a91e873",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-FINITE-TRUTH-DECISION-001/case-revision-1.json",
+  "case_revision": 1,
+  "completed_at_utc": "2026-09-13T20:13:12.386584+00:00",
+  "controls": {
+    "negative": {
+      "control": "ablation_removes_goal_proof",
+      "expectation_met": true,
+      "goal_terms_after_ablation": 0,
+      "removed_rules": [
+        "finite_truth_certificate"
+      ]
+    },
+    "positive": {
+      "control": "declared_zero-premise_rules_reach_control_goals",
+      "expectation_met": true,
+      "goals": [
+        "finite_truth_certificate"
+      ],
+      "reachable": [
+        "finite_truth_certificate",
+        "general_truth_oracle"
+      ]
+    }
+  },
+  "coordinator_version": "0.4.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L5-FINITE-TRUTH-DECISION-001/case-revision-1.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "1aa1a6e32c0f59459f79ebc76f74e8f2b5be97a5",
+    "tracked_dirty": true,
+    "tracked_dirty_entries": 12,
+    "untracked_entries": 553,
+    "worktree_dirty": true,
+    "worktree_dirty_entries": 565,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_goal": false,
+    "mutated_statistics": {
+      "checks_budget_exhausted": false,
+      "complete_within_declared_grammar": true,
+      "goal_terms_found": 0,
+      "proof_depth_bound": 2,
+      "proof_depth_budget_exhausted": false,
+      "proof_depth_declared": 2,
+      "rule_application_checks": 3,
+      "rule_count": 1,
+      "truncated": false,
+      "witness_capture_truncated": false
+    },
+    "mutated_witness_count": 0,
+    "mutation": "remove symbolic rules ['finite_truth_certificate']"
+  },
+  "inputs": {
+    "case_sha256": "f3f36408bb99874e816fe19462a1c84e453a8a3acdab50a8adcd00ccfc02b900",
+    "grammar_path": "machine-overview/grammars/l5-finite-truth-decision-v1.json",
+    "grammar_sha256": "25d737f9735c400bebab064c8f5eae71ae980288473a010aaaf402a38e5cb4a1",
+    "profile_sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf",
+    "task_path": "machine-overview/tasks/MS-TASK-L5-FINITE-TRUTH-DECISION-001.json",
+    "task_sha256": "c0b1ff628f47b3be483d405a04e535065d47581688cdac131d71aa6822d04a02",
+    "verified_inputs": {
+      "grammar": {
+        "path": "machine-overview/grammars/l5-finite-truth-decision-v1.json",
+        "sha256": "25d737f9735c400bebab064c8f5eae71ae980288473a010aaaf402a38e5cb4a1"
+      },
+      "profile": {
+        "path": "machine-overview/profiles/l5-consumer-qualification-v1.json",
+        "sha256": "aa75546b69bb838fe0f931d037070be2d5202438281ff020e8fa223226c126cf"
+      },
+      "task": {
+        "path": "machine-overview/tasks/MS-TASK-L5-FINITE-TRUTH-DECISION-001.json",
+        "sha256": "c0b1ff628f47b3be483d405a04e535065d47581688cdac131d71aa6822d04a02"
+      }
+    }
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L5-CONSUMER-QUALIFICATION-v1",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L5-TRUTH-001",
+  "runner": {
+    "bytes": 4513,
+    "path": "runner-manifest.json",
+    "sha256": "0a2ccbbcae5f999f046838f0f730fa8af6ce1327b147336a5561b0eba2c0e8bb"
+  },
+  "schema_version": "machine-overview-search-run/v2",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T20:13:12.384450+00:00",
+  "statistics": {
+    "checks_budget_exhausted": false,
+    "complete_within_declared_grammar": true,
+    "goal_terms_found": 1,
+    "proof_depth_bound": 2,
+    "proof_depth_budget_exhausted": false,
+    "proof_depth_declared": 2,
+    "rule_application_checks": 6,
+    "rule_count": 2,
+    "truncated": false,
+    "witness_capture_truncated": false
+  },
+  "witnesses": [
+    {
+      "ast_sha256": "5c75d8265ee1c2f1c0b3ca4c0d64591e01636343fa77183ec6f38eb40d19ad04",
+      "backend": "symbolic-horn-v1",
+      "goal": "finite_truth_certificate",
+      "grammar_membership": {
+        "reason": null,
+        "status": "WITHIN_DECLARED_GRAMMAR"
+      },
+      "proof_ast": {
+        "children": [],
+        "rule": "finite_truth_certificate"
+      },
+      "proof_term": "L5.truthDecision",
+      "separation_kind": "finite_truth_decision_capability",
+      "size": {
+        "depth": 1,
+        "nodes": 1
+      },
+      "used_rules": [
+        "finite_truth_certificate"
+      ],
+      "witness_id": "WV-0001"
+    }
+  ]
+}

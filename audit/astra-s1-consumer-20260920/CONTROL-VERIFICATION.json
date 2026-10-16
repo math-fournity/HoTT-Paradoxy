@@ -1,0 +1,73 @@
+{
+  "status": "SIX_DECLARED_CASES_EXACTLY_RECONCILED",
+  "declared": 6,
+  "observed": 6,
+  "remainder": 0,
+  "accepted": 2,
+  "fixed_term_type_rejections": 4,
+  "cases": [
+    {
+      "case": "SC00",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-CONSUMER-001-01",
+      "source_sha256": "89b9bc232fce73a396e15b9ea1aa5f2a05520640a4b596aa2f6a8d69a8110236",
+      "exit": 0,
+      "seconds": 31.513047,
+      "single_declared_change_only": true,
+      "verdict": "BASELINE_ACCEPTED",
+      "diagnostic": null
+    },
+    {
+      "case": "SC01",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-SC01-CONTROL-01",
+      "source_sha256": "a177db22ab15d7b7ff5436f943c0d666f1060d2ff8260a4a51483f22384e0e28",
+      "exit": 42,
+      "seconds": 31.378022,
+      "single_declared_change_only": true,
+      "verdict": "UNGLUE_INPUT_FAMILY_CHANGED",
+      "diagnostic": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-s1-consumer-check/SC01.agda:54.28-29: error: [UnequalTerms]\nℤ !=< (Agda.Builtin.Cubical.Glue.primGlue _A_72 _T_73 _e_74)\nwhen checking that the expression y has type\nAgda.Builtin.Cubical.Glue.primGlue _A_72 _T_73 _e_74\n"
+    },
+    {
+      "case": "SC02",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-SC02-CONTROL-01",
+      "source_sha256": "00334ba9957c26c78091ae5360892957efb929a9400747e52c84009335d3b4ea",
+      "exit": 42,
+      "seconds": 31.28653,
+      "single_declared_change_only": true,
+      "verdict": "DECODE_SQUARE_BOUNDARY_CHANGED",
+      "diagnostic": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-s1-consumer-check/SC02.agda:43.1-31: error: [UnequalTerms]\nloop i != base of type S¹\nwhen checking that a clause of decodeSquare has the correct\nboundary.\n\nSpecifically, the terms\n  (intLoop (pos n) ∙ loop) j\nand\n  hfill (λ { k (j = i0) → base ; k (j = i1) → base })\n  (inS (intLoop (pos n) j)) i1\nmust be equal, since decodeSquare (pos (suc n)) i1 j could reduce\nto either.\n"
+    },
+    {
+      "case": "SC03",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-SC03-CONTROL-01",
+      "source_sha256": "987415ed7f70f663fba8589d77d57a2768c6bfcffdb7b91be609770068f6f3d4",
+      "exit": 42,
+      "seconds": 31.36222,
+      "single_declared_change_only": true,
+      "verdict": "REMOVED_PROPOSITIONAL_CORRECTION",
+      "diagnostic": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-s1-consumer-check/SC03.agda:59.13-31: error: [UnequalTerms]\npredℤ (sucℤ y) != y of type ℤ\nwhen checking that the expression\nhcomp\n(λ k →\n   λ { (i = i0) → intLoop y j\n     ; (i = i1) → intLoop y j\n     ; (j = i0) → base\n     ; (j = i1) → loop i\n     })\n(decodeSquare n i j)\nhas type S¹\n"
+    },
+    {
+      "case": "SC04",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-SC04-CONTROL-01",
+      "source_sha256": "a17dd6fe98c61a48b85b55560318c5fc2a14f868a21b5f94c664244cb0a24051",
+      "exit": 42,
+      "seconds": 31.52877,
+      "single_declared_change_only": true,
+      "verdict": "J_PROOF_NOT_DEFINITIONAL_REFL",
+      "diagnostic": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-s1-consumer-check/SC04.agda:62.20-24: error: [UnequalTerms]\ndecode x (encode x p) i != p i of type S¹\nwhen checking that the expression refl has type\ndecode x (encode x p) ≡ p\n"
+    },
+    {
+      "case": "SC05",
+      "run": "HoTT/verification/runs/20260920-MP-ASTRA-S1-SC05-CONTROL-01",
+      "source_sha256": "b8c130eb923ea974024adea85161159308f599682b56de33850bb6635f943d5b",
+      "exit": 0,
+      "seconds": 31.459519,
+      "single_declared_change_only": true,
+      "verdict": "EXACT_CORE_RESTORED_IN_INDEPENDENT_SOURCE_ACCEPTED",
+      "diagnostic": null
+    }
+  ],
+  "import_modules": 146,
+  "source_metadata_gap": "Initial formal-01 rejected inert .agda provenance snapshots as unqualified local code; original receipts preserved. New v2 primary run must pass formal/relationship checks separately.",
+  "scope": "Finite fixed-term causal experiment, not universal no-go, consistency or complete-library certification."
+}

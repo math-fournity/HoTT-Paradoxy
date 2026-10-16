@@ -1,0 +1,57 @@
+{
+  "claim_ids": [],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-s1-consumer-check",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-s1-consumer-20260920/SC04-01-imports.dot",
+    "HoTT/formal/astra-s1-consumer-check/SC04.agda"
+  ],
+  "completed_at_utc": "2026-09-20T18:36:10.521086+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 31.52877,
+  "environment": {
+    "bytes": 584,
+    "path": "environment.txt",
+    "sha256": "c53b15fcc7929d356d2788c9580d7194ffd2139fd806f28ebcdef11d2f315d86"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "CONTROL_ONLY_NO_NEW_CLAIM",
+  "non_goals": [
+    "No global HoTT inconsistency/completeness or physical point-removal conclusion.",
+    "No universal failure inferred from one rejected term; no guessed outcome before diagnostic review."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-S1-SC04-CONTROL",
+  "run_id": "20260920-MP-ASTRA-S1-SC04-CONTROL-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Actual S1 integer-cover consumer chain; SC04. Baseline/restoration include family and encoding/winding/intLoop bridges to upstream plus real inverse laws and composition observation. Mutants are only fixed-term causal controls; rejection is not a negative theorem.",
+  "source_manifest": {
+    "bytes": 15336,
+    "path": "source-manifest.json",
+    "sha256": "e95e8134c2654fac44b7b93b38d8371d142a2fcb58ab233a100bc07cd25f6182"
+  },
+  "started_at_utc": "2026-09-20T18:35:38.992316+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16855,
+    "path": "stdout.txt",
+    "sha256": "509b9aca7436595972fbe93408feb070cccd14598394ad0f5d1e6b6137c7e023"
+  },
+  "theory_variant": "cubical"
+}

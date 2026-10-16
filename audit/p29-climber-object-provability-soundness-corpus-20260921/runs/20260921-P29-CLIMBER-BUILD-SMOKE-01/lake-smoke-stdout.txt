@@ -1,0 +1,31 @@
+climber — smoke test
+====================
+
+T₀: minimal implicational logic with ⊥-elim (K, S, bot_e, MP).
+    soundness₀ : ∀ φ env, Derivable₀ φ → interp env φ  ✓
+
+Proposed extension:
+    Peirce's law: ((p → q) → p) → p
+    soundness certificate: peirceSound  ✓ (kernel-checked)
+
+T₁ = T₀.extend peirceExtension
+    derives T₁ (peirceFormula "p" "q")  ✓
+    climb_sound : ∀ T φ env, derives T φ → interp env φ  ✓
+
+Counter-model (3-element Heyting algebra):
+    peirce_not_derivable_in_T₀  ✓ (T₀ provably cannot reach Peirce)
+
+The climb crossed an unreachable line:
+  T₀ ⊬ Peirce, T₁ ⊢ Peirce, both stay sound.
+
+Internal RFN(T₀) rung:
+    rfn0Extension : SoundExtension
+    schema admits  prov φ → φ  for any φ
+    soundness certificate: soundness₀ (kernel-checked)
+
+T₁_rfn = T₀.extend rfn0Extension
+    consistencyFormula : Formula  =  prov ⊥ → ⊥
+    T₁_rfn_derives_con  ✓
+    con_not_derivable_in_T₀  ✓ (T₀ cannot prove its own consistency)
+
+The Beklemishev rung: T₀ ⊬ Con(T₀), T₁_rfn ⊢ Con(T₀).

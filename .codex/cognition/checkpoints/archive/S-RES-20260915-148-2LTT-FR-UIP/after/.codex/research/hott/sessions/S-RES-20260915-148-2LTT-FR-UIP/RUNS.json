@@ -1,0 +1,54 @@
+{
+  "checkpoint_result": ".codex/cognition/checkpoints/S-RES-20260915-148-2LTT-FR-UIP/result.json",
+  "completeness_audit": {
+    "cell": "TC-11 external-pointwise-to-internal-context-uniform × OP-02/03 × inner-path consumer",
+    "controls": [
+      "native S1 nontrivial loop",
+      "native identity replacement without strict bridge",
+      "COMP-R omitted"
+    ],
+    "generator": "source-guided then typed formalisation and rule ablation",
+    "oracles": [
+      "Cubical Agda kernel",
+      "F-011 exact replay",
+      "primary 2LTT source"
+    ],
+    "remainder": [
+      "natural consumer",
+      "crisp/base-change same-task ablation",
+      "reality bridge",
+      "full R4"
+    ],
+    "unexpected_result": "COMP-R is unnecessary; nondependent recR derived from dependent ELIM-R suffices"
+  },
+  "formal_runs": [
+    {
+      "claims": [
+        "C-227",
+        "C-228",
+        "C-229",
+        "C-230",
+        "C-231",
+        "C-232"
+      ],
+      "proof_id": "MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001",
+      "run_id": "20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01",
+      "status": "PASS_WITH_SCOPE / EXACT_REPLAY"
+    }
+  ],
+  "next": [
+    "A-NATURAL-CONSUMER-2LTT-REPLACEMENT-002",
+    "CE-MAP-001",
+    "CRISP-REPLACEMENT-ABLATION-001",
+    "ORACLE-MODALITY-REPLAY-001",
+    "R2-AMBIENT-UNDEC-001",
+    "G-HOTT-SYNTAX-EXPAND-001"
+  ],
+  "regressions": {
+    "programmatic_plan": "5/5 PASS",
+    "proof_evidence_global": "EXPECTED_BLOCKED_UNTRACKED_R1_PLUS_ASSETS",
+    "single_run": "PASS_WITH_SCOPE"
+  },
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260915-148-2LTT-FR-UIP"
+}

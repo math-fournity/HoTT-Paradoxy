@@ -1,0 +1,5 @@
+# 读取核验的归档路径变化与重跑
+
+两个测试实例完成后，App归档操作将原生rollout从sessions/2026/09/23移到archived_sessions。主审同时启动的一次最终范围重核尚在读取旧路径，因此`session_trajectory.py inspect`返回`source does not exist`，包装校验退出1。这是主审留证动作的先后安排错误，不是受试的读取失败；之前已完成的READ-VERIFICATION仍保留初答和续答全部实际读取范围。
+
+随后用文件清单定位同名、同branch ID的两个archived rollout，包装脚本只增加这一明确路径选择，继续使用canonical reader读取。未修改原生trajectory、未伪造工具结果、未启动新受试或改变评分。最终重核在归档完成后串行执行，其退出和范围结果见STATIC-VERIFICATION.json与READ-VERIFICATION.json。失败原工具输出留在本主任务轨迹；本文件保留原因及恢复，不把旧失败改为从未发生。

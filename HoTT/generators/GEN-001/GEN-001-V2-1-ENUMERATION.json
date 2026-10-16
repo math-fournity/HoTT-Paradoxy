@@ -1,0 +1,222 @@
+{
+ "schema_version": "machine-overview-gen001-enumeration/v1",
+ "search_run": "SEARCH-GEN001-V2-1-001",
+ "search_run_path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/SEARCH-GEN001-V2-1-001/RUN.json",
+ "family": "TASK-FAMILY-V2-EXISTENCE-VERSUS-AVAILABILITY",
+ "family_short": "GEN-001-V2-1",
+ "premise_ref": "PREMISE-D-04 / PREMISE-G-05 (SUPPLY-009 / V2-A, AI-adjudicated pending external audit; the lowest-confidence pair of PREMISE-001/006)",
+ "denominator": {
+  "contexts": 3059,
+  "contexts_examined": 3059,
+  "pair_context_checks_planned": 3377136,
+  "checks_executed": 3377136,
+  "budget_exhausted": false
+ },
+ "enumeration": {
+  "separations_seen": 212864,
+  "raw_witnesses_captured": 212864,
+  "grammar_violations": 0,
+  "truncated": false,
+  "complete_within_declared_grammar": true,
+  "remainder": 0
+ },
+ "grammar_preserving_reduction": {
+  "reduced_canonical_witnesses": 51904,
+  "mechanism_distribution": {
+   "availability_observation": 2176,
+   "level_observation": 3840,
+   "density_observation": 2624,
+   "deadline_observation": 11136,
+   "value_mismatch": 31872,
+   "completion_divergence": 256
+  },
+  "new_structural_kinds": {
+   "availability_observation": 2176,
+   "level_observation": 3840,
+   "density_observation": 2624
+  },
+  "l1_shared_kinds": {
+   "value_mismatch": 31872,
+   "completion_divergence": 256,
+   "deadline_observation": 11136
+  },
+  "witnesses_binding_new_v2_continuation": 21120
+ },
+ "continuation_map_coverage": {
+  "continuation_count": 5,
+  "erased_maps": {
+   "availability_verdict_level_split": {
+    "false": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "true": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "availability_verdict_never_supplied_face": {
+    "false": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    },
+    "true": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    }
+   },
+   "availability_verdict_supplied_face_revealed": {
+    "false": {
+     "kind": "ret",
+     "n": 1,
+     "value": false
+    },
+    "true": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   },
+   "const_omega": {
+    "false": {
+     "kind": "omega"
+    },
+    "true": {
+     "kind": "omega"
+    }
+   },
+   "deliver_business": {
+    "false": {
+     "kind": "omega"
+    },
+    "true": {
+     "kind": "ret",
+     "n": 0,
+     "value": true
+    }
+   }
+  },
+  "v2_maps_mutually_distinct": true
+ },
+ "out_of_envelope_summary": {
+  "scoped_rows": 50624,
+  "scoped_rejected_by_all": 50624,
+  "scoped_all_reasons_unique": true,
+  "reason_buckets": {
+   "BIND_CONTINUATION": 1536,
+   "CONTEXT_DEPTH": 44928,
+   "UNKNOWN_OP:between": 192,
+   "UNKNOWN_OP:supply": 3776,
+   "UNKNOWN_OP:tower": 192
+  },
+  "ingress_rows": 1280,
+  "ingress_disclosure": "pure race/deadline witnesses with no structural op and no new continuation; their mechanisms (value_mismatch / deadline_observation) are L1-reproducible and are shared with the five delay families (012 §2.3 ingress)",
+  "full_detail": "GEN-001-V2-1-OUT-OF-ENVELOPE.json"
+ },
+ "kernel_verified_witnesses": [
+  {
+   "witness_id": "WV-0001",
+   "verify_run": "VERIFY-GEN-001-V2-1-WV-0001",
+   "separation_kind": "availability_observation",
+   "bound_continuation": null,
+   "l1_invisible": true,
+   "four_way": {
+    "verify": "KERNEL_ACCEPTED",
+    "controls": "KERNEL_ACCEPTED",
+    "negative-control": "KERNEL_REJECTED_AS_EXPECTED",
+    "verify-replay": "KERNEL_ACCEPTED"
+   },
+   "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+   "model_dependency": "SUPPLIED_SET_MEMBERSHIP",
+   "invokes_point_set_only_laws": false,
+   "oracle_scope": "POINT_SET_FACE_LATTICE (Face = Point → Bool, the declared fragment semantics)",
+   "interval_i_confirmed": false,
+   "status": "KERNEL_FOUR_WAY_PASS"
+  },
+  {
+   "witness_id": "WV-23233",
+   "verify_run": "VERIFY-GEN-001-V2-1-WV-23233",
+   "separation_kind": "level_observation",
+   "bound_continuation": "availability_verdict_level_split",
+   "l1_invisible": true,
+   "four_way": {
+    "verify": "KERNEL_ACCEPTED",
+    "controls": "KERNEL_ACCEPTED",
+    "negative-control": "KERNEL_REJECTED_AS_EXPECTED",
+    "verify-replay": "KERNEL_ACCEPTED"
+   },
+   "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+   "model_dependency": "BOUNDED_LEVEL_COMPARISON",
+   "invokes_point_set_only_laws": false,
+   "oracle_scope": "POINT_SET_FACE_LATTICE (Face = Point → Bool, the declared fragment semantics)",
+   "interval_i_confirmed": false,
+   "status": "KERNEL_FOUR_WAY_PASS"
+  },
+  {
+   "witness_id": "WV-0785",
+   "verify_run": "VERIFY-GEN-001-V2-1-WV-0785",
+   "separation_kind": "density_observation",
+   "bound_continuation": null,
+   "l1_invisible": true,
+   "four_way": {
+    "verify": "KERNEL_ACCEPTED",
+    "controls": "KERNEL_ACCEPTED",
+    "negative-control": "KERNEL_REJECTED_AS_EXPECTED",
+    "verify-replay": "KERNEL_ACCEPTED"
+   },
+   "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+   "model_dependency": "FACE_LATTICE_ORDER",
+   "invokes_point_set_only_laws": true,
+   "oracle_scope": "POINT_SET_FACE_LATTICE (Face = Point → Bool, the declared fragment semantics)",
+   "interval_i_confirmed": false,
+   "status": "KERNEL_FOUR_WAY_PASS"
+  },
+  {
+   "witness_id": "WV-0786",
+   "verify_run": "VERIFY-GEN-001-V2-1-WV-0786",
+   "separation_kind": "density_observation",
+   "bound_continuation": null,
+   "l1_invisible": true,
+   "four_way": {
+    "verify": "KERNEL_ACCEPTED",
+    "controls": "KERNEL_ACCEPTED",
+    "negative-control": "KERNEL_REJECTED_AS_EXPECTED",
+    "verify-replay": "KERNEL_ACCEPTED"
+   },
+   "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+   "model_dependency": "FACE_LATTICE_ORDER",
+   "invokes_point_set_only_laws": true,
+   "oracle_scope": "POINT_SET_FACE_LATTICE (Face = Point → Bool, the declared fragment semantics)",
+   "interval_i_confirmed": false,
+   "status": "KERNEL_FOUR_WAY_PASS"
+  }
+ ],
+ "witness_manifest": {
+  "count": 51904,
+  "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/SEARCH-GEN001-V2-1-001/witness-manifest.json",
+  "sha256": "2a6ca5607f546adafabd97b00b0bdf46c3d95864d34cf8822253e5f6f55cd33f",
+  "note": "全量 51904 条见证清单保留在引擎工作树 (分支 feat/machine-overview-m1, commit 3a6ccd0); 主 repo 只存 sha256 与统计"
+ },
+ "calibration_match": {
+  "benchmark_id": "V2-A-AVAILABILITY-BASELINE",
+  "matched_witness": true,
+  "reduced_key": "{\"left\": {\"face\": 3, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}, \"ops\": [{\"face\": 3, \"kind\": \"supply\"}, {\"kind\": \"fill\"}], \"right\": {\"face\": 5, \"kind\": \"ret\", \"level\": 0, \"n\": 0, \"value\": true}}",
+  "status": "PRESENT"
+ },
+ "order_independence_check": {
+  "order_independent_set_equal": true,
+  "statistics_match": true,
+  "seed": 20260913
+ },
+ "scope_disclosure": {
+  "enumerator": "point-set 16-face model over {0,1}^2; SOUND but NOT COMPLETE w.r.t. the interval I (De Morgan); every separation computed by the chain is an enumerator-internal candidate, never a conclusion (F-011 tightened)",
+  "oracle": "Cubical Agda 2.8.0 + cubical v0.9 native kernel on the mirror formal/V2Cofibration.agda; oracle verdicts only from the kernel",
+  "race_partners": "explicit declared partner list, NOT the full V2 partner product (bounding decision, disclosed)"
+ },
+ "evidence_class": "ENUMERATOR_ONLY",
+ "exit_reason": "COMPLETED_WITHIN_BUDGET"
+}

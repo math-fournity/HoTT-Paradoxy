@@ -1,0 +1,1733 @@
+{
+  "role": "DERIVED_AUDIT_RESULT_NOT_PROJECT_CURRENT_TRUTH",
+  "packages": 42,
+  "passed_formal_receipt": 29,
+  "failed_formal_receipt": 13,
+  "rows": [
+    {
+      "proof_id": "MP-ERCF-001",
+      "run": "HoTT/verification/runs/20260912-MP-ERCF-001-02",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-ERCF-001-02",
+        "proof_id": "MP-ERCF-001",
+        "claim_ids": [
+          "C-59",
+          "C-60",
+          "C-61",
+          "C-62",
+          "C-63",
+          "C-64",
+          "C-65",
+          "C-66"
+        ],
+        "source_paths": [
+          "HoTT/formal/ercf-factorization/ERCF.lean",
+          "HoTT/formal/ercf-factorization/README.md"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "General Type-valued factorization controls exactly as stated in ERCF.lean; Lean equality and prelude only.",
+        "non_goals": [
+          "No univalence, cubical Path, HIT, truncation, HoTT-specific paradox, physical interpretation, or originality claim."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-ERCF-TRUNC-001",
+      "run": "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-ERCF-TRUNC-001-01",
+        "proof_id": "MP-ERCF-TRUNC-001",
+        "claim_ids": [
+          "C-67",
+          "C-68",
+          "C-69",
+          "C-70"
+        ],
+        "source_paths": [
+          "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+          "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+          "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda propositional-truncation HIT: proposition-valued recursor, truncation flattening with point beta, Bool-output constancy, and impossibility of point-preserving Bool extraction.",
+        "non_goals": [
+          "No HoTT inconsistency, paradox, reality bridge, unrestricted global-choice theorem, claim that every map from a truncation is absent, ERCF-3, or originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-RACE-TIMEOUT-001",
+      "run": "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-RACE-TIMEOUT-001-01",
+        "proof_id": "MP-RACE-TIMEOUT-001",
+        "claim_ids": [
+          "C-71",
+          "C-72",
+          "C-73",
+          "C-74",
+          "C-75",
+          "C-76"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/README.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R041-style deterministic delay model in native Cubical Agda: bind congruence and set-quotient descent (C-71, C-72); race non-congruence, completion gap and deadline separation witnesses (C-73 to C-75); no quotient-level race selector (C-76). Verdict REPRESENTATION_BOUNDARY; not a HoTT paradox.",
+        "non_goals": [
+          "No HoTT inconsistency, reality bridge, general non-descent theorem for all race semantics, originality, or version closure.",
+          "No reuse or verification of the WebGPT R041 source, 25 tests or cf58f27 container lineage."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-CONTEXTUAL-EQUIV-001",
+      "run": "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-CONTEXTUAL-EQUIV-001-01",
+        "proof_id": "MP-CONTEXTUAL-EQUIV-001",
+        "claim_ids": [
+          "C-77",
+          "C-78",
+          "C-79",
+          "C-80",
+          "C-81",
+          "C-82",
+          "C-83"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/ContextualEquivalence.README.md",
+          "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda contextual-equivalence hierarchy for the R041 delay fragment: the fixed context family (hole, bind, race on either side) plus the deadline observation family yields an equivalence that refines result equivalence (C-77, C-78) and strictly separates timing, divergence and value (C-79 to C-82); result equivalence is strictly coarser (C-83). Verdict REPRESENTATION_BOUNDARY; not a HoTT paradox.",
+        "non_goals": [
+          "No claim about all possible context languages or race policies, no general quotient monad, no HoTT inconsistency, no reality bridge, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-QUOTIENT-MONAD-001",
+      "run": "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-QUOTIENT-MONAD-001-01",
+        "proof_id": "MP-QUOTIENT-MONAD-001",
+        "claim_ids": [
+          "C-84",
+          "C-85",
+          "C-86",
+          "C-87",
+          "C-88"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md",
+          "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda quotient monad for the R041 delay fragment: canonical section of the result quotient (C-84); quotient-valued continuation bind (C-85); unit laws (C-86); representative-level associativity up to result equivalence (C-87); quotient-level associativity (C-88). Positive structure result: the fragment quotient is split, so no choice principle is needed. Not a HoTT paradox.",
+        "non_goals": [
+          "No general quotient-monad theorem without a definable section, no full characterization of contextual equivalence, no wider context language, no reality bridge, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
+      "run": "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
+        "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
+        "claim_ids": [
+          "C-89",
+          "C-90",
+          "C-91"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/ContextCharacterization.README.md",
+          "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+          "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda full characterization of the contextual equivalence for the R041 delay fragment on Bool: lt trichotomy (C-89), general strict-time separation (C-90), and p ≡c q ↔ p ≡ q (C-91). The coarsest equivalence respected by the fixed context family is exactly representational equality, so no context extension can distinguish more in this fragment. Not a HoTT paradox.",
+        "non_goals": [
+          "No general value types, no general quotient claims, no wider-language theorem beyond the Bool fragment, no reality bridge, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-GUARD-ERASURE-001",
+      "run": "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-GUARD-ERASURE-001-01",
+        "proof_id": "MP-GUARD-ERASURE-001",
+        "claim_ids": [
+          "C-92",
+          "C-93",
+          "C-94",
+          "C-95"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/GuardErasure.README.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda machine construction for guard/stage erasure with an explicit source calculus (staged streams) and an explicit forgetful translation: collapse-while-keeping-the-update-law forces a fixed point (C-92) and conversely any fixed point yields such a collapse (C-94), so erasure-while-keeping-the-law is equivalent to fixed-point existence; the negation law admits no such collapse (C-93) and the concrete oscillating orbit has observable stages (C-95). Not a HoTT paradox.",
+        "non_goals": [
+          "No guarded/clocked type theory equivalence, no physical-time claim, no HoTT-specificity claim, no originality (the historical conditional form is ZCore.agda, a legacy aggregate requiring replay)."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-COST-FACTORIZATION-001",
+      "run": "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-COST-FACTORIZATION-001-01",
+        "proof_id": "MP-COST-FACTORIZATION-001",
+        "claim_ids": [
+          "C-96",
+          "C-97",
+          "C-98",
+          "C-99"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/CostFactorization.README.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda first machine construction for the same-function/different-time (cost) direction: fast and slow k share the extensional function (funext) but differ in syntax-directed step cost (C-96); no predicate on the bare function type distinguishes extensionally equal programs (C-97); hence no consumer recovers the cost value from the bare function (C-98); the cost-refined representation recovers and separates (C-99). Representation limit with positive control; not a HoTT paradox.",
+        "non_goals": [
+          "No real compiler/hardware cost model, no originality claim (cost/extensionality tension is known in cost-aware type theory), no natural-consumer construction."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-PATH-CERTIFICATE-001",
+      "run": "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-PATH-CERTIFICATE-001-01",
+        "proof_id": "MP-PATH-CERTIFICATE-001",
+        "claim_ids": [
+          "C-100",
+          "C-101",
+          "C-102",
+          "C-103",
+          "C-104",
+          "C-105"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/PathCertificate.README.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda verification of the R034 path-certificate boundary: the univalence path of Bool-negation moves by not (C-100); truncation is a proposition and inhabited (C-101); the fixed-pair weak interface exists (C-102); the fixed-source unified variant and the general MereMove are empty (C-103, C-104) via a Sigma-loop and dependent transport with real Cubical Path; the path-indexed interface exists (C-105). Boundary result, not a HoTT paradox; ordinary Lean Eq is not used.",
+        "non_goals": [
+          "No R032 certificate-syntax replay, no HoTT+choice inconsistency, no claim that all instances are unsolvable, no originality (the paper derivation is R034)."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-ONLINE-CAUSALITY-001",
+      "run": "HoTT/verification/runs/20260912-MP-ONLINE-CAUSALITY-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-ONLINE-CAUSALITY-001-01",
+        "proof_id": "MP-ONLINE-CAUSALITY-001",
+        "claim_ids": [
+          "C-106",
+          "C-107",
+          "C-108",
+          "C-109"
+        ],
+        "source_paths": [
+          "HoTT/formal/partiality-race-timeout/OnlineCausality.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/partiality-race-timeout/OnlineCausality.README.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda online-causality boundary for the DIR-L-TIME-WORK-DIMENSION direction: streams, prefixes and online strategies that read only the arrived prefix; no time-0 strategy outputs the second input (C-106); positive controls for reading the first input at time 0 (C-107) and the second input from time 1 (C-108); the knowledge gap: a complete stream function exists while no time-0 online strategy does (C-109). Boundary result with positive controls; not a HoTT paradox; no physical-time claim.",
+        "non_goals": [
+          "No physical time/latency/resource claim, no HoTT-specificity claim, no guarded/clocked translation, no claim that all online tasks are impossible."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-TRANSITION-LIFT-001",
+      "run": "HoTT/verification/runs/20260912-MP-TRANSITION-LIFT-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-TRANSITION-LIFT-001-01",
+        "proof_id": "MP-TRANSITION-LIFT-001",
+        "claim_ids": [
+          "C-110",
+          "C-111",
+          "C-112",
+          "C-113",
+          "C-114",
+          "C-115",
+          "C-116",
+          "C-117"
+        ],
+        "source_paths": [
+          "HoTT/formal/transition-lift/TransitionLift.agda",
+          "HoTT/formal/transition-lift/TOOLCHAIN.json",
+          "HoTT/formal/transition-lift/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native Cubical Agda upgrade of the R036/R038 core: the finite transition quotient with terminal d; the spurious existential-image self-loop at w; no concrete two-step lift of w,w,w from a; failure of the exact current-state successor descent; no strictly descending fibre-constant rank; and the R038-D truncation-limit non-commutation (exact limit empty, truncated limit inhabited, no inverse). Boundary result; not a HoTT paradox.",
+        "non_goals": [
+          "No claim of HoTT inconsistency, no general graph theorem beyond the fixed finite model, no physical time claim, no claim about other instantiations, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-PARTIAL-DECISION-001",
+      "run": "HoTT/verification/runs/20260912-MP-PARTIAL-DECISION-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-PARTIAL-DECISION-001-01",
+        "proof_id": "MP-PARTIAL-DECISION-001",
+        "claim_ids": [
+          "C-118",
+          "C-119",
+          "C-120",
+          "C-121",
+          "C-122",
+          "C-123"
+        ],
+        "source_paths": [
+          "HoTT/formal/partial-decision/PartialDecision.agda",
+          "HoTT/formal/partial-decision/TOOLCHAIN.json",
+          "HoTT/formal/partial-decision/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Minimal native Cubical boundary between a strict classifier and a partial classifier definable only up to weak bisimilarity: on the quotient A/R_A (a~b), no strict Delay-valued function extends P0 (C-120); the strict Bool consumer cannot descend either (C-122); P0 descends to a partial classifier Q -> Delay Bool / R_D (C-121); the representative-level strict classifier exists and separates a,b (C-118, C-119, C-123). Boundary result with positive control; not a HoTT paradox.",
+        "non_goals": [
+          "No full partiality monad, no Rq -> 2_bottom formalisation, no general strict/partial dichotomy, no real-library consumer claim, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-SIP-REPRESENTATION-001",
+      "run": "HoTT/verification/runs/20260912-MP-SIP-REPRESENTATION-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-SIP-REPRESENTATION-001-01",
+        "proof_id": "MP-SIP-REPRESENTATION-001",
+        "claim_ids": [
+          "C-124",
+          "C-125",
+          "C-126",
+          "C-127",
+          "C-128"
+        ],
+        "source_paths": [
+          "HoTT/formal/sip-representation/SIPRepresentation.agda",
+          "HoTT/formal/sip-representation/TOOLCHAIN.json",
+          "HoTT/formal/sip-representation/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Minimal native Cubical SIP/UA boundary: the pointed structures (Bool,true) and (Bool,false) are identified by a path built from ua notEquiv (C-124); the outside-signature observable differs on them (C-125); any Bool-valued function on the structure type is constant on the pair (C-126); no uniform recovery function exists (C-127); adding the observable to the signature prevents the identification and the projection recovers it (C-128). Boundary result with positive control; not a HoTT paradox.",
+        "non_goals": [
+          "No full SIP module instantiation, no general structure-category theorem, no real-library consumer claim, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-CAUCHY-MODULUS-001",
+      "run": "HoTT/verification/runs/20260912-MP-CAUCHY-MODULUS-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260912-MP-CAUCHY-MODULUS-001-01",
+        "proof_id": "MP-CAUCHY-MODULUS-001",
+        "claim_ids": [
+          "C-129",
+          "C-130",
+          "C-131",
+          "C-132",
+          "C-133"
+        ],
+        "source_paths": [
+          "HoTT/formal/cauchy-modulus/CauchyModulus.agda",
+          "HoTT/formal/cauchy-modulus/TOOLCHAIN.json",
+          "HoTT/formal/cauchy-modulus/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Minimal native Cubical Cauchy-modulus boundary: the quotient by equality of the limit admits a limit function (C-129); two representations of the constant-true sequence with given moduli 0 and 1 are identified while their moduli differ (C-130); no function out of the quotient uniformly recovers the given modulus (C-131); refining the identity relation to include the modulus yields a modulus function on the refined quotient (C-132) and the two representations are not related (C-133). Boundary result with positive controls; not a HoTT paradox.",
+        "non_goals": [
+          "No full Cauchy reals or Real library, no decimal expansion formalisation, no real-library error claim, no originality."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-TRUNC-NORECOVERY-001",
+      "run": "HoTT/verification/runs/20260913-MP-TRUNC-NORECOVERY-001-03",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260913-MP-TRUNC-NORECOVERY-001-03",
+        "proof_id": "MP-TRUNC-NORECOVERY-001",
+        "claim_ids": [
+          "C-134",
+          "C-135",
+          "C-136",
+          "C-137",
+          "C-138",
+          "C-139",
+          "C-140",
+          "C-141"
+        ],
+        "source_paths": [
+          "HoTT/formal/truncation-no-recovery/TruncationNoRecovery.agda",
+          "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+          "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Set-valued truncation no-recovery family extended with the pinned-library interface instance C-141 (isFinSet-like enumeration component is a proposition, so no uniform specific-enumeration read exists).",
+        "non_goals": [
+          "No claim about all untruncations; no HoTT inconsistency; no claim that any concrete development misuses the interface.",
+          "No natural-use chain (E6) is claimed to be established."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-NOCANONICAL-001",
+      "run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260913-MP-NOCANONICAL-001-02",
+        "proof_id": "MP-NOCANONICAL-001",
+        "claim_ids": [
+          "C-142",
+          "C-143",
+          "C-144",
+          "C-145",
+          "C-146",
+          "C-147",
+          "C-148"
+        ],
+        "source_paths": [
+          "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda",
+          "HoTT/formal/truncation-no-recovery/TOOLCHAIN.json",
+          "HoTT/formal/truncation-no-recovery/NoCanonicalFinite.agda",
+          "HoTT/formal/truncation-no-recovery/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Unlabeled two-element presentations (carrier plus truncated equivalence to Bool) admit no uniform point choice: the swap automorphism of Bool gives a nontrivial self-identification of the interface, forcing any hypothetical choice to be a fixed point of not. Native replay, in the pinned Cubical toolchain, of the statement carried by agda-unimath's no-section-type-2-Element-Type (derived file HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda; the library body is not vendored here, so that file remains SOURCE_REPORTED_NOT_REPLAYED).",
+        "non_goals": [
+          "No claim about all untruncations; no HoTT inconsistency; no claim that any concrete development misuses the interface.",
+          "No natural-use chain (E6) is claimed to be established.",
+          "No claim of originality: the phenomenon is the standard univalence-based no-section argument."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+      "run": "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260913-MP-UNIMATH-NOSECTION-REPLAY-02",
+        "proof_id": "MP-UNIMATH-NOSECTION-REPLAY-001",
+        "claim_ids": [
+          "C-05"
+        ],
+        "source_paths": [
+          "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+          "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+          "HoTT/formal/agda-unimath/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "agda-unimath-release-archive",
+          "agda-unimath-library-file",
+          "agda-unimath-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Native kernel replay, under the project's pinned Agda 2.8.0-3d04bac, of the user-authored derived file hott-z/NoCanonicalPoint.agda against a pinned agda-unimath commit (7b81411d9f60afec359d29ed1e4edf43f4711c8a): the imported no-section-type-2-Element-Type statement (C-05) typechecks, so the derived development's use of the library's no-canonical-point theorem is replayable evidence rather than a source-reported claim.",
+        "non_goals": [
+          "No claim of originality: the theorem is agda-unimath's own; this run only replays the derived file's import under pinned versions.",
+          "No claim about other agda-unimath modules, other commits, or future library versions.",
+          "No HoTT inconsistency and no natural-use-chain (E6) claim follows from this replay."
+        ]
+      },
+      "relation": {
+        "status": "FROZEN_PACKAGE_CHECKED_BY_VERSION_VERIFIER_BEFORE_LATER_GIT_FAILURE"
+      }
+    },
+    {
+      "proof_id": "MP-VERIFICATION-EVENT-001",
+      "run": "HoTT/verification/runs/20260913-MP-VERIFICATION-EVENT-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260913-MP-VERIFICATION-EVENT-001-01",
+        "proof_id": "MP-VERIFICATION-EVENT-001",
+        "claim_ids": [
+          "C-149",
+          "C-150",
+          "C-151",
+          "C-152",
+          "C-153",
+          "C-154",
+          "C-155",
+          "C-156"
+        ],
+        "source_paths": [
+          "HoTT/formal/verification-event/VerificationEvent.agda",
+          "HoTT/formal/verification-event/TOOLCHAIN.json",
+          "HoTT/formal/verification-event/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "固定有限验证事件模型：Stage=initial/afterP/afterHistory；Step=issueP/recordHistory；Claim=atom/historical/current；Registered 三项明示登记；P=Unit；K(s,c)=Trunc(Registered(s,c))（原生高阶归纳命题截断）；Historical 固定引用 initial，Current(s) 引用给定状态；精确类型见 CLAIM_EVIDENCE_MATRIX C-149–C-156",
+        "non_goals": [
+          "不是实际设备或真实验证流程的运行轨迹",
+          "不证明 HoTT 自身全局健全性、一般知识判定算法或完整 Fitch/Gödel 定理",
+          "不说明任意不同时标命题都不同，也不证明所有抽象都会丢掉阶段信息",
+          "未调用 univalence；Cubical 库被载入命令但不属于本证明的导入闭包",
+          "该最小候选未构成 HoTT 自身非现实性实例"
+        ]
+      },
+      "relation": {
+        "files": 3,
+        "source_paths": [
+          "HoTT/formal/verification-event/AGDA_LIBRARIES",
+          "HoTT/formal/verification-event/TOOLCHAIN.json",
+          "HoTT/formal/verification-event/VerificationEvent.agda"
+        ],
+        "receipt_files": 4,
+        "index_rows": 9,
+        "dependency_gaps": 0,
+        "used_gap_keys": [],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-JOINT-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-JOINT-001-02",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/JointRecursion.agda"
+      },
+      "relation": {
+        "files": 9,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/CodeStoreFix.agda",
+          "HoTT/formal/ercf3-t3/DecisionParam.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+          "HoTT/formal/ercf3-t3/JointRecursion.agda",
+          "HoTT/formal/ercf3-t3/MutualInduction2.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 4,
+        "dependency_gaps": 0,
+        "used_gap_keys": [],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-DECODING-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-DECODING-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/DecodingFence.agda"
+      },
+      "relation": {
+        "files": 6,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 4,
+        "dependency_gaps": 0,
+        "used_gap_keys": [],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-REPAIR-SPEC-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIR-SPEC-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/CodingRepair.agda"
+      },
+      "relation": {
+        "files": 7,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 4,
+        "dependency_gaps": 0,
+        "used_gap_keys": [],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-ARITH-TAGS-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/ArithmeticTags.agda"
+      },
+      "relation": {
+        "files": 7,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/ArithmeticTags.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 4,
+        "dependency_gaps": 1,
+        "used_gap_keys": [
+          [
+            "MP-ERCF3-T3-ARITH-TAGS-001",
+            "20260913-MP-ERCF3-T3-ARITH-TAGS-001-01",
+            "DiagonalLemma"
+          ]
+        ],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-BIT-CODING-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-BIT-CODING-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/BitCoding.agda"
+      },
+      "relation": {
+        "files": 7,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/BitCoding.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 5,
+        "dependency_gaps": 1,
+        "used_gap_keys": [
+          [
+            "MP-ERCF3-T3-BIT-CODING-001",
+            "20260913-MP-ERCF3-T3-BIT-CODING-001-01",
+            "DiagonalLemma"
+          ]
+        ],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-STREAMING-PARSER-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/StreamingParser.agda"
+      },
+      "relation": {
+        "files": 8,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/BitCoding.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/StreamingParser.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 5,
+        "dependency_gaps": 1,
+        "used_gap_keys": [
+          [
+            "MP-ERCF3-T3-STREAMING-PARSER-001",
+            "20260913-MP-ERCF3-T3-STREAMING-PARSER-001-01",
+            "DiagonalLemma"
+          ]
+        ],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-FORMULA-CODING-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/FormulaCoding.agda"
+      },
+      "relation": {
+        "files": 9,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/BitCoding.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/FormulaCoding.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/StreamingParser.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 5,
+        "dependency_gaps": 1,
+        "used_gap_keys": [
+          [
+            "MP-ERCF3-T3-FORMULA-CODING-001",
+            "20260913-MP-ERCF3-T3-FORMULA-CODING-001-01",
+            "DiagonalLemma"
+          ]
+        ],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/RepairedSyntax.agda"
+      },
+      "relation": {
+        "files": 9,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/BitCoding.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/FormulaCoding.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/RepairedSyntax.agda",
+          "HoTT/formal/ercf3-t3/StreamingParser.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 4,
+        "dependency_gaps": 2,
+        "used_gap_keys": [
+          [
+            "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+            "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+            "DecodingFence"
+          ],
+          [
+            "MP-ERCF3-T3-REPAIRED-SYNTAX-001",
+            "20260913-MP-ERCF3-T3-REPAIRED-SYNTAX-001-01",
+            "DiagonalLemma"
+          ]
+        ],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-C168-COUNTERCHECK-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-C168-COUNTERCHECK-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/C168Countercheck.agda"
+      },
+      "relation": {
+        "files": 9,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/ArithmeticTags.agda",
+          "HoTT/formal/ercf3-t3/C168Countercheck.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 3,
+        "dependency_gaps": 0,
+        "used_gap_keys": [],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-ERCF3-T3-CODING-IMAGE-001",
+      "run": "HoTT/verification/runs/20260913-MP-ERCF3-T3-CODING-IMAGE-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "AGDA_SAFE_CUBICAL_OPTIONS_REQUIRED:HoTT/formal/ercf3-t3/CodingImage.agda"
+      },
+      "relation": {
+        "files": 11,
+        "source_paths": [
+          "HoTT/formal/ercf3-t3/AGDA_LIBRARIES",
+          "HoTT/formal/ercf3-t3/BitCoding.agda",
+          "HoTT/formal/ercf3-t3/CodingImage.agda",
+          "HoTT/formal/ercf3-t3/CodingRepair.agda",
+          "HoTT/formal/ercf3-t3/DecodingFence.agda",
+          "HoTT/formal/ercf3-t3/DiagonalCore.agda",
+          "HoTT/formal/ercf3-t3/DiagonalLemma.agda",
+          "HoTT/formal/ercf3-t3/FormulaCoding.agda",
+          "HoTT/formal/ercf3-t3/ObjectSyntax.agda",
+          "HoTT/formal/ercf3-t3/StreamingParser.agda",
+          "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+        ],
+        "receipt_files": 4,
+        "index_rows": 3,
+        "dependency_gaps": 0,
+        "used_gap_keys": [],
+        "audit_tool_provenance_drift": 0
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-MACHINE-HALTING-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MACHINE-HALTING-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-MACHINE-HALTING-001-01",
+        "proof_id": "MP-CUBICAL-MACHINE-HALTING-001",
+        "claim_ids": [
+          "C-188",
+          "C-189",
+          "C-190"
+        ],
+        "source_paths": [
+          "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/cubical-machine-halting/CLAIM.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R1-FIXEDMACHINE-001：在固定双计数器语言中，机器证明 haltProgram 已停机、loopProgram 在每个有限观察下标均未终止，以及 loopProgram 不具有命题截断的有限停机见证；这是固定实例校准，不是通用停机不可判定性、Gödel 不完备性或 HoTT 非现实性悖论。",
+        "non_goals": [
+          "不主张所有程序上的停机不可判定性，也不构造通用机或程序编码。",
+          "不构造 Gödel 句、可证性谓词、反射或不完备定理。",
+          "不主张对象程序的发散由 HoTT 特有结构造成，也不主张 HoTT 或 Cubical Agda 内部矛盾。",
+          "不建立自然消费者或同一现实任务对应；不满足长期目标的最终完成条件。",
+          "不把 loopProgram 的不停止混同为本次 Agda 证明检查过程不停止。"
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-MACHINE-HALTING-001:20260914-MP-CUBICAL-MACHINE-HALTING-001-01:Cubical.Core.Glue"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-PROGRAM-CODE-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-PROGRAM-CODE-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-PROGRAM-CODE-001-01",
+        "proof_id": "MP-CUBICAL-PROGRAM-CODE-001",
+        "claim_ids": [
+          "C-191",
+          "C-192",
+          "C-193",
+          "C-194"
+        ],
+        "source_paths": [
+          "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+          "HoTT/formal/cubical-machine-halting/CLAIM-R2-PROGRAMCODE.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R2-PROGRAMCODE-001 第一薄层：有限 ProgramCode、总 decoder、对任意有限 fuel 总结束的 universal bounded evaluator、与 R1 iterate/finality 语义的一致性，以及 haltCode/loopCode 正负控制（C-191–C-194）。这里的 universal 只量化本语法中的任意有限程序表；不含自然数 Gödel 编码、公平枚举、计算通用性或停机不可判定性。",
+        "non_goals": [
+          "不主张 ProgramCode 已有自然数编码、全枚举、s-m-n 或自应用。",
+          "不主张双计数器语言的通用计算能力或通用停机不可判定性。",
+          "不构造 Gödel 句、可证性谓词、反射或 exact HoTT calculus 不完备性。",
+          "不主张该结果依赖 HoTT 特有结构，也不建立自然 consumer 或现实同任务桥梁。",
+          "不主张 HoTT 或 Cubical Agda 内部矛盾。"
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-PROGRAM-CODE-001:20260914-MP-CUBICAL-PROGRAM-CODE-001-01:Cubical.Core.Glue"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-NAT-PROGRAM-CODE-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01",
+        "proof_id": "MP-CUBICAL-NAT-PROGRAM-CODE-001",
+        "claim_ids": [
+          "C-195",
+          "C-196",
+          "C-197",
+          "C-198"
+        ],
+        "source_paths": [
+          "HoTT/formal/cubical-machine-halting/NatProgramCode.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+          "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/CLAIM-R2-NATCODE.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R2-NATCODE-001：为 Instr 与有限 ProgramCode 给出自然数编码和总 decoder，固定非法码默认语义，证明合法像上的往返、单射与 decoder 覆盖，并证明数值 bounded evaluator 在编码像上与 R2 runFor/finalAt/haltsWithin 一致及 halt/loop controls（C-195–C-198）。",
+        "non_goals": [
+          "不主张已经构造 (program,input,fuel) 的公平或无饥饿枚举。",
+          "不主张当前双计数器语言具有通用计算能力或其停机问题已经证明不可判定。",
+          "不构造 s-m-n、Kleene 递归定理、Gödel/Rosser/Löb 句或 exact HoTT calculus 不完备性。",
+          "不主张该编码结论依赖 HoTT 特有结构，也不建立 natural consumer 或现实同任务桥梁。",
+          "不主张 HoTT 或 Cubical Agda 内部矛盾。"
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-NAT-PROGRAM-CODE-001:20260914-MP-CUBICAL-NAT-PROGRAM-CODE-001-01:Cubical.Core.Glue"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-FAIR-ENUMERATION-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01",
+        "proof_id": "MP-CUBICAL-FAIR-ENUMERATION-001",
+        "claim_ids": [
+          "C-199",
+          "C-200",
+          "C-201",
+          "C-202"
+        ],
+        "source_paths": [
+          "HoTT/formal/cubical-machine-halting/FairEnumeration.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+          "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/NatProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/CLAIM-R2-FAIR.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R2-FAIR-001：固定自然数 triple/Config 往返，为每个 ProgramCode×Config×fuel 构造显式 caseIndex 与有限 AppearsBy stage 证明，建立 noStarvation，并证明 scheduled observeAt 在规范索引处等于原 haltsWithin 及保持 halt/loop controls（C-199–C-202）。",
+        "non_goals": [
+          "不主张已经构造 CodeHalts 的完整 partial semi-decider 或在非停机时返回否定的总过程。",
+          "不主张当前双计数器语言具有通用计算能力或其停机问题已经证明不可判定。",
+          "不构造 s-m-n、代码专门化、Kleene recursion theorem、Gödel/Rosser/Löb 或 exact HoTT 不完备性。",
+          "不主张公平编码依赖 HoTT 特有结构，也不建立 natural consumer 或现实同任务桥梁。",
+          "不主张 HoTT 或 Cubical Agda 内部矛盾。"
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-FAIR-ENUMERATION-001:20260914-MP-CUBICAL-FAIR-ENUMERATION-001-01:Cubical.Core.Glue"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-SEMI-HALTING-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-SEMI-HALTING-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-SEMI-HALTING-001-01",
+        "proof_id": "MP-CUBICAL-SEMI-HALTING-001",
+        "claim_ids": [
+          "C-203",
+          "C-204",
+          "C-205",
+          "C-206",
+          "C-207"
+        ],
+        "source_paths": [
+          "HoTT/formal/cubical-machine-halting/SemiHalting.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+          "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/NatProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/FairEnumeration.agda",
+          "HoTT/formal/cubical-machine-halting/CLAIM-R2-SEMIHALT.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R2-SEMIHALT-001：构造分阶段 semiHaltAt 与公平 enumerateHalting，证明有限阶段正答案持续、CodeHalts 与 SemiReturns 双向对应、bounded positive case 有限出现且正发射保持原任务，并核验 halt/loop controls（C-203–C-207）。",
+        "non_goals": [
+          "不主张当前 ProgramCode 已证明计算通用，或已证明其停机问题不可判定。",
+          "不构造 s-m-n、代码专门化、自应用、Kleene recursion theorem、Gödel、Rosser、Löb 或 exact HoTT 不完备性。",
+          "不主张某一有限 stage 的 nothing 是无界否定答案；具体 loopCode 的全阶段否定来自单独归纳证明。",
+          "不主张这些半判定事实依赖 HoTT 特有结构，也不建立 natural consumer、现实同任务桥梁或 HoTT 内部矛盾。"
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-SEMI-HALTING-001:20260914-MP-CUBICAL-SEMI-HALTING-001-01:Cubical.Core.Glue"
+      }
+    },
+    {
+      "proof_id": "MP-COQ-MM2-UNDECIDABILITY-REPLAY-001",
+      "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-UNDECIDABILITY-REPLAY-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "EXTERNAL_TREE_MISMATCH:coq-undecidability-extracted-tree"
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-COQ-MM2-UNDECIDABILITY-REPLAY-001"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-MM2-BRIDGE-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-MM2-BRIDGE-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-MM2-BRIDGE-001-01",
+        "proof_id": "MP-CUBICAL-MM2-BRIDGE-001",
+        "claim_ids": [
+          "C-209",
+          "C-210",
+          "C-211",
+          "C-212",
+          "C-213"
+        ],
+        "source_paths": [
+          "HoTT/formal/cubical-machine-halting/MM2Bridge.agda",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "HoTT/formal/cubical-machine-halting/MachineHalting.agda",
+          "HoTT/formal/cubical-machine-halting/ProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/NatProgramCode.agda",
+          "HoTT/formal/cubical-machine-halting/CLAIM-R2-MM2-BRIDGE.md",
+          "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES"
+        ],
+        "audit_tool_provenance_drift": [],
+        "external_dependencies": [
+          "agda-release-asset",
+          "agda-binary",
+          "cubical-release-asset",
+          "cubical-library-file",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "R2-MM2-BRIDGE-001：在 Cubical Agda 中定义 label-1 MM2 函数式语义，编译到 ProgramCode，并证明查表、finality、单步、任意有限运行、精确终止观察与截断停机存在性双向保持及分支控制（C-209–C-213）。",
+        "non_goals": [
+          "不主张 Coq 关系语义与 Agda 函数式源语义已经获得跨 proof assistant 的机器等价。",
+          "不把外部 synthetic undecidability 自动搬运为当前 ProgramCode 的无条件不可判定性。",
+          "不证明 s-m-n、自应用、Gödel/Rosser/Löb、exact HoTT 不完备性、HoTT essentiality、natural consumer、现实桥梁或内部矛盾。"
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_DEPENDENCY_GAP_NOT_ALLOWLISTED:MP-CUBICAL-MM2-BRIDGE-001:20260914-MP-CUBICAL-MM2-BRIDGE-001-01:Cubical.Core.Glue"
+      }
+    },
+    {
+      "proof_id": "MP-COQ-MM2-PROGRAMCODE-BRIDGE-001",
+      "run": "HoTT/verification/runs/20260914-MP-COQ-MM2-PROGRAMCODE-BRIDGE-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "EXTERNAL_TREE_MISMATCH:coq-undecidability-extracted-tree"
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-COQ-MM2-PROGRAMCODE-BRIDGE-001"
+      }
+    },
+    {
+      "proof_id": "MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+      "run": "HoTT/verification/runs/20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001-01",
+        "proof_id": "MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001",
+        "claim_ids": [
+          "C-219",
+          "C-220",
+          "C-221",
+          "C-222"
+        ],
+        "source_paths": [
+          "HoTT/formal/external-coq-parametric-ct/README.md",
+          "HoTT/formal/external-coq-parametric-ct/CLAIM-R2-INTERNAL-UNDEC.md",
+          "HoTT/formal/external-coq-parametric-ct/CheckInternalUndec.v",
+          "HoTT/formal/external-coq-parametric-ct/Dockerfile",
+          "HoTT/formal/external-coq-parametric-ct/DOCKER_IMAGE.json",
+          "HoTT/formal/external-coq-parametric-ct/REPLAY_SOURCE.json",
+          "HoTT/formal/external-coq-parametric-ct/SOURCE_TREE_MANIFEST.json",
+          "HoTT/formal/external-coq-parametric-ct/TARGET_CLOSURE.json",
+          "scripts/audit/import_coq_parametric_ct.py",
+          "scripts/audit/replay_coq_parametric_ct_internal_undec.py",
+          "scripts/audit/capture_coq_parametric_ct_internal_undec_run.py",
+          "scripts/audit/verify_formal_proof_run.py"
+        ],
+        "audit_tool_provenance_drift": [
+          {
+            "path": "scripts/audit/verify_formal_proof_run.py",
+            "captured_sha256": "4248172622bf3779099aab056e01b05f7cb33830007ad4296f21470cf96a42cb",
+            "current_sha256": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+          }
+        ],
+        "external_dependencies": [
+          "coq-parametric-ct-codeload-archive",
+          "coq-parametric-ct-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Replay EPF_SCT_halting, K_nat_bool_undec and K_nat_undec from coq-synthetic-computability@b9523cb. The conclusions are internal negations under the explicit sum premise EPF_bool + SCT; Print Assumptions must report Closed under the global context for all three.",
+        "non_goals": [
+          "This run does not prove EPF_bool or SCT in ambient HoTT; they remain explicit premises.",
+          "It does not establish an unconditional no-decider theorem for the project's ProgramCode or any exact HoTT calculus.",
+          "It does not use univalence, Path, HIT or modality and therefore does not establish HoTT essentiality.",
+          "It does not establish a natural consumer, a same-task reality bridge, Goedel incompleteness or a contradiction in HoTT.",
+          "The pinned upstream tree contains no license file; no redistribution permission is inferred."
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-COQ-PARAMETRIC-CT-INTERNAL-UNDEC-001"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001",
+      "run": "HoTT/verification/runs/20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260914-MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001-01",
+        "proof_id": "MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001",
+        "claim_ids": [
+          "C-223",
+          "C-224",
+          "C-225",
+          "C-226"
+        ],
+        "source_paths": [
+          "HoTT/formal/external-cubical-groupoid-syntax/README.md",
+          "HoTT/formal/external-cubical-groupoid-syntax/CLAIM-G-HOTT-SYNTAX.md",
+          "HoTT/formal/external-cubical-groupoid-syntax/CheckGroupoidSyntax.agda",
+          "HoTT/formal/external-cubical-groupoid-syntax/cohtt-replay.agda-lib",
+          "HoTT/formal/external-cubical-groupoid-syntax/REPLAY_SOURCE.json",
+          "HoTT/formal/external-cubical-groupoid-syntax/SOURCE_TREE_MANIFEST.json",
+          "HoTT/formal/external-cubical-groupoid-syntax/TARGET_SOURCE_MANIFEST.json",
+          "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+          "scripts/audit/import_cubical_groupoid_syntax.py",
+          "scripts/audit/replay_cubical_groupoid_syntax.py",
+          "scripts/audit/capture_cubical_groupoid_syntax_run.py",
+          "scripts/audit/verify_formal_proof_run.py"
+        ],
+        "audit_tool_provenance_drift": [
+          {
+            "path": "scripts/audit/verify_formal_proof_run.py",
+            "captured_sha256": "225f76b5591e97a597f7f9afa9aaeb7abb52715c20f58907a198f4b674a85afc",
+            "current_sha256": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+          }
+        ],
+        "external_dependencies": [
+          "cubical-groupoid-syntax-bitbucket-archive",
+          "cubical-groupoid-syntax-extracted-tree",
+          "agda-release-archive",
+          "agda-binary",
+          "cubical-release-archive",
+          "cubical-extracted-tree"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Replay all 20 current TT modules from akaposi/cohtt@5babc385 and check a project probe for isSetTy plus Con/Sub/Ty/Tm isomorphisms between groupoid and set syntax.",
+        "non_goals": [
+          "This is an exact machine-replayed syntax slice with Pi, U/El and a base family, not a complete HoTT calculus.",
+          "It has no natural numbers, general identity type, object-level univalence or HIT rules, proof-code enumerator, arithmetic interpretation or Goedel sentence.",
+          "The replay does not establish undecidability, incompleteness, HoTT essentiality, a natural consumer, a reality bridge or a paradox.",
+          "The upstream code tree has no explicit source-code license file; no redistribution permission is inferred."
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-CUBICAL-GROUPOID-SYNTAX-REPLAY-001"
+      }
+    },
+    {
+      "proof_id": "MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001",
+      "run": "HoTT/verification/runs/20260915-MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001-01",
+      "formal_receipt": {
+        "status": "FAIL",
+        "error": "SOURCE_HASH_OR_SIZE_MISMATCH:.codex/research/hott/LIT-HOTT-COMPUTABILITY-001/004 - 2LTT、groupoid-syntax 与下一候选.md"
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_SOURCE_HASH_DRIFT:MP-CUBICAL-2LTT-FIBRANT-REPLACEMENT-UIP-001:.codex/research/hott/LIT-HOTT-COMPUTABILITY-001/004 - 2LTT、groupoid-syntax 与下一候选.md"
+      }
+    },
+    {
+      "proof_id": "MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001",
+      "run": "HoTT/verification/runs/20260915-MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260915-MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001-01",
+        "proof_id": "MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001",
+        "claim_ids": [
+          "C-233",
+          "C-234",
+          "C-235",
+          "C-236",
+          "C-237",
+          "C-238"
+        ],
+        "source_paths": [
+          "HoTT/formal/external-agda-flat-internal-universes/README.md",
+          "HoTT/formal/external-agda-flat-internal-universes/CLAIM-INTERNAL-UNIVERSE-CRISP.md",
+          "HoTT/formal/external-agda-flat-internal-universes/SOURCE_TREE_MANIFEST.json",
+          "HoTT/formal/external-agda-flat-internal-universes/AGDA_FLAT_IMAGE.json",
+          "HoTT/formal/external-agda-flat-internal-universes/Dockerfile.agda-flat",
+          "HoTT/formal/external-agda-flat-internal-universes/cabal.config.replay",
+          "HoTT/formal/external-agda-flat-internal-universes/controls/CrispPositive.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/controls/CrispNegative.agda",
+          "scripts/audit/import_lops_internal_universes.py",
+          "scripts/audit/replay_lops_internal_universes.py",
+          "scripts/audit/capture_lops_internal_universes_run.py",
+          "scripts/audit/verify_formal_proof_run.py",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/README.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda/cchm.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda/cctt.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda/exp-path.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda/fibration.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda/postulates.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda/prelude.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda-flat/prelude.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/agda-flat/tiny.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/proposition-6-2.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/theorem-3-1.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/theorem-5-2-relative.agda",
+          "HoTT/formal/external-agda-flat-internal-universes/upstream/theorem-5-2.agda"
+        ],
+        "audit_tool_provenance_drift": [
+          {
+            "path": "scripts/audit/verify_formal_proof_run.py",
+            "captured_sha256": "3e657c8602614b5d180bff175b65e5280e500dcfdd12ec1ee8e8915b87db0106",
+            "current_sha256": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+          }
+        ],
+        "external_dependencies": [
+          "lops-cambridge-official-source-zip",
+          "agda-flat-git-archive",
+          "cabal-install-static-archive"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Replay the complete official LOPS 2018 Agda supplement: ordinary internal weak fibration classifiers imply interval collapse; crisp/tiny-interval assumptions construct a classifier; modal controls accept crisp and reject local arguments.",
+        "non_goals": [
+          "The source explicitly postulates funext, UIP, a nontrivial interval, cofibrancy and the tiny-path-functor adjunction; replay does not prove these assumptions in every HoTT model.",
+          "The positive theorem is in crisp modal type theory and deliberately restricts substitution; it is not the ordinary internal classifier rejected by Theorem 3.1.",
+          "This is a published theorem/source replay, not a novelty claim or proof that basic HoTT is inconsistent.",
+          "The run does not establish an empirical same-task reality bridge or that every natural consumer rejects the crisp payment."
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-AGDA-FLAT-INTERNAL-UNIVERSES-REPLAY-001"
+      }
+    },
+    {
+      "proof_id": "MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001",
+      "run": "HoTT/verification/runs/20260915-MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260915-MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001-01",
+        "proof_id": "MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001",
+        "claim_ids": [
+          "C-239",
+          "C-240",
+          "C-241",
+          "C-242",
+          "C-243"
+        ],
+        "source_paths": [
+          "HoTT/formal/external-coq-interval-replacement/README.md",
+          "HoTT/formal/external-coq-interval-replacement/CLAIM-DEGENERATE-REGULAR-FIBRANCY.md",
+          "HoTT/formal/external-coq-interval-replacement/CheckReplacementBoundary.v",
+          "HoTT/formal/external-coq-interval-replacement/COQ_IMAGE.json",
+          "HoTT/formal/external-coq-interval-replacement/SOURCE_TREE_MANIFEST.json",
+          "scripts/audit/qualify_coq_interval_replacement.py",
+          "scripts/audit/replay_coq_interval_replacement.py",
+          "scripts/audit/capture_coq_interval_replacement_run.py",
+          "scripts/audit/verify_formal_proof_run.py"
+        ],
+        "audit_tool_provenance_drift": [
+          {
+            "path": "scripts/audit/verify_formal_proof_run.py",
+            "captured_sha256": "3e657c8602614b5d180bff175b65e5280e500dcfdd12ec1ee8e8915b87db0106",
+            "current_sha256": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+          }
+        ],
+        "external_dependencies": [
+          "boulier-tabareau-internalcubical-git-archive"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Replay the regular-family replacement contradiction, the degenerate QIT replacement, RFib/DFib/transport decomposition and exact assumptions boundary from the cited emptyctx source snapshot.",
+        "non_goals": [
+          "The source has explicit axioms for interval/cofibrancy/equality, QIT reduction and regular replacement; replay does not discharge them.",
+          "InternalCubical-Coq has no license file in the frozen subtree, so source is hash-qualified externally rather than vendored.",
+          "Model_structure.v is not part of the accepted target: Coq 8.13.2 fails at a version-sensitive implicit placeholder, while source history targets Coq 8.10.",
+          "The run does not prove basic HoTT inconsistent, originality, or a same-task empirical reality bridge."
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-COQ-INTERVAL-REPLACEMENT-BOUNDARY-001"
+      }
+    },
+    {
+      "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+      "run": "HoTT/verification/runs/20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01",
+      "formal_receipt": {
+        "status": "PASS_WITH_SCOPE",
+        "schema_version": "formal-proof-run-verification/v1",
+        "run_id": "20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01",
+        "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+        "claim_ids": [
+          "C-244",
+          "C-245",
+          "C-246",
+          "C-247",
+          "C-248",
+          "C-249"
+        ],
+        "source_paths": [
+          "HoTT/formal/external-coq-synthetic-incompleteness/README.md",
+          "HoTT/formal/external-coq-synthetic-incompleteness/CLAIM-R3-SYNTHETIC-INCOMPLETENESS.md",
+          "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_TREE_MANIFEST.json",
+          "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_ARCHIVE.json",
+          "HoTT/formal/external-coq-synthetic-incompleteness/TOOLCHAIN.json",
+          "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
+          "HoTT/formal/external-coq-synthetic-incompleteness/Dockerfile",
+          "HoTT/formal/external-coq-synthetic-incompleteness/CeCILL_LICENSE.txt",
+          "HoTT/formal/external-coq-synthetic-incompleteness/IMPORT.json",
+          "scripts/audit/import_coq_synthetic_incompleteness.py",
+          "scripts/audit/replay_coq_synthetic_incompleteness.py",
+          "scripts/audit/capture_coq_synthetic_incompleteness_run.py",
+          "scripts/audit/verify_formal_proof_run.py",
+          ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+          "audit/imports/machine-overview-ce-map-20260915/source/evaluations/COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001/BUILD-RECEIPT.json",
+          "audit/imports/machine-overview-ce-map-20260915/source/evaluations/COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001/REPORT.md"
+        ],
+        "audit_tool_provenance_drift": [
+          {
+            "path": "scripts/audit/verify_formal_proof_run.py",
+            "captured_sha256": "e32302cd6b01afd10ca562c1f94ef030e1b2c656136a9a1500d50fb77bc125c9",
+            "current_sha256": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+          }
+        ],
+        "external_dependencies": [
+          "coq-synthetic-incompleteness-source-archive"
+        ],
+        "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+        "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+        "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+        "replay": "NOT_RUN",
+        "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+        "scope": "Freshly build the exact CSL 2023 first-order incompleteness target and replay theorem signatures/assumptions for recursive-separation divergence, abstract essential incompleteness, EPF-mu-to-CTQ, and conditional Robinson-Q independence.",
+        "non_goals": [
+          "The theorem types retain is_universal, strong separation, Peirce, CTQ, Q containment, enumerability, and consistency premises.",
+          "The object theory is first-order arithmetic, not an exact HoTT calculus.",
+          "The run does not establish HoTT essentiality, ambient Church thesis, internal inconsistency, novelty, or an empirical same-task reality bridge.",
+          "A bounded or observed proof search is not used as evidence of independence; the kernel-checked conditional theorem is the evidence."
+        ]
+      },
+      "relation": {
+        "status": "FAIL",
+        "error": "LATER_COMMAND_SOURCE_MISMATCH:MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001"
+      }
+    }
+  ]
+}

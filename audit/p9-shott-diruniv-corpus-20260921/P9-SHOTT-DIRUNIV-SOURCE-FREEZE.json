@@ -1,0 +1,24 @@
+{
+  "schema_version": "p9-shott-diruniv-source-freeze/v1",
+  "repository": "https://github.com/LIshy2/sHoTT",
+  "branch": "diruniv",
+  "commit": "e76c196293dc402de945d3bcf9873ce84635ff76",
+  "selection_method": "Rzk v0.8 documentation names LIshy2/sHoTT diruniv as the directed-univalence/modalities formalization corpus; git ls-remote followed by detached shallow branch clone fixed the commit.",
+  "files": [
+    {"path":"README.md","git_blob":"23be0b3d4f4c0eb645e319bc3f2f9fc365e4bce4","sha256":"646a0b63e3ad8f98859c65fef2cf3705860ed0050a5920aa08e3c9de550e83ee","bytes":3014,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/README.md"},
+    {"path":"src/triangulated/01-tiny.rzk.md","git_blob":"6a842f0e7dcfcac382f2c3c59a67ec41ef7101c0","sha256":"c48580325d52a2498450ebc7f5f7b363f20953b8111aa391ad436de4f37b7aeb","bytes":40363,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/src/triangulated/01-tiny.rzk.md"},
+    {"path":"src/triangulated/02-internal-universe.rzk.md","git_blob":"5823647a805d32b52e3aec11d306ec319df5b7de","sha256":"a9796448c3e6400f27ee38ca42b737e7314cd432da37089f5156cf2c0d4c28c0","bytes":24337,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/src/triangulated/02-internal-universe.rzk.md"},
+    {"path":"src/triangulated/03-cub-covariant.rzk.md","git_blob":"6c3e56aa6c9a78762a02469716610f1c3d4b397d","sha256":"e18ce6603bf0567d431ad6fcb16802e497308f9059579ba3d8efecfddad1358e","bytes":41375,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/src/triangulated/03-cub-covariant.rzk.md"},
+    {"path":"src/triangulated/04-amazing-covariant.rzk.md","git_blob":"c1a9f52632aabd80ae12d272400442caffb48a93","sha256":"582374ff8a0b1f04f7c43077b809a98a4fd42142b89419a693194fb8867bd766","bytes":23316,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/src/triangulated/04-amazing-covariant.rzk.md"},
+    {"path":"src/triangulated/05-diruniv.rzk.md","git_blob":"c961b9be8cb90d232715cef799ddc46389e4e722","sha256":"282dbdb8058e2743595a049ed1c4470325ac969c9ec68a0c14f5b44a821d711c","bytes":121666,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/src/triangulated/05-diruniv.rzk.md"},
+    {"path":"src/triangulated/06-simpliciality.rzk.md","git_blob":"50c668b763edcf0dd60750761c4b8c20a0c61467","sha256":"3f40e91b22bc33af392fdd92d26b83f3ca2064806dacf625df42106cc69b60cf","bytes":4563,"raw_url":"https://raw.githubusercontent.com/LIshy2/sHoTT/e76c196293dc402de945d3bcf9873ce84635ff76/src/triangulated/06-simpliciality.rzk.md"}
+  ],
+  "observed_structure": {
+    "diruniv_assumptions": ["#assume funext", "#assume weakfunext", "#assume extext"],
+    "diruniv_input": "S := Σ (A : U), is-a-cov A; a morphism is f : 𝕀 → S",
+    "diruniv_output": "mor2fun takes f : 𝕀 → S to endpoints A,B and an explicit function first A → first B",
+    "related_postulates": ["src/triangulated/06-simpliciality.rzk.md declares simp-monad and related simpliciality postulates"],
+    "lexical_negative_scope": "No puncture/completion/OriginPresentation/Done_s/CurveRun/BareCarrier/OpenRealInterval occurrence in the selected triangulated and simplicial-hott source directories, as checked with those exact terms; this is not a semantic or whole-repository absence theorem."
+  },
+  "not_claimed": ["a successful Rzk typecheck replay", "an audit of every sHoTT file", "consistency of the assumptions/postulates", "an actual K or a HoTT defect"]
+}

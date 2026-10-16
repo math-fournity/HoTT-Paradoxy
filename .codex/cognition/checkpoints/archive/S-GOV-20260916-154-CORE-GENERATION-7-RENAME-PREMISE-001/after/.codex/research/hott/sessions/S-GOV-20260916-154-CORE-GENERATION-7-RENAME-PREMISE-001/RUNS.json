@@ -1,0 +1,46 @@
+{
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "build_core_cognition.py --curation scripts/audit/core-cognition-curation-v7.json --write (carried over from commit 6ab1c68)",
+      "generation": "core-cognition-generation-6/43 -> core-cognition-generation-7/46",
+      "kc_count": "43 -> 46",
+      "run_id": "20260916-CORE-GENERATION-7-BUILD-01",
+      "status": "BUILT / COMPLETE_ADDITIVE_PRESERVING / mapping_count=43 / remainder=0",
+      "tool": "scripts/audit/build_core_cognition.py"
+    },
+    {
+      "command": "git mv index + shard dir -> 扩展认知; 19 live current-truth files updated",
+      "generation": "essay index 7 -> 8 shards",
+      "run_id": "20260916-ESSAY-RENAME-01",
+      "status": "COMMITTED (3990de8); verify_governance_shards.py PASS (456 indexes / 17 canonical); test_three_way_cognition.py 6/6 OK",
+      "tool": "git mv + reference sync"
+    },
+    {
+      "command": "repair_state_and_head(): backfill STATE.records[S153] + rebuild HEAD.tracked",
+      "generation": "n/a",
+      "run_id": "20260916-HEAD-TRACKING-REPAIR-01",
+      "status": "REPAIRED / revision and latest_session unchanged / gap registered not forged",
+      "tool": "scripts/audit/prepare_s154_core_generation_7_rename_premise001_checkpoint.py"
+    },
+    {
+      "command": "cognition_runtime.py checkpoint --snapshot <s> --payload <p> --apply",
+      "generation": "current_core -> core-cognition-generation-7",
+      "run_id": "20260916-CHECKPOINT-APPLY-154-01",
+      "status": "CHECKPOINT_COMMITTED / revision 153 -> 154",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "next": [
+    "A-PREMISE-001",
+    "A-R4-HOTT-NAT-EFFECTIVITY-001"
+  ],
+  "note": "Governance-only session: user epistemological correction recorded into core generation-7, the AI-exposition fourth document renamed to 扩展认知, and PREMISE-001 registered as the next action. No mathematical claim was delivered or adjudicated.",
+  "push_policy": "NOT_AUTHORIZED",
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260916-154-CORE-GENERATION-7-RENAME-PREMISE-001",
+  "session_kind": "GOVERNANCE_CORE_GENERATION_ESSAY_RENAME_PREMISE_REGISTRATION"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT",
+  "kind": "extraction_interface_audit",
+  "new_machine_proofs": [],
+  "proof_sources_changed": false,
+  "claim_matrix_sha256": "f493cfe6e6bcb7391269f65c9230e693921c5e2476dc7777e71b110259f3b0f6",
+  "interface_runs": {
+    "agda_type_check": {
+      "exit_code": 0,
+      "tool": "Agda 2.8.0-3d04bac"
+    },
+    "agda_malzano_compile": {
+      "exit_code": 42,
+      "completed": false,
+      "reason": "ghc not available; generated Haskell retained"
+    },
+    "lean_eval": {
+      "exit_code": 1,
+      "tool": "Lean 4.33.1",
+      "result": "noncomputable evaluation refused; #eval! also refused"
+    },
+    "coq": "NOT_AVAILABLE",
+    "ghc": "NOT_AVAILABLE"
+  },
+  "evidence": {
+    "audit": "audit/rp-b01-extraction-interface审计-20260912.md",
+    "agda": ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/agda/",
+    "lean": ".codex/research/hott/sessions/S-RES-20260912-044-RP-B01-EXTRACTION-AUDIT/evidence/lean/"
+  },
+  "mathematics": "NO_NEW_MATHEMATICS / DEFENSE_WORKS_SCOPED",
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

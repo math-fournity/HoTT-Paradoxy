@@ -1,0 +1,80 @@
+{
+ "schema_version": "machine-overview-grammar-snapshot/v1",
+ "family": "TASK-FAMILY-V2-EXISTENCE-VERSUS-AVAILABILITY",
+ "family_short": "GEN-001-V2-1",
+ "grammar_id": "L2-COFIBRATION-A-v1",
+ "grammar_path": "grammars/l2-cofibration-a-v1.json",
+ "premise_ref": "PREMISE-D-04 / PREMISE-G-05 (SUPPLY-009 / V2-A, AI-adjudicated pending external audit; the lowest-confidence pair of PREMISE-001/006)",
+ "gate": "G-b (existence != availability, dual coordinates; delay fragment cannot carry it: in delay, ret(n,b) existence is immediate usability, the two coordinates are not separably observable)",
+ "strategy": "S6 reality alignment (KC-000044/045/046) + S3 theory economy (KC-000029/030)",
+ "design_source": "Atria的方案/修订片/015 §3 V2 片段最小设计 + 015 §5 阶段 2",
+ "backend": "v2-l2-cofibration",
+ "grammar_schema": "machine-overview-grammar/v2-l2-cofibration",
+ "bounds": {
+  "delay_index_max": 2,
+  "declared_faces": [
+   0,
+   3,
+   5,
+   15
+  ],
+  "tower_levels": [
+   0,
+   1
+  ],
+  "context_depth_max": 3,
+  "deadline_horizons": [
+   0,
+   1
+  ],
+  "include_omega": true,
+  "race_directions": [
+   "race_left",
+   "race_right"
+  ],
+  "between_pairs": [
+   [
+    0,
+    15
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    5,
+    15
+   ]
+  ]
+ },
+ "race_partners_declared": [
+  {
+   "kind": "ret",
+   "n": 1,
+   "value": false,
+   "face": 5,
+   "level": 1
+  }
+ ],
+ "bind_continuations": [
+  "availability_verdict_supplied_face_revealed",
+  "availability_verdict_never_supplied_face",
+  "availability_verdict_level_split",
+  "deliver_business",
+  "const_omega"
+ ],
+ "new_continuations_vs_delay_fragment": [
+  "availability_verdict_level_split",
+  "availability_verdict_never_supplied_face",
+  "availability_verdict_supplied_face_revealed"
+ ],
+ "new_structural_ops": [
+  "supply",
+  "fill",
+  "fill_of",
+  "tower",
+  "between"
+ ],
+ "negative_control_policy": "same pair under the bare delay erasure of the context must NOT separate (delay-equivalence preserved); the same-value control (left == right) must not separate under the full context",
+ "disjointness_claim": "V2 结构 op 与 3 个新 continuation 与全部 7 个既有 delay 文法不相交; 机械检查见 GEN-001-V2-1-OUT-OF-ENVELOPE.json"
+}

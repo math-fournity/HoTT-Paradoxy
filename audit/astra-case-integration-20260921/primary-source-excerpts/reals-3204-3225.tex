@@ -1,0 +1,22 @@
+
+\begin{ex} \label{ex:reals-apart-neq-MP}
+  \define{Markov's principle}
+  \indexdef{axiom!Markov's principle}%
+  \indexdef{Markov's principle}%
+  says that for all $f : \nat \to \bool$,
+  %
+  \begin{equation*}
+    (\lnot \lnot \exis{n : \nat} f(n) = \btrue)
+    \Rightarrow
+    \exis{n : \nat} f(n) = \btrue.
+  \end{equation*}
+  %
+  This is a particular instance of the law of double negation~\eqref{eq:ldn}. Show that
+  $\fall{x, y: \RD} x \neq y \Rightarrow x \apart y$ implies Markov's principle. Does the
+  converse hold as well?
+\end{ex}
+
+\begin{ex} \label{ex:reals-apart-zero-divisors}
+  \index{apartness}%
+  Verify that the following ``no zero divisors'' property holds for the real numbers:
+  $x y \apart 0 \Leftrightarrow x \apart 0 \land y \apart 0$.

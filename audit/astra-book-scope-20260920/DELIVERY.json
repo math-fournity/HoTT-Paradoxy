@@ -1,0 +1,44 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_WITH_SCOPE",
+  "claim_ids": [
+    "C-309",
+    "C-310"
+  ],
+  "primary_run": "HoTT/verification/runs/20260920-MP-ASTRA-REAL-PRINCIPLE-SCOPE-001-01",
+  "primary_seconds": 230.513688,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-REAL-PRINCIPLE-SCOPE-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-REAL-PRINCIPLE-SCOPE-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "compiled_local_modules": 6,
+  "import_modules": 1079,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 1,
+  "draft_checks": 1,
+  "theory": "Pinned without-K no-erasure agda-unimath with inherited foundation postulates; not safe Cubical and not a whole-theory consistency certificate.",
+  "unproved": [
+    "Unconditional real or binary principle, negation or independence",
+    "Real-pair principle to binary Markov or converse bridge",
+    "Choice/real-construction/universe interpretation outside the fixed model",
+    "Physical/original broad task mismatch and complete four-stage integration"
+  ],
+  "parent_goal": "OPEN"
+}

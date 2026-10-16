@@ -1,0 +1,93 @@
+{
+  "schema_version": "astra-task-fidelity-h-scope/v1",
+  "scope_status": "FIXED_BOUNDED_SOURCE_AUDIT",
+  "question": "Does this fixed source set contain an actual HoTT rule, theorem, library interface, or consumer H that treats static A as sufficient completion of the original punctured-circle closure/restoration task B?",
+  "not_claimed": [
+    "Exhaustive search of HoTT, Cubical libraries, literature, or all consumers",
+    "A mathematical theorem that no such H exists",
+    "A HoTT inconsistency theorem or a physical realization theorem"
+  ],
+  "sources": [
+    {
+      "path": "Atria的方案/修订片/022 - 圆环悖论非现实性的精确定位：过程层不可完成与声明层理想元素.md",
+      "sha256": "19e1122acfbdbb3886b74dc8ad2d7204e136f0bb3cd0e9c79b7c172a769a5bd4",
+      "role": "historical process/declaration proposal"
+    },
+    {
+      "path": "Atria的方案/修订片/023 - 两枚导弹：第一击的反弹机制与齐射结构.md",
+      "sha256": "7da6bb055714e7386dff63e61a66983dd22a3c1a2c17adba58a108b8ea77d881",
+      "role": "historical response structure"
+    },
+    {
+      "path": "Atria的方案/修订片/025 - 第三枚导弹：计算层 ASK 与 LEM 判据搬运.md",
+      "sha256": "644c9f4cc943ac9a43a7793aa90efc266e3c532db3561869f9477de28a90ddc5",
+      "role": "historical Spec_A/Spec_B proposal and its stated limitations"
+    },
+    {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda",
+      "sha256": "2c713073bb05c29980d76be51b054ff2fa1422b650bbeab5d2b8f0e4f8c6e151",
+      "role": "native source/denotation/Done preservation control",
+      "required_fragments": [
+        "Input.encoding actualInput = homeomorphismEquiv strongCircleUnitHomeomorphism",
+        "Done i r = r ＝ reexpressed i",
+        "plainNDoesNotDenote : ¬ (Denotes actualInput nRich)",
+        "bareCheckIsInsufficient"
+      ]
+    },
+    {
+      "path": "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda",
+      "sha256": "2a7b1c704b9a19cf781f14a71689559953150efad01f1089356817d65c1827a1",
+      "role": "same-pair/different-operation-contract control",
+      "required_fragments": [
+        "The same nRich/mRich pair under two explicitly different operation contracts.",
+        "samePairDifferentOperations",
+        "noCurveAmbientEquivalence"
+      ]
+    },
+    {
+      "path": "HoTT/formal/dedekind-omega-missile/Sqrt2TaskComparison.agda",
+      "sha256": "40623c9901a733896f139bbc6c8b66bbf3db70ea6427c73b77e2cf0c10dd534d",
+      "role": "arithmetic calibration of Request/Output/Done separation",
+      "required_fragments": [
+        "data Request : Type₀ where",
+        "Done rationalRoot q = Up (lower q ·ℚ lower q ≡ twoQ)",
+        "originalM3Refusal : (Spec_A ≃ Spec_B) → ⊥",
+        "responseRefusal"
+      ]
+    },
+    {
+      "path": "HoTT/formal/astra-s1-consumer-check/SC00.agda",
+      "sha256": "89b9bc232fce73a396e15b9ea1aa5f2a05520640a4b596aa2f6a8d69a8110236",
+      "role": "upstream HIT S¹ loop consumer",
+      "required_fragments": [
+        "import Cubical.HITs.S1.Base as Upstream",
+        "ΩS¹ ≡ ℤ"
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "sha256": "7a5619b9d5c609bdc6621b2f57730e65d66b7d41366dc322334eb48138f0d723",
+      "role": "fixed external real-number locator consumer",
+      "required_fragments": [
+        "all_reals_locators",
+        "modulus_close_limit"
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v",
+      "sha256": "0ad25290752ce95c96dfb07bbab9d291d45930a354c898603fed42bd7142da4a",
+      "role": "fixed external bounded-search support"
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v",
+      "sha256": "c5f4ce80a73483d0cdeaa8484a5db526a995b856e615810316832b696b12ce08",
+      "role": "fixed external LEM context"
+    }
+  ],
+  "negative_vocabulary_scope": [
+    "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+    "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v",
+    "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v"
+  ],
+  "negative_vocabulary_regex": "circle|puncture|endpoint|closure|restore|homeomorph|compact|S¹"
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260912-006-THREE-WAY-VALIDATION",
+  "runs": [
+    {
+      "command": "rtk python3 scripts/audit/verify_core_cognition.py",
+      "status": "PASS",
+      "scope": "903 KC core ledger unchanged"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_history_ledgers.py",
+      "status": "PASS",
+      "scope": "four historical ledgers"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_three_way_cognition.py",
+      "status": "PASS_AFTER_REFERENCE_FIX",
+      "scope": "24 direction rows, 20 outcome rows, revision 6"
+    },
+    {
+      "command": "rtk python3 scripts/audit/test_three_way_cognition.py",
+      "status": "PASS",
+      "scope": "3/3 positive and negative tests"
+    },
+    {
+      "command": "rtk python3 .codex/tools/cognition_runtime.py plan",
+      "status": "PASS",
+      "scope": "revision-6 fixed three-way load plan"
+    },
+    {
+      "command": "rtk git diff --check",
+      "status": "PASS",
+      "scope": "working tree patch whitespace"
+    }
+  ],
+  "preserved_prior_failure": "DIRECTION_RESULT_ORPHAN:OUT-L-CORE-FOUNDATION",
+  "model_context": "NOT_CERTIFIED_BY_TOOL"
+}

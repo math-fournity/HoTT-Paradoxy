@@ -1,0 +1,96 @@
+A TYPE THEORY FOR SYNTHETIC ∞ -CATEGORIES 11
+{t :I |φ} shape {t :I |ψ } shape t :I |φ ⊢ ψ
+Ξ |Φ ⊢ Γ ctx Ξ,t :I |Φ,ψ |Γ ⊢ A type Ξ,t :I |Φ,φ |Γ ⊢ a :A
+Ξ |Φ |Γ ⊢
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐φ
+a
+⟩
+type
+{t :I |φ} shape {t :I |ψ } shape t :I |φ ⊢ ψ
+Ξ |Φ ⊢ Γ ctx Ξ,t :I |Φ,ψ |Γ ⊢ A type Ξ,t :I |Φ,φ |Γ ⊢ a :A
+Ξ,t :I |Φ,ψ |Γ ⊢ b :A Ξ,t :I |Φ,φ |Γ ⊢ b ≡ a
+Ξ |Φ |Γ ⊢ λtI|ψ.b :
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐φ
+a
+⟩
+{t :I |φ} shape {t :I |ψ } shape t :I |φ ⊢ ψ
+Ξ |Φ |Γ ⊢ f :
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐φ
+a
+⟩
+Ξ ⊢ s :I Ξ |Φ ⊢ ψ [s/t ]
+Ξ |Φ |Γ ⊢ f (s) : A
+{t :I |φ} shape {t :I |ψ } shape t :I |φ ⊢ ψ
+Ξ |Φ |Γ ⊢ f :
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐φ
+a
+⟩
+Ξ ⊢ s :I Ξ |Φ ⊢ φ[s/t ]
+Ξ |Φ |Γ ⊢ f (s) ≡ a[s/t ]
+{t :I |φ} shape {t :I |ψ } shape t :I |φ ⊢ ψ
+Ξ |Φ ⊢ Γ ctx Ξ,t :I |Φ,ψ |Γ ⊢ A type Ξ,t :I |Φ,φ |Γ ⊢ a :A
+Ξ,t :I |Φ,ψ |Γ ⊢ b :A
+Ξ,t :I |Φ,φ |Γ ⊢ b ≡ a Ξ ⊢ s :I Ξ |Φ ⊢ ψ [s/t ]
+Ξ |Φ |Γ ⊢ (λtI|ψ.b )(s) ≡ b[s/t ]
+{t :I |φ} shape {t :I |ψ } shape t :I |φ ⊢ ψ
+Ξ |Φ |Γ ⊢ f :
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐φ
+a
+⟩
+Ξ |Φ |Γ ⊢ f ≡ λtI|ψ.f (t)
+Figure 4. Extension types
+A diﬀerent special case is when φ is ⊥ . Then the section a might as well be
+rec⊥ , while all the required judgmental equalities also hold automatically by rec⊥ ,
+so the extension type behaves just like an ordinary (possibly depen dent) function
+type whose domain is a shape and whose codomain is a type. Thus, we o mit the
+angle brackets, writing
+(∏
+t:I|ψ A
+)
+:=
+⣨∏
+t:I|ψ A
+⏐
+⏐
+⏐⊥
+rec⊥
+⟩
+(2.3)
+(
+{t :I |ψ } → A
+)
+:=
+⟨
+{t :I |ψ } → A
+⏐
+⏐⊥
+rec⊥
+⟩
+.(2.4)
+Having just introduced extension types and their notation, we now proceed to
+introduce an abuse of that notation. The rules in Figure
+4 are written in the usual
+formal type-theoretic way, with the dependent type A, tope φ, and term a :A being
+expression metavariables containing the variable t : I. Note that the variable t is
+bound in all three, i.e. its binding in ∏
+t:I|ψ scopes over the rest of the expression.

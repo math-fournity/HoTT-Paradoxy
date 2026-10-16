@@ -1,0 +1,38 @@
+# 交接阶段经验
+
+1. “用户提问已提取”不等于“AI 回答、工具事件、代码和 Git 已审计”；必须分开建立 ledger。
+2. LocalGPT 的父线程和 HoTT-2 子线程不能用一个文件的数量替代 38-turn lineage；同一用户内容的重复和补充要显式标识。
+3. WebGPT 的 workspace 快照是历史来源；其 `STATE`、R、SESSION 和 Git 需要重新绑定到顶层 repo，不能直接当作当前状态。
+4. Gemini 的 `inlineFile` 是代码载荷，不能因为旧报告的摘要而分类成空记录；Drive 文档正文缺失必须保留缺口。
+5. `/Volumes/D/ALL-Markdown/aistudio-docs/` 被用户移走是有效边界；替代文件是否覆盖原目录是待证事实，不是文件名可以解决的语义问题。
+6. 核心认知的编号/hash/定位可以机械验证；是否深化、纠偏或偏航仍需当前 AI 写逐编号公开评估。
+7. 22,226 条来源行可以全部登记而不等于 22,226 条语义已经人工判定；register 的 locator/ID/规则依据必须与 `PENDING_DIRECT_SENTENCE_ADJUDICATION` 同时保留。
+8. 理解章节的逐文件“合并”可以安全地先形成 canonical 选择和 rollback receipt；保留 nested 源比未经授权删除更重要，line diff 也不等于数学内容等价。
+9. core 当前代必须由人工 curation + canonical manager 生成；任何用户新悖论/元数学原文进入新 generation，旧代由 tag/transition 保留，不能手工编辑生成物。
+10. full EOF/hash、checkpoint、Git commit 和测试都不能认证模型理解；`model_context=NOT_CERTIFIED_BY_TOOL` 是必须保留的真实边界。
+11. `role=user` 只证明消息由用户通道发送，不证明其中每段都是用户原创；Response annotations、转发信件、复合 briefing 必须逐项区分，不能把 AI 文字注入 core。
+12. “core 必须全文加载”保护的是用户定义的当前逻辑文档，不保护旧生成器的错误边界；重建可缩小当前输入，但必须精确原文、逐消息 disposition、完整迁移和可回滚历史。
+13. `evidence_status=REVIEW_REQUIRED` 不等于 `lifecycle_status=ACTIVE_WORK`。把二者混成一个 status 会让历史 Session/逐-KC表永久复活并形成自激压缩循环。
+14. 失败要按责任点记录：错误 unittest 入口不是测试失败；旧 2115 行下限是坏 oracle；旧 payload 含 `---` 使“完全相等”预期错误。修命令/规格后复跑，不能改数据求绿。
+15. 一个 compatibility runtime 副本若可直接路由到 canonical 实现，就不应长期维护第二份独立代码；路径兼容和真值唯一可以同时成立。
+16. core 换代后必须让 direction→core 主题通过当前 manifest 集合校验；只更新主要结果行仍可能留下一个旧标签，负向 validator 应使这种残留 fail closed。
+17. 已退出 current truth 的文档 rename 归档时，必须迁移当前 README/方向/STATE consumer 与 replacement；不可变 checkpoint 中的旧路径保留为当时证据。原始 pack 的 `archive/` 与叙事治理史的 `history/` 职责不同。
+18. 分项测试已从 3 增至 4 时，suite PASS 与 projection revision PASS 仍可能遗漏 MEMORY 的旧计数；current narrative lint 应核 stable 测试锚点，但不能把自由文本检查扩张为数学语义裁判。
+19. `different_pairs` 只能计数双方都存在且不同的同名对；单侧独有项应另计，并可用 `nonidentical_union_entries` 表示整个 union 中的非 identical 项，不能用一个含糊字段同时承担两种分母。
+20. R 编号不是跨工作区全局身份：workspace 的 R041 是 ZCode 治理接入，用户后来导出的数学 R041 是 bind/race 研究；必须绑定路径、hash、基线、commit 和容器，不能仅凭编号合并。
+21. 一份 Web 页面导出的 PROOF_NOTE 可以把 AI 自述升级为可审读纸笔来源，但不能替代其声称的源码、测试原始输出和 Git object；正文取得与执行谱系取得要分列。
+22. 部分计算抽象应以操作闭包成对审查：bind 是尊重结果等价的正向控制，race/timeout 是读取完成先后的负向探针；正向 monad 构造和现实相对使用桥梁不是同一成果。
+23. “HoTT 解决悖论”至少要拆成 formation 拒绝、概念区分、显式结构建模、一般界限继承和现实解释开放；把五类压成一个“解决了”会同时高估 HoTT 和抹去用户问题。
+24. 在 `理解章节/` 新增 current C 系列文档会真实改变 merge inventory；必须同轮重建 manifest、更新全景计数并重跑 projection freshness，不能让旧 25/24 收据继续证明新增后的目录。
+25. “战略上最重要”与“下一个最可执行”不是同一排序：W51×RP-B01×自指更接近最终理论目标，而 R041 partiality 操作闭包的证据链更成熟，适合先建立完整研究样板；必须显式区分，避免用成熟度覆盖目标价值或用目标价值掩盖证据缺口。
+26. 后续候选应按资格保持性判别，并分成 `DEFENSE_WORKS`、`REPRESENTATION_BOUNDARY`、`NATURAL_USAGE_MISMATCH`、`INTERNAL_INCONSISTENCY`；商拒绝非同余 race、截断拒绝取见证或提取器拒绝经典项时，这是理论防御证据，不能绕过规则制造悖论。
+27. “一个有限证明可检查/一个系统有归一化”与“所有命题可自动决定/理论能证明自身整体可靠”属于不同层次；若不先拆 V1–V5，会把正面元理论结果和哥德尔边界写成伪矛盾。
+28. 理论经济必须相对于任务族定义：`J` 通过 `α` 分解才是抽象对该任务充分；非单射抽象并非对所有任务失败，但必有观察能击穿其全局无损声明。
+29. 省略、商去、逻辑否定和理想化添加是四种不同理论操作；“理论中不存在 F”与“理论断言 ¬F”不能互换。用户的存在/不存在双视角应作为现实相对语义保留，而非无条件对象逻辑等价。
+30. core generation 更新和 STATE checkpoint 存在双资源过渡：先生成新 core 会让旧 STATE 的动态 generation 校验失败。runtime 3.1 只在给出 manifest+transition、旧/新 generation 和零 remainder 的窄迁移声明时允许 checkpoint 建立基线；普通 Session 仍 fail closed。
+31. `FactorsThrough(α,J)` 无条件推出 `FiberConstant(α,J)`，逆向却依赖像/商的消去泛性质、截面或选择；非单射也不保证对任意固定余域 Y 都有区分观察（subsingleton Y 是立即反例）。全局经济 no-go 必须显式量化 separating observation family，或允许 Y=R 与 J=id。
+32. 最小反例中的乘积 `A×S` 需要实际给出 `a₀:A`；仅有 `s₀≠s₁:S` 在 A 为空时不能产生一对现实状态。有限任务族也不使函数相等或 factorization 自动可判定；可执行模型必须另给有限类型、可判定相等或具体枚举器。
+33. 数学结论交付必须把自然语言命题、形式命题、proof source、匹配语义的 kernel run、原始输出和 claim index 绑定；代码存在、有限测试、外部论文、旧 aggregate receipt 或 `/tmp` 唯一文件都不能替代。无法闭合时正确结果是降格，而不是补强措辞。
+34. `MP-ERCF-001` 机器证明了通用因子化 walking skeleton，并以 subsingleton、section、separating family 和 identity 观察提供正反控制；这使 E₀ 从 coverage-gap 候选降为可表达的通用基础。下一步必须引入真实 HoTT abstraction/consumer，不能以普通 Lean `Eq` 重命名为 HoTT 悖论。
+35. proof run 的零字节 stdout/stderr 是需要原样留存并用 hash 认证的运行证据，但不是认知 loader 要求的非空正文；stable record 应通过 RUN.json/source manifest/verifier 路由它，避免 `EMPTY_REQUIRED_FILE` 在跨 Session 水合时误阻塞。
+36. stable record 的 `depends_on` 表示会传播证据 stale/review 的验证依赖，不应拿来表示开放母题、研究动机或叙事归属；后者应保留为非传播的 research-parent 关系，否则已机器闭合的子证明会被父问题的 paper-only 状态误降级。

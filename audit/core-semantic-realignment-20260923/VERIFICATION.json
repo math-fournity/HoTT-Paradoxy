@@ -1,0 +1,36 @@
+{
+  "schema_version": "core-semantic-realignment-verification/v1",
+  "contract_marker": "CORE_SEMANTIC_REALIGNMENT_V1",
+  "project_head_before_fix": "be305d2c5a8e2d6d84ab60e5b145fbc6565d7ea3",
+  "state_revision_unchanged": 268,
+  "static_invariants": {
+    "status": "PASS",
+    "checks": ["A1", "A2", "R3", "Z1"]
+  },
+  "a2_fixture": {
+    "positive_exit": 0,
+    "positive_status": "PASS",
+    "negative_exit": 1,
+    "negative_status": "FAIL",
+    "negative_reason": "SEMANTIC_ALIGNMENT_MARKER_MISSING",
+    "negative_path": ".codex/cognition/PROTOCOL.md"
+  },
+  "governance_shards": {
+    "status": "PASS",
+    "soft_notices": 5,
+    "blocking": false
+  },
+  "three_way": {
+    "status": "PASS",
+    "revision": 268,
+    "core_units": 48,
+    "directions": 36,
+    "outcomes": 193
+  },
+  "current_turn_behavior": "SOURCE_FIRST_CORE_AND_ESSAY_REREAD_OBSERVED_WITH_SCOPE",
+  "future_turn_behavior": "PENDING_NATURAL_TURN_AND_CROSS_SESSION_SAMPLES",
+  "runtime_or_hook_changes": [],
+  "math_claims": [],
+  "kernel_runs": [],
+  "limitations": "Static rules and one corrected turn do not certify all future model behavior or semantic understanding."
+}

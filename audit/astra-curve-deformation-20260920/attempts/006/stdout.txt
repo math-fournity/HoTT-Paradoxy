@@ -1,0 +1,44 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:57:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ
+    ((orderIsoIooNegOneOne ℝ).symm
+        ({ toFun := fun u => ⟨2 * ↑u - 1, ⋯⟩, invFun := fun v => ⟨(↑v + 1) / 2, ⋯⟩, left_inv := centeredOrder._proof_5,
+            right_inv := centeredOrder._proof_7, map_rel_iff' := @centeredOrder._proof_8 }
+          u) /
+      (1 +
+        |(orderIsoIooNegOneOne ℝ).symm
+            ({ toFun := fun u => ⟨2 * ↑u - 1, ⋯⟩, invFun := fun v => ⟨(↑v + 1) / 2, ⋯⟩,
+                left_inv := centeredOrder._proof_5, right_inv := centeredOrder._proof_7,
+                map_rel_iff' := @centeredOrder._proof_8 }
+              u)|))
+    ↑({ toFun := fun u => ⟨2 * ↑u - 1, ⋯⟩, invFun := fun v => ⟨(↑v + 1) / 2, ⋯⟩, left_inv := centeredOrder._proof_5,
+          right_inv := centeredOrder._proof_7, map_rel_iff' := @centeredOrder._proof_8 }
+        u)
+but is expected to have type
+  @Eq ℝ
+    ((orderIsoIooNegOneOne ℝ).symm
+        ({ toFun := fun u => ⟨2 * ↑u - 1, ⋯⟩, invFun := fun v => ⟨(↑v + 1) / 2, ⋯⟩, left_inv := centeredOrder._proof_5,
+            right_inv := centeredOrder._proof_7, map_rel_iff' := @centeredOrder._proof_8 }
+          u) /
+      (1 +
+        |(orderIsoIooNegOneOne ℝ).symm
+            ({ toFun := fun u => ⟨2 * ↑u - 1, ⋯⟩, invFun := fun v => ⟨(↑v + 1) / 2, ⋯⟩,
+                left_inv := centeredOrder._proof_5, right_inv := centeredOrder._proof_7,
+                map_rel_iff' := @centeredOrder._proof_8 }
+              u)|))
+    (2 * ↑u - 1)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:249:10: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/DeformationCircle.lean:252:2: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+'AstraRealGeometry.deformation_isEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.deformation_start' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.exists_curve_deformation' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -1,0 +1,93 @@
+An error occurred when typechecking!
+Type Error:
+Definitions in context:
+  Δ¹ : 2 → TOPE
+  hom : (A : U) → (x : A) → (y : A) → U
+  is-equiv : (A : U) → (B : U) → (f : A → B) → U
+  is-contr : (A : U) → U
+  dhom : (A : U) → (x : A) → (y : A) → (f : hom A x y) → (C : A → U) → (u : C x) → (v : C y) → U
+  is-covariant : (A : U) → (C : A → U) → U
+  covariant-transport : (A : U) → (C : A → U) → (is-cov : is-covariant A C) → (x : A) → (y : A) → (f : hom A x y) → (u : C x) → C y
+  arrow-action : (S : U) → (El : S → U) → (is-cov : is-covariant S El) → (A : S) → (B : S) → (f : hom S A B) → El A → El B
+  is-directed-univalent : (S : U) → (El : S → U) → (is-cov : is-covariant S El) → U
+  Gl : (S : U) → (El : S → U) → (is-cov : is-covariant S El) → (du : is-directed-univalent S El is-cov) → (A : S) → (B : S) → (φ : El A → El B) → hom S A B
+  S : U
+  El : S → U
+  is-cov : is-covariant S El
+  du : is-directed-univalent S El is-cov
+  A : S
+  B : S
+  φ : El A → El B
+  t : 2
+when typechecking
+  \ (S : U) → \ (El : S → U) → \ (is-cov : is-covariant S El) → \ (du : is-directed-univalent S El is-cov) → \ (A : S) → \ (B : S) → \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (S : U) → (El : S → U) → (is-cov : is-covariant S El) → (du : is-directed-univalent S El is-cov) → (A : S) → (B : S) → (φ : El A → El B) → hom S B A
+
+when typechecking
+  \ (El : S → U) → \ (is-cov : is-covariant S El) → \ (du : is-directed-univalent S El is-cov) → \ (A : S) → \ (B : S) → \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (El : S → U) → (is-cov : is-covariant S El) → (du : is-directed-univalent S El is-cov) → (A : S) → (B : S) → (φ : El A → El B) → hom S B A
+
+when typechecking
+  \ (is-cov : is-covariant S El) → \ (du : is-directed-univalent S El is-cov) → \ (A : S) → \ (B : S) → \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (is-cov : is-covariant S El) → (du : is-directed-univalent S El is-cov) → (A : S) → (B : S) → (φ : El A → El B) → hom S B A
+
+when typechecking
+  \ (du : is-directed-univalent S El is-cov) → \ (A : S) → \ (B : S) → \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (du : is-directed-univalent S El is-cov) → (A : S) → (B : S) → (φ : El A → El B) → hom S B A
+
+when typechecking
+  \ (A : S) → \ (B : S) → \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (A : S) → (B : S) → (φ : El A → El B) → hom S B A
+
+when typechecking
+  \ (B : S) → \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (B : S) → (φ : El A → El B) → hom S B A
+
+when typechecking
+  \ (φ : El A → El B) → Gl S El is-cov du A B φ
+against type
+  (φ : El A → El B) → hom S B A
+
+when typechecking
+  Gl S El is-cov du A B φ
+against type
+  hom S B A
+
+when unifying expected type
+  (t : 2 | Δ¹ t) → S [t ≡ 0₂ ↦ B, t ≡ 1₂ ↦ A]
+with actual type
+  (t : 2 | Δ¹ t) → S [t ≡ 0₂ ↦ A, t ≡ 1₂ ↦ B]
+for term
+  Gl S El is-cov du A B φ
+
+when unifying expected type
+  S [t ≡ 0₂ ↦ B, t ≡ 1₂ ↦ A]
+with actual type
+  S [t ≡ 0₂ ↦ A, t ≡ 1₂ ↦ B]
+for term
+  Gl S El is-cov du A B φ t
+
+when unifying term (expected)
+  B
+with term (actual)
+  A
+
+
+Local tope context:
+    t ≡ 0₂
+
+HoTT/formal/claude-cg001/two-town-rzk/WrongReturnAlongGo.rzk (line 99, column 6):
+  Error occurred when checking
+    #define return-along-go
+
+cannot unify term
+  B
+with term
+  A
+

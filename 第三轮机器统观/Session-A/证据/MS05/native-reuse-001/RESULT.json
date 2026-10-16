@@ -1,0 +1,45 @@
+{
+  "scope": "Exact existing proof packages, current selected version closure; no replay or new theorem",
+  "checks": [
+    {
+      "proof_id": "MP-MO3-STAGE-COLIMIT-001",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-STAGE-COLIMIT-001"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-MO3-BOUQUET-ORDER-001",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-BOUQUET-ORDER-001"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-MO3-FINITE-COVER-001",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-FINITE-COVER-001"
+      ],
+      "exit": 0
+    },
+    {
+      "proof_id": "MP-MO3-OPEN-COVER-MARGIN-001",
+      "argv": [
+        "python3",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--proof-id",
+        "MP-MO3-OPEN-COVER-MARGIN-001"
+      ],
+      "exit": 0
+    }
+  ]
+}

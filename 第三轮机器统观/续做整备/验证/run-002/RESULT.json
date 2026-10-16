@@ -1,0 +1,200 @@
+{
+  "schema": "goal7-preparation-evidence/v1",
+  "status": "PASS_WITH_SCOPE",
+  "checks": {
+    "existing-goal-routes": true,
+    "governance-invariants": true,
+    "shards": true,
+    "old-A-seal": true,
+    "changed-diff": true,
+    "skill-hott-local-session-governance": true,
+    "skill-hott-machine-overview-execution": true,
+    "skill-hott-machine-overview-audit": true,
+    "new_tasks_not_registered_or_started": true,
+    "governance_mandatory_inputs": true,
+    "research_mandatory_inputs": true,
+    "C_graph_selects_goal_and_skill": true,
+    "C_related_A_not_recursively_promoted": true,
+    "C_stale_goal_requires_review": true,
+    "D_graph_selects_goal_and_skill": true,
+    "D_related_A_not_recursively_promoted": true,
+    "D_stale_goal_requires_review": true,
+    "new_prompt_limits": true,
+    "goal_closures_monolithic": true,
+    "source_baseline_hashes_match": true,
+    "source_baseline_does_not_claim_review": true,
+    "all_named_schema_ids_unique": true,
+    "local_links_exist": true,
+    "STATE_bytes_unchanged": true
+  },
+  "commands": [
+    {
+      "label": "existing-goal-routes",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/audit",
+        "-p",
+        "test_goal_task_governance.py",
+        "-v"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "governance-invariants",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_v5_invariants.py"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "shards",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "old-A-seal",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "第三轮机器统观/Session-A/交付/final-002",
+        "--expected-sha",
+        "e3181cb8111c7a46ca9324cc8f070ad26dd501447d26aad79a87e52e3eb32fdd"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "changed-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "AGENTS.md",
+        ".codex/AGENTS.md",
+        ".codex/cognition/TASK_ROUTING.md",
+        ".codex/skills/hott-local-session-governance/SKILL.md",
+        ".codex/skills/hott-machine-overview-execution/SKILL.md",
+        ".codex/skills/hott-machine-overview-audit/SKILL.md",
+        "README/001 - 当前入口与关键文件.md",
+        "feature-list.md",
+        "rulings.md",
+        "第三轮机器统观/README.md"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "skill-hott-local-session-governance",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-local-session-governance"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "skill-hott-machine-overview-execution",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-execution"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "skill-hott-machine-overview-audit",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-audit"
+      ],
+      "exit": 0
+    }
+  ],
+  "prompt_characters": {
+    "C": 1251,
+    "D": 1218
+  },
+  "loader_profiles": {
+    "governance": {
+      "snapshot": "39949cb0b24e7b22376dfa2f6815b200bbce5c7b274c6be04db6ee8f8c768e87",
+      "documents": 62,
+      "promotion": []
+    },
+    "research": {
+      "snapshot": "ac0d73e85ae9afbcf32d0fde5d2766ccbe771748058d950b8c51bd2e13a16f06",
+      "documents": 67,
+      "promotion": []
+    }
+  },
+  "graph_fixtures": {
+    "C": {
+      "identity": "IN_MEMORY_GRAPH_FIXTURE_ONLY",
+      "full_sources": [
+        "goal-7.md",
+        ".codex/skills/hott-machine-overview-execution/SKILL.md"
+      ],
+      "new_selected_records": [
+        "MO3-COVERAGE-C"
+      ],
+      "stale_expected": true
+    },
+    "D": {
+      "identity": "IN_MEMORY_GRAPH_FIXTURE_ONLY",
+      "full_sources": [
+        "goal-7-audit.md",
+        ".codex/skills/hott-machine-overview-audit/SKILL.md",
+        "goal-7.md"
+      ],
+      "new_selected_records": [
+        "MO3-COVERAGE-D"
+      ],
+      "stale_expected": true
+    }
+  },
+  "source_entry_counts": {
+    "schema": {
+      "C": 18,
+      "D": 12,
+      "S": 9,
+      "E": 15
+    },
+    "book_sections": 105
+  },
+  "broken_links": [],
+  "identities": {
+    "goal-7.md": "a1686c52b956d39a7855ff70d390118f98bb199391467f07503b3695f9e3b4fb",
+    "goal-7-audit.md": "f885024fd5ab9dca2d3611055bc5acae3823ae03520120f2abd002d439249850",
+    "第三轮机器统观/README.md": "7346a953fcaa2e0981badb76303488ec10e658e117088d47cc46cc632e45a333",
+    ".codex/cognition/TASK_ROUTING.md": "1ad767bac0abb77ec994661dde6e75b90bc1ac0de55150c93e1fe94a19183d1b",
+    ".codex/skills/hott-machine-overview-execution/SKILL.md": "dbbd1336785d635862f03d6064cfc699310d1679d49fab73af8f208b8d619039",
+    ".codex/skills/hott-machine-overview-audit/SKILL.md": "6bed4d1b308bf50a2d3a39041926125e022a37a62bbed518f396af19c56ddd44",
+    "第三轮机器统观/续做整备/接续方案.md": "e4736037fc70be33ea70a2b81a57adbf9307420a84e95b30fa3a25d225d14139",
+    "第三轮机器统观/续做整备/整备验收.md": "69943c087db5a03eaaa35c9b4b905cfc7336eb033700c1ae3492e09099cb10a1"
+  },
+  "state_before_sha256": "18fc033da7e2453872eb01d461b83dccda6ac1d6fcf7cb6218b43a7524917b3b",
+  "state_after_sha256": "18fc033da7e2453872eb01d461b83dccda6ac1d6fcf7cb6218b43a7524917b3b",
+  "limits": [
+    "No C/D session or host Goal started",
+    "No actual research or audit results created",
+    "Graph fixtures do not prove role understanding or live registration",
+    "FRESH_AND_COMPACTION_BEHAVIOR_NOT_VERIFIED",
+    "Local preparation not Git version-closed"
+  ]
+}

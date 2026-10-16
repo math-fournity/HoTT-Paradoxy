@@ -1,0 +1,48 @@
+{
+  "status": "FORMAL_CHECKED_AND_RELATION_PASS_WITH_SCOPE",
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-SQRT2-TASK-COMPARISON-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-SQRT2-TASK-COMPARISON-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "fresh_kernel_run": "HoTT/verification/runs/20260920-MP-ASTRA-SQRT2-TASK-COMPARISON-001-01",
+  "extra_kernel_rerun": false,
+  "kernel_seconds": 106.119903,
+  "source_graph_matches_final_draft": true,
+  "import_modules": 220,
+  "local_source_count": 14,
+  "claim_ids": [
+    "C-302",
+    "C-303"
+  ],
+  "declared_request_families": 9,
+  "constructible_families": 6,
+  "empty_response_families": 3,
+  "upward_lift_not_resizing": true,
+  "unproved": [
+    "SingleOmega necessity or unconditional same-level smallness",
+    "Universal HoTT theorem/program decision or arbitrary-output verification",
+    "Natural-consumer/remaining-breakpoint coverage and full four-stage redo",
+    "Original broad circle/physical correspondence"
+  ]
+}

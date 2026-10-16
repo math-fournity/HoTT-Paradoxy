@@ -1,0 +1,177 @@
+{
+  "status": "AUDIT_SOURCE_IDENTITY_LOCATORS_AND_LINKS_PASS",
+  "proof_qualification_receipt_sha256": "37b3f3b93158c4132baece48637f04899aa4dc42be5fcccb567e23554387a02b",
+  "fixed_coq_commit": "478aeef5e1a2452481b378eb433e64749a0721a5",
+  "source_files_verified": 14,
+  "literal_locators": [
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Definition locator (x : F) := forall q r : Q, q < r -> (' q < x) + (x < ' r).",
+      "lines": [
+        65
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Context `{ExcludedMiddle}.",
+      "lines": [
+        82
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Definition lower_bound :",
+      "lines": [
+        260
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Lemma tight_bound",
+      "lines": [
+        314
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "(nu : x ≶ 0).",
+      "lines": [
+        648
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Definition locator_recip : locator (// (x ; nu)).",
+      "lines": [
+        650
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Lemma locator_times : locator (x * y).",
+      "lines": [
+        727
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Proof. Abort.",
+      "lines": [
+        728
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Context {M} {M_ismod : CauchyModulus Q F xs M}.",
+      "lines": [
+        755
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Context (ls : forall n, locator (xs n)).",
+      "lines": [
+        756
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Analysis/Locator.v",
+      "literal_marker": "Lemma locator_limit {l} : IsLimit _ _ xs l -> locator l.",
+      "lines": [
+        758
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Classes/interfaces/canonical_names.v",
+      "literal_marker": "Notation \"(<>)\" := (fun x y => ~x = y)",
+      "lines": [
+        34
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Classes/interfaces/canonical_names.v",
+      "literal_marker": "Infix \"≶\" := apart",
+      "lines": [
+        39
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Classes/interfaces/canonical_names.v",
+      "literal_marker": "Definition ApartZero",
+      "lines": [
+        67
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Classes/interfaces/canonical_names.v",
+      "literal_marker": "Class Recip A",
+      "lines": [
+        68
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Classes/interfaces/abstract_algebra.v",
+      "literal_marker": "Class IsField",
+      "lines": [
+        133
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/Classes/interfaces/abstract_algebra.v",
+      "literal_marker": "Class IsDecField",
+      "lines": [
+        144
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v",
+      "literal_marker": "Monomorphic Axiom ExcludedMiddle : Type0.",
+      "lines": [
+        5
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/ExcludedMiddle.v",
+      "literal_marker": "Axiom LEM : forall `{ExcludedMiddle} (P : Type), IsHProp P -> P + ~P.",
+      "lines": [
+        8
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v",
+      "literal_marker": "(P_dec : forall n, Decidable (P n))",
+      "lines": [
+        9
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v",
+      "literal_marker": "(P_inhab : hexists (fun n => P n)).",
+      "lines": [
+        10
+      ]
+    },
+    {
+      "path": "audit/astra-assumption-integration-20260921/upstream-locator/theories/BoundedSearch.v",
+      "literal_marker": "Definition minimal_n_alt_type",
+      "lines": [
+        124
+      ]
+    }
+  ],
+  "local_report_links_checked": 20,
+  "coq_compiled": false,
+  "new_mathematical_claims": false,
+  "reading_attestation": {
+    "Locator.v": "Local lines1–429,430–768,769–808 emitted; EOF808. Tool identity is not a comprehension certificate.",
+    "fully_read_other_files": [
+      "BoundedSearch.v",
+      "DProp.v",
+      "ExcludedMiddle.v",
+      "Classes/interfaces/cauchy.v",
+      "LICENSE.txt"
+    ],
+    "other_sources": "Relevant declarations only, not all14 full bodies or transitive import closure"
+  },
+  "scope": "Literal declarations and human-scoped contract review, not exported minimal assumptions, Coq validity, runtime computation, all-library absence or a HoTT defect theorem."
+}

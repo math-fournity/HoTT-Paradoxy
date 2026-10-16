@@ -1,0 +1,99 @@
+{
+  "schema_version": "c5-paradox-distance-post-evidence/v1",
+  "captured_at_utc": "2026-09-13T01:10:41+00:00",
+  "session_id": "S-RES-20260912-042-C5-PARADOX-DISTANCE",
+  "state_revision": 42,
+  "latest_session": "S-RES-20260912-042-C5-PARADOX-DISTANCE",
+  "head_revision": 42,
+  "post_checks": [
+    {
+      "name": "fresh-three-way-regeneration",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "revision": 42,
+        "governance_documents": 15,
+        "research_documents": 20,
+        "negative_cases": ["wrong_snapshot", "incomplete_coverage", "tampered_chunk", "profile_snapshot_mismatch"]
+      }
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "state_revision": 42,
+        "core_units": 36,
+        "merge_entries": 30,
+        "fresh_receipt_revision": 42,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "state_revision": 42,
+        "direction_count": 27,
+        "outcome_count": 38,
+        "core_units_declared": 36
+      }
+    },
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "core_units": 36,
+        "generation": "core-cognition-generation-4",
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"
+      }
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "understanding-merge",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "union_files": 30,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 15,
+        "unresolved_nontrivial": 0
+      }
+    }
+  ],
+  "test_suites": [
+    {"name": "cognition-runtime", "tests": 28, "status": "OK"},
+    {"name": "full-closure-loading-reader", "tests": 17, "status": "OK"},
+    {"name": "three-way-cognition", "tests": 4, "status": "OK"},
+    {"name": "core-cognition", "tests": 7, "status": "OK"},
+    {"name": "math-proof-delivery-governance", "tests": 4, "status": "OK"}
+  ],
+  "source_verifiers": [
+    {"name": "history-ledgers", "status": "PASS"},
+    {"name": "cross-source-reconciliation", "status": "PASS"}
+  ],
+  "proof_replays": {
+    "status": "NOT_RERUN_IN_S042_NO_PROOF_SOURCE_OR_CLAIM_MATRIX_CHANGE",
+    "claim_matrix_sha256": "f493cfe6e6bcb7391269f65c9230e693921c5e2476dc7777e71b110259f3b0f6",
+    "note": "S042 is paper-only and changes no proof source, run or claim matrix row; the S041 post-check replays (nine row-stable plus one exact) remain authoritative for the unchanged hashes."
+  },
+  "write_lock_present": false,
+  "transaction_present": false,
+  "failures": [],
+  "status": "PASS"
+}

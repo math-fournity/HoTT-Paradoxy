@@ -1,0 +1,95 @@
+{
+  "schema_version": "source-replay-run/v1",
+  "run_id": "20261004-SOURCE-REPLAY-MM0-FROM-MM-JCOMPAT-001",
+  "status": "MATCHING_RUNNER_BUILT_AND_COMMENT_NORMALIZED_SETMM_TRANSLATED_AND_MMB_VERIFIED_WITH_SCOPE",
+  "claim_scope": "An exact mm0-hs source revision was built with its locked GHC 8.6.5/LTS 13.27 environment through a locally qualified x86_64 matching runner. It rejected raw set.mm@160ebb at a modern $j comment string, but accepted a six-line $j color-metadata compatibility derivative. The derivative was accepted by the exact Metamath verifier, fully translated to MM0/MMB, and its MMB was accepted by mm0-c.",
+  "raw_database": {
+    "repository": "https://github.com/metamath/set.mm",
+    "commit": "160ebb63ec17ff00a809520a420c92914a424622",
+    "external_cache_path": "/Volumes/D/HoTT-downloads/godel-q-setmm-160ebb/set.mm",
+    "bytes": 51466065,
+    "sha256": "d8420798bcedcd04fcfe337736e2609b66914c76f8f2db967fa79673d5026b2a",
+    "git_blob_sha1": "75aac81031ffdc99ca832e1300c3fc30af13c7f7"
+  },
+  "mm0_source": {
+    "repository": "https://github.com/digama0/mm0",
+    "commit": "0d414c0bfdaaeb7fea571895127abc1fa5a3d956",
+    "stack_yaml_sha256": "47eb296f1ae4f36e6cd5600f9a6a4887e402fd60c44f67ec7bd506a53f4fc725",
+    "package_yaml_sha256": "60f8a85da63d16a27e17b18bc3eec4636fea37b70949658756d7be982671a301",
+    "from_mm_sha256": "19080774a87c725128d67e04a36af9c6533afcac41cb34660f4cf012342473e2",
+    "from_mm_parser_sha256": "8f62b96c41867d495a447febd46f308355f00840b449dcc7b6f67f1f86033137",
+    "mm0_c_main_sha256": "ecde31379241e38ca0b375df0f40b216e9108f6cfd45952ccb282658d883de17"
+  },
+  "matching_runner": {
+    "host": "macOS 27.0 arm64 with Rosetta x86_64 execution",
+    "stack_version": "3.11.1",
+    "stack_binary_sha256": "0776b73c4ad9ef89c246854de25619efd28c1c5bdc0319301d4879bc31c22682",
+    "resolver": "lts-13.27",
+    "ghc_version": "8.6.5",
+    "ghc_bindist_sha256": "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169",
+    "runner_script_external_path": "/Volumes/D/HoTT-downloads/godel-q-setmm-160ebb/x86-toolchain/run-mm0-hs-build.sh",
+    "runner_script_sha256": "74c378b29bdd5d345f6ea365c945a4288d95e1eef86e8b4436c8fe3cf7910852",
+    "cross_clang_wrapper_sha256": "ae0fcb14b0645ad409115ae9c416f7b847407d1f504f26d96f4ffca3b4436474",
+    "installed_settings_sha256": "bf2b78d834ca9ff3821993df6b4dee7ba05922c23995970e990de50dc80e6438",
+    "mm0_hs_binary_external_path": "/Volumes/D/HoTT-downloads/godel-q-setmm-160ebb/mm0-0d414c0/mm0-hs/.stack-work/install/x86_64-osx/dabefbdbe6b1e1687a4d2678d733cf7c7159565f3f2285f4f8b2a36cf5c3af21/8.6.5/bin/mm0-hs",
+    "mm0_hs_binary_sha256": "38b2957bb3bed3cae3857ac5eb5ac9a07081597f79505bbe68c11ad0aca39516",
+    "build_exit_code": 0,
+    "build_log_sha256": "027d94d70c81adf8466df09a21bf28944086474e4f8e0ba614affee74d693adb"
+  },
+  "raw_input_control": {
+    "command": "arch -x86_64 mm0-hs show-bundled <raw set.mm@160ebb>",
+    "exit_code": 1,
+    "output": "parse failed \"\"wff\"\"as",
+    "scope": "The exact current raw source uses double-quoted varcolorcode metadata in six $j comments, which this pinned parser does not accept. This is a direct-input compatibility failure, not a failure of the Metamath proof database or a ZFC claim.",
+    "output_sha256": "d74b0f606f31527881e6230f139dc0d263326a12da347f0c067fda72f6f6cade"
+  },
+  "comment_normalized_control": {
+    "derivative_manifest": "comment-normalization.manifest.json",
+    "derivative_sha256": "c7560de2bcd61b0e4af6c45f9ec9ea50cfc629245c9364231c5b702a36df42da",
+    "transformation": "Six double-quoted strings in $j varcolorcode/altvarcolorcode metadata were rewritten to the single-quoted syntax parsed by MM0.FromMM. No $c/$v/$f/$e/$a/$p formal token was intentionally edited.",
+    "metamath_verifier": {
+      "repository": "https://github.com/metamath/metamath-exe.git",
+      "commit": "9898f5d1bb27045d764dd01672862a1c2a3b4f5e",
+      "result": "252401 statements; 3072 $a; 47917 $p; all proofs verified in 8.60 s.",
+      "exit_code": 0,
+      "stdout_sha256": "1ca11211202fb1cf03163df8152ac244a50634cf32492852bb0df3d609a0866d"
+    },
+    "show_bundled": {
+      "exit_code": 0,
+      "result": "230 bundled theorems, 300 total copies.",
+      "stdout_sha256": "46d033905cd20025f82fa89e837dc0e0ce52ede469d0767be1143a977931d953"
+    }
+  },
+  "translation": {
+    "command": "arch -x86_64 mm0-hs from-mm <comment-normalized set.mm> -o set.mm0 set.mmb",
+    "exit_code": 0,
+    "external_artifact_root": "/Volumes/D/HoTT-downloads/godel-q-setmm-160ebb/x86-tmp/mm0-from-mm-setmm-jcompat-20261004-001",
+    "mm0_bytes": 20573423,
+    "mm0_sha256": "ece0cf86b98d77cc9deb5175d0f0909c7ac83f4922216d80f3e7f1fae5e31e56",
+    "mmb_bytes": 42894087,
+    "mmb_sha256": "28badc4ffb2601a89dfcfb4877261af1b1b0cb0b677a9c760d3d4aeb97a0f790",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "separate_reference_mmb_verification": {
+    "verifier": "mm0-c built from mm0-c/main.c in the same fixed MM0 source; separate from mm0-hs translator code, not an organizationally independent implementation",
+    "binary_sha256": "fadc026d8498b6ae27f0ec70b6e6a5fe7fb8ecfcb3776a4992c7b14a8a4190db",
+    "command": "mm0-c set.mmb < set.mm0",
+    "exit_code": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "raw_text_preservation": {
+    "paths": [
+      "matching-runner-build.log",
+      "comment-normalized-metamath-verifier.txt"
+    ],
+    "reason": "These are verbatim terminal captures. They retain terminal-emitted trailing whitespace and are intentionally excluded from git diff --check; their SHA-256 identities are recorded above or in source-manifest.json."
+  },
+  "non_goals": [
+    "No exact raw-byte set.mm@160ebb direct from-mm output: the pinned parser rejects its six modern $j metadata strings.",
+    "No construction of set.mm as an internal ZF object T in mFS, no internal mPPSt/mThm adequacy theorem, and no definition or adequacy proof for Prv.",
+    "No target-specific diagonal sentence, no InternalProvabilityAdequacy, and no claim about bare ZFC inconsistency or incompleteness.",
+    "No parent OriginDone, reality map rho, completion bridge, actual Q policy, or release of G1 through G6."
+  ]
+}

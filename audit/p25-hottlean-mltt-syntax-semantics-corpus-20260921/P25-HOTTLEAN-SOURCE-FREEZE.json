@@ -1,0 +1,44 @@
+{
+  "schema_version": "p25-hottlean-source-freeze/v1",
+  "task_id": "P25-HOTTLEAN-MLTT-SYNTAX-SEMANTICS-CORPUS-001",
+  "observed_at": "2026-09-21",
+  "remote": {
+    "url": "https://github.com/sinhp/HoTTLean.git",
+    "branch_observed": "master",
+    "commit": "31133dd5b25226ea897f8aa5e2e43b61392459eb",
+    "commit_timestamp": "2026-02-06T10:12:47-05:00",
+    "commit_subject": "feat: links to papers",
+    "checkout_identity": "git clone --filter=blob:none --no-checkout; detached checkout; clean worktree"
+  },
+  "external_files_sha256": {
+    "README.md": "82128e29c7f523db6c5dd0baf90b5d25f83a84148f5aef812d3a379734940d9f",
+    "HoTTLean/Syntax/Basic.lean": "95a84f384599ca339ee7b5245204e60bc043d8fb63dc09439c6b53eb6723271b",
+    "HoTTLean/Syntax/Typing.lean": "1ca1efd7ef91d65bcf70264edadde868768237806450b0fd05f5d4b43044487e",
+    "HoTTLean/Frontend/Checked.lean": "42ddb0e0d8d8e1eb25cf72f5579f72276ee38f14ffe19cb257b442d096ca2c9f",
+    "HoTTLean/Frontend/Commands.lean": "8152dadc4ca90c215cd518fcab6e4f863a07d4f4f083511ffb6ce02a507733b7",
+    "HoTTLean/Typechecker/Synth.lean": "f51aa6e53cd65ca5996e5d3d481efcc222183bedd139e5bed601fc71795ec68e",
+    "HoTTLean/Model/Unstructured/Interpretation.lean": "6dd879ebf283ef45bc90fac3bd107a744f37f9cfd4a678d718762a7d6b33e9b1",
+    "test/hott0.lean": "7da0c64c8653af08758d56137bec085f9d765f101b34377d8354c165b1a218d0"
+  },
+  "literal_search_denominator": {
+    "roots": ["HoTTLean/", "test/", "README.md"],
+    "tracked_file_count": 68,
+    "syntax_checker_model_subset_file_count": 31,
+    "terms": ["godel", "provability", "provable", "reflection", "self-reference", "proof predicate"],
+    "result": "NO_NAMED_MATCHING_DECLARATION_PATH_WITHIN_FIXED_LITERAL_DENOMINATOR"
+  },
+  "public_source_observations": {
+    "cpp_synthlean_2026": {
+      "url": "https://voidma.in/assets/papers/2026nawrocki_certifying_proof_assistant_synthetic_mathematics_lean.pdf",
+      "classification": "PRIMARY_PAPER / SYNTACTIC_MODEL_CONSUMER / HOST_OBJECT_STRATIFICATION"
+    },
+    "qiirt_cpp_2026": {
+      "url": "https://fredriknf.com/papers/tt-qiirt_cpp2026.pdf",
+      "artifact": "https://zenodo.org/records/17802827",
+      "repository": "https://github.com/L-TChen/TTasQIIRT.git",
+      "remote_head_observed": "8db08306287333067b2749f95f8ad3ba7a0e14d1",
+      "classification": "P26_INTRINSIC_QIIRT_CANDIDATE"
+    }
+  },
+  "verdict": "CLOSE_WITH_SCOPE / ACTUAL_SYNTACTIC_MODEL_CONSUMER_CONFIRMED / NOT_A_SAME_LAYER_GLOBAL_SELF_VALIDATION_CONSUMER_WITHIN_FIXED_COMMIT / DEFENSE_BY_EXPLICIT_HOST_OBJECT_STRATIFICATION_AND_SCOPE / P26_INTRINSIC_QIIRT_CANDIDATE_SELECTED / NO_NEW_HOTT_DEFECT_CLAIM"
+}

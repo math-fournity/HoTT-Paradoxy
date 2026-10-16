@@ -1,0 +1,56 @@
+{
+ "schema": "gui-asset-reaudit/protocol-anchors/v1",
+ "created": "2026-10-07",
+ "owner": "设计会话（Claude Code，Haiku 5.5）",
+ "note": "锚句只存 SHA-256 与提示，不存明文。哈希对象为规范文件中对应整行的 UTF-8 字节（不含行尾换行）。跨压缩或会话边界恢复时，执行者须从重载的正文中逐字节摘出全部锚句（按本表顺序，一行一句）写入 echo 文件，再运行 echo_check.py 校验（SOP 005 §4 第 4 步、§5）。",
+ "anchors": [
+  {
+   "id": "B1",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/001 - 总目标、独立性与反锚定合同、完成门.md",
+   "hint": "I1 封印：阶段 A 与阶段 B 期间的反锚定合同行",
+   "sha256": "48d58adf63d436796c29fafaa4ee153531da4a07bdbc4a71a2c5efcbbe39d86f"
+  },
+  {
+   "id": "B2",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/001 - 总目标、独立性与反锚定合同、完成门.md",
+   "hint": "I0 自建一切：不得复用第一战役脚本与产物",
+   "sha256": "2658e7a3c859d46be0097a129defb568e4927ac9fdeea4ad7fd6babd6dc1ac36"
+  },
+  {
+   "id": "B3",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/002 - 自建基线、对齐与义务分母.md",
+   "hint": "行与字节切片的定义",
+   "sha256": "ed8f50518a1ff531235c5fc43394c423b6582a91df5a1daaf42f634dbcee41d3"
+  },
+  {
+   "id": "B4",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/003 - 全量重读五拍循环与双账本.md",
+   "hint": "拍 4 复读自检的整读要求",
+   "sha256": "c6737f86c9e80c7ed00007ad4872082f57a608366c251d3734865803b18cf394"
+  },
+  {
+   "id": "B5",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/004 - 自检、解封比对与终审交付.md",
+   "hint": "收据级判词的四类取值",
+   "sha256": "336bc5743efbaf4a9aef2df5f43b6cf10f3a6f35653bc6c0a1eb5114040ba157"
+  },
+  {
+   "id": "B6",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/005 - 压缩边界、完全重载与执行清单.md",
+   "hint": "摘要非权威",
+   "sha256": "2764a00fb803247b8789c949c309db9471eb8f8a1cee29b91751e55209de549d"
+  },
+  {
+   "id": "B7",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/005 - 压缩边界、完全重载与执行清单.md",
+   "hint": "不凭记忆续写",
+   "sha256": "fd70824f8244b77bfe67024278de06aa2a45b2f61334ec7e1f2413136ab93294"
+  },
+  {
+   "id": "B8",
+   "file": "dev-docs/GUI导出全量复算重读审计SOP/005 - 压缩边界、完全重载与执行清单.md",
+   "hint": "失败即停",
+   "sha256": "b0cf7bd897cce661cd97627d00475daf77835014e33ebc3aff150f618fada092"
+  }
+ ]
+}

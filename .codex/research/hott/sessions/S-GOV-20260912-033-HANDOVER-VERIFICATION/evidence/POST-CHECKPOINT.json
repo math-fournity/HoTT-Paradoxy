@@ -1,0 +1,114 @@
+{
+  "schema_version": "handover-verification-evidence/v1",
+  "phase": "post-checkpoint",
+  "session_id": "S-GOV-20260912-033-HANDOVER-VERIFICATION",
+  "captured_at_utc": "2026-09-12T22:46:40.859979+00:00",
+  "fresh_three_way": {
+    "exit_code": 0,
+    "result": {
+      "status": "PASS_WITH_SCOPE",
+      "revision": 33,
+      "governance_documents": 15,
+      "research_documents": 20,
+      "negative_cases": [
+        "wrong_snapshot",
+        "incomplete_coverage",
+        "tampered_chunk",
+        "profile_snapshot_mismatch"
+      ],
+      "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+    },
+    "receipt": "audit/fresh-three-way-verification-20260912.json"
+  },
+  "post_checks": [
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "generation": "core-cognition-generation-4",
+        "core_units": 36,
+        "messages": 89,
+        "included_messages": 24,
+        "source_files": 4,
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+        "transition_mapping_count": 27,
+        "transition_remainder": 0,
+        "model_context": "NOT_CERTIFIED_BY_TOOL",
+        "mathematics": "NOT_CERTIFIED"
+      }
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS",
+        "schema_version": "integrated-three-way-cognition/v1",
+        "state_revision": 33,
+        "core_units_declared": 36,
+        "direction_count": 27,
+        "outcome_count": 29,
+        "fixed_order": [
+          "核心认知.md",
+          "方向追踪.md",
+          "全景视野.md"
+        ],
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    {
+      "name": "three-way-tests",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "unittest": "OK"
+      }
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "ok": true,
+      "result": {
+        "status": "PASS_WITH_SCOPE",
+        "state_revision": 33,
+        "core_generation": "core-cognition-generation-4",
+        "core_units": 36,
+        "reconciliation_entries": 22226,
+        "merge_entries": 29,
+        "fresh_receipt_revision": 33,
+        "model_context": "NOT_CERTIFIED_BY_TOOL",
+        "mathematics": "NOT_CERTIFIED"
+      }
+    }
+  ],
+  "git_diff_check_exit": 0,
+  "checkpoint_result": {
+    "completed_at_utc": "2026-09-12T22:46:35.223474+00:00",
+    "mathematics": "NOT_CERTIFIED",
+    "model_understanding": "NOT_CERTIFIED",
+    "paths": [
+      "MEMORY.md",
+      "方向追踪.md",
+      "全景视野.md",
+      ".codex/research/hott/FRONTIER.md",
+      ".codex/research/hott/LESSONS.md",
+      ".codex/research/hott/RESUME.md",
+      ".codex/research/hott/STATE.json",
+      ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/SESSION.md",
+      ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/CORE_COGNITION_AUDIT.md",
+      ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/RUNS.json",
+      ".codex/cognition/HEAD.json"
+    ],
+    "revision": 33,
+    "session_id": "S-GOV-20260912-033-HANDOVER-VERIFICATION",
+    "status": "CHECKPOINT_COMMITTED"
+  },
+  "state_revision": 33,
+  "state_latest_session": "S-GOV-20260912-033-HANDOVER-VERIFICATION",
+  "head_revision": 33,
+  "revision_33_consistent": true,
+  "failures": [],
+  "status": "PASS"
+}

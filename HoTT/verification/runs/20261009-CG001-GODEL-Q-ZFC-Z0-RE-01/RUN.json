@@ -1,0 +1,78 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-09",
+  "claim_ids": [
+    "CG001-C-111"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-re",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/QualificationShRE.lean"
+  ],
+  "completed_at_utc": "2026-10-09T04:33:30.621429+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 53.907407,
+  "environment": {
+    "bytes": 1055,
+    "path": "environment.txt",
+    "sha256": "7586b82da43d1ddb29241d84c45a476e9c4f90159cdb0b87d41624764f1e2f10"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "the computability of arithTrln.translate is not proved; Z0 remains conditional on it",
+    "no claim that ZFC proves a contradiction",
+    "the ISigma1-internalisation of Con(ZFC) -> Con(Sh.craig) is not addressed"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-Z0-RE-001",
+  "run_id": "20261009-CG001-GODEL-Q-ZFC-Z0-RE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "The set of theorems of Foundation's ZFC is r.e. (b -> Provable ZFC b is Sigma1 by ZFC.Delta1, linked to Mathlib's encode by provable_iff_provable and Sentence.quote_eq_encode_nat); any computable translation provably equivalent in ZFC to arithTrln.translate gives Sh.RE; hence Z0 (ZFC does not prove the translation of Sh.craig.consistent) holds as soon as arithTrln.translate is computable, a purely syntactic lemma not proved here",
+  "source_manifest": {
+    "bytes": 204662,
+    "path": "source-manifest.json",
+    "sha256": "38ccdb69d115878a9fecc3fdcb48ac7eae4523872b660521cca59168ce91898e"
+  },
+  "started_at_utc": "2026-10-09T04:32:36.713855+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 12514,
+    "path": "stdout.txt",
+    "sha256": "2ff3ab29c370aeaa0fbc2ac61dc096573a39883ec5f651b76626a33ac6934bbd"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

@@ -1,0 +1,18 @@
+## lean HoTT/formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean
+'CG001.WildSSTUIP.LeF_trans' does not depend on any axioms
+'CG001.WildSSTUIP.weaken_le' does not depend on any axioms
+'CG001.WildSSTUIP.weaken_le_fsuc' does not depend on any axioms
+'CG001.WildSSTUIP.coh2' does not depend on any axioms
+## lean HoTT/formal/cloud-opus-glm-audit/lean-controls/WrongRouteEndpoint.lean
+'CopusLeanControls.stepThreeWrongFace' does not depend on any axioms
+HoTT/formal/cloud-opus-glm-audit/lean-controls/WrongRouteEndpoint.lean:45:6: error: Application type mismatch: The argument
+  stepThreeWrongFace S m i j p x
+has type
+  S.d m i (S.d (m + 1) (weaken i) (S.d (m + 2) (fsuc (weaken j)) x)) =
+    S.d m i (S.d (m + 1) (weaken j) (S.d (m + 2) (weaken (weaken i)) x))
+but is expected to have type
+  S.d m k (S.d (m + 1) (weaken i) (S.d (m + 2) (weaken (fsuc j)) x)) =
+    S.d m k (S.d (m + 1) (weaken j) (S.d (m + 2) (weaken (weaken i)) x))
+in the application
+  Eq.trans (S.sid m i k (LeF_trans i j k p q) (S.d (m + 2) (weaken (fsuc j)) x)) (stepThreeWrongFace S m i j p x)
+## exit 1

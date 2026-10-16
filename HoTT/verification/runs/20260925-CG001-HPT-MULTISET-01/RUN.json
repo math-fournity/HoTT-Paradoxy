@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CG001-C-60"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/history-counts",
+    "HoTT/formal/claude-cg001/history-counts/HPTMultisetFidelity.agda"
+  ],
+  "completed_at_utc": "2026-09-25T18:35:07.525417+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 23.676825,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "no machine-checked fidelity of the translation from the authors' HoTT-Agda axioms to the cubical HIT",
+    "the displayed definition in the paper's section 7.1 was not available; (b) concerns MS as defined in the authors' code",
+    "does not compute the fundamental group of MS"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-HPT-MULTISET-001",
+  "run_id": "20260925-CG001-HPT-MULTISET-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG001-C-60: MS of Homotopical Patch Theory rebuilt constructor for constructor from the authors' Agda code (empty history, prepend, path Ex; no truncation) as a cubical HIT: (a) MS is not a set (Ex true true [] is not refl); (b) MS is not equivalent to N x N; (c) its set truncation is equivalent to FMSet Bool and hence to N x N (C-54 is a theorem about || MS ||_2); (d) no function MS -> Maybe Bool returns the first entry of every history; (e) functions into sets factor through the counts; (f) Ex true false [] followed by Ex false true [] is not refl.",
+  "source_manifest": {
+    "bytes": 2887,
+    "path": "source-manifest.json",
+    "sha256": "2aacc48199c340c017701acc63cdd579aac895168dd873f6f27422fa189dce8e"
+  },
+  "started_at_utc": "2026-09-25T18:34:43.848592+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 12508,
+    "path": "stdout.txt",
+    "sha256": "6838cab0da8a478bfaec725a424272e98300e6e130e7b197c0b6b2ce39978daa"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

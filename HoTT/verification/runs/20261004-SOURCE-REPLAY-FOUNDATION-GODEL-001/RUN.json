@@ -1,0 +1,34 @@
+{
+  "schema_version": "source-replay-run/v1",
+  "run_id": "20261004-SOURCE-REPLAY-FOUNDATION-GODEL-001",
+  "status": "SOURCE_REPLAYED_WITH_SCOPE_GENERIC_GODEL_BASELINE",
+  "source": {
+    "repository": "https://github.com/FormalizedFormalLogic/Foundation",
+    "commit": "f3972f4204fc61e1b736ed843415894c83f35508",
+    "source_root": "/private/tmp/foundation-zfc-f3972f4204fc",
+    "source_tree_sha256": "d886b329417a40f7c23d4640a5ed273973d7dc3dd462cb3748ed63db1d497010",
+    "toolchain": "Lean 4.34.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b"
+  },
+  "commands": [
+    "lake --dir /private/tmp/foundation-zfc-f3972f4204fc build Foundation.FirstOrder.Incompleteness.First Foundation.FirstOrder.Incompleteness.Second",
+    "lake --dir /private/tmp/foundation-zfc-f3972f4204fc env lean /private/tmp/foundation-zfc-f3972f4204fc/Foundation/FirstOrder/Incompleteness/First.lean",
+    "lake --dir /private/tmp/foundation-zfc-f3972f4204fc env lean /private/tmp/foundation-zfc-f3972f4204fc/Foundation/FirstOrder/Incompleteness/Second.lean",
+    "lake --dir /private/tmp/foundation-zfc-f3972f4204fc env lean HoTT/formal/godel-q-reflection/FoundationGodelBaseline.lean"
+  ],
+  "results": {
+    "first_source_file": {"exit_code": 0, "stdout_bytes": 0, "stderr_bytes": 0},
+    "second_source_file": {"exit_code": 0, "stdout_bytes": 0, "stderr_bytes": 0},
+    "project_wrapper": {"exit_code": 0, "stdout_path": "stdout.txt", "stderr_bytes": 0},
+    "axiom_report": {
+      "FFL.FirstOrder.Arithmetic.incomplete": ["propext", "Classical.choice", "Quot.sound"],
+      "FFL.FirstOrder.Arithmetic.consistent_unprovable": ["propext", "Classical.choice", "Quot.sound"]
+    }
+  },
+  "scope": "Exact replay of Foundation's generic Gödel first/second incompleteness theorem interfaces. It is not an instantiation with set.mm or bare ZFC and does not define a parent completion process.",
+  "non_goals": [
+    "No theorem that bare ZFC is inconsistent, incomplete under this source's exact assumptions, or lacks an observation dimension.",
+    "No mapping from set.mm/ZFC to Foundation.ArithmeticTheory satisfying the theorem hypotheses.",
+    "No proof that a Zeno, circle, or fixed HoTT H0 process is encoded by the generic arithmetic sentence.",
+    "No OriginDone, reality map, completion bridge, or actual Q policy."
+  ]
+}

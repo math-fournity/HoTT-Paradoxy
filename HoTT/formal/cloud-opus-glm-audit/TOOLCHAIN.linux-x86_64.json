@@ -1,0 +1,50 @@
+{
+  "schema_version": "hott-cubical-agda-toolchain/v1",
+  "theory_variant": "Cubical Agda with native Path and higher inductive types",
+  "note": "Linux x86-64 counterpart of HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json (macOS arm64), used by the Cloud-Opus audit session of 2026-09-27. Same Agda release tag v2.8.0 (different platform asset of the same GitHub release) and byte-identical cubical v0.9 (release tarball SHA-256, library file SHA-256 and deterministic tree SHA-256 all equal the frozen macOS record). The macOS asset of the same release, re-downloaded on 2026-09-27, still has the frozen publisher digest 9a35071e...db6. No publisher digest for the Linux asset could be read (GitHub API not reachable through the session proxy); asset_sha256 below is the hash computed on download, NOT a publisher digest.",
+  "agda": {
+    "version": "2.8.0",
+    "version_string_reported": "Agda version 2.8.0 (flags: optimise-heavily, use-xdg-data-home)",
+    "release_tag": "v2.8.0",
+    "release_page": "https://github.com/agda/agda/releases/tag/v2.8.0",
+    "asset_url": "https://github.com/agda/agda/releases/download/v2.8.0/Agda-v2.8.0-linux.tar.xz",
+    "asset_bytes": 8640724,
+    "asset_sha256": "824081b8dcbe431289a50ac6bd83e451f390c51c3884ac7a8c4a5c0df2632faf",
+    "asset_sha256_is_publisher_digest": false,
+    "local_archive": "/home/user/toolchain/Agda-v2.8.0-linux.tar.xz",
+    "local_binary": "/home/user/toolchain/agda",
+    "binary_bytes": 57457776,
+    "binary_sha256": "d4be55933c4120006c67b110f1db6c46f86ba6ad444fa7048a0fe95ad8f1a3af",
+    "same_release_cross_check": {
+      "asset": "Agda-v2.8.0-macOS-arm64.tar.xz",
+      "sha256_redownloaded_20260927": "9a35071eb9747f984177f48e1ba7008a9cebccfc259a40a0a84b29ffc2ec2db6",
+      "equals_frozen_macos_asset_sha256": true
+    }
+  },
+  "cubical_library": {
+    "version": "0.9",
+    "release_tag": "v0.9",
+    "tag_commit": "b150186d2544e7efeddd31e5d14a8b9ecbb100f7",
+    "release_page": "https://github.com/agda/cubical/releases/tag/v0.9",
+    "asset_url": "https://github.com/agda/cubical/releases/download/v0.9/cubical-0.9.tar.gz",
+    "asset_bytes": 1555852,
+    "asset_sha256": "003f9c57c134e4a9401a4b339b3773be667aa169ff929ca3dfb9c8abefc225c5",
+    "local_archive": "/home/user/toolchain/cubical-0.9.tar.gz",
+    "local_root": "/home/user/toolchain/cubical-release/cubical",
+    "library_file": "/home/user/toolchain/cubical-release/cubical/cubical.agda-lib",
+    "library_file_bytes": 121,
+    "library_file_sha256": "cc95fd3ef5ec98226f84883b5a8a9e527b21c7bd03901967aa4cb9495f2fdbd1",
+    "tree_file_count": 1111,
+    "tree_total_bytes": 7511145,
+    "tree_sha256": "73ccfbaf960f252800da02dac6a9bbef72d1214e2907940466dc2abef2060a81",
+    "tree_excludes": ["*.agdai", ".DS_Store"]
+  },
+  "runtime_cache": {
+    "xdg_data_home": "/home/user/toolchain/xdg-data",
+    "xdg_config_home": "/home/user/toolchain/xdg-config",
+    "tmpdir": "/home/user/toolchain/tmp"
+  },
+  "project_library_registry": "HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+  "source_policy": "Same policy as the frozen macOS toolchain record: proof source and run evidence are in the project; external toolchain assets are pinned by official release URL, hash, extracted binary hash, library tag commit and deterministic source-tree hash.",
+  "secret_policy": "No credentials, cookies, signed redirect URLs or full environment dumps are retained."
+}

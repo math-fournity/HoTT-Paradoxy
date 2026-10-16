@@ -1,0 +1,896 @@
+(* 
+    This file is a part of IsarMathLib - 
+    a library of formalized mathematics for Isabelle/Isar.
+
+    Copyright (C) 2005 - 2022  Slawomir Kolodynski
+
+    This program is free software; Redistribution and use in source and binary forms, 
+    with or without modification, are permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, 
+   this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation and/or 
+   other materials provided with the distribution.
+   3. The name of the author may not be used to endorse or promote products 
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+*)
+
+section \<open>Topology 1\<close>
+
+theory Topology_ZF_1 imports Topology_ZF
+
+begin
+
+text\<open>In this theory file we study separation axioms and the notion of base and
+  subbase. Using the products of open sets as a subbase we define a natural
+  topology on a product of two topological spaces.\<close>
+
+subsection\<open>Separation axioms\<close>
+
+text\<open>Topological spaces can be classified according to certain properties
+  called "separation axioms". In this section we define what it means that a 
+  topological space is $T_0$, $T_1$ or $T_2$.\<close>
+
+text\<open>A topology on $X$ is $T_0$ if for every pair of distinct points of $X$
+  there is an open set that contains only one of them.\<close>
+
+definition
+  isT0 ("_ {is T\<^sub>0}" [90] 91) where
+  "T {is T\<^sub>0} \<equiv> \<forall> x y. ((x \<in> \<Union>T \<and> y \<in> \<Union>T \<and>  x\<noteq>y) \<longrightarrow> 
+  (\<exists>U\<in>T. (x\<in>U \<and> y\<notin>U) \<or> (y\<in>U \<and> x\<notin>U)))"
+    
+
+text\<open>A topology is $T_1$ if for every such pair there exist an open set that 
+  contains the first point but not the second.\<close>
+
+definition
+  isT1 ("_ {is T\<^sub>1}" [90] 91) where
+  "T {is T\<^sub>1} \<equiv> \<forall> x y. ((x \<in> \<Union>T \<and> y \<in> \<Union>T \<and>  x\<noteq>y) \<longrightarrow> 
+  (\<exists>U\<in>T. (x\<in>U \<and> y\<notin>U)))"
+
+text\<open> $T_1$ topological spaces are exactly those in which all singletons are closed.\<close>
+
+lemma (in topology0) t1_def_alt:
+  shows "T {is T\<^sub>1} \<longleftrightarrow> (\<forall>x\<in>\<Union>T. {x} {is closed in} T)"
+proof
+  let ?X = "\<Union>T"
+  assume T1: "T {is T\<^sub>1}"
+  { fix x assume "x\<in>?X"
+    let ?U = "?X-{x}"
+    have "?U \<in> T"
+    proof -
+      let ?W = "\<Union>y\<in>?U.\<Union>{V\<in>T. y\<in>V \<and> x\<notin>V}" 
+      { fix y assume "y\<in>?U"
+        with topSpaceAssum have "(\<Union>{V\<in>T. y\<in>V \<and> x\<notin>V}) \<in> T"
+          unfolding IsATopology_def by blast
+      } hence "\<forall>y\<in>?U. (\<Union>{V\<in>T. y\<in>V \<and> x\<notin>V}) \<in> T" by blast
+      with topSpaceAssum have "?W\<in>T" by (rule union_indexed_open)
+      have "?U = ?W"
+      proof
+        show "?W\<subseteq>?U" by auto
+        { fix y assume "y\<in>?U"
+          hence "y\<in>?X" and "y\<noteq>x" by auto
+          with T1 \<open>x\<in>?X\<close> have  "y \<in> \<Union>{V\<in>T. y\<in>V \<and> x\<notin>V}"
+            unfolding isT1_def by blast
+          hence "y\<in>?W" by blast
+        } thus "?U \<subseteq> ?W" by blast
+      qed
+      with \<open>?W\<in>T\<close> show "?U\<in>T" by simp
+    qed
+    with \<open>x\<in>?X\<close> have "(?X-?U) {is closed in} T" and "?X\<setminus>?U = {x}"
+      using Top_3_L9 by auto
+    hence "{x} {is closed in} T" by simp
+  } thus "\<forall>x\<in>?X. {x} {is closed in} T" by blast
+next
+  let ?X = "\<Union>T" 
+  assume scl: "\<forall>x\<in>\<Union>T. {x} {is closed in} T"
+  { fix x y assume "x\<in>?X" "y\<in>?X" "x\<noteq>y"
+    let ?U = "?X-{y}"
+    from scl \<open>x\<in>?X\<close> \<open>y\<in>?X\<close> \<open>x\<noteq>y\<close> have "?U \<in> T" "x\<in>?U \<and> y\<notin>?U"
+      unfolding IsClosed_def by auto
+    then have "\<exists>U\<in>T. (x\<in>U \<and> y\<notin>U)" by (rule witness_exists)
+  } then show "T {is T\<^sub>1}" unfolding isT1_def by blast
+qed
+
+text\<open>A topology is $T_2$ (Hausdorff) if for every pair of points there exist a 
+  pair of disjoint open sets each containing one of the points. 
+  This is an important class of topological spaces. In particular, metric 
+  spaces are Hausdorff.\<close>
+
+definition
+  isT2 ("_ {is T\<^sub>2}" [90] 91) where
+  "T {is T\<^sub>2} \<equiv> \<forall> x y. ((x \<in> \<Union>T \<and> y \<in> \<Union>T \<and>  x\<noteq>y) \<longrightarrow>
+  (\<exists>U\<in>T. \<exists>V\<in>T. x\<in>U \<and> y\<in>V \<and> U\<inter>V=0))"
+
+text\<open>A topology is regular if every closed set can be separated from a point in its complement
+  by (disjoint) opens sets.\<close>
+
+definition
+  IsRegular ("_ {is regular}" 90)
+  where "T {is regular} \<equiv> \<forall>D. D {is closed in} T \<longrightarrow> (\<forall>x\<in>\<Union>T-D.\<exists>U\<in>T.\<exists>V\<in>T. D\<subseteq>U\<and>x\<in>V\<and>U\<inter>V=0)"
+
+text\<open>Some sources (e.g. Metamath) use a different definition of regularity: 
+  any open neighborhood has a closed subneighborhood. The next lemma shows the equivalence
+  of this with our definition.\<close>
+
+lemma is_regular_def_alt: assumes "T {is a topology}" 
+  shows "T {is regular} \<longleftrightarrow> (\<forall>W\<in>T. \<forall>x\<in>W. \<exists>V\<in>T. x\<in>V \<and> Closure(V,T)\<subseteq>W)"
+proof 
+  let ?X = "\<Union>T"
+  from assms(1) have cntx: "topology0(T)"
+    unfolding topology0_def by simp
+  assume "T {is regular}"
+  { fix W x assume "W\<in>T" "x\<in>W"
+    have "\<exists>V\<in>T. x\<in>V \<and> Closure(V,T)\<subseteq>W"
+    proof -
+      let ?D = "?X-W"
+      from cntx \<open>W\<in>T\<close> \<open>T {is regular}\<close> \<open>x\<in>W\<close>
+      have "\<exists>U\<in>T.\<exists>V\<in>T. ?D\<subseteq>U\<and>x\<in>V\<and>U\<inter>V=0"
+        using topology0.Top_3_L9 unfolding IsRegular_def by auto
+      then obtain U V where "U\<in>T" "V\<in>T" "?D\<subseteq>U" "x\<in>V" "V\<inter>U=0"
+        by blast
+      from cntx \<open>V\<in>T\<close> have "Closure(V,T) \<subseteq> ?X"
+        using topology0.Top_3_L11(1) by blast      
+      from cntx \<open>V\<in>T\<close> \<open>U\<in>T\<close> \<open>V\<inter>U=0\<close> \<open>?D\<subseteq>U\<close>
+      have "Closure(V,T) \<inter> ?D = 0"
+        using topology0.disj_open_cl_disj by blast
+      with \<open>Closure(V,T) \<subseteq> ?X\<close> \<open>V\<in>T\<close> \<open>x\<in>V\<close> show ?thesis
+        by blast
+    qed
+  } thus "\<forall>W\<in>T. \<forall>x\<in>W. \<exists>V\<in>T. x\<in>V \<and> Closure(V,T)\<subseteq>W"
+    by simp
+next
+  let ?X = "\<Union>T"
+  from assms(1) have cntx: "topology0(T)"
+    unfolding topology0_def by simp
+  assume regAlt: "\<forall>W\<in>T. \<forall>x\<in>W. \<exists>V\<in>T. x\<in>V \<and> Closure(V,T)\<subseteq>W"
+  { fix A assume "A {is closed in} T"
+    have "\<forall>x\<in>?X-A.\<exists>U\<in>T.\<exists>V\<in>T. A\<subseteq>U \<and> x\<in>V \<and> U\<inter>V=0"
+    proof -
+      { let ?W = "?X-A"
+        from \<open>A {is closed in} T\<close> have "A\<subseteq>?X" and "?W\<in>T"
+          unfolding IsClosed_def by auto
+        fix x assume "x\<in>?W"
+        with regAlt \<open>?W\<in>T\<close> have "\<exists>V\<in>T. x\<in>V \<and> Closure(V,T)\<subseteq>?W"
+          by simp
+        then obtain V where "V\<in>T" "x\<in>V" "Closure(V,T)\<subseteq>?W"
+          by auto
+        let ?U = "?X-Closure(V,T)"        
+        from cntx \<open>V\<in>T\<close> have "V\<subseteq>?X" and "V\<subseteq>Closure(V,T)" 
+          using topology0.cl_contains_set by auto
+        with cntx \<open>A\<subseteq>?X\<close> \<open>Closure(V,T)\<subseteq>?W\<close>
+        have "?U\<in>T" "A\<subseteq>?U" "?U\<inter>V = 0"
+          using topology0.cl_is_closed(2) by auto
+        with \<open>V\<in>T\<close> \<open>x\<in>V\<close> have "\<exists>U\<in>T.\<exists>V\<in>T. A\<subseteq>U \<and> x\<in>V \<and> U\<inter>V=0"
+          by blast
+      } thus ?thesis by blast
+    qed
+  } then show "T {is regular}" unfolding IsRegular_def 
+    by blast
+qed
+
+text\<open>If a topology is $T_1$ then it is $T_0$. 
+  We don't really assume here that $T$ is a topology on $X$. 
+  Instead, we prove the relation between isT0 condition and isT1.\<close>
+
+lemma T1_is_T0: assumes A1: "T {is T\<^sub>1}" shows "T {is T\<^sub>0}"
+proof -
+  from A1 have "\<forall> x y. x \<in> \<Union>T \<and> y \<in> \<Union>T \<and> x\<noteq>y \<longrightarrow> 
+    (\<exists>U\<in>T. x\<in>U \<and> y\<notin>U)"
+    using isT1_def by simp
+  then have "\<forall> x y. x \<in> \<Union>T \<and> y \<in> \<Union>T \<and> x\<noteq>y \<longrightarrow> 
+    (\<exists>U\<in>T. x\<in>U \<and> y\<notin>U \<or> y\<in>U \<and> x\<notin>U)"
+    by auto
+  then show "T {is T\<^sub>0}" using isT0_def by simp
+qed
+
+text\<open>If a topology is $T_2$ then it is $T_1$.\<close>
+
+lemma T2_is_T1: assumes A1: "T {is T\<^sub>2}" shows "T {is T\<^sub>1}"
+proof -
+  { fix x y assume "x \<in> \<Union>T"  "y \<in> \<Union>T"  "x\<noteq>y"
+    with A1 have "\<exists>U\<in>T. \<exists>V\<in>T. x\<in>U \<and> y\<in>V \<and> U\<inter>V=0"
+      using isT2_def by auto
+    then have "\<exists>U\<in>T. x\<in>U \<and> y\<notin>U" by auto
+  } then have "\<forall> x y. x \<in> \<Union>T \<and> y \<in> \<Union>T \<and>  x\<noteq>y \<longrightarrow> 
+      (\<exists>U\<in>T. x\<in>U \<and> y\<notin>U)" by simp
+  then show "T {is T\<^sub>1}" using isT1_def by simp
+qed
+
+text\<open>In a $T_0$ space two points that can not be separated 
+  by an open set are equal. Proof by contradiction.\<close>
+
+lemma Top_1_1_L1: assumes A1: "T {is T\<^sub>0}" and A2: "x \<in> \<Union>T"  "y \<in> \<Union>T"
+  and A3: "\<forall>U\<in>T. (x\<in>U \<longleftrightarrow> y\<in>U)" 
+  shows "x=y"
+proof -
+  { assume "x\<noteq>y"
+    with A1 A2 have "\<exists>U\<in>T. x\<in>U \<and> y\<notin>U \<or> y\<in>U \<and> x\<notin>U"
+      using isT0_def by simp
+    with A3 have False by auto
+  } then show "x=y" by auto
+qed
+
+text\<open>A topology is $T_3$ if it is regular and $T_0$. $T_3$ spaces are called 
+  "regular Hausdorff", which is a bit confusing as the definition requires the space to be
+  $T_0$ rather than $T_2$. It is ok though as we we will show that $T_3$ as defined here 
+  implies $T_2$ so indeed $T_3$ spaces are regular and Hausdorff.
+  In some older sources the definitions of a regular and a $T_3$ space are swapped.
+  We follow the terminology from Wikipedia's "Separation axiom" entry, 
+  where $T_3$ implies "regular". \<close>
+
+definition
+  isT3 ("_ {is T\<^sub>3}" [90] 91) where
+  "T {is T\<^sub>3} \<equiv> (T {is regular}) \<and> T {is T\<^sub>0}"
+
+text\<open>If a topology is $T_3$ then it is $T_2$. It's interesting that even here we do not have
+  to assume that $T$ is a topology. \<close>
+
+lemma T3_is_T2: assumes "T {is T\<^sub>3}" shows "T {is T\<^sub>2}"
+proof -
+  let ?X = "\<Union>T" 
+  { fix x y assume "x\<in>?X" "y\<in>?X" "x\<noteq>y"
+    with assms obtain U where "U\<in>T" and "(x\<in>U \<and> y\<notin>U) \<or> (y\<in>U \<and> x\<notin>U)"
+      unfolding isT3_def isT0_def by auto
+    let ?F = "?X\<setminus>U"
+    from assms \<open>U\<in>T\<close> have I: "\<forall>t\<in>?X\<setminus>?F.\<exists>V\<in>T.\<exists>W\<in>T. ?F\<subseteq>V \<and> t\<in>W \<and> V\<inter>W=\<emptyset>"
+      unfolding isT3_def IsRegular_def using compl_open_closed by blast
+    note \<open>(x\<in>U \<and> y\<notin>U) \<or> (y\<in>U \<and> x\<notin>U)\<close>
+    moreover
+    { assume "y\<in>U" and "x\<notin>U"
+      with \<open>x\<in>?X\<close> have "x\<in>?F" by simp
+      from I \<open>y\<in>U\<close> \<open>U\<in>T\<close> have "\<exists>V\<in>T.\<exists>W\<in>T. ?F\<subseteq>V \<and> y\<in>W \<and> V\<inter>W=\<emptyset>" by auto
+      with \<open>x\<in>?F\<close> have "\<exists>V\<in>T.\<exists>W\<in>T. x\<in>V \<and> y\<in>W \<and> V\<inter>W=\<emptyset>" by blast
+    }
+    moreover
+    { assume "x\<in>U" and "y\<notin>U"
+      with \<open>y\<in>?X\<close> have "y\<in>?F" by simp
+      from I \<open>U\<in>T\<close> \<open>x\<in>U\<close> have "\<exists>V\<in>T.\<exists>W\<in>T. ?F\<subseteq>V \<and> x\<in>W \<and> V\<inter>W=\<emptyset>" by auto
+      with \<open>y\<in>?F\<close> have "\<exists>V\<in>T.\<exists>W\<in>T. y\<in>V \<and> x\<in>W \<and> V\<inter>W=\<emptyset>" by blast
+    }
+    ultimately have "\<exists>V\<in>T.\<exists>W\<in>T. x\<in>V \<and> y\<in>W \<and> V\<inter>W=\<emptyset>" by blast
+  } then show "T {is T\<^sub>2}" unfolding isT2_def by simp
+qed
+
+text\<open>Sometimes $T_3$ space is defined as one that is regular and $T_1$ (rather than
+  $T_0$). The next lemma shows that this definition is equivalent to the standard one.\<close>
+
+lemma T3_def_alt: shows "T {is T\<^sub>3} \<longleftrightarrow> (T {is regular}) \<and> T {is T\<^sub>1}"
+  using T3_is_T2 T2_is_T1 T1_is_T0 unfolding isT3_def by auto
+
+subsection\<open>Bases and subbases\<close>
+
+text\<open>Sometimes it is convenient to talk about topologies in terms of their bases
+  and subbases. These are certain collections of open sets that define
+  the whole topology.\<close>
+
+text\<open>A base of topology is a collection of open sets such that every 
+  open set is a union of the sets from the base.\<close>
+
+definition
+  IsAbaseFor (infixl "{is a base for}" 65) where 
+  "B {is a base for} T \<equiv> B\<subseteq>T \<and> T = {\<Union>A. A\<in>Pow(B)}"
+
+text\<open>A subbase is a collection 
+  of open sets such that finite intersection of those sets form a base.\<close>
+
+definition
+  IsAsubBaseFor (infixl "{is a subbase for}" 65) where
+  "B {is a subbase for} T \<equiv> 
+  B \<subseteq> T \<and> {\<Inter>A. A \<in> FinPow(B)} {is a base for} T"
+
+text\<open>Below we formulate a condition that we will prove to be necessary and 
+  sufficient for a collection $B$ of open sets to form a base. 
+  It says that for any two sets $U,V$ from the collection $B$ we can
+  find a point $x\in U\cap V$ with a neighboorhod 
+  from $B$ contained in $U\cap V$.\<close>
+
+definition
+  SatisfiesBaseCondition ("_ {satisfies the base condition}" [50] 50)
+  where
+  "B {satisfies the base condition} \<equiv> 
+  \<forall>U V. ((U\<in>B \<and> V\<in>B) \<longrightarrow> (\<forall>x \<in> U\<inter>V. \<exists>W\<in>B. x\<in>W \<and> W \<subseteq> U\<inter>V))"
+
+text\<open>A collection that is closed with respect to intersection
+  satisfies the base condition.\<close>
+
+lemma inter_closed_base: assumes "\<forall>U\<in>B.(\<forall>V\<in>B. U\<inter>V \<in> B)"
+  shows  "B {satisfies the base condition}" 
+proof -
+    { fix U V x assume "U\<in>B" and "V\<in>B" and "x \<in> U\<inter>V"
+      with assms have "\<exists>W\<in>B. x\<in>W \<and> W \<subseteq> U\<inter>V" by blast
+    } then show ?thesis using SatisfiesBaseCondition_def by simp
+qed
+
+text\<open>Each open set is a union of some sets from the base.\<close>
+
+lemma Top_1_2_L1: assumes "B {is a base for} T"  and "U\<in>T" 
+  shows "\<exists>A\<in>Pow(B). U = \<Union>A"
+  using assms IsAbaseFor_def by simp
+
+text\<open>Elements of base are open.\<close>
+
+lemma base_sets_open: 
+  assumes "B {is a base for} T" and "U \<in> B"
+  shows "U \<in> T"
+  using assms IsAbaseFor_def by auto
+
+text\<open>A base defines topology uniquely.\<close>
+
+lemma same_base_same_top: 
+  assumes "B {is a base for} T" and "B {is a base for} S" 
+  shows "T = S"
+  using assms IsAbaseFor_def by simp
+
+text\<open>Every point from an open set has a neighboorhood from the base
+  that is contained in the set.\<close>
+
+lemma point_open_base_neigh: 
+  assumes A1: "B {is a base for} T" and A2: "U\<in>T" and A3: "x\<in>U"
+  shows "\<exists>V\<in>B. V\<subseteq>U \<and> x\<in>V"
+proof -
+  from A1 A2 obtain A where "A \<in> Pow(B)" and "U = \<Union>A"
+    using Top_1_2_L1 by blast
+  with A3 obtain V where "V\<in>A" and "x\<in>V" by auto
+  with \<open>A \<in> Pow(B)\<close> \<open>U = \<Union>A\<close> show ?thesis by auto
+qed
+
+text\<open>A criterion for a collection to be a base for a topology
+  that is a slight reformulation of the definition. The only thing
+  different that in the definition is that we assume only that
+  every open set is a union of some sets from the base. The definition
+  requires also the opposite inclusion that every union of the 
+  sets from the base is open, but that we can prove if we assume that
+  $T$ is a topology.\<close>
+
+lemma is_a_base_criterion: assumes A1: "T {is a topology}"
+  and A2: "B \<subseteq> T" and A3: "\<forall>V \<in> T. \<exists>A \<in> Pow(B). V = \<Union>A"
+  shows "B {is a base for} T"
+proof -
+  from A3 have "T \<subseteq> {\<Union>A. A\<in>Pow(B)}" by auto
+  moreover have "{\<Union>A. A\<in>Pow(B)} \<subseteq> T"
+  proof
+    fix U assume "U \<in> {\<Union>A. A\<in>Pow(B)}"
+    then obtain A where "A \<in> Pow(B)" and "U = \<Union>A"
+      by auto
+    with \<open>B \<subseteq> T\<close> have "A \<in> Pow(T)" by auto
+    with A1 \<open>U = \<Union>A\<close> show "U \<in> T"
+      unfolding IsATopology_def by simp
+  qed
+  ultimately have "T = {\<Union>A. A\<in>Pow(B)}" by auto
+  with A2 show "B {is a base for} T" 
+    unfolding IsAbaseFor_def by simp
+qed
+    
+text\<open>A necessary condition for a collection of sets to be a base for some 
+  topology : every point in the intersection
+  of two sets in the base has a neighboorhood from the base contained
+  in the intersection.\<close>
+
+lemma Top_1_2_L2: 
+  assumes A1:"\<exists>T. T {is a topology} \<and> B {is a base for} T"
+  and A2: "V\<in>B"  "W\<in>B"
+  shows "\<forall> x \<in> V\<inter>W. \<exists>U\<in>B. x\<in>U \<and> U \<subseteq> V \<inter> W"
+proof -
+  from A1 obtain T where 
+    D1: "T {is a topology}"   "B {is a base for} T"
+    by auto
+  then have "B \<subseteq> T" using IsAbaseFor_def by auto
+  with A2 have "V\<in>T" and "W\<in>T" using IsAbaseFor_def by auto
+  with D1 have "\<exists>A\<in>Pow(B). V\<inter>W = \<Union>A" using IsATopology_def Top_1_2_L1
+    by auto
+  then obtain A where "A \<subseteq> B" and "V \<inter> W = \<Union>A" by auto
+  then show "\<forall> x \<in> V\<inter>W. \<exists>U\<in>B. (x\<in>U \<and> U \<subseteq> V \<inter> W)" by auto
+qed
+
+text\<open>We will construct a topology as the collection of unions of (would-be)
+  base. First we prove that if the collection of sets satisfies the 
+  condition we want to show to be sufficient, the the intersection belongs
+  to what we will define as topology (am I clear here?). Having this fact 
+  ready simplifies the proof of the next lemma. There is not much topology
+  here, just some set theory.\<close>
+
+lemma Top_1_2_L3:
+  assumes A1: "\<forall>x\<in> V\<inter>W . \<exists>U\<in>B. x\<in>U \<and> U \<subseteq> V\<inter>W"
+  shows "V\<inter>W \<in> {\<Union>A. A\<in>Pow(B)}"
+proof
+  let ?A = "\<Union>x\<in>V\<inter>W. {U\<in>B. x\<in>U \<and> U \<subseteq> V\<inter>W}"
+  show "?A\<in>Pow(B)" by auto
+  from A1 show "V\<inter>W = \<Union>?A" by blast
+qed
+
+text\<open>The next lemma is needed when proving that the would-be topology is
+  closed with respect to taking intersections. We show here that intersection
+  of two sets from this (would-be) topology can be written as union of sets 
+  from the topology.\<close>
+
+lemma Top_1_2_L4:
+  assumes A1:  "U\<^sub>1 \<in> {\<Union>A. A\<in>Pow(B)}"   "U\<^sub>2 \<in> {\<Union>A. A\<in>Pow(B)}"
+  and A2: "B {satisfies the base condition}"
+  shows "\<exists>C. C \<subseteq> {\<Union>A. A\<in>Pow(B)} \<and> U\<^sub>1\<inter>U\<^sub>2 = \<Union>C"
+proof -
+  from A1 A2 obtain A\<^sub>1 A\<^sub>2 where 
+    D1: "A\<^sub>1\<in> Pow(B)"  "U\<^sub>1 = \<Union>A\<^sub>1"  "A\<^sub>2 \<in> Pow(B)"  "U\<^sub>2 = \<Union>A\<^sub>2" 
+    by auto
+  let ?C = "\<Union>U\<in>A\<^sub>1.{U\<inter>V. V\<in>A\<^sub>2}"
+  from D1 have "(\<forall>U\<in>A\<^sub>1. U\<in>B) \<and> (\<forall>V\<in>A\<^sub>2. V\<in>B)" by auto
+  with A2 have "?C \<subseteq> {\<Union>A . A \<in> Pow(B)}"
+    using Top_1_2_L3 SatisfiesBaseCondition_def by auto
+  moreover from D1 have "U\<^sub>1 \<inter> U\<^sub>2 = \<Union>?C" by auto
+  ultimately show ?thesis by auto
+qed
+
+text\<open>If $B$ satisfies the base condition, then the collection of unions
+  of sets from $B$ is a topology and $B$ is a base for this topology.\<close>
+
+theorem Top_1_2_T1:
+  assumes A1: "B {satisfies the base condition}"
+  and A2: "T = {\<Union>A. A\<in>Pow(B)}"
+  shows "T {is a topology}" and "B {is a base for} T"
+proof -
+  show "T {is a topology}"
+  proof -
+    have I: "\<forall>C\<in>Pow(T). \<Union>C \<in> T"
+    proof -
+      { fix C assume A3: "C \<in> Pow(T)"
+        let ?Q = "\<Union> {\<Union>{A\<in>Pow(B). U = \<Union>A}. U\<in>C}"
+        from A2 A3 have "\<forall>U\<in>C. \<exists>A\<in>Pow(B). U = \<Union>A" by auto
+        then have "\<Union>?Q = \<Union>C" using ZF1_1_L10 by simp
+        moreover from A2 have "\<Union>?Q \<in> T" by auto
+        ultimately have "\<Union>C \<in> T" by simp
+      } thus "\<forall>C\<in>Pow(T). \<Union>C \<in> T" by auto
+    qed
+    moreover have "\<forall>U\<in>T. \<forall> V\<in>T. U\<inter>V \<in> T"
+    proof -
+      { fix U V assume  "U \<in> T"  "V \<in> T"
+        with A1 A2 have "\<exists>C.(C \<subseteq> T \<and> U\<inter>V = \<Union>C)"
+        using Top_1_2_L4 by simp
+        then obtain C where "C \<subseteq> T" and  "U\<inter>V = \<Union>C"
+          by auto
+          with I have "U\<inter>V \<in> T" by simp
+      } then show "\<forall>U\<in>T. \<forall> V\<in>T. U\<inter>V \<in> T" by simp
+    qed
+    ultimately show "T {is a topology}" using IsATopology_def
+      by simp
+  qed
+  from A2 have "B\<subseteq>T" by auto
+  with A2 show "B {is a base for} T" using IsAbaseFor_def 
+    by simp
+qed
+
+text\<open>The carrier of the base and topology are the same.\<close>
+
+lemma Top_1_2_L5: assumes "B {is a base for} T"
+  shows "\<Union>T = \<Union>B"
+  using assms IsAbaseFor_def by auto
+
+text\<open>If $B$ is a base for $T$, then $T$ is the smallest topology containing $B$.
+\<close>
+
+lemma base_smallest_top: 
+  assumes A1: "B {is a base for} T" and  A2: "S {is a topology}" and A3: "B\<subseteq>S"
+  shows "T\<subseteq>S"
+proof
+  fix U assume "U\<in>T"
+  with A1 obtain B\<^sub>U where "B\<^sub>U \<subseteq> B" and "U = \<Union>B\<^sub>U" using IsAbaseFor_def by auto
+  with A3 have "B\<^sub>U \<subseteq> S" by auto 
+  with A2 \<open>U = \<Union>B\<^sub>U\<close> show "U\<in>S" using IsATopology_def by simp
+qed
+
+text\<open>If $B$ is a base for $T$ and $B$ is a topology, then $B=T$.\<close>
+
+lemma base_topology: assumes "B {is a topology}" and "B {is a base for} T"
+  shows "B=T" using assms base_sets_open base_smallest_top by blast 
+
+subsection\<open>Product topology\<close>
+
+text\<open>In this section we consider a topology defined on a product of two sets.\<close>
+
+text\<open>Given two topological spaces we can define a topology on the product of 
+  the carriers such that the cartesian products of the sets of the topologies 
+  are a base for the product topology. Recall that for two collections $S,T$ 
+  of sets the product collection is defined (in \<open>ZF1.thy\<close>) as the collections of cartesian 
+  products $A\times B$, where $A\in S, B\in T$. The $T\times_tS$ notation is defined as
+  an alternative to the verbose  \<open>ProductTopology(T,S)\<close>). \<close>
+
+definition ProductTopology (infixl "\<times>\<^sub>t" 65) where
+  "T \<times>\<^sub>t S  \<equiv> {\<Union>W. W \<in> Pow(ProductCollection(T,S))}"
+
+text\<open>The product collection satisfies the base condition.\<close>
+
+lemma Top_1_4_L1: 
+  assumes A1: "T {is a topology}"   "S {is a topology}"
+  and A2: "A \<in> ProductCollection(T,S)"  "B \<in> ProductCollection(T,S)"
+  shows "\<forall>x\<in>(A\<inter>B). \<exists>W\<in>ProductCollection(T,S). (x\<in>W \<and> W \<subseteq> A \<inter> B)"
+proof
+  fix x assume A3: "x \<in> A\<inter>B"
+  from A2 obtain U\<^sub>1 V\<^sub>1 U\<^sub>2 V\<^sub>2 where 
+    D1: "U\<^sub>1\<in>T"  "V\<^sub>1\<in>S"   "A=U\<^sub>1\<times>V\<^sub>1"  "U\<^sub>2\<in>T"  "V\<^sub>2\<in>S"   "B=U\<^sub>2\<times>V\<^sub>2"
+    using ProductCollection_def by auto
+  let ?W = "(U\<^sub>1\<inter>U\<^sub>2) \<times> (V\<^sub>1\<inter>V\<^sub>2)"
+  from A1 D1 have "U\<^sub>1\<inter>U\<^sub>2 \<in> T" and "V\<^sub>1\<inter>V\<^sub>2 \<in> S"
+    using IsATopology_def by auto
+  then have "?W \<in> ProductCollection(T,S)" using ProductCollection_def 
+    by auto
+  moreover from A3 D1 have "x\<in>?W" and "?W \<subseteq> A\<inter>B" by auto
+  ultimately have "\<exists>W. (W \<in> ProductCollection(T,S) \<and> x\<in>W \<and> W \<subseteq> A\<inter>B)"
+    by auto
+  thus "\<exists>W\<in>ProductCollection(T,S). (x\<in>W \<and> W \<subseteq> A \<inter> B)" by auto
+qed
+
+text\<open>The product topology is indeed a topology on the product.\<close>
+
+theorem Top_1_4_T1: assumes A1: "T {is a topology}"  "S {is a topology}"
+  shows 
+  "(T\<times>\<^sub>tS) {is a topology}"
+  "ProductCollection(T,S) {is a base for} (T\<times>\<^sub>tS)"
+  "\<Union>(T\<times>\<^sub>tS) = \<Union>T \<times> \<Union>S"
+proof -
+  from A1 show 
+    "(T\<times>\<^sub>tS) {is a topology}"
+    "ProductCollection(T,S) {is a base for} (T\<times>\<^sub>tS)"
+    using Top_1_4_L1 ProductCollection_def 
+      SatisfiesBaseCondition_def ProductTopology_def Top_1_2_T1 
+    by auto
+  then show "\<Union>(T\<times>\<^sub>tS) = \<Union>T \<times> \<Union>S"
+    using Top_1_2_L5 ZF1_1_L6 by simp
+qed
+
+text\<open>Each point of a set open in the product topology has a neighborhood
+  which is a cartesian product of open sets.\<close>
+
+lemma prod_top_point_neighb: 
+  assumes A1: "T {is a topology}"  "S {is a topology}" and 
+  A2: "U \<in> ProductTopology(T,S)" and A3: "x \<in> U"
+  shows "\<exists>V W. V\<in>T \<and> W\<in>S \<and> V\<times>W \<subseteq> U \<and> x \<in> V\<times>W"
+proof -
+  from A1 have 
+    "ProductCollection(T,S) {is a base for} ProductTopology(T,S)"
+    using Top_1_4_T1 by simp
+  with A2 A3 obtain Z where 
+    "Z \<in> ProductCollection(T,S)" and "Z \<subseteq> U \<and> x\<in>Z"
+    using point_open_base_neigh by blast
+  then obtain V W where "V \<in> T" and "W\<in>S" and" V\<times>W \<subseteq> U \<and> x \<in> V\<times>W"
+    using ProductCollection_def by auto
+  thus ?thesis by auto
+qed
+
+text\<open>Products of open sets are open in the product topology.\<close>
+
+lemma prod_open_open_prod: 
+  assumes A1: "T {is a topology}"  "S {is a topology}" and
+  A2: "U\<in>T" "V\<in>S"
+  shows "U\<times>V \<in> ProductTopology(T,S)"
+proof -
+  from A1 have 
+    "ProductCollection(T,S) {is a base for} ProductTopology(T,S)"
+    using Top_1_4_T1 by simp
+  moreover from A2 have "U\<times>V \<in> ProductCollection(T,S)"
+    unfolding ProductCollection_def by auto
+  ultimately show "U\<times>V \<in> ProductTopology(T,S)"
+    using base_sets_open by simp
+qed
+
+text\<open>Sets that are open in the product topology are contained in the product
+  of the carrier.\<close>
+
+lemma prod_open_type: assumes A1: "T {is a topology}"  "S {is a topology}" and
+  A2: "V \<in> ProductTopology(T,S)"
+  shows "V \<subseteq> \<Union>T \<times> \<Union>S"
+proof -
+  from A2 have "V \<subseteq> \<Union> ProductTopology(T,S)" by auto
+  with A1 show ?thesis using Top_1_4_T1 by simp
+qed
+
+text\<open>A reverse of \<open>prod_top_point_neighb\<close>: if each point of set has an neighborhood in the set
+  that is a cartesian product of open sets, then the set is open.\<close>
+
+lemma point_neighb_prod_top: 
+  assumes "T {is a topology}"  "S {is a topology}"
+  and "\<forall>p\<in>V. \<exists>U\<in>T.\<exists>W\<in>S. p\<in>U\<times>W \<and> U\<times>W \<subseteq> V"
+shows "V \<in> ProductTopology(T,S)"
+proof -
+  from assms(1,2) have I: "topology0(ProductTopology(T,S))" 
+    using Top_1_4_T1(1) topology0_def by simp
+  moreover 
+  { fix p assume "p\<in>V"
+    with assms(3) obtain U W where "U\<in>T" "W\<in>S" "p\<in>U\<times>W" "U\<times>W \<subseteq> V"
+      by auto
+    with assms(1,2) have "\<exists>N\<in>ProductTopology(T,S). p\<in>N \<and> N\<subseteq>V"
+      using prod_open_open_prod by auto
+  } hence "\<forall>p\<in>V. \<exists>N\<in>ProductTopology(T,S). p\<in>N \<and> N\<subseteq>V" by blast
+  ultimately show ?thesis using topology0.open_neigh_open by simp
+qed
+
+text\<open>Suppose we have subsets $A\subseteq X, B\subseteq Y$, where
+  $X,Y$ are topological spaces with topologies $T,S$. We can the consider
+  relative topologies on $T_A, S_B$ on sets $A,B$ and the collection
+  of cartesian products of sets open in $T_A, S_B$, (namely 
+  $\{U\times V: U\in T_A, V\in S_B\}$. The next lemma states that
+  this collection is a base of the product topology on $X\times Y$
+  restricted to the product $A\times B$.\<close>
+
+lemma prod_restr_base_restr:
+  assumes A1: "T {is a topology}"  "S {is a topology}"
+  shows 
+  "ProductCollection(T {restricted to} A, S {restricted to} B)
+  {is a base for} (ProductTopology(T,S) {restricted to} A\<times>B)"
+proof -
+  let ?\<B> = "ProductCollection(T {restricted to} A, S {restricted to} B)"
+  let ?\<tau> = "ProductTopology(T,S)"
+  from A1 have "(?\<tau> {restricted to} A\<times>B) {is a topology}"
+    using Top_1_4_T1 topology0_def topology0.Top_1_L4
+    by simp
+  moreover have "?\<B> \<subseteq> (?\<tau> {restricted to} A\<times>B)"
+  proof
+    fix U assume "U \<in> ?\<B>"
+    then obtain U\<^sub>A U\<^sub>B where "U = U\<^sub>A \<times> U\<^sub>B" and
+      "U\<^sub>A \<in> (T {restricted to} A)" and "U\<^sub>B \<in> (S {restricted to} B)"
+      using ProductCollection_def by auto
+    then obtain W\<^sub>A W\<^sub>B where 
+      "W\<^sub>A \<in> T"  "U\<^sub>A = W\<^sub>A \<inter> A" and "W\<^sub>B \<in> S"  "U\<^sub>B = W\<^sub>B \<inter> B"
+      using RestrictedTo_def by auto
+    with \<open>U = U\<^sub>A \<times> U\<^sub>B\<close> have "U = W\<^sub>A\<times>W\<^sub>B \<inter> (A\<times>B)" by auto
+    moreover from A1 \<open>W\<^sub>A \<in> T\<close> and \<open>W\<^sub>B \<in> S\<close> have "W\<^sub>A\<times>W\<^sub>B \<in> ?\<tau>"
+      using prod_open_open_prod by simp
+    ultimately show "U \<in> ?\<tau> {restricted to} A\<times>B"
+      using RestrictedTo_def by auto
+  qed
+  moreover have "\<forall>U \<in> ?\<tau> {restricted to} A\<times>B.
+    \<exists>C \<in> Pow(?\<B>). U = \<Union>C"
+  proof
+    fix U assume "U \<in> ?\<tau> {restricted to} A\<times>B"
+    then obtain W where "W \<in> ?\<tau>" and "U = W \<inter> (A\<times>B)"
+      using RestrictedTo_def by auto
+    from A1 \<open>W \<in> ?\<tau>\<close> obtain A\<^sub>W  where 
+      "A\<^sub>W \<in> Pow(ProductCollection(T,S))" and "W = \<Union>A\<^sub>W"
+       using Top_1_4_T1 IsAbaseFor_def by auto
+    let ?C = "{V \<inter> A\<times>B. V \<in> A\<^sub>W}" 
+    have "?C \<in> Pow(?\<B>)" and "U = \<Union>?C"
+    proof -
+      { fix R assume "R \<in> ?C"
+	then obtain V where "V \<in> A\<^sub>W" and "R = V \<inter> A\<times>B"
+	  by auto
+	with \<open>A\<^sub>W \<in> Pow(ProductCollection(T,S))\<close> obtain V\<^sub>T V\<^sub>S where 
+	  "V\<^sub>T \<in> T" and "V\<^sub>S \<in> S" and "V = V\<^sub>T \<times> V\<^sub>S"
+	  using ProductCollection_def by auto
+	with \<open>R = V \<inter> A\<times>B\<close> have "R \<in> ?\<B>"
+	  using ProductCollection_def RestrictedTo_def
+	  by auto
+      } then show "?C \<in> Pow(?\<B>)" by auto
+      from \<open>U = W \<inter> (A\<times>B)\<close> and \<open>W = \<Union>A\<^sub>W\<close>
+      show "U = \<Union>?C" by auto
+    qed
+    thus "\<exists>C \<in> Pow(?\<B>). U = \<Union>C" by blast
+  qed
+  ultimately show ?thesis by (rule is_a_base_criterion)
+qed
+    
+text\<open>We can commute taking restriction (relative topology) and
+  product topology. The reason the two topologies are the same is
+  that they have the same base.\<close>
+
+lemma prod_top_restr_comm: 
+  assumes A1: "T {is a topology}"  "S {is a topology}"
+  shows
+  "ProductTopology(T {restricted to} A,S {restricted to} B) =
+  ProductTopology(T,S) {restricted to} (A\<times>B)"
+proof -
+  let ?\<B> = "ProductCollection(T {restricted to} A, S {restricted to} B)"
+  from A1 have
+    "?\<B> {is a base for} ProductTopology(T {restricted to} A,S {restricted to} B)"
+    using topology0_def topology0.Top_1_L4 Top_1_4_T1 by simp
+  moreover from A1 have 
+    "?\<B> {is a base for} ProductTopology(T,S) {restricted to} (A\<times>B)"
+    using prod_restr_base_restr by simp
+  ultimately show ?thesis by (rule same_base_same_top)
+qed
+
+text\<open>Projection of a section of an open set is open.\<close>
+
+lemma prod_sec_open1: assumes A1: "T {is a topology}"  "S {is a topology}" and
+  A2: "V \<in> ProductTopology(T,S)" and A3: "x \<in> \<Union>T"
+  shows "{y \<in> \<Union>S. \<langle>x,y\<rangle> \<in> V} \<in> S"
+proof -
+  let ?A = "{y \<in> \<Union>S. \<langle>x,y\<rangle> \<in> V}"
+  from A1 have "topology0(S)" using topology0_def by simp
+  moreover have "\<forall>y\<in>?A.\<exists>W\<in>S. (y\<in>W \<and> W\<subseteq>?A)"
+    proof
+      fix y assume "y \<in> ?A"
+      then have "\<langle>x,y\<rangle> \<in> V" by simp
+      with A1 A2 have "\<langle>x,y\<rangle> \<in> \<Union>T \<times> \<Union>S" using prod_open_type by blast
+      hence "x \<in> \<Union>T" and "y \<in> \<Union>S" by auto
+      from A1 A2 \<open>\<langle>x,y\<rangle> \<in> V\<close> have "\<exists>U W. U\<in>T \<and> W\<in>S \<and> U\<times>W \<subseteq> V \<and> \<langle>x,y\<rangle> \<in> U\<times>W"
+        by (rule prod_top_point_neighb)
+      then obtain U W where  "U\<in>T" "W\<in>S" "U\<times>W \<subseteq> V" "\<langle>x,y\<rangle> \<in> U\<times>W"
+        by auto
+      with A1 A2 show "\<exists>W\<in>S. (y\<in>W \<and> W\<subseteq>?A)" using prod_open_type section_proj
+        by auto
+    qed
+  ultimately show ?thesis by (rule topology0.open_neigh_open)
+qed
+
+text\<open>Projection of a section of an open set is open. This is dual of 
+\<open>prod_sec_open1\<close> with a very similar proof.\<close>
+
+lemma prod_sec_open2: assumes A1: "T {is a topology}"  "S {is a topology}" and
+  A2: "V \<in> ProductTopology(T,S)" and A3: "y \<in> \<Union>S"
+  shows "{x \<in> \<Union>T. \<langle>x,y\<rangle> \<in> V} \<in> T"
+proof -
+  let ?A = "{x \<in> \<Union>T. \<langle>x,y\<rangle> \<in> V}"
+  from A1 have "topology0(T)" using topology0_def by simp
+  moreover have "\<forall>x\<in>?A.\<exists>W\<in>T. (x\<in>W \<and> W\<subseteq>?A)"
+    proof
+      fix x assume "x \<in> ?A"
+      then have "\<langle>x,y\<rangle> \<in> V" by simp
+      with A1 A2 have "\<langle>x,y\<rangle> \<in> \<Union>T \<times> \<Union>S" using prod_open_type by blast
+      hence "x \<in> \<Union>T" and "y \<in> \<Union>S" by auto
+      from A1 A2 \<open>\<langle>x,y\<rangle> \<in> V\<close> have "\<exists>U W. U\<in>T \<and> W\<in>S \<and> U\<times>W \<subseteq> V \<and> \<langle>x,y\<rangle> \<in> U\<times>W"
+        by (rule prod_top_point_neighb)
+      then obtain U W where  "U\<in>T" "W\<in>S" "U\<times>W \<subseteq> V" "\<langle>x,y\<rangle> \<in> U\<times>W"
+        by auto
+      with A1 A2 show "\<exists>W\<in>T. (x\<in>W \<and> W\<subseteq>?A)" using prod_open_type section_proj
+        by auto
+    qed
+  ultimately show ?thesis by (rule topology0.open_neigh_open)
+qed
+
+subsection\<open>Hausdorff spaces\<close>
+
+text\<open>In this section we study properties of Hausdorff spaces (sometimes called separated spaces) 
+  These are topological spaces that are $T_2$ as defined above.\<close>
+
+text\<open>A space is Hausdorff if and only if the diagonal $\Delta = \{\langle x,x\rangle : x\in X\}$
+  is closed in the product topology on $X\times X$. \<close>
+
+theorem t2_iff_diag_closed: assumes "T {is a topology}"
+  shows "T {is T\<^sub>2} \<longleftrightarrow> {\<langle>x,x\<rangle>. x\<in>\<Union>T} {is closed in} ProductTopology(T,T)"
+proof
+  let ?X = "\<Union>T"
+  from assms(1) have I: "topology0(ProductTopology(T,T))" 
+    using Top_1_4_T1(1) topology0_def by simp
+  assume "T {is T\<^sub>2}" show "{\<langle>x,x\<rangle>. x\<in>?X} {is closed in} ProductTopology(T,T)"
+  proof -
+    let ?D\<^sub>c = "?X\<times>?X - {\<langle>x,x\<rangle>. x\<in>?X}"
+    have "\<forall>p\<in>?D\<^sub>c.\<exists>U\<in>T.\<exists>V\<in>T. p\<in>U\<times>V \<and> U\<times>V \<subseteq> ?D\<^sub>c"
+    proof -
+      { fix p assume "p\<in>?D\<^sub>c"
+        then obtain x y where "p=\<langle>x,y\<rangle>" "x\<in>?X" "y\<in>?X" "x\<noteq>y" by auto
+        with \<open>T {is T\<^sub>2}\<close> obtain U V where "U\<in>T" "V\<in>T" "x\<in>U" "y\<in>V" "U\<inter>V = 0"
+          unfolding isT2_def by blast
+        with assms \<open>p=\<langle>x,y\<rangle>\<close> have "\<exists>U\<in>T.\<exists>V\<in>T. p\<in>U\<times>V \<and> U\<times>V \<subseteq> ?D\<^sub>c" by auto
+      } hence "\<forall>p. p\<in>?D\<^sub>c \<longrightarrow> (\<exists>U\<in>T.\<exists>V\<in>T. p\<in>U\<times>V \<and> U\<times>V \<subseteq> ?D\<^sub>c)" by simp
+      then show ?thesis by (rule exists_in_set)
+    qed
+    with assms show ?thesis using Top_1_4_T1(3) point_neighb_prod_top 
+      unfolding IsClosed_def by auto
+  qed
+next
+  let ?X = "\<Union>T"
+  assume A: "{\<langle>x,x\<rangle>. x\<in>?X} {is closed in} ProductTopology(T,T)" show "T {is T\<^sub>2}"
+  proof -
+    { let ?D\<^sub>c = "?X\<times>?X - {\<langle>x,x\<rangle>. x\<in>?X}"
+      fix x y assume "x\<in>?X" "y\<in>?X" "x\<noteq>y" 
+      with assms A have "?D\<^sub>c \<in> ProductTopology(T,T)" and "\<langle>x,y\<rangle> \<in> ?D\<^sub>c"
+        using Top_1_4_T1(3) unfolding IsClosed_def by auto
+      with assms obtain U V where "U\<in>T" "V\<in>T" "U\<times>V \<subseteq> ?D\<^sub>c" "\<langle>x,y\<rangle> \<in> U\<times>V"
+        using prod_top_point_neighb by blast
+      moreover from \<open>U\<times>V \<subseteq> ?D\<^sub>c\<close> have "U\<inter>V = 0" by auto
+      ultimately have "\<exists>U\<in>T.\<exists>V\<in>T. x\<in>U \<and> y\<in>V \<and> U\<inter>V=0" by auto
+    } then show "T {is T\<^sub>2}" unfolding isT2_def by simp
+  qed
+qed
+
+subsection\<open>Compact sets are closed in Hausdorff spaces\<close>
+
+text\<open>One of the facts demonstrated in every class on General Topology is that
+  in a $T_2$ (Hausdorff) topological space compact sets are closed.
+  Formalizing the proof of this fact gave me an interesting insight
+  into the role of the Axiom of Choice (AC) in many informal proofs.
+
+  A typical informal proof of this fact goes like this: we want to show
+  that the complement of $K$ is open. To do this,
+  choose an arbitrary point $y\in K^c$.
+  Since $X$ is $T_2$, for every point $x\in K$ we can find an
+  open set $U_x$ such that $y\notin \overline{U_x}$.
+  Obviously $\{U_x\}_{x\in K}$ covers $K$, so select a finite subcollection
+  that covers $K$, and so on. I had never realized that
+  such reasoning requires the Axiom of Choice.
+  Namely, suppose we have a lemma that states "In $T_2$ spaces,
+  if $x\neq y$, then there is an open set
+  $U$ such that $x\in U$ and $y\notin \overline{U}$" (like our
+  lemma \<open>T2_cl_open_sep\<close> below). This only states that
+  the set of such open sets $U$ is not empty. To get the collection
+  $\{U_x \}_{x\in K}$ in this proof we have to select one such set
+  among many for every $x\in K$ and this is where we use the Axiom of Choice.
+  Probably in 99/100 cases when an informal calculus proof states something like
+  $\forall \varepsilon \exists \delta_\varepsilon \cdots$ the proof uses AC.
+  Most of the time the use of AC in such proofs can be avoided. This is also
+  the case for the fact that in a $T_2$ space compact sets are closed.
+\<close>
+
+text\<open>First we prove a lemma that in a $T_2$ space two points
+  can be separated by the closure of an open set.\<close>
+
+lemma (in topology0) T2_cl_open_sep:
+  assumes "T {is T\<^sub>2}"  and "x \<in> \<Union>T"  "y \<in> \<Union>T"   "x\<noteq>y"
+  shows "\<exists>U\<in>T. (x\<in>U \<and> y \<notin> cl(U))"
+proof -
+  from assms have "\<exists>U\<in>T. \<exists>V\<in>T. x\<in>U \<and> y\<in>V \<and> U\<inter>V=0"
+    using isT2_def by simp
+  then obtain U V where "U\<in>T"  "V\<in>T"  "x\<in>U"  "y\<in>V"  "U\<inter>V=0"
+    by auto
+  then have "U\<in>T \<and> x\<in>U \<and> y\<in> V \<and> cl(U) \<inter> V = 0"
+    using  disj_open_cl_disj by auto
+  thus "\<exists>U\<in>T. (x\<in>U \<and> y \<notin> cl(U))" by auto
+qed
+
+text\<open>AC-free proof that in a Hausdorff space compact sets
+  are closed. To understand the notation recall that in Isabelle/ZF
+  \<open>Pow(A)\<close> is the powerset (the set of subsets) of $A$
+  and \<open>FinPow(A)\<close> denotes the set of finite subsets of $A$
+  in IsarMathLib.\<close>
+
+theorem (in topology0) in_t2_compact_is_cl:
+  assumes A1: "T {is T\<^sub>2}" and A2: "K {is compact in} T"
+  shows "K {is closed in} T"
+proof -
+  let ?X = "\<Union>T"
+  have "\<forall>y \<in> ?X - K. \<exists>U\<in>T. y\<in>U \<and> U \<subseteq> ?X - K"
+  proof -
+    { fix y assume "y \<in> ?X"  "y\<notin>K"
+      have "\<exists>U\<in>T. y\<in>U \<and> U \<subseteq> ?X - K"
+      proof -
+	let ?B = "\<Union>x\<in>K. {V\<in>T. x\<in>V \<and> y \<notin> cl(V)}"
+	have I: "?B \<in> Pow(T)"  "FinPow(?B) \<subseteq> Pow(?B)"
+	  using FinPow_def by auto
+	from \<open>K {is compact in} T\<close> \<open>y \<in> ?X\<close>  \<open>y\<notin>K\<close> have
+	  "\<forall>x\<in>K. x \<in> ?X \<and> y \<in> ?X \<and> x\<noteq>y"
+	  using IsCompact_def by auto
+	with \<open>T {is T\<^sub>2}\<close> have "\<forall>x\<in>K. {V\<in>T. x\<in>V \<and> y \<notin> cl(V)} \<noteq> 0"
+	  using T2_cl_open_sep by auto
+	hence "K \<subseteq> \<Union>?B" by blast
+	with \<open>K {is compact in} T\<close> I have
+	  "\<exists>N \<in> FinPow(?B). K \<subseteq> \<Union>N"
+	  using IsCompact_def by auto
+	then obtain N where "N \<in> FinPow(?B)"  "K \<subseteq> \<Union>N"
+	  by auto
+	with I have "N \<subseteq> ?B" by auto
+	hence "\<forall>V\<in>N. V\<in>?B" by auto
+	let ?M = "{cl(V). V\<in>N}"
+	let ?C = "{D \<in> Pow(?X). D {is closed in} T}"
+	from \<open>N \<in> FinPow(?B)\<close> have "\<forall>V\<in>?B. cl(V) \<in> ?C"  "N \<in> FinPow(?B)"
+	  using cl_is_closed IsClosed_def by auto
+	then have "?M \<in> FinPow(?C)" by (rule fin_image_fin)
+	then have "?X - \<Union>?M \<in> T" using fin_union_cl_is_cl IsClosed_def
+	  by simp
+	moreover from \<open>y \<in> ?X\<close>  \<open>y\<notin>K\<close>  \<open>\<forall>V\<in>N. V\<in>?B\<close> have
+	  "y \<in> ?X - \<Union>?M" by simp
+	moreover have "?X - \<Union>?M \<subseteq> ?X - K"
+	proof -
+	  from \<open>\<forall>V\<in>N. V\<in>?B\<close> have "\<Union>N \<subseteq> \<Union>?M" using cl_contains_set by auto
+	  with \<open>K \<subseteq> \<Union>N\<close> show "?X - \<Union>?M \<subseteq> ?X - K" by auto
+	qed
+	ultimately have "\<exists>U. U\<in>T \<and> y \<in> U \<and> U \<subseteq> ?X - K"
+	  by auto
+	thus "\<exists>U\<in>T. y\<in>U \<and> U \<subseteq> ?X - K" by auto
+      qed
+    } thus "\<forall>y \<in> ?X - K. \<exists>U\<in>T. y\<in>U \<and> U \<subseteq> ?X - K"
+      by auto
+  qed
+  with A2 show "K {is closed in} T"
+    using open_neigh_open IsCompact_def IsClosed_def by auto
+qed
+
+end

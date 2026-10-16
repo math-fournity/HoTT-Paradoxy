@@ -1,0 +1,25 @@
+{
+  "next": "C1A: freeze a version-fixed M→S foundation relation and theorem identity for F-A; keep all C0 families and controls explicit.",
+  "role": "GOVERNANCE_ALIGNMENT / RESEARCH_GENERATION",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-GOV-20261005-ZFC-META-SUBTHEORY-C369-CLOSURE-REPAIR",
+  "status": "C369_CONTROL_SCOPE_REGISTERED_AND_COGNITION_HEADER_REPAIRED",
+  "tier": "T3",
+  "verification": [
+    {
+      "command": "python3 -B .codex/tools/cognition_runtime.py plan --profile research",
+      "scope": "HEAD matches all tracked mutable current-owner bytes before formal checkpoint.",
+      "status": "PASS_AFTER_BOOTSTRAP"
+    },
+    {
+      "command": "python3 -B scripts/audit/verify_governance_shards.py",
+      "scope": "structural validation only; does not prove C-369 or an F-053 core verdict.",
+      "status": "PASS_BEFORE_CHECKPOINT"
+    },
+    {
+      "command": "cognition_runtime.py checkpoint --apply",
+      "scope": "this canonical transaction is the sole expected closure receipt.",
+      "status": "PENDING"
+    }
+  ]
+}

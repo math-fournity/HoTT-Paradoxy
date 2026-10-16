@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CG001-C-60"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/history-counts",
+    "HoTT/formal/claude-cg001/history-counts/WrongFirstEntryMS.agda"
+  ],
+  "completed_at_utc": "2026-09-25T18:35:31.704695+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 23.862546,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "shows only that this case-wise definition fails; C-60 (d) is the general statement"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-HPT-MULTISET-NEG-001",
+  "run_id": "20260925-CG001-HPT-MULTISET-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-60 (expected KERNEL_REJECTED): reading the first entry of an MS history by cases on its constructors fails at the exchange constructor: filling Ex x y xs with the constant just x is rejected (y != x of type Bool; just y and just x must be equal, since firstEntry (Ex x y xs i1) could reduce to either).",
+  "source_manifest": {
+    "bytes": 3091,
+    "path": "source-manifest.json",
+    "sha256": "c1b94d46786d7d21392dba2219bcc1a5c03d929f7d8c846e643fdb0feaca049b"
+  },
+  "started_at_utc": "2026-09-25T18:35:07.842149+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 13009,
+    "path": "stdout.txt",
+    "sha256": "e1c5dbe1443360dd37df02646c587cd55354a1112c6472e77d6cdd110a4b389f"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

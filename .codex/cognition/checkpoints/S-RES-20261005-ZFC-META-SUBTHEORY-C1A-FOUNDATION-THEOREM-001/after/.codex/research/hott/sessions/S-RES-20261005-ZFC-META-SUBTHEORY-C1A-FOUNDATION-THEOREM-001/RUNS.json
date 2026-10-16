@@ -1,0 +1,35 @@
+{
+  "next": "C1A-2/C0B: exact-ZF real/sequence/limit theorem identity and non-substituting link to IEP P.",
+  "role": "RESEARCH_GENERATION",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261005-ZFC-META-SUBTHEORY-C1A-FOUNDATION-THEOREM-001",
+  "status": "C1A_PARTIAL_FOUNDATION_AND_THEOREM_WITNESSES",
+  "tier": "T3",
+  "verification": [
+    {
+      "command": "web.open IEP/Mizar/Brown-Pak/IsarMathLib",
+      "scope": "source statements, not kernel replays.",
+      "status": "SOURCE_INSPECTED_WITH_SCOPE"
+    },
+    {
+      "command": "curl + sha256 source snapshots",
+      "scope": "four original files locally frozen; Brown–Pąk PDF fully resumed to Content-Length 481700 and pdftotext checked.",
+      "status": "PASS"
+    },
+    {
+      "command": "rg frozen MML sources",
+      "scope": "MML-tarski_0 identity and NUMPOLY1 Def14/Th87 source locations verified.",
+      "status": "PASS"
+    },
+    {
+      "command": "command -v mizar/mizf/verifier",
+      "scope": "Mizar theorem stays SOURCE_REPORTED_FORMAL_THEOREM_UNREPLAYED.",
+      "status": "NO_QUALIFIED_LOCAL_MIZAR_CHECKER"
+    },
+    {
+      "command": "cognition_runtime.py checkpoint --apply",
+      "scope": "required cross-session closure transaction.",
+      "status": "PENDING"
+    }
+  ]
+}

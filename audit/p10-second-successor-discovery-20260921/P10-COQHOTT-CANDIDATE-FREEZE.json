@@ -1,0 +1,27 @@
+{
+  "schema_version": "p10-coqhott-candidate-freeze/v1",
+  "repository": "https://github.com/HoTT/Coq-HoTT",
+  "branch": "master",
+  "commit": "e3deab71b9cb53a22c00ab39dea4699dd2c89a13",
+  "commit_date": "2026-09-17T22:25:12+02:00",
+  "selection_reason": "P10 requires a non-directed, version-pinned actual HoTT library corpus related to explicit gluing/closure. Circle is defined through Coeq and TorusEquivCircles is a downstream consumer.",
+  "files": [
+    {"path":"README.md","git_blob":"afdd6ddad92919fcf1352987f673524efbf5eb24","sha256":"a4726caac07ded731f5b8d9eda9beedfb882b051f6f5b9181f56f598f3603c80"},
+    {"path":"theories/Colimits/Coeq.v","git_blob":"8576cd3ed511f3ca6784ff643fc094e7f647fccc","sha256":"3998031cc1d8ab764f6a003872051a82278b17f9815049387d4349f950c303eb"},
+    {"path":"theories/Spaces/Circle.v","git_blob":"db07c706ce8fbb3d3cdd69ddc8594f7c853c7ba7","sha256":"d0c1cb936d4adc9e349819de5b66f045617a6a32a65f7db4bc5115e9b405e6b8"},
+    {"path":"theories/Spaces/Torus/Torus.v","git_blob":"51d9e78a8dd74f0634d3a3928c879f9573551059","sha256":"5162da28365883f91084f1e713a86c627e753afac85769cf60fe07ccb14ac9a5"},
+    {"path":"theories/Spaces/Torus/TorusEquivCircles.v","git_blob":"38d4445f30d6647628df786467425ea06714967f","sha256":"e8ab935a978c0d09b517bd70bbdfa6bc467b845cc5b59c684aee4b4a1ac5017f"}
+  ],
+  "observed_contract": {
+    "circle": "Circle := Coeq Unit Unit idmap idmap; base := coeq tt; loop := cglue tt",
+    "coeq_rec": "requires a map A -> P and explicit path coherence for every b : B",
+    "downstream_consumer": "TorusEquivCircles.v uses Circle_rec together with explicit torus base, loops and surface to establish Torus ≃ Circle × Circle"
+  },
+  "not_claimed": [
+    "a Coq-HoTT compilation replay",
+    "a full repository audit",
+    "an actual K",
+    "a proof that the original circle task is complete",
+    "a HoTT defect"
+  ]
+}

@@ -1,0 +1,138 @@
+Syntax and Semantics of Quantitative Type Theory LICS ’18, July 9–12, 2018, Oxford, United Kingdom
+M, N , O:
+ρ,π ∈ R
+Γ ::= ⋄ | Γ, x
+ρ
+: S
+S,T , U ::= (x π: S ) → T | (x π: S ) ⊗ T | I | Bool | El(M ) | Set
+M, N , O ::= x | λxπ: S.MT | App(x
+π
+: S )T (M, N )
+| (M, N )x
+π
+: S .T | ∗ | fstx
+π
+: S .T (M ) | sndx
+π
+: S .T (M )
+| letx
+π
+: S .T (x,y) = M in N | letI ∗ = M in N
+| true | false | ElimBool(z )T (Mt , Mf , N )
+| Bool | (x π: M ) → N
+The rules that identify the contexts, types, and terms from the pre-
+contexts, pretypes, and preterms are described below. The symbol
+⋄ denotes the empty precontext, which we omit when writing pre-
+contexts with more than zero elements. Preterms contain more
+type information than is usually necessary (e.g., the result type T
+in aλ-abstraction). This will be used when we interpret the syntax
+in our categorical models in Section 3.
+Precontexts contain usage annotations, ρ, on each of the con-
+stituent variables. Scaling,πΓ, is defined by:
+π(⋄) = ⋄ π(Γ, x
+ρ
+: S ) =πΓ, x
+πρ
+: S
+Scaling is shallow in the sense that usage annotations in pretypes
+S, if any, are not affected. By the semiring laws, context zero-ing,
+0Γ, sets all the annotations to 0.
+Precontext addition Γ1 + Γ2 is only defined when 0Γ1 = 0Γ2:
+⋄ + ⋄ = ⋄ (Γ1, x
+ρ1
+: S ) + (Γ2, x
+ρ2
+: S ) = (Γ1 + Γ2), x
+ρ1+ρ2
+: S
+These cases are exhaustive by the requirement that 0Γ1 = 0Γ2.
+2.1.3 Contexts, Types, Terms
+Contexts are identified within the precontexts by the judgement
+Γ ⊢, defined by the following rules:
+⋄ ⊢
+Emp
+Γ ⊢ 0Γ ⊢ S
+Γ, x
+ρ
+: S ⊢
+Ext
+where the judgement 0Γ ⊢ S indicates that S is well formed as a
+type in the context 0Γ. We will see the type formation rules for
+each type former below. The rule Emp builds the empty context.
+The rule Ext extends a context Γ with a extra variable x of type S,
+with usage annotationρ. The annotationρindicates building of a
+context representing environments that provide forρ-many uses
+of x.
+As we shall see below, all type formation rules yield judgements
+where all the usage annotations in Γ are equal to 0. Thus type
+formation requires no computational resources.
+Term judgements in QTT have the form:
+Γ ⊢ M σ: S
+where σ∈ { 0, 1}. The binary choice of σeffectively splits the
+theory into two halves. Whenσ= 0, we are indicating that we are
+constructing a term with no need for computational content. By
+Lemma 2.3 (below) whenσ= 0 we will necessarily have that all
+the usage annotations in the context are 0 too. Whenσ= 1, we
+are indicating we are constructing computationally relevant data.
+The two halves are similar to Pfenning’s “:” and “÷” judgements
+for terms and irrelevant proofs respectively [30].
+The rules for variables and type conversion are:
+⊢ 0Γ, x σ: S, 0Γ′
+0Γ, x σ: S, 0Γ′ ⊢ x σ: S
+V ar
+Γ ⊢ M σ: S 0Γ ⊢ S ≡ T
+Γ ⊢ M σ: T
+Conv
+The variable rule, V ar, selects an individual variable from the con-
+text. In keeping with our intuition for usage annotations, all vari-
+ables that are not selected are marked with0 usage, and the selected
+variable is marked with the result usage σ. The conversion rule,
+Conv, is almost identical to that in standard MLTT, except that the
+type equality judgement 0Γ ⊢ S ≡ T explicitly stipulates that types
+are always judged equal in a context with no resources.
+Dependent Function Types Function types (x π: S ) → T record
+how the function will use its argument via theπannotation. The
+formation rule is:
+0Γ ⊢ S 0Γ, x 0: S ⊢ T
+0Γ ⊢ (x π: S ) → T
+Pi
+The usage annotationπis not used when judging that T is a type.
+As for all type well formedness judgements in QTT, it is judged
+in a context of 0 usage. The usage annotation πis used in the
+introduction and elimination rules of this type to track how the
+abstracted variable x is used, and how to multiply the resources
+required for the argument, respectively.
+Γ, x σπ: S ⊢ M σ: T
+Γ ⊢λxπ: S.MT σ: (x π: S ) → T
+Lam
+Γ1 ⊢ M σ: (x π: S ) → T
+Γ2 ⊢ N σ′
+: S 0Γ1 = 0Γ2 σ′ = 0 ⇔ (π= 0 ∨σ= 0)
+Γ1 +πΓ2 ⊢ App(x
+π
+: S )T (M, N ) σ: T [N /x]
+App
+Forgetting the resource annotations, these are the standard intro-
+duction and elimination rules for dependent function types (re-
+membering that the side condition 0Γ1 = 0Γ2 means that Γ1 and
+Γ2 have the same variables with the same types). In the introduc-
+tion rule, we require that the abstracted variable x has usageσπ
+– multiplication by σis used to enforce the zero-needs-nothing
+property of the system. In the elimination rule, we sum up the
+usage requirements of the function and its argument, scaling the
+argument’s requirements by the amount required by the function
+itself. By the last premise, the function argument N may be judged
+in the 0-use fragment of the system in the case when either we are
+already in that fragement, or the function will not use the argument
+(π= 0). It is this condition on usages that requires us to stipulate
+that the usage accounting semiring we use is positive and has the
+zero-product property.
+Dependent Tensor Product Types We extend McBride’s system
+with a dependent tensor product type (x π: S ) ⊗ T , where the π
+annotation records how many times the first argument may be
+used, and a unit type I:
+0Γ ⊢ A 0Γ, x 0: S ⊢ T
+0Γ ⊢ (x π: S ) ⊗ T
+⊗ 0Γ ⊢
+0Γ ⊢ I
+I

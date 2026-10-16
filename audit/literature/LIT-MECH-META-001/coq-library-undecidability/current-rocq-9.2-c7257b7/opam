@@ -1,0 +1,38 @@
+opam-version: "2.0"
+version: "dev"
+maintainer: "forster@ps.uni-saarland.de"
+homepage: "https://github.com/uds-psl/coq-library-undecidability/"
+dev-repo: "git+https://github.com/uds-psl/coq-library-undecidability/"
+bug-reports: "https://github.com/uds-psl/coq-library-undecidability/issues"
+authors: ["Yannick Forster"
+          "Dominique Larchey-Wendling"
+          "Andrej Dudenhefner"
+          "Edith Heiter"
+          "Marc Hermes"
+          "Johannes Hostert"
+          "Dominik Kirst"
+          "Mark Koch"
+          "Fabian Kunze"
+          "Gert Smolka"
+          "Simon Spies"
+          "Dominik Wehr"
+          "Maximilian Wuttke"]
+
+license: "MPL-2.0"
+build: [
+  [make "-j%{jobs}%"]
+]
+install: [
+  [make "install"]
+]
+depends: [
+  "rocq-core" {= "9.2.0"}
+  "rocq-stdlib" {= "9.1.0"}
+  "ocaml"
+  # "rocq-metarocq-template"
+]
+
+synopsis: "A Coq Library of Undecidability Proofs"
+url {
+  git: "https://github.com/uds-psl/coq-library-undecidability.git#rocq-9.2"
+}

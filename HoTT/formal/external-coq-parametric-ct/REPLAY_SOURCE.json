@@ -1,0 +1,39 @@
+{
+  "archive": {
+    "bytes": 203159,
+    "etag": "\"b80f69b349e0a8e618948c90a7be83564c467960bb5dc391c1cfab1a6cea7b76\"",
+    "local_path": "/Volumes/D/HoTT-literature-cache/parametric-ct-b9523cb/source.tar.gz",
+    "range_probe": "SERVER_RETURNED_200_FOR_BYTES_0_0_SINGLE_CONNECTION_USED",
+    "sha256": "c58a601b1bb8a1ff88e517b4f6a157a141565d6219761532db4d583e62ce7700",
+    "url": "https://codeload.github.com/yforster/coq-synthetic-computability/tar.gz/b9523cb33180dc58b227432e60045cc38615b711"
+  },
+  "assumption_boundary": "EPF_bool or SCT is an explicit theorem premise; Closed under the global context reports no additional global axiom for the proved implication.",
+  "branch": "code",
+  "commit": "b9523cb33180dc58b227432e60045cc38615b711",
+  "content_comparison": "CODELOAD_ARCHIVE_CONTENT_MATCHES_GIT_ARCHIVE_OF_FETCHED_COMMIT",
+  "docker": {
+    "coq_version": "8.13.2",
+    "equations_version": "1.2.3+8.13",
+    "image_id": "sha256:7e35dbfedcb7281c00420071437fce8316345ab006b1699cd0926f525a669df8",
+    "image_tag": "hott-parametric-ct:coq-8.13.2-target-deps",
+    "ocaml_version": "4.07.1",
+    "platform": "linux/amd64",
+    "stdpp_version": "1.5.0"
+  },
+  "full_tree_manifest": "HoTT/formal/external-coq-parametric-ct/SOURCE_TREE_MANIFEST.json",
+  "git_fetch": {
+    "fetched_commit": "b9523cb33180dc58b227432e60045cc38615b711",
+    "local_git_dir": "/Volumes/D/HoTT-literature-cache/parametric-ct-b9523cb/objects.git",
+    "tree": "9cfc31a04f31e0a73cd9494a8d745a39ee639082"
+  },
+  "git_tree": "9cfc31a04f31e0a73cd9494a8d745a39ee639082",
+  "license_boundary": "NO_LICENSE_FILE_PRESENT_IN_PINNED_TREE; retained for local research replay; no redistribution permission is inferred.",
+  "primary_theorems": [
+    "EPF_SCT_halting : EPF_bool + SCT -> exists K, semi_decidable K /\\ ~ semi_decidable (compl K) /\\ ~ decidable K /\\ ~ decidable (compl K)",
+    "K_nat_bool_undec : EPF_bool + SCT -> ~ decidable (compl K_nat_bool)",
+    "K_nat_undec : EPF_bool + SCT -> ~ decidable (fun f => forall n, f n = 0)"
+  ],
+  "schema_version": "coq-parametric-ct-replay-source/v1",
+  "target_closure": "HoTT/formal/external-coq-parametric-ct/TARGET_CLOSURE.json",
+  "upstream": "https://github.com/yforster/coq-synthetic-computability"
+}

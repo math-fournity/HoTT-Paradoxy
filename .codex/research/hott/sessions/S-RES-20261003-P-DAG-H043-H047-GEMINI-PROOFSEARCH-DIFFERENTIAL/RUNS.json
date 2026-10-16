@@ -1,0 +1,15 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-DAG-H043-H047-GEMINI-PROOFSEARCH-DIFFERENTIAL",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {"id":"H043","status":"SOURCE_CONSUMER_GAP_EXTERNAL_PROOF_SEARCH_ONLY","wire_sha256":"a1523a1ee2f0a454c91e612b821042bdbe0aeb9f5890cc4e2fdcbf8011474caa"},
+    {"id":"H044","status":"INPUT_CONTRACT_FAILURE_NO_AGENT_OUTPUT"},
+    {"id":"H045","status":"INPUT_CONTRACT_FAILURE_NO_AGENT_OUTPUT"},
+    {"id":"H046","status":"EXTERNAL_ALGORITHM_TIME_NOT_ZFC_ADMISSION","wire_sha256":"bb162fdc17800d712e15b7fb0ce129a14bf91167adec400a3fdcc073d8056629"},
+    {"id":"H047","status":"REIFICATION_WITHOUT_SAME_OBJECT_REENTRY","wire_sha256":"ceaf26f6fd0adf3b9ebbc349e21101665c91d3925d666e9ca3d96df33492b9fe"},
+    {"id":"P-DAG-H043-H047-DOCUMENT-VALIDATION","status":"PASS","commands":["git diff --check","verify_governance_shards.py","session_trajectory catalog/tree/coverage/terminal-inspect"],"evidence":"2026-10-03：git diff --check、RUNS JSON parse、62-KC row count和governance shard validator均通过；H043/H046/H047的private wire已按catalog/tree/coverage/terminal-inspect审计。"}
+  ]
+}

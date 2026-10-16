@@ -1,0 +1,16 @@
+{
+  "schema_version": "astra-real-geometry-toolchain/v1",
+  "theory_variant": "Lean integer Pell recurrence paired with the classical real curve theorem",
+  "lean": {
+    "version": "4.34.0",
+    "commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+    "root": "/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0"
+  },
+  "dependency_parent": "HoTT/formal/astra-real-geometry/DEFORMATION-TOOLCHAIN.json",
+  "dependency_manifest_parent": "HoTT/verification/runs/20260920-MP-ASTRA-CURVE-DEFORMATION-001-02/source-manifest.json",
+  "source_policy": "Exact parent dependencies and local DeformationCircle import rehashed. This comparison reproduces the stated initial values and recurrence, not a general Agda-to-Lean proof translation.",
+  "axioms_observed": {
+    "pellDiscriminant_never_zero": ["propext"],
+    "pell_and_continuous_curve": ["propext", "Classical.choice", "Quot.sound"]
+  }
+}

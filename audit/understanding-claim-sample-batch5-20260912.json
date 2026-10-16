@@ -1,0 +1,540 @@
+{
+  "schema_version": "understanding-claim-sample-batch5/v1",
+  "sampling_rule": {
+    "rank": "owners by prior sampling ratio ascending, ties by path",
+    "budget": 40,
+    "max_per_owner": 5,
+    "allocation": {
+      "理解章节/README.md": 5,
+      "理解章节/B2-网页GPT工作史-I.md": 5,
+      "理解章节/全量精读工作方案.md": 5,
+      "理解章节/B4-Gemini工作史.md": 5,
+      "理解章节/A6-Gemini论辩.md": 5,
+      "理解章节/B1-本地GPT工作史.md": 5,
+      "理解章节/B0-工作史总览.md": 5,
+      "理解章节/A11-开放问题与悬空接头.md": 5
+    },
+    "prior_sampled_ids": 162,
+    "fully_sampled_owners_skipped": []
+  },
+  "selection": [
+    {
+      "owner": "理解章节/README.md",
+      "total": 46,
+      "prior_sampled": 2,
+      "prior_ratio": 0.0435,
+      "remaining": 44,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/B2-网页GPT工作史-I.md",
+      "total": 111,
+      "prior_sampled": 5,
+      "prior_ratio": 0.045,
+      "remaining": 106,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/全量精读工作方案.md",
+      "total": 177,
+      "prior_sampled": 8,
+      "prior_ratio": 0.0452,
+      "remaining": 169,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/B4-Gemini工作史.md",
+      "total": 44,
+      "prior_sampled": 2,
+      "prior_ratio": 0.0455,
+      "remaining": 42,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/A6-Gemini论辩.md",
+      "total": 64,
+      "prior_sampled": 3,
+      "prior_ratio": 0.0469,
+      "remaining": 61,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/B1-本地GPT工作史.md",
+      "total": 276,
+      "prior_sampled": 13,
+      "prior_ratio": 0.0471,
+      "remaining": 263,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/B0-工作史总览.md",
+      "total": 40,
+      "prior_sampled": 2,
+      "prior_ratio": 0.05,
+      "remaining": 38,
+      "selected": 5
+    },
+    {
+      "owner": "理解章节/A11-开放问题与悬空接头.md",
+      "total": 58,
+      "prior_sampled": 3,
+      "prior_ratio": 0.0517,
+      "remaining": 55,
+      "selected": 5
+    }
+  ],
+  "entries": [
+    {
+      "claim_id": "CL-000265",
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> 本章不是用户原话的转述章，而是我对全部 171 轮做完整理解后识别出的**未闭合结构**——用户留下的活问题、历史记录中未做的连接、以及方法教训。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "A11 的范围自述（对 171 轮做完整理解后识别未闭合结构）；与句级账本的 171 遍历单元一致。"
+    },
+    {
+      "claim_id": "CL-000276",
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 21,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**悬空之处**：自指怀疑与时间怀疑**从第一天并行**（T5 与 T6 相邻轮次），但全部研究记录里自指线只产出了条件界与校准；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "解释性综合（自指线与时间线并行、自指线只产出条件界）；属叙述判断，未句级裁决。"
+    },
+    {
+      "claim_id": "CL-000288",
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 39,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**证据**：G20/W44（\"本来我觉得，找个悖论是很简单的事……为什么你们找起来这么慢呢？",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "用户原文引用（G20/W44 的『为什么你们找起来这么慢』）；与 core KC-000025 一致。"
+    },
+    {
+      "claim_id": "CL-000299",
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 55,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "它们经 workspace 治理记录、OUT 七封信、G12 任务书间接核证。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "『经 workspace 治理记录、OUT 七封信、G12 任务书间接核证』为核证性范围断言，需逐件核对后才可裁决。"
+    },
+    {
+      "claim_id": "CL-000310",
+      "owner_document": "理解章节/A11-开放问题与悬空接头.md",
+      "line": 71,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- A11.5 口径事件的 AI 侧对照：本目录的句级账本与五类锚点即其产物。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "路由：本目录句级账本与五类锚点即该口径事件产物；文件与锚点账本均存在。"
+    },
+    {
+      "claim_id": "CL-000622",
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> 本章处理轮次：W33、W34、W35、W36、W37、W38、W39、W40、W41、W42、W43、W44、W45（网页版转发轮；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "A6 路由元数据（W33–W45 转发轮），与 response ledger 的网页覆盖一致。"
+    },
+    {
+      "claim_id": "CL-000636",
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 17,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "而且全部落盘到应该落盘的文件中。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "完成性陈述『全部落盘到应该落盘的文件中』；七封信与 IN/OUT 记录在 workspace 与顶层来源中可回源。"
+    },
+    {
+      "claim_id": "CL-000648",
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 21,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- **OUT-001（G14）**：清算 Gemini 的四项过度认领——\"哥德尔不完备=语法崩溃=不停机\"撤回（独立性/卡住/不可判定三分）；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "OUT-001 清算内容（哥德尔不完备≠语法崩溃≠不停机；独立性/卡住/不可判定三分）与 B3/A6 正文一致。"
+    },
+    {
+      "claim_id": "CL-000661",
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 24,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- **OUT-004（G17）**：寄存器机对角编译器（8 指令、自定界编码、寄存器+3/PC=4+2i 重定位、非布尔返回 2、trap 非终态固定点）+31 单测+1928 组对照（40 组 UNKNOWN 保留）+D₀/D₁ 条件反证定理（Bool 消去，不用 LEM）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "寄存器机 8 指令、2N+9、31 单测、1,928 组对照（40 UNKNOWN）与 STATE `P-DIAGONAL-MACHINE` 记录一致。"
+    },
+    {
+      "claim_id": "CL-000673",
+      "owner_document": "理解章节/A6-Gemini论辩.md",
+      "line": 31,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**扩充**：论辩的技术沉淀与用户目标的对应：χ/EM_H/RP-B01 = B 方向的骨架定理；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "解释性扩充（χ/EM_H/RP-B01 = B 方向骨架定理的对应）；与 C9 部分重叠，需按 C9 重述后裁决。"
+    },
+    {
+      "claim_id": "CL-000948",
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "当前分母、来源 hash、ledger 覆盖和冲突纠偏由 [`C0-当前整合审计与证据边界-20260912.md`](C0-当前整合审计与证据边界-20260912.md) owner。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "路由：当前分母/来源 hash/ledger 覆盖由 C0 owner；与 C0 现状一致。"
+    },
+    {
+      "claim_id": "CL-000955",
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 12,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| ②网页 | GPT @Web ChatGPT | 09-09 12:17→09-11 11:44 | 111 节 md + workspace 治理 | 每轮 revision-ZIP 重建；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "网页线时间与 111 节、workspace 治理记录与 ledger-summary（webgpt_sections=111、56 user 消息）一致。"
+    },
+    {
+      "claim_id": "CL-000964",
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 17,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "C-T22-T29 → 五闭包定稿 G:ALL:8470721；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "C-T22-T29→五闭包 G:ALL:8470721；与 ALL-Markdown 历史提交记录一致。"
+    },
+    {
+      "claim_id": "CL-000971",
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 18,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "W33/W34 → 双 JSON 审计（R018/R019）；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "W33/W34→双 JSON 审计（R018/R019）；与 WebGPT STATE 记录一致。"
+    },
+    {
+      "claim_id": "CL-000979",
+      "owner_document": "理解章节/B0-工作史总览.md",
+      "line": 23,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "1. 全文加载政策（每轮重读闭包/三问/动态态——②的会话头反复出现压缩后重载记录）；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "全文加载政策（每轮重读闭包/三问/动态态、压缩后重载记录）；与三件套加载合同一致。"
+    },
+    {
+      "claim_id": "CL-000987",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> **历史 transform 状态**：本章保存 LocalGPT 的研究叙事和旧批次精读；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "B1 范围声明（历史 transform 状态）；与 B1 正文头部一致。"
+    },
+    {
+      "claim_id": "CL-001041",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 49,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**十个 HoTT 研究问题**（judgment 对应形成合法性？",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "『十个 HoTT 研究问题』为 B1 内的提炼条目；需与 owner 行上下文合并后裁决。"
+    },
+    {
+      "claim_id": "CL-001097",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 64,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "两种失败均禁止：CONSENSUS_FIRST/USER_ASSERTION_IS_PROOF）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "两种失败均禁止（CONSENSUS_FIRST/USER_ASSERTION_IS_PROOF）；与 T25 双阶段协议合同一致。"
+    },
+    {
+      "claim_id": "CL-001151",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 95,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "\"已成立/条件成立/已否定/仍开放\"四栏总账。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "『已成立/条件成立/已否定/仍开放』四栏总账条目；需定位对应总账表后裁决。"
+    },
+    {
+      "claim_id": "CL-001207",
+      "owner_document": "理解章节/B1-本地GPT工作史.md",
+      "line": 130,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "**T37 内容**（09-09 15:59，Schema 对照轮，215 行）：八行对照表裁决——外部版胜在语义模型（CwF/local universes/∞-topos）、相干性三分类、依赖关系四分类（定义依赖/逻辑推出/模型验证/计算实现）、跨呈现对照与 2023–26 新论文；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "T37 对照表（215 行、八行裁决、四分类）与 B1 正文及 Schema v0.2 记录一致。"
+    },
+    {
+      "claim_id": "CL-001263",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> **历史 transform 状态**：本章保存 WebGPT 前半段的历史 R/W 叙述；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "B2 范围声明（历史 transform 状态）；与 B2 正文头部一致。"
+    },
+    {
+      "claim_id": "CL-001284",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 24,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| R016 | S-ANS-016-AXIOMATIC-COMPUTATION | **W31 指令内嵌**：先 Git 管理+scripts 回收（G:WS:d726b2e 起）再数学校准 |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "R016 条目（W31 指令内嵌、Git+scripts 回收、G:WS:d726b2e 起点）；与 workspace git 记录一致。"
+    },
+    {
+      "claim_id": "CL-001307",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 51,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "(4) **前缀因果性与实现成本的区分定理**；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "『(4) 前缀因果性与实现成本的区分定理』为列表残句；需与 owner 行上下文合并后裁决。"
+    },
+    {
+      "claim_id": "CL-001329",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 75,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "以下为实物层新增。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "『以下为实物层新增』小节标记；与 B2 三栏对照结构一致。"
+    },
+    {
+      "claim_id": "CL-001350",
+      "owner_document": "理解章节/B2-网页GPT工作史-I.md",
+      "line": 87,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| R011 | — | J→A 是等价（¬¬F_a 统一可证⇒负像零信息）——\"负像证据完全不区分输入\"的精确形态；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "R011 条目（J→A 等价、负像零信息）与 WebGPT R011 记录一致。"
+    },
+    {
+      "claim_id": "CL-001679",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "> **历史 transform 状态**：本章的 24 ordinary text、17/17 code/result、21 thought 和原沙箱出处判断由当前 `audit/gemini-*.jsonl` 逐 chunk 账本补证；",
+      "artifact_locators": [
+        "audit/gemini-*.jsonl"
+      ],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "B4 范围声明与账本口径（24 ordinary text、17/17 code/result、21 thought）；与 gemini-*.jsonl 及 ledger-summary（24/17/17/2/21/36）一致。"
+    },
+    {
+      "claim_id": "CL-001687",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 14,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| 12/15 | 14:59-15:00 | Lean4+求值器双轨验证宣称（G5 权限开放后） |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "B4 表格行（12/15 Lean4+求值器双轨验证宣称）；需与 Gemini 账本时间线逐条核对后裁决。"
+    },
+    {
+      "claim_id": "CL-001695",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 22,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| 80/83/86/89/91/93/96/99/102 | 04:50-09:30 | **IN-001~007 七封信**（A6 章已逐封技术展开：撤回/收窄/正例/条件定理/接口预期/收尾归档） |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "IN-001~007 七封信的 chunk 编号与时间记录；与 B4 表格及 A6 逐封展开一致。"
+    },
+    {
+      "claim_id": "CL-001706",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 34,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "其技术内核被 OUT-006 收窄为 ReachTrap/量词纪律问题，但方向与用户 W51 押注一致）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "解释性综合（技术内核被 OUT-006 收窄为 ReachTrap/量词纪律）；需按源记录重述后裁决。"
+    },
+    {
+      "claim_id": "CL-001714",
+      "owner_document": "理解章节/B4-Gemini工作史.md",
+      "line": 45,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "卡住≠不停机必须分离）+ 首选动作（HIT 路径消去判别）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "『卡住≠不停机必须分离』与 OUT-001 三项撤回记录一致。"
+    },
+    {
+      "claim_id": "CL-001902",
+      "owner_document": "理解章节/README.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "C0 是本次三 AI 整合后的当前分母/证据边界 owner；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "路由：C0 是当前分母/证据边界 owner；与 C0 现状一致。"
+    },
+    {
+      "claim_id": "CL-001910",
+      "owner_document": "理解章节/README.md",
+      "line": 6,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "旧 `verify_ai_coverage.py` 仍保留为历史验证器，不替代新账本。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "历史验证器保留说明（旧 verify_ai_coverage.py 不替代新账本）；文件仍在 `理解章节/` 下。"
+    },
+    {
+      "claim_id": "CL-001919",
+      "owner_document": "理解章节/README.md",
+      "line": 15,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| A2-参照悖论谱.md | 芝诺/罗素/Better Best/圆环/shenchensh与Matrix/说谎者（按用户读法逐个展开） | C-T8/T9/T13/T15/T24/T26/T27、W18/W22、G7/G13 |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "README 索引行（A2 覆盖芝诺/罗素/Better-Best/圆环/shenchensh与Matrix/说谎者）；与 A2 正文一致。"
+    },
+    {
+      "claim_id": "CL-001928",
+      "owner_document": "理解章节/README.md",
+      "line": 24,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| A11-开放问题与悬空接头.md | W51×RP-B01 未连接、自指线、A方向未动、38口径教训——给未来AI的接手清单 | W51、G20/G21、R0xx记录、本轮对话 |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "README 索引行（A11 覆盖 W51×RP-B01 未连接、自指线、A 方向、38 口径教训）；与 A11 正文一致。"
+    },
+    {
+      "claim_id": "CL-001937",
+      "owner_document": "理解章节/README.md",
+      "line": 42,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "当前机器审计资产位于顶层 `audit/`，不再把“用户句级账本、聚合锚点、旧 PASS”单独当作全部 AI 行为证据。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "机器审计资产位置声明；与顶层 audit/ 结构一致。"
+    },
+    {
+      "claim_id": "CL-001948",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 3,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "上位指令（用户原话）：\"除了 aistudio-docs（2,094 文件）是不需要读的，其他都是要**对照着用户对话录的实际工作**去读，并且去更新理解章节中的对应内容。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "上位指令原文引用（除 aistudio-docs 外对照对话录读尽并更新理解章节）；与 ruling/方案头部一致。"
+    },
+    {
+      "claim_id": "CL-001982",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 59,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "- 对照：A1/A2/A4 各章转述与原文逐节核对（这是用户哲学的唯一 F 级权威源，目前只有间接引用）。",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "『唯一 F 级权威源，目前只有间接引用』为状态判断；需核对读态记录后裁决。"
+    },
+    {
+      "claim_id": "CL-002018",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 101,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "新增 6 项→B3§六） | bedbd30后批次commit |",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "进度表残句（新增 6 项→B3§六、bedbd30 后批次 commit）；需定位对应表行后裁决。"
+    },
+    {
+      "claim_id": "CL-002054",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 110,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "7,420 路径四级处置无\"需读未读\"；",
+      "artifact_locators": [],
+      "source_locators": [],
+      "review_verdict": "PENDING",
+      "review_reason": "『7,420 路径四级处置无“需读未读”』为覆盖性断言；需重放 disposition 账本后才可裁决。"
+    },
+    {
+      "claim_id": "CL-002089",
+      "owner_document": "理解章节/全量精读工作方案.md",
+      "line": 151,
+      "claim_type": "HISTORICAL_OR_CURRENT_TEXT_REQUIRES_SCOPE_REVIEW",
+      "text": "| `.codex/cognition/checkpoints/` | 699 | 结构核验（事务 json 完整性+抽样字节），不逐个读（为可变文件的 before/after 副本） | 8 |",
+      "artifact_locators": [
+        ".codex/cognition/checkpoints/"
+      ],
+      "source_locators": [],
+      "review_verdict": "SUPPORTED",
+      "review_reason": "checkpoints 目录统计（699、结构核验+抽样字节、不逐个读）；与 .codex/cognition/checkpoints 现状与治理口径一致。"
+    }
+  ],
+  "review_summary": {
+    "SUPPORTED": 29,
+    "SUPERSEDED_BY_MACHINE_RESULT": 0,
+    "UNSUPPORTED": 0,
+    "PENDING": 11,
+    "total": 40,
+    "cumulative_sampled": 202
+  }
+}

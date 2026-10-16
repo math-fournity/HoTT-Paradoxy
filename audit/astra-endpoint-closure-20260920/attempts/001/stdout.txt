@@ -1,0 +1,43 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:50:59: error: Tactic `unfold` failed to unfold `closingDen` in
+  Continuous fun x =>
+    ((1 + ↑x.1 ^ 2) / 2 * centered ↑x.2 + (1 - ↑x.1) / 2 * (1 - |centered ↑x.2| + (1 - ↑x.1) ^ 2 * |centered ↑x.2|)) *
+      (1 - |centered ↑x.2| + (1 - ↑x.1) ^ 2 * |centered ↑x.2|)
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:50:41: error: Tactic `unfold` failed to unfold `closingN` in
+  Continuous fun x => closingDen ↑x.1 ↑x.2
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:50:59: error: Tactic `unfold` failed to unfold `closingDen` in
+  Continuous fun x =>
+    ↑x.1 *
+      ((1 + ↑x.1 ^ 2) / 2 * centered ↑x.2 + (1 - ↑x.1) / 2 * (1 - |centered ↑x.2| + (1 - ↑x.1) ^ 2 * |centered ↑x.2|)) ^
+        2
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:50:41: error: Tactic `unfold` failed to unfold `closingN` in
+  Continuous fun x => closingDen ↑x.1 ↑x.2
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:83:2: error: No goals to be solved
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:89:32: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:89:32: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:114:36: error: Type mismatch: After simplification, term
+  hc
+ has type
+  ¬1 - t = 0
+but is expected to have type
+  ¬1 - |2 - 1| + (1 - t) ^ 2 * |2 - 1| = 0
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:120:2: error: linarith failed to find a contradiction
+t : ℝ
+ht : t < 1
+h : extendedDeformation t 0 = extendedDeformation t 1
+hc : (1 - t) ^ 2 ≠ 0
+hd0 : closingD t 0 ≠ 0
+hd1 : closingD t 1 ≠ 0
+he : bend t (closingN t 0 / closingD t 0) = bend t (closingN t 1 / closingD t 1)
+hr : (-(1 + t ^ 2) + (1 - t) ^ 3) / (1 - t) ^ 2 = (1 + t ^ 2 + (1 - t) ^ 3) / (1 - t) ^ 2
+⊢ False
+failed
+'AstraRealGeometry.extendedDeformation_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.extended_agrees_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_continuous' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_pos_before' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_zero_at_end' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.extended_final_not_injective' depends on axioms: [propext, Classical.choice, Quot.sound]

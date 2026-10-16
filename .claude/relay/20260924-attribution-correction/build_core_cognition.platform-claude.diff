@@ -1,0 +1,20 @@
+--- a/scripts/audit/build_core_cognition.py
++++ b/scripts/audit/build_core_cognition.py
+@@ -98,7 +98,7 @@
+ 
+ def parse_source(root: Path, source: dict[str, object]) -> tuple[dict[str, object], list[dict[str, object]], list[str]]:
+     platform, rel, expected_sha = source.get("platform"), source.get("path"), source.get("sha256")
+-    if platform not in {"LocalGPT", "WebGPT", "Gemini", "Codex"} or not isinstance(rel, str):
++    if platform not in {"LocalGPT", "WebGPT", "Gemini", "Codex", "Claude"} or not isinstance(rel, str):
+         raise CoreBuildError("CURATION_SOURCE_IDENTITY_INVALID")
+     message_prefix = source.get("message_id_prefix", str(platform).upper())
+     if not isinstance(message_prefix, str) or not re.fullmatch(r"[A-Z][A-Z0-9-]*", message_prefix):
+@@ -353,7 +353,7 @@
+         if (decision["disposition"] == "INCLUDED") != (unit_counts[message_id] > 0):
+             raise CoreBuildError(f"MESSAGE_UNIT_DISPOSITION_MISMATCH:{message_id}")
+ 
+-    platform_rank = {"LocalGPT": 0, "WebGPT": 1, "Gemini": 2, "Codex": 3}
++    platform_rank = {"LocalGPT": 0, "WebGPT": 1, "Gemini": 2, "Codex": 3, "Claude": 4}
+     provisional.sort(key=lambda row: (
+         row["timestamp_utc"], platform_rank[str(row["platform"])],
+         int(row["source_message_ordinal"]), int(row["curation_order"])

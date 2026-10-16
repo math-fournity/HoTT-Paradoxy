@@ -1,0 +1,87 @@
+Syntax/Typed/Def.agda:2:-- Uses the syntax representation from http://www.cs.nott.ac.uk/~txa/publ/tt-in-tt.pdf with added Löbian constructors as suggested by Jason Gross
+Syntax/Typed/Def.agda:13:-- a congruence rule (corresponds to refl(TmΓ) in the cubical syntax:
+Syntax/Typed/Def.agda:68:  ⌜_⌝t : ∀ {Γ T} → Tm Γ T → Tm Γ (‘□’ T)
+Syntax/Typed/Def.agda:69:  Löb : ∀ {Γ T} → Tm Γ (‘□’ T ‘→’ T) → Tm Γ T
+Syntax/Typed/Def.agda:79:-- higher constructors are postulated
+Syntax/Typed/Def.agda:80:postulate
+Syntax/Typed/Def.agda:102:postulate
+Syntax/Typed/Def.agda:129:postulate
+Syntax/Typed/Def.agda:148:postulate
+Syntax/Typed/Def.agda:168:--    -- What's the analagous law for Löb? An idea below:
+Syntax/Typed/Def.agda:169:--    -- Löb[] : ∀{Γ Δ X}{δ : Tms Γ Δ}{s : Tm Δ (‘□’ Δ [ id ,, ⌜ X ⌝ [ id ]t ]T ‘→’ X)} →
+Syntax/Typed/Def.agda:170:--    --         Löb s [ δ ]t
+Syntax/Typed/Def.agda:171:--    --       ≡ Löb (coe {!!} (s [ δ ]t))
+Syntax/Typed/Def.agda:200:postulate
+Syntax/Typed/Def.agda:201:  Löb[] : ∀ {Γ Δ}{δ : Tms Γ Δ}{A : Ty Δ}(l : Tm Δ (‘□’ A ‘→’ A)) → Löb l [ δ ]t ≡ Löb (l [ δ ]t)
+Syntax/Typed/Def.agda:241:--     (id ,, coe (TmΓ= [id]T ⁻¹) vz) ⊚ wk ≡⟨ ,,⊚ ◾ {!!} ⟩
+Syntax/Typed/Def.agda:242:--     id ⊚ wk ,, {!!} [ {!id ⊚ wk!} ]t ≡⟨ {!!} ⟩
+Syntax/Typed/Def.agda:248:-- we can prove that Con is a set,, no need to postulate a higher constructor
+Syntax/Typed/Defn.agda:2:-- Uses the syntax representation from http://www.cs.nott.ac.uk/~txa/publ/tt-in-tt.pdf with added Löbian constructors as suggested by Jason Gross
+Syntax/Typed/Defn.agda:38:  box : ∀{Γ Δ n} → Δ ⋆ n → Γ ⋆ 0
+Syntax/Typed/Defn.agda:72:  ⌜_⌝T : ∀{Γ n} → Γ ⋆ n → Γ ⊢ uu (suc n)
+Syntax/Typed/Defn.agda:73:  ⌜_⌝t : ∀{Γ Δ n}{T : Δ ⋆ n} → Δ ⊢ T → Γ ⊢ box T
+Syntax/Typed/Defn.agda:74:  -- Ah hah! Right! This is how box should behave!
+Syntax/Typed/Defn.agda:75:  Löb : ∀{Γ Δ n}{T : Δ ⋆ n} → Γ ⊢ box (box T ‘→’ T) → Γ ⊢ box T
+Syntax/Typed/Defn.agda:76:  bapp : ∀{Γ Δ n m}{A : Δ ⋆ n}{B : Δ , A ⋆ m} → Γ ⊢ box {Δ = Δ} (π A B) → Γ ⊢ box  {Δ = Δ , A} B
+Syntax/Typed/Defn.agda:77:  _[_]b : ∀{Γ Δ Σ n}{A : Σ ⋆ n} → Γ ⊢ box A → (δ : Δ ⊃ Σ) → Γ ⊢ box (A [ δ ]T)
+Syntax/Typed/Defn.agda:78:  unsub : ∀{Γ Δ Σ n}(δ : Δ ⊃ Σ){A : Σ ⋆ n} → Γ ⊢ box (A [ δ ]T) → Γ ⊢ box A
+Syntax/Typed/Defn.agda:91:postulate
+Syntax/Typed/Defn.agda:102:  box[] : ∀{Γ Δ Σ n} (δ : Γ ⊃ Δ) (A : Σ ⋆ n)
+Syntax/Typed/Defn.agda:103:          → box A [ δ ]T ≡ box A
+Syntax/Typed/Defn.agda:115:  --         → {!!} ≡ {!!}
+Syntax/Typed/Defn.agda:129:{-# REWRITE box[] #-}
+Syntax/Typed/Defn.agda:145:postulate
+Syntax/Typed/Defn.agda:155:postulate
+Syntax/Typed/Defn.agda:186:--  π₁β {A = A} (π₁ δ ∙ ρ) (π₂ δ [ ρ ]t) ⁻¹ ◾ {!!} ◾ {!!}
+Syntax/Typed/Defn.agda:193:postulate
+Syntax/Typed/Defn.agda:218:           → ⌜_⌝t {Γ} a [ δ ]b ≡ ⌜ a [ δ ]t ⌝t -- ⌜ a ⌝ [ δ ]b ≡ ⌜ a [ δ ]t ⌝t
+Syntax/Typed/Defn.agda:219:  Löb[] : ∀{Γ Δ Σ n}(δ : Γ ⊃ Δ){A : Σ ⋆ n}(l : Δ ⊢ box (box A ‘→’ A))
+Syntax/Typed/Defn.agda:220:        → Löb l [ δ ]t ≡ Löb (l [ δ ]t)
+Syntax/Typed/Defn.agda:221:  bapp[] : ∀{Γ Δ Σ n m}(δ : Γ ⊃ Δ){A : Σ ⋆ n}{B : Σ , A ⋆ m}(p : Δ ⊢ box (π A B))
+Syntax/Typed/Defn.agda:223:  unsub[] : ∀{Γ Δ Σ Ξ n}(δ : Γ ⊃ Δ){A : Ξ ⋆ n}(σ : Σ ⊃ Ξ)(a : Δ ⊢ box (A [ σ ]T))
+Syntax/Typed/Defn.agda:225:  unsub[]b : ∀{Γ Δ Σ n}(δ : Δ ⊃ Σ){A : Σ ⋆ n}(a : Γ ⊢ box A)
+Syntax/Typed/Defn.agda:227:  [unsub]b : ∀{Γ Δ Σ n}(δ : Δ ⊃ Σ){A : Σ ⋆ n}(a : Γ ⊢ box (A [ δ ]T))
+Syntax/Typed/Defn.agda:242:{-# REWRITE Löb[] #-}
+Syntax/Typed/Defn.agda:248:löb : ∀{Γ n}{T : Γ ⋆ n} → Γ ⊢ box T ‘→’ T → Γ ⊢ T
+Syntax/Typed/Defn.agda:249:löb {Γ} {T = T} l = app l [ < Löb ⌜ l ⌝t > ]t
+Syntax/Typed/Outrageous/Def.agda:42:liftT (suc n) (Γ , X) t x (Γ⇓ , X⇓) = {!!}
+Syntax/Typed/Reflective.agda:1:{-# OPTIONS --no-positivity-check #-}
+Syntax/Untyped/Def.agda:125:-- now comes the question - quotient over this (Ptm / step) or just add these equalities as postulates?
+Syntax/Untyped/Def.agda:126:-- let's try postulates for now, and see how it goes
+Syntax/Untyped/Def.agda:130:postulate
+Syntax/Untyped/Interpreter.agda:30:ty⇓ {Γ , pΓ} {n} (t-pi1 {p} .{typ n} {B} pab) Γ⇓ = {!!}
+Syntax/Untyped/Interpreter.agda:31:ty⇓ (t-pi2 pab saB) Γ⇓ = {!!}
+Syntax/Untyped/Interpreter.agda:32:ty⇓ (t-app pf px sxB) Γ⇓ = {!!}
+Syntax/Untyped/Interpreter.agda:35:ty⇓ {x ∷ Γ , pΓ , px} {n} (t-var v) Γ⇓ = ⋆⋆TODO⋆⋆ -- I hate Agda sometimes
+Syntax/Untyped/Interpreter.agda:36:--ty⇓ (t-var (vz {X = typ n})) (Γ⇓ , x⇓) = {!!}
+Syntax/Untyped/Interpreter.agda:37:--ty⇓ {x ∷ Γ , pΓ , px} (t-var (vs i)) (Γ⇓ , x⇓) = {!!}
+Syntax/Untyped/Interpreter.agda:38:tm⇓ pty tm Γ⇓ = {!!}
+Syntax/Untyped/Interpreter.agda:42:-- tm⇓ pty tm Γ⇓ = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:35:-- subst-irrel (s-lam p1 p2) (s-lam p3 p4) = {!!} -- proceed similarly later
+Syntax/Untyped/Subst-Lemmas.agda:36:-- subst-irrel (s-sig p1 p2) (s-sig p3 p4) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:37:-- subst-irrel (s-smk p1 p2) (s-smk p3 p4) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:38:-- subst-irrel (s-pi1 p1) (s-pi1 p2) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:39:-- subst-irrel (s-pi2 p1) (s-pi2 p2) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:40:-- subst-irrel (s-app p1 p2) (s-app p3 p4) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:43:-- subst-irrel (s-brc p1 p2) (s-brc p3 p4) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:44:-- subst-irrel (s-ind p1 p2 p3) (s-ind p4 p5 p6) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:45:-- subst-irrel (s-exf p1) (s-exf p2) = {!!}
+Syntax/Untyped/Subst-Lemmas.agda:179:subst-subst = ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:1:{-# OPTIONS --without-K --no-termination-check #-}
+Syntax/Untyped/Typing.agda:80:lift-wt d (t-pi2 {ab} {A} {B} pab pB') rewrite lift-subst {d} z≤n (pi1 ab) B = t-pi2 (lift-wt d pab) ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:81:lift-wt d (t-app {A} {B} {f} {x} pf px pfx) rewrite lift-subst {d} z≤n x B = t-app (lift-wt d pf) (lift-wt d px) ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:91:                                                                   ≡⟨ ⋆⋆TODO⋆⋆ ⟩ -- Really missing Lean's elaborator right now
+Syntax/Untyped/Typing.agda:99:                                                                   ≡⟨ ⋆⋆TODO⋆⋆ ⟩
+Syntax/Untyped/Typing.agda:128:subst-wt Γ' px (t-smk pAB pa pB' pb) = t-smk (subst-wt Γ' px pAB) (subst-wt Γ' px pa) ⋆⋆TODO⋆⋆ (subst-wt Γ' px pb)
+Syntax/Untyped/Typing.agda:130:subst-wt Γ' px (t-pi2 pab paB) = ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:131:subst-wt Γ' px (t-app pf pa pfx) = ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:135:subst-wt Γ' px (t-ind pP pl' plc pbc) = t-ind (subst-wt (_ ∷ Γ') px pP) ⋆⋆TODO⋆⋆ (subst-wt Γ' px plc) ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:136:subst-wt Γ' px (t-exf pA) = ⋆⋆TODO⋆⋆
+Syntax/Untyped/Typing.agda:137:subst-wt Γ' px (t-var p) = ⋆⋆TODO⋆⋆
+WTLob.agda:60:Tm⇓ ⌜ x ⌝ Γ⇓ = {!!}
+WTLob.agda:62:Tm⇓ (Löb l) Γ⇓ = Tm⇓ l Γ⇓ (Löb l)
+WTLob.agda:70:-- löb : ∀ {‘X’} → Tm ε (‘□’ ‘X’ ‘→’ ‘X’) → ⌞ ‘X’ ⌟
+WTLob.agda:71:-- löb f = Tm⇓ (Löb f) _
+WTLob.agda:77:-- fb-fb-cooperate {Γ} {X} {Y} p1 p2 = Löb (comp p2 (lam ⌜ app p1 ⌝t)) , Löb (comp p1 (lam ⌜ app p2 ⌝t))
+lib.agda:20:postulate ⋆⋆TODO⋆⋆ : ∀ {i}{A : Set i} → A
+lib.agda:203:postulate

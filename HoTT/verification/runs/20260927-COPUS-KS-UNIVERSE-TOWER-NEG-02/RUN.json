@@ -1,0 +1,66 @@
+{
+  "agda_error_tag": "UnequalTerms",
+  "audit_notes": [],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "COPUS-KS-C01"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/ks-universe-tower",
+    "HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSNegOvershoot.agda"
+  ],
+  "completed_at_utc": "2026-09-27T06:30:36.818787+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 71.551635,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/ks-universe-tower/KSNegOvershoot.agda:19.46-53: error: [UnequalTerms]\nisOfHLevel (suc n) (x ≡ y) !=\n(x₁ y₁ : x ≡ y) → isOfHLevel (suc n) (x₁ ≡ y₁)\nwhen checking that the expression tower n has type\nKSUniverseTower.NT (lvl n) (suc n)",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/ks-universe-tower"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-COPUS-KS-TOWER-NEG-002",
+  "rejection_stage": "TYPE_CHECKING",
+  "run_id": "20260927-COPUS-KS-UNIVERSE-TOWER-NEG-02",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Bookkeeping control: the level-exact certificate tower n cannot yield 'U_n is not an (n+1)-type' (NT (lvl n) n vs NT (lvl n) (suc n)).",
+  "source_manifest": {
+    "bytes": 2564,
+    "path": "source-manifest.json",
+    "sha256": "305bfba30901503d89f75a29d9acc76720a9049215d1f376d2aa740fb83f5c36"
+  },
+  "started_at_utc": "2026-09-27T06:29:25.267152+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 20656,
+    "path": "stdout.txt",
+    "sha256": "2511dbf45bcf29ed1a04e886a88811bee5ea481f732b95eba59a5707a909feaa"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

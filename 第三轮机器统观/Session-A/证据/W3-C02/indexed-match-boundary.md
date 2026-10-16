@@ -1,0 +1,13 @@
+# C02的索引匹配计算边界
+
+本记录区分原生类型检查、具体构造输入的归约和任意经transport的索引证明之计算。C02的run04/05/06等保留`UnsupportedIndexedMatch`原始警告；当前没有关闭该警告、改编译器配置或把它称为HoTT矛盾。
+
+实际命中的定义包括FiniteCoverSearch.inspectComplete、FiniteSubcover.removeLength和splitMember。它们用于枚举/有限覆盖证明，依赖List构造子的索引匹配。最终run中的完整警告清单以stdout为准，不能从此处的早期列表推定没有其它项。
+
+已查[Agda 2.8.0官方Cubical文档的indexed inductive types节](https://agda.readthedocs.io/en/v2.8.0/language/cubical.html#indexed-inductive-types)：该警告指部分匹配定义尚无覆盖索引transport的定义性计算规则；文档另示例可用路径等式处理定义性卡住的表达式。这里不推导编译器或元理论的全局正确性。
+
+因此本包只按实际命题和工具版本交付FORMAL_CHECKED_WITH_SCOPE；不能把它说成所有受transport影响的证明输入都会直接归约成列表，也不能从检查成功推出一般程序运行/搜索总性。具体selectedIndices等`refl`目标与软件运行各自支持所列构造输入；其它结果按命题等式陈述，保留其精确假设。源码的safe/cubical/guardedness/two-level选项在run中公开，旧依赖注释不冒新结论。
+
+官方页面只用于解释实现警告。研究主命题仍须经实际source/run/index及相称现实任务审查，不因文档建议隐藏警告而删去原始诊断。新增输入若确实依赖未支持的计算，须补路径证明、改等价实现或降低该运行主张，不能承诺一般归约性质。
+
+字节保全：直接抓取渲染页的urllib请求得到403，失败记录在doc-fetch-001.json；随后从官方Agda仓库v2.8.0 ref取得文档源，保存agda-v2.8.0-cubical.lagda.rst与doc-source.json，SHA-256为a8398f0f1c378f626aa01d7047fabd6ac3545f5a080e84b1ca1a94c44c417051。实际语义阅读仍限上述警告节及相邻例子，不把保存全文字节称为全文阅读或新的数学验证。

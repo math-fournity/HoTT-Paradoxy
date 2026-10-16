@@ -1,0 +1,112 @@
+{
+  "schema_version": "ercf3-t2-post-evidence/v1",
+  "captured_at_utc": "2026-09-13T03:19:00+00:00",
+  "session_id": "S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE",
+  "state_revision": 54,
+  "latest_session": "S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE",
+  "head_revision": 54,
+  "post_checks": [
+    {
+      "name": "fresh-three-way-regeneration",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "revision": 54,
+        "governance_documents": 15,
+        "research_documents": 20,
+        "negative_cases": ["wrong_snapshot", "incomplete_coverage", "tampered_chunk", "profile_snapshot_mismatch"],
+        "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+      }
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "state_revision": 54,
+        "core_units": 36,
+        "merge_entries": 33,
+        "fresh_receipt_revision": 54,
+        "reconciliation_entries": 22226,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {"state_revision": 54, "direction_count": 27, "outcome_count": 49, "core_units_declared": 36}
+    },
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "core_units": 36,
+        "generation": "core-cognition-generation-4",
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"
+      }
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {"marker_files": 9}
+    },
+    {
+      "name": "understanding-merge",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "union_files": 33,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 18,
+        "unresolved_nontrivial": 0
+      }
+    }
+  ],
+  "test_suites": [
+    {"name": "cognition-runtime", "tests": 28, "status": "OK"},
+    {"name": "full-closure-loading-reader", "tests": 17, "status": "OK"},
+    {"name": "three-way-cognition", "tests": 4, "status": "OK"},
+    {"name": "core-cognition", "tests": 7, "status": "OK"},
+    {"name": "math-proof-delivery-governance", "tests": 4, "status": "OK"}
+  ],
+  "source_verifiers": [
+    {"name": "history-ledgers", "status": "PASS"},
+    {"name": "cross-source-reconciliation", "status": "PASS"}
+  ],
+  "t2_probe": {
+    "path": ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.agda",
+    "sha256": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d",
+    "checks": {
+      "--safe": {"exit": 0, "warnings": 0, "stderr_bytes": 0},
+      "--safe --without-K": {"exit": 0, "warnings": 0, "stderr_bytes": 0}
+    },
+    "imports": ["Agda.Builtin.Nat", "Agda.Builtin.Equality", "Agda.Builtin.Bool"],
+    "claim_package": false,
+    "stop_condition_triggered": false,
+    "verdict": "ERCF3_T2_ROUTE_A_VERIFIED"
+  },
+  "hash_hygiene": {
+    "stale_source_hashes_repaired": 10,
+    "unexpected_stale_remainder": 0,
+    "claim_matrix_sha256": "22e1c54c02d26e76d6b60309d9f4c1c68418fe6890aef6a4a4f7dbfd3dfda0b4",
+    "merge_manifest_rebuilt": true
+  },
+  "checkpoint_payload_sha256": "7ddaa92019a6faefaa6df02be8e5def1b78c9c94dff9506706ae1c4cae13217a",
+  "git_diff_check": "CLEAN",
+  "write_lock_present": false,
+  "transaction_present": false,
+  "pending_transaction_present": false,
+  "failures": [],
+  "status": "PASS"
+}

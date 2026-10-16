@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-316",
+    "C-317"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-native-endpoint-fibers-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/NativeCompletionFibers.agda"
+  ],
+  "completed_at_utc": "2026-09-20T23:03:50.795130+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 289.731372,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "bcd30f05b543079dcacfd9f5a93ff0a2ce2d8de9800be54e86dfa8547eaf2409"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "A uniform spatial bound for the complete time family is still outstanding.",
+    "No ambient-plane isotopy, physical implementation/speed/length, newly defined geometric distance function, or unconditional full Weak-puncture coverage.",
+    "No whole Lean/native model translation, global consistency certificate or completed four-stage result. Fixed inherited foundation postulates remain; no new LEM/Lift/choice parameter is introduced."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001",
+  "run_id": "20260920-MP-ASTRA-NATIVE-ENDPOINT-FIBERS-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For unchanged closedMotion, prove its two endpoint images are distinct for every real t<1 and, on closed time [0,1], coincide iff time is exactly1. Completely classify final closed-parameter fibers: two parameters have the same final image iff they are equal or are the two endpoints in either order. Classification is a propositional disjunction with explicit maps both ways, based on interior-fiber uniqueness, ordered apart fibers and located order; no real-equality decider is claimed.",
+  "source_manifest": {
+    "bytes": 18746,
+    "path": "source-manifest.json",
+    "sha256": "5a93bb40856e43987813146fcc1387d05dc919846f5698a2b89c1a5cd6a45277"
+  },
+  "started_at_utc": "2026-09-20T22:59:01.063758+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 213958,
+    "path": "stdout.txt",
+    "sha256": "b0e268553e3c92969e70ad930f4d8dec66e9d12583f331fab74453f4896a924f"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

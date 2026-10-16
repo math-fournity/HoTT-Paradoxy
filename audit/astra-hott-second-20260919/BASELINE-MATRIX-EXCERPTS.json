@@ -1,0 +1,26 @@
+{
+  "ref": "8a334e0",
+  "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+  "rows": [
+    {
+      "line": 706,
+      "text": "| CAND-F2-7-M3 | 在含第二枚结论的 Cubical Agda 中，`LEMᵒ = (A : Type₀) → isProp A → A ⊎ (A → ⊥)` 为显式假设下：(1) `specA-inhabited : LEMᵒ → Spec_A`——√2 判定表 `f : ℚ → Bool`（`f q ≡ true ↔ q·ℚq < 2r`，逐点由 LEM 定义）作为给定数据居住（过程 A「读出」的数据层合法性）；(2) `M3-L1 : LEMᵒ → ¬ (Spec_A ≃ Spec_B)`——读出任务与算出任务的规格类型不等价（等价传输居住性即与 `spec-B-empty` 矛盾）。核拒绝「读出 = 算出」的任务同一性；理论把二者当同一任务使用的位置在前提层（Book §11.2 Ω 依赖链）。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPECA_INHABITED_LEM_CONDITIONAL_AND_M3_L1` | run `20260917-MP-DEDEKIND-OMEGA-M3-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，55.6s）、`stdout.txt`、`source-manifest.json`（含 M2 源码哈希——消费依赖）；`isProp<` 来自 `Cubical.Data.Rationals.Order`。 | **不**声称 HoTT 不一致；**不**声称爆炸原理被点燃；**不**声称用户第③件事（A=B）内部可证——M3-L1 恰证明其在判据 J=规格等价下被核否定；寻找使 ③ 可证的 J 等价于寻找 HoTT(+LEM) 不一致性证明，登记为开放前沿、不预设不追逐；**不**声称 Spec_A 无条件居住（LEM 显式假设 = Ω 依赖链的证据）；逼选「两支都命中」为论证（`ARGUMENT_ANCHORED_ON_MACHINE_PROOVED_FACTS`，锚 = M1+M2+M3 收据 + §11.2 逐字定位），非单一机器定理。 |"
+    },
+    {
+      "line": 740,
+      "text": "| CAND-F2-7-M3-UNC | 在纯 Cubical Agda（无 LEM、无 resizing、无任何追加假设）中：(1) `specA-inhabited-unc : Spec_A` 无条件居住——判定表 `f : ℚ → Bool`（`f q ≡ true ↔ q·ℚq < 2r`）由 ℚ 序可构造判定 `_≟_ : (m n : ℚ) → Trichotomy m n` 直接定义，不需要 LEM（027 §5 待核发现**核实为真**）；(2) `M3-L1-unc : ¬ (Spec_A ≃ Spec_B)` 识别拒绝去条件化。债务定位：判定表在 ℚ 层免费，理想元素本体（判定表升格为实数层对象、完整 cut）才收费——完成义务在承载层跨界处收费。 | `MACHINE_PROVED_LOCAL_UNCOMMITTED / SPEC_A_UNCONDITIONAL_AND_IDENTIFICATION_REFUTED` | run `20260917-MP-DEDEKIND-OMEGA-M3-UNC-01/` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，55.6s）与收据文件；`_≟_`/`isIrrefl<`/`isAsym<` 来自 `Cubical.Data.Rationals.Order`。 | **不**声称 HoTT 不一致；**不**推翻 M3 条件版收据（条件版仍真，本版为去条件化加强）；**不**声称完整 cut / 实数对象已无条件构造（「升格处收费」为语义读法与靶位指引）；不可证性证书属元理论（027 §4 拒证二元性），本包是对象层拒绝收据。 |"
+    },
+    {
+      "line": 856,
+      "text": "| **B2 靶 A 不可归约** | 对象层**不可内证** → **`QUESTION` 降格**：`n-lem = with (LEM ℕ) \\| inl x = x`（inl 见证任意），`LEM ℕ ↦ inl zero` 与 `↦ inl (suc zero)` 两个声模型族分别支持 `n-lem ≡ zero` 与其否 ⇒ 两方向内部证明皆不可能。已机械化不变量 = 语法层 canonicity 失败（TA/TA-AC/TA-LEM 负向探针，exit≠0 即收据）。 | `QUESTION`（依赖解释的伪命题；元层 canonicity 现象才是稳定表述） | 修订片 030 §4 + `MissileFourChargeDemo.agda` 头注预登记兑现；TA 族收据（本表前节） | 不因探针收据升格；Huber 完整结果维持 `SOURCE_REPORTED_NOT_REPLAYED`；不声称对象层定理 |"
+    },
+    {
+      "line": 871,
+      "text": "| CAND-F2-7-REBOUND-DISARM | 第一弹反弹（极限理论式紧化）的构造性重建在 cubical HoTT 中合法且免费：理想点=显式构造子、端点同一化=路径构造子、闭计算经 HIT 可归约到典范形（intLoop (pos 0) ≡ refl by refl）——canonicity 不被 HIT 收费（对照 TA 族 postulate 卡住形态）。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（`KERNEL_ACCEPTED_WITH_SCOPE`，exit 0，stderr 0） | 紧化**古典用法**的非现实性未被形式化（论证层）；不据此升级对极限理论本身的任何否定判词；攻击面在「完成声明的免费化」（Ω 塌缩，见 REAL-LAYER 节）而非紧化 |"
+    },
+    {
+      "line": 872,
+      "text": "| CAND-F2-7-NECESSITY-LEM | `LEMProp ℓ → SingleOmega ℓ`（经 hProp ℓ ≃ Bool），从而 `LEMProp ℓ → Necessity ℓ` 且 ℝLayerAt 前提未被使用——经典语境中必要性空洞。 | `MACHINE_PROVED_WITH_SCOPE` | run `-01` 的 `RUN.json`（exit 0，stderr 0）+ `source-manifest.json` | 无条件 Necessity 维持 `CONJECTURE`（真值依赖模型，CC 换币候选未决）；`SingleOmega↔PropResizing` 蕴含方向仍开放；不声称 LEM 为真；不声称 HoTT 不一致 |"
+    }
+  ]
+}

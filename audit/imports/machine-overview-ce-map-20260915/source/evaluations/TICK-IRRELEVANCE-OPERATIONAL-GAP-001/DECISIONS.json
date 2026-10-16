@@ -1,0 +1,95 @@
+{
+  "schema_version": "machine-overview-tick-operational-gap-decisions/v1",
+  "evaluation_id": "TICK-IRRELEVANCE-OPERATIONAL-GAP-001",
+  "freeze": {
+    "path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/FREEZE.json",
+    "bytes": 12749,
+    "sha256": "df0cb0b1edb10b9ad18e18be4368733627cef0d0dea36b282ebe98c52d3e55f2"
+  },
+  "adjudication_identity": "Current Codex main agent; every semantic status is a bounded review judgment tied to literal anchors and native controls, not a mathematical claim or global absence theorem.",
+  "sources": [
+    {
+      "source_id": "TG-S1-CCTT-PAPER-v3",
+      "classification": "THEORY_EXPLICITLY_SEPARATES_OPERATIONAL_AND_EXTENSIONAL_TICK_IDENTITY",
+      "answers": {
+        "G1": {"status": "PASS", "detail": "The paper declares simple and forcing ticks and says diamond unfolds fixed points.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["There are two forms of ticks: simple ticks and forcing ticks.", "Since ﬁxed points unfold when applied to ⋄, the identity of ticks"]}]},
+        "G2": {"status": "PASS", "detail": "Tick irrelevance is explicitly Path-level and force is an application of it.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["However, on the extensional level the identity of ticks is irrelevant", "One important application of tirr is in showing that force"]}]},
+        "G3": {"status": "PASS", "detail": "The paper says fixed points do not unfold judgementally except at diamond and supplies pfix as a path.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["To ensure termination, ﬁxed points do not unfold judgementally, except when applied to ⋄."]}]},
+        "G4": {"status": "PARTIAL", "detail": "The paper blocks an ordinary internal tick type: ticks are a special syntactic class. The no-observer consequence is checked by the separate Cubical control.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["because ti cks do not form a type."]}]},
+        "G5": {"status": "PASS", "detail": "Unrestricted later elimination is rejected and safe forcing requires clock abstraction and substitution.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["Unrestricted elimination of ⊲ is unsound", "To close such an elimination rule under substitutions, the clock variable"]}]},
+        "G6": {"status": "FAIL", "detail": "The paper distinguishes operational and extensional roles rather than licensing judgemental replacement.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["Since ﬁxed points unfold when applied to ⋄, the identity of ticks", "However, on the extensional level the identity of ticks is irrelevant"]}]},
+        "G7": {"status": "FAIL", "detail": "No natural-use mismatch is established by the paper; its stated design keeps the two roles separate.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["To ensure termination, ﬁxed points do not unfold judgementally, except when applied to ⋄."]}]},
+        "G8": {"status": "PARTIAL", "detail": "The paper reports an implementation but explicitly does not prove canonicity; native replay is supplied by the checker/library sources below.", "evidence": [{"artifact_id": "TG-A-CCTT-TEXT", "anchors": ["Although we do not prove canonicity for our type theory"]}]}
+      }
+    },
+    {
+      "source_id": "TG-S2-GUARDED-LIB-cf0c438",
+      "classification": "REFERENCE_LIBRARY_HAS_PATH_RULES_AND_ALL_CLOCK_FORCE_WITHOUT_OPERATIONAL_PROMOTION",
+      "answers": {
+        "G1": {"status": "PASS", "detail": "The library has distinct Tick/FTick forms and documents diamond-only fixed-point computation.", "evidence": [{"artifact_id": "TG-A-CLOCKED-PRIMITIVES", "anchors": ["Tick : Cl → LockU", "FTick : Cl → LockU"]}, {"artifact_id": "TG-A-GUARDED-LATER", "anchors": ["-- These will compute only on diamond ticks."]}]},
+        "G2": {"status": "PASS", "detail": "tick-irr and force-delay are explicit Path constructors through tirr/ftirr.", "evidence": [{"artifact_id": "TG-A-CLOCKED-PRIMITIVES", "anchors": ["tick-irr x α β i = x (tirr α β i)", "force-delay f k α i = f ⟨ k , ftirr ◇ (emb α) i ⟩"]}]},
+        "G3": {"status": "PASS", "detail": "pfix is a Path, while source documentation reserves computation for diamond.", "evidence": [{"artifact_id": "TG-A-CLOCKED-PRIMITIVES", "anchors": ["pfix' f α i = pfix f i α"]}, {"artifact_id": "TG-A-GUARDED-LATER", "anchors": ["-- These will compute only on diamond ticks."]}]},
+        "G4": {"status": "FAIL", "detail": "The library represents ticks in LockU and provides no Bool-valued tick-form discriminator.", "evidence": [{"artifact_id": "TG-A-CLOCKED-PRIMITIVES", "anchors": ["Tick : Cl → LockU", "FTick : Cl → LockU"]}]},
+        "G5": {"status": "PASS", "detail": "force requires an all-clock delayed family and returns an all-clock result.", "evidence": [{"artifact_id": "TG-A-CLOCKED-PRIMITIVES", "anchors": ["force : ∀ {l} {A : Cl → Set l} → (∀ k → ▹ k (A k)) → ∀ k → A k"]}]},
+        "G6": {"status": "FAIL", "detail": "The strongest downstream use constructs the full clock family and uses subst along pfix; it does not turn the path into judgemental reduction.", "evidence": [{"artifact_id": "TG-A-CLOCKED-LIFT", "anchors": ["force (\\ k → \\ α → subst", "sym (pfix' _ α $> _)"]}]},
+        "G7": {"status": "FAIL", "detail": "The complete six-file fixed tree contains no operational-promotion consumer; the near hit retains both clock family and Path transport.", "evidence": [{"artifact_id": "TG-A-CLOCKED-LIFT", "anchors": ["force (\\ k → \\ α → subst"]}]},
+        "G8": {"status": "PASS", "detail": "The repository README names the matching compiler branch, and the frozen build receipt records a successful exact source smoke test.", "evidence": [{"artifact_id": "TG-A-GUARDED-README", "anchors": ["support for forcing ticks (e.g. ◇) is to be found in the"]}, {"artifact_id": "TG-A-BUILD-RECEIPT", "anchors": ["Agda version 2.6.3", "clocked_primitives_exit"]}]}
+      }
+    },
+    {
+      "source_id": "TG-S3-AGDA-CHECKERS",
+      "classification": "CHECKER_META_SYNTAX_SEPARATES_TICK_KINDS_AND_DIAMOND_REDUCTION",
+      "answers": {
+        "G1": {"status": "PASS", "detail": "The checker has distinct LockKind constructors for Tick and ForcingTick.", "evidence": [{"artifact_id": "TG-A-COMPILER-COMMON", "anchors": ["data LockKind = Tick", "| ForcingTick"]}]},
+        "G2": {"status": "PASS", "detail": "The checker implements separate tick and forcing-tick irrelevance primitives.", "evidence": [{"artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER", "anchors": ["primTickIrr' = do", "primForcingTickIrr' = do"]}]},
+        "G3": {"status": "PASS", "detail": "reducePFix is disabled for ordinary/unknown forcing ticks and enabled on the FTDia branch.", "evidence": [{"artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER", "anchors": ["reducePFix False slk _ m = m", "reducePFix True slk t m = do", "FTDia _k -> advanceCase' slk True"]}]},
+        "G4": {"status": "FAIL", "detail": "The operational discriminator is a Haskell meta-syntax datatype, not an object-language function on a tick type.", "evidence": [{"artifact_id": "TG-A-COMPILER-COMMON", "anchors": ["data LockKind = Tick", "| ForcingTick"]}, {"artifact_id": "TG-A-COMPILER-BUILTIN-VIEW", "anchors": ["ftickView' :: HasBuiltins m"]}]},
+        "G5": {"status": "PASS", "detail": "The primitive forcing application type quantifies over clocks and retains a forcing-tick lock.", "evidence": [{"artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER", "anchors": ["lPi' ForcingTick \"α\"", "nPi' \"k\" (cl tClock)"]}]},
+        "G6": {"status": "FAIL", "detail": "The reducer branches on meta-level tick views; it does not derive the FTDia computation branch from Path equality.", "evidence": [{"artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER", "anchors": ["FTEmb _k lk' -> redReturn", "FTDia _k -> advanceCase' slk True"]}]},
+        "G7": {"status": "FAIL", "detail": "The fixed checker implementation preserves the split; no source-backed operational promotion is identified.", "evidence": [{"artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER", "anchors": ["reducePFix False slk _ m = m", "reducePFix True slk t m = do"]}]},
+        "G8": {"status": "PASS", "detail": "The exact commit was built with frozen dependencies and the produced Linux arm64 binary passed a fresh-container smoke test.", "evidence": [{"artifact_id": "TG-A-BUILD-RECEIPT", "anchors": ["5bec849bec6c7aa40e068db99c5a1f5eab47a874", "Agda version 2.6.3", "clocked_primitives_exit"]}]}
+      }
+    }
+  ],
+  "consumer_promotions": [
+    {
+      "consumer_id": "TG-C1-FORCE-DELAY-DEFINITION",
+      "artifact_id": "TG-A-CLOCKED-PRIMITIVES",
+      "anchors": ["force-delay f k α i = f ⟨ k , ftirr ◇ (emb α) i ⟩"],
+      "classification": "PATH_ONLY",
+      "reason": "It constructs an interval-indexed Path; it does not assert refl or expose current reduction as data."
+    },
+    {
+      "consumer_id": "TG-C2-LIFT-FWD",
+      "artifact_id": "TG-A-CLOCKED-LIFT",
+      "anchors": ["force (\\ k → \\ α → subst", "pfix' _ α $> _"],
+      "classification": "NO_PROMOTION",
+      "reason": "The consumer explicitly builds an all-clock family and transports an internal proof along pfix."
+    },
+    {
+      "consumer_id": "TG-C3-COMPILER-DIAMOND",
+      "artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER",
+      "anchors": ["FTDia _k -> advanceCase' slk True", "reducePFix True slk t m = do"],
+      "classification": "JUDGEMENTAL_COMPUTATION",
+      "reason": "This is the meta-level diamond reduction branch itself, not a Path-derived object consumer."
+    },
+    {
+      "consumer_id": "TG-C4-COMPILER-ORDINARY",
+      "artifact_id": "TG-A-COMPILER-CUBICAL-REDUCER",
+      "anchors": ["FTEmb _k lk' -> redReturn", "reducePFix False slk _ m = m"],
+      "classification": "NO_PROMOTION",
+      "reason": "Embedded ordinary ticks remain in the non-diamond branch; Path primitives do not switch this boolean."
+    }
+  ],
+  "probes": [
+    {"probe_id": "P01-INTERNAL-OBSERVER-COLLISION", "runner": "host_agda", "purpose": "Native safe Cubical proof of the conditional observer collision plus constant/two-sorted positive controls.", "expect": "ACCEPT", "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/TickObserverBoundary.agda", "bytes": 1206, "sha256": "846dd144437730b3dc75fab3893446b818e1fd6ff656039e4825b37d9e2fc847"}},
+    {"probe_id": "P02-BAD-PATH-RESPECTING-OBSERVER", "runner": "host_agda", "purpose": "Directly define a Bool discriminator on a HIT whose constructors are joined by tirr.", "expect": "TYPE_REJECTION", "diagnostic": "[CoverageIssue]", "expected_exit": 42, "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOperationalObserver.agda", "bytes": 342, "sha256": "8230e3af4b0f13eb54a74829fd535f30bc87ea056da48aef44b1349457ac505a"}},
+    {"probe_id": "P03-BAD-PATH-AS-REFL", "runner": "host_agda", "purpose": "Check that a path constructor does not make distinct tick constructors judgementally equal.", "expect": "TYPE_REJECTION", "diagnostic": "[UnequalTerms]", "expected_exit": 42, "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadTickPathRefl.agda", "bytes": 273, "sha256": "b8fc4fe419c3a117648ba0dc6fbb09d34044bafcb5a91e174e16c7b89d8f760a"}},
+    {"probe_id": "P04-EXACT-CLOCKED-PRIMITIVES", "runner": "forcing_agda", "purpose": "Compile the exact forcing-ticks Clocked.Primitives source with the exact branch checker.", "expect": "ACCEPT", "source": {"path": "/Volumes/D/HoTT-machine-overview-cache/HOTT-QUOTATION-BRIDGE-001/agda-guarded-forcing-ticks/src/Clocked/Primitives.agda", "bytes": 3818, "sha256": "a8b5da3aaeead0b003a0124bb73d5f69e6b88650bded728ea70073f4c7df9aaa"}},
+    {"probe_id": "P05-DIAMOND-JUDGEMENTAL-UNFOLD", "runner": "forcing_agda", "purpose": "Use refl to observe dfix unfolding after forcing application at diamond.", "expect": "ACCEPT", "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForcingTickComputation.agda", "bytes": 429, "sha256": "8d8cfb3734be5fa644407e62e1c592043bbabe8f34deabbe61817fe14e3506e2"}},
+    {"probe_id": "P06-ORDINARY-TICK-PATH", "runner": "forcing_agda", "purpose": "Use pfix' to relate an ordinary-tick application to its unfolding by Path.", "expect": "ACCEPT", "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/OrdinaryTickPath.agda", "bytes": 429, "sha256": "12a58895b9e4efb12daae01df819b46b0adb672e08c4b5d15a2ece3fd6a5cb47"}},
+    {"probe_id": "P07-BAD-ORDINARY-JUDGEMENTAL-UNFOLD", "runner": "forcing_agda", "purpose": "Attempt to replace the ordinary-tick pfix Path with refl.", "expect": "TYPE_REJECTION", "diagnostic": "lineFix zeroAlg Agda.Primitive.Cubical.i0", "expected_exit": 42, "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadOrdinaryTickRefl.agda", "bytes": 434, "sha256": "89103337373537cdd9d092888b5429615ebb74f2e4f7f84d6e56923eb71a675d"}},
+    {"probe_id": "P08-FORCE-DELAY-PATH", "runner": "forcing_agda", "purpose": "Instantiate the exact force-delay Path between forcing result and ordinary-tick application.", "expect": "ACCEPT", "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/ForceDelayPath.agda", "bytes": 474, "sha256": "669ed2ad7f6367531c156e57dab5da6a98531859f3ad19f0f3b3b51c6a20afe6"}},
+    {"probe_id": "P09-BAD-FORCE-DELAY-AS-REFL", "runner": "forcing_agda", "purpose": "Attempt to replace force-delay by judgemental equality for the same dfix family.", "expect": "TYPE_REJECTION", "diagnostic": "zero != lineFix zeroAlg", "expected_exit": 42, "source": {"path": "machine-overview/evaluations/TICK-IRRELEVANCE-OPERATIONAL-GAP-001/probes/BadForceDelayRefl.agda", "bytes": 484, "sha256": "cfe1d6b3a3593d104081b8289203e1fb8a982411d713cbfaade86abf0f21296b"}}
+  ]
+}

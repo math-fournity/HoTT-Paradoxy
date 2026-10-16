@@ -1,0 +1,288 @@
+{
+  "schema": "mo3-multiscale-evidence/v1",
+  "status": "FAIL",
+  "checks": {
+    "single_pair_controls_all_normal": true,
+    "joint_task_difference_visible": true,
+    "same_sources_repartition_preserves_declared_groups": true,
+    "erase_joint_relationship_loses_both_group_questions": true,
+    "full_declared_question_set_is_accepted": true,
+    "order_preserves_different_observations": true,
+    "unordered_projection_would_merge_distinct_orders": true,
+    "archived_partial_before_exact_bytes": false,
+    "goal-route": true,
+    "shards": true,
+    "invariants": true,
+    "diff": true,
+    "skill-execution": true,
+    "skill-audit": true,
+    "user_originals_unchanged": true,
+    "case_independence_retained": true,
+    "single_file": true,
+    "fourteen_questions": true,
+    "audit24": true,
+    "four_prompt_limits": true,
+    "obsolete_signal_only_clause_removed": true,
+    "upstream_structural_entry_present": true,
+    "governance_current_directive": true,
+    "research_current_directive": true,
+    "active_plan_readable": true,
+    "links_exist": true,
+    "all_26_planned_owners_changed": true
+  },
+  "commands": [
+    {
+      "label": "goal-route",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/audit",
+        "-p",
+        "test_goal_task_governance.py",
+        "-v"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "shards",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "invariants",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_v5_invariants.py"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "最高指示.md",
+        "goal-5.md",
+        "goal-6.md",
+        "goal-5-audit.md",
+        "goal-6-audit.md",
+        ".codex/skills/hott-machine-overview-execution/SKILL.md",
+        ".codex/skills/hott-machine-overview-audit/SKILL.md",
+        ".codex/cognition/TASK_ROUTING.md",
+        "第三轮机器统观/治理整备/Session-A-goal提示词.txt",
+        "第三轮机器统观/治理整备/Session-B-goal提示词.txt",
+        "第三轮机器统观/整备/Session-A-goal提示词.txt",
+        "第三轮机器统观/整备/Session-B-goal提示词.txt",
+        "第三轮机器统观/整备/Session-A-工作闭包.md",
+        "第三轮机器统观/整备/Session-B-工作闭包.md",
+        "feature-list.md",
+        "rulings.md",
+        "README/001 - 当前入口与关键文件.md",
+        "第三轮机器统观/README.md",
+        ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md",
+        ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/001 - 完备性目标、边界与覆盖包络.md",
+        ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/002 - HoTT构造与程序化激发算子全景.md",
+        ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/003 - 生成器、执行器与判据组合.md",
+        ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/004 - 开放世界未知、反遗漏与自扩展机制.md",
+        ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/005 - 阶段路线、验收与当前缺口.md",
+        "dev-docs/机器统观的多层次语义覆盖与格化组织方案-20260923.md",
+        "dev-docs/README.md"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "skill-execution",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-execution"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "skill-audit",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "/Users/aurolafly/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-audit"
+      ],
+      "exit": 0
+    }
+  ],
+  "prompt_counts": {
+    "第三轮机器统观/治理整备/Session-A-goal提示词.txt": 1579,
+    "第三轮机器统观/治理整备/Session-B-goal提示词.txt": 1451,
+    "第三轮机器统观/整备/Session-A-goal提示词.txt": 1719,
+    "第三轮机器统观/整备/Session-B-goal提示词.txt": 1527
+  },
+  "plans": {
+    "governance": {
+      "snapshot": "6100919ed62b6c8ded85dd7405eb137cecd4133a9c26d8929ef58f20b32c5310",
+      "highest": "a6cb0ea0b8d23205e5f4e03e0c844f142a50ce11e7fc229b33ae569c0b1f9ba9",
+      "review_required": [],
+      "promotion": []
+    },
+    "research": {
+      "snapshot": "3ba18911f6c5cf9d8e263707bd321896d578c065829c68c06fd7bf217418a2db",
+      "highest": "a6cb0ea0b8d23205e5f4e03e0c844f142a50ce11e7fc229b33ae569c0b1f9ba9",
+      "review_required": [],
+      "promotion": []
+    }
+  },
+  "active_review_required": [
+    "MO3-GOVERNED-A"
+  ],
+  "broken_links": [],
+  "identities": [
+    {
+      "path": "最高指示.md",
+      "sha256": "a6cb0ea0b8d23205e5f4e03e0c844f142a50ce11e7fc229b33ae569c0b1f9ba9",
+      "before_sha256": "6ba22034bb52c3863e0aeae44c5b229ab90ea585fbcaee697c9587fee32b333d"
+    },
+    {
+      "path": "goal-5.md",
+      "sha256": "48dc3337bdb13efa2f6431703b18152a33aa9bad379234d57f8c780956bcfb48",
+      "before_sha256": "7ebcdddf3a3f4c999d9598ac2d1b7b769385716d3b2a9bae211d580b7a34d663"
+    },
+    {
+      "path": "goal-6.md",
+      "sha256": "0e74fd8963d515136bc97c33a77a3d0b48e620cdf525a7bcf2bf473e0efd2111",
+      "before_sha256": "b1b2ac132ce01b7949259e3eae2ef3980054ffd5b730104f4b64310d237f6e37"
+    },
+    {
+      "path": "goal-5-audit.md",
+      "sha256": "614531b4267ee0a2b56fae47751fba8a2bde62a016723747b70dc1fd11a77f13",
+      "before_sha256": "1890552f21b50776c70fb421bf6d0f9c01b7ff68a9f8856669f34e95a0f9acfe"
+    },
+    {
+      "path": "goal-6-audit.md",
+      "sha256": "2869a96e5e9796cca519ee283ca057b70a644ac863e302be30d98c96b338d9cd",
+      "before_sha256": "3e75cc70646c1c960dd8575f08afafd82ba4c77feeae94ba21f0b849b8bdfe89"
+    },
+    {
+      "path": ".codex/skills/hott-machine-overview-execution/SKILL.md",
+      "sha256": "35e8b9949a327ddde0eccee968c5e5400aeef8da63b21494d5cdd3929a6d95d3",
+      "before_sha256": "6fb26b53eb714a4a75449c9819077902fda897ef5804308a6016c9bf009c45e7"
+    },
+    {
+      "path": ".codex/skills/hott-machine-overview-audit/SKILL.md",
+      "sha256": "4b2374eb3227391b7b924279e5de5765cadf08ddb624d9d971834acdb5795775",
+      "before_sha256": "06d844b37ac1f17f2a238733a2425b5b15cdf84ab0c06c8d6117f36a799b587d"
+    },
+    {
+      "path": ".codex/cognition/TASK_ROUTING.md",
+      "sha256": "6e51347a9815be880d9a0bfcbd8fe43374659ab64f1b8852e3a45d1c078ead4e",
+      "before_sha256": "b322c8626f7af96d700cd79bb48ca5e8551a59cc617658076fbc27b2b22b3161"
+    },
+    {
+      "path": "第三轮机器统观/治理整备/Session-A-goal提示词.txt",
+      "sha256": "bb9bfcd1b09496be990119f4eea9a9ef7fd37b67cc9e31f66fd93bb00022db6d",
+      "before_sha256": "e5d4ac5b51020177f8a86cbeb45a950a90ddd562541a93ff2ce55124d276bbc4"
+    },
+    {
+      "path": "第三轮机器统观/治理整备/Session-B-goal提示词.txt",
+      "sha256": "4f7d51008f0c144e1bf8656434eb91a63e47d11d442626e992474f34f01b3c18",
+      "before_sha256": "cfa372be7ef533002fc12e7fbffa4d1ef25d69cd8d081f54d77e12a0b19fab47"
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-A-goal提示词.txt",
+      "sha256": "eb0357132da310bd6f05a6c520d844fdda2a0e1c91652bec28279943767442ac",
+      "before_sha256": "98c3278eeea03c8fb7555ac18da5a4313ba5d8ed6d07ecff140a560b739c4330"
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-B-goal提示词.txt",
+      "sha256": "3f2ee8b3e040910029ae8bc74080af2557a90b7ef3d140ae53da7ad300b05213",
+      "before_sha256": "5a7c07d16ad43105ee15e2b5984b8b60a7f03466beaa651954e9500ab9d66496"
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-A-工作闭包.md",
+      "sha256": "0f37a4ce0f801dde76f5acbe55783c2f2e28534d7d290b2afb31bbe3dfc7f601",
+      "before_sha256": "3ee00a9af9c69166194fdc424a05d525249e2d939386e1d45e4ea6ee687672ba"
+    },
+    {
+      "path": "第三轮机器统观/整备/Session-B-工作闭包.md",
+      "sha256": "a47658bfe55cf2b5d05537d462469a09c4339e813e330f8be7d4b1ac43115d2d",
+      "before_sha256": "fca6c4dd3beee8385890ad9843b3400f9977bc8c3bb39bbedae3edb25328e3dd"
+    },
+    {
+      "path": "feature-list.md",
+      "sha256": "63c59cc030b9fa37622ecc7401b227b6d775994fee6dff05cad7b21248fe2fc6",
+      "before_sha256": "f65cb2077d800cee318a4f30a05d6608e5a6da6ed80c6382ebe516f861261300"
+    },
+    {
+      "path": "rulings.md",
+      "sha256": "6914f5ab43b879147eaae61376f92b2e517c76cdecf94a3aa9259e74953c2706",
+      "before_sha256": "f43f0e1591c490f96ad4337377fa55a21dd3c41455e334949160c55ca1928844"
+    },
+    {
+      "path": "README/001 - 当前入口与关键文件.md",
+      "sha256": "e2c487536a6a39bf056f4aebdbebe7cff71df700f56bc96a46de119fae312dbe",
+      "before_sha256": "3d4c37d5d9edc188d1f15b9b460b0f9937311d90de2b16ece1e0692c6e9de073"
+    },
+    {
+      "path": "第三轮机器统观/README.md",
+      "sha256": "5b1922eb62ac3ad7411901d870204ab0d6f040ddde889c8349a1c62965df498a",
+      "before_sha256": "400b2b4605a1fe165bbc648a3671bef9b9b671c08b1b0f2bd8cc5e0097792ce3"
+    },
+    {
+      "path": ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS.md",
+      "sha256": "1558ad063145acc33c1231a3dbedbe8232ddf930a094fe4e8a37a913cfed81c4",
+      "before_sha256": "0ccc052c7cbc61627050234a3238015e61fdb63b17973b7d8be407d5eb55870c"
+    },
+    {
+      "path": ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/001 - 完备性目标、边界与覆盖包络.md",
+      "sha256": "0857d9ff94164569ac908394a1840f23da0915ff3b52bff5dab643c452d5b39a",
+      "before_sha256": "5d0ae8f38b96e1f19f1cc6af873398cc3ef0de71122a4dbecc6677b09d3d95b1"
+    },
+    {
+      "path": ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/002 - HoTT构造与程序化激发算子全景.md",
+      "sha256": "f6dbf08f8e44f1f5b85fdcf7c874f02731d76ad758bc4806b7c73641f816c783",
+      "before_sha256": "620c58ed4a040a479288d86f4c3ccded72d2a60664d2e3e01858b335a6b5b250"
+    },
+    {
+      "path": ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/003 - 生成器、执行器与判据组合.md",
+      "sha256": "276b9dd8a8267f5aa02d8bace1b4891ef2f778fc48c775152b6c56a78036dc21",
+      "before_sha256": "ae4de1d8523f1f4a15da67ae2be385a9a62f251222d99f16027d238a45d0a261"
+    },
+    {
+      "path": ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/004 - 开放世界未知、反遗漏与自扩展机制.md",
+      "sha256": "5417507902ef481839e91c56c0edef0ce15c0cb3de19b8cc4fd02556813ac35a",
+      "before_sha256": "b34d591588e7ae1d0a6a6934c866a20f93aba79427ec54a54c0b9d913c5d641a"
+    },
+    {
+      "path": ".codex/research/hott/HOTT-PARADOX-PROGRAMMATIC-EXPLORATION-COMPLETENESS/005 - 阶段路线、验收与当前缺口.md",
+      "sha256": "5bc4e3c910e544ec315d69a41b00b8d7719ec6ecc2c1a99954caf99bce1a7e1f",
+      "before_sha256": "1a16138be4335f06c62f2685659d9301b348d93edb5d488151abd3ec3c8d49b6"
+    },
+    {
+      "path": "dev-docs/机器统观的多层次语义覆盖与格化组织方案-20260923.md",
+      "sha256": "a57ca82672ccfb64639a65746aff0877237c44f51203f978634e371e536b17e5",
+      "before_sha256": "281d6eac91228f8330fa19d31af52e3f721b188c2d8c3a3209a424eec9ccd16d"
+    },
+    {
+      "path": "dev-docs/README.md",
+      "sha256": "9db063626ad2c8bf17a43f53ab7af60759385ecf3970d25710644d0b62c527f5",
+      "before_sha256": "372d961ecb13d4507ba2beab23c298adfe9441d8829003072ab570516f0cc577"
+    }
+  ],
+  "limits": [
+    "synthetic finite run observations only",
+    "not FCA or HoTT theorem proof",
+    "not LLM autonomous discovery",
+    "no active A/current-state mutation",
+    "fresh behavior NOT_RUN"
+  ]
+}

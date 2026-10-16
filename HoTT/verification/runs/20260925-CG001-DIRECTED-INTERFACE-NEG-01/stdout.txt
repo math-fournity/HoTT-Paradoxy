@@ -1,0 +1,79 @@
+An error occurred when typechecking!
+Type Error:
+Definitions in context:
+  Δ¹ : 2 → TOPE
+  hom : (A : U) → (x : A) → (y : A) → U
+  is-contr : (A : U) → U
+  dhom : (A : U) → (x : A) → (y : A) → (f : hom A x y) → (C : A → U) → (u : C x) → (v : C y) → U
+  is-covariant : (A : U) → (C : A → U) → U
+  covariant-transport : (A : U) → (C : A → U) → (is-cov : is-covariant A C) → (x : A) → (y : A) → (f : hom A x y) → (u : C x) → C y
+  S : U
+  El : S → U
+  is-cov : is-covariant S El
+  A : S
+  B : S
+  f : hom S A B
+  φ : El A → El B
+  u : El A
+when typechecking
+  \ (S : U) → \ (El : S → U) → \ (is-cov : is-covariant S El) → \ (A : S) → \ (B : S) → \ (f : hom S A B) → \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (S : U) → (El : S → U) → (is-cov : is-covariant S El) → (A : S) → (B : S) → (f : hom S A B) → (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (El : S → U) → \ (is-cov : is-covariant S El) → \ (A : S) → \ (B : S) → \ (f : hom S A B) → \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (El : S → U) → (is-cov : is-covariant S El) → (A : S) → (B : S) → (f : hom S A B) → (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (is-cov : is-covariant S El) → \ (A : S) → \ (B : S) → \ (f : hom S A B) → \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (is-cov : is-covariant S El) → (A : S) → (B : S) → (f : hom S A B) → (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (A : S) → \ (B : S) → \ (f : hom S A B) → \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (A : S) → (B : S) → (f : hom S A B) → (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (B : S) → \ (f : hom S A B) → \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (B : S) → (f : hom S A B) → (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (f : hom S A B) → \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (f : hom S A B) → (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (φ : El A → El B) → \ (u : El A) → refl
+against type
+  (φ : El A → El B) → (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  \ (u : El A) → refl
+against type
+  (u : El A) → covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when typechecking
+  refl
+against type
+  covariant-transport S El is-cov A B f u =_{ El B } φ u
+
+when unifying term (expected)
+  covariant-transport S El is-cov A B f u : El B
+with term (actual)
+  φ u : El B
+
+
+Local tope context is unrestricted (⊤).
+
+HoTT/formal/claude-cg001/directed-interface-rzk/WrongDefinitionalCoe.rzk (line 63, column 6):
+  Error occurred when checking
+    #define coe-by-refl
+
+cannot unify term
+  π₁ (π₁ (is-cov A B f u))
+with term
+  φ u
+

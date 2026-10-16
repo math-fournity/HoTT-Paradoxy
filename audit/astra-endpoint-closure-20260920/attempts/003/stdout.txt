@@ -1,0 +1,49 @@
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:155:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑u
+in the target expression
+  (fun u => extendedDeformation 1 ↑u) u ∈ sphere 0 1
+
+case pos
+u : ClosedParameter
+h0 : ↑u = 0
+⊢ (fun u => extendedDeformation 1 ↑u) u ∈ sphere 0 1
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:158:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑u
+in the target expression
+  (fun u => extendedDeformation 1 ↑u) u ∈ sphere 0 1
+
+case pos
+u : ClosedParameter
+h0 : ¬↑u = 0
+h1 : ↑u = 1
+⊢ (fun u => extendedDeformation 1 ↑u) u ∈ sphere 0 1
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:161:22: error: linarith failed to find a contradiction
+case left
+u : ClosedParameter
+h0 : ¬↑u = 0
+h1 : ¬↑u = 1
+a✝ : ↑u ≤ 0
+⊢ False
+failed
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:161:22: error: linarith failed to find a contradiction
+case right
+u : ClosedParameter
+h0 : ¬↑u = 0
+h1 : ¬↑u = 1
+a✝ : 1 ≤ ↑u
+⊢ False
+failed
+/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/astra-real-geometry/EndpointClosure.lean:181:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  extendedDeformation 0 ↑timeStart
+in the target expression
+  dist (extendedDeformation 0 0) (extendedDeformation 0 1) = 1
+
+⊢ dist (extendedDeformation 0 0) (extendedDeformation 0 1) = 1
+'AstraRealGeometry.extendedDeformation_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.extended_agrees_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_pos_before' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_zero_at_end' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.extended_final_not_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AstraRealGeometry.extended_final_image' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'AstraRealGeometry.endpointGap_initial' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

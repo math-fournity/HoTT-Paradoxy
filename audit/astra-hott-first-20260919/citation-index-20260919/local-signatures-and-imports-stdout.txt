@@ -1,0 +1,255 @@
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:20:module CutGoldForm where
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:22:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:23:open import Cubical.Foundations.HLevels using (hProp)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:24:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:25:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:26:open import Cubical.Data.Sum.Properties using (isProp⊎)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:27:open import Cubical.Data.Sigma using (_×_)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:29:open import Cubical.Data.Nat as ℕ using (ℕ; zero; suc; _+_; _·_)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:30:open import Cubical.Data.Nat.Properties using (+-zero; +-suc; +-comm; ·-comm)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:31:open import Cubical.Data.Nat.Order using (suc-≤-suc)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:34:open import Cubical.Data.Int.Base
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:37:open import Cubical.Data.Int.Properties
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:39:open import Cubical.Data.Int.Order
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:43:open import Cubical.Data.NatPlusOne.Base
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:44:open import Cubical.Data.NatPlusOne.Properties using (_·₊₁_)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:46:open import Cubical.Data.Rationals.Base
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:48:open import Cubical.Data.Rationals.Properties
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:57:open import Cubical.Data.Rationals.Order
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:64:open import Cubical.HITs.SetQuotients.Properties using (elimProp; elimProp2; elimProp3)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:66:open import CutInfra using (<-≤; ·-mono-≤-nn; ·-mono-<-nn)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:67:open import MissileTwoUniversalIrrationality using (√2-irrational)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:68:open import MissileTwoUniversalIrrationality using (√2-irrational)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:115:L : ℚ → Type₀
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:118:U : ℚ → Type₀
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:137:Lₚ Uₚ : ℚ → hProp ℓ-zero
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:145:inhabL : L 1r
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:148:inhabU : U 2r
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:159:disjoint : ∀ q r → L q → U r → q < r
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:199:roundedL→ : ∀ q p → q < p → L p → L q
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:215:roundedU→ : ∀ q r → q < r → U q → U r
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:224:located : ∀ q r → q < r → L q ⊎ U r
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:353:roundedL← : ∀ q → L q → Σ[ p ∈ ℚ ] ((q < p) × (L p))
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:449:sq-minus : ∀ x y → (x -ℚ y) ·ℚ (x -ℚ y)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:468:roundedU←-body : (r : ℚ) (0r<r : 0r < r) (2r<rsq : 2r < r ·ℚ r) (r≤2r : r ≤ 2r)
+HoTT/formal/dedekind-omega-missile/CutGoldForm.agda:581:roundedU← : ∀ r → U r → Σ[ q ∈ ℚ ] ((q < r) × (U q))
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:18:module CutRealLayer where
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:20:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:22:open import Cubical.Foundations.HLevels
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:25:open import Cubical.Foundations.Equiv
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:27:open import Cubical.Foundations.Equiv.HalfAdjoint
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:29:open import Cubical.Foundations.GroupoidLaws using (lCancel)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:30:open import Cubical.Foundations.Transport using (substComposite)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:31:open import Cubical.Foundations.Isomorphism using (Iso; isoToEquiv)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:32:open import Cubical.Data.Sigma.Properties using (ΣPathP)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:33:open import Cubical.Data.Sigma using (_×_; _,_; fst; snd)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:34:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:35:open import Cubical.Data.Sum.Properties using (isProp⊎; isSet⊎)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:36:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:37:open import Cubical.Data.Empty.Properties using (isProp⊥)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:38:open import Cubical.HITs.PropositionalTruncation using (∥_∥₁; isPropPropTrunc)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:39:open import Cubical.Data.Rationals.Base using (ℚ; isSetℚ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:40:open import Cubical.Data.Rationals.Order using (_<_; isProp<)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:57:ΩOf : (ℓ : Level) → Type (ℓ-suc ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:65:PropResizing : (ℓ : Level) → Type (ℓ-suc (ℓ-suc ℓ))
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:70:LEMProp : (ℓ : Level) → Type (ℓ-suc (ℓ-suc ℓ))
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:82:SingleOmega : (ℓ : Level) → Type (ℓ-suc ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:103:dcut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → Type ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:117:DedekindReals : (ℓ : Level) → Type (ℓ-suc ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:124:ℝLayerAt : (ℓ : Level) → Type (ℓ-suc ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:140:Sufficiency : (ℓ : Level) → Type _
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:147:Necessity : (ℓ : Level) → Type _
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:168:isSetDCut : {ℓ : Level} (L U : ℚ → ΩOf ℓ) → isSet (dcut L U)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:178:DedekindReals-isSet : (ℓ : Level) → isSet (DedekindReals ℓ)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:185:DedekindReals* : (ℓ : Level) → SingleOmega ℓ → Type ℓ
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:191:DedekindReals*-isSet : (ℓ : Level) (so : SingleOmega ℓ) → isSet (DedekindReals* ℓ so)
+HoTT/formal/dedekind-omega-missile/CutRealLayer.agda:246:sufficiency : (ℓ : Level) → Sufficiency ℓ
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:19:module MissileTwoUniversalIrrationality where
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:21:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:22:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:23:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:32:open import Cubical.Data.Nat.Base using (ℕ; zero; suc; _+_; _·_)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:33:open import Cubical.Data.Nat.Properties
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:35:open import Cubical.Data.Nat.Order using (_≤_; _<_; ≤-refl; suc-≤-suc; pred-≤-pred)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:37:open import Cubical.Data.Int.Base as ℤ using (ℤ; pos; negsuc; abs)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:38:open import Cubical.Data.Int.Properties using (·IdR; abs·)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:40:open import Cubical.Data.NatPlusOne.Base using (ℕ₊₁; ℕ₊₁→ℕ; 1+_)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:41:open import Cubical.Data.NatPlusOne.Properties using (_·₊₁_)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:43:open import Cubical.Data.Rationals.Base
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:45:open import Cubical.Data.Rationals.Properties using () renaming (_·_ to _·ℚ_)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:46:open import Cubical.HITs.SetQuotients.Properties using (elimProp)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:245:noRoot : ∀ p n₀ → p · p ≡ (suc n₀ · suc n₀) + (suc n₀ · suc n₀) → ⊥
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:274:1⁺ : ℕ₊₁
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:277:2r : ℚ
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:281:ℕ₊₁→ℕ-·₊₁ : ∀ a b → ℕ₊₁→ℕ (a ·₊₁ b) ≡ ℕ₊₁→ℕ a · ℕ₊₁→ℕ b
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:284:absurd-from : ∀ p n⁺ →
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:289:√2-step : ∀ (zm : ℤ) (n⁺ : ℕ₊₁) →
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:305:noRootℚ : ∀ q → q ·ℚ q ≡ 2r → ⊥
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:314:√2-irrational : ∀ q → ¬ (q ·ℚ q ≡ 2r)
+HoTT/formal/dedekind-omega-missile/MissileTwoUniversalIrrationality.agda:318:spec-B-empty : ¬ (Σ[ q ∈ ℚ ] q ·ℚ q ≡ 2r)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:20:module MissileThreeUnconditional where
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:22:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:23:open import Cubical.Foundations.Equiv using (_≃_; equivFun)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:24:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:33:open import Cubical.Data.Bool.Base using (Bool; true; false)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:34:open import Cubical.Data.Bool.Properties using (true≢false)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:36:open import Cubical.Data.Rationals.Base using (ℚ)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:37:open import Cubical.Data.Rationals.Properties using () renaming (_·_ to _·ℚ_)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:38:open import Cubical.Data.Rationals.Order
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:40:open import MissileTwoUniversalIrrationality using (2r; spec-B-empty)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:41:open import MissileThreeVerdictCollision using (Spec_A; Spec_B)
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:47:specA-inhabited-unc : Spec_A
+HoTT/formal/dedekind-omega-missile/MissileThreeUnconditional.agda:68:M3-L1-unc : ¬ (Spec_A ≃ Spec_B)
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:16:module MissileByproductGapDecidable where
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:18:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:19:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:20:open import Cubical.Data.Nat.Base using (ℕ)
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:21:open import Cubical.Data.Sum.Base using (_⊎_; inr)
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:22:open import Cubical.Data.Int.Base as ℤ using (pos)
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:28:open import MissileOneProcessLayer using (D; gap-never-zero)
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:30:zeroℤ : ℤ.ℤ
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:33:decGapAt : (n : ℕ) → (D n ≡ zeroℤ) ⊎ (¬ (D n ≡ zeroℤ))
+HoTT/formal/dedekind-omega-missile/MissileByproductGapDecidable.agda:36:noGapWitness : ¬ (Σ[ n ∈ ℕ ] D n ≡ zeroℤ)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeControl.agda:6:module MissileFourTargetA-ProbeControl where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeControl.agda:8:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeControl.agda:9:open import Cubical.Data.Nat.Base using (ℕ; zero)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeControl.agda:11:test-control : zero ≡ zero
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:16:module MissileFourChargeDemo where
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:18:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:19:open import Cubical.Data.Nat.Base using (ℕ; zero; suc)
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:20:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:21:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:27:postulate
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:30:n-lem : ℕ
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:39:postulate
+HoTT/formal/dedekind-omega-missile/MissileFourChargeDemo.agda:43:n-ac : ℕ
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:23:module ReboundDisarm where
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:25:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:26:open import Cubical.HITs.S1 using (S¹; base; loop; intLoop)
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:27:open import Cubical.Data.Int.Base using (ℤ; pos)
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:34:ideal-point-is-explicit : S¹
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:42:endpoint-identification-is-a-path : base ≡ base
+HoTT/formal/dedekind-omega-missile/ReboundDisarm.agda:51:hit-computation-witness : intLoop (pos 0) ≡ refl
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:26:module MissileThreeVerdictCollision where
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:28:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:29:open import Cubical.Foundations.Equiv using (_≃_; equivFun)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:30:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:31:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:40:open import Cubical.Data.Bool.Base using (Bool; true; false)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:41:open import Cubical.Data.Bool.Properties using (true≢false)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:43:open import Cubical.Data.Rationals.Base using (ℚ)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:44:open import Cubical.Data.Rationals.Properties using () renaming (_·_ to _·ℚ_)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:45:open import Cubical.Data.Rationals.Order using (_<_; isProp<)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:46:open import MissileTwoUniversalIrrationality using (2r; spec-B-empty)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:52:LEMᵒ : Type₁
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:53:LEMᵒ = (A : Type₀) → isProp A → A ⊎ (A → ⊥)
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:61:Spec_B : Type₀
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:68:Spec_A : Type₀
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:76:specA-inhabited : LEMᵒ → Spec_A
+HoTT/formal/dedekind-omega-missile/MissileThreeVerdictCollision.agda:96:M3-L1 : LEMᵒ → ¬ (Spec_A ≃ Spec_B)
+HoTT/formal/dedekind-omega-missile/ProbeCrossIso.agda:4:module ProbeCrossIso where
+HoTT/formal/dedekind-omega-missile/ProbeCrossIso.agda:6:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/ProbeCrossIso.agda:7:open import Cubical.Foundations.HLevels using (hProp)
+HoTT/formal/dedekind-omega-missile/ProbeCrossIso.agda:8:open import Cubical.Foundations.Isomorphism using (Iso; isoToEquiv)
+HoTT/formal/dedekind-omega-missile/ProbeCrossIso.agda:9:open import Cubical.Foundations.Equiv using (_≃_)
+HoTT/formal/dedekind-omega-missile/ProbeCrossIso.agda:11:probe : {ℓ : Level} {X : Type ℓ} → Iso X (hProp ℓ) → (X ≃ hProp ℓ)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:20:module MissileOneProcessLayer where
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:22:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:23:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:28:open import Cubical.Data.Nat.Base using (ℕ; zero; suc)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:29:open import Cubical.Data.Int.Base as ℤ hiding (_+_ ; _·_ ; _-_ ; -_)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:30:open import Cubical.Data.Int.Properties using (injPos; posNotnegsuc)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:31:open import Cubical.Data.Nat.Properties using (znots)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:32:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:34:open import Cubical.Algebra.CommRing
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:35:open import Cubical.Algebra.CommRing.Instances.Int
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:36:open import Cubical.Tactics.CommRingSolver
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:58:D : ℕ → ℤ
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:62:sign : ℕ → ℤ
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:71:D-step-identity : (p q : ℤ) →
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:79:D-step : (n : ℕ) → D (suc n) ≡ - (D n)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:86:D-invariant : (n : ℕ) → D n ≡ sign n
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:91:sign-shape : (n : ℕ) → (sign n ≡ 1r) ⊎ (sign n ≡ - 1r)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:101:pell-gap-never-closes : (n : ℕ) → (D n ≡ 1r) ⊎ (D n ≡ - 1r)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:109:pos0≢pos1 : ¬ (pos 0 ≡ pos 1)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:112:pos0≢negsuc0 : ¬ (pos 0 ≡ negsuc 0)
+HoTT/formal/dedekind-omega-missile/MissileOneProcessLayer.agda:115:gap-never-zero : (n : ℕ) → ¬ (D n ≡ pos 0)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeZero.agda:5:module MissileFourTargetA-ProbeZero where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeZero.agda:7:open import MissileFourTargetA-UACounterexample using (n)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeZero.agda:8:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeZero.agda:9:open import Cubical.Data.Nat.Base using (ℕ; zero)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeZero.agda:11:test-probe-zero : n ≡ zero
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMZero.agda:5:module MissileFourTargetA-ProbeLEMZero where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMZero.agda:7:open import MissileFourChargeDemo using (n-lem)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMZero.agda:8:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMZero.agda:9:open import Cubical.Data.Nat.Base using (ℕ; zero)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMZero.agda:11:test-probe-lem-zero : n-lem ≡ zero
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACSuc.agda:4:module MissileFourTargetA-ProbeACSuc where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACSuc.agda:6:open import MissileFourChargeDemo using (n-ac)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACSuc.agda:7:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACSuc.agda:8:open import Cubical.Data.Nat.Base using (ℕ; zero; suc)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACSuc.agda:10:test-probe-ac-suc : n-ac ≡ suc zero
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:18:module MissileFourNecessityLEM where
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:20:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:21:open import Cubical.Foundations.HLevels using (hProp; isOfHLevelLift)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:22:open import Cubical.Foundations.Equiv using (_≃_)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:23:open import Cubical.Foundations.Isomorphism using (Iso; iso; isoToEquiv)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:24:open import Cubical.Foundations.Univalence using (ua)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:25:open import Cubical.Data.Sigma using (Σ; fst; snd)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:26:open import Cubical.Data.Sigma.Properties using (ΣPathP)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:27:open import Cubical.Data.Sum.Base using (_⊎_; inl; inr; elim)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:28:open import Cubical.Data.Bool.Base using (Bool; true; false)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:29:open import Cubical.Data.Bool.Properties using (isSetBool)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:30:open import Cubical.Data.Unit.Base using (Unit; tt)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:31:open import Cubical.Data.Unit.Properties using (isPropUnit)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:32:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:33:open import Cubical.Data.Empty.Properties using (isProp⊥)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:34:open import CutRealLayer using (LEMProp; SingleOmega; Necessity)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:46:UnitProp : {ℓ : Level} → hProp ℓ
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:49:EmptyProp : {ℓ : Level} → hProp ℓ
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:53:hProp-Path : {ℓ : Level} {A B : Type ℓ} (q : A ≡ B) (pA : isProp A) (pB : isProp B)
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:62:module Decide {ℓ : Level} (lem : LEMProp ℓ) where
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:101:hProp≃Bool : {ℓ : Level} → LEMProp ℓ → hProp ℓ ≃ Bool
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:109:SingleOmega-from-LEM : {ℓ : Level} → LEMProp ℓ → SingleOmega ℓ
+HoTT/formal/dedekind-omega-missile/MissileFourNecessityLEM.agda:122:LEM→Necessity : {ℓ : Level} → LEMProp ℓ → Necessity ℓ
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:19:module CutInfra where
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:21:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:22:open import Cubical.Data.Empty.Base using (⊥)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:24:open import Cubical.Data.Nat as ℕ using (ℕ; zero; suc; _+_; _·_)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:25:open import Cubical.Data.Nat.Properties using (·-comm)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:27:open import Cubical.Data.Int.Base
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:30:open import Cubical.Data.Int.Properties
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:33:open import Cubical.Data.Int.Order
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:37:open import Cubical.Data.NatPlusOne.Base using (ℕ₊₁; ℕ₊₁→ℕ; 1+_)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:38:open import Cubical.Data.NatPlusOne.Properties using (_·₊₁_)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:40:open import Cubical.Data.Rationals.Base
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:42:open import Cubical.Data.Rationals.Properties using () renaming (_·_ to _·ℚ_)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:43:open import Cubical.Data.Rationals.Order
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:46:open import Cubical.HITs.SetQuotients.Properties using (elimProp; elimProp2; elimProp3)
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:81:<-≤ : ∀ m n → m < n → m ≤ n
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:109:·-mono-≤-nn : ∀ k a b → 0r ≤ k → a ≤ b → k ·ℚ a ≤ k ·ℚ b
+HoTT/formal/dedekind-omega-missile/CutInfra.agda:149:·-mono-<-nn : ∀ k a b → 0r < k → a < b → k ·ℚ a < k ·ℚ b
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACZero.agda:5:module MissileFourTargetA-ProbeACZero where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACZero.agda:7:open import MissileFourChargeDemo using (n-ac)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACZero.agda:8:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACZero.agda:9:open import Cubical.Data.Nat.Base using (ℕ; zero)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeACZero.agda:11:test-probe-ac-zero : n-ac ≡ zero
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:12:module MissileFourTargetA-UACounterexample where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:14:open import Cubical.Foundations.Prelude
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:15:open import Cubical.Data.Bool.Base using (Bool; true; false; not; if_then_else_)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:16:open import Cubical.Data.Nat.Base using (ℕ; zero; suc)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:18:postulate
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:21:not-not : ∀ b → not (not b) ≡ b
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:25:e : Bool ≡ Bool
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:28:b' : Bool
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-UACounterexample.agda:31:n : ℕ
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMSuc.agda:4:module MissileFourTargetA-ProbeLEMSuc where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMSuc.agda:6:open import MissileFourChargeDemo using (n-lem)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMSuc.agda:7:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMSuc.agda:8:open import Cubical.Data.Nat.Base using (ℕ; zero; suc)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeLEMSuc.agda:10:test-probe-lem-suc : n-lem ≡ suc zero
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeSucZero.agda:5:module MissileFourTargetA-ProbeSucZero where
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeSucZero.agda:7:open import MissileFourTargetA-UACounterexample using (n)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeSucZero.agda:8:open import Cubical.Foundations.Prelude using (_≡_; refl)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeSucZero.agda:9:open import Cubical.Data.Nat.Base using (ℕ; zero; suc)
+HoTT/formal/dedekind-omega-missile/MissileFourTargetA-ProbeSucZero.agda:11:test-probe-suc-zero : n ≡ suc zero

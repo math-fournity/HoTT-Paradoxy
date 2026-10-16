@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-323",
+    "C-324"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-markov-reverse-20260921/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/MarkovCountableChoice.agda"
+  ],
+  "completed_at_utc": "2026-09-21T02:34:03.091927+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 439.51911,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "4debf8481c74a141470ccb93590d2a7016696b88bc54410509615b50c2cc88d9"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "No global Markov or countable-choice instance is postulated; every such hypothesis is an explicit function argument.",
+    "No unconditional converse on all arbitrary Dedekind reals, necessity/independence of choice or Markov, baseline unprovability, LEM/resizing necessity or generic stripping of truncations.",
+    "No arbitrary-homeomorphism necessity, physical execution, false promise by HoTT, internal contradiction or completed four-stage target. Fixed no-erasure and inherited foundation-postulate scope remains."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-MARKOV-REVERSE-001",
+  "run_id": "20260921-MP-ASTRA-MARKOV-REVERSE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For each real supplied with a full rational bounds sequence of reciprocal-natural precision, define an actual decidable Boolean zero-separation test and prove its mere hit existence iff apartness. Derive nonzero-to-apartness under BookMarkov and supplied (possibly merely inhabited) data. Construct nonempty rational controls. On the actual C321 binary-encoded family, prove restricted RNZA iff BookMarkov without a countable-choice hypothesis. Separately, under explicit level-ACℕ lzero, obtain mere bounds sequences from pointwise arithmetic locatedness and derive all-base-Dedekind RNZA, fixed original Weak coverage and uniform inverse iff BookMarkov, plus chosen original Weak output from both hypotheses.",
+  "source_manifest": {
+    "bytes": 21038,
+    "path": "source-manifest.json",
+    "sha256": "fd406a192f5b0a76e301b1f040072025f9b301d508ad5ab9c2a5bc0ec153cb59"
+  },
+  "started_at_utc": "2026-09-21T02:26:43.572817+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 215210,
+    "path": "stdout.txt",
+    "sha256": "f8baa4258835a1137242f958298b92cf7ca4b25603011bf4b954e0967116b952"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

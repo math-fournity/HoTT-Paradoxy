@@ -1,0 +1,467 @@
+{
+  "schema_version": "hott-finite-checks/rev11-v1",
+  "status": "PASS_FINITE_SCOPE",
+  "groups": [
+    {
+      "id": "G1",
+      "name": "explicit completed reports encode and recover with certificates",
+      "cases": 129,
+      "scope": "explicit zero/pulse streams with known horizon"
+    },
+    {
+      "id": "G2",
+      "name": "finite at-most-one fibers have exactly one report",
+      "all_words": 8191,
+      "accepted": 91,
+      "by_length": [
+        {
+          "length": 0,
+          "at_most_one": 1
+        },
+        {
+          "length": 1,
+          "at_most_one": 2
+        },
+        {
+          "length": 2,
+          "at_most_one": 3
+        },
+        {
+          "length": 3,
+          "at_most_one": 4
+        },
+        {
+          "length": 4,
+          "at_most_one": 5
+        },
+        {
+          "length": 5,
+          "at_most_one": 6
+        },
+        {
+          "length": 6,
+          "at_most_one": 7
+        },
+        {
+          "length": 7,
+          "at_most_one": 8
+        },
+        {
+          "length": 8,
+          "at_most_one": 9
+        },
+        {
+          "length": 9,
+          "at_most_one": 10
+        },
+        {
+          "length": 10,
+          "at_most_one": 11
+        },
+        {
+          "length": 11,
+          "at_most_one": 12
+        },
+        {
+          "length": 12,
+          "at_most_one": 13
+        }
+      ],
+      "scope": "finite image fibers only; not HoTT truncation execution"
+    },
+    {
+      "id": "G3",
+      "name": "bounded first-event masking",
+      "cases": 4095,
+      "scope": "finite prefixes; arbitrary-stream logical principle separately proved"
+    },
+    {
+      "id": "G4",
+      "name": "actual end-horizon suffices on explicit streams",
+      "cases": 325,
+      "scope": "uses a true horizon, never infers one from finite zeros"
+    },
+    {
+      "id": "G5",
+      "name": "finite-query transcripts do not certify zero forever",
+      "cases": 1024,
+      "scope": "finite sanity of the separate adversarial argument"
+    },
+    {
+      "id": "G6",
+      "name": "source-code-visible total first-halt generators",
+      "programs": 18,
+      "bounded_bit_evaluations": 1170,
+      "examples": [
+        {
+          "program": "halt_now",
+          "code": [
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            0,
+            0
+          ],
+          "first_halt_in_checked_range": 0
+        },
+        {
+          "program": "increment_forever",
+          "code": [
+            [
+              "inc",
+              0,
+              0
+            ]
+          ],
+          "initial": [
+            0,
+            0,
+            0
+          ],
+          "first_halt_in_checked_range": null
+        },
+        {
+          "program": "countdown_0",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            0,
+            0
+          ],
+          "first_halt_in_checked_range": 1
+        },
+        {
+          "program": "countdown_1",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            1,
+            0
+          ],
+          "first_halt_in_checked_range": 2
+        },
+        {
+          "program": "countdown_2",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            2,
+            0
+          ],
+          "first_halt_in_checked_range": 3
+        },
+        {
+          "program": "countdown_3",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            3,
+            0
+          ],
+          "first_halt_in_checked_range": 4
+        },
+        {
+          "program": "countdown_4",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            4,
+            0
+          ],
+          "first_halt_in_checked_range": 5
+        },
+        {
+          "program": "countdown_5",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            5,
+            0
+          ],
+          "first_halt_in_checked_range": 6
+        },
+        {
+          "program": "countdown_6",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            6,
+            0
+          ],
+          "first_halt_in_checked_range": 7
+        },
+        {
+          "program": "countdown_7",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            7,
+            0
+          ],
+          "first_halt_in_checked_range": 8
+        },
+        {
+          "program": "countdown_8",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            8,
+            0
+          ],
+          "first_halt_in_checked_range": 9
+        },
+        {
+          "program": "countdown_9",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            9,
+            0
+          ],
+          "first_halt_in_checked_range": 10
+        },
+        {
+          "program": "countdown_10",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            10,
+            0
+          ],
+          "first_halt_in_checked_range": 11
+        },
+        {
+          "program": "countdown_11",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            11,
+            0
+          ],
+          "first_halt_in_checked_range": 12
+        },
+        {
+          "program": "countdown_12",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            12,
+            0
+          ],
+          "first_halt_in_checked_range": 13
+        },
+        {
+          "program": "countdown_13",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            13,
+            0
+          ],
+          "first_halt_in_checked_range": 14
+        },
+        {
+          "program": "countdown_14",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            14,
+            0
+          ],
+          "first_halt_in_checked_range": 15
+        },
+        {
+          "program": "countdown_15",
+          "code": [
+            [
+              "dec",
+              0,
+              1,
+              0
+            ],
+            [
+              "halt"
+            ]
+          ],
+          "initial": [
+            0,
+            15,
+            0
+          ],
+          "first_halt_in_checked_range": 16
+        }
+      ],
+      "scope": "each bit computed by bounded simulation; no universal decidability claim"
+    },
+    {
+      "id": "G7",
+      "name": "unjustified cutoff misclassifies a later event",
+      "cases": 64,
+      "scope": "a checked prefix is not a bound certificate"
+    }
+  ],
+  "group_count": 7,
+  "not_proved_by_program": [
+    "HoTT typing",
+    "unbounded termination",
+    "LPO independence",
+    "double-negation or truncation principles",
+    "absence of a general code classifier"
+  ],
+  "kernel_run": false,
+  "external_search": false,
+  "mathematical_general_proofs": "separate PROOF_NOTE.md"
+}

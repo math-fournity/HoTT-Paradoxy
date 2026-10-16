@@ -1,0 +1,48 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260916-163-PREMISE-001-STEP5-GEN001-IDENTITY-OBSERVATION",
+ "runs": [
+  {
+   "id": "plan-revise-012",
+   "kind": "git",
+   "commit": "a45dab8",
+   "note": "Phenomenon-novelty disclosure discipline: 011 guarantees grammar novelty only (unique BIND_CONTINUATION); B-01 execution found half of the layer-dependence phenomenon already expressible in pre-existing grammars (bare deadline horizon choice flips the identity verdict), so every family REPORT must answer three questions and already-accepted families get backfilled disclosure without re-running chains; source=reflection"
+  },
+  {
+   "id": "premise-001-step5-gen001-identity-observation",
+   "kind": "git",
+   "commit": "c36c2e4",
+   "note": "GEN-001 third family GENERATOR_LINK_DEMONSTRATED_WITH_SCOPE: TASK-FAMILY-IDENTITY-OBSERVATION-LAYER (PREMISE-B-01) full chain (3 new verdict continuations with map novelty PASS vs all existing grammars; 5,280 checks remainder=0; 956->70 reduced; 44 out-of-envelope with rejection reason uniquely BIND_CONTINUATION 220/220 across 5 delay grammars; 4 kernel witnesses covering 3 continuations x 3 mechanisms); reflection=revised-in a45dab8"
+  },
+  {
+   "id": "native-kernel-verify",
+   "kind": "run",
+   "runs": [
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0014",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0023",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0044",
+    "HoTT/verification/runs/20260916-VERIFY-GEN001-IDENTITY-OBSERVATION-0067"
+   ],
+   "note": "Cubical Agda 2.8.0 + cubical v0.9; verify/controls ACCEPTED; negative-control REJECTED_AS_EXPECTED exit 42; verify-replay exact match; plus independent replay from the main-repo copy exit 0"
+  },
+  {
+   "id": "grammar-novelty-audit",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "the 3 new verdict continuation maps are mechanically unique against all pre-existing declared grammars (shared constructs deliver_business/const_omega kept for calibration continuity)"
+  },
+  {
+   "id": "shard-validator",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "verify_governance_shards PASS (18 indexes, no banner issues, non-blocking) after adding revision shard 012"
+  },
+  {
+   "id": "oobe-membership-check",
+   "kind": "validator",
+   "exit_code": 0,
+   "note": "within_grammar_witness evaluated for all 70 reduced witnesses against all 17 pre-existing grammars: 44 out-of-envelope, 220/220 L1 delay-grammar rejections all BIND_CONTINUATION, reason uniqueness 100%"
+  }
+ ],
+ "no_new_math_claim": true
+}

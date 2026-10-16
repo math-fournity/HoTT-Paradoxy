@@ -1,0 +1,3 @@
+在本仓库执行 Claude goal CG-002（A7 无穷相干：相同即结构之后，最简单的形状族与理论自身都写不完）。开工和每次压缩或恢复后：先调用 goal-x Skill（resume CG-002），按 `.claude/goals/CG-002-a7-infinite-coherence/GOAL.md` 用 Read 重读闭包文件（含《最高指示-Claude版》、核心认知全文、扩展认知 003/004/005/009、CN-034、工作台），再读 `.claude/总索引.md` 全文，写出恢复说明，然后从 STATE 的“下一步”继续。每完成一个自然单元运行 `python3 ~/.claude/skills/goal-x/goalx.py checkpoint CG-002 --phase <阶段> --next "…" --note "…"`，并按总索引 001 §3 维护。只按 GOAL.md 的六个完成门（G1 原典、G2 同一定义两侧、G3 后退第二级、G4 自指 A7′、G5 短链与判词、G6 交审计与登记）判断完成，局部任务完成不算。不调用 Agent 工具，不提交 Git，不改 Terra 的文件与研究 current owner。
+
+完成条件：对话中出现 CG-002 的完成门审计表，G1–G6 每一门都有证据位置且判 PASS（G3 允许按 GOAL.md 写明的方式判 OPEN_WITH_NEXT_STEP 并说明手推与机器部分），随后出现 `goal-x close CG-002 status=COMPLETE` 的输出；或者出现阻塞报告并已执行 `close --status BLOCKED` 或 `--status PAUSED`。

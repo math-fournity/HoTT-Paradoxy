@@ -1,0 +1,796 @@
+{
+  "schema": "mo3-agda-checked-declarations/v1",
+  "run": "HoTT/verification/runs/20260923-MO3-STAGE-COLIMIT-001-03",
+  "stdout_sha256": "36db6ee767271033886ce8d7929db41fbfd891bc7e6f1892eed9ae4a2ce0d53c",
+  "checked_module_count": 131,
+  "scanner": "scripts/audit/scan_agda_unimath_e6.py:code_lines/declarations and verify_proof_version_closure.py:checked_module_paths",
+  "rule": "line-start postulate/primitive optionally private; literate Agda fences only; lexical inventory, not independent axiom dependency minimization",
+  "modules": [
+    {
+      "module": "Cubical.Algebra.AbGroup.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/AbGroup/Base.agda",
+      "sha256": "997dcafa686daac93de58661def8ad8f38d69de9fb1b80ce00d02904b0ecb4fa",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.CommMonoid",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid.agda",
+      "sha256": "b052adc8c20aad00385d982850577991d9b1a733fb4ad8ba74bcb82292676644",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.CommMonoid.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Base.agda",
+      "sha256": "a4f2f7b7a33d63a76566066fa3b5488bdb2073bafb595be9ed869a05330608e6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.CommMonoid.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/CommMonoid/Properties.agda",
+      "sha256": "e2e6351e14377a59e6da4389dfd5c9dd240d30d9995d9b7b21343347de63995b",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Group",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group.agda",
+      "sha256": "fb2619550c0f79c5343a9fbe0ad3e13c61d54141dd5d17f4a0a4b3a52a1d1cd4",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Group.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Base.agda",
+      "sha256": "ee6b49bec0da367d00c1b6e99bd98fd66acb0dc360fe0bdffdccb3878509ed89",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Group.DirProd",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/DirProd.agda",
+      "sha256": "888075a443fd1e646d84b71aeb89acc2b78773c8e411d3c948470d17c6719421",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Group.MorphismProperties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/MorphismProperties.agda",
+      "sha256": "afb2a09561b7d5d60f09fb694eb114b1bb001f09bafff69fa9fe1486016c29bb",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Group.Morphisms",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Morphisms.agda",
+      "sha256": "a53f6b35f9a1111a6a5844ad02fb1745f5d676ff236cb14bb16052f356fb5231",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Group.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Group/Properties.agda",
+      "sha256": "177603e6b05d46f41dd250ffa26b5551eb9f0b95af4d1a14796caacf9aa296fb",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Monoid",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid.agda",
+      "sha256": "fc6ba1d3be429d0a2e851d98c4f4f407a73edbb514f67936bf882b2654cea1c8",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Monoid.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Monoid/Base.agda",
+      "sha256": "8c6fe2fdfe6db760957dfddfa1c22a136579d3972d8efe92d9cc6fa592721d0e",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Semigroup",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup.agda",
+      "sha256": "a60627cf23d3dae2b7dabe931fdd5a657232afbf8559b67d94e27be8968d1704",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Algebra.Semigroup.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Algebra/Semigroup/Base.agda",
+      "sha256": "70cd06fc58d928b1dd1cdff66b52937a52fc73dd18affe24e5144551bdfc2f66",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Core.Glue",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Glue.agda",
+      "sha256": "f0158ac61aa51ce9a288bfb8b9995a2380e87b918b0e41a99613e46bc81915ee",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Core.Primitives",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Core/Primitives.agda",
+      "sha256": "6876f572465391ad48e7a41c18eaa6ef8d4bd0087dfe353bbf1fcdf0e20fde26",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Bool",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool.agda",
+      "sha256": "469d4f1c1b65727e6c6619c8d4fb3a8366b43ead796b07c8e1acff713d4f2c3d",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Bool.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Base.agda",
+      "sha256": "f9e29d29417db7e5d4c476cc0d5998373dc0821b08255626268944bab364bfb4",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Bool.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Bool/Properties.agda",
+      "sha256": "c0ffc10903e4ee628df9211b46d404c9c04db28afce2ecff5bbdd389815dcde2",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Empty",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty.agda",
+      "sha256": "df6c6d1f749859c8316899710245cfa027adfc8e44e94a3946dbe699cf465b42",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Empty.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Base.agda",
+      "sha256": "5f4d226f70881fe993e91d39ddb6220fb3d3df5eef3e8ce1792e5ff0fb76ad08",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Empty.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Empty/Properties.agda",
+      "sha256": "4a5285480b4cba44842da18989debe0f34fd10bb7d4f0cdbc7ad01d8e24f5fca",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin.agda",
+      "sha256": "2addb1c12f0cc33ed10dcf7011f7866d3a0eb4c2cda94e34cea909d26c1691e6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Base.agda",
+      "sha256": "7fe5022e6f3d25db4cc952f5c23586fbad436df5d8e547e862f9821455cc89a7",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin.Inductive",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive.agda",
+      "sha256": "d4284bd50f495450b46b6b17dfcaf65c3e6247527cac4d5053317ad766f20271",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin.Inductive.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Base.agda",
+      "sha256": "57945e77e10a0cc75627ee1cc3160169c900821d1e3c379fc0e28b9b429ee8a0",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin.Inductive.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Inductive/Properties.agda",
+      "sha256": "08ad6af59e5d41d4da8844f1a10ff68ae1f85cf7db00af6006ae6485a28413d5",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin.Literals",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Literals.agda",
+      "sha256": "38e78ae4e4b511a2cbacdc827b125229b8592778370b364e12e0b00806c144c3",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Fin.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Fin/Properties.agda",
+      "sha256": "10d9907257ddef5dda2103df53874ea5b62d9f9ee78d066a3d510bf030baee28",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.FinData",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData.agda",
+      "sha256": "439b1554df3e9ec38389f6fca3b318fd67c5d89ab0bfcc870c7f06972160161a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.FinData.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Base.agda",
+      "sha256": "0d15cde79681494f11b34638fd3c154d30a3e0758a22df8af4467dd2880332ab",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.FinData.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinData/Properties.agda",
+      "sha256": "bbd55474a16dc82411d954dc0c7154b6d7a91c0dbc15eb10cbcd18f7772d3ea8",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.FinSequence",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinSequence.agda",
+      "sha256": "3c669b8e512b11d51d76fc7b1b318de6a5a235e99beb2416fe8194eb2a569afc",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.FinSequence.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinSequence/Base.agda",
+      "sha256": "3b5e1b7a0e5f337f296fbd893b8d7782854ec8aef449e8dac5919a0488caf8cd",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.FinSequence.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/FinSequence/Properties.agda",
+      "sha256": "4d2ac554b213e0a9a54a002e2716745e3187e11abe3c6042b922815c2951e20d",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.List",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List.agda",
+      "sha256": "d49978454a519d7d2ca666a3d4cc79626315824c254c4459c56af1626021e2d6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.List.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Base.agda",
+      "sha256": "407595477c41f2af56f60a9398bab7b0e6479b3d735b9fa2e7ba634247837941",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.List.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/List/Properties.agda",
+      "sha256": "fcff492392b6e92629e8f2b670857b4c77acb49accc864a16d87fcbce660d8d0",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Maybe",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe.agda",
+      "sha256": "8d4d66ca67dcc74799dc43d016666647af4183e277275b892120e7b495ac5458",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Maybe.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Base.agda",
+      "sha256": "c6b945517a570d37e4bb8f50fd4d254b511bd5e73d023386706c4e283b1c4d57",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Maybe.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Maybe/Properties.agda",
+      "sha256": "b085ed07473982eb9dd0c8b35252d9cad7442f790b74ae3239a8ceb66bbc8099",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat.agda",
+      "sha256": "c617624bde0cf0ad6efe50ff96fc2245a7d95531ffed2df5af4d0c976ff5c79a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Base.agda",
+      "sha256": "47903559ea76085e3e4dbdb5ccf5a81b05b3a518415c296191a7533e8afe5bbd",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat.Literals",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Literals.agda",
+      "sha256": "ee7ea6f58eeda06197fbb1a6d9956f891bbc811f7e8f0b6fdd8110dadb51a2af",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat.Order",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order.agda",
+      "sha256": "a3de0dae29fdd173e9f3b5770c1f9f686d832cc971aaa7ed9c766398741621be",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat.Order.Inductive",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Inductive.agda",
+      "sha256": "d3d436f498041cd6244cd300ea62051e083628734eaa4d014315fefb880973a9",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat.Order.Recursive",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Order/Recursive.agda",
+      "sha256": "677698fb929cc1192a9eea4725d69b19760ece6d35e03b389ac16dfa2547c377",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Nat.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Nat/Properties.agda",
+      "sha256": "c1975b80041fe51c743197bc99c04ba6ad04d2f14ad9bbc8042d3784c1671288",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Prod.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Prod/Base.agda",
+      "sha256": "f0a02d8a8a83008721627b34da42ebcc0b526cc1c8219793599983ed554be7e2",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sequence",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sequence.agda",
+      "sha256": "eed5c2f6244a22a0b099205867f07022a59257aa6bed1c8995d095091cab5733",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sequence.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sequence/Base.agda",
+      "sha256": "db951ee0d17d16f19b9763611ef87110d4de4cd58a301f61d7258be058f593d6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sequence.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sequence/Properties.agda",
+      "sha256": "f65b934e7452d3577de518f7b1dcb8bb18a6ca563ec2f06456a1ca4da4f243c2",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sigma",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma.agda",
+      "sha256": "eb094e5377cbfa18235e77af707f67b00cd6c5d8b99a4ee140a68a9ac460b118",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sigma.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Base.agda",
+      "sha256": "d4f5146aecf68d36d7bb3638c613f9ae090bbcaf741f906f22b3ffaff9de37d1",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sigma.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sigma/Properties.agda",
+      "sha256": "f590033ab2b77ddeac146811e5389366ed1801c21b7b3f7ab39559a0fbd137de",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sum",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum.agda",
+      "sha256": "b4bcfb1da0b5c757a81c9a743c9acecfbb63069e7932ea554a2e676f33ebbd44",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sum.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Base.agda",
+      "sha256": "20f529eee2ba6c3de9b8e3a06f0236d6d3049c3f286aa33bc3c2f474089be671",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Sum.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Sum/Properties.agda",
+      "sha256": "55561b62c5a3c123e0142aff96ffcc31454029b8c84a483e063c2bf8205d98de",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Unit",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit.agda",
+      "sha256": "57ece6226189b1f19a3dea660fd6d2e14bf8115b9e1f18e02d5037ae6c547350",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Unit.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Base.agda",
+      "sha256": "2a23a69e6ce290d6bc65f2140363c8dda373905f0bec0ceb2aa3ef3ea48a8d36",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Unit.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Unit/Properties.agda",
+      "sha256": "6ec71f80218cd3736a6db7c3b43086ec763d3be177e236e19bde8401bbb6953a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Vec.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/Base.agda",
+      "sha256": "230d7fa73064d1918a4309625b15f5ba9a7ff6033bda8eba54ba9f058585f6b9",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Data.Vec.NAry",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Data/Vec/NAry.agda",
+      "sha256": "831e730797bd4c2d92bf42831402316fb3e264a28396e70f09f338a84a7aabc2",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Auto",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Auto.agda",
+      "sha256": "ce5d204d2f2e270d3c35f7d2794637d4bb066ccb34b9b5b9e55eed2e49242506",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Base.agda",
+      "sha256": "f4699eddf437a72e92d3190d057215b3d6a584dc57b166314a0ab71b8734b38c",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Constant",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Constant.agda",
+      "sha256": "7d67b9bc6ba5e6cd973f262828980c30bfe2debcc8eefd6bfda00789fcb06a13",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Function",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Function.agda",
+      "sha256": "d1a439801d3f900e6734ab913c239c49cc7f2622362cc1a385a7f9eaf64718d3",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Generic",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Generic.agda",
+      "sha256": "1980ab0dfb53c409fd28320f63f18f702353a121452b32920ea32872a7dbf352",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Morphism",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Morphism.agda",
+      "sha256": "c971b3c0cd8d05664c4edd9d0bbe951fedd1fc73c347559dbb34708987368499",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Prop",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Prop.agda",
+      "sha256": "52e8b485a1013b4c095b1d268fcf4f68e77192dbef7f7df4e5a814ee444f02a8",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Properties.agda",
+      "sha256": "a7b2e42ddb59170c0a3186e144e6197e6ce990af54940f500a483c906750a59d",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Record",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Record.agda",
+      "sha256": "2c57242317b528492b10976e743a464770d8fb18c42372711f4ea67f71a3b8c0",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Sigma",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Sigma.agda",
+      "sha256": "efe94ef09687716396a8676ea1046598e399eee39ffd6bab8b85058223326c7c",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Subst",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Subst.agda",
+      "sha256": "28417f348ea3ee3fbf27ce22d87633e5862ca2f7f57ea00b571e37dad263d13c",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Unit",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Unit.agda",
+      "sha256": "48fa3b24453ed229a95b1a9b9fa26b82788360d99010a6396a5a5c9a17506f0c",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Displayed.Universe",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Displayed/Universe.agda",
+      "sha256": "0255073e7a7bdf90436702fcf703ba03887c760bde5a7fb4153ce906d89a5080",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.CartesianKanOps",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/CartesianKanOps.agda",
+      "sha256": "cec840490895319fb90952da37bbedfdb38b476b44d16b4518629d0a849ff931",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Equiv",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv.agda",
+      "sha256": "e511e13deb9297dc61be81c407e6f809c7c6d8e696f58286d237b87e47df083e",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Equiv.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Base.agda",
+      "sha256": "44af7a33c40e93d20426a4e912a852326a57cf031a9f94089b2c0a7827fd8434",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Equiv.Fiberwise",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Fiberwise.agda",
+      "sha256": "477d881a13d636a1025ac3ff6a6402d48979dc4455277ffa3de25f76824ff233",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Equiv.HalfAdjoint",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/HalfAdjoint.agda",
+      "sha256": "4ca2361c85dcf1476a169529c270a694c081c9e57b1ae8ba5101dd877a8a5b12",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Equiv.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Equiv/Properties.agda",
+      "sha256": "9aada052333838a800c2e25debf1c3739ccb01d56f26c9321d13dbb5ab1af437",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Function",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Function.agda",
+      "sha256": "cf539c15be92fab9cbfa98ec2163af08bee49c2171d21a34261356eafaccaaa8",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.GroupoidLaws",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/GroupoidLaws.agda",
+      "sha256": "0da2c0e39a40a5ef9ff3aaf8e541055fb4e988990f3e8a272dc9d549c979073a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.HLevels",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/HLevels.agda",
+      "sha256": "2e7e60e998f8ea1ba11e01232af408dccde49cbf0d472880f0db84e6a42370cc",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Interpolate",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Interpolate.agda",
+      "sha256": "d5efaa452fee1adf87c3be8eded877f590108215b0b20c155e3e22adacb93d97",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Isomorphism",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Isomorphism.agda",
+      "sha256": "d53f97a6e86061a6d09f2f340d9407d1e71262258e3d2b373d451565e90e389e",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Path",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Path.agda",
+      "sha256": "4634ee73439ddcf795f038cbfec396762db69ddd43dd75af0032ca0655c090fb",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Pointed",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed.agda",
+      "sha256": "9b2cd1c75414c23ebb172e1fb80b0bf3f758a2168987344808c52f4659528567",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Pointed.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Base.agda",
+      "sha256": "cb8df4236c8a1f2292a9df2e4dbd5ae801fcfbc67a09019c108849a6f2249fe2",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Pointed.FunExt",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/FunExt.agda",
+      "sha256": "204e64dc0be6840e6614de65531040ccbbd0d7c11d28d4bbce19c98483a38029",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Pointed.Homogeneous",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homogeneous.agda",
+      "sha256": "b68499f65ac1fc21fa4871c12c59d110283611ea4e18320106665054aff018d8",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Pointed.Homotopy",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Homotopy.agda",
+      "sha256": "dbeba825ecdc76b3c97b46b8adb166025c0debf5cb6fc204d5fd20ba3da3f2b8",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Pointed.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Pointed/Properties.agda",
+      "sha256": "c64c63a83d4d8103c0e72a4c74a9db500814b55e482b96acb512e9a8dbd898a6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Powerset",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Powerset.agda",
+      "sha256": "d88b76eb418ecfc63769f0657bc3e730bd9de088e854bc7d035bcb2c632f8db5",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Prelude",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Prelude.agda",
+      "sha256": "d6ac24993846d5b661922cdc6b036e07dfb1080085fe5d976d735820c52a25b6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.SIP",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/SIP.agda",
+      "sha256": "96717932e9279b843b1882cf71bdb9889c6d3fa1cb5a125c87ad76db772b170f",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Structure",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Structure.agda",
+      "sha256": "f828cf4b2a16fb01849f2332b69c19dbef748bfe334e741081a05f58b0f18ecb",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Transport",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Transport.agda",
+      "sha256": "1c79363e7420c7a77ce27280ed88223fc593e0a7da7a479b028d76cb23ae047d",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Foundations.Univalence",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Foundations/Univalence.agda",
+      "sha256": "45f9e216a42c5535a391daa37a7dc821ae7392071224afa2f10c72758e04311a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Embedding",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Embedding.agda",
+      "sha256": "7654f746720756f1e3fddf402fcc35ef1d9f96920f03fa277acc8de1c655806e",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Fibration",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fibration.agda",
+      "sha256": "87084910918a0fbc5f059cc4045932661bf0381f1740ff3242c3b49d6611cc2a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Fixpoint",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Fixpoint.agda",
+      "sha256": "6857878563601513d357923c9a00c2c11f3fa8e68e2d030154a54cec7e25c09a",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.FunExtEquiv",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/FunExtEquiv.agda",
+      "sha256": "383d23b9c13bf58c477cfe2e3edbbe684b3f2d70cbfd6330c2207e7735de9807",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Implicit",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Implicit.agda",
+      "sha256": "09be95d83d3f9b2f7e12a8b79ee68909155f8e5762162d2986a536ee77878241",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Involution",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Involution.agda",
+      "sha256": "9afd737c3a659638ec5a584d241e040b872c96529bc0a626c02a07173bd8700d",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Logic",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Logic.agda",
+      "sha256": "9fefd07090750a7623e65cd757ca1b3afc709a72f8d817bd4ab60718f034b012",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Functions.Surjection",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Functions/Surjection.agda",
+      "sha256": "bb979e9dd0c95b2c67b50833d766f061d21567843490a1ae739fad1d4ad08eaa",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.PropositionalTruncation",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation.agda",
+      "sha256": "7f7697067904b774c4dba7237b99a436b95ae784e822b1f21497e75d5340f0c3",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.PropositionalTruncation.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Base.agda",
+      "sha256": "696ce859e65c4649510e6d3db586fce62e3324078dc9011779c9e45db8a8e61f",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.PropositionalTruncation.MagicTrick",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/MagicTrick.agda",
+      "sha256": "94ced58bb9551bb0af2aa8fadfecad4fe6d60305782a21cd8b3ccde81674b0b1",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.PropositionalTruncation.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/PropositionalTruncation/Properties.agda",
+      "sha256": "33e9b20793d33861e1ede98c034083a940ad0ede0248d9f07b63906ee31cba16",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.SequentialColimit.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SequentialColimit/Base.agda",
+      "sha256": "e0c8e572f181ebc886733a4edc2e1ddd9197fa5c34f309be8fe03313bff68fe7",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.SetQuotients.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetQuotients/Base.agda",
+      "sha256": "4302c6ce79672ccaa77ad2d5c83ab2d5a082f6d08dd3ab1956706090ee94c5b4",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.SetTruncation",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation.agda",
+      "sha256": "8fa4a794075673fdcf4f46cd4aa91cbcbdc0fa98cb4a009c9a033d8d12f1579f",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.SetTruncation.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Base.agda",
+      "sha256": "5c004f8e69b53dac5e1938b1d86714f56f2b264fa0c6c351017d18d8b35ac964",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.HITs.SetTruncation.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/HITs/SetTruncation/Properties.agda",
+      "sha256": "7094e8c99c296b1bdaf852dde00eac92921c3ee934cfa214eff057e46e06d5f6",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Homotopy.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Homotopy/Base.agda",
+      "sha256": "eb955865f1a0768361b45663ea0873eccf40c2921e9b1d801ce82b64873c750c",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Induction.WellFounded",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Induction/WellFounded.agda",
+      "sha256": "de595cba56cd176f000f8e99ddc8d28a4ed243c7ab097a440b801d7c915bd40b",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Reflection.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/Base.agda",
+      "sha256": "1ecb6f9bde549d942e1cbcb8f02152866ef3f1023df37fea6fcbc682335bfc15",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Reflection.RecordEquiv",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/RecordEquiv.agda",
+      "sha256": "1c52f33e52017d78934bda3ebbc72db322f9171b3213f75f4ba3d3ad176a6277",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Reflection.StrictEquiv",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Reflection/StrictEquiv.agda",
+      "sha256": "a340adf53391db6808858ec448b74c2397466dbecb07d7b43b15b78bbf535e0e",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Relation.Binary",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary.agda",
+      "sha256": "e9de92c179ae0abd784faf5ce7550f081679537d2500bbed7bcae586f3603b0b",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Relation.Binary.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Base.agda",
+      "sha256": "f60e9f2cde0ed68363c80d861e32877978ed1723c1ce5761d90df746ecc0012e",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Relation.Binary.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Binary/Properties.agda",
+      "sha256": "d90f0dfc7c6898da87917776d7ee715c09e846a97091225614ec187e0ed74692",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Relation.Nullary",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary.agda",
+      "sha256": "43cabf6b470e6b0d045cf5ca3a1b57d33df5b303dc09b8f065e0eedd2dcce55f",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Relation.Nullary.Base",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Base.agda",
+      "sha256": "c2b584c300c8c3f51bd9692a4fa91dac91a64ba1f90f6e8e933ba0179aaba8c5",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Relation.Nullary.Properties",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Relation/Nullary/Properties.agda",
+      "sha256": "0028b9b740f5ea4ccd5aa9c1966319f3ed5eea688e672c98c4fd3cdcb9132503",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Structures.Axioms",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Axioms.agda",
+      "sha256": "486529da88effef8d25cfdc920228f9604b38a0021cee9e9424e7f29d257b549",
+      "declarations": []
+    },
+    {
+      "module": "Cubical.Structures.Pointed",
+      "path": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/Cubical/Structures/Pointed.agda",
+      "sha256": "b43bcf63d2209e0a05b7af472ee948c3bcab2b540bd66b686c7cbc1cbd52171b",
+      "declarations": []
+    },
+    {
+      "module": "StageColimit",
+      "path": "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/mo3/stage-colimit/StageColimit.agda",
+      "sha256": "d7a16d32b1a9792d5dd4556d0e2aca5e05e1420f0de995f8be3dd3f0ae1ddcd3",
+      "declarations": []
+    }
+  ]
+}

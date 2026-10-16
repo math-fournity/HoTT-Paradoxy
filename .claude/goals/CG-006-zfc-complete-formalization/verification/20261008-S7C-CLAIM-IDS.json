@@ -1,0 +1,1610 @@
+{
+"dev": {
+"tip": "5eab6fd6",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"367": "对任意 World、View、project 与 observe，若存在 x,y 使 project x = project y、observe x 且 ¬ observe y，则不存在通过 project 全域决定 observe 的 Prop-valued decoder；identity ob",
+"368": "对任意 `Code` 与显式 `step,d,Accept,OriginDone`，若 `step d = d`、`OriginDone (step d) ↔ ¬ Accept d`，且 paid bridge `Accept d → OriginDone (step d)` 成立，则 `¬ Acc",
+"369": "对由 exact raw `set.mm@160ebb…` 的 `$v/$f` declarations 生成的 355 个 `RawVar`，`rawEmbedding` 保持 source type 且为单射；对每个 source `RawType`，`freshFamily : Nat → E",
+"370": "对任意明确的 `CompletionContract`，若 `audit contract formal = originalResolved`，则 `contract.originDone`；该结论只经 `.paid (formalDone → originDone)` 分支取得。",
+"371": "对任意 contract，明确 `explicitTaskSwitch` 时 `audit = revisedResolved` 且 `audit ≠ originalResolved`；冻结的 Norton strict/revised control 满足这一判词。",
+"372": "对任意 contract，bridge 为 `missing` 时 `audit = bridgeRequired` 且 `audit ≠ originalResolved`。",
+"373": "paid positive control 同时得到 `originalResolved` 与 `originDone`。",
+"374": "missing-bridge negative control 有 `formalDone`，却得到 `bridgeRequired` 且不等于 `originalResolved`。",
+"375": "对任意 `GraphTrace`，若 `∀t, (∃x, graph t x) ↔ time t`，则对于每个 endpoint，`graphOnly` 有一个仅由 graph domain 构造的 decoder，恰好决定 `EndpointAvailable trace endpoint`。",
+"376": "在固定 `shortCandidate.time={0}` 与 `longCandidate.time={0,1}`、二者有同一 `sharedFunction` 的两实例中，不存在只由 `FunctionView` 决定 `endpoint=1` membership 的全域 decoder。",
+"377": "对 `TemporalTrace := Bool → Bool` 与 `OrderedForward`，identity `temporalView` 存在 decoder，故决定该 order-sensitive observation。",
+"378": "对固定 `forwardTrace` 与 `reverseTrace`，两者 `rangeView` 相同而 `OrderedForward` 真假不同；因此不存在只由该 `RangeView` 决定 `OrderedForward` 的全域 decoder。"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"367": [
+"MP-T-PRECISION-TOBS-001"
+],
+"368": [
+"MP-T-PRECISION-TDIAG-001"
+],
+"369": [
+"MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-001"
+],
+"370": [
+"MP-ZFC-NORMATIVE-PROCESS-AUDIT-001"
+],
+"375": [
+"MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001"
+],
+"377": [
+"MP-ZFC-MSS-PHASE-ORDER-CONTROL-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"368": [
+"claude-cg001",
+"t-precision-diagonal"
+],
+"365": [
+"claude-cg001"
+],
+"369": [
+"claude-cg001",
+"godel-q-reflection"
+],
+"359": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+],
+"375": [
+"zfc-mss-domain-time-control"
+],
+"376": [
+"zfc-mss-domain-time-control"
+],
+"378": [
+"zfc-mss-phase-order-control"
+],
+"377": [
+"zfc-mss-phase-order-control"
+],
+"372": [
+"zfc-normative-process-audit"
+],
+"373": [
+"zfc-normative-process-audit"
+],
+"371": [
+"zfc-normative-process-audit"
+],
+"374": [
+"zfc-normative-process-audit"
+],
+"370": [
+"zfc-normative-process-audit"
+]
+}
+},
+"origin/dev-01": {
+"tip": "f10899cb",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"367": "对任意 World、View、project 与 observe，若存在 x,y 使 project x = project y、observe x 且 ¬ observe y，则不存在通过 project 全域决定 observe 的 Prop-valued decoder；identity ob",
+"368": "对任意 `Code` 与显式 `step,d,Accept,OriginDone`，若 `step d = d`、`OriginDone (step d) ↔ ¬ Accept d`，且 paid bridge `Accept d → OriginDone (step d)` 成立，则 `¬ Acc",
+"369": "对 `ApplicationCase`，若 `applicationClaim ∧ claimsOriginalResolution ∧ requiresBridge ∧ ¬bridgePaid ∧ ¬explicitTaskSwitch`，则 `ApplicationAdequacyFailure",
+"370": "对固定 `quantizedRun`，`run 0=8`、`run 1=4`、`run 2=2`、`run 3=1`、`run 4=0`；故第4步完成且第3步未完成。",
+"371": "对固定 symbolic normalized controls，dense和quantized在 0–3 阶段共享同一个非零dyadic余量；dense无任何finite-stage Done、quantized在4步Done，因此不存在二者finite-stage Done的逐点等价。"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"367": [
+"MP-T-PRECISION-TOBS-001"
+],
+"368": [
+"MP-T-PRECISION-TDIAG-001"
+],
+"369": [
+"MP-ZFC-META-SUBTHEORY-ADEQUACY-001",
+"MP-ZFC-META-SUBTHEORY-ADEQUACY-NEG-002"
+],
+"370": [
+"MP-ZFC-DENSE-QUANTIZED-MOTION-001",
+"MP-ZFC-DENSE-QUANTIZED-MOTION-NEG-002"
+],
+"371": [
+"MP-ZFC-DENSE-QUANTIZED-CONTRACT-001",
+"MP-ZFC-DENSE-QUANTIZED-CONTRACT-NEG-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"368": [
+"t-precision-diagonal"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy",
+"zfc-dense-quantized-contract",
+"zfc-dense-quantized-motion"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"370": [
+"zfc-dense-quantized-contract",
+"zfc-dense-quantized-motion"
+],
+"371": [
+"zfc-dense-quantized-contract"
+],
+"366": [
+"zfc-h0-final-closure"
+],
+"369": [
+"zfc-meta-subtheory-adequacy"
+]
+}
+},
+"origin/dev-02": {
+"tip": "4005fa80",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "对任意 `ZFCBase` 与两个 completion case：若显式 `ZFCOneUse` 给出 Zeno 侧 `QMissing`、强完成提升政策 P 及其 admission，若有形式 `PolicyScopeWitness` 说明 P 为什么可从 Zeno 侧扩张到 HoTT 侧，且 ",
+"360": "在固定 Cubical Agda `QuestioningDelay` 实例中，令粗完成为`runFor 0 (question TU judgeTU) ≡ just 1`、原完成为`Questioning.Halts (Type ℓ-zero) judgeU`；证明其蕴含 `CompletionR",
+"361": "对 (s_n=1-(1/2)^n) 定义 `FormalA := Tendsto s_n (𝓝 1)` 与 `StrictSequentialDone := ∃n, s_n=1`；证明 `FormalA`、`¬ StrictSequentialDone` 和 `¬ (FormalA → Strict",
+"362": "对任意 `MembershipTheory α := MembershipModel α → Prop`、其 base model 和任意指定 `state`，构造两个同样满足该 theory、membership relation 完全相同、却对外加 `originDone state` 相反的 ",
+"363": "定义完整 `QProfile`、`O3O5Adequate` 和 `QUniform`。证明：full profile 相等、Zeno 为`originalResolved`且 HoTT 为`bridgeRequired`时 `¬ QUniform`；required bridge 未支付却称`or",
+"364": "对任意保留 `member/input/step/observe/formalDone` 的 `BaseSubtheoryModel`，若存在 `formalDone` witness，则构造同一 base/subtheory theory 的 expansion，其中 origin complet",
+"365": "定义最小一阶 `MembershipFormula`（`=`、`∈`、`⊥`、`∧`、`∨`、`→`、`∀`、`∃`）及其语义。归纳证明 membership 不变时公式满足对 external `originDone` 不变，提升到任意同语言 theory；给满足 theory 的 members"
+},
+"proofs": {
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-002"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-OBSERVATION-LANGUAGE-BOUNDARY-001"
+],
+"363": [
+"MP-ZFC-COMPLETION-POLICY-UNIFORMITY-001"
+],
+"364": [
+"MP-ZFC-UNPAID-COMPLETION-PROMOTION-001"
+],
+"365": [
+"MP-ZFC-MEMBERSHIP-LANGUAGE-INVARIANCE-001"
+],
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+]
+},
+"pkgs": {
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"364": [
+"zfc-actual-q-policy"
+],
+"365": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+]
+}
+},
+"origin/dev-03": {
+"tip": "854a6aba",
+"claims": {},
+"proofs": {},
+"pkgs": {}
+},
+"origin/dev-04": {
+"tip": "f97bbcb4",
+"claims": {},
+"proofs": {},
+"pkgs": {}
+},
+"origin/dev-06": {
+"tip": "af0d9c5c",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich "
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+]
+}
+},
+"origin/dev-07": {
+"tip": "a753f9bc",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich "
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+]
+}
+},
+"dev-08": {
+"tip": "3cb6a6b4",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"367": "对任意 World、View、project 与 observe，若存在 x,y 使 project x = project y、observe x 且 ¬ observe y，则不存在通过 project 全域决定 observe 的 Prop-valued decoder；identity ob",
+"368": "对任意 `Code` 与显式 `step,d,Accept,OriginDone`，若 `step d = d`、`OriginDone (step d) ↔ ¬ Accept d`，且 paid bridge `Accept d → OriginDone (step d)` 成立，则 `¬ Acc",
+"369": "对由 exact raw `set.mm@160ebb…` 的 `$v/$f` declarations 生成的 355 个 `RawVar`，`rawEmbedding` 保持 source type 且为单射；对每个 source `RawType`，`freshFamily : Nat → E",
+"370": "对任意明确的 `CompletionContract`，若 `audit contract formal = originalResolved`，则 `contract.originDone`；该结论只经 `.paid (formalDone → originDone)` 分支取得。",
+"371": "对任意 contract，明确 `explicitTaskSwitch` 时 `audit = revisedResolved` 且 `audit ≠ originalResolved`；冻结的 Norton strict/revised control 满足这一判词。",
+"372": "对任意 contract，bridge 为 `missing` 时 `audit = bridgeRequired` 且 `audit ≠ originalResolved`。",
+"373": "paid positive control 同时得到 `originalResolved` 与 `originDone`。",
+"374": "missing-bridge negative control 有 `formalDone`，却得到 `bridgeRequired` 且不等于 `originalResolved`。",
+"375": "对任意 `GraphTrace`，若 `∀t, (∃x, graph t x) ↔ time t`，则对于每个 endpoint，`graphOnly` 有一个仅由 graph domain 构造的 decoder，恰好决定 `EndpointAvailable trace endpoint`。",
+"376": "在固定 `shortCandidate.time={0}` 与 `longCandidate.time={0,1}`、二者有同一 `sharedFunction` 的两实例中，不存在只由 `FunctionView` 决定 `endpoint=1` membership 的全域 decoder。",
+"377": "对 `TemporalTrace := Bool → Bool` 与 `OrderedForward`，identity `temporalView` 存在 decoder，故决定该 order-sensitive observation。",
+"378": "对固定 `forwardTrace` 与 `reverseTrace`，两者 `rangeView` 相同而 `OrderedForward` 真假不同；因此不存在只由该 `RangeView` 决定 `OrderedForward` 的全域 decoder。"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"367": [
+"MP-T-PRECISION-TOBS-001"
+],
+"368": [
+"MP-T-PRECISION-TDIAG-001"
+],
+"369": [
+"MP-GODEL-Q-SETMM-APPENDIX-C-VAR-EXTENSION-001"
+],
+"370": [
+"MP-ZFC-NORMATIVE-PROCESS-AUDIT-001"
+],
+"375": [
+"MP-ZFC-MSS-DOMAIN-TIME-CONTROL-001"
+],
+"377": [
+"MP-ZFC-MSS-PHASE-ORDER-CONTROL-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"369": [
+"godel-q-reflection"
+],
+"368": [
+"t-precision-diagonal"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+],
+"375": [
+"zfc-mss-domain-time-control"
+],
+"376": [
+"zfc-mss-domain-time-control"
+],
+"378": [
+"zfc-mss-phase-order-control"
+],
+"377": [
+"zfc-mss-phase-order-control"
+],
+"372": [
+"zfc-normative-process-audit"
+],
+"373": [
+"zfc-normative-process-audit"
+],
+"371": [
+"zfc-normative-process-audit"
+],
+"374": [
+"zfc-normative-process-audit"
+],
+"370": [
+"zfc-normative-process-audit"
+]
+}
+},
+"origin/dev-09": {
+"tip": "ac6391b6",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"369": "在 frozen `Foundation.FirstOrder.Incompleteness.First` 中，给定 `T : ArithmeticTheory`、`[T.Δ₁]`、`[𝗥₀ ⪯ T]`、`[T.SoundOnHierarchy 𝚺 1]`，`FFL.FirstOrder.Arith",
+"370": "固定 `Γ₁ = Nat ∷ []` 中，`positiveC = reflC (sucC (varC 0))` 满足 `accepts Γ₁ positiveC ≡ true`。",
+"371": "`positiveWitness` 给出 `Checked Γ₁ positiveC`，其内容是 `Deriv Γ₁ (erase positiveC) (Path Nat (suc (var 0)) (suc (var 0)))`。",
+"372": "空 context 的 `varC 0` 满足 `accepts [] (varC 0) ≡ false`。",
+"373": "`accepts [] (sucC (reflC zeroC)) ≡ false`；路径 certificate 不被当成 Nat certificate。",
+"374": "每一个 `Checked Γ c` 携带 `Deriv Γ (erase c) A`；`checkedSound` 与 `checkSound` 公开该证书到 derivation 的消去。",
+"375": "`unbits-code : (bs : List Bool) → unbits (LEN bs) (codeBits bs) ≡ bs`。",
+"376": "`parse-run`：对任意 `RawCert c`、stack/rest/fuel，prefix bit grammar `bits c ++ rest` 被 finite-fuel parser 精确还原为 `close c stack` 与原 rest。",
+"377": "`decode-code : (c : RawCert) → decode (code c) ≡ c`。",
+"378": "`code-injective : code c ≡ code d → c ≡ d`。",
+"379": "`validCode (code closedC) ≡ true`。",
+"380": "`closedProvWitness : ProvWitness (code closedC)`。",
+"381": "`quoteCert closedC ≡ provF (code closedC)`。",
+"382": "`ProvHolds (quoteCert closedC)` 由同一 `ProvWitness` 证明。",
+"383": "`decodeExprCode : decodeExpr (codeExpr e) ≡ e`。",
+"384": "`decodeFormulaCode` 与 `formulaCodeInjective`：Fmini formula code roundtrip 且单射。",
+"385": "`selfInstance template ≡ prov₁ (lit (codeFormula template))`，其中 `template = prov₁ (fvar 0)`。",
+"386": "`selfInstance template ≡ prov₁ (quoteFormula template)`。"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"369": [
+"MP-FOUNDATION-INCOMPLETENESS-R3-001",
+"MP-FOUNDATION-INCOMPLETENESS-R3-NEG-001"
+],
+"370": [
+"MP-CUBICAL-GODEL-FRAGMENT-001",
+"MP-CUBICAL-GODEL-FRAGMENT-NEG-001"
+],
+"375": [
+"MP-CUBICAL-GODEL-NAT-CODING-001",
+"MP-CUBICAL-GODEL-NAT-CODING-NEG-001"
+],
+"379": [
+"MP-CUBICAL-GODEL-FORMULA-PREDICATE-001",
+"MP-CUBICAL-GODEL-FORMULA-PREDICATE-NEG-001"
+],
+"383": [
+"MP-CUBICAL-GODEL-FORMULA-CODING-001",
+"MP-CUBICAL-GODEL-FORMULA-CODING-NEG-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"372": [
+"cubical-godel-fragment"
+],
+"373": [
+"cubical-godel-fragment"
+],
+"371": [
+"cubical-godel-fragment"
+],
+"374": [
+"cubical-godel-fragment"
+],
+"370": [
+"cubical-godel-fragment"
+],
+"383": [
+"cubical-godel-fragment"
+],
+"385": [
+"cubical-godel-fragment"
+],
+"386": [
+"cubical-godel-fragment"
+],
+"384": [
+"cubical-godel-fragment"
+],
+"382": [
+"cubical-godel-fragment"
+],
+"379": [
+"cubical-godel-fragment"
+],
+"380": [
+"cubical-godel-fragment"
+],
+"381": [
+"cubical-godel-fragment"
+],
+"375": [
+"cubical-godel-fragment"
+],
+"378": [
+"cubical-godel-fragment"
+],
+"377": [
+"cubical-godel-fragment"
+],
+"376": [
+"cubical-godel-fragment"
+],
+"369": [
+"external-foundation-incompleteness"
+],
+"368": [
+"t-precision-diagonal"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+},
+"origin/codex/zfc-core-adequacy": {
+"tip": "c5a792ea",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"367": "对任意 World、View、project 与 observe，若存在 x,y 使 project x = project y、observe x 且 ¬ observe y，则不存在通过 project 全域决定 observe 的 Prop-valued decoder；identity ob",
+"368": "对任意 `Code` 与显式 `step,d,Accept,OriginDone`，若 `step d = d`、`OriginDone (step d) ↔ ¬ Accept d`，且 paid bridge `Accept d → OriginDone (step d)` 成立，则 `¬ Acc",
+"369": "对 `ApplicationCase`，若 `applicationClaim ∧ claimsOriginalResolution ∧ requiresBridge ∧ ¬bridgePaid ∧ ¬explicitTaskSwitch`，则 `ApplicationAdequacyFailure",
+"370": "对固定 `quantizedRun`，`run 0=8`、`run 1=4`、`run 2=2`、`run 3=1`、`run 4=0`；故第4步完成且第3步未完成。",
+"371": "对固定 symbolic normalized controls，dense和quantized在 0–3 阶段共享同一个非零dyadic余量；dense无任何finite-stage Done、quantized在4步Done，因此不存在二者finite-stage Done的逐点等价。"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"367": [
+"MP-T-PRECISION-TOBS-001"
+],
+"368": [
+"MP-T-PRECISION-TDIAG-001"
+],
+"369": [
+"MP-ZFC-META-SUBTHEORY-ADEQUACY-001",
+"MP-ZFC-META-SUBTHEORY-ADEQUACY-NEG-002"
+],
+"370": [
+"MP-ZFC-DENSE-QUANTIZED-MOTION-001",
+"MP-ZFC-DENSE-QUANTIZED-MOTION-NEG-002"
+],
+"371": [
+"MP-ZFC-DENSE-QUANTIZED-CONTRACT-001",
+"MP-ZFC-DENSE-QUANTIZED-CONTRACT-NEG-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"368": [
+"t-precision-diagonal"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy",
+"zfc-dense-quantized-contract",
+"zfc-dense-quantized-motion"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"370": [
+"zfc-dense-quantized-contract",
+"zfc-dense-quantized-motion"
+],
+"371": [
+"zfc-dense-quantized-contract"
+],
+"366": [
+"zfc-h0-final-closure"
+],
+"369": [
+"zfc-meta-subtheory-adequacy"
+]
+}
+},
+"origin/codex/zfc-observation-boundary-proof": {
+"tip": "34eab1a2",
+"claims": {},
+"proofs": {},
+"pkgs": {}
+},
+"origin/codex/zfc-h0-final-proof-closure": {
+"tip": "9da04815",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+},
+"codex/godel-zfc-r3-replay-run": {
+"tip": "2e64d99a",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"369": "在 frozen `Foundation.FirstOrder.Incompleteness.First` 中，给定 `T : ArithmeticTheory`、`[T.Δ₁]`、`[𝗥₀ ⪯ T]`、`[T.SoundOnHierarchy 𝚺 1]`，`FFL.FirstOrder.Arith",
+"370": "固定 `Γ₁ = Nat ∷ []` 中，`positiveC = reflC (sucC (varC 0))` 满足 `accepts Γ₁ positiveC ≡ true`。",
+"371": "`positiveWitness` 给出 `Checked Γ₁ positiveC`，其内容是 `Deriv Γ₁ (erase positiveC) (Path Nat (suc (var 0)) (suc (var 0)))`。",
+"372": "空 context 的 `varC 0` 满足 `accepts [] (varC 0) ≡ false`。",
+"373": "`accepts [] (sucC (reflC zeroC)) ≡ false`；路径 certificate 不被当成 Nat certificate。",
+"374": "每一个 `Checked Γ c` 携带 `Deriv Γ (erase c) A`；`checkedSound` 与 `checkSound` 公开该证书到 derivation 的消去。",
+"375": "`unbits-code : (bs : List Bool) → unbits (LEN bs) (codeBits bs) ≡ bs`。",
+"376": "`parse-run`：对任意 `RawCert c`、stack/rest/fuel，prefix bit grammar `bits c ++ rest` 被 finite-fuel parser 精确还原为 `close c stack` 与原 rest。",
+"377": "`decode-code : (c : RawCert) → decode (code c) ≡ c`。",
+"378": "`code-injective : code c ≡ code d → c ≡ d`。",
+"379": "`validCode (code closedC) ≡ true`。",
+"380": "`closedProvWitness : ProvWitness (code closedC)`。",
+"381": "`quoteCert closedC ≡ provF (code closedC)`。",
+"382": "`ProvHolds (quoteCert closedC)` 由同一 `ProvWitness` 证明。",
+"383": "`decodeExprCode : decodeExpr (codeExpr e) ≡ e`。",
+"384": "`decodeFormulaCode` 与 `formulaCodeInjective`：Fmini formula code roundtrip 且单射。",
+"385": "`selfInstance template ≡ prov₁ (lit (codeFormula template))`，其中 `template = prov₁ (fvar 0)`。",
+"386": "`selfInstance template ≡ prov₁ (quoteFormula template)`。"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"369": [
+"MP-FOUNDATION-INCOMPLETENESS-R3-001",
+"MP-FOUNDATION-INCOMPLETENESS-R3-NEG-001"
+],
+"370": [
+"MP-CUBICAL-GODEL-FRAGMENT-001",
+"MP-CUBICAL-GODEL-FRAGMENT-NEG-001"
+],
+"375": [
+"MP-CUBICAL-GODEL-NAT-CODING-001",
+"MP-CUBICAL-GODEL-NAT-CODING-NEG-001"
+],
+"379": [
+"MP-CUBICAL-GODEL-FORMULA-PREDICATE-001",
+"MP-CUBICAL-GODEL-FORMULA-PREDICATE-NEG-001"
+],
+"383": [
+"MP-CUBICAL-GODEL-FORMULA-CODING-001",
+"MP-CUBICAL-GODEL-FORMULA-CODING-NEG-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"372": [
+"cubical-godel-fragment"
+],
+"373": [
+"cubical-godel-fragment"
+],
+"371": [
+"cubical-godel-fragment"
+],
+"374": [
+"cubical-godel-fragment"
+],
+"370": [
+"cubical-godel-fragment"
+],
+"383": [
+"cubical-godel-fragment"
+],
+"385": [
+"cubical-godel-fragment"
+],
+"386": [
+"cubical-godel-fragment"
+],
+"384": [
+"cubical-godel-fragment"
+],
+"382": [
+"cubical-godel-fragment"
+],
+"379": [
+"cubical-godel-fragment"
+],
+"380": [
+"cubical-godel-fragment"
+],
+"381": [
+"cubical-godel-fragment"
+],
+"375": [
+"cubical-godel-fragment"
+],
+"378": [
+"cubical-godel-fragment"
+],
+"377": [
+"cubical-godel-fragment"
+],
+"376": [
+"cubical-godel-fragment"
+],
+"369": [
+"external-foundation-incompleteness"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+},
+"codex/t-precision-continuous": {
+"tip": "65b7edec",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"367": "对任意 World、View、project 与 observe，若存在 x,y 使 project x = project y、observe x 且 ¬ observe y，则不存在通过 project 全域决定 observe 的 Prop-valued decoder；identity ob",
+"368": "对任意 `Code` 与显式 `step,d,Accept,OriginDone`，若 `step d = d`、`OriginDone (step d) ↔ ¬ Accept d`，且 paid bridge `Accept d → OriginDone (step d)` 成立，则 `¬ Acc"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"367": [
+"MP-T-PRECISION-TOBS-001"
+],
+"368": [
+"MP-T-PRECISION-TDIAG-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"368": [
+"t-precision-diagonal"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+},
+"codex/t-precision-closure-repair": {
+"tip": "eaf7b97e",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `",
+"367": "对任意 World、View、project 与 observe，若存在 x,y 使 project x = project y、observe x 且 ¬ observe y，则不存在通过 project 全域决定 observe 的 Prop-valued decoder；identity ob",
+"368": "对任意 `Code` 与显式 `step,d,Accept,OriginDone`，若 `step d = d`、`OriginDone (step d) ↔ ¬ Accept d`，且 paid bridge `Accept d → OriginDone (step d)` 成立，则 `¬ Acc"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+],
+"367": [
+"MP-T-PRECISION-TOBS-001"
+],
+"368": [
+"MP-T-PRECISION-TDIAG-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision",
+"t-precision-observation"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"368": [
+"t-precision-diagonal"
+],
+"367": [
+"t-precision-observation"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+},
+"codex/zfc-h0-final-proof-integration-20261004": {
+"tip": "b4573b24",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+},
+"origin/codex/hott-motive-zfc-literature": {
+"tip": "b1c14dfb",
+"claims": {},
+"proofs": {},
+"pkgs": {}
+},
+"origin/codex/meta-subtheory-completion-audit-20261003": {
+"tip": "5202eb1c",
+"claims": {},
+"proofs": {},
+"pkgs": {}
+},
+"codex/godel-zfc-convergence-plan": {
+"tip": "dcf12f4b",
+"claims": {
+"357": "固定原universe的逐层Q满足`question (Type ℓ-zero) judgeU ≡ never`；其集合截断`TU`上的同一Q满足`runFor 0 (question TU judgeTU) ≡ just 1`；并且不存在统一`g : TU → Type ℓ-zero`使所有`A`",
+"358": "定义`CompletionReflectsOriginalHalting = (runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU`。`coarseCompletionDoesNotRef",
+"359": "`zfc1_q_missing_with_same_Q_P_and_B_is_inconsistent`与`zfc1_same_Q_P_with_B_is_inconsistent`：在显式`ZFCOneUse`中，若`SameFullQ`、Q gap对Zeno的P许可与`B = formalDon",
+"360": "`hottCounterexampleToMathematicalIllusionP : ¬ ((runFor 0 (question TU judgeTU) ≡ just 1) → Questioning.Halts (Type ℓ-zero) judgeU)`，并给出coarse complet",
+"361": "`FormalA = Tendsto s_n (𝓝 1)`且`¬(FormalA → ∃n, s_n=1)`，其中`s_n=1-(1/2)^n`；另有闭连续时间端点到达正控制。",
+"362": "`norton_modeled_contract_diverges`：`RevisedAllActionsCompletion`成立、`StrictLastActionCompletion`不成立、`bridgePaid=False`且判词为`revisedResolved`；因此不存在`Revis",
+"363": "`hottCompletionGap`：固定 Cubical Agda Q 具有 `RevisedDone` witness、`¬ OriginalDone`和`¬(RevisedDone → OriginalDone)`。",
+"364": "在固定的有限 source-contract control 中，`standardResolutionView` 对 `OriginDone` 不存在仅依其输出的 decoder，且不存在全域 `FormalDone → OriginDone` completion bridge；显式 rich ",
+"365": "`Trace = ℕ → Maybe ℕ` 为 h-set；`trace d n = runFor n d` 保持 Delay path；对任意 H0 Judge，`trace (question (Type ℓ-zero) judge) = λ _ → nothing`，故每个 finite fu",
+"366": "对任意 frozen Foundation Zermelo-model interface 的 `Seq trace`，`domain trace` 为 ordinal；每个 `stage ∈ lh trace` 有唯一 graph value，规范 `nth` 属于 graph；`Seq` 与 `"
+},
+"proofs": {
+"357": [
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-001",
+"MP-ZFC-HOTT-OBSERVATION-BRIDGE-NEG-001"
+],
+"358": [
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-001",
+"MP-ZFC-HOTT-COMPLETION-REFLECTION-NEG-001"
+],
+"359": [
+"MP-ZFC-ACTUAL-Q-POLICY-001",
+"MP-ZFC-ACTUAL-Q-POLICY-NEG-001"
+],
+"360": [
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-001",
+"MP-ZFC-ACTUAL-Q-HOTT-COUNTEREXAMPLE-NEG-001"
+],
+"361": [
+"MP-ZFC-ACTUAL-Q-ZENO-LIMIT-CONTROL-001"
+],
+"362": [
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-SOURCE-CONTRACT-NEG-001"
+],
+"363": [
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-001",
+"MP-ZFC-ACTUAL-Q-HOTT-CONTRACT-NEG-001"
+],
+"364": [
+"MP-BARE-ZFC-Q-PRECISION-001"
+],
+"365": [
+"MP-ZFC-H0-TRACE-001"
+],
+"366": [
+"MP-ZFC-H0-PROCESS-REPRESENTATION-001"
+]
+},
+"pkgs": {
+"364": [
+"bare-zfc-q-precision"
+],
+"358": [
+"claude-cg001",
+"zfc-actual-q-policy"
+],
+"357": [
+"claude-cg001"
+],
+"362": [
+"zfc-actual-q-policy"
+],
+"359": [
+"zfc-actual-q-policy"
+],
+"361": [
+"zfc-actual-q-policy"
+],
+"360": [
+"zfc-actual-q-policy"
+],
+"363": [
+"zfc-actual-q-policy"
+],
+"366": [
+"zfc-h0-final-closure"
+]
+}
+}
+}

@@ -1,0 +1,82 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-388"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/Z0Layer1.lean",
+    "GodelQ/ZFC/WrongZ0Layer1Overclaim.lean"
+  ],
+  "completed_at_utc": "2026-10-10T23:19:26.853629+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 92.966268,
+  "environment": {
+    "bytes": 1026,
+    "path": "environment.txt",
+    "sha256": "e33c4db8973412cc4294127e6e29e96b58d781d089766c66988250994357d406"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "The rejection is expected; it does not test any mathematical content beyond 'layer 1 is not D3'."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-NEG-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-388: an attempt to derive the D3 implication (ISigma1 proves zfcTr sigma implies zfcTr (zfcTr sigma)) from layer 1's commutation lemma alone must be rejected at elaboration by a type mismatch. Layer 1 says the connectives and quantifiers commute with translate; it contains no information about the provability predicate, so D3 cannot follow from it.",
+  "source_manifest": {
+    "bytes": 205580,
+    "path": "source-manifest.json",
+    "sha256": "585e228e65fe1d9847288d728561ec1c1813adb3aa30b5eed15f7d2ff1984c70"
+  },
+  "started_at_utc": "2026-10-10T23:17:53.887139+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 14851,
+    "path": "stdout.txt",
+    "sha256": "4ff5235622266919c57e875ddbacbc998c6a0568043d37601263cd23d5b83f04"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

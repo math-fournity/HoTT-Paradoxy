@@ -1,0 +1,9 @@
+# S-RES-20260913-088-N42-UNIMATH-REPLAY
+
+- N42(a)：固定版本 agda-unimath 外部 E6 扫描 + N37 派生文件原生重放。取得并固定 agda-unimath@`7b81411d9f60afec359d29ed1e4edf43f4711c8a`（codeload 单连接下载；Range 探针 200→不可分片；ETag `If-Match`；11,938,845 bytes、本机 SHA-256 `552bc610…`、`gzip -t` 通过；解包 3,166 文件、确定性树哈希 `88460bc7…`）；库与下载件留在 `/Volumes/D/HoTT-toolchain-cache/`，repo 内保存 `HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json` 与 `AGDA_LIBRARIES`。
+- **原生重放成功**：`HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/`（proof `MP-UNIMATH-NOSECTION-REPLAY-001`，claim `C-05`）：Agda 2.8.0-3d04bac + agda-unimath@`7b81411d`、`--ignore-interfaces` 全量重检 486 个模块、exit 0、stderr 0 bytes、`EXACT_INDEX_SNAPSHOT_MATCH`、`EXACT_EXIT_STDOUT_STDERR_MATCH`。S083 的 `SOURCE_REPORTED_NOT_REPLAYED` 就此收口为可复跑证据。
+- 失败 run 保留：`…-REPLAY-01`（exit 42，`-i` 根目录配置错误）；修正 `--include-root` 后 `-02` 通过——"配置错误 ≠ 数学拒绝"。
+- E6 外部扫描（固定语料）判 `BOUNDED_NEGATIVE_WITH_STRONGEST_COUNTEREXAMPLE`：`ε-operator-Hilbert A = type-trunc-Prop A → A` 被显式命名且明确不假设；`Global-Choice` 被库内定理 `no-global-choice` **用 `no-section-type-2-Element-Type` 反证**；`count`/`is-decidable`/DN-elimination/良序等显式假设下才有 ε 算子（正控制，与 C-146 模式一致）；32 个 postulate 文件分类清点（截断公设只是 HIT 编码）；两处 `--allow-unsolved-metas` 属类型论研究模块。E6 仍未出现。
+- 工程：`verify_formal_proof_run.py` 扩项为按 `theory_variant` 分支的 Agda 选项检查（without-K 优先；cubical 保持不变；其余 fail closed）与第二个外部树标签 `agda-unimath-extracted-tree`；回归确认既有 Cubical/Lean runs 仍 `PASS_WITH_SCOPE`。`-02` 的 `index-row-manifest.json` 因矩阵行文本修正为指向 final run 重生成一次（旧 `25ac098c…` → 新 `45d025fb…`），RUN 原始运行证据未改写。
+- claim matrix：新增 proof 行 `MP-UNIMATH-NOSECTION-REPLAY-001`；`C-05` 原位更新为 `MACHINE_REPLAYED_EXTERNAL_LIBRARY_WITH_SCOPE`；legacy 行门禁身份更新为已被固定重放取代。
+- 本轮含 36/36 逐 KC 回评；`core_change=NO`。下一工作包 N43：(a) T3 共享判定联合递归；(b) batch 13；(c) 其它库（agda-stdlib / agda-categories / HoTT book formalization）同法外部 E6 扫描。

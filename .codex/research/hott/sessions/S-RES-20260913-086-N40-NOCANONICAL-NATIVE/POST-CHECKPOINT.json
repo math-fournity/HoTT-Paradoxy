@@ -1,0 +1,35 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-086-N40-NOCANONICAL-NATIVE",
+  "state_revision": 86,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 86},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 86},
+    "three_way_cognition": {"status": "PASS", "state_revision": 86},
+    "core_cognition": {"status": "PASS_WITH_SCOPE", "core_units": 36},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"},
+    "understanding_merge": {"status": "PASS", "union_files": 35},
+    "history_ledgers": {"status": "PASS", "claims": 2396},
+    "cross_source_reconciliation": {"status": "PASS", "entries": 22226},
+    "per_kc_audit": {"status": "PASS", "kc_count": 36, "relation_counts": {"ALIGNED": 10, "DEEPENED": 2, "TENSION": 1, "NOT_TOUCHED": 23}}
+  },
+  "tests": {
+    "cognition_runtime": "28/28 OK",
+    "full_closure_loading": "17/17 OK",
+    "core_cognition": "7/7 OK",
+    "three_way_cognition": "4/4 OK",
+    "math_proof_delivery_governance": "4/4 OK"
+  },
+  "proof_runs": {
+    "final": {"run_id": "20260913-MP-NOCANONICAL-001-02", "status": "PASS_WITH_SCOPE", "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH", "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH"},
+    "superseded": {"run_id": "20260913-MP-NOCANONICAL-001-01", "status": "SUPERSEDED_SAME_TURN"},
+    "regression": {"run_id": "20260913-MP-TRUNC-NORECOVERY-001-03", "status": "PASS_WITH_SCOPE", "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION"}
+  },
+  "state_updates": {
+    "new_records": ["A-NOCANONICAL-POINT-001", "A-KC-AUDIT-GAP-001", "S-RES-20260913-086-N40-NOCANONICAL-NATIVE"],
+    "refreshed_source_hash_pins": {"records": 29, "pins": 32, "reason": "claim matrix append plus README/bridge rewrites in the truncation-no-recovery package"},
+    "hydration_review_required": []
+  },
+  "boundaries": {"no_new_user_core_input": true, "git_commit": "NOT_AUTHORIZED_THIS_TURN", "e6_status": "OPEN"}
+}

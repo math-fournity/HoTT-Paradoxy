@@ -1,0 +1,15 @@
+## lean HoTT/formal/claude-cg001/wild-sst-lean/WildSSTUIP.lean
+'CG001.WildSSTUIP.LeF_trans' does not depend on any axioms
+'CG001.WildSSTUIP.weaken_le' does not depend on any axioms
+'CG001.WildSSTUIP.weaken_le_fsuc' does not depend on any axioms
+'CG001.WildSSTUIP.coh2' does not depend on any axioms
+## lean HoTT/formal/claude-cg001/wild-sst-lean/WrongRoute.lean
+HoTT/formal/claude-cg001/wild-sst-lean/WrongRoute.lean:20:63: error: Application type mismatch: The argument
+  weaken_le i j p
+has type
+  LeF (weaken i) (weaken j)
+but is expected to have type
+  LeF (weaken j) (weaken i)
+in the application
+  S.sid (m + 1) (weaken j) (weaken i) (weaken_le i j p)
+## exit 1

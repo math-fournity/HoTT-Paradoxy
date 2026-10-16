@@ -1,0 +1,44 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260913-087-N41-BATCH12",
+  "work_kind": "n41_evidence_queue_batch12",
+  "mathematical_claim_added": false,
+  "sample": {
+    "sampler": "scripts/audit/sample_understanding_claims_batch12.py",
+    "filler": "scripts/audit/fill_understanding_claim_sample_batch12.py",
+    "sample_json": "audit/understanding-claim-sample-batch12-20260912.json",
+    "report": "audit/understanding-claim-sample-batch12-20260913.md",
+    "sampled": 40,
+    "verdicts": {
+      "SUPPORTED": 20,
+      "SUPERSEDED_BY_MACHINE_RESULT": 2,
+      "UNSUPPORTED": 0,
+      "PENDING": 18
+    },
+    "cumulative": {
+      "sampled": 482,
+      "denominator": 2396,
+      "coverage": "20.1%",
+      "SUPPORTED": 308,
+      "SUPERSEDED": 14,
+      "UNSUPPORTED": 0,
+      "PENDING": 160
+    },
+    "e6_found": false
+  },
+  "site_checks": {
+    "workspace_counts": "44 SESSION / 9 PROOF_NOTE / 10 reviews verified",
+    "r006_r015_artifacts": "absent from workspace/artifacts (archive-only boundary)",
+    "r024_file": "workspace/scripts/research/r024_diagonal_machine.py exists (7,304 bytes; wc -l = 237)",
+    "finite_model_4330": "matches workspace/artifacts/r027/FINITE_MODEL_RESULTS.json (labelled_models=4330)"
+  },
+  "caliber_items": [
+    "CL-000994: 2,091 vs 2,087 source count; the 2,006-excerpt figure matches",
+    "CL-002292: 238 recorded lines vs wc -l 237"
+  ],
+  "evidence": {
+    "sample_json_copy": "evidence/audit/understanding-claim-sample-batch12-20260912.json",
+    "report_copy": "evidence/audit/understanding-claim-sample-batch12-20260913.md"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

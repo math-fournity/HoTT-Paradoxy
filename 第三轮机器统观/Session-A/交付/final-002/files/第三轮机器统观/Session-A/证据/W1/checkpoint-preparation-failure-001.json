@@ -1,0 +1,11 @@
+{
+  "schema":"mo3-preparation-failure/v1",
+  "command":"python3 第三轮机器统观/Session-A/证据/W1/prepare_checkpoint.py",
+  "phase":"serialization before canonical checkpoint call",
+  "failure":"AssertionError at _audit_v1_kc_rows(legacy_text): expected KC rows were not recognized",
+  "cause":"legacy parser requires line prefix '| `KC-' and relation in column three; authored W1 semantic tables used compact cells with relation in column two",
+  "repair":"deterministic projection adds cell spacing and reorders authored posture/relation cells; original semantic shards remain intact",
+  "canonical_mutation":false,
+  "state_revision_after_failure":269,
+  "scope":"projection format, not a failed mathematical proposition"
+}

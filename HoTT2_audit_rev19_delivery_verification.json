@@ -1,0 +1,358 @@
+{
+  "audit": {
+    "actual_original_simulator_replays": 3,
+    "controlled_git_fault_probe": true,
+    "decoded_python_attachments": 2,
+    "diagnostic_tests": 32,
+    "full_business_cognition_gate": false,
+    "math_kernel_verification": false,
+    "native_lean_runs": 0,
+    "new_chunks": 57,
+    "python_execution_records": 17,
+    "source_chunks": 73,
+    "unchanged_prefix_chunks": 16
+  },
+  "bundle": {
+    "bytes": 3811689,
+    "clone_same_head": true,
+    "path": "/mnt/data/HoTT2_audit_rev19.bundle",
+    "sha256": "6a11413e71aed7addc75dbc0a25fba74040b3c3cf19575988392238b09227ba8",
+    "verify": "PASS"
+  },
+  "checkpoint_revision": 19,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.121612+00:00",
+      "stderr": "",
+      "stdout": "05431a2c37cc82ffaa1ab0b6023bb998d2f9ea3b\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "remote"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.124034+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "add",
+        "-A"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.239320+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "commit",
+        "-m",
+        "Audit HoTT-2 additions: replay simulators, reject invalid checks, preserve governance evidence"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.280607+00:00",
+      "stderr": "",
+      "stdout": "[main 44ba9f3] Audit HoTT-2 additions: replay simulators, reject invalid checks, preserve governance evidence\n 144 files changed, 16300 insertions(+), 35 deletions(-)\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/cognition/HEAD.json\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/FRONTIER.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/LESSONS.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/RESUME.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/STATE.json\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/CLAIMS.json\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/COVERAGE.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/REVIEW.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/SESSION.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/SOURCES.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/USER_ORIGINALS.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/.codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/USER_REQUEST.txt\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/after/MEMORY.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/before/.codex/cognition/HEAD.json\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/before/.codex/research/hott/FRONTIER.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/before/.codex/research/hott/LESSONS.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/before/.codex/research/hott/RESUME.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/before/.codex/research/hott/STATE.json\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/before/MEMORY.md\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/result.json\n create mode 100644 .codex/cognition/checkpoints/S-AUD-20260910-019-HOTT2-JSON/transaction.json\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/CLAIMS.json\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/COVERAGE.md\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/REVIEW.md\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/SESSION.md\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/SOURCES.md\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/USER_ORIGINALS.md\n create mode 100644 .codex/research/hott/sessions/S-AUD-20260910-019-HOTT2-JSON/USER_REQUEST.txt\n create mode 100644 HoTT/sources/external-audits/HoTT-2(1).json\n create mode 100644 artifacts/r019/ATTACHMENT_AUDIT.json\n create mode 100644 artifacts/r019/CHUNK_INDEX.json\n create mode 100644 artifacts/r019/CLAIMS.json\n create mode 100644 artifacts/r019/CODE_AST_AUDIT.json\n create mode 100644 artifacts/r019/CODE_INDEX.json\n create mode 100644 artifacts/r019/COVERAGE.json\n create mode 100644 artifacts/r019/COVERAGE.md\n create mode 100644 artifacts/r019/DELIVERY.md\n create mode 100644 artifacts/r019/DIAGNOSTIC_TESTS.json\n create mode 100644 artifacts/r019/EMBEDDED_SOURCE_INDEX.json\n create mode 100644 artifacts/r019/EXTERNAL_REFERENCES.json\n create mode 100644 artifacts/r019/GOVERNANCE_FAULT_PROBE.json\n create mode 100644 artifacts/r019/GOVERNANCE_TEXT_FIDELITY.json\n create mode 100644 artifacts/r019/INLINE_FILE_REFERENCES.json\n create mode 100644 artifacts/r019/INPUT_PROTECTION.json\n create mode 100644 artifacts/r019/INPUT_SUMMARY.json\n create mode 100644 artifacts/r019/PUBLIC_TRANSCRIPT.md\n create mode 100644 artifacts/r019/RECORDED_EXECUTIONS.json\n create mode 100644 artifacts/r019/REPLAYS.json\n create mode 100644 artifacts/r019/REVIEW.md\n create mode 100644 artifacts/r019/SOURCES.md\n create mode 100644 artifacts/r019/SOURCE_EXCERPTS.md\n create mode 100644 artifacts/r019/SOURCE_IDENTITIES.json\n create mode 100644 artifacts/r019/TOOLCHAIN_STATUS.json\n create mode 100644 artifacts/r019/USER_ORIGINALS.md\n create mode 100644 artifacts/r019/checkpoint/BASE_PLAN.json\n create mode 100644 artifacts/r019/checkpoint/COMMIT.json\n create mode 100644 artifacts/r019/checkpoint/DRY_RUN.json\n create mode 100644 artifacts/r019/checkpoint/FRESH_PLAN.json\n create mode 100644 artifacts/r019/checkpoint/PAYLOAD.json\n create mode 100644 artifacts/r019/checkpoint/STALE_BASE.json\n create mode 100644 artifacts/r019/messages/CODE_c013.txt\n create mode 100644 artifacts/r019/messages/CODE_c021.txt\n create mode 100644 artifacts/r019/messages/CODE_c023.txt\n create mode 100644 artifacts/r019/messages/CODE_c025.txt\n create mode 100644 artifacts/r019/messages/CODE_c028.txt\n create mode 100644 artifacts/r019/messages/CODE_c030.txt\n create mode 100644 artifacts/r019/messages/CODE_c033.txt\n create mode 100644 artifacts/r019/messages/CODE_c040.txt\n create mode 100644 artifacts/r019/messages/CODE_c042.txt\n create mode 100644 artifacts/r019/messages/CODE_c044.txt\n create mode 100644 artifacts/r019/messages/CODE_c047.txt\n create mode 100644 artifacts/r019/messages/CODE_c049.txt\n create mode 100644 artifacts/r019/messages/CODE_c051.txt\n create mode 100644 artifacts/r019/messages/CODE_c053.txt\n create mode 100644 artifacts/r019/messages/CODE_c055.txt\n create mode 100644 artifacts/r019/messages/CODE_c064.txt\n create mode 100644 artifacts/r019/messages/CODE_c070.txt\n create mode 100644 artifacts/r019/messages/PUBLIC_c001.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c003.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c004.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c006.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c007.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c009.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c010.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c012.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c015.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c016.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c018.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c019.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c037.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c038.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c057.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c058.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c060.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c061.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c063.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c066.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c067.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c069.md\n create mode 100644 artifacts/r019/messages/PUBLIC_c072.md\n create mode 100644 artifacts/r019/replay/c013.stderr.txt\n create mode 100644 artifacts/r019/replay/c013.stdout.txt\n create mode 100644 artifacts/r019/replay/c064.stderr.txt\n create mode 100644 artifacts/r019/replay/c064.stdout.txt\n create mode 100644 artifacts/r019/replay/c070.stderr.txt\n create mode 100644 artifacts/r019/replay/c070.stdout.txt\n create mode 100644 scripts/recovered/HoTT2_json/attachment_c035.py\n create mode 100644 scripts/recovered/HoTT2_json/attachment_c046.py\n create mode 100644 scripts/recovered/HoTT2_json/embedded_c021_script_content.py\n create mode 100644 scripts/recovered/HoTT2_json/embedded_c033_script_content.py\n create mode 100644 scripts/recovered/HoTT2_json/embedded_c042_script_content.py\n create mode 100644 scripts/recovered/HoTT2_json/embedded_c055_content.md\n create mode 100644 scripts/recovered/HoTT2_json/executable_c013_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c021_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c023_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c025_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c028_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c030_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c033_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c040_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c042_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c044_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c047_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c049_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c051_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c053_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c055_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c064_00.py\n create mode 100644 scripts/recovered/HoTT2_json/executable_c070_00.py\n create mode 100644 scripts/recovered/HoTT2_json/fence_c015_00.lean\n create mode 100644 scripts/recovered/HoTT2_json/fence_c015_01.lean\n create mode 100644 scripts/session/r019_decode_attachments.py\n create mode 100644 scripts/session/r019_finish_audit.py\n create mode 100644 scripts/session/r019_metadata_audit.py\n create mode 100644 scripts/session/r019_prepare.py\n create mode 100644 scripts/tests/r019_simulator_audit.py\n create mode 100644 scripts/tools/r019_package_audit.py\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.298482+00:00",
+      "stderr": "",
+      "stdout": "44ba9f3e0527b9e036dd6c9d8ab3e650e89c910a\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.299832+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "fsck",
+        "--full"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.307108+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "create",
+        "/mnt/data/HoTT2_audit_rev19.bundle",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.416187+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "verify",
+        "/mnt/data/HoTT2_audit_rev19.bundle"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:14.942051+00:00",
+      "stderr": "/mnt/data/HoTT2_audit_rev19.bundle is okay\n",
+      "stdout": "The bundle contains these 3 refs:\n44ba9f3e0527b9e036dd6c9d8ab3e650e89c910a refs/heads/main\n320d5362a8c96f597d0d6458ec70802f35384239 refs/tags/checkpoint-rev15-import\n44ba9f3e0527b9e036dd6c9d8ab3e650e89c910a HEAD\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r019-restore-ap2pdnqe/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.250792+00:00",
+      "stderr": "",
+      "stdout": "44ba9f3e0527b9e036dd6c9d8ab3e650e89c910a\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r019-restore-ap2pdnqe/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.252695+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "fsck",
+        "--full"
+      ],
+      "cwd": "/tmp/hott-r019-restore-ap2pdnqe/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.311802+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "clone",
+        "/mnt/data/HoTT2_audit_rev19.bundle",
+        "/tmp/hott-r019-restore-ap2pdnqe/from-bundle"
+      ],
+      "cwd": "/tmp/hott-r019-restore-ap2pdnqe",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.416293+00:00",
+      "stderr": "Cloning into '/tmp/hott-r019-restore-ap2pdnqe/from-bundle'...\nhint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\n",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r019-restore-ap2pdnqe/from-bundle",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.671587+00:00",
+      "stderr": "",
+      "stdout": "44ba9f3e0527b9e036dd6c9d8ab3e650e89c910a\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r019-restore-ap2pdnqe/from-bundle",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.673657+00:00",
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "branch",
+        "--show-current"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.774220+00:00",
+      "stderr": "",
+      "stdout": "main\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-list",
+        "--count",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT2_audit_rev19",
+      "exit_code": 0,
+      "started_at_utc": "2026-09-10T16:05:16.776119+00:00",
+      "stderr": "",
+      "stdout": "9\n"
+    }
+  ],
+  "completed_at_utc": "2026-09-10T16:05:16.774189+00:00",
+  "git": {
+    "branch": "main",
+    "clean": true,
+    "commits": 9,
+    "fsck": "PASS",
+    "head": "44ba9f3e0527b9e036dd6c9d8ab3e650e89c910a",
+    "inherited_head": "05431a2c37cc82ffaa1ab0b6023bb998d2f9ea3b",
+    "remotes": []
+  },
+  "input_protection": {
+    "allowed_changed_paths": [
+      ".codex/cognition/HEAD.json",
+      ".codex/research/hott/FRONTIER.md",
+      ".codex/research/hott/LESSONS.md",
+      ".codex/research/hott/RESUME.md",
+      ".codex/research/hott/STATE.json",
+      "MEMORY.md",
+      "scripts/README.md"
+    ],
+    "base_non_git_file_count": 940,
+    "baseline_zip": "/mnt/data/HoTT_json_audit_rev18_with_git.zip",
+    "baseline_zip_sha256": "bb987f432a7b13156d37b01f7d93a2d87dd6121fd40b364a68867c537835ab76",
+    "changed_existing_paths": [
+      ".codex/cognition/HEAD.json",
+      ".codex/research/hott/FRONTIER.md",
+      ".codex/research/hott/LESSONS.md",
+      ".codex/research/hott/RESUME.md",
+      ".codex/research/hott/STATE.json",
+      "MEMORY.md",
+      "scripts/README.md"
+    ],
+    "inherited_head": "05431a2c37cc82ffaa1ab0b6023bb998d2f9ea3b",
+    "old_owners_skills_closure_schema_matrix_code_and_session_records_unchanged": true,
+    "original_input_sha256": "c2da542fdcc7b7a691242d991c21f7778c5c0ecda7e9a26cb2ab598dbab5ed27",
+    "scope": "Exact byte comparison to supplied revision18 package except explicit dynamic memory/index. No native proof or full business cognition certification.",
+    "status": "PASS_BYTE_SCOPE",
+    "unchanged_protected_files": 933
+  },
+  "latest_session": "S-AUD-20260910-019-HOTT2-JSON",
+  "limits": [
+    "No source Lean compilation or HoTT formal proof",
+    "No proof of historical source commit outcome; only missing evidence and tested unchecked-success behavior",
+    "Only scoped source audit, not independent Fresh Session business cognition test",
+    "External Drive document body is absent; two embedded Python attachments were present and decoded"
+  ],
+  "schema_version": "hott-r019-delivery/v1",
+  "status": "VERIFIED_LOCAL_DELIVERY",
+  "workspace": "/mnt/data/HoTT2_audit_rev19",
+  "zip": {
+    "all_members_read_back": true,
+    "bytes": 12220051,
+    "crc": "PASS",
+    "file_count": 2387,
+    "path": "/mnt/data/HoTT2_audit_rev19_with_git.zip",
+    "restored_git_clean": true,
+    "sha256": "3dab512e1c5aeec3ccabc61d5a9c6f3fbd61d8ee3ca74e1e1861ceac873c9d32"
+  }
+}

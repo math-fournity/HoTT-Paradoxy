@@ -1,0 +1,49 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-FORGE-H074-H075-REFLECTION-STAGE",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "H074",
+      "status": "MODEL_RECALL_SITE_CANDIDATE_CAL2_ONLY",
+      "profile": "blind-discovery",
+      "thread_id": "01a1004f-9cf1-76a3-af19-66fbc095951a",
+      "turn_id": "01a1004f-9dad-79a0-b8f7-b3f9e9836a58",
+      "wire_sha256": "5c557e04f05607f66101de408bc13f44ccdfe1ca11c999deae867be076334482",
+      "final_sha256_normalized": "13cfe57e0c13e84b2cb3937e32ad45451a9cb19c0800733b8f60fafa876d57e7",
+      "tools": 0,
+      "files": 0,
+      "approvals": 0
+    },
+    {
+      "id": "H075",
+      "status": "SOURCE_PACKET_DIRECT_PAYMENT_CAL2_CONTROL_ONLY",
+      "profile": "source-match",
+      "thread_id": "01a10052-7b14-7b32-ae4c-f418d01f7f82",
+      "turn_id": "01a10052-7bc8-7d02-a4d6-2cfd88d21e84",
+      "wire_sha256": "02f6969fc70abf99d14f99fd60c636c9ded877c92848ed16a38b230095245d96",
+      "final_sha256_normalized": "3c2abba7a9c3a77f458793a7cc1adfb9f7e3fb103ec0e9eb3ee2f6e9f44f4d13",
+      "source_sha256": "c6f53b48e78e3683d8e78fd6c72d203aeef2fed13f7fba9b7f421bdf7561f27f",
+      "tools": 0,
+      "files": 0,
+      "approvals": 0
+    },
+    {
+      "id": "P-FORGE-H074-H075-DOCUMENT-VALIDATION",
+      "status": "PASS",
+      "commands": [
+        "git diff --check",
+        "verify_governance_shards.py",
+        "verify_pattern_p_tool_history_sources.py",
+        "RUNS JSON parse",
+        "62-KC row count",
+        "pinned Reflection.thy SHA-256 comparison",
+        "single frozen-payload checks for H074/H075",
+        "session_trajectory catalog/tree/coverage for H074/H075"
+      ],
+      "evidence": "These checks establish artifact structure, source identity and terminal-run boundaries. They do not establish a mathematical conclusion."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+Checking IotaC03NegTrivialInterp (/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC03NegTrivialInterp.agda).
+/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/glm-repairs/IotaC03NegTrivialInterp.agda:28.22-63: error: [UnequalTerms]
+Bool !=
+Agda.Builtin.Cubical.Glue.primGlue Bool
+(λ .x →
+   (λ { (i = i0) → Bool , ArtificialEquationControl.flipNotEquiv
+      ; (i = i1) → Bool , Cubical.Foundations.Equiv.Base.idEquiv Bool
+      })
+   _ .fst)
+(λ .x →
+   (λ { (i = i0) → Bool , ArtificialEquationControl.flipNotEquiv
+      ; (i = i1) → Bool , Cubical.Foundations.Equiv.Base.idEquiv Bool
+      })
+   _ .snd)
+of type Type
+when checking that the expression
+cong (cong f') (S boolTy boolTy art refl) has type
+Cubical.Foundations.Univalence.ua
+ArtificialEquationControl.flipNotEquiv
+≡ refl

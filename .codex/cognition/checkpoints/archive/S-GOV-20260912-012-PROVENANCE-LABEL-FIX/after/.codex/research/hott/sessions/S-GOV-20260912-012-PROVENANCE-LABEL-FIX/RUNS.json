@@ -1,0 +1,28 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260912-012-PROVENANCE-LABEL-FIX",
+  "runs": [
+    {
+      "command": "rtk python3 scripts/audit/verify_cross_source_reconciliation.py",
+      "status": "PASS",
+      "scope": "384 AI response rows are explicitly three-platform aggregate; total 22,226"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_projection_freshness.py",
+      "status": "PASS_WITH_SCOPE",
+      "scope": "post-correction state/projection/source/fresh consistency"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_three_way_cognition.py",
+      "status": "PASS",
+      "scope": "state revision 12; 24 directions; 22 outcomes"
+    },
+    {
+      "command": "rtk git diff --check",
+      "status": "PASS",
+      "scope": "current patch whitespace"
+    }
+  ],
+  "model_context": "NOT_CERTIFIED_BY_TOOL",
+  "mathematics": "NOT_CERTIFIED"
+}

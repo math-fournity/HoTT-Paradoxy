@@ -1,0 +1,58 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-387",
+    "D09-C-369"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/external-foundation-incompleteness",
+    "GodelQ/WrongMissingSoundness.lean"
+  ],
+  "completed_at_utc": "2026-10-10T19:44:43.534825+00:00",
+  "cwd": "/Users/aurolafly/.codex/worktrees/9276/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 2.863483,
+  "environment": {
+    "bytes": 1026,
+    "path": "environment.txt",
+    "sha256": "0a9ed1973aa5684d693cffccc5c1a8c48fc3453e748ae40bc44aaa456aada276"
+  },
+  "exit_code": 1,
+  "expected_outcome": "REJECT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "The rejection is expected; it does not test any mathematical content beyond the soundness prerequisite being necessary."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-FL-FOUNDATION-INCOMPLETENESS-R3-REPLAY-NEG-001",
+  "rejection_stage": "ELABORATION_ERROR_IN_TARGET",
+  "run_id": "20261010-CG001-FFL-INCOMPLETENESS-R3-REPLAY-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control for CG001-C-387 (local replay of D09-C-369): the source theorem incomplete requires T.SoundOnHierarchy Sigma 1. The control supplies only [T.Delta1] [R0 <= T] and calls incomplete T; the kernel must reject it at the missing typeclass instance.",
+  "source_manifest": {
+    "bytes": 200476,
+    "path": "source-manifest.json",
+    "sha256": "677778c58409758dbd36c89aad77718d4cee92199ec17c144a7e856c0d7c0395"
+  },
+  "started_at_utc": "2026-10-10T19:44:40.671068+00:00",
+  "status": "KERNEL_REJECTED",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. rejection_stage says which Lean stage refused it.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 312,
+    "path": "stdout.txt",
+    "sha256": "2393f0b85baaa33fd943631244ef73a4254756b4b10b5d4b3636799f989803a9"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

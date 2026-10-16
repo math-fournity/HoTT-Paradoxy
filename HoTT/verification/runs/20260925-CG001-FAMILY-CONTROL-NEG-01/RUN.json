@@ -1,0 +1,57 @@
+{
+  "claim_ids": [
+    "CG001-C-25"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/family-control",
+    "HoTT/formal/claude-cg001/family-control/WrongGaugeSection.agda"
+  ],
+  "completed_at_utc": "2026-09-25T04:41:32.909629+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 31.704565,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "a rejected run is not a theorem; it only shows the gluing forces the section"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-FAMILY-CONTROL-NEG-001",
+  "run_id": "20260925-CG001-FAMILY-CONTROL-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Negative control, expected KERNEL_REJECTED: on a one-step HIT with family glued by sucPathZ, declaring raw value pos 5 at the end while the start is pos 0 must fail (1 != 5).",
+  "source_manifest": {
+    "bytes": 2699,
+    "path": "source-manifest.json",
+    "sha256": "76d5322b24a03f5e1e88b696096dea5931c7b5b5dc64373bf4efc3b9ad918c5f"
+  },
+  "started_at_utc": "2026-09-25T04:41:01.205064+00:00",
+  "status": "KERNEL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16883,
+    "path": "stdout.txt",
+    "sha256": "560874b4abc4fd59c74d9800e3385f5d625708a8c53e435e6a7f11f4fe28b834"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

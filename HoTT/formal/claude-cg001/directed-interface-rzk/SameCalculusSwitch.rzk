@@ -1,0 +1,323 @@
+#lang rzk-1
+
+-- One calculus, one switch: a step as a path or as an arrow in the same
+-- universe (Claude, session 91a6cdaa, 2026-09-25), in reply to Terra's audit
+-- 009 (section 6, T-021, O-029).
+--
+-- proof id : MP-CG001-DIRECTED-INTERFACE-001
+-- claim    : CG001-C-57 (full statement in CLAIM.md)
+--
+-- Terra 009 asked for the comparison inside one exact calculus, with a fixed
+-- universe S, the fibre over N, Gl(N, N, suc), its covariant transport, a
+-- two-step composition and an exact stop contract, and allowed a proof
+-- environment with an explicit interface for the directed-univalence axiom.
+-- This file works in simplicial HoTT as implemented by Rzk 0.11.3 (no
+-- postulates, no assumed axioms, no modalities).  The directed-univalence
+-- content of Gratzer-Weinberger-Buchholtz, Theorem 6.13, restated at fixed
+-- endpoints, enters only as hypotheses of the theorems below:
+--   S : U, El : S -> U, El covariant (RS17 Definition 8.2), and for all A B
+--   the map hom S A B -> (El A -> El B) sending an arrow to its covariant
+--   transport is an equivalence.
+-- The fibre El A plays the natural numbers, with s : El A -> El A the
+-- successor and z : El A zero; the only facts about them used are
+--   z-not-hit : s x = z is impossible, and no-fixed : z = s (s z) is impossible.
+--
+-- C-57 (a) paths in S: no path A = A carries El along as s (given
+--          z-not-hit); the round trip along a path p and its reverse returns
+--          z, so the stop contract "the value is s (s z)" fails (given
+--          no-fixed);
+--      (b) arrows in S: Gl A A s, the arrow classified by s, carries El along
+--          as s (coe-Gl); a walk of two such arrows reaches s (s z), so the
+--          stop contract holds after two steps;
+--      (c) with a composition of arrows whose covariant transport is the
+--          composite of transports (hypotheses standing for GWB Lemma 6.16
+--          and RS17 functoriality), the composite round-trip arrow also
+--          carries z to s (s z).
+-- The calculus, the universe S, the family El, the fibre and the stop
+-- contract are the same in (a) and (b); only the kind of step differs.
+
+-- ------------------------------------------------------------------
+-- Paths
+
+#define transport
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : C y
+  := idJ (A , x , \ y' _ → C y' , u , y , p)
+
+#define rev
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : y = x
+  := idJ (A , x , \ y' _ → y' = x , refl , y , p)
+
+#define concat
+  ( A : U)
+  ( x y z : A)
+  ( p : x = y)
+  ( q : y = z)
+  : x = z
+  := idJ (A , y , \ z' _ → x = z' , p , z , q)
+
+#define ap
+  ( A B : U)
+  ( f : A → B)
+  ( x y : A)
+  ( p : x = y)
+  : f x = f y
+  := idJ (A , x , \ y' _ → f x = f y' , refl , y , p)
+
+#define transport-there-and-back
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : transport A C y x (rev A x y p) (transport A C x y p u) = u
+  := idJ
+    ( A , x
+    , \ y' p' → transport A C y' x (rev A x y' p') (transport A C x y' p' u) = u
+    , refl , y , p)
+
+#define transport-back-and-there
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( v : C y)
+  : transport A C x y p (transport A C y x (rev A x y p) v) = v
+  := ( idJ
+      ( A , x
+      , \ y' p' → ( v' : C y') → transport A C x y' p' (transport A C y' x (rev A x y' p') v') = v'
+      , \ v' → refl , y , p)) v
+
+-- the empty type, as a universally quantified type
+#define Empty
+  : U
+  := ( C : U) → C
+
+-- ------------------------------------------------------------------
+-- Arrows and covariant families (as in CarriedMonotone.rzk)
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define is-equiv
+  ( A B : U)
+  ( f : A → B)
+  : U
+  := Σ ( r : B → A)
+    , Σ ( s : B → A)
+    , Σ ( η : ( a : A) → r (f a) = a)
+    , ( ( b : B) → f (s b) = b)
+
+#define is-contr
+  ( A : U)
+  : U
+  := Σ ( a : A) , ( ( b : A) → a = b)
+
+#define dhom
+  ( A : U)
+  ( x y : A)
+  ( f : hom A x y)
+  ( C : A → U)
+  ( u : C x)
+  ( v : C y)
+  : U
+  := ( t : Δ¹) → C (f t) [ t ≡ 0₂ ↦ u , t ≡ 1₂ ↦ v ]
+
+#define is-covariant
+  ( A : U)
+  ( C : A → U)
+  : U
+  := ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+   → is-contr (Σ ( v : C y) , dhom A x y f C u v)
+
+#define covariant-transport
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x y : A)
+  ( f : hom A x y)
+  ( u : C x)
+  : C y
+  := first (first (is-cov x y f u))
+
+-- ------------------------------------------------------------------
+-- The directed-univalence interface (GWB Theorem 6.13 at fixed endpoints)
+
+#define arrow-action
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( A B : S)
+  ( f : hom S A B)
+  : El A → El B
+  := \ u → covariant-transport S El is-cov A B f u
+
+#define is-directed-univalent
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  : U
+  := ( A : S) → ( B : S) → is-equiv (hom S A B) (El A → El B) (arrow-action S El is-cov A B)
+
+-- the arrow classified by a function (GWB Definition 6.14 plays this role)
+#define Gl
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( φ : El A → El B)
+  : hom S A B
+  := ( first (second (du A B))) φ
+
+-- its covariant transport is the function (GWB Lemma 6.15 plays this role)
+#define coe-Gl
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( φ : El A → El B)
+  ( u : El A)
+  : covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u = φ u
+  := ap (El A → El B) (El B) (\ h → h u)
+    ( arrow-action S El is-cov A B (Gl S El is-cov du A B φ))
+    ( φ)
+    ( ( second (second (second (du A B)))) φ)
+
+-- ------------------------------------------------------------------
+-- (a) a step as a path in S
+
+-- no path A = A carries El along as s
+#define no-path-acts-as-step
+  ( S : U)
+  ( El : S → U)
+  ( A : S)
+  ( s : El A → El A)
+  ( z : El A)
+  ( z-not-hit : ( x : El A) → ( s x = z) → Empty)
+  ( p : A = A)
+  ( acts : ( u : El A) → transport S El A A p u = s u)
+  : Empty
+  := z-not-hit
+    ( transport S El A A (rev S A A p) z)
+    ( concat (El A)
+      ( s (transport S El A A (rev S A A p) z))
+      ( transport S El A A p (transport S El A A (rev S A A p) z))
+      ( z)
+      ( rev (El A)
+        ( transport S El A A p (transport S El A A (rev S A A p) z))
+        ( s (transport S El A A (rev S A A p) z))
+        ( acts (transport S El A A (rev S A A p) z)))
+      ( transport-back-and-there S El A A p z))
+
+-- the round trip along a path and its reverse never meets the stop contract
+#define path-round-trip-never-stops
+  ( S : U)
+  ( El : S → U)
+  ( A B : S)
+  ( p : A = B)
+  ( s : El A → El A)
+  ( z : El A)
+  ( no-fixed : ( z = s (s z)) → Empty)
+  ( stops : transport S El B A (rev S A B p) (transport S El A B p z) = s (s z))
+  : Empty
+  := no-fixed
+    ( concat (El A)
+      ( z)
+      ( transport S El B A (rev S A B p) (transport S El A B p z))
+      ( s (s z))
+      ( rev (El A)
+        ( transport S El B A (rev S A B p) (transport S El A B p z))
+        ( z)
+        ( transport-there-and-back S El A B p z))
+      ( stops))
+
+-- ------------------------------------------------------------------
+-- (b) a step as an arrow in S
+
+#define arrow-step
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A : S)
+  ( s : El A → El A)
+  : hom S A A
+  := Gl S El is-cov du A A s
+
+#define arrow-step-acts
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A : S)
+  ( s : El A → El A)
+  ( u : El A)
+  : covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) u = s u
+  := coe-Gl S El is-cov du A A s u
+
+-- a walk of two arrow steps meets the stop contract
+#define arrow-walk-stops
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A : S)
+  ( s : El A → El A)
+  ( z : El A)
+  : covariant-transport S El is-cov A A (arrow-step S El is-cov du A s)
+      ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) z)
+    = s (s z)
+  := concat (El A)
+    ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s)
+      ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) z))
+    ( s (covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) z))
+    ( s (s z))
+    ( arrow-step-acts S El is-cov du A s
+      ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) z))
+    ( ap (El A) (El A) s
+      ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) z)
+      ( s z)
+      ( arrow-step-acts S El is-cov du A s z))
+
+-- ------------------------------------------------------------------
+-- (c) the composite round-trip arrow, given a functorial composition
+
+#define composite-round-trip-stops
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A : S)
+  ( s : El A → El A)
+  ( z : El A)
+  ( comp : hom S A A → hom S A A → hom S A A)
+  ( coe-comp : ( f : hom S A A) → ( g : hom S A A) → ( u : El A)
+             → covariant-transport S El is-cov A A (comp f g) u
+               = covariant-transport S El is-cov A A g (covariant-transport S El is-cov A A f u))
+  : covariant-transport S El is-cov A A
+      ( comp (arrow-step S El is-cov du A s) (arrow-step S El is-cov du A s)) z
+    = s (s z)
+  := concat (El A)
+    ( covariant-transport S El is-cov A A
+      ( comp (arrow-step S El is-cov du A s) (arrow-step S El is-cov du A s)) z)
+    ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s)
+      ( covariant-transport S El is-cov A A (arrow-step S El is-cov du A s) z))
+    ( s (s z))
+    ( coe-comp (arrow-step S El is-cov du A s) (arrow-step S El is-cov du A s) z)
+    ( arrow-walk-stops S El is-cov du A s z)

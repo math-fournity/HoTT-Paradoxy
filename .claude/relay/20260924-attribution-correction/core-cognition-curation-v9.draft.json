@@ -1,0 +1,34 @@
+{
+  "schema_version": "core-cognition-curation/v2",
+  "asset_class": "HUMAN_EDITED_CURATION_AUTHORITY",
+  "generation": "core-cognition-generation-9",
+  "previous_generation_ref": "4830d59e",
+  "scope": "Preserve all 48 generation-8 user units exactly; append one complete user-authored correction from 2026-09-24 (Claude Code session). It withdraws the working-order force of the 'next story' clause in KC-000005 and KC-000020 and makes attribution a main topic to be discussed carefully with the user. KC-000005 and KC-000020 remain verbatim as historical record, per the user's explicit choice. No AI claims or operational framing enter this unit.",
+  "inherits": {
+    "path": "scripts/audit/core-cognition-curation-v8.json",
+    "sha256": "28bcccf37492157b93213e665a96e968d94e5aa8f82031f148671778775ed330",
+    "generation": "core-cognition-generation-8"
+  },
+  "sources": [
+    {
+      "platform": "Claude",
+      "message_id_prefix": "CLAUDE-ATTRIBUTION-CORRECTION-20260924",
+      "path": "sources/prompts/Claude-归因是正题-用户原文-20260924.md",
+      "sha256": "89076899be25f75c4bcc8bdb92d9a08aae347c52d7e8b0c8a0904a18a43019a9"
+    }
+  ],
+  "message_decisions": [
+    {
+      "source_message_id": "CLAUDE-ATTRIBUTION-CORRECTION-20260924-M-001",
+      "disposition": "INCLUDED",
+      "reason": "用户明确修正 KC-000005、KC-000020 中“至于悖论作为矛盾，它到底是否定了哪个前提，那是未来的下一个故事”一句的工作次序效力，并要求改掉原始文档；随后在选择题中选定“保留原话并加修正”。原话作为历史记录保留；本单元只含用户本人的一句修正原文。上下文与选项文字由 Claude 记录，留在来源文件的说明里，不进入 KC。不认证任何具体归因结论。"
+    }
+  ],
+  "units": [
+    {
+      "source_message_id": "CLAUDE-ATTRIBUTION-CORRECTION-20260924-M-001",
+      "semantic_label": "归因是要与用户仔细探讨的正题，撤回“下一个故事”的工作次序",
+      "source_lines": [9, 9]
+    }
+  ]
+}

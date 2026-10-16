@@ -1,0 +1,12 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-DAG-H058-H059-THESEUS-FINAL",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {"id":"H058","status":"HISTORY_INSENSITIVE_POWERSET_CONSUMER_NEGATIVE_CONTROL","wire_sha256":"8b0c9735ef5ba45d052469026980d83aa6c3ca207a3f5b1c90edab6970371220"},
+    {"id":"H059","status":"FINAL_TOOL_BIRTH_NOT_ENOUGH_EVIDENCE","wire_sha256":"8e0fe96e58efcfd0863f66a839a9650dbd8938de7a963fc696a792f96ec0e191"},
+    {"id":"P-DAG-H058-H059-DOCUMENT-VALIDATION","status":"PASS","commands":["git diff --check","verify_governance_shards.py","session_trajectory catalog/tree/coverage/terminal-inspect"],"evidence":"2026-10-03：git diff --check、RUNS JSON parse、62-KC row count和governance shard validator通过；H058/H059 private wires均按catalog/tree/coverage/assistant-terminal审计。"}
+  ]
+}

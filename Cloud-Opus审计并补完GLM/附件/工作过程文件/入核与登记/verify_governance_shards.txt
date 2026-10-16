@@ -1,0 +1,27 @@
+$ python3 -B scripts/audit/verify_governance_shards.py
+{
+  "schema_version": "governance-shard-verification/v1",
+  "generated_at_utc": "2026-09-30T06:32:11.671384+00:00",
+  "project_root": "/home/user/HoTT-Paradoxy",
+  "validator": "scripts/audit/validate_governance_shards.py",
+  "validator_sha256": "788dee0f376dcba2c9e0ba966560ad4862cbe2067465f3a584099640328de0fe",
+  "validator_source_commit": "2e4e4d2dbe13046470bc79e98e64735312ee9bd5",
+  "pinned_validator_sha256": "788dee0f376dcba2c9e0ba966560ad4862cbe2067465f3a584099640328de0fe",
+  "command": [
+    "/usr/local/bin/python3",
+    "-B",
+    "/home/user/HoTT-Paradoxy/scripts/audit/validate_governance_shards.py",
+    "--scan",
+    "/home/user/HoTT-Paradoxy"
+  ],
+  "exit_code": 0,
+  "stdout": "NOTICE: /home/user/HoTT-Paradoxy/.claude/总索引/005 - 工作日志.md: 452 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/.codex/research/hott/PREMISE-001/001 - 分母 V1 冻结（A-G 条目、P1 前提与出处）.md: 413 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/.codex/research/hott/PREMISE-001/005 - P3P4 判定与审计链 A-B（AI 执行）.md: 321 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/.codex/research/hott/PREMISE-001/006 - P3P4 判定与审计链 C-G（AI 执行）.md: 482 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/Astra继续尝试/断点与证明机制系统检查/对话原文/011 - 数学现实同一性、原X与第三弹校正.md: 301 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md: 314 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/第三轮机器统观/Session-A/交付/final-001/files/HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md: 314 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/第三轮机器统观/Session-A/交付/final-002/files/HoTT后续研究总体方案/003 - 分支顺序、准入与停止条件.md: 314 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/第三轮机器统观/Session-C/审计/B01/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md: 346 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/第三轮机器统观/Session-C/审计/B02/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md: 345 lines exceed soft target 300; content remains valid\nNOTICE: /home/user/HoTT-Paradoxy/第三轮机器统观/Session-C/审计/R0/CORE_COGNITION_AUDIT/001 - 核心认知逐项回评.md: 348 lines exceed soft target 300; content remains valid\nPASS: governance shard indexes=1929; soft-target notices=11; v1/v2 compatible; line targets are non-blocking\n",
+  "stderr": "",
+  "status": "PASS",
+  "indexes": 1929,
+  "soft_target_notices": 11,
+  "line_targets_blocking": false,
+  "canonical_indexes_checked": 173,
+  "reader_banner_issues": []
+}
+exit=0

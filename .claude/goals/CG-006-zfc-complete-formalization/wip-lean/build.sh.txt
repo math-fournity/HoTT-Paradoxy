@@ -1,0 +1,18 @@
+#!/bin/bash
+# usage: build.sh <srcroot> <builddir> File1.lean [File2.lean ...]
+set -u
+SRC=$1; OUT=$2; shift 2
+FB=/Volumes/D/HoTT-toolchain-cache/foundation-build-1fb01b72-v4.34.0/lib/lean
+A=/Volumes/D/HoTT-toolchain-cache/astra-real-geometry-v4.34.0/mathlib4-5ed2965256430c3649e86755f9576b54eca72435
+P=/Users/aurolafly/.elan/toolchains/leanprover--lean4---v4.34.0
+LP="$OUT:$FB"; for pk in batteries aesop Qq proofwidgets importGraph LeanSearchClient plausible; do LP="$LP:$A/.lake/packages/$pk/.lake/build/lib/lean"; done
+cd $SRC
+rc=0
+for f in "$@"; do
+  m=${f%.lean}; mkdir -p $OUT/$(dirname $m)
+  echo "## lean $f"
+  sandbox-exec -p '(version 1)(allow default)(deny network*)' env -i PATH=$P/bin:/usr/bin:/bin LEAN_SYSROOT=$P LEAN_PATH=$LP HOME=$OUT \
+    $P/bin/lean -DautoImplicit=false -R $SRC -o $OUT/$m.olean -i $OUT/$m.ilean $f
+  r=$?; echo "## exit $r"; [ $r -ne 0 ] && { rc=$r; break; }
+done
+exit $rc

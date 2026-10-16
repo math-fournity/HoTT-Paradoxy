@@ -1,0 +1,2350 @@
+{
+  "active": [
+    "I-DIRECTION-PORTFOLIO-20260912",
+    "I-OUTCOME-PANORAMA-20260912"
+  ],
+  "current_core": {
+    "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+    "curation": "scripts/audit/core-cognition-curation-v4.json",
+    "curation_sha256": "35f7efde0c97e33f696e3082cb7768a7a809ebbc3e639fdf811e70a925436859",
+    "generation": "core-cognition-generation-4",
+    "kc_count": 36,
+    "manifest": "核心认知.manifest.json",
+    "manifest_sha256": "d3791f581061b0a7ae75be9aee6c215f6b1f961f48615135fddbdd5662f66b91",
+    "path": "核心认知.md",
+    "transition": "audit/core-cognition-generation-4-transition-20260912.json"
+  },
+  "execution_control": {
+    "background_work": false,
+    "checkpoint_result": "CHECKPOINT_APPLIED_PENDING_GIT_COMMIT",
+    "last_checkpoint_session": "S-RES-20260912-040-PATH-CERTIFICATE",
+    "new_math_research_started": true,
+    "next_minimal_verification": "In Agda 2.8.0/Cubical v0.9, fix a guarded/online interface (complete stream function versus a strategy that reads only inputs already arrived), prove an online-qualification boundary, and give a positive control of a task that can be completed online.",
+    "source_policy": "preserve all historical snapshots; do not restore user-removed aistudio-docs",
+    "status": "PATH_CERTIFICATE_PROVED_ONLINE_CAUSALITY_NEXT"
+  },
+  "latest_session": "S-RES-20260912-040-PATH-CERTIFICATE",
+  "load_policy": {
+    "fresh_model_behavior": "NOT_RUN",
+    "full_trio": [
+      "核心认知.md",
+      "方向追踪.md",
+      "全景视野.md"
+    ],
+    "historical_session_auto_load": false,
+    "manifest_version": "3.2.0",
+    "profiles": [
+      "governance",
+      "research"
+    ],
+    "runtime_version": "3.1.0",
+    "schema_version": "cognition-load-set/v3"
+  },
+  "projection": {
+    "direction_path": "方向追踪.md",
+    "direction_record": "I-DIRECTION-PORTFOLIO-20260912",
+    "outcome_path": "全景视野.md",
+    "outcome_record": "I-OUTCOME-PANORAMA-20260912",
+    "schema_version": "integrated-projection-index/v1",
+    "status": "CORE_GENERATION_4_PATH_CERTIFICATE_PROVED_ONLINE_CAUSALITY_NEXT"
+  },
+  "records": {
+    "A-AISTUDIO-COVERAGE-001": {
+      "depends_on": [
+        "S-INTEGRATION-20260912-001"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "sources/local-gpt/HoTT_is_GONE_COMPLETE.md",
+        "sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md",
+        "sources/SOURCE_MANIFEST.json"
+      ],
+      "kind": "source_gap",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "sources/local-gpt/HoTT_is_GONE_COMPLETE.md",
+      "scope": "Determine whether the user-removed aistudio-docs content is actually covered by the preserved GONE artifact; no restoration authorized",
+      "status": "review_required"
+    },
+    "A-CONTEXT-CHARACTERIZATION-FORMAL-001": {
+      "claim_ids": [
+        "C-89",
+        "C-90",
+        "C-91"
+      ],
+      "classification": "CONTEXTUAL_EQUIVALENCE_FULLY_CHARACTERIZED",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001",
+        "A-CONTEXTUAL-EQUIV-FORMAL-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.README.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/context-characterization机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "CONTEXTUAL_EQUIVALENCE_EQUALS_REPRESENTATIONAL_EQUALITY_ON_BOOL_FRAGMENT",
+      "path": "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+      "proof_id": "MP-CONTEXT-CHARACTERIZATION-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/context-characterization机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, dependencies, toolchain and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-CONTEXT-CHARACTERIZATION-001-01",
+      "scope": "Native Cubical Agda full characterization of the contextual equivalence on the Bool fragment of the R041 delay model: lt trichotomy (C-89), general strict-time separation (C-90), and p ≡c q ↔ p ≡ q (C-91). Representational equality is the finest possible, so no context extension can distinguish more in this fragment. Not a HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.README.md": "9c640e7d73ba822b3455ca4b097b55e8dfa6767926bf2f4fdc8787245740843a",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda": "f79a0c06a0c892bdc8ab9e36ddc2d7aa47b03981303b3d8e3a2c3325ffef07f0",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda": "9804514dd87bfd647148c2bd05c21be531ef0f737b68569511e964bb0f41e2db",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json": "ae033a996ec34d145308dcc2fd4f9ebbedd926b509413ff6a36a4cf57e4ea17e",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json": "ac0769ed1da8533e372fb1ebf720f3056a007935422fc177f92db4649cf6882b",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/source-manifest.json": "be3f54bf03249a1cbd13db37c357cc9b20c5701a5bd8e7cf0430c8840ee698b7",
+        "audit/context-characterization机器证明实施证据-20260912.md": "ad19bb9f40129ade6d8194530a7ce8f810b786910595323bf9a1984da0f1131d"
+      },
+      "status": "complete"
+    },
+    "A-CONTEXTUAL-EQUIV-FORMAL-001": {
+      "claim_ids": [
+        "C-77",
+        "C-78",
+        "C-79",
+        "C-80",
+        "C-81",
+        "C-82",
+        "C-83"
+      ],
+      "classification": "REPRESENTATION_BOUNDARY",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001",
+        "A-RACE-TIMEOUT-FORMAL-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.README.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "CONTEXTUAL_EQUIVALENCE_STRICTLY_FINER_THAN_RESULT_EQUIVALENCE",
+      "path": "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+      "proof_id": "MP-CONTEXTUAL-EQUIV-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/contextual-equivalence机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, dependency, toolchain and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-CONTEXTUAL-EQUIV-001-01",
+      "scope": "Native Cubical Agda contextual equivalence on the R041 delay fragment over the fixed context family (hole, bind, race on either side): ≡c is an equivalence, refines ≈, strictly separates timing/divergence/value differences, and result equivalence is strictly coarser. REPRESENTATION_BOUNDARY; no claim about all context languages, no quotient monad, no HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.README.md": "aaca460f4602a97ddd9ff7dde716bb3b3c38c5f66069dce6577cbaeb42dba24b",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda": "9804514dd87bfd647148c2bd05c21be531ef0f737b68569511e964bb0f41e2db",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json": "abc6cf4e10000188f9c70c152c6b6d59aae5f8419ed493a2ac8cb5afb1144e6a",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json": "9f4c4c9f3511b9b6c720129be6051a3efe52172b9d9f648c6312386ce9a8e320",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/source-manifest.json": "a9f5f6aca3b0efcb1fcfbd2fe6a9ecfbafd38f5e47660de678114212a382d3cb",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md": "8f80d6f6b5fd3cb2e6e1fc020bc44bd61d3fa9fcd7d63d17c67de14e02c72107"
+      },
+      "status": "complete"
+    },
+    "A-CORE-GENERATION-2-001": {
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/core-cognition-generation-transition-20260912.json",
+        "核心认知.manifest.json",
+        "scripts/audit/verify_core_cognition.py"
+      ],
+      "kind": "core_generation_migration",
+      "lifecycle_status": "CLOSED",
+      "path": "audit/core-cognition-generation-transition-20260912.json",
+      "resolution": {
+        "evidence": [
+          "audit/core-cognition-generation-transition-20260912.json",
+          "核心认知.manifest.json",
+          "scripts/audit/verify_core_cognition.py"
+        ],
+        "reason": "Generation-2 was generated by the canonical builder and verified; the first 903 KC metadata and payloads equal the generation-1 Git recovery prefix."
+      },
+      "scope": "Append only user-authored governance/handoff requirements through a registered source input; preserve generation-1 prefix identity.",
+      "status": "closed"
+    },
+    "A-CORE-GENERATION-3-001": {
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "核心认知.md",
+        "核心认知.manifest.json",
+        "scripts/audit/core-cognition-curation-v3.json",
+        "scripts/audit/verify_core_cognition.py",
+        "audit/核心认知generation-3与加载治理v3实施证据-20260912.md"
+      ],
+      "kind": "core_generation_migration",
+      "lifecycle_status": "HISTORICAL",
+      "path": "audit/core-cognition-generation-3-transition-20260912.json",
+      "resolution": {
+        "evidence": [
+          "audit/core-cognition-generation-4-transition-20260912.json",
+          "核心认知.manifest.json"
+        ],
+        "reason": "Generation-3 remains the exact 27-KC historical baseline; generation-4 preserves all 27 payloads and adds nine direct-user units."
+      },
+      "scope": "Rebuild current core from exactly three primary extracts with explicit 88-message disposition and total 913-KC migration lineage.",
+      "source_hashes": {},
+      "status": "closed"
+    },
+    "A-CORE-GENERATION-4-001": {
+      "depends_on": [
+        "A-CORE-GENERATION-3-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "核心认知.md",
+        "核心认知.manifest.json",
+        "scripts/audit/core-cognition-curation-v4.json",
+        "sources/prompts/Codex-自反真理验证与理论经济学-用户原文-20260912.md",
+        "audit/core-cognition-generation-4-transition-20260912.json",
+        "scripts/audit/verify_core_cognition.py",
+        "audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md"
+      ],
+      "kind": "core_generation_migration",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/core-cognition-generation-4-transition-20260912.json",
+      "revalidation": "Removed the unrelated C4 research-document hash from the core-generation identity; core source/manifest/curation/transition were reverified unchanged.",
+      "scope": "Incrementally add nine exact direct-user self-validation/economy units while preserving every generation-3 KC byte-for-byte; current denominator 36 KC across four sources and 89 registered messages.",
+      "source_hashes": {
+        "核心认知.md": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"
+      },
+      "status": "closed"
+    },
+    "A-COST-FACTORIZATION-FORMAL-001": {
+      "claim_ids": [
+        "C-96",
+        "C-97",
+        "C-98",
+        "C-99"
+      ],
+      "classification": "NON_FACTORIZATION_WITH_COST_REFINEMENT_POSITIVE_CONTROL",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.README.md",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/cost-factorization机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "BARE_FUNCTION_CANNOT_RECOVER_COST_REFINED_REPRESENTATION_CAN",
+      "path": "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+      "proof_id": "MP-COST-FACTORIZATION-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/cost-factorization机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, toolchain and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-COST-FACTORIZATION-001-01",
+      "scope": "Native Cubical Agda cost instance: fast and slow k share the extensional function (funext) but differ in syntax-directed cost (C-96); no predicate on the bare function type distinguishes extensionally equal programs (C-97); no consumer recovers the cost value from the bare function (C-98); the cost-refined representation recovers and separates (C-99). Representation limit with positive control; not a HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.README.md": "a6b065f2df845a958ceb23117ecddf2792a7978e54cdc1d4c67578e3fad42d9e",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda": "d6ac0ecb7b0824f396e94aec1cb246b04df31ef7f90320767d54a5f33b2527ea",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json": "e84182ec6ed40ac5ddea45a3e2603b1c0050f0a2c2afddfca87e6a5d71adfaa2",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json": "d75064d681ac4f2a0b9e6f7a2a339173ddc37f3beab47c6d5546e2a4f62511f0",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/source-manifest.json": "0cf506edd45730009d602bbba8088efc500f9a3d40c2fe7b052c7135eaca2555",
+        "audit/cost-factorization机器证明实施证据-20260912.md": "d501e119dd3b05342bfc5e4e43a8fad1edf66d803cf192f1d06510aa8fcf7469"
+      },
+      "status": "complete"
+    },
+    "A-CROSS-SOURCE-RECONCILIATION-001": {
+      "depends_on": [
+        "A-HISTORY-LEDGERS-001",
+        "I-DIRECTION-PORTFOLIO-20260912",
+        "I-OUTCOME-PANORAMA-20260912"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "audit/cross-source-reconciliation-report.md",
+        "audit/coverage-summary.json",
+        "方向追踪.md",
+        "全景视野.md",
+        "audit/fresh-three-way-verification-20260912.json"
+      ],
+      "kind": "cross_source_reconciliation",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "audit/cross-source-reconciliation-report.md",
+      "scope": "Exhaustively register WebGPT STATE and four top-level historical ledgers with stable locators and candidate direction/result links; direct sentence semantics remain review_required.",
+      "status": "review_required"
+    },
+    "A-DIRECTION-PARADOX-REVIEW-001": {
+      "depends_on": [
+        "I-DIRECTION-PORTFOLIO-20260912",
+        "I-OUTCOME-PANORAMA-20260912"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C1-后续研究方向独立复审-20260912.md",
+        "核心认知.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061551) - R034.md"
+      ],
+      "kind": "direction_review",
+      "lifecycle_status": "CURRENT",
+      "path": "理解章节/C1-后续研究方向独立复审-20260912.md",
+      "scope": "Independent review of the proposed research portfolio; paper/source and execution evidence are separated.",
+      "status": "complete"
+    },
+    "A-ERCF-FACTORIZATION-FORMAL-001": {
+      "claim_ids": [
+        "C-59",
+        "C-60",
+        "C-61",
+        "C-62",
+        "C-63",
+        "C-64",
+        "C-65",
+        "C-66"
+      ],
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/formal/ercf-factorization/README.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/index-row-manifest.json",
+        "scripts/audit/freeze_proof_index_rows.py"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "GENERAL_TYPE_FACTORIZATION_PROVED_HOTT_NATIVE_NOT_CLAIMED",
+      "path": "HoTT/formal/ercf-factorization/ERCF.lean",
+      "proof_id": "MP-ERCF-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-001-02/source-manifest.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-001-02/stdout.txt",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/ERCF-1-2机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final indexed run exited 0 and exact replay matched stdout/stderr; all source and index hashes match. Git version closure is not authorized, so status remains local-uncommitted."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-ERCF-001-02",
+      "scope": "Lean 4.33.1 proves the exact general Type-valued factorization controls in ERCF.lean. No univalence, cubical Path, HIT, truncation, HoTT-specific paradox, physical bridge or originality is claimed.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/ercf-factorization/ERCF.lean": "cb3564d348d6503614c6dd771ded172751e948882470f8213a9206d9a303ac8e",
+        "HoTT/formal/ercf-factorization/README.md": "79a1c0373b5752ef1dc0e8259d67599bb772d26d54dacf41672d3e7c12a11edf",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json": "696d23a3e95400329f0b6ddcf8ee8e573686f6acf3e58858b08d7353e320a0db",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/index-row-manifest.json": "f5dfc378577fa294eb0f4d40462a72cb4fed18d5147f75b89ae51e84b567add9",
+        "scripts/audit/verify_formal_proof_run.py": "7dfa8bc7adaa0b3f86f415dcf369c79be409f41e7a0c171bb063fc4102864d17",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "A-ERCF-TRUNCATION-DEFENSE-001": {
+      "claim_ids": [
+        "C-67",
+        "C-68",
+        "C-69",
+        "C-70"
+      ],
+      "classification": "DEFENSE_WORKS",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/formal/ercf-truncation-defense/README.md",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/environment.txt",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "NATIVE_CUBICAL_TRUNCATION_DEFENSE_NOT_PARADOX",
+      "path": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+      "proof_id": "MP-ERCF-TRUNC-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/stdout.txt",
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/ERCF-截断防御机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; repo sources, official release assets, binary and 1111-file source tree hashes match; index rows and exact replay pass. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-ERCF-TRUNC-001-01",
+      "scope": "Agda 2.8.0/Cubical v0.9 native Path and squash-HIT prove proposition-valued elimination, truncation flattening, Bool-output constancy and no point-preserving Bool extraction. This is a defense result, not a HoTT paradox or reality bridge.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/ercf-truncation-defense/README.md": "14ff576cac8bb9490f6482e11dbe6e619aafabb6d70fab2ee624149c04e8e336",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json": "f1810deb16e72d55e8efb0e8316d8ae494eb0acb3867d4f4b103fab63f43e8c2",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json": "cf42ef44c1674b6607e992ca9911ac0f0ddb9d63ea9ad62c4cbd4efefcf35376",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json": "865105e8bdfc4cec69a146b8f292f0144d15d4653639c6c930c0a8844eeac917",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json": "747b624f4c62bc0fb16e265ae3f85dedd04d60e58d0fd43700adbc5d416276e1",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md": "5d5460d374faa9a45b1670b837c412eedaca73b9ef2bc63afcb37c4f632ee888",
+        "scripts/audit/verify_formal_proof_run.py": "7dfa8bc7adaa0b3f86f415dcf369c79be409f41e7a0c171bb063fc4102864d17",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "A-FRESH-THREE-WAY-001": {
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/fresh-three-way-verification-20260912.json",
+        "scripts/audit/verify_fresh_three_way.py",
+        ".codex/tools/cognition_runtime.py"
+      ],
+      "kind": "fresh_runtime_verification",
+      "lifecycle_status": "CLOSED",
+      "path": "audit/fresh-three-way-verification-20260912.json",
+      "resolution": {
+        "evidence": [
+          "audit/fresh-three-way-verification-20260912.json",
+          "scripts/audit/verify_fresh_three_way.py"
+        ],
+        "reason": "Fresh Python processes verify exact trio bytes and layered loader behavior; model ingestion/comprehension remains NOT_RUN."
+      },
+      "scope": "Fresh Python process verifies layered governance/research plans, complete trio bytes, explicit task hydration and fail-closed negatives; no model behavior or mathematics.",
+      "status": "closed"
+    },
+    "A-GUARD-ERASURE-FORMAL-001": {
+      "claim_ids": [
+        "C-92",
+        "C-93",
+        "C-94",
+        "C-95"
+      ],
+      "classification": "GUARD_ERASURE_EQUIVALENT_TO_FIXED_POINT_EXISTENCE",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.README.md",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/guard-erasure机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "STAGE_ERASURE_WITH_KEPT_LAW_IFF_FIXED_POINT_EXISTS",
+      "path": "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+      "proof_id": "MP-GUARD-ERASURE-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/guard-erasure机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, toolchain and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-GUARD-ERASURE-001-01",
+      "scope": "Native Cubical Agda guard/stage-erasure equivalence with an explicit staged-stream source calculus and an explicit forgetful translation: collapse + kept update law implies a fixed point (C-92), any fixed point yields such a collapse (C-94); the negation law admits none (C-93) and the oscillating orbit is the concrete witness (C-95). Not a HoTT paradox; no guarded/clocked completeness claim.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.README.md": "ca9a027aa46e75352d650a7633ab956689ff57fdb010394430592df5af5fe80f",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda": "207735163b26d857d4ccd98512b1cb13ed8ec0c163673b045fa8e8449dc0722e",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json": "d632cd7008c9532a68d9b14dbf2cb54a1b3e679d33683685ba83a204c6472ea8",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json": "b999e6617cac5a6005e40698bb251a7289868a0088d9b057b4344707296ed7d1",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/source-manifest.json": "6f84f285d0afdec536cf5e3366f28f2f1a1428b1db961911c1b0c97a1bd19c94",
+        "audit/guard-erasure机器证明实施证据-20260912.md": "c95c725df7ea9b57ba879a266a645868977cb50a442d557c7de4a8930373714f"
+      },
+      "status": "complete"
+    },
+    "A-HISTORICAL-MATH-CLAIMS-001": {
+      "depends_on": [
+        "A-UNDERSTANDING-RECONCILIATION-001"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "理解章节/B5-成果总账.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "sources/webgpt/workspace-snapshot/.codex/research/hott/STATE.json",
+        "全景视野.md",
+        "audit/cross-source-reconciliation-report.md"
+      ],
+      "kind": "historical_claim_review",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "理解章节/B5-成果总账.md",
+      "scope": "Separate AI claims, finite checks, executable toy code, proof-assistant status and reality-relative hypotheses",
+      "status": "review_required"
+    },
+    "A-HISTORY-LEDGERS-001": {
+      "depends_on": [
+        "S-INTEGRATION-20260912-001"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "sources/SOURCE_MANIFEST.json",
+        "sources/prompts/Codex-HoTT-2-用户消息提取-20260911.md",
+        "sources/prompts/ChatGPT-HoTT-Main-用户消息提取-20260911.md",
+        "sources/prompts/Gemini-AI对话录-用户消息提取-20260911.md",
+        "audit/cross-source-reconciliation-report.md"
+      ],
+      "kind": "historical_audit",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "audit/coverage-summary.json",
+      "scope": "Visible AI responses, canonical trajectory events, WebGPT sections, Gemini executable/inline records, artifacts and claims; exhaustive cross-source row register is now built, with direct semantic review remaining scoped.",
+      "status": "review_required"
+    },
+    "A-HOTT-RESEARCH-DIRECTION-001": {
+      "decision_status": "AI_PROPOSAL_NOT_USER_RULING",
+      "depends_on": [
+        "A-DIRECTION-PARADOX-REVIEW-001",
+        "A-PARADOX-HOTT-SYNTHESIS-001",
+        "A-WEBGPT-R041-PAPER-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md",
+        "核心认知.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "理解章节/C1-后续研究方向独立复审-20260912.md",
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "理解章节/A11-开放问题与悬空接头.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+        "workspace/.codex/research/hott/candidates/RP-B01/PLAN.md",
+        "workspace/.codex/research/hott/candidates/RP-B01/CONSTRUCTION.md",
+        "workspace/.codex/research/hott/candidates/RP-B01/CLAIMS.json",
+        "HoTT/SELF_REFERENCE_AND_REFLECTION_INVESTIGATION.md"
+      ],
+      "kind": "research_strategy",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "NO_NEW_THEOREM_STRATEGY_ONLY",
+      "path": "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md",
+      "scope": "Source-bounded recommendation: qualification preservation is the umbrella; W51×RP-B01×reflection is the strategic line; real partiality quotient/QIIT bind-versus-race contextual adequacy is the first executable work package.",
+      "source_hashes": {
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md": "1d9b74c76fddf9cfba4a93498dcb3f11c2bffce67ba1549fa017fa4d2c0000dc",
+        "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md": "b9bf9510037b6eb7587385b0ac9b3bde8d154fa91e084ba116798939da9bda39"
+      },
+      "status": "complete"
+    },
+    "A-HOTT-SELF-VALIDATION-ECONOMY-001": {
+      "depends_on": [
+        "A-CORE-GENERATION-4-001",
+        "A-HOTT-RESEARCH-DIRECTION-001"
+      ],
+      "evidence_status": "PAPER_ONLY_WITH_MACHINE_PROVED_GENERAL_AND_NATIVE_DEFENSE_SUBRESULTS",
+      "full_sources": [
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "核心认知.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "HoTT/SELF_REFERENCE_AND_REFLECTION_INVESTIGATION.md",
+        "audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md",
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/formal/ercf-factorization/README.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/formal/ercf-truncation-defense/README.md",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/formal/partiality-race-timeout/README.md",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.README.md",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "audit/quotient-monad机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.README.md",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+        "audit/context-characterization机器证明实施证据-20260912.md"
+      ],
+      "kind": "research_direction_result",
+      "lifecycle_status": "OPEN_ISSUE",
+      "mathematical_status": "FACTORIZATION_TRUNCATION_PARTIALITY_CONTEXT_MONAD_AND_CHARACTERIZATION_PROVED_NATURAL_CONSUMER_OPEN",
+      "path": "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+      "revalidation": "S040 added the R034 path-certificate native check (C-100–C-105): the truncation economy removes the actual path and the unified move is non-inhabited, while path-indexed and fixed-pair moves exist. C4 text is unchanged and the remaining items stay open.",
+      "scope": "C4 separates V1-V5 and ERCF. General factorization C-59 through C-66 and native Cubical truncation defense C-67 through C-70 are machine-proved; partiality natural consumer, reality bridge, divergence, coverage no-go and ERCF-3 remain open.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/ercf-factorization/ERCF.lean": "cb3564d348d6503614c6dd771ded172751e948882470f8213a9206d9a303ac8e",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json": "696d23a3e95400329f0b6ddcf8ee8e573686f6acf3e58858b08d7353e320a0db",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json": "cf42ef44c1674b6607e992ca9911ac0f0ddb9d63ea9ad62c4cbd4efefcf35376",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "review_required"
+    },
+    "A-LOAD-GOVERNANCE-V3-001": {
+      "depends_on": [
+        "A-CORE-GENERATION-3-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/cognition/LOAD_SET.json",
+        ".codex/tools/cognition_runtime.py",
+        ".codex/cognition/PROTOCOL.md",
+        ".codex/skills/hott-local-session-governance/SKILL.md",
+        ".codex/skills/hott-paradox-research/SKILL.md",
+        "audit/fresh-three-way-verification-20260912.json"
+      ],
+      "kind": "governance_upgrade",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",
+      "resolution": {
+        "evidence": [
+          "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",
+          "audit/fresh-three-way-verification-20260912.json"
+        ],
+        "reason": "Layered runtime and negative tests pass; fresh model behavior remains explicitly NOT_RUN."
+      },
+      "scope": "Layer full-trio/boot/research/query/task/archive cognition and separate lifecycle from evidence status without deleting history.",
+      "source_hashes": {},
+      "status": "closed"
+    },
+    "A-MATH-PROOF-DELIVERY-GATE-001": {
+      "behavior_status": "FRESH_MODEL_NOT_RUN",
+      "depends_on": [
+        "A-LOAD-GOVERNANCE-V3-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "AGENTS.md",
+        ".codex/AGENTS.md",
+        "rulings.md",
+        "feature-list.md",
+        "docs/quality/数学结论机器证明与证据留存规范.md",
+        ".codex/cognition/PROTOCOL.md",
+        ".codex/skills/hott-local-session-governance/SKILL.md",
+        ".codex/skills/hott-paradox-research/SKILL.md",
+        "HoTT/formal/README.md",
+        "HoTT/verification/runs/README.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/verify_math_proof_delivery_governance.py",
+        "scripts/audit/test_math_proof_delivery_governance.py",
+        "audit/数学结论机器证明交付门禁实施证据-20260912.md",
+        "scripts/audit/capture_lean_proof_run.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/formal/ercf-factorization/README.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/index-row-manifest.json",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/formal/partiality-race-timeout/README.md",
+        "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+        "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/source-manifest.json",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.README.md",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/source-manifest.json",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/source-manifest.json",
+        "audit/quotient-monad机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.README.md",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/source-manifest.json",
+        "audit/context-characterization机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.README.md",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/source-manifest.json",
+        "audit/guard-erasure机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.README.md",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/source-manifest.json",
+        "audit/cost-factorization机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.README.md",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/source-manifest.json",
+        "audit/path-certificate机器证明实施证据-20260912.md"
+      ],
+      "kind": "governance_requirement",
+      "lifecycle_status": "CURRENT",
+      "path": "docs/quality/数学结论机器证明与证据留存规范.md",
+      "revalidation": "S040 appended the path-certificate package; all nine proof packages re-validated (eight row-stable, one exact), and the gate structure is unchanged. Fresh-model behavior still NOT_RUN.",
+      "scope": "Require machine proof source/run/index before delivery. Lean, native Cubical truncation, race/timeout, contextual equivalence, quotient monad and context characterization packages pass; dependencies are publisher/hash pinned and old index rows remain immutable. Fresh-model behavior and Git version closure remain open.",
+      "source_hashes": {
+        "AGENTS.md": "ec2aee08b06d3b78e48ab1d84384524bd1cc77b28b875886c2db656b6dbd74c1",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/README.md": "572d0433a6a1907eb40645f5c38a62850a47a265da4f47ea5e37f79ab4749a57",
+        "HoTT/formal/ercf-factorization/ERCF.lean": "cb3564d348d6503614c6dd771ded172751e948882470f8213a9206d9a303ac8e",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json": "f1810deb16e72d55e8efb0e8316d8ae494eb0acb3867d4f4b103fab63f43e8c2",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+        "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.README.md": "9c640e7d73ba822b3455ca4b097b55e8dfa6767926bf2f4fdc8787245740843a",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda": "f79a0c06a0c892bdc8ab9e36ddc2d7aa47b03981303b3d8e3a2c3325ffef07f0",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.README.md": "aaca460f4602a97ddd9ff7dde716bb3b3c38c5f66069dce6577cbaeb42dba24b",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda": "9804514dd87bfd647148c2bd05c21be531ef0f737b68569511e964bb0f41e2db",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.README.md": "a6b065f2df845a958ceb23117ecddf2792a7978e54cdc1d4c67578e3fad42d9e",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda": "d6ac0ecb7b0824f396e94aec1cb246b04df31ef7f90320767d54a5f33b2527ea",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.README.md": "ca9a027aa46e75352d650a7633ab956689ff57fdb010394430592df5af5fe80f",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda": "207735163b26d857d4ccd98512b1cb13ed8ec0c163673b045fa8e8449dc0722e",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.README.md": "bdb9ca3d8ecae125777050422ee65d7cb266ed85c74002544b06e9f9c5e08ed8",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda": "2c1c812c7776a6b13733cfbec231f33f27562820d60b43032e79ed83d0d5837b",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md": "483d4267d982fcf23f8de1cfeecb38d2aa68c4ba6307f950281554503459695a",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda": "fd0d7f3b891911b455ba74f922a44b169b3900d34cfa2c27de06dee1c4ad8de1",
+        "HoTT/formal/partiality-race-timeout/README.md": "3718403ac2124eca82be0d65fa23941a9fcd48fd792296a23d9eb2239a7069e4",
+        "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json": "ae033a996ec34d145308dcc2fd4f9ebbedd926b509413ff6a36a4cf57e4ea17e",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json": "ac0769ed1da8533e372fb1ebf720f3056a007935422fc177f92db4649cf6882b",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/source-manifest.json": "be3f54bf03249a1cbd13db37c357cc9b20c5701a5bd8e7cf0430c8840ee698b7",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json": "abc6cf4e10000188f9c70c152c6b6d59aae5f8419ed493a2ac8cb5afb1144e6a",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json": "9f4c4c9f3511b9b6c720129be6051a3efe52172b9d9f648c6312386ce9a8e320",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/source-manifest.json": "a9f5f6aca3b0efcb1fcfbd2fe6a9ecfbafd38f5e47660de678114212a382d3cb",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json": "e84182ec6ed40ac5ddea45a3e2603b1c0050f0a2c2afddfca87e6a5d71adfaa2",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json": "d75064d681ac4f2a0b9e6f7a2a339173ddc37f3beab47c6d5546e2a4f62511f0",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/source-manifest.json": "0cf506edd45730009d602bbba8088efc500f9a3d40c2fe7b052c7135eaca2555",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json": "696d23a3e95400329f0b6ddcf8ee8e573686f6acf3e58858b08d7353e320a0db",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json": "cf42ef44c1674b6607e992ca9911ac0f0ddb9d63ea9ad62c4cbd4efefcf35376",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json": "d632cd7008c9532a68d9b14dbf2cb54a1b3e679d33683685ba83a204c6472ea8",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json": "b999e6617cac5a6005e40698bb251a7289868a0088d9b057b4344707296ed7d1",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/source-manifest.json": "6f84f285d0afdec536cf5e3366f28f2f1a1428b1db961911c1b0c97a1bd19c94",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json": "40f7c962df32318f68a3d1aae2d87d168cb3adb585968211f7e78e8617929c4f",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json": "71b93d5d11e10b1cd19b534b5b426bd9c256ea75d7d0ea728c45862364abc2c8",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/source-manifest.json": "4b7f7cc7e0091b1200da968d02c6d3078488f0e4fedf3106be913b87e65e9db0",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json": "9a62332e3da3bcc8be4ab577f2c19c4159ca77a9a2a4f4c299c2f6485e820fb3",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json": "590a8c20ed2492592f62b6ebf6f31072338f297f8e0f79340a5f1ef115e80ffd",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/source-manifest.json": "1991ce7f2c189c47a466f8bf803c2775a076fc5ec817a8001bcf9b3e44915c45",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json": "b16984dc89677f049652468ab3b77ef82c24034b25465277947ffc5838774b4b",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json": "e12df196549279b621bcf45f65dcd5fff7aec5356e183d808095502b55df96f9",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/source-manifest.json": "2a799a2efd56d800b054ce6287720320489287ca29a7599037c78c98ce8a921c",
+        "HoTT/verification/runs/README.md": "ed2906bbd8838faae1ce0513aa3e4bcaf78a9d2d2226e717500c43d35138f8dd",
+        "audit/context-characterization机器证明实施证据-20260912.md": "ad19bb9f40129ade6d8194530a7ce8f810b786910595323bf9a1984da0f1131d",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md": "8f80d6f6b5fd3cb2e6e1fc020bc44bd61d3fa9fcd7d63d17c67de14e02c72107",
+        "audit/cost-factorization机器证明实施证据-20260912.md": "d501e119dd3b05342bfc5e4e43a8fad1edf66d803cf192f1d06510aa8fcf7469",
+        "audit/guard-erasure机器证明实施证据-20260912.md": "c95c725df7ea9b57ba879a266a645868977cb50a442d557c7de4a8930373714f",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md": "0cfa6771a4f1d4f7a62fa79398177f573a9942de900f5c28fb78437a330dfd5b",
+        "audit/path-certificate机器证明实施证据-20260912.md": "1396d3897a3a70b9828ea728a2474aaa7d930b173f50e39f918217c75983f577",
+        "audit/quotient-monad机器证明实施证据-20260912.md": "ed440f352e9111b02fff0e2cb41f70bc16c2d9bbd04007d635b64259a89b9118",
+        "docs/quality/数学结论机器证明与证据留存规范.md": "fd540b0a43e55c263506adec4e2578833d7fad1e59ce21f12fdd8efc29e60fbd",
+        "scripts/audit/capture_agda_proof_run.py": "7f5dcc8b9343665e554a2d3e7e8a568add1401227d0998a5066ec15cddff43d2",
+        "scripts/audit/capture_lean_proof_run.py": "2b949277c4bc2db3ac97601c934c070713d47a2d75cbac9f4ecbcffe1068bcc7",
+        "scripts/audit/freeze_proof_index_rows.py": "5cf036b0956bb97e9e4a30bab1135823484d60a9d8980a10eb0bbeb16ed10ace",
+        "scripts/audit/mark_proof_run_indexed.py": "478771e155bbb1f27dd82567e587b62d88d7da8bdd87618c2024bc9603edaeec",
+        "scripts/audit/verify_formal_proof_run.py": "7dfa8bc7adaa0b3f86f415dcf369c79be409f41e7a0c171bb063fc4102864d17",
+        "scripts/audit/verify_math_proof_delivery_governance.py": "57c293e1b9750ff8134306ef439d1670e2f5843d9c596edca15d455c1027cae1"
+      },
+      "status": "active"
+    },
+    "A-PARADOX-HOTT-SYNTHESIS-001": {
+      "depends_on": [
+        "A-HISTORICAL-MATH-CLAIMS-001",
+        "A-DIRECTION-PARADOX-REVIEW-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "理解章节/A2-参照悖论谱.md",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/THEORY_SCHEMA.md",
+        "HoTT/SELF_REFERENCE_AND_REFLECTION_INVESTIGATION.md"
+      ],
+      "kind": "domain_synthesis",
+      "lifecycle_status": "CURRENT",
+      "path": "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+      "scope": "Dual-perspective explanation of six reference paradoxes, project candidates, rejected attacks and HoTT handling mechanisms; no new native proof.",
+      "status": "complete"
+    },
+    "A-PATH-CERTIFICATE-FORMAL-001": {
+      "claim_ids": [
+        "C-100",
+        "C-101",
+        "C-102",
+        "C-103",
+        "C-104",
+        "C-105"
+      ],
+      "classification": "MERE_MOVE_NON_INHABITED_WITH_NATIVE_PATH_CONTROLS",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.README.md",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/path-certificate机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "PATH_MOVE_EXISTS_MERE_MOVE_EMPTY_NATIVE_CUBICAL",
+      "path": "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+      "proof_id": "MP-PATH-CERTIFICATE-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/path-certificate机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, toolchain and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "run_id": "20260912-MP-PATH-CERTIFICATE-001-01",
+      "scope": "Native Cubical Agda verification of the R034 path-certificate boundary: ua computation (C-100), truncation propositionality (C-101), fixed-pair interface (C-102), non-inhabitation of the fixed-source and general unified moves (C-103, C-104) and the path-indexed move (C-105). Constructive refutation, no Lean Eq substitution, not a HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.README.md": "bdb9ca3d8ecae125777050422ee65d7cb266ed85c74002544b06e9f9c5e08ed8",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda": "2c1c812c7776a6b13733cfbec231f33f27562820d60b43032e79ed83d0d5837b",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json": "40f7c962df32318f68a3d1aae2d87d168cb3adb585968211f7e78e8617929c4f",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json": "71b93d5d11e10b1cd19b534b5b426bd9c256ea75d7d0ea728c45862364abc2c8",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/source-manifest.json": "4b7f7cc7e0091b1200da968d02c6d3078488f0e4fedf3106be913b87e65e9db0",
+        "audit/path-certificate机器证明实施证据-20260912.md": "1396d3897a3a70b9828ea728a2474aaa7d930b173f50e39f918217c75983f577"
+      },
+      "status": "complete"
+    },
+    "A-PROVENANCE-LABEL-FIX-001": {
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/cross-source-reconciliation-report.md",
+        "audit/cross-source-reconciliation.json",
+        "scripts/audit/verify_cross_source_reconciliation.py"
+      ],
+      "kind": "provenance_label_correction",
+      "lifecycle_status": "CLOSED",
+      "path": "audit/cross-source-reconciliation-report.md",
+      "resolution": {
+        "evidence": [
+          "audit/cross-source-reconciliation-report.md",
+          "audit/cross-source-reconciliation.json",
+          "scripts/audit/verify_cross_source_reconciliation.py"
+        ],
+        "reason": "The register builder and verifier now use ai_response; the generated register reports LocalGPT 305 + WebGPT 55 + Gemini 24 and passes row/hash validation."
+      },
+      "scope": "Correct source-class wording so the 384 response rows are represented as the three-platform AI response ledger; count and row coverage remain unchanged.",
+      "status": "closed"
+    },
+    "A-QUOTIENT-MONAD-FORMAL-001": {
+      "claim_ids": [
+        "C-84",
+        "C-85",
+        "C-86",
+        "C-87",
+        "C-88"
+      ],
+      "classification": "MONAD_STRUCTURE_CONSTRUCTED",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001",
+        "A-RACE-TIMEOUT-FORMAL-001",
+        "A-CONTEXTUAL-EQUIV-FORMAL-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/quotient-monad机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "RESULT_QUOTIENT_SPLIT_AND_QUOTIENT_VALUED_MONAD_CONSTRUCTED",
+      "path": "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+      "proof_id": "MP-QUOTIENT-MONAD-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/quotient-monad机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, dependency, toolchain and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-QUOTIENT-MONAD-001-01",
+      "scope": "Native Cubical Agda monad structure on the result quotient of the R041 delay fragment: canonical section (C-84), quotient-valued continuation bind (C-85), unit laws (C-86) and associativity (C-87 representative-level up to ≈, C-88 quotient-level). Positive structure result; no general-quotient claim, no HoTT paradox.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.README.md": "483d4267d982fcf23f8de1cfeecb38d2aa68c4ba6307f950281554503459695a",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda": "fd0d7f3b891911b455ba74f922a44b169b3900d34cfa2c27de06dee1c4ad8de1",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json": "9a62332e3da3bcc8be4ab577f2c19c4159ca77a9a2a4f4c299c2f6485e820fb3",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json": "590a8c20ed2492592f62b6ebf6f31072338f297f8e0f79340a5f1ef115e80ffd",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/source-manifest.json": "1991ce7f2c189c47a466f8bf803c2775a076fc5ec817a8001bcf9b3e44915c45",
+        "audit/quotient-monad机器证明实施证据-20260912.md": "ed440f352e9111b02fff0e2cb41f70bc16c2d9bbd04007d635b64259a89b9118"
+      },
+      "status": "complete"
+    },
+    "A-RACE-TIMEOUT-FORMAL-001": {
+      "claim_ids": [
+        "C-71",
+        "C-72",
+        "C-73",
+        "C-74",
+        "C-75",
+        "C-76"
+      ],
+      "classification": "REPRESENTATION_BOUNDARY",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/formal/partiality-race-timeout/README.md",
+        "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json",
+        "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/stderr.txt",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/mark_proof_run_indexed.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "PARTIALITY_QUOTIENT_OPERATION_BOUNDARY_NOT_PARADOX",
+      "path": "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+      "proof_id": "MP-RACE-TIMEOUT-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/partiality-race-timeout机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; source, toolchain, external dependency and index-row hashes match; exact replay passed. Git version closure is not authorized."
+      },
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "run_id": "20260912-MP-RACE-TIMEOUT-001-01",
+      "scope": "Native Cubical Agda over the R041 deterministic delay model: bind congruence and fixed-continuation set-quotient descent (C-71, C-72); race non-congruence, completion gap and deadline separation (C-73 to C-75); no quotient-level race selector (C-76). REPRESENTATION_BOUNDARY, not a HoTT paradox; no reality bridge or originality claim.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/partiality-race-timeout/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/formal/partiality-race-timeout/README.md": "3718403ac2124eca82be0d65fa23941a9fcd48fd792296a23d9eb2239a7069e4",
+        "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json": "42e472bbf7a92ec7b087bfe65c0ecb42c9488893a6e2a0c65ac159055746db07",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json": "b16984dc89677f049652468ab3b77ef82c24034b25465277947ffc5838774b4b",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json": "e12df196549279b621bcf45f65dcd5fff7aec5356e183d808095502b55df96f9",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/source-manifest.json": "2a799a2efd56d800b054ce6287720320489287ca29a7599037c78c98ce8a921c",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md": "0cfa6771a4f1d4f7a62fa79398177f573a9942de900f5c28fb78437a330dfd5b",
+        "scripts/audit/mark_proof_run_indexed.py": "478771e155bbb1f27dd82567e587b62d88d7da8bdd87618c2024bc9603edaeec"
+      },
+      "status": "complete"
+    },
+    "A-UNDERSTANDING-RECONCILIATION-001": {
+      "depends_on": [
+        "A-HISTORY-LEDGERS-001"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "理解章节/README.md",
+        "理解章节/读遍账本.md",
+        "理解章节/B0-工作史总览.md",
+        "理解章节/B1-本地GPT工作史.md",
+        "理解章节/B2-网页GPT工作史-I.md",
+        "理解章节/B3-网页GPT工作史-II.md",
+        "理解章节/B4-Gemini工作史.md",
+        "理解章节/B5-成果总账.md",
+        "核心认知.md",
+        "audit/understanding-chapter-merge-manifest.json",
+        "scripts/audit/verify_understanding_merge.py"
+      ],
+      "kind": "understanding_chapter_reconciliation",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "理解章节/README.md",
+      "scope": "File-level reconciliation is complete and non-destructive for the current 29/24 inventory (24 same-name pairs, 15 identical, 9 different, 5 top-only); C4 is a new top-level synthesis, while semantic equivalence and 2,396 historical claim review remain open.",
+      "status": "review_required"
+    },
+    "A-WEBGPT-R041-PAPER-001": {
+      "depends_on": [
+        "I-DIRECTION-PORTFOLIO-20260912",
+        "I-OUTCOME-PANORAMA-20260912"
+      ],
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+        "理解章节/C1-后续研究方向独立复审-20260912.md",
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "workspace/.codex/research/hott/reviews/SILENT-STEPS-001/PROOF_NOTE.md"
+      ],
+      "kind": "external_math_source_gap",
+      "lifecycle_status": "OPEN_ISSUE",
+      "path": "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+      "scope": "Mathematical R041 proof note is acquired; source code, 25-test raw evidence, cf58f27 commit and incremental-container lineage remain unavailable in the current repo.",
+      "source_hashes": {
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md": "1d9b74c76fddf9cfba4a93498dcb3f11c2bffce67ba1549fa017fa4d2c0000dc"
+      },
+      "status": "review_required"
+    },
+    "I-DIRECTION-PORTFOLIO-20260912": {
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "核心认知.md",
+        "sources/SOURCE_MANIFEST.json",
+        "sources/webgpt/workspace-snapshot/.codex/research/hott/STATE.json",
+        "HoTT/README.md",
+        "HoTT/Z_LAW_REALITY_RELATIVE_PARADOXES.md",
+        "理解章节/C0-当前整合审计与证据边界-20260912.md",
+        "audit/cross-source-reconciliation-report.md",
+        "audit/fresh-three-way-verification-20260912.json",
+        "理解章节/C1-后续研究方向独立复审-20260912.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061551) - R034.md",
+        "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "docs/quality/数学结论机器证明与证据留存规范.md",
+        "audit/数学结论机器证明交付门禁实施证据-20260912.md",
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "audit/quotient-monad机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+        "audit/context-characterization机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json",
+        "audit/guard-erasure机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json",
+        "audit/cost-factorization机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+        "audit/path-certificate机器证明实施证据-20260912.md"
+      ],
+      "kind": "integrated_direction_projection",
+      "lifecycle_status": "ACTIVE_WORK",
+      "path": "方向追踪.md",
+      "projection_generation": "20260912-direction-024",
+      "scope": "Portfolio after the R034 native check: path-indexed and fixed-pair moves exist while the unified MereMove is non-inhabited; the first work package switches to the online-causality construction.",
+      "semantic_status": "CORE_GENERATION_4_PATH_CERTIFICATE_PROVED_ONLINE_CAUSALITY_NEXT",
+      "status": "active"
+    },
+    "I-OUTCOME-PANORAMA-20260912": {
+      "evidence_status": "REVIEW_REQUIRED",
+      "full_sources": [
+        "方向追踪.md",
+        "sources/SOURCE_MANIFEST.json",
+        "sources/webgpt/workspace-snapshot/.codex/research/hott/STATE.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "audit/ledger-summary.json",
+        "audit/coverage-summary.json",
+        "audit/verification-report.json",
+        "audit/cross-source-reconciliation-report.md",
+        "audit/understanding-chapter-merge-manifest.json",
+        "audit/fresh-three-way-verification-20260912.json",
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061537) - R401.md",
+        "与Web GPT 交流用的文件夹/PROOF_NOTE(20260912-061551) - R034.md",
+        "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "docs/quality/数学结论机器证明与证据留存规范.md",
+        "audit/数学结论机器证明交付门禁实施证据-20260912.md",
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "audit/quotient-monad机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+        "audit/context-characterization机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json",
+        "audit/guard-erasure机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json",
+        "audit/cost-factorization机器证明实施证据-20260912.md",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+        "audit/path-certificate机器证明实施证据-20260912.md"
+      ],
+      "kind": "integrated_outcome_panorama",
+      "lifecycle_status": "ACTIVE_WORK",
+      "path": "全景视野.md",
+      "projection_generation": "20260912-outcome-024",
+      "scope": "Panorama includes the R034 native verification C-100–C-105; the next strand is the online-causality interface.",
+      "semantic_status": "CORE_GENERATION_4_PATH_CERTIFICATE_PROVED_ONLINE_CAUSALITY_NEXT",
+      "status": "active"
+    },
+    "S-GOV-20260912-005-FRAMEWORK-AUDIT": {
+      "cognition_status": "BOUNDED_GOVERNANCE_COMPARISON_WITH_CORE_AUDIT",
+      "depends_on": [
+        "S-INTEGRATION-20260912-004"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "history/governance-v2.1.0/治理框架对比审计与核心认知增补评估-20260912.md",
+        "history/governance-v2.1.0/实施方案-三件套研究连续性治理与理解章节融合-20260912.md",
+        "方向追踪.md",
+        "全景视野.md",
+        ".codex/AGENTS.md",
+        ".codex/cognition/LOAD_SET.json",
+        ".codex/cognition/PROTOCOL.md",
+        ".codex/tools/cognition_runtime.py",
+        "scripts/audit/verify_three_way_cognition.py",
+        "scripts/audit/test_three_way_cognition.py",
+        ".codex/research/hott/sessions/S-GOV-20260912-005-FRAMEWORK-AUDIT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-005-FRAMEWORK-AUDIT/RUNS.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-005-FRAMEWORK-AUDIT/SESSION.md",
+      "scope": "Evidence audit comparing the WebGPT governance framework with the top-level local framework; initial three-way projection and core-content boundary decision; no new mathematics.",
+      "source_snapshot": {
+        "localgpt_dirty": true,
+        "localgpt_head": "8470721a07f28f842895a67f5fd885ab12c1ee33",
+        "top_level_head_before": "07487c31644681b34670d4193f44750f687b8f17",
+        "webgpt_head": "26fcecfbfecf6db66a70c1bf3e067159bce3eb6a",
+        "webgpt_state_revision": 41
+      },
+      "status": "review_required"
+    },
+    "S-GOV-20260912-006-THREE-WAY-VALIDATION": {
+      "cognition_status": "BOUNDED_THREE_WAY_VALIDATION_WITH_FULL_KC_AUDIT",
+      "depends_on": [
+        "S-GOV-20260912-005-FRAMEWORK-AUDIT"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "方向追踪.md",
+        "全景视野.md",
+        "scripts/audit/verify_three_way_cognition.py",
+        "scripts/audit/test_three_way_cognition.py",
+        ".codex/tools/cognition_runtime.py",
+        ".codex/research/hott/sessions/S-GOV-20260912-005-FRAMEWORK-AUDIT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-006-THREE-WAY-VALIDATION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-006-THREE-WAY-VALIDATION/RUNS.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-006-THREE-WAY-VALIDATION/SESSION.md",
+      "scope": "Repair the initial direction-to-outcome reference, verify the three-way projection contract, and persist post-checkpoint validation; no new mathematics.",
+      "source_snapshot": {
+        "localgpt_dirty": true,
+        "localgpt_head": "8470721a07f28f842895a67f5fd885ab12c1ee33",
+        "top_level_head_before": "07487c31644681b34670d4193f44750f687b8f17",
+        "top_level_prior_checkpoint": "S-GOV-20260912-005-FRAMEWORK-AUDIT",
+        "webgpt_head": "26fcecfbfecf6db66a70c1bf3e067159bce3eb6a",
+        "webgpt_state_revision": 41
+      },
+      "status": "review_required"
+    },
+    "S-GOV-20260912-007-PROJECTION-CAPACITY": {
+      "cognition_status": "BOUNDED_PROJECTION_DEPENDENCY_REPAIR_WITH_FULL_KC_AUDIT",
+      "depends_on": [
+        "S-GOV-20260912-006-THREE-WAY-VALIDATION"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "history/governance-v2.1.0/治理框架对比审计与核心认知增补评估-20260912.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "audit/ledger-summary.json",
+        "audit/coverage-summary.json",
+        "audit/verification-report.json",
+        ".codex/tools/cognition_runtime.py",
+        "scripts/audit/verify_three_way_cognition.py",
+        "scripts/audit/test_three_way_cognition.py",
+        ".codex/research/hott/sessions/S-GOV-20260912-007-PROJECTION-CAPACITY/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-007-PROJECTION-CAPACITY/RUNS.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-007-PROJECTION-CAPACITY/SESSION.md",
+      "scope": "Reduce projection dynamic dependencies to a minimum sufficient summary set after detecting raw-ledger context-capacity inflation; persist the decision and revalidate the three-way contract.",
+      "source_snapshot": {
+        "capacity_finding": "raw_event_ledgers_must_remain_on_demand_evidence_not_every_session_full_sources",
+        "localgpt_dirty": true,
+        "localgpt_head": "8470721a07f28f842895a67f5fd885ab12c1ee33",
+        "top_level_prior_revision": 6,
+        "webgpt_head": "26fcecfbfecf6db66a70c1bf3e067159bce3eb6a"
+      },
+      "status": "review_required"
+    },
+    "S-GOV-20260912-008-REGRESSION-ADAPTATION": {
+      "cognition_status": "BOUNDED_REGRESSION_ADAPTATION_WITH_FULL_KC_AUDIT",
+      "depends_on": [
+        "S-GOV-20260912-007-PROJECTION-CAPACITY"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/tools/cognition_runtime.py",
+        ".codex/skills/hott-paradox-research/scripts/read_cognitive_closure.py",
+        ".codex/skills/hott-paradox-research/checks/test_cognition_runtime.py",
+        ".codex/skills/hott-paradox-research/checks/test_full_closure_loading.py",
+        ".codex/skills/hott-paradox-research/SKILL.md",
+        ".codex/skills/hott-paradox-research/references/full-closure-loading.md",
+        ".codex/skills/hott-paradox-research/references/project-context.md",
+        "scripts/audit/verify_three_way_cognition.py",
+        "scripts/audit/test_three_way_cognition.py",
+        ".codex/research/hott/sessions/S-GOV-20260912-008-REGRESSION-ADAPTATION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-008-REGRESSION-ADAPTATION/RUNS.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-008-REGRESSION-ADAPTATION/SESSION.md",
+      "scope": "Adapt inherited runtime/full-closure tests to the current top-level core and three-way contract; preserve old test failures as historical evidence.",
+      "source_snapshot": {
+        "model_understanding": "NOT_CERTIFIED_BY_TOOL",
+        "new_three_way_suite_result": "3/3",
+        "old_full_closure_suite_result": "17/17_after_core_path_and_pagination_adaptation",
+        "old_runtime_suite_result": "56/56_after_fixture_adaptation",
+        "top_level_prior_revision": 7
+      },
+      "status": "review_required"
+    },
+    "S-GOV-20260912-009-MEMORY-ALIGNMENT": {
+      "cognition_status": "BOUNDED_MEMORY_ALIGNMENT_WITH_FULL_KC_AUDIT",
+      "depends_on": [
+        "S-GOV-20260912-008-REGRESSION-ADAPTATION"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "MEMORY.md",
+        ".codex/research/hott/STATE.json",
+        ".codex/cognition/HEAD.json",
+        "scripts/audit/build_core_cognition_audit.py",
+        ".codex/research/hott/sessions/S-GOV-20260912-009-MEMORY-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-009-MEMORY-ALIGNMENT/RUNS.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-009-MEMORY-ALIGNMENT/SESSION.md",
+      "scope": "Align root MEMORY current revision with the actual local cognition checkpoint and preserve the generic per-KC audit generator; no new mathematics.",
+      "source_snapshot": {
+        "memory_alignment": "revision-4-line-replaced-with-current-revision-9",
+        "model_understanding": "NOT_CERTIFIED_BY_TOOL",
+        "top_level_prior_revision": 8
+      },
+      "status": "review_required"
+    },
+    "S-GOV-20260912-010-HISTORY-RECONCILIATION": {
+      "cognition_status": "EXHAUSTIVE_SOURCE_REGISTER_WITH_SCOPED_MANUAL_REVIEW",
+      "depends_on": [
+        "S-GOV-20260912-009-MEMORY-ALIGNMENT"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-010-HISTORY-RECONCILIATION/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-010-HISTORY-RECONCILIATION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-010-HISTORY-RECONCILIATION/RUNS.json",
+        "audit/core-cognition-generation-transition-20260912.json",
+        "audit/understanding-chapter-merge-manifest.json",
+        "audit/cross-source-reconciliation-report.md",
+        "scripts/audit/verify_core_cognition.py",
+        "scripts/audit/verify_understanding_merge.py",
+        "scripts/audit/verify_cross_source_reconciliation.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-010-HISTORY-RECONCILIATION/SESSION.md",
+      "scope": "Exhaustive source-row registration, understanding-directory merge receipt, core generation-2 migration and post-change governance checkpoint; no new mathematics.",
+      "status": "review_required"
+    },
+    "S-GOV-20260912-011-FRESH-THREE-WAY": {
+      "cognition_status": "FRESH_THREE_WAY_VALIDATED_WITH_SCOPED_SEMANTIC_REVIEW",
+      "depends_on": [
+        "S-GOV-20260912-010-HISTORY-RECONCILIATION"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-011-FRESH-THREE-WAY/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-011-FRESH-THREE-WAY/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-011-FRESH-THREE-WAY/RUNS.json",
+        "audit/fresh-three-way-verification-20260912.json",
+        "scripts/audit/verify_fresh_three_way.py",
+        ".codex/tools/cognition_runtime.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-011-FRESH-THREE-WAY/SESSION.md",
+      "scope": "Fresh process and complete load-graph verification, fail-closed negative rehearsal and post-change governance checkpoint; no new mathematics.",
+      "status": "review_required"
+    },
+    "S-GOV-20260912-012-PROVENANCE-LABEL-FIX": {
+      "cognition_status": "PROVENANCE_LABELS_CORRECTED_WITH_SCOPED_SEMANTIC_REVIEW",
+      "depends_on": [
+        "S-GOV-20260912-011-FRESH-THREE-WAY"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/RUNS.json",
+        "audit/cross-source-reconciliation-report.md",
+        "scripts/audit/verify_cross_source_reconciliation.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-012-PROVENANCE-LABEL-FIX/SESSION.md",
+      "scope": "Correct cross-source response provenance labels, revalidate register and persist the correction through the cognition checkpoint; no new mathematics.",
+      "status": "review_required"
+    },
+    "S-GOV-20260912-013-CORE-LOAD-V3": {
+      "cognition_status": "CORE_GENERATION_3_AND_LAYERED_LOAD_V3_MECHANICALLY_VERIFIED",
+      "depends_on": [
+        "A-CORE-GENERATION-3-001",
+        "A-LOAD-GOVERNANCE-V3-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-013-CORE-LOAD-V3/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-013-CORE-LOAD-V3/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-013-CORE-LOAD-V3/RUNS.json",
+        "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",
+        "audit/core-cognition-generation-3-transition-20260912.json",
+        "audit/fresh-three-way-verification-20260912.json",
+        ".codex/cognition/checkpoints/S-GOV-20260912-013-CORE-LOAD-V3/result.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-013-CORE-LOAD-V3/SESSION.md",
+      "scope": "Rebuild the user core and implement project-local layered cognition governance; no new mathematics.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-014-PROJECTION-THEME-ALIGNMENT": {
+      "cognition_status": "CURRENT_CORE_THEME_SET_ALIGNED",
+      "depends_on": [
+        "A-LOAD-GOVERNANCE-V3-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-014-PROJECTION-THEME-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-014-PROJECTION-THEME-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-014-PROJECTION-THEME-ALIGNMENT/RUNS.json",
+        "方向追踪.md",
+        "scripts/audit/verify_three_way_cognition.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-014-PROJECTION-THEME-ALIGNMENT/SESSION.md",
+      "scope": "Fix the last obsolete direction-to-core theme found by the new manifest-aware validator; no mathematics.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-015-FINAL-STATE-ALIGNMENT": {
+      "cognition_status": "FINAL_CURRENT_OWNER_ALIGNMENT",
+      "depends_on": [
+        "S-GOV-20260912-014-PROJECTION-THEME-ALIGNMENT"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-015-FINAL-STATE-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-015-FINAL-STATE-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-015-FINAL-STATE-ALIGNMENT/RUNS.json",
+        "MEMORY.md",
+        "全景视野.md",
+        "audit/fresh-three-way-verification-20260912.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-015-FINAL-STATE-ALIGNMENT/SESSION.md",
+      "scope": "Align mutable current-owner revision/receipt text after the manifest-theme repair; no mathematics.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-016-HISTORICAL-DOC-ARCHIVE": {
+      "cognition_status": "HISTORICAL_GOVERNANCE_DOCUMENT_ROUTES_ALIGNED",
+      "depends_on": [
+        "S-GOV-20260912-015-FINAL-STATE-ALIGNMENT"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-016-HISTORICAL-DOC-ARCHIVE/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-016-HISTORICAL-DOC-ARCHIVE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-016-HISTORICAL-DOC-ARCHIVE/RUNS.json",
+        "history/README.md",
+        "history/governance-v2.1.0/实施方案-三件套研究连续性治理与理解章节融合-20260912.md",
+        "history/governance-v2.1.0/治理框架对比审计与核心认知增补评估-20260912.md",
+        "方向追踪.md",
+        "README.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-016-HISTORICAL-DOC-ARCHIVE/SESSION.md",
+      "scope": "Archive two superseded generation-2 governance reports by Git rename and migrate current consumers; no mathematics.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-017-FINAL-VERIFICATION-ALIGNMENT": {
+      "cognition_status": "FINAL_VERIFICATION_NARRATIVE_ALIGNED",
+      "depends_on": [
+        "S-GOV-20260912-016-HISTORICAL-DOC-ARCHIVE"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-017-FINAL-VERIFICATION-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-017-FINAL-VERIFICATION-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-017-FINAL-VERIFICATION-ALIGNMENT/RUNS.json",
+        "MEMORY.md",
+        "全景视野.md",
+        "audit/fresh-three-way-verification-20260912.json",
+        "audit/核心认知generation-3与加载治理v3实施证据-20260912.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-017-FINAL-VERIFICATION-ALIGNMENT/SESSION.md",
+      "scope": "Align the current human-readable three-way test count and final verification narrative with the actual 4/4 suite; no mathematics.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-018-MERGE-COUNT-SEMANTICS": {
+      "cognition_status": "UNDERSTANDING_MERGE_COUNT_SEMANTICS_VERIFIED",
+      "depends_on": [
+        "S-GOV-20260912-017-FINAL-VERIFICATION-ALIGNMENT",
+        "A-UNDERSTANDING-RECONCILIATION-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-018-MERGE-COUNT-SEMANTICS/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-018-MERGE-COUNT-SEMANTICS/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-018-MERGE-COUNT-SEMANTICS/RUNS.json",
+        "audit/understanding-chapter-merge-manifest.json",
+        "scripts/audit/build_understanding_merge_manifest.py",
+        "scripts/audit/verify_understanding_merge.py",
+        "全景视野.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_R039_HISTORICAL_SCOPE",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-018-MERGE-COUNT-SEMANTICS/SESSION.md",
+      "scope": "Correct machine count semantics for same-name differences versus one-sided union entries; no sentence-level or mathematical reconciliation.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-020-UNDERSTANDING-INVENTORY-REFRESH": {
+      "cognition_status": "UNDERSTANDING_INVENTORY_27_24_ALIGNED",
+      "depends_on": [
+        "S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS",
+        "A-UNDERSTANDING-RECONCILIATION-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-020-UNDERSTANDING-INVENTORY-REFRESH/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-020-UNDERSTANDING-INVENTORY-REFRESH/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-020-UNDERSTANDING-INVENTORY-REFRESH/RUNS.json",
+        "audit/understanding-chapter-merge-manifest.json",
+        "scripts/audit/build_understanding_merge_manifest.py",
+        "scripts/audit/verify_understanding_merge.py",
+        "全景视野.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_NO_NEW_MATHEMATICS",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-020-UNDERSTANDING-INVENTORY-REFRESH/SESSION.md",
+      "scope": "Refresh the understanding-directory merge manifest and current panorama after adding C1/C2; no new semantic or mathematical claim adjudication.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT": {
+      "cognition_status": "POST_VERIFICATION_AND_EOF_FORMAT_ALIGNED",
+      "depends_on": [
+        "S-RES-20260912-022-SELF-VALIDATION-ECONOMY"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT/RUNS.json",
+        "audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md",
+        "scripts/audit/prepare_self_validation_final_alignment_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_PAPER_ONLY_FROM_S022",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT/SESSION.md",
+      "scope": "Remove one checkpoint-created blank line at EOF, align projection revision markers and record the completed local verification matrix without changing core cognition or mathematics.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE": {
+      "cognition_status": "MATH_PROOF_BEFORE_DELIVERY_POLICY_ROUTED_AND_STATICALLY_VERIFIED",
+      "depends_on": [
+        "S-RES-20260912-025-MINIMAL-WITNESS-PRECONDITIONS",
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE/RUNS.json",
+        "docs/quality/数学结论机器证明与证据留存规范.md",
+        "audit/数学结论机器证明交付门禁实施证据-20260912.md",
+        "scripts/audit/prepare_math_proof_delivery_gate_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "NO_MATHEMATICAL_CONCLUSION_GOVERNANCE_ONLY",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE/SESSION.md",
+      "scope": "Persist the user's proof-before-delivery requirement in AGENTS, establish repo-local proof source/run/index ownership, force unproved claims to non-conclusion states, update projections/state and audit all 36 KC.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-027-MATH-PROOF-GATE-FINAL-ALIGNMENT": {
+      "cognition_status": "MATH_PROOF_DELIVERY_GATE_CURRENT_VERSION_AND_VERIFICATION_ALIGNED",
+      "depends_on": [
+        "S-GOV-20260912-026-MATH-PROOF-DELIVERY-GATE",
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-027-MATH-PROOF-GATE-FINAL-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-027-MATH-PROOF-GATE-FINAL-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-027-MATH-PROOF-GATE-FINAL-ALIGNMENT/RUNS.json",
+        "audit/数学结论机器证明交付门禁实施证据-20260912.md",
+        "scripts/audit/prepare_math_proof_delivery_final_alignment_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "NO_MATHEMATICAL_CONCLUSION_GOVERNANCE_ALIGNMENT_ONLY",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-027-MATH-PROOF-GATE-FINAL-ALIGNMENT/SESSION.md",
+      "scope": "Align current MEMORY version, projection revisions and final local verification identity after F-011 implementation; no mathematical claim or proof package is produced.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT": {
+      "cognition_status": "EMPTY_RAW_STDERR_ROUTED_WITHOUT_BLOCKING_TASK_HYDRATION",
+      "depends_on": [
+        "S-RES-20260912-028-ERCF-FACTORIZATION-LEAN",
+        "A-ERCF-FACTORIZATION-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT/RUNS.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "scripts/audit/prepare_ercf_hydration_alignment_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_MP_ERCF_001",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT/SESSION.md",
+      "scope": "Preserve the zero-byte raw stderr as immutable run evidence while removing it from non-empty cognition full_sources; no mathematical or research-direction change.",
+      "source_hashes": {
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json": "696d23a3e95400329f0b6ddcf8ee8e573686f6acf3e58858b08d7353e320a0db"
+      },
+      "status": "complete"
+    },
+    "S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT": {
+      "cognition_status": "PROOF_VALIDITY_DEPENDENCY_SEPARATED_FROM_OPEN_RESEARCH_PARENT",
+      "depends_on": [
+        "S-GOV-20260912-029-ERCF-PROOF-HYDRATION-ALIGNMENT",
+        "A-ERCF-FACTORIZATION-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT/RUNS.json",
+        ".codex/research/hott/STATE.json",
+        "scripts/audit/prepare_ercf_dependency_alignment_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_MP_ERCF_001",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT/SESSION.md",
+      "scope": "Prevent the open C4 research program from propagating review status into an independently machine-proved formal result; no mathematical claim or direction changes.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT": {
+      "cognition_status": "F011_README_HASHES_ALIGNED_NATIVE_TASK_NOT_REVIEW_STALE",
+      "depends_on": [
+        "S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE",
+        "A-ERCF-TRUNCATION-DEFENSE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT/RUNS.json",
+        "HoTT/formal/README.md",
+        "HoTT/verification/runs/README.md",
+        "scripts/audit/prepare_ercf_truncation_final_alignment_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_MP_ERCF_TRUNC_001",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT/SESSION.md",
+      "revalidation": "S040 appended the path-certificate package to both human-readable proof indexes; the S032 alignment itself is unchanged.",
+      "scope": "Align two stale human-readable proof index hashes after S031 so native task hydration remains clean; no mathematical or direction change.",
+      "source_hashes": {
+        "HoTT/formal/README.md": "572d0433a6a1907eb40645f5c38a62850a47a265da4f47ea5e37f79ab4749a57",
+        "HoTT/verification/runs/README.md": "ed2906bbd8838faae1ce0513aa3e4bcaf78a9d2d2226e717500c43d35138f8dd"
+      },
+      "status": "complete"
+    },
+    "S-GOV-20260912-033-HANDOVER-VERIFICATION": {
+      "cognition_status": "FRESH_SESSION_HANDOVER_INDEPENDENT_REPLAY_AND_FULL_SUITE_VERIFICATION_PASS",
+      "depends_on": [
+        "S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT",
+        "A-ERCF-TRUNCATION-DEFENSE-001",
+        "A-ERCF-FACTORIZATION-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/SESSION.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/RUNS.json",
+        ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/evidence/PRE-CHECKPOINT.json",
+        ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/evidence/POST-CHECKPOINT.json",
+        "scripts/audit/verify_handover_session.py",
+        "scripts/audit/prepare_handover_verification_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "UNCHANGED_FROM_MP_ERCF_001_AND_MP_ERCF_TRUNC_001",
+      "path": ".codex/research/hott/sessions/S-GOV-20260912-033-HANDOVER-VERIFICATION/SESSION.md",
+      "scope": "New-session takeover: full-trio closure, independent exact replay of both F-011 proof packages, full governance/verification matrix re-run, and claim-by-claim consistency audit of the preceding handover report. No new mathematics and no direction change.",
+      "source_hashes": {},
+      "status": "complete"
+    },
+    "S-INTEGRATION-20260912-001": {
+      "depends_on": [],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "实施方案-三AI历史整合与核心认知治理.md",
+        "audit/governance-impact.md",
+        "sources/SOURCE_MANIFEST.json",
+        "核心认知.md",
+        "核心认知.manifest.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-INTEGRATION-20260912-001/SESSION.md",
+      "resolution": {
+        "evidence": [
+          ".codex/research/hott/sessions/S-INTEGRATION-20260912-001/SESSION.md",
+          "audit/verification-report.json"
+        ],
+        "reason": "Initial integration session was completed and retained immutably; final checkpoint is recorded by session 002."
+      },
+      "scope": "Top-level repo initialization, source preservation, core cognition build, local governance construction",
+      "status": "closed"
+    },
+    "S-INTEGRATION-20260912-002": {
+      "depends_on": [
+        "S-INTEGRATION-20260912-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C0-当前整合审计与证据边界-20260912.md",
+        "audit/ledger-summary.json",
+        "audit/verification-report.json",
+        "audit/external-validation-20260912.json",
+        "核心认知.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-INTEGRATION-20260912-002/SESSION.md",
+      "resolution": {
+        "evidence": [
+          ".codex/research/hott/sessions/S-INTEGRATION-20260912-002/SESSION.md",
+          "理解章节/C0-当前整合审计与证据边界-20260912.md",
+          "audit/verification-report.json"
+        ],
+        "reason": "Integration wave reached its accepted handoff boundary; semantic chapter reconciliation and mathematical claim review remain open records."
+      },
+      "scope": "Final source/ledger/governance integration checkpoint and explicit handoff of remaining reconciliation work",
+      "status": "closed"
+    },
+    "S-INTEGRATION-20260912-003": {
+      "depends_on": [
+        "S-INTEGRATION-20260912-002"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C0-当前整合审计与证据边界-20260912.md",
+        "audit/ledger-summary.json",
+        "audit/verification-report.json",
+        "audit/external-validation-20260912.json",
+        "核心认知.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-INTEGRATION-20260912-003/SESSION.md",
+      "resolution": {
+        "evidence": [
+          ".codex/research/hott/sessions/S-INTEGRATION-20260912-003/SESSION.md",
+          "理解章节/C0-当前整合审计与证据边界-20260912.md",
+          "audit/verification-report.json"
+        ],
+        "reason": "The accepted integration checkpoint is complete; chapter-level semantic reconciliation, source replacement coverage, and historical mathematical claim review remain explicitly open."
+      },
+      "scope": "Runtime-backed final integration checkpoint and durable handoff of remaining reconciliation work",
+      "status": "closed"
+    },
+    "S-INTEGRATION-20260912-004": {
+      "depends_on": [
+        "S-INTEGRATION-20260912-003"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "MEMORY.md",
+        ".codex/research/hott/STATE.json",
+        ".codex/cognition/HEAD.json",
+        "audit/verification-report.json"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "path": ".codex/research/hott/sessions/S-INTEGRATION-20260912-004/SESSION.md",
+      "resolution": {
+        "evidence": [
+          ".codex/research/hott/sessions/S-INTEGRATION-20260912-004/SESSION.md",
+          "audit/verification-report.json"
+        ],
+        "reason": "Current memory and resume pointers were aligned through the runtime checkpoint after the integration checkpoint itself succeeded."
+      },
+      "scope": "Post-checkpoint current-memory alignment and final handoff receipt",
+      "status": "closed"
+    },
+    "S-PLAN-20260912-021-HOTT-RESEARCH-DIRECTION": {
+      "cognition_status": "QUALIFICATION_PRESERVATION_STRATEGY_DOCUMENTED_AND_ROUTED",
+      "depends_on": [
+        "S-GOV-20260912-020-UNDERSTANDING-INVENTORY-REFRESH",
+        "A-HOTT-RESEARCH-DIRECTION-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-PLAN-20260912-021-HOTT-RESEARCH-DIRECTION/SESSION.md",
+        ".codex/research/hott/sessions/S-PLAN-20260912-021-HOTT-RESEARCH-DIRECTION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-PLAN-20260912-021-HOTT-RESEARCH-DIRECTION/RUNS.json",
+        "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "audit/understanding-chapter-merge-manifest.json",
+        "scripts/audit/prepare_hott_research_direction_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "NO_NEW_MATHEMATICS_STRATEGY_AND_ROUTING_ONLY",
+      "path": ".codex/research/hott/sessions/S-PLAN-20260912-021-HOTT-RESEARCH-DIRECTION/SESSION.md",
+      "scope": "Answer the user's direction question in a new document, reconcile strategic versus tactical priority, update current projections and audit all 27 core units; no research execution or user adoption claimed.",
+      "source_hashes": {
+        "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md": "b9bf9510037b6eb7587385b0ac9b3bde8d154fa91e084ba116798939da9bda39"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-022-SELF-VALIDATION-ECONOMY": {
+      "cognition_status": "GENERATION_4_AND_ERCF_DIRECTION_DOCUMENTED_AND_ROUTED",
+      "depends_on": [
+        "S-PLAN-20260912-021-HOTT-RESEARCH-DIRECTION",
+        "A-HOTT-SELF-VALIDATION-ECONOMY-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-022-SELF-VALIDATION-ECONOMY/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-022-SELF-VALIDATION-ECONOMY/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-022-SELF-VALIDATION-ECONOMY/RUNS.json",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "核心认知.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md",
+        "scripts/audit/prepare_self_validation_economy_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "PAPER_ONLY_CONDITIONAL_SYNTHESIS_NO_PROOF_ASSISTANT_RUN",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-022-SELF-VALIDATION-ECONOMY/SESSION.md",
+      "revalidation": "C4 was reread after S031 added machine-proved native Cubical truncation C-67 through C-70 as DEFENSE_WORKS and moved the next target to partiality quotient/QIIT; historical checkpoints preserve earlier text.",
+      "scope": "Record the user's new direct cognition, answer the HoTT self-validation/economy/Gödel questions in C4, update the three-way projections and audit all 36 KC; no internal inconsistency or native proof claimed.",
+      "source_hashes": {
+        "核心认知.md": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-024-FACTORIZATION-QUANTIFIER-CORRECTION": {
+      "cognition_status": "FACTORIZATION_AND_OBSERVER_ASSUMPTIONS_CORRECTED",
+      "depends_on": [
+        "S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT",
+        "A-HOTT-SELF-VALIDATION-ECONOMY-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-024-FACTORIZATION-QUANTIFIER-CORRECTION/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-024-FACTORIZATION-QUANTIFIER-CORRECTION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-024-FACTORIZATION-QUANTIFIER-CORRECTION/RUNS.json",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md",
+        "scripts/audit/prepare_factorization_quantifier_correction_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "PAPER_ONLY_QUANTIFIERS_CORRECTED_NOT_NATIVE_VERIFIED",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-024-FACTORIZATION-QUANTIFIER-CORRECTION/SESSION.md",
+      "revalidation": "C4 was reread after S031 added machine-proved native Cubical truncation C-67 through C-70 as DEFENSE_WORKS and moved the next target to partiality quotient/QIIT; historical checkpoints preserve earlier text.",
+      "scope": "Correct the unconditional fiber-constancy converse and fixed-codomain observer overclaim in C4; preserve ERCF direction and all core cognition while updating source hashes and verification routing.",
+      "source_hashes": {
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-025-MINIMAL-WITNESS-PRECONDITIONS": {
+      "cognition_status": "E0_WITNESS_AND_FINITE_DECIDABILITY_PRECONDITIONS_CORRECTED",
+      "depends_on": [
+        "S-RES-20260912-024-FACTORIZATION-QUANTIFIER-CORRECTION",
+        "A-HOTT-SELF-VALIDATION-ECONOMY-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-025-MINIMAL-WITNESS-PRECONDITIONS/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-025-MINIMAL-WITNESS-PRECONDITIONS/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-025-MINIMAL-WITNESS-PRECONDITIONS/RUNS.json",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "audit/核心认知generation-4与自反理论经济研究实施证据-20260912.md",
+        "scripts/audit/prepare_minimal_witness_preconditions_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "PAPER_ONLY_PRECONDITIONS_CORRECTED_NOT_NATIVE_VERIFIED",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-025-MINIMAL-WITNESS-PRECONDITIONS/SESSION.md",
+      "revalidation": "C4 was reread after S031 added machine-proved native Cubical truncation C-67 through C-70 as DEFENSE_WORKS and moved the next target to partiality quotient/QIIT; historical checkpoints preserve earlier text.",
+      "scope": "Add the missing A inhabitant and S inequality witnesses to E0, and stop inferring factorization decidability from a finite task family alone; core cognition and ERCF direction remain unchanged.",
+      "source_hashes": {
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-028-ERCF-FACTORIZATION-LEAN": {
+      "cognition_status": "ERCF_GENERAL_WALKING_SKELETON_PROVED_AND_NATIVE_NEXT_ROUTED",
+      "depends_on": [
+        "S-GOV-20260912-027-MATH-PROOF-GATE-FINAL-ALIGNMENT",
+        "A-ERCF-FACTORIZATION-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-028-ERCF-FACTORIZATION-LEAN/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-028-ERCF-FACTORIZATION-LEAN/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-028-ERCF-FACTORIZATION-LEAN/RUNS.json",
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/formal/ercf-factorization/README.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "scripts/audit/prepare_ercf_factorization_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_GENERAL_FACTORIZATION_HOTT_NATIVE_OPEN",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-028-ERCF-FACTORIZATION-LEAN/SESSION.md",
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "scope": "Machine-prove and persist the general ERCF-1/2 factorization core, separate it from HoTT-specific claims, update the trio and audit all 36 KC.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/ercf-factorization/ERCF.lean": "cb3564d348d6503614c6dd771ded172751e948882470f8213a9206d9a303ac8e",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json": "696d23a3e95400329f0b6ddcf8ee8e573686f6acf3e58858b08d7353e320a0db",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE": {
+      "cognition_status": "NATIVE_TRUNCATION_DEFENSE_PROVED_AND_PARTIALITY_QUOTIENT_NEXT_ROUTED",
+      "depends_on": [
+        "S-GOV-20260912-030-ERCF-DEPENDENCY-SEMANTICS-ALIGNMENT",
+        "A-ERCF-TRUNCATION-DEFENSE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE/RUNS.json",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "scripts/audit/prepare_ercf_truncation_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_NATIVE_TRUNCATION_DEFENSE_HOTT_PARADOX_OPEN",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-031-ERCF-TRUNCATION-DEFENSE/SESSION.md",
+      "revalidation": "After C-100 through C-105 were appended (S040), replay returned ROW_STABLE_AFTER_INDEX_EVOLUTION with EXACT_EXIT_STDOUT_STDERR_MATCH; frozen proof/claim rows unchanged.",
+      "scope": "Qualify a native Cubical toolchain, prove the truncation consumer defense, preserve all failure/evidence boundaries, update the trio and audit all 36 KC.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "90b4944e4f4157424aea6a9d207ff727dd3be601c726db265ae7bab0f118df24",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json": "cf42ef44c1674b6607e992ca9911ac0f0ddb9d63ea9ad62c4cbd4efefcf35376",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "a1510b9335237bf5c94cbfc28ecc739921863419dc9ecd21a4902e1213e89fb1"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-034-PARTIALITY-RACE-TIMEOUT": {
+      "cognition_status": "PARTIALITY_RACE_TIMEOUT_BOUNDARY_MACHINE_PROVED_AND_CONTEXTUAL_EQUIVALENCE_ROUTED",
+      "depends_on": [
+        "S-GOV-20260912-033-HANDOVER-VERIFICATION",
+        "A-RACE-TIMEOUT-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-034-PARTIALITY-RACE-TIMEOUT/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-034-PARTIALITY-RACE-TIMEOUT/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-034-PARTIALITY-RACE-TIMEOUT/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/index-row-manifest.json",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_partiality_race_timeout_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_REPRESENTATION_BOUNDARY",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-034-PARTIALITY-RACE-TIMEOUT/SESSION.md",
+      "scope": "Run the first DIR-W-RACE-TIMEOUT work package natively, produce C-71–C-76 with run/index evidence, revalidate both older proof packages row-stable, and route the contextual-equivalence hierarchy as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/PartialityRaceTimeout.agda": "0ea6a1b133c7251abfe1dbb999b2f10ff08c0c829f37716e5e88f693a81860bc",
+        "HoTT/verification/runs/20260912-MP-RACE-TIMEOUT-001-01/RUN.json": "b16984dc89677f049652468ab3b77ef82c24034b25465277947ffc5838774b4b",
+        "audit/partiality-race-timeout机器证明实施证据-20260912.md": "0cfa6771a4f1d4f7a62fa79398177f573a9942de900f5c28fb78437a330dfd5b"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE": {
+      "cognition_status": "CONTEXTUAL_EQUIVALENCE_STRICTNESS_PROVED_AND_QUOTIENT_MONAD_ROUTED",
+      "depends_on": [
+        "S-RES-20260912-034-PARTIALITY-RACE-TIMEOUT",
+        "A-CONTEXTUAL-EQUIV-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/index-row-manifest.json",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_contextual_equivalence_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_REPRESENTATION_BOUNDARY",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE/SESSION.md",
+      "scope": "Run the contextual-equivalence work package natively, produce C-77–C-83 with run/index evidence, revalidate the three older packages row-stable, and route the general quotient-valued continuation bind as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/ContextualEquivalence.agda": "9804514dd87bfd647148c2bd05c21be531ef0f737b68569511e964bb0f41e2db",
+        "HoTT/verification/runs/20260912-MP-CONTEXTUAL-EQUIV-001-01/RUN.json": "abc6cf4e10000188f9c70c152c6b6d59aae5f8419ed493a2ac8cb5afb1144e6a",
+        "audit/contextual-equivalence机器证明实施证据-20260912.md": "8f80d6f6b5fd3cb2e6e1fc020bc44bd61d3fa9fcd7d63d17c67de14e02c72107"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-036-QUOTIENT-MONAD": {
+      "cognition_status": "QUOTIENT_MONAD_CONSTRUCTED_AND_CONTEXT_CHARACTERIZATION_ROUTED",
+      "depends_on": [
+        "S-RES-20260912-035-CONTEXTUAL-EQUIVALENCE",
+        "A-QUOTIENT-MONAD-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-036-QUOTIENT-MONAD/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-036-QUOTIENT-MONAD/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-036-QUOTIENT-MONAD/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/index-row-manifest.json",
+        "audit/quotient-monad机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_quotient_monad_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_MONAD_STRUCTURE_CONSTRUCTED",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-036-QUOTIENT-MONAD/SESSION.md",
+      "scope": "Run the quotient-monad work package natively, produce C-84–C-88 with run/index evidence, revalidate the four older packages row-stable, and route the ≡c characterization plus wider context language as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/QuotientMonad.agda": "fd0d7f3b891911b455ba74f922a44b169b3900d34cfa2c27de06dee1c4ad8de1",
+        "HoTT/verification/runs/20260912-MP-QUOTIENT-MONAD-001-01/RUN.json": "9a62332e3da3bcc8be4ab577f2c19c4159ca77a9a2a4f4c299c2f6485e820fb3",
+        "audit/quotient-monad机器证明实施证据-20260912.md": "ed440f352e9111b02fff0e2cb41f70bc16c2d9bbd04007d635b64259a89b9118"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-037-CONTEXT-CHARACTERIZATION": {
+      "cognition_status": "CONTEXT_CHARACTERIZATION_COMPLETED_AND_GUARD_ERASURE_ROUTED",
+      "depends_on": [
+        "S-RES-20260912-036-QUOTIENT-MONAD",
+        "A-CONTEXT-CHARACTERIZATION-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-037-CONTEXT-CHARACTERIZATION/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-037-CONTEXT-CHARACTERIZATION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-037-CONTEXT-CHARACTERIZATION/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/index-row-manifest.json",
+        "audit/context-characterization机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_context_characterization_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_CONTEXTUAL_EQUIVALENCE_FULLY_CHARACTERIZED",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-037-CONTEXT-CHARACTERIZATION/SESSION.md",
+      "scope": "Complete the contextual-equivalence strand (C-89–C-91), revalidate the five older packages row-stable, and route the guard-erasure first machine construction as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/ContextCharacterization.agda": "f79a0c06a0c892bdc8ab9e36ddc2d7aa47b03981303b3d8e3a2c3325ffef07f0",
+        "HoTT/verification/runs/20260912-MP-CONTEXT-CHARACTERIZATION-001-01/RUN.json": "ae033a996ec34d145308dcc2fd4f9ebbedd926b509413ff6a36a4cf57e4ea17e",
+        "audit/context-characterization机器证明实施证据-20260912.md": "ad19bb9f40129ade6d8194530a7ce8f810b786910595323bf9a1984da0f1131d"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-038-GUARD-ERASURE": {
+      "cognition_status": "GUARD_ERASURE_EQUIVALENCE_PROVED_AND_COST_PACKAGE_ROUTED",
+      "depends_on": [
+        "S-RES-20260912-037-CONTEXT-CHARACTERIZATION",
+        "A-GUARD-ERASURE-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-038-GUARD-ERASURE/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-038-GUARD-ERASURE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-038-GUARD-ERASURE/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/index-row-manifest.json",
+        "audit/guard-erasure机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_guard_erasure_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_GUARD_ERASURE_EQUIVALENCE",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-038-GUARD-ERASURE/SESSION.md",
+      "scope": "Run the guard-erasure work package natively (C-92–C-95), revalidate the six older packages row-stable, and route the same-function-different-time (cost) machine construction as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/GuardErasure.agda": "207735163b26d857d4ccd98512b1cb13ed8ec0c163673b045fa8e8449dc0722e",
+        "HoTT/verification/runs/20260912-MP-GUARD-ERASURE-001-01/RUN.json": "d632cd7008c9532a68d9b14dbf2cb54a1b3e679d33683685ba83a204c6472ea8",
+        "audit/guard-erasure机器证明实施证据-20260912.md": "c95c725df7ea9b57ba879a266a645868977cb50a442d557c7de4a8930373714f"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-039-COST-FACTORIZATION": {
+      "cognition_status": "COST_FACTORIZATION_PROVED_AND_R034_CHECK_ROUTED",
+      "depends_on": [
+        "S-RES-20260912-038-GUARD-ERASURE",
+        "A-COST-FACTORIZATION-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-039-COST-FACTORIZATION/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-039-COST-FACTORIZATION/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-039-COST-FACTORIZATION/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/index-row-manifest.json",
+        "audit/cost-factorization机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_cost_factorization_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_COST_FACTORIZATION",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-039-COST-FACTORIZATION/SESSION.md",
+      "scope": "Run the cost-factorization work package natively (C-96–C-99), revalidate the seven older packages row-stable, and route the R034 native path-certificate check as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/CostFactorization.agda": "d6ac0ecb7b0824f396e94aec1cb246b04df31ef7f90320767d54a5f33b2527ea",
+        "HoTT/verification/runs/20260912-MP-COST-FACTORIZATION-001-01/RUN.json": "e84182ec6ed40ac5ddea45a3e2603b1c0050f0a2c2afddfca87e6a5d71adfaa2",
+        "audit/cost-factorization机器证明实施证据-20260912.md": "d501e119dd3b05342bfc5e4e43a8fad1edf66d803cf192f1d06510aa8fcf7469"
+      },
+      "status": "complete"
+    },
+    "S-RES-20260912-040-PATH-CERTIFICATE": {
+      "cognition_status": "PATH_CERTIFICATE_VERIFIED_AND_ONLINE_CAUSALITY_ROUTED",
+      "depends_on": [
+        "S-RES-20260912-039-COST-FACTORIZATION",
+        "A-PATH-CERTIFICATE-FORMAL-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-040-PATH-CERTIFICATE/SESSION.md",
+        ".codex/research/hott/sessions/S-RES-20260912-040-PATH-CERTIFICATE/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-RES-20260912-040-PATH-CERTIFICATE/RUNS.json",
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/index-row-manifest.json",
+        "audit/path-certificate机器证明实施证据-20260912.md",
+        "scripts/audit/prepare_path_certificate_checkpoint.py"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED_PATH_CERTIFICATE",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-040-PATH-CERTIFICATE/SESSION.md",
+      "scope": "Natively verify the R034 boundary (C-100–C-105), revalidate the eight older packages row-stable, and route the online-causality construction as the next package.",
+      "source_hashes": {
+        "HoTT/formal/partiality-race-timeout/PathCertificate.agda": "2c1c812c7776a6b13733cfbec231f33f27562820d60b43032e79ed83d0d5837b",
+        "HoTT/verification/runs/20260912-MP-PATH-CERTIFICATE-001-01/RUN.json": "40f7c962df32318f68a3d1aae2d87d168cb3adb585968211f7e78e8617929c4f",
+        "audit/path-certificate机器证明实施证据-20260912.md": "1396d3897a3a70b9828ea728a2474aaa7d930b173f50e39f918217c75983f577"
+      },
+      "status": "complete"
+    },
+    "S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS": {
+      "cognition_status": "FULL_TRIO_PLUS_RESEARCH_PROFILE_WITH_27_KC_PUBLIC_REVIEW",
+      "depends_on": [
+        "A-DIRECTION-PARADOX-REVIEW-001",
+        "A-PARADOX-HOTT-SYNTHESIS-001",
+        "A-WEBGPT-R041-PAPER-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS/SESSION.md",
+        ".codex/research/hott/sessions/S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS/CORE_COGNITION_AUDIT.md",
+        ".codex/research/hott/sessions/S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS/RUNS.json",
+        "理解章节/C1-后续研究方向独立复审-20260912.md",
+        "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md",
+        "方向追踪.md",
+        "全景视野.md"
+      ],
+      "kind": "session",
+      "lifecycle_status": "HISTORICAL",
+      "mathematical_status": "NO_NEW_MATHEMATICS_R041_PAPER_SOURCE_REVIEWED",
+      "path": ".codex/research/hott/sessions/S-REV-20260912-019-DIRECTION-PARADOX-SYNTHESIS/SESSION.md",
+      "scope": "Full-trio direction review, paradox/HoTT explanation, R034 identity check and mathematical R041 paper-source integration; no native proof or independent R041 execution.",
+      "source_hashes": {},
+      "status": "complete"
+    }
+  },
+  "review_due": [
+    "A-AISTUDIO-COVERAGE-001",
+    "A-HISTORICAL-MATH-CLAIMS-001",
+    "A-HISTORY-LEDGERS-001",
+    "A-UNDERSTANDING-RECONCILIATION-001",
+    "A-CROSS-SOURCE-RECONCILIATION-001",
+    "A-WEBGPT-R041-PAPER-001",
+    "A-HOTT-SELF-VALIDATION-ECONOMY-001"
+  ],
+  "revision": 40,
+  "schema_migration": {
+    "from": "hott-working-state/v1",
+    "receipt": "audit/核心认知generation-3与加载治理v3实施证据-20260912.md",
+    "rollback_ref": "governance-v2.1.0",
+    "to": "hott-working-state/v2"
+  },
+  "schema_version": "hott-working-state/v2",
+  "unresolved": [
+    "A-AISTUDIO-COVERAGE-001",
+    "A-HISTORY-LEDGERS-001",
+    "A-UNDERSTANDING-RECONCILIATION-001",
+    "A-CROSS-SOURCE-RECONCILIATION-001",
+    "A-HISTORICAL-MATH-CLAIMS-001",
+    "A-WEBGPT-R041-PAPER-001",
+    "A-HOTT-SELF-VALIDATION-ECONOMY-001"
+  ]
+}

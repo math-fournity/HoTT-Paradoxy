@@ -1,0 +1,15 @@
+platform=macOS-26.6.2-arm64-arm-64bit-Mach-O
+machine=arm64
+python=3.14.6
+docker_platform=linux/amd64
+docker_image_id=sha256:7e35dbfedcb7281c00420071437fce8316345ab006b1699cd0926f525a669df8
+docker_base=coqorg/coq:8.13.2@sha256:1f69b9224f068d408e6be7a3f536f67395d00c3497b97bdb99ee2d2c4c91954c
+coq_version=8.13.2
+ocaml_version=4.07.1
+coq_equations=1.2.3+8.13
+coq_stdpp=1.5.0
+upstream_branch=code
+upstream_commit=b9523cb33180dc58b227432e60045cc38615b711
+upstream_git_tree=9cfc31a04f31e0a73cd9494a8d745a39ee639082
+target=Axioms/halting.vo plus CheckInternalUndec.v
+trust_scope=Coq kernel plus pinned Docker image and hash-qualified upstream source tree

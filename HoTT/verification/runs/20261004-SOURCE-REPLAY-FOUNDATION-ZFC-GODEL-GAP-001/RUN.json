@@ -1,0 +1,54 @@
+{
+  "schema_version": "source-replay-run/v1",
+  "run_id": "20261004-SOURCE-REPLAY-FOUNDATION-ZFC-GODEL-GAP-001",
+  "status": "POSITIVE_SOURCE_INTERFACE_AND_NEGATIVE_DIRECT_INSTANTIATION_CONTROL_REPLAYED_WITH_SCOPE",
+  "source": {
+    "repository": "https://github.com/FormalizedFormalLogic/Foundation",
+    "commit": "f3972f4204fc61e1b736ed843415894c83f35508",
+    "source_root": "/private/tmp/foundation-zfc-f3972f4204fc",
+    "source_tree_sha256": "d886b329417a40f7c23d4640a5ed273973d7dc3dd462cb3748ed63db1d497010",
+    "source_worktree_note": "The external source worktree had a pre-existing untracked GodelBaseline.lean. This replay neither reads it as evidence nor changes it.",
+    "toolchain": "Lean 4.34.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b"
+  },
+  "commands": {
+    "preparation": "lake --dir /private/tmp/foundation-zfc-f3972f4204fc build Foundation.FirstOrder.SetTheory.Universe",
+    "positive": "lake --dir /private/tmp/foundation-zfc-f3972f4204fc env lean HoTT/formal/godel-q-reflection/FoundationZFCGodelGap.lean",
+    "negative": "lake --dir /private/tmp/foundation-zfc-f3972f4204fc env lean HoTT/formal/godel-q-reflection/WrongFoundationZFCGodelInstantiation.lean",
+    "source_scan": "rg -n --glob '*.lean' 'DirectInterpretation|InterpretedBy|⊳|⊲' Foundation; rg -n --glob '*.lean' 'NaturalNumberRec|isω|SetTheory.succ|Arithmetic' Foundation/FirstOrder/SetTheory"
+  },
+  "results": {
+    "set_theory_universe_build": {
+      "exit_code": 0,
+      "scope": "Builds the exact Foundation SetTheory.Universe target required by the positive wrapper."
+    },
+    "positive_wrapper": {
+      "exit_code": 0,
+      "stdout_path": "stdout.txt",
+      "stderr_bytes": 0,
+      "checks": [
+        "ZermeloFraenkelChoice : SetTheory",
+        "zfc_consistent : Entailment.Consistent ZFC",
+        "generic ArithmeticTheory incompleteness theorem interface",
+        "generic ArithmeticTheory consistency-unprovability theorem interface"
+      ],
+      "axioms_reported_for_zfc_consistent": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    "negative_wrapper": {
+      "exit_code": 1,
+      "stderr_path": "stderr.txt",
+      "expected_rejection": "Foundation's generic incompleteness theorem expects ArithmeticTheory, while ZermeloFraenkelChoice has type SetTheory."
+    },
+    "source_scan": {
+      "artifact_path": "source-scan.txt",
+      "result": "The exact source tree defines the generic DirectInterpretation abstraction in LK/Interpretation.lean, but the scan found no concrete DirectInterpretation/InterpretedBy occurrence elsewhere. SetTheory/NaturalNumberRec.lean does contain model-level omega-indexed recursion and a definable result function.",
+      "scope": "A bounded lexical/source-structure result for this exact tree, not a proof that no mathematical or future-source interpretation exists."
+    }
+  },
+  "scope": "A source-level target-mapping control. It proves that the exact source exposes a ZFC SetTheory interface and a separate generic ArithmeticTheory Gödel interface, while Lean rejects their direct identification.",
+  "non_goals": [
+    "No theorem that bare ZFC is inconsistent, incomplete under Foundation's hypotheses, or lacks a time/observation dimension.",
+    "No theorem that Foundation's zfc_consistent is a proof inside ZFC; it is a Lean meta-theorem with the reported Lean axioms.",
+    "No actual arithmetic interpretation of ZFC, no mapping from set.mm to ArithmeticTheory, and no proof that the generic hypotheses hold for a target ZFC interface.",
+    "No OriginDone, reality map, completion bridge, actual Q policy, or Zeno/circle/H0 transport."
+  ]
+}

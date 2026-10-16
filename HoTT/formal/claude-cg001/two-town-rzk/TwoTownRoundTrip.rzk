@@ -1,0 +1,443 @@
+#lang rzk-1
+
+-- Two towns, one calculus, one task: the round trip A -> B -> A with the same
+-- towns, carried value, readings and stop contract, one step being a path or
+-- an arrow (Claude, session 91a6cdaa, 2026-09-25), in reply to Terra's audit
+-- 013 (section 2.4, item 3; T-027).
+--
+-- proof id : MP-CG001-TWO-TOWN-001
+-- claim    : CG001-C-58 (full statement in CLAIM.md)
+--
+-- Terra 013: in C-57 the path branch goes along p : A = B and back along
+-- rev p, while the arrow branch takes the same endo-arrow Gl A A s twice; two
+-- self-steps are not the two-town round trip west -> east -> west.  This file
+-- fixes the two-town task once and runs it with both kinds of step.
+--
+-- The task (identical parameters in both branches):
+--   towns        A B : S, arbitrary, possibly different objects of S;
+--   carried      a value u0 : El A at the start town A;
+--   readings     ra : El A -> R at A and rb : El B -> R at B, into a type R
+--                with z : R and s : R -> R; the only fact used about them is
+--                no-fixed : z = s (s z) is impossible (R plays the step
+--                counts, s the successor);
+--   start        ra u0 = z;
+--   pedometer    each leg adds one: rb (carry go u) = s (ra u) for all u : El A
+--                and ra (carry back w) = s (rb w) for all w : El B;
+--   stop (Done)  after going and coming back, the reading at A is s (s z).
+-- Path branch:  go = p : A = B, back = rev p, carrying = transport.
+-- Arrow branch: go = Gl A B phi, back = Gl B A psi, carrying = covariant
+--               transport, for any phi, psi with rb (phi u) = s (ra u) and
+--               ra (psi w) = s (rb w).
+--
+-- The directed-univalence content of Gratzer-Weinberger-Buchholtz
+-- (arXiv:2407.09146v2; PDF numbering Theorem 6.13, Definition 6.14, Lemma
+-- 6.15; the arXiv HTML rendering numbers the same items 6.10, 6.11, 6.12)
+-- enters only as hypotheses, exactly as in C-57: S : U, El : S -> U covariant
+-- (RS17 Definition 8.2), and for all A B the map hom S A B -> (El A -> El B)
+-- sending an arrow to its covariant transport is an equivalence.  No
+-- postulates, no assumed axioms, no modalities (Rzk 0.11.3).
+--
+-- C-58 (a) paths: for every p : A = B the round trip returns the carried
+--          value, the reading after it is ra u0 = z, and the stop contract
+--          fails; no path satisfies the two-leg pedometer;
+--      (b) arrows: with go = Gl A B phi and back = Gl B A psi each leg adds
+--          one, and the round trip meets the stop contract (reading s (s z));
+--      (c) given a composition hom S A B -> hom S B A -> hom S A A whose
+--          covariant transport is the composite of the transports (hypotheses
+--          standing for GWB Lemma 6.16 and Corollary 6.17, PDF numbering;
+--          6.13 and 6.14 in the HTML rendering), the composite round-trip
+--          arrow meets the stop contract too;
+--      (d) C-57 (b) and C-57 (a) are the special case A = B, R = El A,
+--          ra = rb = identity, phi = psi = s.
+
+-- ------------------------------------------------------------------
+-- Paths (as in C-57)
+
+#define transport
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : C y
+  := idJ (A , x , \ y' _ → C y' , u , y , p)
+
+#define rev
+  ( A : U)
+  ( x y : A)
+  ( p : x = y)
+  : y = x
+  := idJ (A , x , \ y' _ → y' = x , refl , y , p)
+
+#define concat
+  ( A : U)
+  ( x y z : A)
+  ( p : x = y)
+  ( q : y = z)
+  : x = z
+  := idJ (A , y , \ z' _ → x = z' , p , z , q)
+
+#define ap
+  ( A B : U)
+  ( f : A → B)
+  ( x y : A)
+  ( p : x = y)
+  : f x = f y
+  := idJ (A , x , \ y' _ → f x = f y' , refl , y , p)
+
+#define transport-there-and-back
+  ( A : U)
+  ( C : A → U)
+  ( x y : A)
+  ( p : x = y)
+  ( u : C x)
+  : transport A C y x (rev A x y p) (transport A C x y p u) = u
+  := idJ
+    ( A , x
+    , \ y' p' → transport A C y' x (rev A x y' p') (transport A C x y' p' u) = u
+    , refl , y , p)
+
+-- the empty type, as a universally quantified type
+#define Empty
+  : U
+  := ( C : U) → C
+
+-- ------------------------------------------------------------------
+-- Arrows and covariant families (as in C-57)
+
+#define Δ¹
+  : 2 → TOPE
+  := \ t → TOP
+
+#define hom
+  ( A : U)
+  ( x y : A)
+  : U
+  := ( t : Δ¹) → A [ t ≡ 0₂ ↦ x , t ≡ 1₂ ↦ y ]
+
+#define is-equiv
+  ( A B : U)
+  ( f : A → B)
+  : U
+  := Σ ( r : B → A)
+    , Σ ( s : B → A)
+    , Σ ( η : ( a : A) → r (f a) = a)
+    , ( ( b : B) → f (s b) = b)
+
+#define is-contr
+  ( A : U)
+  : U
+  := Σ ( a : A) , ( ( b : A) → a = b)
+
+#define dhom
+  ( A : U)
+  ( x y : A)
+  ( f : hom A x y)
+  ( C : A → U)
+  ( u : C x)
+  ( v : C y)
+  : U
+  := ( t : Δ¹) → C (f t) [ t ≡ 0₂ ↦ u , t ≡ 1₂ ↦ v ]
+
+#define is-covariant
+  ( A : U)
+  ( C : A → U)
+  : U
+  := ( x : A) → ( y : A) → ( f : hom A x y) → ( u : C x)
+   → is-contr (Σ ( v : C y) , dhom A x y f C u v)
+
+#define covariant-transport
+  ( A : U)
+  ( C : A → U)
+  ( is-cov : is-covariant A C)
+  ( x y : A)
+  ( f : hom A x y)
+  ( u : C x)
+  : C y
+  := first (first (is-cov x y f u))
+
+-- ------------------------------------------------------------------
+-- The directed-univalence interface (as in C-57)
+
+#define arrow-action
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( A B : S)
+  ( f : hom S A B)
+  : El A → El B
+  := \ u → covariant-transport S El is-cov A B f u
+
+#define is-directed-univalent
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  : U
+  := ( A : S) → ( B : S) → is-equiv (hom S A B) (El A → El B) (arrow-action S El is-cov A B)
+
+#define Gl
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( φ : El A → El B)
+  : hom S A B
+  := ( first (second (du A B))) φ
+
+#define coe-Gl
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( φ : El A → El B)
+  ( u : El A)
+  : covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u = φ u
+  := ap (El A → El B) (El B) (\ h → h u)
+    ( arrow-action S El is-cov A B (Gl S El is-cov du A B φ))
+    ( φ)
+    ( ( second (second (second (du A B)))) φ)
+
+-- ------------------------------------------------------------------
+-- (a) the two-town round trip with paths
+
+-- going along p and back along rev p returns the carried value, so the
+-- reading at A after the round trip is the starting reading
+#define path-round-trip-reading
+  ( S : U)
+  ( El : S → U)
+  ( A B : S)
+  ( p : A = B)
+  ( R : U)
+  ( ra : El A → R)
+  ( u0 : El A)
+  : ra (transport S El B A (rev S A B p) (transport S El A B p u0)) = ra u0
+  := ap (El A) R ra
+    ( transport S El B A (rev S A B p) (transport S El A B p u0))
+    ( u0)
+    ( transport-there-and-back S El A B p u0)
+
+-- the stop contract fails for every path
+#define path-round-trip-never-stops
+  ( S : U)
+  ( El : S → U)
+  ( A B : S)
+  ( p : A = B)
+  ( R : U)
+  ( z : R)
+  ( s : R → R)
+  ( no-fixed : ( z = s (s z)) → Empty)
+  ( ra : El A → R)
+  ( u0 : El A)
+  ( start : ra u0 = z)
+  ( stops : ra (transport S El B A (rev S A B p) (transport S El A B p u0)) = s (s z))
+  : Empty
+  := no-fixed
+    ( concat R
+      ( z)
+      ( ra u0)
+      ( s (s z))
+      ( rev R (ra u0) z start)
+      ( concat R
+        ( ra u0)
+        ( ra (transport S El B A (rev S A B p) (transport S El A B p u0)))
+        ( s (s z))
+        ( rev R
+          ( ra (transport S El B A (rev S A B p) (transport S El A B p u0)))
+          ( ra u0)
+          ( path-round-trip-reading S El A B p R ra u0))
+        ( stops)))
+
+-- no path satisfies the two-leg pedometer: if going along p and coming back
+-- along rev p both added one, the round trip would meet the stop contract
+#define no-two-way-path-pedometer
+  ( S : U)
+  ( El : S → U)
+  ( A B : S)
+  ( p : A = B)
+  ( R : U)
+  ( z : R)
+  ( s : R → R)
+  ( no-fixed : ( z = s (s z)) → Empty)
+  ( ra : El A → R)
+  ( rb : El B → R)
+  ( u0 : El A)
+  ( start : ra u0 = z)
+  ( go-adds-one : ( u : El A) → rb (transport S El A B p u) = s (ra u))
+  ( back-adds-one : ( w : El B) → ra (transport S El B A (rev S A B p) w) = s (rb w))
+  : Empty
+  := path-round-trip-never-stops S El A B p R z s no-fixed ra u0 start
+    ( concat R
+      ( ra (transport S El B A (rev S A B p) (transport S El A B p u0)))
+      ( s (rb (transport S El A B p u0)))
+      ( s (s z))
+      ( back-adds-one (transport S El A B p u0))
+      ( concat R
+        ( s (rb (transport S El A B p u0)))
+        ( s (s (ra u0)))
+        ( s (s z))
+        ( ap R R s (rb (transport S El A B p u0)) (s (ra u0)) (go-adds-one u0))
+        ( ap R R (\ r → s (s r)) (ra u0) z start)))
+
+-- ------------------------------------------------------------------
+-- (b) the two-town round trip with arrows
+
+#define arrow-go-adds-one
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( R : U)
+  ( s : R → R)
+  ( ra : El A → R)
+  ( rb : El B → R)
+  ( φ : El A → El B)
+  ( φ-adds-one : ( u : El A) → rb (φ u) = s (ra u))
+  ( u : El A)
+  : rb (covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u) = s (ra u)
+  := concat R
+    ( rb (covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u))
+    ( rb (φ u))
+    ( s (ra u))
+    ( ap (El B) R rb
+      ( covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u)
+      ( φ u)
+      ( coe-Gl S El is-cov du A B φ u))
+    ( φ-adds-one u)
+
+#define arrow-back-adds-one
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( R : U)
+  ( s : R → R)
+  ( ra : El A → R)
+  ( rb : El B → R)
+  ( ψ : El B → El A)
+  ( ψ-adds-one : ( w : El B) → ra (ψ w) = s (rb w))
+  ( w : El B)
+  : ra (covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ) w) = s (rb w)
+  := concat R
+    ( ra (covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ) w))
+    ( ra (ψ w))
+    ( s (rb w))
+    ( ap (El A) R ra
+      ( covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ) w)
+      ( ψ w)
+      ( coe-Gl S El is-cov du B A ψ w))
+    ( ψ-adds-one w)
+
+-- the stop contract holds after going and coming back
+#define arrow-round-trip-stops
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( R : U)
+  ( z : R)
+  ( s : R → R)
+  ( ra : El A → R)
+  ( rb : El B → R)
+  ( φ : El A → El B)
+  ( ψ : El B → El A)
+  ( φ-adds-one : ( u : El A) → rb (φ u) = s (ra u))
+  ( ψ-adds-one : ( w : El B) → ra (ψ w) = s (rb w))
+  ( u0 : El A)
+  ( start : ra u0 = z)
+  : ra (covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ)
+         ( covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0))
+    = s (s z)
+  := concat R
+    ( ra (covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ)
+           ( covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0)))
+    ( s (rb (covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0)))
+    ( s (s z))
+    ( arrow-back-adds-one S El is-cov du A B R s ra rb ψ ψ-adds-one
+      ( covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0))
+    ( concat R
+      ( s (rb (covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0)))
+      ( s (s (ra u0)))
+      ( s (s z))
+      ( ap R R s
+        ( rb (covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0))
+        ( s (ra u0))
+        ( arrow-go-adds-one S El is-cov du A B R s ra rb φ φ-adds-one u0))
+      ( ap R R (\ r → s (s r)) (ra u0) z start))
+
+-- ------------------------------------------------------------------
+-- (c) the composite round-trip arrow, given a functorial composition
+
+#define composite-two-town-round-trip-stops
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A B : S)
+  ( R : U)
+  ( z : R)
+  ( s : R → R)
+  ( ra : El A → R)
+  ( rb : El B → R)
+  ( φ : El A → El B)
+  ( ψ : El B → El A)
+  ( φ-adds-one : ( u : El A) → rb (φ u) = s (ra u))
+  ( ψ-adds-one : ( w : El B) → ra (ψ w) = s (rb w))
+  ( u0 : El A)
+  ( start : ra u0 = z)
+  ( comp : hom S A B → hom S B A → hom S A A)
+  ( coe-comp : ( f : hom S A B) → ( g : hom S B A) → ( u : El A)
+             → covariant-transport S El is-cov A A (comp f g) u
+               = covariant-transport S El is-cov B A g (covariant-transport S El is-cov A B f u))
+  : ra (covariant-transport S El is-cov A A
+         ( comp (Gl S El is-cov du A B φ) (Gl S El is-cov du B A ψ)) u0)
+    = s (s z)
+  := concat R
+    ( ra (covariant-transport S El is-cov A A
+           ( comp (Gl S El is-cov du A B φ) (Gl S El is-cov du B A ψ)) u0))
+    ( ra (covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ)
+           ( covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0)))
+    ( s (s z))
+    ( ap (El A) R ra
+      ( covariant-transport S El is-cov A A
+        ( comp (Gl S El is-cov du A B φ) (Gl S El is-cov du B A ψ)) u0)
+      ( covariant-transport S El is-cov B A (Gl S El is-cov du B A ψ)
+        ( covariant-transport S El is-cov A B (Gl S El is-cov du A B φ) u0))
+      ( coe-comp (Gl S El is-cov du A B φ) (Gl S El is-cov du B A ψ) u0))
+    ( arrow-round-trip-stops S El is-cov du A B R z s ra rb φ ψ φ-adds-one ψ-adds-one u0 start)
+
+-- ------------------------------------------------------------------
+-- (d) C-57 is the special case A = B, R = El A, ra = rb = identity,
+--     phi = psi = s
+
+-- C-57 (b) arrow-walk-stops, derived from (b) above
+#define c57-arrow-walk-as-special-case
+  ( S : U)
+  ( El : S → U)
+  ( is-cov : is-covariant S El)
+  ( du : is-directed-univalent S El is-cov)
+  ( A : S)
+  ( s : El A → El A)
+  ( z : El A)
+  : covariant-transport S El is-cov A A (Gl S El is-cov du A A s)
+      ( covariant-transport S El is-cov A A (Gl S El is-cov du A A s) z)
+    = s (s z)
+  := arrow-round-trip-stops S El is-cov du A A (El A) z s
+    ( \ x → x) ( \ x → x) s s ( \ u → refl) ( \ w → refl) z refl
+
+-- C-57 (a) path-round-trip-never-stops, derived from (a) above
+#define c57-path-round-trip-as-special-case
+  ( S : U)
+  ( El : S → U)
+  ( A B : S)
+  ( p : A = B)
+  ( s : El A → El A)
+  ( z : El A)
+  ( no-fixed : ( z = s (s z)) → Empty)
+  ( stops : transport S El B A (rev S A B p) (transport S El A B p z) = s (s z))
+  : Empty
+  := path-round-trip-never-stops S El A B p (El A) z s no-fixed ( \ x → x) z refl stops

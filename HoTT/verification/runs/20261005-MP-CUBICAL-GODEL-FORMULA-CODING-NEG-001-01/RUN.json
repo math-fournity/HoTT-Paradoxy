@@ -1,0 +1,58 @@
+{
+  "claim_ids": [
+    "C-383–C-386 (negative control)"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--safe",
+    "--cubical",
+    "-i",
+    "/Users/aurolafly/.codex/worktrees/godel-zfc-r3-replay/HoTT_AI_HANDOFF_20260911/HoTT/formal/cubical-godel-fragment",
+    "HoTT/formal/cubical-godel-fragment/WrongCCTTminiFormulaCode.agda"
+  ],
+  "completed_at_utc": "2026-10-05T04:27:36.020421+00:00",
+  "cwd": "/Users/aurolafly/.codex/worktrees/godel-zfc-r3-replay/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.562143,
+  "environment": {
+    "bytes": 265,
+    "path": "environment.txt",
+    "sha256": "af7bd7a7a6c6eab4257620a033480ac5a37a336e604d97c6b2adecdbab10bc45"
+  },
+  "exit_code": 42,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not establish arithmetic representability of ProvWitness or validCode.",
+    "Does not establish a fixed-point equivalence, an incompleteness theorem, or general binder substitution.",
+    "Does not formalize full cctt/redtt/Cubical Agda/HoTT semantics, H0 transport, or bare-ZFC attribution."
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CUBICAL-GODEL-FORMULA-CODING-NEG-001",
+  "run_id": "20261005-MP-CUBICAL-GODEL-FORMULA-CODING-NEG-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "C-383–C-386 concern Fmini formula code, image roundtrip/injectivity, and the template's syntax-level self-code substitution shape.",
+  "source_manifest": {
+    "bytes": 1962,
+    "path": "source-manifest.json",
+    "sha256": "17d3cf28428a1d703b41e4cd998b4d5d4e3470b558933042b8d998265936e4c7"
+  },
+  "started_at_utc": "2026-10-05T04:27:35.458278+00:00",
+  "status": "NEGATIVE_CONTROL_REJECTED",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 2066,
+    "path": "stdout.txt",
+    "sha256": "da7e30caaa4ebffe71e7857a1b80a686bbc5e5440534d444a98937cd53479013"
+  },
+  "theory_variant": "project-defined CCTTmini₀ checked by native Cubical Agda; source-corresponding Nat/Path-refl fragment only",
+  "warnings": {
+    "scope": "Inherited from CCTTminiNat's auxiliary bound proof; C-383–C-386 do not claim transport-level computation for it.",
+    "unsupported_indexed_match_present": true
+  }
+}

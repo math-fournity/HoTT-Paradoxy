@@ -1,0 +1,7 @@
+# 本单元验证差异与失败保全
+
+第一次分片检查与方法004/索引构造交错，得到未列分片失败；当前索引/表行/计数/last_shard在同一工作单元补齐，post-checkpoint重新检查exit0。未改validator或删除证据。
+
+post-checkpoint中的裸`verify_core_cognition.py`调用退出1，报告CORE_NOT_CANONICAL_GENERATOR_OUTPUT。调查确认该脚本默认curation/transition仍为历史generation4，本次current_core为generation8；原文hash并未变化。保留原失败stdout/stderr，再从STATE.current_core动态传入core/manifest/curation/transition执行core-recheck-002。更正的是调用参数，没有重建或修改core、原始来源或校验器。
+
+交付验证须同时读post-checkpoint/RESULT与core-recheck-002/RUN/stdout；不能删掉失败记录或把旧exit1改写成exit0。引用块另有前后逐字比较，模型理解与数学结论仍不由这些机械检查认证。

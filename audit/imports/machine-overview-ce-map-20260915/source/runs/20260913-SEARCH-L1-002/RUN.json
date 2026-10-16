@@ -1,0 +1,2625 @@
+{
+  "budget": {
+    "max_checks": 5000000,
+    "max_witnesses": 20000
+  },
+  "calibration_match": {
+    "benchmark_id": "R041-C73-C74-BENCHMARK",
+    "claim_refs": [
+      "C-73",
+      "C-74"
+    ],
+    "matched_witness": true,
+    "reduced_key": "{\"left\": {\"kind\": \"ret\", \"n\": 0, \"value\": true}, \"ops\": [{\"kind\": \"race_left\", \"partner\": {\"kind\": \"ret\", \"n\": 0, \"value\": false}}, {\"continuation\": {\"false\": {\"kind\": \"omega\"}, \"true\": {\"kind\": \"ret\", \"n\": 0, \"value\": true}}, \"kind\": \"bind\"}], \"right\": {\"kind\": \"ret\", \"n\": 1, \"value\": true}}",
+    "status": "PRESENT"
+  },
+  "case_id": "MS-TASK-L1-RACE-COMPLETION-001",
+  "case_pointer": "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001/case-revision-2.json",
+  "case_revision": 2,
+  "completed_at_utc": "2026-09-13T14:19:37.950821+00:00",
+  "controls": {
+    "negative": {
+      "context": {
+        "k": 1,
+        "kind": "deadline"
+      },
+      "control": "declared_deadline_does_not_separate_this_pair",
+      "expectation_met": true,
+      "expected": "NOT_SEPARATED",
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separated": false
+    },
+    "positive": {
+      "claim_ref": "C-71",
+      "context": {
+        "continuation": {
+          "false": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          },
+          "true": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        "kind": "bind"
+      },
+      "control": "bind_preserves_result_equivalence",
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "preserved": true,
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      }
+    }
+  },
+  "coordinator_version": "0.1.0",
+  "evidence_refs": [
+    "/Volumes/D/HoTT-machine-overview/machine-overview/cases/MS-TASK-L1-RACE-COMPLETION-001/case-revision-2.json"
+  ],
+  "exit_reason": "COMPLETED_WITHIN_BUDGET",
+  "git": {
+    "branch": "feat/machine-overview-m1",
+    "git_common_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git",
+    "git_dir": "/Volumes/D/HoTT_AI_HANDOFF_20260911/.git/worktrees/HoTT-machine-overview",
+    "head": "fc79094a79ceeeb3a19fa76b03f263d52538a918",
+    "tracked_dirty": false,
+    "tracked_dirty_entries": 0,
+    "worktree_root": "/Volumes/D/HoTT-machine-overview"
+  },
+  "grammar_sensitivity_check": {
+    "mutated_contains_deadline_kind": false,
+    "mutated_witness_count": 36,
+    "mutation": "remove the deadline operation from the declared grammar"
+  },
+  "inputs": {
+    "case_sha256": "b4a7892e0febd9b3d9f7862edf6d8668b96e8104b53428dd66a2100e9fd24985",
+    "grammar_path": "machine-overview/grammars/l1-v1.json",
+    "grammar_sha256": "77b04fc6366555dbd1fc8a340c95c3c5a0f1d4a96a45b8bbce2956a8454ca986",
+    "task_path": "machine-overview/tasks/MS-TASK-L1-RACE-COMPLETION-001.json",
+    "task_sha256": "635bd7897077edcf5c344657e4a13e1d0deaedb5dce217ac18c962fc28b2130f"
+  },
+  "kind": "search",
+  "order_independence_check": {
+    "order_independent_set_equal": true,
+    "seed": 20260913,
+    "statistics_match": true
+  },
+  "profile": {
+    "profile_id": "L1-PARTIALITY-RACE-DEADLINE-v0",
+    "profile_status": "PROFILE_QUALIFIED",
+    "toolchain_ref": "HoTT/formal/partiality-race-timeout/TOOLCHAIN.json"
+  },
+  "registry_id": "HOTT-MACHINE-OVERVIEW-M1",
+  "run_id": "20260913-SEARCH-L1-002",
+  "schema_version": "machine-overview-search-run/v1",
+  "seed": 20260913,
+  "started_at_utc": "2026-09-13T14:19:37.863981+00:00",
+  "statistics": {
+    "complete_within_declared_grammar": true,
+    "contexts": 399,
+    "delay_atoms": 7,
+    "pair_context_checks": 4788,
+    "separations_seen": 916,
+    "truncated": false,
+    "witnesses_captured": 916
+  },
+  "witnesses": [
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0001"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0002"
+    },
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0003"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0004"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0005"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0006"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "k": 0,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0007"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0008"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0009"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0010"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0011"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 0,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 1,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0012"
+    },
+    {
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0013"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0014"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0015"
+    },
+    {
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 0,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 1
+      },
+      "witness_id": "WV-0016"
+    },
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0017"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0018"
+    },
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0019"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0020"
+    },
+    {
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0021"
+    },
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0022"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0023"
+    },
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0024"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0025"
+    },
+    {
+      "left_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "none"
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0026"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0027"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0028"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": false
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0029"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0030"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0031"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0032"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": true
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "omega"
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0033"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0034"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0035"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0036"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0037"
+    },
+    {
+      "left_observation": {
+        "kind": "none"
+      },
+      "observation_mode": "deadline",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "k": 1,
+          "kind": "deadline"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "some",
+        "value": true
+      },
+      "separation_kind": "deadline_observation",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0038"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_left",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0039"
+    },
+    {
+      "left_observation": {
+        "kind": "omega"
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 1,
+            "value": false
+          }
+        },
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "completion_divergence",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 2
+      },
+      "witness_id": "WV-0040"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0041"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0042"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0043"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0044"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0045"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": true
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": true
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": false
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0046"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": false
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": false
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0047"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "omega"
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0048"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": false
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0049"
+    },
+    {
+      "left_observation": {
+        "kind": "ret",
+        "n": 2,
+        "value": false
+      },
+      "observation_mode": "delay",
+      "ops": [
+        {
+          "continuation": {
+            "false": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            },
+            "true": {
+              "kind": "ret",
+              "n": 0,
+              "value": true
+            }
+          },
+          "kind": "bind"
+        },
+        {
+          "kind": "race_right",
+          "partner": {
+            "kind": "ret",
+            "n": 2,
+            "value": false
+          }
+        }
+      ],
+      "pair": {
+        "left": {
+          "kind": "ret",
+          "n": 1,
+          "value": true
+        },
+        "right": {
+          "kind": "ret",
+          "n": 0,
+          "value": true
+        }
+      },
+      "right_observation": {
+        "kind": "ret",
+        "n": 1,
+        "value": true
+      },
+      "separation_kind": "value_mismatch",
+      "size": {
+        "context_ops": 2,
+        "index_sum": 3
+      },
+      "witness_id": "WV-0050"
+    }
+  ]
+}

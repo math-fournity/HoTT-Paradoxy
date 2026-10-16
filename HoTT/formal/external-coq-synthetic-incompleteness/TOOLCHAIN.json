@@ -1,0 +1,45 @@
+{
+  "base_image": {
+    "architecture": "amd64",
+    "id": "sha256:2a9a7f61666e503e3429696c641fc3af8cf3337f85988000373491aa80547098",
+    "os": "linux",
+    "reference": "coqorg/coq:8.15",
+    "repo_digests": [
+      "coqorg/coq@sha256:2a9a7f61666e503e3429696c641fc3af8cf3337f85988000373491aa80547098"
+    ]
+  },
+  "coq": "8.15.2",
+  "dependencies": {
+    "coq-equations": "1.3+8.15",
+    "coq-metacoq-template": "dev+8.15@9493bb6",
+    "coq-smpl": "8.15"
+  },
+  "derived_image": {
+    "architecture": "amd64",
+    "id": "sha256:d4a84f07bbfe0bf3f2dce5b07e7fb43423ff64f990678a114ec6b080d131010b",
+    "os": "linux",
+    "reference": "hott-coq-synthetic-incompleteness:cd7d849",
+    "repo_digests": [
+      "hott-coq-synthetic-incompleteness@sha256:d4a84f07bbfe0bf3f2dce5b07e7fb43423ff64f990678a114ec6b080d131010b"
+    ],
+    "size_bytes": 1533425178
+  },
+  "dockerfile": {
+    "bytes": 455,
+    "path": "Dockerfile",
+    "sha256": "140ad2c458f5725f21490de58fb42a62180d80f69d81662a445b855284e94323"
+  },
+  "ocaml": "4.07.1",
+  "platform": "linux/amd64",
+  "qualification": {
+    "bytes": 456,
+    "path": "Qualification.v",
+    "sha256": "0918153193095b77a6106af219b76d135a184037e27997e019d51b3877593ca5"
+  },
+  "schema_version": "coq-synthetic-incompleteness-toolchain/v1",
+  "upstream_build_receipt": {
+    "bytes": 10646,
+    "path": "audit/imports/machine-overview-ce-map-20260915/source/evaluations/COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001/BUILD-RECEIPT.json",
+    "sha256": "3601b6fc465c06e02d865a411dae96a24b8792994962d3738d82a223cfa0b2ac"
+  }
+}

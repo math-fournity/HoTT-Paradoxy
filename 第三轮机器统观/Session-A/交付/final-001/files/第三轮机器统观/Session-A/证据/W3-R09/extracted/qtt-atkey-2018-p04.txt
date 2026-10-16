@@ -1,0 +1,130 @@
+LICS ’18, July 9–12, 2018, Oxford, United Kingdom Robert Atkey
+As for the dependent function type, type formation does not require
+any intensional resources. The introduction rules:
+Γ1 ⊢ M σ′
+: S 0Γ1 = 0Γ2
+Γ2 ⊢ N σ: T [M/x] σ′ = 0 ⇔ (π= 0 ∨σ= 0)
+πΓ1 + Γ2 ⊢ (M, N )x
+π
+: S .T
+σ: (x π: S ) ⊗ T
+0Γ ⊢
+0Γ ⊢ ∗ σ: I
+Resource-wise, building a pair is similar to the App rule above. To
+build an element of the unit type requires no resources. When
+we are in the extensional portion of the theory (σ= 0), there are
+effectively no restrictions, and these are the normal introduction
+rules for dependent product and unit types.
+The elimination rules are interesting because there are two sets,
+depending on whether we are in the erased ( σ= 0) or present
+(σ= 1) part of the theory. Under erasure, we are free to use the
+normal first and second projection operators:
+Γ ⊢ M 0: (x π: S ) ⊗ T
+Γ ⊢ fstx
+π
+: S .T (M ) 0: A
+Γ ⊢ M 0: (x π: S ) ⊗ T
+Γ ⊢ sndx
+π
+: S .T (M ) 0: T [fst(M )/x]
+We also assume the usualβηequality rules in the erased fragment.
+There is no erased eliminator for the I type; in the absence of
+intensional information, the I type acts like the “unit” type in a
+normal type theory, and so has no eliminator. We have anη-rule
+for I in theσ= 0 fragment stating that ∗ is the only inhabitant.
+When we take into account the resource content of objects,
+we are more restricted in how we can eliminate objects of tensor
+product and unit type. Just as for elimination of ⊗ in intuitionistic
+linear types theories, we must use a pattern matching construct to
+ensure that both parts of the product are used. Likewise, we must
+explicitly eliminate elements of the unit type:
+0Γ1, z 0: (x π: S ) ⊗ T ⊢ U Γ1 ⊢ M σ: (x π: S ) ⊗ T
+Γ2, x σπ: S,y σ: T ⊢ N σ: U [(x,y)/z] 0 Γ1 = 0Γ2
+Γ1 + Γ2 ⊢ letx
+π
+: S .T (x,y) = M in N σ: U [M/z]
+0Γ1, x 0: I ⊢ U Γ1 ⊢ M σ: I Γ2 ⊢ N σ: U [∗/x] 0 Γ1 = 0Γ2
+Γ1 + Γ2 ⊢ letI ∗ = M in N σ: U [M/x]
+These constructs are subject to the usualβηand commuting con-
+version rules [5]. These constructs are permitted in theσ= 0 and
+σ= 1 fragments, but in theσ= 0 fragment they are shorthand for
+fst and snd:
+0Γ, z 0: (x π: S ) ⊗ T ⊢ U
+0Γ ⊢ M 0: (x π: S ) ⊗ T 0Γ, x 0: S,y 0: T ⊢ N 0: U [(x,y )/z]
+0Γ ⊢ letxπ: S .T (x,y ) = M in N ≡ N [fst(M )/x, snd(M )/y] 0: U [M /z]
+By combining ⊗ and I, we can derive an exponential type !ρA for
+QTT as !ρA = (x
+ρ
+: A) ⊗ I.
+Boolean Type The type Bool is an example of a type of data that
+can be available at runtime.
+0Γ ⊢
+0Γ ⊢ Bool
+Bool
+0Γ ⊢
+0Γ ⊢ true, false σ: Bool
+B-T,F
+The introduction rules indicate two pieces of information. First, the
+0 usage on the context Γ indicates that no resources are required
+to construct the constants true and false. Second, the result usage
+annotationσis unrestricted, indicating that we are free to choose
+whether this is a boolean value that is erased or present.
+The elimination rule for booleans is:
+0Γ1, z 0: Bool ⊢ T Γ1 ⊢ Mt
+σ: T [true/z]
+Γ1 ⊢ Mf
+σ: T [false/z] Γ2 ⊢ N σ: Bool 0Γ1 = 0Γ2
+Γ1 + Γ2 ⊢ ElimBool(z )T (Mt , Mf , N ) σ: T [N /z]
+B-Elim
+We ensure that the result type T is wellformed, with 0 usage. Then
+the two branches Mt and Mf for the true and false case respectively
+must be typed with the same usage annotations Γ1. This follows
+the same style as for the “additive” connectives in Linear Logic.
+The actual boolean to be eliminated must be constructed from
+other resources Γ2, but this must have the same typing content
+(0Γ1 = 0Γ2).
+Universe: The Type of Small Types The type of small types, Set,
+is an example of a type whose elements occupy no resource, but
+do have a role in forming types. The type formation rule for Set is
+similar to the one for Bool:
+0Γ ⊢
+0Γ ⊢ Set
+Set
+The introduction rules for Set are only available in the σ= 0
+fragment; we can never construct aSet value with runtime presence.
+For instance, the terms representing dependent function types:
+0Γ ⊢ M 0: Set 0Γ, x 0: El(M ) ⊢ N 0: Set
+0Γ ⊢ (x π: M ) → N 0: Set
+Set-Pi
+The other introduction rules are similar, but are omitted for space.
+Elements of Set become proper types via the “decoder”El(−):
+0Γ ⊢ M 0: Set
+0Γ ⊢ El(M )
+El
+This rules indicates that the use of a code for a type in a type does
+not require any computational information.
+Using Set with our other type formers, we can construct addi-
+tive product and sum types. For example, S × T = (b 1: Bool) →
+ElimBool(_)Set (S,T , b).
+This concludes our presentation of the context, type and term
+formation rules of QTT. The remaining rules of QTT concern the
+type and term equality judgements Γ ⊢ S ≡ T and Γ ⊢ M ≡ N σ: S,
+but are omitted for space.
+2.2 Syntactic Properties of QTT
+Usage annotation manipulation The following shows how us-
+age annotations and the judgements of QTT interact.
+Lemma 2.1. Usage annotations do not affect context well formedness:
+Γ1 ⊢ and 0Γ1 = 0Γ2 implies Γ2 ⊢.
+Lemma 2.2. The following 0-ing rules are admissible:
+Γ ⊢ M σ: S
+0Γ ⊢ M 0: S
+Tm-Zero
+Γ ⊢ M ≡ N
+ρ
+: S
+0Γ ⊢ M ≡ N 0: S
+Tm-Eq-Zero
+These rules state that we can take any term and produce its
+“resource free” counterpart in theσ= 0 fragment. Semantically,
+this will be modelled by the U functor/functions in our QCwFs in
+Definition 3.2. Note that it is not possible to go the other way: there

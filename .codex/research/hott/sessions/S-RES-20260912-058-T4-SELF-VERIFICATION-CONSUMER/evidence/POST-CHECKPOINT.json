@@ -1,0 +1,114 @@
+{
+  "schema_version": "t4-self-verification-post-evidence/v1",
+  "captured_at_utc": "2026-09-13T03:36:00+00:00",
+  "session_id": "S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER",
+  "state_revision": 58,
+  "latest_session": "S-RES-20260912-058-T4-SELF-VERIFICATION-CONSUMER",
+  "head_revision": 58,
+  "post_checks": [
+    {
+      "name": "fresh-three-way-regeneration",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "revision": 58,
+        "governance_documents": 15,
+        "research_documents": 20,
+        "negative_cases": ["wrong_snapshot", "incomplete_coverage", "tampered_chunk", "profile_snapshot_mismatch"],
+        "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+      }
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "state_revision": 58,
+        "core_units": 36,
+        "merge_entries": 35,
+        "fresh_receipt_revision": 58,
+        "reconciliation_entries": 22226,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {"state_revision": 58, "direction_count": 27, "outcome_count": 53, "core_units_declared": 36}
+    },
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "core_units": 36,
+        "generation": "core-cognition-generation-4",
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"
+      }
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "understanding-merge",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "union_files": 35,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 20,
+        "unresolved_nontrivial": 0
+      }
+    }
+  ],
+  "test_suites": [
+    {"name": "cognition-runtime", "tests": 28, "status": "OK"},
+    {"name": "full-closure-loading-reader", "tests": 17, "status": "OK"},
+    {"name": "three-way-cognition", "tests": 4, "status": "OK"},
+    {"name": "core-cognition", "tests": 7, "status": "OK"},
+    {"name": "math-proof-delivery-gate", "tests": 4, "status": "OK"}
+  ],
+  "source_verifiers": [
+    {"name": "history-ledgers", "status": "PASS"},
+    {"name": "cross-source-reconciliation", "status": "PASS"}
+  ],
+  "t4_audit": {
+    "report": "audit/self-verification-consumer审计-20260912.md",
+    "sources": {
+      "T4-S1": "DEFENSE_BY_RESTRICTION",
+      "T4-S2": "DOCUMENTED_FENCE",
+      "T4-S3": "CERTIFIED_TOOLING_NOT_SELF_CERTIFICATION",
+      "T4-S4": "DEFENSE_WORKS_WITH_EXPLICIT_TRUST_BASE",
+      "T4-S5": "REPRESENTATION_PREREQUISITE_DOCUMENTED"
+    },
+    "p8_candidate_found": false,
+    "verdict": "BOUNDED_DEFENSE_WITH_TRUST_BASE",
+    "five_layer_tower": ["N1", "N2", "N5", "N10", "T4"],
+    "next": "N13 stratified evidence-queue batch (owner-document strata); fallback ERCF-3 T3 (gated)"
+  },
+  "hash_hygiene": {
+    "stale_source_hashes_repaired": 0,
+    "unexpected_stale_remainder": 0,
+    "claim_matrix_sha256": "22e1c54c02d26e76d6b60309d9f4c1c68418fe6890aef6a4a4f7dbfd3dfda0b4",
+    "merge_manifest_rebuilt": false
+  },
+  "checkpoint_payload_sha256": "3ad3ef393108b6eb7ef4c917d37913ef0f6df63cc4f64463443e565df0b24401",
+  "git_diff_check": "CLEAN",
+  "write_lock_present": false,
+  "transaction_present": false,
+  "pending_transaction_present": false,
+  "failures": [],
+  "status": "PASS"
+}

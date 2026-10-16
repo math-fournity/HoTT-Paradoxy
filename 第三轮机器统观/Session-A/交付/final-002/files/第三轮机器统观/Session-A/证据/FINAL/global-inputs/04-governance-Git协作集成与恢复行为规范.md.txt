@@ -1,0 +1,130 @@
+# Git 协作、集成与恢复行为规范
+
+> 资产：HUMAN_EDITED；唯一owner：本文件；合同：GIT_OPERATIONS_V1。
+> 状态：current normative；3.13.0兼容增量。规范已定义不代表所有AI行为已验证。
+> 来源：R-090；文件基线与治理SemVer继续由[原规范](文件变更前Git基线与Tag版本规范.md)拥有。
+
+## 一、目的、范围与授权
+
+Git保存可恢复、可审阅的工程变化和历史，不能替代需求真值、验证证据、运行数据备份或发布授权。
+本规范适用于代码、文档、配置、测试、schema和被明确纳入Git的非secret资产，不能只规范治理文档。
+普通局部编辑复用现有工作树与项目贡献规则；多角色、并行、长运行、跨仓或发布时展开有关分支。
+
+执行前沿用当前用户授权，先分清read、edit、local commit、integrate、tag、push、publish、rewrite/delete。
+用户已授权的动作不重复索取同意；“规范要求存在”本身不授予写入/外发/破坏性权限。既有项目禁止自动commit时
+继续服从；需要提交但尚未授权时，先把准确diff、检查和提交范围准备到可审阅，再请求最后所缺授权。
+Read-only auditor、运行Supervisor和worker不因能访问Git命令而获得mutation权；开发/集成角色也只能处理本任务范围。
+提交者、作者、审计者和实际AI辅助贡献分别如实记录；不伪造身份、签名、时间或成功状态。
+
+## 二、动作前的最小现场
+
+每个repo独立确认实际根、git-dir/common-dir、branch或detached HEAD、exact HEAD、upstream/目标ref、worktrees、
+staged/unstaged/untracked/ignored分类及进行中的merge/rebase/cherry-pick/revert。先执行文件baseline工具。
+不要假设默认分支叫main、origin指向预期仓库、当前目录是目标工作树，或HEAD对应已安装runtime。
+Remote URL可能含凭据，只输出经过验证的安全host/repo身份；不得把完整config/auth/header打印进日志。
+
+可组合使用以下只读证据，自动化路径解析使用NUL分隔；输出前仍过滤secret：
+
+```text
+git rev-parse --show-toplevel --git-dir --git-common-dir
+git status --porcelain=v1 -z
+git diff --no-ext-diff --no-textconv
+git diff --cached --no-ext-diff --no-textconv
+git worktree list --porcelain -z
+git log / git show / git merge-base / git ls-files
+```
+
+确认关键Git配置与hooks/filter是否会执行代码；读取不可信repo时禁止自动执行其hook、external diff、textconv、
+filter、submodule脚本或依赖安装。真正需要执行时先核来源、权限和副作用。Git层只读不等于任意扩展都只读。
+
+## 三、分支、工作树与并发
+
+项目已有分支策略优先；否则从已确认的目标base创建一个有任务含义的短期分支。Codex创建分支默认`codex/`前缀。
+不为每个文件/turn创建分支。单人简单修复可在用户指定checkout内完成，不强制所有任务新建worktree。
+
+目标checkout有他人dirty、需要保留不同版本、验证与开发会互相污染、或有并行写者时，优先独立worktree/checkout。
+先记录base commit和最终集成目标。不得`-B`重置现有分支、强制重用已checkout分支或切换他人的工作树。
+Worktree隔离工作文件/index，不隔离共享refs、objects和默认repo config；它不是secret、process、network或模型隔离。
+需阻止worker修改共享refs/读取隐藏历史时使用独立受控clone、导出快照或真实权限隔离，不能仅凭目录不同称隔离。
+
+同一branch/index/集成目标只由一个确定的写者处理；跨worktree的ref/tag/config操作仍需协调。Git内部lock只防部分
+机械竞态，不能判定任务所有权。基线后目标HEAD/index或相关文件变化，重新检查差异和验收，不能拿旧review写新状态。
+不自动stash、reset、restore或clean他人内容来制造干净工作树；也不能把全部dirty一起commit当“备份”。
+
+## 四、编辑、暂存与提交
+
+一次commit应是可解释、可review和可恢复的逻辑单元，包含必要代码/测试/契约/路由变化；不按任意文件数或时间切割。
+长期工作在自然节点保全已授权结果；尚未验证的候选可以明确标为candidate/WIP，不宣称release-ready。
+
+提交前必须检查完整index，而非只看本任务文件。使用精确路径或已审阅hunks；有他人staged内容时保持原样，优先在
+独立worktree形成提交，不执行会把整个index带入commit的命令。禁止未经完整审阅的`git add .`、`git add -A`、
+`git commit -a`。路径用`--`和可靠引用；shell文本/文件名/commit body不作为可执行拼接。
+
+检查staged diff、`diff --check`、相关测试、secret/generated/binary/大文件及删除/rename语义。代码和所依赖契约同步，
+但D raw、secret、auth、私有配置、缓存与运行数据库不因“完整性”自动进入Git。Ignored不等于已安全备份或无价值。
+`.gitignore`改变是资产/工具输入语义变化：明确owner、是否仍需保留、consumer影响和恢复来源；不能只为检查变绿而隐藏。
+
+Commit message说明具体问题、行为和必要理由，body记录范围与验证限制；不虚报测试或夹带未交付承诺。
+提交后检查exact commit/tree、实际路径集合、剩余dirty与index；确认提交真正包含预期变化并保留未授权内容。
+审核对象改变后重审；先前测试只覆盖其原snapshot。检查失败先保留结果并归因，不跳hook或弱化测试求绿。
+
+## 五、集成、冲突与审阅
+
+先确认source/base/target refs、依赖commits、作者归因、需要保留的历史以及目标保护规则。
+需要更新远端信息时先授权范围内fetch并核remote/ref，再显式决定merge/rebase/cherry-pick；不使用不明配置的pull
+隐式改变当前树。Fast-forward符合项目策略时优先；需要保留并行历史用merge；选择性移植用cherry-pick并记录来源。
+Rebase只改获准且无人依赖的私有历史；共享/已发布历史默认用增量commit，不自行amend、rebase或重写。
+
+冲突必须检查base、ours、theirs及需求/测试/消费者；`ours/theirs`不是语义裁决，rebase中的含义也不能凭名字猜。
+不能全仓选一侧、删除冲突文件或只删标记。解决当前授权内的工程冲突后，重跑受影响和必要集成检查，审阅最终diff。
+语义权威仍不明时保全精确冲突和候选解释；继续独立工作，相关集成保持pending。
+开始merge/rebase前保持可恢复基线；失败时使用对应`--abort`并验证恢复结果。存在原先未提交变更时abort未必能
+完整重建现场，不能把它当无条件撤销。中断后先核进行中的操作与reflog，再决定continue/abort，不盲目重跑。
+
+Review至少核用户结果、正确性、失败/恢复、权限/数据、兼容、测试边界和文档影响；AI一致或工具exit0不替代审阅。
+合并授权、push授权和发布授权分别判断；本地集成不自动外发。PR描述以最终diff为准，记录真实验证和剩余风险。
+自动集成器要绑定expected target HEAD、exact source/candidate hash、验收receipt和幂等key；ref变化即拒绝旧裁定，
+重新生成/验证集成结果。普通人工本地操作无需新建通用receipt数据库。
+
+## 六、回退、恢复与数据保护
+
+已共享历史的通常回退方式是新增revert commit，保留原因、被撤销commit和后续兼容/数据影响。Merge revert先理解
+mainline及未来合并后果；不能凭`-m 1`模板操作。代码回退不回退数据库、外部API、已发布文件或用户数据。
+未提交本任务编辑需要丢弃时，先核exact diff、所有权和恢复副本，只恢复精确路径/区域；不能牵连他人修改。
+`reset --hard`、`clean -fd/-fdx`、force branch/tag deletion、history rewrite、reflog expiry和prune/gc属于高风险动作，
+必须具备对应授权、精确影响清单、已验证恢复途径及后置检查；不得作为常规“修Git”步骤。
+
+Reflog用于定位本地ref变动，不是持久备份：可能过期，也不覆盖未跟踪文件/外部runtime。需要离机恢复时明确保存
+Git refs/objects与必要非Git资产；bundle/archive的内容边界不同，必须实际verify/restore。Secret备份走私有数据合同。
+误提交secret时先停止继续外发并按incident合同轮换/吊销；删commit不等于secret失效，不在修复说明中再输出它。
+
+## 七、远端、Tag与发布
+
+Push前再次核remote安全身份、exact refspec、拟发送commits/对象、权限及目标当前值。默认不`--all`、`--mirror`、
+`--tags`或删除远端refs。需要force更新必须获明确授权，并使用含明确expected旧OID的lease；裸`--force-with-lease`
+会受后台fetch影响，不能当绝对保护。网络超时不证明push失败；先核远端实际ref，再决定重试，避免重复或覆盖。
+
+Annotated治理tag沿用既有SemVer与多repo合同；普通业务release沿用该项目策略。已发布tag视为不可移动，修正用新
+版本并保留撤销说明。签名仅在项目要求且实际key可用时进行，不伪造verified。Commit/tag成功不等于build、deploy、
+P2M提交、数学证明或发布成功。跨repo没有天然原子提交，先完成各候选commit/兼容核验，再封存统一版本；部分成功保留
+准确状态与恢复顺序，不能把另外一仓的PASS填入失败仓。
+
+## 八、运行角色与完成检查
+
+运维Supervisor使用已准备的query/intent/受控部署接口，不能临场开发、写proof status、任意commit或升级依赖。
+需要修软件/治理时提交含exact版本、复现、日志和影响的maintenance finding；开发角色在独立范围修复、验证、版本化，
+运维角色按已获准的升级/回退合同切换。AI worker只写自己的候选workspace，独立integrator处理已批准artifact。
+
+本工作单元完成时能说明：实际base/target与commit；变更/未变路径；验证范围；未提交残留及所有权；是否已集成、
+tag、push或发布；恢复路径；下一owner。必须保留可恢复来源和运行消费者需要的worktree，不能为“清理”删活跃依赖。
+删除任务worktree前核无人使用、无active进程、无未保全staged/unstaged/untracked资产、commits已保全；只清理自己
+创建且获准处置的对象，不强制remove/prune他人或可移动卷上的工作树。
+
+## 九、来源与证据边界
+
+2026-09-07复核[Git worktree](https://git-scm.com/docs/git-worktree)的共享refs/config和独立index；
+[Git merge](https://git-scm.com/docs/git-merge)的dirty/abort边界；
+[Git revert](https://git-scm.com/docs/git-revert)的增量撤销；
+[Git push](https://git-scm.com/docs/git-push)的refspec与explicit lease。
+这些是Git机制权威，本规范的授权、角色和检查范围是本用户工程合同，不能伪称Git官方强制流程。
+结构validator只检指导缺失；真实行为需要冻结场景、直接Git前后状态与trajectory，不能用关键词数证明规范有效。

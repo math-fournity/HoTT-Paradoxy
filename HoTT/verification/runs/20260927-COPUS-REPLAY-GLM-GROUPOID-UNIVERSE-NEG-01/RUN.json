@@ -1,0 +1,69 @@
+{
+  "agda_error_tag": "NotInScope",
+  "audit_notes": [
+    "Linux replay (Agda v2.8.0 Linux asset, cubical v0.9 byte-identical) of the GLM run of 2026-09-26; GLM's original receipt is left untouched (hash-locked).",
+    "GLM's own receipt of 2026-09-26 shows the same NotInScope error; its status KERNEL_REJECTED_AS_EXPECTED and the work-log phrase 'rejected for the correct reason' are wrong."
+  ],
+  "audit_session": "Cloud-Opus audit of the GLM line, Claude Code cloud session, branch claude/charming-pasteur-mvzlio, 2026-09-27",
+  "claim_ids": [
+    "GLM-R3-C01"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/home/user/toolchain/xdg-data",
+    "XDG_CONFIG_HOME=/home/user/toolchain/xdg-config",
+    "TMPDIR=/home/user/toolchain/tmp",
+    "/home/user/toolchain/agda",
+    "--ignore-interfaces",
+    "--library-file=/home/user/HoTT-Paradoxy/HoTT/formal/cloud-opus-glm-audit/AGDA_LIBRARIES.linux-x86_64",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/groupoid-universe",
+    "HoTT/formal/glm-russell/groupoid-universe/WrongGroupoidWitness.agda"
+  ],
+  "completed_at_utc": "2026-09-27T06:27:01.109590+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 28.60719,
+  "environment": {
+    "bytes": 1023,
+    "path": "environment.txt",
+    "sha256": "99dd81c5fb04064d199d8cae5c931f040473845ae519d05aef49f0016df2985f"
+  },
+  "exit_code": 42,
+  "expected_outcome": "REJECT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/groupoid-universe/WrongGroupoidWitness.agda:12.12-16: error: [NotInScope]\nNot in scope:\n  true\n  at /home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/groupoid-universe/WrongGroupoidWitness.agda:12.12-16\nwhen scope checking true",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/home/user/HoTT-Paradoxy/HoTT/formal/glm-russell/groupoid-universe"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-GLM-RUSSELL-GROUPOID-NEG-001",
+  "rejection_stage": "SCOPE_OR_PARSE",
+  "run_id": "20260927-COPUS-REPLAY-GLM-GROUPOID-UNIVERSE-NEG-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Replay of 20260926-GLM-GROUPOID-UNIVERSE-NEG-01. Observed rejection is [NotInScope] true, at scope checking: the file never reaches the type checker, so it does NOT test the claimed arithmetic a (tt,tt) ≠ (tt,tt). Repaired control: MP-COPUS-GLM-FIX-NEG-001.",
+  "source_manifest": {
+    "bytes": 2574,
+    "path": "source-manifest.json",
+    "sha256": "8fa49c36573434e2a39fc4664621a86648a7e336ff141868de6433891ba1ffef"
+  },
+  "started_at_utc": "2026-09-27T06:26:32.502400+00:00",
+  "status": "REJECTED_BEFORE_TYPE_CHECKING",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 9687,
+    "path": "stdout.txt",
+    "sha256": "b7e3e35e478924d61671e65063874d77f3d24b2015d4511a13f19375e90672c3"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

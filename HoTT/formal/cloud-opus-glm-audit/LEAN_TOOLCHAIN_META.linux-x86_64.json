@@ -1,0 +1,178 @@
+{
+  "schema_version": "copus-lean-toolchain/v1",
+  "compatible_with": "field names of claude-cg001-lean-toolchain/v1 (prefix, pinned_files, version_line), so the CG-001 driver .claude/goals/CG-001-targeted-overview/tools/lean_check.py can be used unchanged",
+  "tool": "lean",
+  "version": "4.34.0",
+  "version_line": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "same_source_commit_as": "HoTT/formal/claude-cg001/pedometer-ablation-lean/LEAN_TOOLCHAIN.json (macOS arm64 toolchain of the Opus runs: commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b)",
+  "theory": "Lean 4 kernel (dependent type theory with inductive types, proof-irrelevant Prop, definitional UIP). Used for the kernel-level audit controls of CG001-C-65 and CG001-C-72 (HoTT/formal/cloud-opus-glm-audit/lean-controls/), which import the Lean library to hand terms to the kernel with Lean.addDecl; never for HoTT paths",
+  "relation_to_base_record": "Same prefix, same binaries and the same pinned files as HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json, plus the Lean and Std libraries. The base record stays unchanged because the receipts of its runs pin its hash; its sentence 'used only to replay the set-level contrast CG001-C-72' is out of date (the same toolchain also replayed CG001-C-65, runs 20260927-COPUS-REPLAY-CG001-WILD-SST-LEAN-01/-NEG-01). See lean-controls/CLAIM.md.",
+  "prefix": "/home/user/toolchain/lean-4.34.0-linux",
+  "pinned_files": [
+    {
+      "relative_path": "bin/lean",
+      "bytes": 9024,
+      "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550"
+    },
+    {
+      "relative_path": "bin/leanchecker",
+      "bytes": 51080,
+      "sha256": "ccef1bfe9bfeecea65137d94a69033c1a89f360711f50fa3178e7ba3e696fcbe"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared.so",
+      "bytes": 233656768,
+      "sha256": "ab523f803d805db2c08eb755f0fa8189345bf6ae9b408664cdf3cf67fa0112d9"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared_1.so",
+      "bytes": 6264,
+      "sha256": "69e900c025f40bf05c14f5b9ec48071b3130e34c96a7c45ee2eb5b6f307e19e6"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared_2.so",
+      "bytes": 6264,
+      "sha256": "38d0a03750b2e8d51161885ad597a8b4f6d3b85215c5a52aecd2b3753273cf3f"
+    },
+    {
+      "relative_path": "lib/lean/libInit_shared.so",
+      "bytes": 6264,
+      "sha256": "07f8c1156271ab6ec36c14c3031b5572329325d5f73dde3e89a1615d88f4e5cb"
+    },
+    {
+      "relative_path": "lib/lean/libLake_shared.so",
+      "bytes": 12545496,
+      "sha256": "ef0eb8942cd68ffb61ae573850a7181f70860580959e296c6e1a0e31ec50a38a"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean",
+      "bytes": 5888,
+      "sha256": "36f732d9cbfce0cbd1234dec6144186944c2580be32c13d942f8eb4b703d8f5c"
+    },
+    {
+      "relative_path": "lib/lean/Init/Prelude.olean",
+      "bytes": 3397592,
+      "sha256": "582efca88f372de1718ec8549e2501e7d29808822518cb72535b34f53866ad91"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean.server",
+      "bytes": 96,
+      "sha256": "01e09d116ee44883818d3a15635099fbf4512cd74caa4ec9d41541f43da3768e"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean.private",
+      "bytes": 96,
+      "sha256": "3d9e3a0c1b8342a50db7804856617f0bf53fff3203ab42f94629e2d7c1031fb1"
+    },
+    {
+      "relative_path": "lib/lean/Init.ir",
+      "bytes": 5784,
+      "sha256": "442314eef485172915c732ce7f188ee221658e16168b8c68bc06e02cd67010e2"
+    },
+    {
+      "relative_path": "lib/lean/Init.ir.sig",
+      "bytes": 176,
+      "sha256": "a772815d5d1721b99e7e0098d928b830e62a875af488cc1498908a6bb6a4b77a"
+    },
+    {
+      "relative_path": "lib/lean/Init.ilean",
+      "bytes": 1643,
+      "sha256": "d1ef48eba0e0c02a69d28f6f004167077a2a9f823b2c49cf0d667d2649f94b0e"
+    },
+    {
+      "relative_path": "lib/lean/Lean.olean",
+      "bytes": 6216,
+      "sha256": "cd4620e2beb402a7131e4b760374ee02315a8b5708e99d7991df1f419ac28f40"
+    },
+    {
+      "relative_path": "lib/lean/Lean.olean.server",
+      "bytes": 96,
+      "sha256": "eab69f5b448adca7a79d118fa83234b4fc6b05edd01da9b6a40dff595b2adac9"
+    },
+    {
+      "relative_path": "lib/lean/Lean.olean.private",
+      "bytes": 96,
+      "sha256": "a2da9ae04d4464be8d9baa63802661da09f650ca3e079306b3a744214a61905e"
+    },
+    {
+      "relative_path": "lib/lean/Lean.ir",
+      "bytes": 6112,
+      "sha256": "ba1978fbe369b113e9ea9490ed8a34144ad89693027906ff06af35cc4256b440"
+    },
+    {
+      "relative_path": "lib/lean/Lean.ir.sig",
+      "bytes": 176,
+      "sha256": "6af3b17e549a12e9705d16c35e478ad3a0f94a34b41ed17b4df5337eccf567e0"
+    },
+    {
+      "relative_path": "lib/lean/Lean.ilean",
+      "bytes": 1786,
+      "sha256": "bd2e5cf31b9156c139d9055b2c6e3956c8cd571f729dc278bcb41f34f80d0fda"
+    },
+    {
+      "relative_path": "lib/lean/Std.olean",
+      "bytes": 2064,
+      "sha256": "eabd4376bb5a5f97af486a888976de9e577015303e041684b59afd7d52a2b70c"
+    },
+    {
+      "relative_path": "lib/lean/Std.olean.server",
+      "bytes": 96,
+      "sha256": "cd74350c599bc4fbff352c8521ed16d2bec94e39815536b2719bd6c5ef79c46b"
+    },
+    {
+      "relative_path": "lib/lean/Std.olean.private",
+      "bytes": 96,
+      "sha256": "678ffc3440acab123a13fdcda9b5d4615b0a9ffba12a2c4c6cfcadfd20a65e49"
+    },
+    {
+      "relative_path": "lib/lean/Std.ir",
+      "bytes": 1960,
+      "sha256": "d5fd8b7d1c2f56568385d08342d815e36c0a71fd5afbdf32ebe9067f7a189dbe"
+    },
+    {
+      "relative_path": "lib/lean/Std.ir.sig",
+      "bytes": 176,
+      "sha256": "2a97ee75f6af711cfda7ee9b9a4bc5e00920494d7a34b625a48eb9018c63a717"
+    },
+    {
+      "relative_path": "lib/lean/Std.ilean",
+      "bytes": 323,
+      "sha256": "74d1115bce7bce3064e7877b7faaa3e35fee149e2978c25114af4f6133a688cb"
+    }
+  ],
+  "init_tree": {
+    "relative_path": "lib/lean/Init",
+    "file_count": 3888,
+    "total_bytes": 410268280,
+    "tree_sha256": "22163fab423b929ab493291f016574ea564ac68acc1b32144d5f6fdf7693c98a",
+    "checked_by": "Cloud-Opus审计并补完GLM/tools/capture_copus_lean_run.py at capture time (the canonical verifier re-checks only pinned_files through the driver)"
+  },
+  "extra_trees": [
+    {
+      "relative_path": "lib/lean/Lean",
+      "file_count": 7302,
+      "total_bytes": 1333435164,
+      "tree_sha256": "01167d1555a6cad6a70cec240d8bd060490ab9002a5598d708873a1a12b2f63c",
+      "checked_by": "Cloud-Opus审计并补完GLM/tools/capture_copus_lean_run.py at capture time and Cloud-Opus审计并补完GLM/tools/verify_copus_run.py on every verification"
+    },
+    {
+      "relative_path": "lib/lean/Std",
+      "file_count": 2928,
+      "total_bytes": 356699196,
+      "tree_sha256": "d44b69d948cac58faec24b6fa46acfa49854a7dcb52d730722e1220aa331ecf8",
+      "checked_by": "Cloud-Opus审计并补完GLM/tools/capture_copus_lean_run.py at capture time and Cloud-Opus审计并补完GLM/tools/verify_copus_run.py on every verification"
+    }
+  ],
+  "release_asset": {
+    "url": "https://github.com/leanprover/lean4/releases/download/v4.34.0/lean-4.34.0-linux.zip",
+    "bytes": 904153842,
+    "sha256": "5f14e0f3762058a529b1598f4355e6787c5f155be1bcce72ae288b9c35e3adb4",
+    "sha256_is_publisher_digest": false,
+    "local_archive": "/home/user/toolchain/lean-4.34.0-linux.zip"
+  },
+  "provenance": "Downloaded 2026-09-27 by the Cloud-Opus session directly from the GitHub release page of leanprover/lean4 (no fork, no elan). The GitHub API that would show a publisher digest is not reachable from this session, so the asset hash above is the hash computed on download.",
+  "extraction": "Selective unzip: bin/lean, bin/leanchecker, lib/lean/*.so, lib/lean/Init.* (Init.olean with its companions .olean.server, .olean.private, .ir, .ir.sig, .ilean), lib/lean/Init/**, lib/glibc/*, lib/libc++*.so, lib/libunwind.so, lib/libgcc_s.so, lib/libatomic.so, lib/libz.so (clang/LLVM and the Lean/Lake/Std libraries are not needed to elaborate an Init-only file). 2026-09-27, later the same day: lib/lean/Lean/**, lib/lean/Lean.*, lib/lean/Std/** and lib/lean/Std.* were extracted from the same local archive into the same prefix (unzip -n: no existing file overwritten; the Init tree hash was re-checked afterwards and is unchanged).",
+  "isolation": "The driver calls the pinned binaries by absolute path with PATH=<prefix>/bin:/usr/bin:/bin, LEAN_SYSROOT=<prefix>, LEAN_PATH=<temporary build dir>; no elan is installed in this container.",
+  "source_policy": "enforced by the driver: no sorry, admit, native_decide, axiom declarations, unsafe, implemented_by, extern, opaque or kernel-skipping options",
+  "not_pinned": "As in the base record, the C/C++ runtime files under lib/ outside lib/lean (glibc, libc++, libunwind, libgcc_s, libatomic, libz) are not pinned; they come from the same archive, whose hash is recorded under release_asset."
+}

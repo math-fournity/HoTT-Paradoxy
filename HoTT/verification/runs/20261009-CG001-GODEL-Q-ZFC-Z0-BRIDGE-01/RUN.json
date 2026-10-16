@@ -1,0 +1,80 @@
+{
+  "audit_notes": [],
+  "audit_session": "Codex continuation of CG-007 on the canonical dev checkout /Volumes/D/HoTT_AI_HANDOFF_20260911, 2026-10-09; conditional Sigma1-bridge reduction only",
+  "claim_ids": [
+    "CG001-C-128"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/Z0Bridge.lean"
+  ],
+  "completed_at_utc": "2026-10-09T21:54:54.034796+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 70.544642,
+  "environment": {
+    "bytes": 1026,
+    "path": "environment.txt",
+    "sha256": "e33c4db8973412cc4294127e6e29e96b58d781d089766c66988250994357d406"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "This is not a proof of zfcTr_D3_internalize. Z0Blocked.lean still carries an unproved marker and is not a source of this run. The Type* statement in that file is stronger than the Type-level hypothesis consumed here and is not claimed.",
+    "No unconditional claim that ZFC does not prove Con(ZFC). The bridge hypothesis remains unproved. Foundation of_provability does not supply proof codes inside a nonstandard model."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-GODEL-Q-ZFC-Z0-BRIDGE-001",
+  "run_id": "20261009-CG001-GODEL-Q-ZFC-Z0-BRIDGE-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG-007 W8 continuation: if every Type-level ISigma1 model transports an internal ISigma1 proof code of a Sigma1 arithmetic sentence along arithTrln to an internal ZFC proof code, then the Type-level shape of D3 consumed by CG001-C-122 holds, and ZFC does not prove the translation of Foundation's ZFC.consistent.",
+  "source_manifest": {
+    "bytes": 205335,
+    "path": "source-manifest.json",
+    "sha256": "1649a915949ed39ca569cfaa1af4081786922e64bdcf9802f2f616b50340dce7"
+  },
+  "started_at_utc": "2026-10-09T21:53:43.489790+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 14484,
+    "path": "stdout.txt",
+    "sha256": "73ab76540bc1dac4ab1b6f67cc431bdeb34e5e141534e2c11b4f11e5f4efd65c"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

@@ -1,0 +1,392 @@
+{
+  "schema_version": "r022-delivery-verification/v1",
+  "status": "VERIFIED_FILES_AND_GIT",
+  "root": "/mnt/data/HoTT_Gemini_reply_rev22",
+  "revision": 22,
+  "head": "d3ce0ec1b91da8f7c39b1252511f580e04b17db5",
+  "source_head": "8e6641dd9b229e39875017e6a56732c2b8019af3",
+  "first_commit": "595be74d303f5f095f9d6fb5d13cdff0a880a0cb",
+  "branch": "main",
+  "working_tree_clean": true,
+  "git_fsck": "PASS",
+  "remote_configured": false,
+  "original_non_git_files": 1207,
+  "allowed_changed": [
+    ".codex/cognition/HEAD.json",
+    ".codex/research/hott/FRONTIER.md",
+    ".codex/research/hott/LESSONS.md",
+    ".codex/research/hott/RESUME.md",
+    ".codex/research/hott/STATE.json",
+    ".codex/research/hott/dialogues/GEMINI-001/DEBATE_LEDGER.json",
+    ".codex/research/hott/dialogues/GEMINI-001/README.md",
+    "MEMORY.md",
+    "scripts/README.md"
+  ],
+  "zip_readback": "ALL_FILES_IDENTICAL",
+  "restored_git_clean": true,
+  "bundle_clone_matches": true,
+  "source_route_snapshot": "134509092000ce1318883049e0fc2ba810a294abcbace537a7c9118ca11ccf49",
+  "relocated_same_snapshot": true,
+  "bundle_same_snapshot": true,
+  "route_documents": 216,
+  "letter_sha256": "8d2234ce189d0dde87d6ee0c342810f651c51d2baf820ce6cd437632f893479c",
+  "letter_bytes": 19697,
+  "outgoing_status": "READY_FOR_USER_RELAY_NOT_SENT",
+  "new_peer_reply": false,
+  "file_checks": 18,
+  "new_scripts_syntax_checks": 7,
+  "mathematical_kernel_verification": "NOT_RUN",
+  "full_business_cognition": "NOT_CLAIMED",
+  "failure_diagnosis": "Preserved first attempt; mismatch due to script-index edit after early fingerprint, resolved by freeze-before-compare.",
+  "outputs": [
+    {
+      "path": "/mnt/data/HoTT_Gemini_reply_rev22_with_git.zip",
+      "bytes": 15078981,
+      "sha256": "c5b67f3426e86ab118903ee18385ca1a6771e7f8fec6cf405fd89ff1fade692e"
+    },
+    {
+      "path": "/mnt/data/HoTT_Gemini_reply_rev22.bundle",
+      "bytes": 4459235,
+      "sha256": "443379df3482aa7ccdf85de5f61672f91ef7c3c03f030be9df7e13eff4c289a5"
+    },
+    {
+      "path": "/mnt/data/Gemini_HoTT_debate_002.zip",
+      "bytes": 56851,
+      "sha256": "c91f6438ef96fcbd8685e0fbab126acb214e8e7d57b37256ddd6179b322e2ece"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:44.867405+00:00",
+      "ended_utc": "2026-09-11T06:01:44.869399+00:00",
+      "exit_code": 0,
+      "stdout": "595be74d303f5f095f9d6fb5d13cdff0a880a0cb\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/mnt/data/HoTT_Gemini_reply_rev22/scripts/session/r022_plan_check.py"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.011883+00:00",
+      "ended_utc": "2026-09-11T06:01:45.658725+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS_ROUTE_ONLY\",\n  \"root\": \"/mnt/data/HoTT_Gemini_reply_rev22\",\n  \"snapshot\": \"134509092000ce1318883049e0fc2ba810a294abcbace537a7c9118ca11ccf49\",\n  \"revision\": 22,\n  \"latest_session\": \"S-DISC-20260911-022-GEMINI-OUT002\",\n  \"documents\": 216,\n  \"letter_in_route\": true,\n  \"incoming_count\": 2,\n  \"outgoing_sent\": false,\n  \"new_peer_reply\": false,\n  \"full_model_reading_or_understanding\": \"NOT_CERTIFIED\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "add",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.705800+00:00",
+      "ended_utc": "2026-09-11T06:01:45.715886+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "commit",
+        "-m",
+        "chore: freeze final R022 route before archive verification"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.715902+00:00",
+      "ended_utc": "2026-09-11T06:01:45.724419+00:00",
+      "exit_code": 0,
+      "stdout": "[main d3ce0ec] chore: freeze final R022 route before archive verification\n 9 files changed, 2063 insertions(+)\n create mode 100644 artifacts/r022/FINAL_FILE_CHECKS.json\n create mode 100644 artifacts/r022/FINAL_FRESH_PLAN_CHECK.json\n create mode 100644 artifacts/r022/FINAL_FROZEN_PLAN.json\n create mode 100644 artifacts/r022/FINAL_PRECOMMIT_COMMANDS.json\n create mode 100644 artifacts/r022/PACKAGING_DIAGNOSIS.json\n create mode 100644 artifacts/r022/PACKAGING_FIRST_FAILURE.json\n create mode 100644 scripts/tools/r022_finish_delivery.py\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.724433+00:00",
+      "ended_utc": "2026-09-11T06:01:45.725780+00:00",
+      "exit_code": 0,
+      "stdout": "d3ce0ec1b91da8f7c39b1252511f580e04b17db5\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.725791+00:00",
+      "ended_utc": "2026-09-11T06:01:45.733335+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "remote"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.733348+00:00",
+      "ended_utc": "2026-09-11T06:01:45.734739+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "merge-base",
+        "--is-ancestor",
+        "8e6641dd9b229e39875017e6a56732c2b8019af3",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.734750+00:00",
+      "ended_utc": "2026-09-11T06:01:45.736333+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "fsck",
+        "--full"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.736342+00:00",
+      "ended_utc": "2026-09-11T06:01:45.859144+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "create",
+        "/mnt/data/HoTT_Gemini_reply_rev22.bundle",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:45.859344+00:00",
+      "ended_utc": "2026-09-11T06:01:46.443615+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "verify",
+        "/mnt/data/HoTT_Gemini_reply_rev22.bundle"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:46.443650+00:00",
+      "ended_utc": "2026-09-11T06:01:46.445985+00:00",
+      "exit_code": 0,
+      "stdout": "The bundle contains these 3 refs:\nd3ce0ec1b91da8f7c39b1252511f580e04b17db5 refs/heads/main\n320d5362a8c96f597d0d6458ec70802f35384239 refs/tags/checkpoint-rev15-import\nd3ce0ec1b91da8f7c39b1252511f580e04b17db5 HEAD\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n",
+      "stderr": "/mnt/data/HoTT_Gemini_reply_rev22.bundle is okay\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:48.181877+00:00",
+      "ended_utc": "2026-09-11T06:01:48.185389+00:00",
+      "exit_code": 0,
+      "stdout": "d3ce0ec1b91da8f7c39b1252511f580e04b17db5\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:48.185406+00:00",
+      "ended_utc": "2026-09-11T06:01:48.250321+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/tmp/hott-r022-final-_3n7_z1r/HoTT_Gemini_reply_rev22/scripts/session/r022_plan_check.py"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r",
+      "started_utc": "2026-09-11T06:01:48.250413+00:00",
+      "ended_utc": "2026-09-11T06:01:49.124130+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS_ROUTE_ONLY\",\n  \"root\": \"/tmp/hott-r022-final-_3n7_z1r/HoTT_Gemini_reply_rev22\",\n  \"snapshot\": \"134509092000ce1318883049e0fc2ba810a294abcbace537a7c9118ca11ccf49\",\n  \"revision\": 22,\n  \"latest_session\": \"S-DISC-20260911-022-GEMINI-OUT002\",\n  \"documents\": 216,\n  \"letter_in_route\": true,\n  \"incoming_count\": 2,\n  \"outgoing_sent\": false,\n  \"new_peer_reply\": false,\n  \"full_model_reading_or_understanding\": \"NOT_CERTIFIED\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "clone",
+        "/mnt/data/HoTT_Gemini_reply_rev22.bundle",
+        "/tmp/hott-r022-final-_3n7_z1r/from-bundle"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r",
+      "started_utc": "2026-09-11T06:01:49.124239+00:00",
+      "ended_utc": "2026-09-11T06:01:49.384510+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/tmp/hott-r022-final-_3n7_z1r/from-bundle'...\nhint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r/from-bundle",
+      "started_utc": "2026-09-11T06:01:49.384542+00:00",
+      "ended_utc": "2026-09-11T06:01:49.386449+00:00",
+      "exit_code": 0,
+      "stdout": "d3ce0ec1b91da8f7c39b1252511f580e04b17db5\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r/from-bundle",
+      "started_utc": "2026-09-11T06:01:49.386461+00:00",
+      "ended_utc": "2026-09-11T06:01:49.448972+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/tmp/hott-r022-final-_3n7_z1r/from-bundle/scripts/session/r022_plan_check.py"
+      ],
+      "cwd": "/tmp/hott-r022-final-_3n7_z1r",
+      "started_utc": "2026-09-11T06:01:49.449115+00:00",
+      "ended_utc": "2026-09-11T06:01:50.234476+00:00",
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS_ROUTE_ONLY\",\n  \"root\": \"/tmp/hott-r022-final-_3n7_z1r/from-bundle\",\n  \"snapshot\": \"134509092000ce1318883049e0fc2ba810a294abcbace537a7c9118ca11ccf49\",\n  \"revision\": 22,\n  \"latest_session\": \"S-DISC-20260911-022-GEMINI-OUT002\",\n  \"documents\": 216,\n  \"letter_in_route\": true,\n  \"incoming_count\": 2,\n  \"outgoing_sent\": false,\n  \"new_peer_reply\": false,\n  \"full_model_reading_or_understanding\": \"NOT_CERTIFIED\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:50.345750+00:00",
+      "ended_utc": "2026-09-11T06:01:50.354786+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "branch",
+        "--show-current"
+      ],
+      "cwd": "/mnt/data/HoTT_Gemini_reply_rev22",
+      "started_utc": "2026-09-11T06:01:50.376247+00:00",
+      "ended_utc": "2026-09-11T06:01:50.377948+00:00",
+      "exit_code": 0,
+      "stdout": "main\n",
+      "stderr": ""
+    }
+  ]
+}

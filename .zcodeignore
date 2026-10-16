@@ -1,0 +1,64 @@
+# The top-level repo is the integrated workspace. The two existing nested repos
+# remain physical source islands and are represented by snapshots/provenance.
+AI对话录/
+workspace/
+
+# Host/runtime and operating-system artifacts.
+.DS_Store
+__pycache__/
+*.py[cod]
+*.agdai
+
+# Private raw trajectory/context material. Public visible evidence belongs under
+# sources/ and audit/ with explicit provenance; do not commit hidden reasoning.
+private-audit/
+sources/private-trajectory/
+*.secret
+*.pem
+
+# Temporary generated output and local virtual environments.
+.venv/
+venv/
+tmp/
+*.tmp
+*.partial
+
+# Generated export boxes are kept outside the Git tree unless explicitly
+# accepted as a source artifact.
+exchange/outbox/*.zip
+exchange/outbox/*.receipt.json
+
+# Raw Codex trajectory/context exports captured as private audit evidence for
+# Atria's working directory. Same class as private-audit/; public evidence belongs
+# under sources/ and audit/ with explicit provenance.
+Atria的工作目录/.evidence/
+
+# ===== ↑ 以上同步自 .gitignore（「从 .gitignore 同步」只重写以上部分）=====
+.git/
+.hg/
+.svn/
+node_modules/
+bower_components/
+jspm_packages/
+site-packages/
+coverage/
+htmlcov/
+lcov-report/
+cmakefiles/
+cmake-build-*/
+bazel-*/
+pods/
+deriveddata/
+storybook-static/
+playwright-report/
+test-results/
+allure-results/
+allure-report/
+cdk.out/
+*.egg-info/
+*.dist-info/
+eggs/
+pip-wheel-metadata/
+wheels/
+# ----- ↑ 以上为 ZCode 默认排除规则（自定义规则请写在本行下方，不会被同步/恢复改动）-----
+# 自定义规则写在下方（本行提示可删除）

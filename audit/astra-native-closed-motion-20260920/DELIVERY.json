@@ -1,0 +1,43 @@
+{
+  "status": "FORMAL_AND_RELATION_PASS_WITH_SCOPE",
+  "claim_ids": [
+    "C-314",
+    "C-315"
+  ],
+  "primary_run": "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-CLOSED-MOTION-001-01",
+  "primary_seconds": 286.414869,
+  "checks": [
+    {
+      "kind": "formal",
+      "argv": [
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-CLOSED-MOTION-001-01"
+      ],
+      "exit": 0
+    },
+    {
+      "kind": "relation",
+      "argv": [
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-CLOSED-MOTION-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "compiled_local_modules": 20,
+  "import_modules": 1091,
+  "external_pins": 41,
+  "draft_final_graph_exact_match": true,
+  "formal_kernel_runs": 1,
+  "draft_checks": 5,
+  "theory": "Pinned without-K no-erasure agda-unimath with inherited foundation postulates; not safe Cubical and not a whole-theory consistency certificate.",
+  "unproved": [
+    "Endpoint separation for every t<1, complete final fiber classification and uniform spatial bound",
+    "Whole Lean/native model translation and original Weak-puncture coverage without a stated principle",
+    "Physical/original broad task mismatch and complete four-stage integration"
+  ],
+  "parent_goal": "OPEN"
+}

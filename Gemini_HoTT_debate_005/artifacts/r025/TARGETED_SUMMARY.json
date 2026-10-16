@@ -1,0 +1,85 @@
+{
+  "schema_version": "r025-targeted-audit/v1",
+  "status": "PASS_FINITE_SCOPE",
+  "checks": {
+    "instruction_and_block_agreement": {
+      "instructions": 133,
+      "register_assignments": 64,
+      "cases": 8512,
+      "nonhalt_blocks": 8320,
+      "halt_blocks": 192
+    },
+    "prologue": {
+      "cases": 153
+    },
+    "postlude": {
+      "cases": 42
+    },
+    "nonreturn_trace_certificates": {
+      "accepted": 12,
+      "checked_with": "reference_step, not run status strings"
+    },
+    "T_convention": {
+      "n_0_to_5": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    "drop_terminal_absorption_countermodel": {
+      "trace": [
+        "start",
+        "returned",
+        "trap",
+        "trap",
+        "trap"
+      ],
+      "conclusion": "eventually a nonterminal fixed point alone does not exclude an earlier return"
+    },
+    "mutations_rejected": {
+      "count": 6,
+      "names": [
+        "inserted_return_in_trace",
+        "wrong_final_pc",
+        "changed_input",
+        "trap_replaced_by_halt",
+        "invalid_jump_redirected_to_return_postlude",
+        "return_register_shift_plus2_instead_of_plus3"
+      ]
+    },
+    "unknown_not_nonreturn_certificate": {
+      "status": "FUEL_EXHAUSTED_UNKNOWN"
+    },
+    "nonboolean_policy_not_necessary": {
+      "alternative": "non-Bool output goes to trap",
+      "cases": [
+        {
+          "source_output": 0,
+          "status": "HALTED"
+        },
+        {
+          "source_output": 1,
+          "status": "REPEATED_NONTERMINAL"
+        },
+        {
+          "source_output": 2,
+          "status": "REPEATED_NONTERMINAL"
+        },
+        {
+          "source_output": 3,
+          "status": "REPEATED_NONTERMINAL"
+        }
+      ]
+    }
+  },
+  "check_groups": 9,
+  "original_r024_source_sha256": "2384e9536feb77a5c9d7be7c1680d893bf317d562187c258ee74e9d592cde609",
+  "proof_assistant": "NOT_RUN",
+  "original_compiler_modified": false,
+  "claim_scope": "finite transition tests and checked concrete trap certificates; general simulation is paper only",
+  "raw_path": "artifacts/r025/TARGETED_RESULTS.json",
+  "raw_sha256": "16ab4bf65c487f84e5168a6b829903887cbc811be0ef6f9d798f7a48b50bd784"
+}

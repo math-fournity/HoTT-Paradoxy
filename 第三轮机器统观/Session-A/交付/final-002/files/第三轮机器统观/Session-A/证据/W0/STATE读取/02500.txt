@@ -1,0 +1,315 @@
+BEGIN_COGNITION_CHUNK
+{"snapshot": "2b162d50a9fad64eeaaf9aa548dd767623b741366ede3fe24c903f32cda074e9", "path": ".codex/research/hott/STATE.json", "file_sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936", "start_line": 2500, "end_line": 2809, "total_lines": 18474, "next_start_line": 2810, "chunk_sha256": "59bbf21791d0a72dd21909e96c274e009d0fa72913d217a77ff7784b90508d46", "model_context": "NOT_CERTIFIED_BY_TOOL"}
+BEGIN_FULL_TEXT
+      "scope": "Independent review of the proposed research portfolio; paper/source and execution evidence are separated.",
+      "status": "complete"
+    },
+    "A-E6-DERIVED-SCAN-001": {
+      "classification": "E6_DERIVED_DEVELOPMENT_SCAN_NO_E6",
+      "depends_on": [
+        "A-E6-TARGETED-SEARCH-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "audit/e6-derived-development-scan-20260913.md",
+        "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/RUN.json",
+        "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json",
+        "audit/unimath-e6-scan-and-nosection-replay-20260913.md"
+      ],
+      "kind": "audit",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/e6-derived-development-scan-20260913.md",
+      "research_parent": "A-NATURAL-CONSUMER-AUDIT-001",
+      "resolution": {
+        "evidence": [
+          "audit/e6-derived-development-scan-20260913.md",
+          "audit/unimath-e6-scan-and-nosection-replay-20260913.md",
+          "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/RUN.json"
+        ],
+        "reason": "Derived-development scan located hott-z/NoCanonicalPoint.agda, which correctly uses agda-unimath's no-section theorem and flags temporal readings as needing a separate bridge; no E6 found. The earlier 'kernel replay is pending' status is resolved by S088: the derived file replays against pinned agda-unimath 7b81411d (run 20260913-MP-UNIMATH-NOSECTION-REPLAY-02, exact replay)."
+      },
+      "revalidation": "S090 refreshed changed governance/audit projection hashes after direct evidence correction; mathematical proof sources and retained kernel run bodies were not rewritten. Final validators and affected proof replays remain required after checkpoint.",
+      "scope": "In-repo derived developments only; E6 remains open.",
+      "source_hashes": {
+        "HoTT/formal/agda-unimath/UNIMATH_TOOLCHAIN.json": "76cb9fef31d2945b7597cdc267d04576ba7fb977ffa61dc5f5885c6a1e88392b",
+        "HoTT/formal/agda-unimath/hott-z/NoCanonicalPoint.agda": "1a4b874ef4a25e5ff31e97b9802d701feebf07d6305eb8b1ae1b92bb1ed9b11f",
+        "HoTT/verification/runs/20260913-MP-UNIMATH-NOSECTION-REPLAY-02/RUN.json": "6291d56dab891792842b593074e6268701a51ffb1645f0f1db00d1fb992dc152",
+        "audit/e6-derived-development-scan-20260913.md": "16ae85e8093c4e52e4d29c57feeb0d0f5f61396d7fdc327b3a8da84f8b688d72",
+        "audit/unimath-e6-scan-and-nosection-replay-20260913.md": "0ca08c6f1ee04cd1544628f98e816421bec670106ca917bd7283fa4e23b1871a"
+      },
+      "status": "complete"
+    },
+    "A-E6-TARGETED-SEARCH-001": {
+      "classification": "E6_TARGETED_LIBRARY_SCAN_BOUNDED_NEGATIVE",
+      "depends_on": [
+        "A-NATURAL-CONSUMER-AUDIT-001"
+      ],
+      "evidence_status": "DOCUMENTED",
+      "full_sources": [
+        "audit/e6-targeted-search-20260913.md"
+      ],
+      "kind": "audit",
+      "lifecycle_status": "CURRENT",
+      "path": "audit/e6-targeted-search-20260913.md",
+      "research_parent": "A-NATURAL-CONSUMER-AUDIT-001",
+      "resolution": {
+        "evidence": [
+          "audit/e6-targeted-search-20260913.md"
+        ],
+        "reason": "Targeted scan of the pinned Cubical v0.9 library for the two concrete E6 shapes (truncation-to-data, isFinSet-to-data) returned no matches; all three postulate occurrences are comments. Bounded negative."
+      },
+      "scope": "Fixed library and version only; E6 remains open globally.",
+      "source_hashes": {
+        "audit/e6-targeted-search-20260913.md": "fb1a45e1c22d08b33372348515d6d5e3582ba6d891b403d19c865bf78d0f2a53"
+      },
+      "status": "complete"
+    },
+    "A-ERCF-FACTORIZATION-FORMAL-001": {
+      "claim_ids": [
+        "C-59",
+        "C-60",
+        "C-61",
+        "C-62",
+        "C-63",
+        "C-64",
+        "C-65",
+        "C-66"
+      ],
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/ercf-factorization/ERCF.lean",
+        "HoTT/formal/ercf-factorization/README.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/environment.txt",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/ERCF-1-2机器证明实施证据-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/index-row-manifest.json",
+        "scripts/audit/freeze_proof_index_rows.py"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "GENERAL_TYPE_FACTORIZATION_PROVED_HOTT_NATIVE_NOT_CLAIMED",
+      "path": "HoTT/formal/ercf-factorization/ERCF.lean",
+      "proof_id": "MP-ERCF-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-001-02/source-manifest.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-001-02/stdout.txt",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/ERCF-1-2机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final indexed run exited 0 and exact replay matched stdout/stderr; all source and index hashes match. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-ERCF-001-02",
+      "scope": "Lean 4.33.1 proves the exact general Type-valued factorization controls in ERCF.lean. No univalence, cubical Path, HIT, truncation, HoTT-specific paradox, physical bridge or originality is claimed.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/ercf-factorization/ERCF.lean": "cb3564d348d6503614c6dd771ded172751e948882470f8213a9206d9a303ac8e",
+        "HoTT/formal/ercf-factorization/README.md": "79a1c0373b5752ef1dc0e8259d67599bb772d26d54dacf41672d3e7c12a11edf",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/RUN.json": "696d23a3e95400329f0b6ddcf8ee8e573686f6acf3e58858b08d7353e320a0db",
+        "HoTT/verification/runs/20260912-MP-ERCF-001-02/index-row-manifest.json": "f5dfc378577fa294eb0f4d40462a72cb4fed18d5147f75b89ae51e84b567add9",
+        "scripts/audit/verify_formal_proof_run.py": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "c665bad212b8c86d399783bc2d301dd08a2ace3a61ba94dfca96314debe806d3"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-ERCF-TRUNCATION-DEFENSE-001": {
+      "claim_ids": [
+        "C-67",
+        "C-68",
+        "C-69",
+        "C-70"
+      ],
+      "classification": "DEFENSE_WORKS",
+      "depends_on": [
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "MACHINE_PROVED_VERSION_CLOSED",
+      "full_sources": [
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+        "HoTT/formal/ercf-truncation-defense/README.md",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/stdout.txt",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/environment.txt",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "scripts/audit/capture_agda_proof_run.py",
+        "scripts/audit/freeze_proof_index_rows.py",
+        "scripts/audit/verify_formal_proof_run.py",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md"
+      ],
+      "kind": "formal_mathematical_result",
+      "lifecycle_status": "CURRENT",
+      "mathematical_status": "NATIVE_CUBICAL_TRUNCATION_DEFENSE_NOT_PARADOX",
+      "path": "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda",
+      "proof_id": "MP-ERCF-TRUNC-001",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json",
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/stdout.txt",
+          "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json",
+          "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+          "scripts/audit/verify_formal_proof_run.py",
+          "audit/ERCF-截断防御机器证明实施证据-20260912.md"
+        ],
+        "reason": "Final native Cubical run exited 0; repo sources, official release assets, binary and 1111-file source tree hashes match; index rows and exact replay pass. Proof/source/run/index assets are Git-version-closed at d3dfb0e1869f5f05527f23ef4cb05dc95352eb10; current matrix evolution is append-only and does not alter the theorem scope."
+      },
+      "revalidation": "S-RES-20260914-142-R2-FAIR: append-only C-199-C-202 proof/index/registry growth and current R2 routing re-hashed; prior frozen row manifests and mathematical scopes remain unchanged. New R1/R2 assets remain local uncommitted. S-RES-20260914-146-R2-R4-LIT-THREE-SLICE: revalidated after current-owner/index/audit-tool evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py. Prior proof scopes are unchanged; C-219-C-226 and the new literature/candidate states are additive and separately identified. S-RES-20260915-148-2LTT-FR-UIP: revalidated current owner/proof-index evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md; prior mathematical scopes remain unchanged. S-RES-20260915-149-INTERNALISATION-CONSUMERS: revalidated after current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged. S-RES-20260915-151-R3-SOURCE-REPLAY: revalidated current owner/proof-index/verifier evolution at HoTT/CLAIM_EVIDENCE_MATRIX.md, scripts/audit/verify_formal_proof_run.py; prior mathematical scopes remain unchanged.",
+      "run_id": "20260912-MP-ERCF-TRUNC-001-01",
+      "scope": "Agda 2.8.0/Cubical v0.9 native Path and squash-HIT prove proposition-valued elimination, truncation flattening, Bool-output constancy and no point-preserving Bool extraction. This is a defense result, not a HoTT paradox or reality bridge.",
+      "source_hashes": {
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md": "8d95f5984ca08285fc5a1f8c8cde1f86b3ed2eb16d62c26b7e420b5677c9453b",
+        "HoTT/formal/ercf-truncation-defense/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        "HoTT/formal/ercf-truncation-defense/README.md": "14ff576cac8bb9490f6482e11dbe6e619aafabb6d70fab2ee624149c04e8e336",
+        "HoTT/formal/ercf-truncation-defense/TOOLCHAIN.json": "f1810deb16e72d55e8efb0e8316d8ae494eb0acb3867d4f4b103fab63f43e8c2",
+        "HoTT/formal/ercf-truncation-defense/TruncationDefense.agda": "f56e97ed93d42ecfaddadc815215c0ad35386389a4b51a265df2edb34156bfa9",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/RUN.json": "cf42ef44c1674b6607e992ca9911ac0f0ddb9d63ea9ad62c4cbd4efefcf35376",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/index-row-manifest.json": "865105e8bdfc4cec69a146b8f292f0144d15d4653639c6c930c0a8844eeac917",
+        "HoTT/verification/runs/20260912-MP-ERCF-TRUNC-001-01/source-manifest.json": "747b624f4c62bc0fb16e265ae3f85dedd04d60e58d0fd43700adbc5d416276e1",
+        "audit/ERCF-截断防御机器证明实施证据-20260912.md": "5d5460d374faa9a45b1670b837c412eedaca73b9ef2bc63afcb37c4f632ee888",
+        "scripts/audit/verify_formal_proof_run.py": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": "c665bad212b8c86d399783bc2d301dd08a2ace3a61ba94dfca96314debe806d3"
+      },
+      "status": "complete",
+      "version_closure": {
+        "proof_asset_commit": "d3dfb0e1869f5f05527f23ef4cb05dc95352eb10",
+        "registry": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "release_ref": "governance-v3.2.0",
+        "scope_preserved": true,
+        "status": "VERSION_CLOSED"
+      }
+    },
+    "A-ERCF3-PREREQUISITE-ASSESSMENT-001": {
+      "classification": "ERCF3_GATED_WITH_MACHINE_CHECKED_DIAGONAL_CORE",
+      "depends_on": [
+        "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.agda",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.check.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.check.stderr.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/AGDA_LIBRARIES",
+        "audit/understanding-chapter-merge-manifest.json",
+        "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md",
+        "理解章节/C7-post-N6距离综合与剩余域选择-20260912.md",
+        "audit/application-layer-consumer审计-20260912.md",
+        "scripts/audit/prepare_ercf3_prerequisite_checkpoint.py"
+      ],
+      "kind": "research_synthesis",
+      "lifecycle_status": "CURRENT",
+      "path": "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md",
+      "research_parent": "A-HOTT-SELF-VALIDATION-ECONOMY-001",
+      "resolution": {
+        "evidence": [
+          "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md",
+          ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.agda",
+          ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.check.stdout.txt",
+          "audit/understanding-chapter-merge-manifest.json",
+          "scripts/audit/verify_understanding_merge.py"
+        ],
+        "reason": "ERCF-3 prerequisites were decomposed (P1-P8) and proxy tasks fixed (T1-T5); T1 (abstract diagonal core) type-checked in the fixed toolchain with zero warnings. Verdict: ERCF-3 body remains GATED."
+      },
+      "revalidation": "audit/understanding-chapter-merge-manifest.json re-hashed by S-GOV-20260913-106-C11-V2-REPIN: C11 was rewritten to v2 (ua row restored, row-id contract aligned, compensation-action trichotomy), so its own hash, the retrodiction checker's row-label contract and the rebuilt merge manifest needed re-pinning. Claim, scope and evidence status are unchanged.",
+      "scope": "ERCF-3 prerequisite assessment: P1-P8 prerequisites, T1-T5 minimal proxy tasks with assumptions and stop conditions, three readings (strong/weak/stratified), and a machine-checked abstract diagonal core probe (Lawvere fixed point; no exact self-encoding A -> (A -> Bool); constant-fragment positive control). No new mathematical claim; ERCF-3 body stays gated.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/AGDA_LIBRARIES": "3dc9309430a79c1764bd9a86d29b96a7f7907f8f6f5638207a9cc4f809591c12",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.agda": "744e0e32329f71e2d464eb939c0904c774c7f62b70acab76104d20ebda630ef1",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.check.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        ".codex/research/hott/sessions/S-RES-20260912-053-ERCF3-PREREQUISITE-AUDIT/evidence/agda/DiagonalCore.check.stdout.txt": "1f00a7e3c3179f6b3cd95799f8fafc71c600dd05c22d1793b8544d366a65fce9",
+        "audit/understanding-chapter-merge-manifest.json": "11c6bc9a6397b96173255cbcd207b76918085d9ebd4925e348c94cfce4bd8638",
+        "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md": "59720ea780061e743524b8f57dff3ee58d47ed1c8d431cd60c97f168d561bb32"
+      },
+      "status": "complete"
+    },
+    "A-ERCF3-T2-ENCODING-ROUTE-001": {
+      "classification": "ERCF3_T2_ROUTE_A_VERIFIED",
+      "depends_on": [
+        "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+        "A-MATH-PROOF-DELIVERY-GATE-001"
+      ],
+      "evidence_status": "VERIFIED_WITH_SCOPE",
+      "full_sources": [
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.agda",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check.stderr.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check-withoutK.stdout.txt",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check-withoutK.stderr.txt",
+        "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md",
+        "audit/understanding-chapter-merge-manifest.json",
+        "scripts/audit/prepare_ercf3_t2_checkpoint.py"
+      ],
+      "kind": "formal_feasibility_probe",
+      "lifecycle_status": "CURRENT",
+      "path": ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.agda",
+      "research_parent": "A-ERCF3-PREREQUISITE-ASSESSMENT-001",
+      "resolution": {
+        "evidence": [
+          ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.agda",
+          ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check.stdout.txt",
+          ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check-withoutK.stdout.txt",
+          "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md"
+        ],
+        "reason": "Route (a) carries the object-level syntax, capture-free substitution and a Hilbert proof-predicate interface in the same layer using only Agda builtins; both --safe and --safe --without-K checks exit 0 with zero warnings. The T2 stop condition was not triggered."
+      },
+      "revalidation": "audit/understanding-chapter-merge-manifest.json re-hashed by S-GOV-20260913-106-C11-V2-REPIN: C11 was rewritten to v2 (ua row restored, row-id contract aligned, compensation-action trichotomy), so its own hash, the retrodiction checker's row-label contract and the rebuilt merge manifest needed re-pinning. Claim, scope and evidence status are unchanged.",
+      "scope": "Bounded feasibility probe for the ERCF-3 syntactic prerequisites (P2/P3): object syntax, capture-free numeral substitution with structural lemmas, and a Hilbert-style proof predicate interface, formalized without cubical features or library imports. No new mathematical claim; Goedel coding, representability and the diagonal lemma remain T3 obligations.",
+      "source_hashes": {
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.agda": "88cb7b85eaa65a7b7e1a5e175fdd0a03d457ff7a257a7ecfb07bfe68e63bf58d",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check-withoutK.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check-withoutK.stdout.txt": "8cfc10642185d0434b66226d56deabc6a918094c7d2794d608a01622464beca5",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        ".codex/research/hott/sessions/S-RES-20260912-054-ERCF3-T2-ENCODING-ROUTE/evidence/agda/ObjectSyntax.check.stdout.txt": "8cfc10642185d0434b66226d56deabc6a918094c7d2794d608a01622464beca5",
+        "audit/understanding-chapter-merge-manifest.json": "11c6bc9a6397b96173255cbcd207b76918085d9ebd4925e348c94cfce4bd8638",
+        "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md": "59720ea780061e743524b8f57dff3ee58d47ed1c8d431cd60c97f168d561bb32"
+      },
+      "status": "complete"
+    },
+    "A-ERCF3-T3-ARITH-TAGS-001": {
+      "depends_on": [],
+      "evidence_status": "MACHINE_PROVED_LOCAL_UNCOMMITTED",
+      "full_sources": [
+        "HoTT/formal/ercf3-t3/ArithmeticTags.agda",
+        "HoTT/formal/ercf3-t3/README.md",
+        "HoTT/verification/runs/20260913-MP-ERCF3-T3-ARITH-TAGS-001-01/RUN.json",
+        "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+        "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+        "HoTT/formal/ercf3-t3/TOOLCHAIN.json"
+      ],
+      "kind": "result",
+      "lifecycle_status": "CURRENT",
+      "path": "HoTT/formal/ercf3-t3/ArithmeticTags.agda",
+      "related_records": [
+        "S-RES-20260913-114-ERCF3-T3-ARITH-TAGS",
+        "A-ERCF3-T3-REPAIR-SPEC-001",
+        "A-ERCF3-T3-DECODING-001"
+      ],
+END_FULL_TEXT
+END_COGNITION_CHUNK

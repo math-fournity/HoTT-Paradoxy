@@ -1,0 +1,50 @@
+{
+  "claim_ids": [
+    "CG001-C-58"
+  ],
+  "command_argv": [
+    "/Volumes/D/HoTT-toolchain-cache/rzk-v0.11.3-macos-arm64/rzk",
+    "typecheck",
+    "HoTT/formal/claude-cg001/two-town-rzk/TwoTownRoundTrip.rzk"
+  ],
+  "completed_at_utc": "2026-09-25T18:17:54.152312+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 0.336134,
+  "environment": {
+    "bytes": 478,
+    "path": "environment.txt",
+    "sha256": "667feaff3eb66032c4a63878c9396a2d789f28b4b19d8572f76f73cd73aac6b8"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "does not construct S, replay GWB's TT_boxbslash or give a concrete Nat in S or Gl(Nat, Nat, suc)",
+    "the existence of phi and psi is a hypothesis of the arrow branch",
+    "no physical walking; town, step and stop are interpretation labels"
+  ],
+  "proof_assistant": "Rzk",
+  "proof_assistant_version": "0.11.3",
+  "proof_id": "MP-CG001-TWO-TOWN-001",
+  "run_id": "20260925-CG001-TWO-TOWN-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG001-C-58: in Rzk 0.11.3 (sHoTT), relative to an explicit directed-univalence interface taken as hypotheses (S, El covariant, hom S A B -> (El A -> El B) an equivalence; GWB v2 Theorem 6.13 / Definition 6.14 / Lemma 6.15, PDF numbering), one two-town task (towns A B : S, carried u0 : El A, readings ra rb into R with z, s and no-fixed, start ra u0 = z, pedometer: each leg adds one, Done: reading s (s z) after the round trip) is run with both kinds of step: (a) for every path p : A = B the round trip returns the carried value, the stop contract fails and no path satisfies the two-leg pedometer; (b) with go = Gl A B phi and back = Gl B A psi each leg adds one and the round trip meets the stop contract; (c) under composition hypotheses (GWB Lemma 6.16, Corollary 6.17) the composite round-trip arrow meets it too; (d) C-57 (a) and (b) are the special case A = B, R = El A, ra = rb = id, phi = psi = s.",
+  "source_manifest": {
+    "bytes": 1458,
+    "path": "source-manifest.json",
+    "sha256": "6d4674119f99868a2144231edd86656b64495c3846f69751d67743de36754a4b"
+  },
+  "started_at_utc": "2026-09-25T18:17:53.815910+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 1434,
+    "path": "stderr.txt",
+    "sha256": "461809eeb9fecc1f05035e1b8c3cad2ec5b056ae93d76f96619ff77b08c50a9c"
+  },
+  "stdout": {
+    "bytes": 18,
+    "path": "stdout.txt",
+    "sha256": "a8556b63c8a266fd32519f6532b6139fb3537c45dc5de8f6e60c786426346002"
+  },
+  "theory_variant": "sHoTT (Riehl-Shulman simplicial type theory) as implemented by Rzk"
+}

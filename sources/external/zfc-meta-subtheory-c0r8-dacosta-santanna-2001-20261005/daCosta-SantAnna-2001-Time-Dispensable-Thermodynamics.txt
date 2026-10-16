@@ -1,0 +1,469 @@
+arXiv:math-ph/0104032v1 23 Apr 2001
+
+Time is dispensable in thermodynamics
+Newton C. A. da Costa
+Research Group on Logic and Foundations.
+Institute for Advanced Studies, University of São Paulo.
+Av. Prof. Luciano Gualberto, trav. J, 374.
+05655-010 São Paulo SP Brazil.
+Adonai S. Sant’Anna∗
+Department of Mathematics, Federal University of Paraná
+C. P. 019081, 81531-990 Curitiba, PR, Brazil.
+October 24, 2018
+
+Abstract
+We use Padoa’s principle of independence of primitive symbols in axiomatic
+systems in order to show that time is dispensable in continuum thermodynamics,
+according to the axiomatic formulation of Gurtin and Williams. We also show
+how to define time by means of the remaining primitive concepts of Gurtin and
+Williams system. Finally, we introduce thermodynamics without time and briefly
+discuss some physical and philosophical consequences of our main results.
+
+Contents
+1 Introduction
+
+1
+
+2 Padoa’s Principle
+
+2
+
+3 Gurtin and Williams Axiomatic System
+
+3
+
+4 Thermodynamics Without Time
+
+7
+
+5 Final Remarks
+
+9
+
+1
+
+Introduction
+
+The present paper has a philosophical aspect in the sense that it copes with philosophical
+questions regarding the foundations of thermodynamics. On the other hand, it is also a
+∗ To
+whom correspondence should be sent.
+http://www.geocities.com/adonaisantanna/adonaiss.html
+
+1
+
+E-mail:
+
+adonai@scientist.com
+
+URL:
+
+work on mathematical physics, in the sense that we are concerned with the mathematical
+foundations of thermodynamics. Many branches of mathematics provide useful tools for
+theoretical physics, like probabilities, distributions, special functions, functional analysis,
+differential calculus, and so on. But few people use logic in theoretical physics. We
+consider this paper as a work on mathematical physics because we use mathematical
+logic in order to answer some fundamental questions concerning the mathematical role
+of time in thermodynamics. In a recent work [5] we have shown, by using Padoa’s
+principle of independence of primitive concepts, that time is eliminable in Newtonian
+mechanics and that space-time is also dispensable in Hamiltonian mechanics, Maxwell’s
+electromagnetic theory, the Dirac electron, classical gauge fields, and general relativity.
+Nevertheless, in all these theories physical phenomena are reversible with respect to
+time. Thermodynamics is a theory which talks about irreversible physical phenomena
+and so it seems to point out to an “arrow of time”. There are many physical and
+philosophical discussions, in the liteature, about the objective existence of an arrow of
+time. For some authors there is, indeed, an objective “passage” of time [11, 17, 6].
+Nevertheless any concept of an objective passage of time seems to entail logical loops
+or to invoke “absolute time”, which contradicts relativity theory [8, 9]. Other authors
+believe that most physicists prefer to regard time’s passage as an illusion, since in theories
+like Einstein-Minkowski spacetime, all events (past, present, and future) have the same
+level of reality [8]. In [17] (p. 203) Prigogine makes reference to a private letter written
+by A. Einstein where it is written:
+For us who are convinced physicists, the distinction between past, present,
+and future is only an illusion, however persistent.
+Prigogine himself (op. cit. p. 213) says that
+The distinction between past and future is a kind of primitive concept that
+in a sense precedes scientific activity.
+But some paragraphs later he remarks that classical science is trying “to go beyond
+the world of appearances, to reach a timeless world of supreme rationality.”
+In this paper we study the role of time in thermodynamics from the mathematical
+point of view. Since the theory is supposed to give a picture of physical phenomena, we
+hope that our results may be useful for the understanding of the physical and philosophical meaning of time in a theory which admits the existence of irreversible phenomena.
+Some decades ago M. E. Gurtin and W. O. Williams presented an axiomatic framework for continuum thermodynamics [10]. In the present paper we rewrite Gurtin and
+Williams axiomatic system as a Bourbaki species of structures and prove that time is
+definable, and so is dispensable, in thermodynamics.
+For a brief review on the use of the axiomatic method in physics as well as other
+proposals for the interpretation of time and spacetime in physics see [5].
+
+2
+
+Padoa’s Principle
+
+This section is essentially based on our previous work [5].
+In an axiomatic system S a primitive term or concept c is definable by means of the
+remaining primitive ones if there is an appropriate formula, provable in the system, that
+2
+
+fixes the meaning of c in function of the other primitive terms of S. This formulation of
+definability is not rigorous but is enough here. When c is not definable in S, it is said
+to be independent of the the other primitive terms.
+There is a method, introduced by A. Padoa [16], which can be employed to show
+the independence of concepts. In fact, Padoa’s method gives a necessary and sufficient
+condition for independence [1, 19, 21].
+In order to present Padoa’s method, some preliminary remarks are necessary. Loosely
+speaking, if we are working in set theory, as our basic theory, an axiomatic system S
+characterizes a species of mathematical structures in the sense of Bourbaki [2]. Actually
+there is a close relationship between Bourbaki’s species of structures and Suppes predicates [20]; for details see [4]. On the other hand, if our underlying logic is higher-order
+logic (type theory), S determines a usual higher-order structure [3]. In the first case, our
+language is the first order language of set theory, and, in the second, it is the language
+of (some) type theory. Tarski showed that Padoa’s method is valid in the second case
+[21], and Beth that it is applicable in the first [1].
+From the point of view of applications of the axiomatic method, for example in
+the foundations of physics, it is easier to assume that our mathematical systems and
+structures are contructed in set theory [4].
+A simplified and sufficiently rigorous formulation of the method, adapted to our
+exposition, is described in the next paragraphs.
+Let S be an axiomatic system whose primitive concepts are c1 , c2 , ..., cn . One of
+these concepts, say ci , is independent from the remaining if and only if there are two
+models of S in which c1 , ..., ci−1 , ci+1 , ..., cn have the same interpretation, but the
+interpretations of ci in such models are different.
+Of course a model of S is a set-theoretical structure in which all axioms of S are
+true, according to the interpretation of its primitive terms [12].
+It is important to recall that, according to the theory of definition [19], a definition
+should satisfy the criterion of eliminability. That means that a defined symbol should
+always be eliminable from any formula of the theory.
+In the sequel we apply Padoa’s method to thermodynamics (in an axiomatic form),
+in order to prove that time is eliminable (or dispensable).
+
+3
+
+Gurtin and Williams Axiomatic System
+
+In this section we present the axiomatic system of thermodynamics due to Gurtin and
+Williams [10]. We present it as a Bourbaki’s species of structure. This demands some
+technical adaptations which do not affect the physical meaning of the theory. But such
+adaptations are necessary in order to use Padoa’s method. We use the same notation as
+in [10].
+It is interesting to settle our mathematical notation. We denote by E the Euclidian
+three dimensional space. ℜ is the set of real numbers. If A is a subset of E then its
+◦
+
+boundary is denoted by ∂A, the interior by A , and the closure by A. The letters A, B,
+C, ..., always denote subsets of E.
+Definition 1 A standard region or body of E is the closure of a bounded open set A
+whose boundary is the union of a closed set of zero area and a countable number of class
+
+3
+
+C 1 two-dimensional manifolds, each of the manifolds having the open set A on just one
+side.
+Definition 2 If A is a subset of E, its exterior is
+Ae = E − A
+Definition 3 If A ⊂ B, the relative exterior of A in B is
+Ab = B − A.
+Theorem 1
+Ae = Ab ∪ B e .
+Proof: Straightforward from definitions.
+Definition 4 A surface is the (relative) closure of an oriented class C 1 two-dimensional
+differentiable manifold or the countable union of such (closed) manifolds.
+According to [10]: “The boundary of a standard region is taken to be oriented in the
+positive sense with respect to that region, i.e. with the orientation corresponding to the
+external normal vector. A surface contained (in the sense of set-inclusion) in another
+surface is a positive segment of that surface if it has the same orientation; if it has the
+opposite orientation it is called a negative segment .”
+Definition 5 A surface S contained in a body B is a material surface if it is a positive
+segment of the boundary of a subbody of B.
+Definition 6 A part of a body B is a Borel subset of B. The set of Borel subsets of B
+is denoted by B(B).
+By measure we mean a finite real-valued Borel signed measure [7].
+Definition 7 The species of structures (à la Bourbaki) of a Gurtin-Williams System
+for Continuum Thermodynamics is the ordered 6-tuple
+Θ = hE, T, Et , Ht , St , Mt i
+such that the following axioms are satisfied:
+T1 - Space - E is the Euclidean three dimensional space.
+T2 - Subbodies of a Body - For every body B there is a class of subbodies MB such
+that
+1. Every element of MB is a subset of B;
+2. Every element of MB is a body;
+4
+
+3. A, C ∈ M implies A ∪ C ∈ MB ;
+4. If C is a solid circular cylinder or a solid prism in E, then
+◦
+
+z }| {
+C ∩ B ∈ MB ;
+5. If S ⊂ B is a material surface, there is a monotone sequence {An } of elements
+of MB such that
+∞
+\
+
+An = S;
+
+n=1
+
+6. If A ∈ MB and a is a vector in E, then A + a ∈ MB .
+T3 - Time - T is an interval of real numbers, which we interpret as time.
+T4 - Internal Energy - For each body B there is an energy function Et : B(B)×T →
+ℜ such that Et is a measure on B(B). This function corresponds to the internal
+energy of each part of the body B.
+T5 - Differentiability of Energy - For each body B and for each part P ∈ B(B)
+there exists the derivative
+•
+
+E t (P) =
+
+d
+Et (P).
+dt
+
+T6 - Volume and Energy - For all P ∈ B(B) there exists a scalar α(t) such that
+|Et (P)| ≤ α(t)V (P),
+and
+•
+
+| E t (P)| ≤ α(t)V (P),
+where V is the Lebesgue volume measure in E.
+Definition 8 The material universe for a given body B is the set
+M = {D|D ∈ MB or De ∈ MB }.
+T7 - Heat Flux - For each body B of E and for each element D of the material universe for B there is a heat flux function Ht : B(Db ) × M × T → ℜ such that Ht
+is a measure on B(Db ) for a fixed D.
+
+5
+
+Definition 9 A real-valued function α defined on MB or M is separately additive, or
+s-additive for short, if
+α(A ∪ C) = α(A) + α(C)
+for every pair of separate elements A, C in the domain of α.
+T8 - Heat Flux is Separately Additive - For a fixed part P of a given body B the
+heat flux Ht (P, •) is s-additive on all elements of M separate from P.
+T9 - Surface and Heat Flux- There exist scalar functions β(t) and γ(t) such that
+|Ht (P, D)| ≤ β(t)V (P) + γ(t)A(P ∩ ∂D)
+for all P ∈ B(B), D ∈ M which are separate, where A stands for the Lebesgue
+surface measure on manifolds in E.
+T10 - First Law of Thermodynamics - For every body A
+•
+
+e
+
+E t (A) = Ht (A, A ).
+T11 - Internal Entropy - For each body B there is an internal entropy function St :
+B(B) × T → ℜ such that St is a measure on B(B).
+T12 - Differentiability of Entropy - The derivative
+•
+
+S t (P) =
+
+d
+St (P)
+dt
+
+exists for each P ∈ B(B).
+T13 - Volume and Entropy - For all P ∈ B(B) there exists a scalar δ(t) such that
+|St (P)| ≤ δ(t)V (P),
+and
+•
+
+| S t (P)| ≤ δ(t)V (P),
+where, like in axiom T6, V is the Lebesgue volume measure in E.
+T14 - Entropy Flux - For each body B of E and for each element D of the material
+universe for B there is an entropy flux function Mt : B(Db ) × M × T → ℜ such
+that Mt is a measure on B(Db ) for a fixed D.
+T15 - Entropy Flux is Separately Additive - For a fixed part P of a given body
+B the entropy flux Mt (P, •) is s-additive on all elements of M separate from P.
+
+6
+
+Definition 10 A part P of a body B is thermally isolated from D ∈ M if for each
+part P ′ ⊂ P
+Ht (P ′ , D) = 0.
+T16 - Second Law of Thermodynamics B
+
+1. For every subbody A of a given body
+
+•
+
+e
+
+S t (A) ≥ Mt (A, A );
+2. If a part P is thermally isolated from D ∈ M
+Mt (P, D) = 0.
+T17 - Heat Conduction Inequalities - There exist scalars δ(t) and ε(t) such that
+|Kt (P, D)| ≤ δ(t)V (P),
+|Jt (P, D)| ≤ ε(t)A(P ∩ ∂D),
+for all D ∈ M and P ∈ B(Db ), where
+Kt (P, D) = Mt (P − ∂D, D)
+is the radiative entropy flux and
+Jt (P, D) = Mt (P ∩ ∂D, D)
+is the conductive entropy flux.
+It is worth to remark that in [10] there is a theorem that says that for any D ∈ M,
+Mt admits the unique decomposition
+Mt (P, D) = Kt (P, D) + Jt (P, D).
+A very detailed analysis on these axioms is made in [10]. At the present paper we
+are mainly concerned with the results introduced in the next section.
+
+4
+
+Thermodynamics Without Time
+
+In this section we: (i) prove that time is definable; (ii) define time from the remaining
+primitive concepts of Gurtin-Williams system for thermodynamics; and (iii) rephrase
+thermodynamics without time. So, our starting point is the next theorem:
+Theorem 2 Time is dispensable in Gurtin-Williams system for continuum thermodynamics.
+
+7
+
+Proof: Padoa’s Principle says that the primitive concept T in Θ is independent from
+the remaining primitive concepts iff there are two models of Θ such that T has two
+interpretations and all the other primitive symbols have the same interpretation. But
+these two interpretations are not possible, since all the remaining concepts, except E,
+depend on time T as functions. Any change of interpretation related to T will imply a
+change of interpretation of Et , Ht , St , and Mt . Therefore, time is not independent and
+hence it can be defined. So, according to the criterion of eliminability of definitions,
+time is dispensable within the scope of this axiomatic framework for thermodynamics.✷
+Since time is definable in continuum thermodynamics, the natural question is: how
+to define it? From the logical point of view the answer to this question is not difficult.
+But first we need the next definition:
+Definition 11 If the domain of a function f is A1 × A2 × ·An , then we call each Ai a
+component of the domain of f . For short, we say that Ai is a component of f .
+Now we are able to define time in Gurtin-Williams system for thermodynamics:
+Definition 12 Time is the last component of the functions Et , Ht , St , and Mt and is
+the domain of the scalar functions α, β, γ, and δ.
+Now, the final question is: how to rephrase thermodynamics with no explicit mention
+to time? Our answer is the definition given below. Some axioms of this ‘new’ system
+are the same as in Θ, mainly those axioms that make no reference to time. We write
+the word ‘new’ because actually it is not a new system. It is the same theory, but with
+no explicit mention to a definable (eliminable) term called ‘time’.
+Definition 13 The species of structures (à la Bourbaki) of a Gurtin-Williams System
+for Continuum Thermodynamics Without Time is the ordered 5-tuple
+ΘN T = hE, Et , Ht , St , Mt i
+such that the following axioms are satisfied:
+NT1 T1.
+NT2 T2.
+NT3 For each body B there is an energy function Et with two components. The first
+component is B(B), such that Et is a measure on B(B). The co-domain of this
+function is ℜ.
+NT4 The function Et is differentiable with respect to the elements of the last (second)
+component of Et . We denote the derivative as
+•
+
+E t (P) =
+
+d
+Et (P).
+dt
+
+This same derivative operator is also defined with respect to the last (second) component of St on the space of functions St . We denote it by
+•
+
+S t (P) =
+
+8
+
+d
+St (P).
+dt
+
+NT5 T6.
+NT6 For each body B of E and for each element D of the material universe for B there
+is a function Ht such that Ht has three components. The first component is B(Db ),
+and the second component is the material universe M. Ht is a measure on B(Db )
+for a fixed D. The co-domain of the function Ht is ℜ.
+NT7 T8.
+NT8 T9.
+NT9 T10.
+NT10 For each body B there is a function St with two components. The first one is
+B(B). St is a measure on B(B). The co-domain of St is ℜ.
+NT11 T13.
+NT12 For each body B of E and for each element D of the material universe for B there
+is a function Mt with three components. The first component is B(Db ) and the
+second is M. Mt is a measure on B(Db ) for a fixed D. The co-domain of Mt is
+ℜ.
+NT13 T15.
+NT14 T16.
+NT15 T17.
+It seems to be clear that this picture for thermodynamics is not very operational.
+So, for all practical purposes, it is still interesting to keep the notion of time. The eliminability of time should be rather regarded as a logical consequence from the foundations
+of thermodynamics.
+
+5
+
+Final Remarks
+
+In this section we make some final remarks concerning our main results:
+1. The reader can verify that time is also eliminable from continuum mechanics,
+at least within the scope of the axiomatic system presented by W. Noll in [15].
+In that system some primitive notions like motion θ, linear momentum g , and
+angular momentum h of a body are functions with time T as one component. So,
+following Padoa’s principle, any change of interpretation on T entails a change of
+interpretation on other primitive concepts, like θ, g, and h.
+2. In [5] we did not define space-time in classical field theories or time in classical
+particle mechanics. Nevertheless, the same ideas presented in the previous section
+of the present paper may be used for that purpose. We keep this as an exercise
+for the reader.
+3. We can easily see that space is also definable in Gurtin-Williams system. That is
+ledt as an exercise for the reader.
+9
+
+4. Some neurologists point out that blind people may have great difficulty to develop
+the notion of physical space [18]. They live in a spaceless world where time is their
+main reference frame. It seems that the vision in healthy people helps them to
+create an intuitive notion of space, since the visual perception allows people to be
+aware of many different objects and places at the same time. On the other hand,
+U. Mohrhoff [14] presents a novel interpretation of quantum mechanics, where
+objective probabilities are assigned to counterfactuals and are calculated on the
+basis of all relevant facts, including those that are still in the future. According
+to this proposal, the intuitive distinction between here and there, past and future,
+has nothing to do with any physical reality. His starting point is a paper by N.
+D. Mermin [13], where this author considers that conscious perception “should be
+viewed as a mystery about us and should not be confused with the problem of understanding quantum mechanics.” In the present paper we are not concerned with
+quantum mechanics. But we believe that the definability of time (and even space)
+could be interpreted as it follows: from our physical experience with the world, and
+our conscious perception of it, we develop some sort of spacetime interpretation
+about what we see and feel with all our senses. Much more should be said about
+our conscious perception of space and time. But that is a task that we leave for
+future works. In the present paper we want to point out the mathematical role of
+time in thermodynamics.
+
+References
+[1] Beth, E. W., ‘On Padoa’s method in the theory of definition’, Indag. Math. 330–339
+(1953).
+[2] Bourbaki, N., Theory of Sets (Hermann and Addison-Wesley, 1968).
+[3] Carnap, R., Introduction to Symbolic Logic and Its Applications (Dover, New York,
+1958).
+[4] da Costa, N. C. A., and R. Chuaqui, ‘On Suppes’ set theoretical predicates’ Erkenntnis 29 95–112 (1988).
+[5] da Costa, N. C. A. and A. S. Sant’Anna, ‘The mathematical role of time and
+space-time in classical physics’, forthcoming.
+[6] Davies, P. C. W., About Time: Einstein’s Unfinished Revolution (Simon & Schuster,
+New York, 1995).
+[7] Doob, J. L., Measure Theory (Springer-Verlag, New York, 1994).
+[8] Elitzur, A. C. and S. Dolev, ‘Black hole evaporation entails an objective passage of
+time’, Found. Phys. Lett. 12 309–323 (1999).
+[9] Gödel, K., in Albert Einstein: Philosopher-Scientist , Vol. II, P. A. Schillip, ed.
+(Open Court, La Salle, 1949), p. 557.
+[10] Gurtin, M. E. and W. O. Williams, ‘An axiomatic foundation for continuum thermodynamics’, Archive for Rational Mechanics and Analysis 26 83–117 (1967).
+10
+
+[11] Horwitz, L. P., R. I. Arshansky, and A. C. Elitzur, Found. Phys. 18 1159 (1988).
+[12] Mendelson, E., Introduction to Mathematical Logic (Chapman & Hall, London,
+1997).
+[13] Mermin, N. D., ‘What is quantum mechanics trying to tell us?’, Am. J. Phys. 66
+753-767 (1998).
+[14] Mohrhoff, U., ‘What quantum mechanics is trying to tell us’, Am. J. Phys. 68
+728–745 (2000).
+[15] Noll, W., ‘The foundations of classical mechanics in the light of recent advances in
+continuum mechanics’, in The Axiomatic Method, with Special Reference to Geometry and Physics pp. 266-281 (North-Holland, 1959).
+[16] Padoa, A., ‘Essai d’une théorie algébrique des nombres entiers, précédé d’une introduction logique à une théorie déductive quelconque”, Bibliothèque du Congrès
+International de Philosophie, 3 (1900).
+[17] Prigogine, I., From Being to Becoming: Time and Complexity in the Physical Sciences (Freeman, San Francisco, 1980).
+[18] Sacks, O. W., An Anthropologist on Mars - Seven Paradoxical Tales (Vintage Books,
+New York, 1996)
+[19] Suppes, P., Introduction to Logic, (Van Nostrand, Princeton, 1957).
+[20] Suppes, P., Set-Theoretical Structures in Science, mimeo. (Stanford University,
+1967).
+[21] Tarski, A., ‘Some methodological investigations on the definability of concepts’, in
+A. Tarski, Logic, Semantics, Metamathematics 296–319 (Hacket Pub. Co., Indianapolis, 1983).
+
+11
+
+

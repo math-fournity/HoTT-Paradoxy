@@ -1,0 +1,92 @@
+{
+  "status": "THREE_PACKAGES_DUAL_LOCAL_PASS_WITH_CONFIGURATION_SCOPE",
+  "checks": [
+    {
+      "proof": "MP-ASTRA-ERASURE-CONFIG-001",
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-ERASURE-CONFIG-001-01",
+        "--rerun"
+      ],
+      "exit": 0
+    },
+    {
+      "proof": "MP-ASTRA-ERASURE-CONFIG-001",
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-ERASURE-CONFIG-001"
+      ],
+      "exit": 0
+    },
+    {
+      "proof": "MP-ASTRA-NATIVE-REAL-001",
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NATIVE-REAL-001-01",
+        "--rerun"
+      ],
+      "exit": 0
+    },
+    {
+      "proof": "MP-ASTRA-NATIVE-REAL-001",
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NATIVE-REAL-001"
+      ],
+      "exit": 0
+    },
+    {
+      "proof": "MP-ASTRA-NOSECTION-RESTRICTED-001",
+      "kind": "formal",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_formal_proof_run.py",
+        "--run-dir",
+        "HoTT/verification/runs/20260920-MP-ASTRA-NOSECTION-RESTRICTED-001-02",
+        "--rerun"
+      ],
+      "exit": 0
+    },
+    {
+      "proof": "MP-ASTRA-NOSECTION-RESTRICTED-001",
+      "kind": "relation",
+      "argv": [
+        "python3",
+        "-B",
+        "scripts/audit/verify_proof_version_closure.py",
+        "--evidence-only",
+        "--proof-id",
+        "MP-ASTRA-NOSECTION-RESTRICTED-001"
+      ],
+      "exit": 0
+    }
+  ],
+  "negative_control": {
+    "same_source_hash": true,
+    "exit": 42,
+    "diagnostic": "UnequalTerms at loopRefl",
+    "ordinary_identity_replacement": true
+  },
+  "formal_graph_matches_draft": true,
+  "module_count": 895,
+  "scope": "Configuration diagnostic C280; actual Dedekind model C281; existing C05 requalification. Not ordinary HoTT inconsistency or complete redo."
+}

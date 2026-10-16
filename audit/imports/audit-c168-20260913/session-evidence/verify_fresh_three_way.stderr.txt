@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/.codex/tools/cognition_runtime.py", line 107, in read_bytes
+    before=p.stat();data=p.read_bytes();after=p.stat()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 654, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/scripts/audit/verify_fresh_three_way.py", line 220, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/scripts/audit/verify_fresh_three_way.py", line 111, in main
+    hydrated = runtime.plan(root, profile="research", task_ids=("A-AISTUDIO-COVERAGE-001",))
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/.codex/tools/cognition_runtime.py", line 410, in plan
+    paths,selection,records,stale,available=graph(config,state,get,profile,task_ids,_allow_core_transition,kind,listdir)
+                                            ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/.codex/tools/cognition_runtime.py", line 345, in graph
+    for p in ordered:text(get(p),p)
+                          ~~~^^^
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/.codex/tools/cognition_runtime.py", line 391, in get
+    if rel not in cache:cache[rel]=read_bytes(root,rel)
+                                   ~~~~~~~~~~^^^^^^^^^^
+  File "/Users/aurolafly/.codex/worktrees/eb7b/HoTT_AI_HANDOFF_20260911/.codex/tools/cognition_runtime.py", line 108, in read_bytes
+    except OSError as e: raise CognitionError('MISSING_OR_UNREADABLE: '+rel) from e
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cognition_runtime.CognitionError: MISSING_OR_UNREADABLE: sources/local-gpt/ALL-Markdown-root/HoTT_is_GONE_COMPLETE.md

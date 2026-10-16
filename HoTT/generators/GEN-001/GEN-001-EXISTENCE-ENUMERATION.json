@@ -1,0 +1,68 @@
+{
+ "search_run": "SEARCH-GEN001-EXISTENCE-001",
+ "family": "TASK-FAMILY-EXISTENCE-VERSUS-AVAILABILITY",
+ "premise_ref": "PREMISE-D-04 / PREMISE-G-05 (AI-adjudicated pending external audit; the lowest-confidence pair of the premise batch)",
+ "denominator": {
+  "atoms": 7,
+  "contexts": 440,
+  "contexts_examined": 440,
+  "equivalent_pair_context_checks_planned": 5280,
+  "checks_executed": 5280
+ },
+ "enumeration": {
+  "separations_seen": 916,
+  "raw_witnesses_captured": 916,
+  "grammar_violations": 0,
+  "truncated": false,
+  "complete_within_declared_grammar": true,
+  "remainder": 0
+ },
+ "grammar_preserving_reduction": {
+  "reduced_canonical_witnesses": 58,
+  "witnesses_binding_new_continuation_existence_verdict_exists_but_never_available": 12,
+  "witnesses_binding_new_continuation_existence_verdict_supply_without_object": 12,
+  "witnesses_binding_new_continuation_existence_verdict_avail_opposite_at_frontier": 8,
+  "mechanism_distribution": {
+   "value_mismatch": 24,
+   "completion_divergence": 24,
+   "deadline_observation": 10
+  }
+ },
+ "out_of_envelope_witnesses": 32,
+ "kernel_verified_witnesses": [
+  "VERIFY-GEN001-EXISTENCE-WV-0017",
+  "VERIFY-GEN001-EXISTENCE-WV-0018",
+  "VERIFY-GEN001-EXISTENCE-WV-0043",
+  "VERIFY-GEN001-EXISTENCE-WV-0051"
+ ],
+ "main_repo_independent_reproduction": {
+  "all_four_exit_0": true,
+  "command": "agda --ignore-interfaces --library-file=AGDA_LIBRARIES -l cubical-0.9 -i . Verify.agda at HoTT/formal/partiality-race-timeout/"
+ },
+ "exit_reason": "COMPLETED_WITHIN_BUDGET",
+ "grammar_sensitivity_check": {
+  "mutated_contains_deadline_kind": false,
+  "mutated_statistics": {
+   "checks_budget_exhausted": false,
+   "checks_planned": 4560,
+   "complete_within_declared_grammar": true,
+   "context_budget_exhausted": false,
+   "contexts": 380,
+   "contexts_examined": 380,
+   "delay_atoms": 7,
+   "grammar_violations": 0,
+   "pair_context_checks": 4560,
+   "separations_seen": 692,
+   "truncated": false,
+   "witness_capture_truncated": false,
+   "witnesses_captured": 692
+  },
+  "mutated_witness_count": 48,
+  "mutation": "remove the deadline operation from the declared grammar"
+ },
+ "order_independence_check": {
+  "order_independent_set_equal": true,
+  "seed": 20260913,
+  "statistics_match": true
+ }
+}

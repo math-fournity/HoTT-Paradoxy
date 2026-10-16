@@ -1,0 +1,82 @@
+{
+  "agda_error_tag": null,
+  "audit_notes": [],
+  "audit_session": "Claude CG001 line, Claude Code local session eadb3381 (macOS), branch main, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-83"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning",
+    "HoTT/formal/claude-cg001/truncation-questioning/TruncationQuestioning.agda"
+  ],
+  "completed_at_utc": "2026-09-30T21:43:03.627963+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 90.557722,
+  "environment": {
+    "bytes": 1061,
+    "path": "environment.txt",
+    "sha256": "5d54aede851177a7681374f2385f242875920498ae091aa4a73c8091feb85453"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "extra_agda_flags": [],
+  "first_error_excerpt": null,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "include_roots": [
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/truncation-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/product-questioning",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/questioning-delay",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/universe-questioning"
+  ],
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Not an inconsistency of HoTT and not a claim that truncation is wrong: set truncation is a legitimate construction; the package records how it makes the questioning stop and what it costs.",
+    "Does not decide whether asking about the set truncation is the same task as asking about the universe; task fidelity is left to the user (CN-049 section 4, CN-050).",
+    "No judge is constructed for the truncated product (stage 0 would decide whether it is a proposition, which involves countable choice); higher inductive types (set and propositional truncation, and via C-81 Eilenberg-MacLane spaces) and univalence (notEq) are used; standard HoTT facts, no originality claimed; captured and replayed on macOS only."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-TRUNCATION-QUESTIONING-001",
+  "rejection_stage": null,
+  "run_id": "20260930-CG001-TRUNCATION-QUESTIONING-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Cubical Agda: the textbook dissolution as a control. The questioning program Q of C-77, run on the set truncation of any type, returns 1 at fuel 0 for every judge (stage 1). The truncated universe is not a proposition, a judge exists and every judge equals it, and the kernel runs Q with it and gets 1 at fuel 0 by refl; side by side, Q on the universe itself is never (C-78) and Q on the product of C-81 is never while Q on its set truncation stops at stage 1. Cost: transport along notEq sends true to false, so notEq is not refl; after truncation cong |_|2 notEq equals refl (squash2); no function decodes the truncated universe back (it would make the universe a set).",
+  "source_manifest": {
+    "bytes": 3735,
+    "path": "source-manifest.json",
+    "sha256": "35ce5e4c0587f3b279bd7b7e4330e969502caf391e3bfd0e55841269fdbce817"
+  },
+  "started_at_utc": "2026-09-30T21:41:33.070241+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 29382,
+    "path": "stdout.txt",
+    "sha256": "573416c7868671f0abcb9e2e767973ce1cfa1455b8eef119382de23a34542f1e"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

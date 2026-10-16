@@ -1,0 +1,59 @@
+{
+  "claim_ids": [
+    "CG001-C-59"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES",
+    "-l",
+    "cubical-0.9",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/claude-cg001/pedometer-semantics",
+    "HoTT/formal/claude-cg001/pedometer-semantics/DelayMonad.agda"
+  ],
+  "completed_at_utc": "2026-09-25T18:23:20.255456+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 33.360247,
+  "environment": {
+    "bytes": 898,
+    "path": "environment.txt",
+    "sha256": "a96112a2676bd8a5c7630f4d78cd4eba10265d8d436262d49b615d700e79199d"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "monad laws for this bind and return only; no equivalence with other partiality models",
+    "runFor observations are not wall-clock time or runs on real devices",
+    "the P-rev specification remains a specification, not a reality obligation derived from HoTT"
+  ],
+  "proof_assistant": "Cubical Agda",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-CG001-DELAY-MONAD-001",
+  "run_id": "20260925-CG001-DELAY-MONAD-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG001-C-59: for the Delay type of PedometerSemantics.agda (imported, not restated): (a) return and bind satisfy the three monad laws as paths; (b) never is a left zero of bind and is not a returning program; (c) d = never iff runFor n d = nothing for every fuel n (divergence is observational); (d) runFor n (bind d (return . f)) = map-Maybe f (runFor n d); (e) under the P-rev specification of C-55 (b) every fuel-bounded run of the stop program returns nothing and the stop program followed by any continuation is never; under the escape, directed and data specifications 'stop, then report the count plus one' reports 2 at fuel 1.",
+  "source_manifest": {
+    "bytes": 2897,
+    "path": "source-manifest.json",
+    "sha256": "b6c1ea6323f58f34c9a58ebc310ebf7cb34e467fc9eb90d8490e93131f2ef3d6"
+  },
+  "started_at_utc": "2026-09-25T18:22:46.895209+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 16609,
+    "path": "stdout.txt",
+    "sha256": "16fa1feff3838e8f9c6df958652972ca2eed67e125c63ca90e4d9e026198635e"
+  },
+  "theory_variant": "Cubical Agda with native Path and higher inductive types"
+}

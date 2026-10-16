@@ -1,0 +1,27 @@
+{
+  "schema_version": "session-runs/v1",
+  "session_id": "S-RES-20260918-175-GOLD-FOUR-CONDITIONS-COMPLETE",
+  "proof_id": "MP-DEDEKIND-OMEGA-GOLD",
+  "runs": [
+    {
+      "run_id": "20260918-MP-DEDEKIND-OMEGA-GOLD-02",
+      "kind": "full_clean_replay",
+      "command": "sh HoTT/formal/dedekind-omega-missile/compile.sh CutGoldForm.agda --ignore-interfaces",
+      "canonical_argv_ref": "HoTT/verification/runs/20260918-MP-DEDEKIND-OMEGA-GOLD-02/RUN.json:command_argv",
+      "exit_code": 0,
+      "stderr_bytes": 0,
+      "duration_seconds": 73.2,
+      "scope": "CutInfra + CutGoldForm 全模块（四条件 7/7 方向）"
+    }
+  ],
+  "commits": ["f2fd012", "8285ea2"],
+  "state_checkpoint": {
+    "touched": false,
+    "state_revision": 169,
+    "note": "STATE.json checkpoint 机械层未触碰（0022 禁止事项，沿 170-174 模式）；收据缺口如实登记，不伪造事务。"
+  },
+  "subagents": {
+    "spawned": false,
+    "note": "项目禁止启动任何 Sub Agent（用户 2026-09-17 裁定）；全部工作由本 Session 直接完成。"
+  }
+}

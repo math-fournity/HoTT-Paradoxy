@@ -1,0 +1,83 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-AUD-20260915-GLM-ROUND9-PLAN-V21",
+  "task_kind": "glm_round9_response_audit_and_gpt_plan_v2_1_update",
+  "main": {
+    "root": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+    "branch": "main",
+    "starting_head": "2bbf5c873dfa3ac1d512955301b163b2b6f311b0"
+  },
+  "inputs": {
+    "glm_round9": {
+      "path": "GLM的回应/对GPT第八轮反馈的审计-20260915.md",
+      "lines": 128,
+      "bytes": 9187,
+      "sha256": "e7f6bd8345c9e3c09a277bc481d07d5215b8a9b3dad5cb0f73a4644f798a776c"
+    },
+    "gpt_round8": {
+      "path": "GPT的回应/GLM第八轮深度审计报告-20260915.md",
+      "lines": 372,
+      "bytes": 20125,
+      "sha256": "d618a5b997cd1efe60105f72e9731f67a19cf5d9e0987958376e179f3075eca3"
+    }
+  },
+  "anchor_replay": {
+    "selected_anchors": 4,
+    "exact_present": 4,
+    "counts": [1, 1, 1, 1],
+    "initial_audit_goal_literal_occurrences": 26,
+    "initial_audit_r4_literal_occurrences": 3,
+    "initial_audit_reference_lines": 29,
+    "documents_with_goal_or_r4_reference": 7,
+    "verdict": "SELECTED_4_OF_4_PASS / FULL_CITATION_DENOMINATOR_NOT_BUILT"
+  },
+  "temporal_claim": {
+    "s151_checkpoint_completed_utc": "2026-09-15T06:38:03.740331Z",
+    "initial_glm_readme_birth_utc": "2026-09-15T07:06:35Z",
+    "goal_mtime_utc": "2026-09-15T07:10:11Z",
+    "r4_mtime_utc": "2026-09-15T07:10:41Z",
+    "read_before_change": "SOURCE_REPORTED_NOT_RECEIPTED",
+    "verdict": "CONDITIONAL_REQUIRES_PIN_FRESH_AND_RELEVANT_MTIME_AND_READ_BEFORE_CHANGE"
+  },
+  "audit_result": {
+    "path": "GPT的回应/GLM第九轮回应审计报告-20260915.md",
+    "lines": 266,
+    "bytes": 11643,
+    "sha256": "683dce74b244b099463671981b79824295f98f676fb2ab4721565ad6cb07cf0e",
+    "local_links": "PASS / 3_OF_3_EXIST"
+  },
+  "plan_v2_1": {
+    "index": "GPT的方案/HoTT机器统观后续工作方案.md",
+    "version": "gpt-hott-machine-overview-plan/v2.1",
+    "files": 11,
+    "shards": 10,
+    "total_lines": 1448,
+    "total_bytes": 65261,
+    "table_order_concat_sha256": "334eac1069d1e59be27914d59dbbdefe1b3d02cbfaff4abfafde86e8e2bd2116",
+    "updated_files": [
+      {"path": "GPT的方案/HoTT机器统观后续工作方案.md", "lines": 59, "bytes": 5615, "sha256": "07a5cc1ad20d662f80b843452cfbb2a6eec3788078ef60384736f5eea0d3dc41"},
+      {"path": "GPT的方案/HoTT机器统观后续工作方案/001 - 共识基线、证据边界与审计谱系.md", "lines": 99, "bytes": 8581, "sha256": "9c110235b3956c1e52f685dfd41f82e39432d80e1276c7debff9f29d9f1dac2a"},
+      {"path": "GPT的方案/HoTT机器统观后续工作方案/003 - FR来源身份重建与版本闭合.md", "lines": 163, "bytes": 6626, "sha256": "dadf04e0736687044450839947c5a1a5308b9b77890ee52afeff5230ce4a7fb0"},
+      {"path": "GPT的方案/HoTT机器统观后续工作方案/010 - 治理写回、自证伪、文本终止与最终验收.md", "lines": 161, "bytes": 7910, "sha256": "fb0c48fa224828fffc937e91bd30fbdd51f7c4d68ffaa6da3a32611bd2b57595"}
+    ]
+  },
+  "verification": {
+    "governance_shard_validator": "PASS / canonical_indexes_checked_16 / banner_issues_0 / soft_notices_0",
+    "plan_local_links": "PASS / 36_OF_36_EXIST",
+    "v2_1_checks": "PASS",
+    "utf8_and_final_newline": "PASS / 11_OF_11",
+    "git_diff_check": "PASS"
+  },
+  "result": {
+    "core_cognition_audit": "PASS / 36_OF_36 / ALIGNED_8_CORRECTED_1_DEEPENED_3_NOT_TOUCHED_24 / REMAINDER_0",
+    "core_cognition_audit_sha256": "75fa4db70410cb10aafddfd6572b55db3cb7985ca0357b88b40faa0906edc345",
+    "session_sha256": "12d5e7a7be3e120d42a2feb7448f8c01664488fbef0b6c137c684264a1020fc0",
+    "verification": "PASS"
+  },
+  "new_math_claims": [],
+  "proof_assistant_runs": [],
+  "checkpoint": "NOT_APPLIED_NO_PROJECT_CURRENT_OWNER_CHANGE",
+  "commit": "NOT_PERFORMED",
+  "tag": "NOT_CREATED",
+  "push": "NOT_PERFORMED"
+}

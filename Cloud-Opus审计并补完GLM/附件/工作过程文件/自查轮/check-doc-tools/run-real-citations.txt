@@ -1,0 +1,60 @@
+$ python3 -B Cloud-Opus审计并补完GLM/tools/check_doc_citations.py
+ok    SSTLevels.agda:28–64  ->  SST≤0 : Type₁ | ... | terminal≤5 : SST≤5
+ok    UIPEscape.agda:52  ->  typeIsNotASet : ¬ isSet Type
+ok    WildSST.agda:84  ->  record WildSST : Type₁ where
+ok    WildSST.agda:118  ->  Coh₂ : WildSST → Type
+ok    WildSST.agda:126  ->  setsCohere : (S : WildSST) → ((n : ℕ) → isSet (WildSST.X S n)) → Coh₂ S
+ok    WildSST.agda:134  ->  spin : WildSST
+ok    WildSST.agda:146  ->  windsOnce : winding routeA-spin ≡ pos 1
+ok    WildSST.agda:149  ->  windsTwice : winding routeB-spin ≡ pos 2
+ok    WildSST.agda:152  ->  spinIncoherent : ¬ Coh₂ spin
+ok    WildSSTUIP.lean:96  ->  def Coh2 (S : WildSST) : Prop :=
+ok    WildSSTUIP.lean:101  ->  theorem coh2 (S : WildSST) : Coh2 S :=
+ok    WildSST2.agda:63  ->  surfWinds : winding (carry surf) ≡ negsuc 0
+ok    WildSST2.agda:66  ->  surf≢refl : ¬ (surf ≡ refl)
+ok    WildSST2.agda:72  ->  flat : WildSST
+ok    WildSST2.agda:126  ->  twoFillings : ¬ (cohTrivial ≡ cohSurf)
+ok    WildSST2.agda:132  ->  Deg₃ : Coh₂ flat → Type
+ok    WildSST2.agda:137  ->  trivialSatisfies : Deg₃ cohTrivial
+ok    WildSST2.agda:140  ->  surfViolates : ¬ Deg₃ cohSurf
+ok    SelfInterpretation.agda:74  ->  faithful∞ : cong ⟦_⟧∞ (swap base base base) ≡ ua flipEquiv
+ok    SelfInterpretation.agda:77  ->  syntax∞IsNotASet : ¬ isSet Syn∞
+ok    SelfInterpretation.agda:110  ->  Faithful : (S : Type) (b : S) (ar : S → S → S)
+ok    SelfInterpretation.agda:117  ->  faithfulForStructure : Faithful Syn∞ base arr swap
+ok    SelfInterpretation.agda:121  ->  noFaithfulForFacts : ¬ Faithful Syn base arr swap
+ok    WildSSTP4.agda:259  ->  Coh₃ : WildSSTᵢ₂ → Type
+ok    WildSSTP4Flat.agda:178  ->  notCoh₃ : ¬ Coh₃ flatSurfᵢ
+ok    WildSSTP4Flat.agda:226  ->  coh₃Trivial : Coh₃ flatTrivialᵢ
+ok    WindingCocycle.agda:58  ->  windingSST : Windings → WildSST
+ok    WindingCocycle.agda:92  ->  coh₂→cocycle : (w : Windings) → Coh₂ (windingSST w) → cocycle w
+ok    WindingCocycle.agda:98  ->  cocycle→coh₂ : (w : Windings) → cocycle w → Coh₂ (windingSST w)
+ok    WindingCocycle.agda:121  ->  spinWIncoherent : ¬ Coh₂ (windingSST spinW)
+ok    WindingCocycle.agda:124  ->  uniformWCoherent : Coh₂ (windingSST uniformW)
+ok    WildSSTP4Levels.agda:45  ->  setsCohereᵢ : (S : WildSSTᵢ) → ((n : ℕ) → isSet (WildSSTᵢ.X S n)) → Coh₂ᵢ S
+ok    WildSSTP4Levels.agda:51  ->  coh₂IsProp : (S : WildSSTᵢ) → ((n : ℕ) → isGroupoid (WildSSTᵢ.X S n)) → isProp (Coh₂ᵢ S)
+ok    WildSSTP4Levels.agda:55  ->  groupoidsCohere₃ : (S : WildSSTᵢ₂)
+ok    WildSSTP4Levels.agda:79  ->  flatS¹-unique : (C C' : Coh₂ᵢ flatS¹) → C ≡ C'
+ok    WildSSTP4Levels.agda:82  ->  flatS¹-coh₃ : (C : Coh₂ᵢ flatS¹) → Coh₃ (record { underlying = flatS¹ ; hexagon = C })
+ok    HSetNotSet.agda:45  ->  hSetNotSet : ¬ isSet (hSet ℓ-zero)
+ok    UniverseIsSet.lean:18  ->  theorem universeIsSet {A B : Type} (p q : A = B) : p = q := rfl
+ok    UniverseHasNoLevel.agda:208  ->  gatheringOneUp : (k : ℕ) → isOfHLevel (suc k) (TypeOfHLevel ℓ-zero k)
+ok    CatalogOfSetsTwoSteps.agda:30  ->  catalogOfSetsTwoSteps : isOfHLevel 3 (hSet ℓ-zero) × (¬ isSet (hSet ℓ-zero))
+ok    UniverseHasNoLevel.agda:162  ->  universeHasNoLevel : (m : ℕ) → ¬ isOfHLevel m (Type ℓ-zero)
+ok    UniverseHasNoLevel.agda:101–102  ->  ΩU≃∙ : (X : Type ℓ) → Ω (U∙ X) ≃∙ ((X ≃ X) , idEquiv X) | ... | ΩU≃∙ X = univalence , pathToEquivRefl
+ok    UniverseHasNoLevel.agda:107  ->  localGlobal : (n : ℕ) (X : Type ℓ)
+WARN  UniverseHasNoLevel.agda:125  ->  K : ℕ → Type ℓ-zero
+ok    UniverseHasNoLevel.agda:203  ->  gatheringNeverSettled : (k : ℕ) → ¬ isOfHLevel (suc k) (TypeOfHLevel ℓ-zero (suc k))
+ok    TotalityEscalates.agda:80  ->  setsGatherNotSet : ¬ isSet (hSet ℓ-zero)
+ok    TotalityEscalates.agda:106  ->  groupoidsGatherNotGroupoid : ¬ isGroupoid (hGroupoid ℓ-zero)
+ok    TotalityEscalates.agda:113  ->  noDecoding : ¬ (Σ[ s ∈ (∥ hSet ℓ-zero ∥₂ → hSet ℓ-zero) ] ((X : hSet ℓ-zero) → s ∣ X ∣₂ ≡ X))
+ok    CopiesOfBool.agda:43  ->  oneUpToSameness : isContr ∥ CopiesOfBool ∥₂
+ok    CopiesOfBool.agda:59  ->  gatheringNotSettled : ¬ isSet CopiesOfBool
+ok    KSUniverseTower.agda:293  ->  KS-Theorem-5-9 : (n : ℕ) → ¬ isOfHLevel (2 + n) (Type (lvl n))
+ok    NoHitGroupoidUniverse.agda:128  ->  ¬universeIsGroupoid : ¬ isOfHLevel 3 (Type (ℓ-suc ℓ-zero))
+ok    AscentStallAtSets.agda:24  ->  universeLoopSpaceAtSetIsSet :
+ok    AscentStallAtSets.agda:33  ->  noLevel2AscentAtSets :
+
+line citations checked: 54  (WARN: 1)
+formal-looking quotes checked: 47  verbatim: 47
+RESULT: PASS
+exit=0

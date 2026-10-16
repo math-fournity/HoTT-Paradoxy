@@ -1,0 +1,80 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 line, Claude Code desktop session d58e0c0d, branch dev (main checkout), 2026-10-08",
+  "claim_ids": [
+    "CG001-C-388"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/Z0Layer1.lean"
+  ],
+  "completed_at_utc": "2026-10-10T23:17:21.661078+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 90.600157,
+  "environment": {
+    "bytes": 1026,
+    "path": "environment.txt",
+    "sha256": "e33c4db8973412cc4294127e6e29e96b58d781d089766c66988250994357d406"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Not the blocking lemma. The Z0 full form (CG001-C-122) still depends on the unproved zfcTr_D3_internalize; this layer only settles the syntactic commutation layer that the V-internal derivation translation will need.",
+    "No subst/shift/free/setShift/emb commutation is proved here."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-001",
+  "run_id": "20261010-CG001-Z0-LAYER1-TRANSLATE-COMMUTATION-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Layer 1 of the Z0 D3 attack (CG001-C-388): the direct translation arithTrln.translate commutes with and/or/neg (LogicalConnective.HomClass), with the relativized quantifiers all/exs (Foundation's fal/exs and rfl lemmas translate_all/translate_ex), and with rel/nrel (rfl lemmas translate_rel/translate_nrel). Seven theorems in GodelQ.Z0Layer1, exit 0, kernel axioms only propext, Classical.choice, Quot.sound. This is layer 1 only: it does NOT prove zfcTr_D3_internalize, and it says nothing about subst/shift/free/setShift/emb (the emb work is in the separate file Z0Layer1Emb.lean, which carries an unproved marker and is not a source of this run).",
+  "source_manifest": {
+    "bytes": 205355,
+    "path": "source-manifest.json",
+    "sha256": "bbf7c5895c29f3a37dc0957a81efff7710e6e4a27400d0b78d39ef500d3fd604"
+  },
+  "started_at_utc": "2026-10-10T23:15:51.060669+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 14528,
+    "path": "stdout.txt",
+    "sha256": "8ae23d7ed21532430dd2dac7bf1020e59a9be89895ebe5cbdcd0983d77cc403d"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260912-023-SELF-VALIDATION-FINAL-ALIGNMENT",
+  "trigger": "git diff --check reported one new blank line at EOF in checkpoint-managed LESSONS.md",
+  "pre_checkpoint_verification": {
+    "core_tests": "7/7 PASS",
+    "runtime_tests": "28/28 PASS",
+    "reader_tests": "17/17 PASS",
+    "three_way_tests": "4/4 PASS",
+    "core_audit": "36/36 PASS",
+    "merge": "PASS",
+    "cross_source": "PASS",
+    "history_ledgers": "PASS",
+    "fresh_three_way_revision_22": "PASS_WITH_SCOPE",
+    "projection_freshness_revision_22": "PASS_WITH_SCOPE"
+  },
+  "semantic_change": false,
+  "mathematics": "UNCHANGED_PAPER_ONLY",
+  "post_checkpoint_required": [
+    "36/36 audit",
+    "fresh receipt revision 23",
+    "projection freshness",
+    "git diff --check",
+    "full regression"
+  ],
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "machine-overview-out-of-envelope-snapshot/v1",
+  "unit": "GAP-A-DM3",
+  "search_run_id": "SEARCH-GAP-A-DM3-001",
+  "engine_commit": "776e6b7",
+  "scoped_check": {
+    "claim": "Every reduced DM3 witness whose ops or DM3 coordinate no pre-existing grammar can express is rejected by ALL pre-existing grammars: the 7 delay grammars all reject it with the SAME reason (UNKNOWN_OP:<opkind>: the DM3 op vocabulary does not exist in any delay grammar) and the point-set V2 grammar rejects it for its own structural reason (VALUE_OUT_OF_DECLARED_RANGE: the DM3 coordinate is not a declared face, or PARSE_REJECT: the supply/between ops have no face-typed argument)",
+    "method": "machine_overview.search.within_grammar_witness (L1 predicate, values erased to their delay axis) for the delay grammars; machine_overview.v2_chain.within_grammar_witness (point-set predicate) for the V2 point-set grammar, which cannot parse DM3 ops or represent the DM3 algebra (see no_point_set_embedding)",
+    "proof_kind": "mechanical_membership_check",
+    "existing_grammar_count": 8,
+    "scoped_rows": 392,
+    "scoped_rejected_by_all": 392,
+    "scoped_all_rejected": true,
+    "delay_family_reason_buckets": {
+      "UNKNOWN_OP:between": 72,
+      "UNKNOWN_OP:supply": 216,
+      "UNKNOWN_OP:tower": 104
+    },
+    "point_set_reason_buckets": {
+      "VALUE_OUT_OF_DECLARED_RANGE:left": 312,
+      "VALUE_OUT_OF_DECLARED_RANGE:right": 80
+    },
+    "per_family_reason_uniqueness": {
+      "claim": "within each grammar family every scoped witness is rejected by exactly one uniform reason",
+      "delay_family": "72 + 216 + 104 = 392/392 scoped witnesses carry exactly one of UNKNOWN_OP:between / UNKNOWN_OP:supply / UNKNOWN_OP:tower",
+      "point_set_family": "312 + 80 = 392/392 scoped witnesses carry exactly one of VALUE_OUT_OF_DECLARED_RANGE:left / VALUE_OUT_OF_DECLARED_RANGE:right",
+      "cross_family": "reasons differ between families (structurally different rejection: unparseable ops vs unrepresentable DM3 coordinate); hence scoped_all_reasons_unique=false and scoped_reasons_unique=0, which is expected and stronger, not weaker"
+    },
+    "ingress_disclosure": "witnesses accepted by the point-set V2 grammar via the shared tower mechanism (dm3 coordinate = 0 lies in the point-set declared faces, tower level in its declared levels); the level_observation mechanism is shared with the point-set fragment and these witnesses are L1-invisible but point-set-reproducible.  They are reported as ingress, not as out-of-envelope.  All density and availability witnesses are scoped: their ops (supply/between over DM3) cannot be parsed by the point-set grammar and their DM3 coordinates cannot be represented (see non_embedding_check)",
+    "ingress_rows": 4
+  },
+  "full_check": {
+    "claim": "Every reduced DM3 witness lies outside every pre-existing delay grammar and outside the point-set V2 grammar, with rejection reasons recorded per grammar",
+    "rejected_by_all_count": 392,
+    "unique_reason_count": 0,
+    "all_reasons_unique": false,
+    "all_rejected": false
+  },
+  "non_embedding_check": {
+    "claim": "NO meet-and-negation-preserving embedding of DM3 into the point-set boolean face lattice exists",
+    "counterexamples_found": [],
+    "domain": {
+      "candidate_functions": 4096,
+      "dm3": "3-element non-boolean De Morgan algebra (mirror sec 10)",
+      "faces": "16 truth functions over the 4-point boolean cube (point-set mirror)",
+      "functions_preserving_meet_and_neg": 0
+    },
+    "proof_kind": "model_exhaustive_negative_check",
+    "registers_new_claim": false,
+    "result": true,
+    "scope": "the two declared finite structures only; NOT a claim about the real interval I (F-011 / 015 sec 5)"
+  },
+  "scope_boundary": {
+    "delay_grammars": 7,
+    "point_set_grammar": 1,
+    "symbolic_horn_grammars": "12 grammars of backend symbolic-horn-v1 are structurally unable to express any delay/V2 witness (missing delay_index_max etc.); schema-level BACKEND_MISMATCH, not mechanically checked in this unit; this is a scope boundary, not a proven disjointness (gap B of 修订片 018, unchanged)"
+  },
+  "registered_gap": "Atria的方案/修订片/018 §3(A): the interval-I oracle does not exist (the point-set mirror carries the boolean law x&&~x=0 for free, while I is a De Morgan algebra in which it fails; the mirror proves in §10 via DM3 that the point-set model is not complete).  This grammar closes the DESIGN gap by re-interpreting the three structural V2 axes on DM3, the standard non-boolean De Morgan algebra, so the separations can be confirmed by the native kernel in an algebra where the boolean law FAILS.",
+  "scope_disclosure": "ORACLE SCOPE (015 §5 / F-011 / 017 §5, upgraded by this unit): the oracle of this grammar is the Cubical Agda 2.8.0 native kernel on formal/V2DM3.agda.  DM3 is a NON-BOOLEAN De Morgan algebra, not the real cubical interval I (whose equality is not decidable, so no Bool-valued separates can be written on it).  The confirmed content is the NEGATIVE statement that no boolean law is needed (boolLawIndependence, kernel-accepted): the three structural separations are produced in an algebra where x&&~x=x!=0.  Scope identifier: DM3_DE_MORGAN_CONFIRMED_NON_BOOLEAN_LIFT; interval_i_confirmed = false.  Lifting DM3 to all De Morgan algebras or to I is NOT claimed.  registers_new_claim: false except the negative mechanical fact that the boolean law is not needed, which the kernel checks on this specific algebra."
+}

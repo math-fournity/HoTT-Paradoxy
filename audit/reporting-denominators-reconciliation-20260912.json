@@ -1,0 +1,96 @@
+{
+  "schema_version": "reporting-denominators-reconciliation/v1",
+  "generated_by": "scripts/audit/reconcile_reporting_denominators.py",
+  "read_only": true,
+  "sentences": {
+    "source": "AI对话录/sentence_ledger_annotated.json",
+    "total": 2369,
+    "missing_anchor": 0,
+    "traversal_units": 171,
+    "units_by_src": {
+      "codex": 38,
+      "gemini": 22,
+      "web": 111
+    },
+    "by_src": {
+      "codex": 234,
+      "web": 464,
+      "gemini": 1671
+    },
+    "by_author_class": {
+      "user": 849,
+      "platform": 51,
+      "ai": 55,
+      "relay": 28,
+      "relay-gemini": 142,
+      "relay-gpt": 1244
+    }
+  },
+  "user_messages": {
+    "source": "audit/user-message-disposition.jsonl",
+    "total": 125,
+    "by_platform": {
+      "LocalGPT": 47,
+      "WebGPT": 56,
+      "Gemini": 22
+    },
+    "by_input_role": {
+      "primary": 88,
+      "supplemental": 37
+    },
+    "by_source_file": {
+      "Codex-HoTT-2-用户消息提取-20260911.md": 10,
+      "ChatGPT-HoTT-Main-用户消息提取-20260911.md": 56,
+      "Gemini-AI对话录-用户消息提取-20260911.md": 22,
+      "Codex-HoTT父线程-01a059c1-用户消息提取-20260911.md": 31,
+      "Codex-并行会话-素数与归档-用户消息提取-20260911.md": 6
+    },
+    "supplemental_parallel_session": 6,
+    "excluded_out_of_scope": 32,
+    "interpretation": "125 archived user records = 119 historical dialogue messages (56 WebGPT + 41 LocalGPT Codex [main 10 + parent 31] + 22 Gemini) reconciled inside the authoritative ledger; the +6 delta is the out-of-scope parallel-session supplement, whose six records are all EXCLUDED_OUT_OF_SCOPE."
+  },
+  "claims_frozen": {
+    "source": "audit/claim-evidence-ledger.jsonl",
+    "total": 2396,
+    "owners": 24
+  },
+  "claims_live_recount": {
+    "rule": "build_history_ledgers.py::build_claims against current 理解章节/*.md",
+    "owner_dir": "理解章节",
+    "total_in_frozen_owner_set": 2419,
+    "owners_identical_count": 22,
+    "owners_identical_sum": 2268,
+    "owners_grown": {
+      "理解章节/C0-当前整合审计与证据边界-20260912.md": [
+        82,
+        91
+      ],
+      "理解章节/README.md": [
+        46,
+        60
+      ]
+    },
+    "owners_grown_delta": 23,
+    "new_owners_after_ledger": {
+      "理解章节/C1-后续研究方向独立复审-20260912.md": 233,
+      "理解章节/C10-N11-A方向候选生成-20260912.md": 67,
+      "理解章节/C2-历史悖论谱与HoTT处理机制全解-20260912.md": 430,
+      "理解章节/C3-HoTT悖论后续主攻方向与判别路线-20260912.md": 293,
+      "理解章节/C4-HoTT自反真理验证回环与理论经济学-20260912.md": 470,
+      "理解章节/C5-十机证明后的悖论距离与自然消费者审计-20260912.md": 183,
+      "理解章节/C6-新候选生成与派生开发消费者审计-20260912.md": 86,
+      "理解章节/C7-post-N6距离综合与剩余域选择-20260912.md": 101,
+      "理解章节/C8-ERCF-3前置评估与最小代理任务-20260912.md": 159,
+      "理解章节/C9-W51命题化与RP-B01层映射-20260912.md": 106
+    },
+    "new_owners_sum": 2128,
+    "total_all_live": 4547
+  },
+  "conclusions": [
+    "2,369 (user sentences) and 2,396 (frozen chapter claims) are different units with different sources; they are not competing counts of one ledger.",
+    "2,396 is exactly the frozen claim count of the 24 owners at build time. 22 of those 24 owners reproduce their frozen count exactly today; only README.md and C0 grew after the ledger was frozen.",
+    "The live claim surface is now larger than the frozen ledger because the C-series syntheses were added after the ledger build; the frozen 2,396 remains the denominator for the evidence queue until a re-extraction is explicitly authorized.",
+    "119 vs 125 is a scope difference (historical dialogue messages vs archived records including the excluded parallel-session supplement), not a lost set."
+  ],
+  "no_claim": "accounting only; no mathematical claim is created or upgraded"
+}

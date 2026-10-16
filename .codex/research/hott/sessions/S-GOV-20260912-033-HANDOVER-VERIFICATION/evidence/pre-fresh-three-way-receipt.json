@@ -1,0 +1,131 @@
+{
+  "schema_version": "fresh-three-way-verification/v2",
+  "status": "PASS_WITH_SCOPE",
+  "revision": 32,
+  "three_way_order": [
+    "核心认知.md",
+    "方向追踪.md",
+    "全景视野.md"
+  ],
+  "full_trio_input_fidelity": [
+    {
+      "path": "核心认知.md",
+      "sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b",
+      "bytes": 32253,
+      "lines": 337,
+      "ranges": [
+        [
+          1,
+          337
+        ]
+      ],
+      "status": "FULL_EMITTED_BYTES_MATCH"
+    },
+    {
+      "path": "方向追踪.md",
+      "sha256": "cb32181f3d742e99893e075c467513c8146aefae66747e657ae700e90959c7fa",
+      "bytes": 24772,
+      "lines": 161,
+      "ranges": [
+        [
+          1,
+          161
+        ]
+      ],
+      "status": "FULL_EMITTED_BYTES_MATCH"
+    },
+    {
+      "path": "全景视野.md",
+      "sha256": "9fcf3b0852474af918b7854e8357599fc4fe4a64869d1654e56b861b84a5ec99",
+      "bytes": 27570,
+      "lines": 144,
+      "ranges": [
+        [
+          1,
+          144
+        ]
+      ],
+      "status": "FULL_EMITTED_BYTES_MATCH"
+    }
+  ],
+  "profiles": {
+    "governance": {
+      "snapshot": "f908a4fd6546df80b2c48438c983a61c3671ee98e7fa249ceff696a4383a9dc4",
+      "documents": 15,
+      "bytes": 254638,
+      "lines": 2878,
+      "coverage": {
+        "status": "FULL_EMITTED_BYTES_MATCH",
+        "documents": 15,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    "research": {
+      "snapshot": "455c1c84d8553ea1589001dd7edf55f99b754af1796fbdd1b0869d7a35f7ba6e",
+      "documents": 20,
+      "bytes": 334830,
+      "lines": 3786,
+      "coverage": {
+        "status": "FULL_EMITTED_BYTES_MATCH",
+        "documents": 20,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    }
+  },
+  "explicit_task_hydration": {
+    "record": "A-AISTUDIO-COVERAGE-001",
+    "snapshot": "21bb43f2502ca8cea27ca30bd4f9bcd88f320361b6a141f885cf69c48105e4c3",
+    "documents": 28,
+    "hydrated_records": [
+      "S-INTEGRATION-20260912-001",
+      "A-AISTUDIO-COVERAGE-001"
+    ]
+  },
+  "cold_assets_absent_from_default": [
+    ".codex/tools/cognition_runtime.py",
+    "audit/core-cognition-generation-3-transition-20260912.json",
+    "audit/core-cognition-generation-4-transition-20260912.json",
+    "audit/core-cognition-generation-transition-20260912.json",
+    "audit/coverage-summary.json",
+    "audit/cross-source-reconciliation.json",
+    "audit/ledger-summary.json",
+    "audit/understanding-chapter-merge-manifest.json",
+    "scripts/audit/verify_core_cognition.py",
+    "scripts/audit/verify_cross_source_reconciliation.py",
+    "scripts/audit/verify_fresh_three_way.py",
+    "scripts/audit/verify_history_ledgers.py",
+    "scripts/audit/verify_understanding_merge.py",
+    "sources/SOURCE_MANIFEST.json",
+    "核心认知.manifest.json"
+  ],
+  "historical_sessions_auto_loaded": [],
+  "negative_cases": {
+    "wrong_snapshot": "STALE_SNAPSHOT_RESTART_ALL",
+    "incomplete_coverage": "COVERAGE_INCOMPLETE: .codex/research/hott/sessions/S-GOV-20260912-032-ERCF-TRUNCATION-FINAL-ALIGNMENT/SESSION.md",
+    "tampered_chunk": "COVERAGE_BODY_MISMATCH",
+    "profile_snapshot_mismatch": "STALE_SNAPSHOT_RESTART_ALL"
+  },
+  "fresh_process_child": {
+    "g": {
+      "snapshot": "f908a4fd6546df80b2c48438c983a61c3671ee98e7fa249ceff696a4383a9dc4",
+      "documents": 15,
+      "bytes": 254638
+    },
+    "r": {
+      "snapshot": "455c1c84d8553ea1589001dd7edf55f99b754af1796fbdd1b0869d7a35f7ba6e",
+      "documents": 20,
+      "bytes": 334830
+    },
+    "first_three": [
+      "核心认知.md",
+      "方向追踪.md",
+      "全景视野.md"
+    ],
+    "historical": [],
+    "model_context": "NOT_CERTIFIED_BY_TOOL"
+  },
+  "model_context": "NOT_CERTIFIED_BY_TOOL",
+  "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED",
+  "mathematics": "NOT_CERTIFIED",
+  "interpretation": "Fresh Python processes verified exact trio bytes, layered plans, explicit hydration and fail-closed negatives. No model ingestion/comprehension claim is made."
+}

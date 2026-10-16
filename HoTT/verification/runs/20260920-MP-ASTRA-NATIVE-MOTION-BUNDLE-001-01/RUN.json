@@ -1,0 +1,67 @@
+{
+  "claim_ids": [
+    "C-318",
+    "C-319"
+  ],
+  "command_argv": [
+    "/usr/bin/env",
+    "XDG_DATA_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-data",
+    "XDG_CONFIG_HOME=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/xdg-config",
+    "TMPDIR=/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/tmp",
+    "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "--ignore-interfaces",
+    "--library-file=/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath/no-erasure/AGDA_LIBRARIES",
+    "-l",
+    "agda-unimath-no-erasure",
+    "-i",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/HoTT/formal/agda-unimath",
+    "--dependency-graph=/Volumes/D/HoTT_AI_HANDOFF_20260911/audit/astra-native-spatial-bound-20260920/formal-imports.dot",
+    "HoTT/formal/agda-unimath/hott-z/NativeMotionComplete.agda"
+  ],
+  "completed_at_utc": "2026-09-20T23:45:20.318362+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 445.532494,
+  "environment": {
+    "bytes": 770,
+    "path": "environment.txt",
+    "sha256": "85fcba201cf82fc1b1454a7e66be1615168baadb9ce2259111590cc060761cef"
+  },
+  "exit_code": 0,
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index": {
+    "path": "HoTT/CLAIM_EVIDENCE_MATRIX.md",
+    "registry_path": "HoTT/verification/PROOF_VERSION_CLOSURE.json",
+    "relation": "PRIMARY_RUN",
+    "sha256": "f8cb49db47f018fd163d9236d2b4add63b15344bba0f0318db6e876eedb9c44b"
+  },
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "non_goals": [
+    "The bound256 is a proved coarse coordinate bound, not the Lean bound60, an optimal bound, velocity, length or a physical implementation claim.",
+    "Weak coverage is not asserted unconditionally; its criterion does not prove independence from the whole base or necessity of LEM, and is not necessity for every possible homeomorphism.",
+    "No whole Lean/native model translation, global consistency certificate, ambient-plane process or complete four-stage target result. Inherited foundation postulates remain explicit."
+  ],
+  "proof_assistant": "Agda (agda-unimath)",
+  "proof_assistant_version": "Agda version 2.8.0-3d04bac\nBuilt with flags (cabal -f)\n - optimise-heavily: extra optimisations\n - use-xdg-data-home: install and locate data files under $XDG_DATA_HOME/agda/$AGDA_VERSION by default instead of the location defined by Cabal",
+  "proof_id": "MP-ASTRA-NATIVE-MOTION-BUNDLE-001",
+  "run_id": "20260920-MP-ASTRA-NATIVE-MOTION-BUNDLE-001-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "For the unchanged closedMotion on the original closed time/parameter square and unchanged motion on closed time/open parameter, prove both coordinate absolute values are at most256. Construct a single NativeMotionEvidence record with the exact maps: joint continuity, slice image homeomorphisms, interior agreement, original n/m initial/final diagrams, exact endpoint meeting time, complete final fibers, coordinate bounds, and explicit conditional Weak output. For this fixed final parametrization, mere coverage of every original Weak-puncture point is logically equivalent to Circle Lift and RealNonzeroApartness; supplying Lift gives a chosen original parameter.",
+  "source_manifest": {
+    "bytes": 19719,
+    "path": "source-manifest.json",
+    "sha256": "fd7922322fd51138e97ce57e673c6a0a6f51938aa707964163c196d8f054e85a"
+  },
+  "started_at_utc": "2026-09-20T23:37:54.785868+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 214509,
+    "path": "stdout.txt",
+    "sha256": "c4f5be01586868de1edb5e9012dfd91177fad853dedab6c9814a8da6e4fccb9a"
+  },
+  "theory_variant": "Agda without-K HoTT with explicit foundation postulates; local agda-unimath derivative removing primEraseEquality reduction (not unmodified upstream; not a full soundness certification)"
+}

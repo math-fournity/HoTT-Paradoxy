@@ -1,0 +1,12 @@
+$ python3 -B Cloud-Opus审计并补完GLM/tools/check_doc_citations.py Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/check-doc-tools/neg-cite.md
+ok    UIPEscape.agda:52  ->  typeIsNotASet : ¬ isSet Type
+FAIL  Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/check-doc-tools/neg-cite.md:6  quoted statement is not verbatim in the cited file(s): typeIsNotASet : isSet Type
+FAIL  UIPEscape.agda:5000–5000 is beyond the end of the file (68 lines)  [Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/check-doc-tools/neg-cite.md:7]
+WARN  UIPEscape.agda:60  ->  overASet setA B p q b = cong (λ r → subst B r b) (setA _ _ p q)
+FAIL  Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/check-doc-tools/neg-cite.md:9  cited file does not exist: HoTT/formal/claude-cg001/uip-escape/NoSuchFile.agda
+FAIL  Cloud-Opus审计并补完GLM/附件/工作过程文件/自查轮/check-doc-tools/neg-cite.md:9  quoted statement is not verbatim in the cited file(s): typeIsNotASet : ¬ isSet Type
+
+line citations checked: 3  (WARN: 1)
+formal-looking quotes checked: 6  verbatim: 4
+RESULT: FAIL (4)
+exit=1

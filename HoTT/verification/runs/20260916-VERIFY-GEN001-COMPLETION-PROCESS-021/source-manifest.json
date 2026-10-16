@@ -1,0 +1,72 @@
+{
+  "schema_version": "gen001-source-manifest/v1",
+  "run_id": "20260916-VERIFY-GEN001-COMPLETION-PROCESS-021",
+  "search_run": {
+    "case_revision": 1,
+    "path": "/Volumes/D/HoTT-machine-overview/machine-overview/runs/20260916-SEARCH-GEN001-COMPLETION-PROCESS-001/RUN.json",
+    "run_id": "20260916-SEARCH-GEN001-COMPLETION-PROCESS-001",
+    "sha256": "49d0e71753c4397678dc73219fb4cc6ddb27dd8cd700997b9221d019395077dc"
+  },
+  "case": "machine-overview/cases/MS-TASK-GEN001-COMPLETION-PROCESS-001/case-revision-1.json",
+  "grammar": "machine-overview/grammars/l1-completion-process-v1.json",
+  "task": "machine-overview/tasks/MS-TASK-GEN001-COMPLETION-PROCESS-001.json",
+  "profile": "machine-overview/profiles/l1-completion-process-v1.json",
+  "native_model": {
+    "agda_binary": "/Volumes/D/HoTT-toolchain-cache/agda-v2.8.0-macos-arm64/agda",
+    "agda_binary_sha256": "ac285c193c30ed0f5e1073a2623ae312c7165a4d344940b5c504ce6a2fe1741e",
+    "agda_version": "2.8.0-3d04bac",
+    "cubical_library_file": "/Volumes/D/HoTT-toolchain-cache/cubical-v0.9/cubical/cubical.agda-lib",
+    "cubical_library_file_sha256": "cc95fd3ef5ec98226f84883b5a8a9e527b21c7bd03901967aa4cb9495f2fdbd1"
+  },
+  "witness_id": "WV-0021",
+  "candidate_ast_sha256": "431101ed8ab7a665cb112e3e5282e716c7a492c5c88033a18077207a77581c55",
+  "generated_sources": [
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-021/generated/Controls.agda",
+      "sha256": "8784030e91c19899c8c95f5d1fc8aebecec26f453d011a9a2994117486b92892"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-021/generated/Falsify.agda",
+      "sha256": "e257cd91203cc560fad61c61f96f18d04f2d78bcd1e7e2fb209bdd8177bf6924"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-021/generated/Proof.agda",
+      "sha256": "dd411c0deadf799f6d6f8a4538b18f0b3d1d2f14b777d61ce1e795b3c42e7b43"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-021/generated/Target.agda",
+      "sha256": "036eef3b4e16872d3ad3080f2a3e8e6e8198185c134b86e536b9b08b5676898b"
+    },
+    {
+      "path": "verification/runs/20260916-VERIFY-GEN001-COMPLETION-PROCESS-021/generated/Verify.agda",
+      "sha256": "1116ecb23535a343c6f7413fd90cdcf3b3fd63621f33ac905fcc2697b45a3038"
+    }
+  ],
+  "kernel_arms": {
+    "verify": {
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout_sha256": "c20f01a8dcfd475665b515a2c6886f3dd2a0dae3b546423391600476f5d573e4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "controls": {
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout_sha256": "1b1f2db91f9006491abdb4a56d74d93c52afbf8b7001fdd4f3a7fbdd66bd06bd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "negative-control": {
+      "exit_code": 42,
+      "timed_out": false,
+      "stdout_sha256": "f6ce63b0125bec70bea07d312eda414ac7822db24169afd6e10c176bf24ab600",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "verify-replay": {
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout_sha256": "c20f01a8dcfd475665b515a2c6886f3dd2a0dae3b546423391600476f5d573e4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "top_level_convention": "top-level stdout/stderr/environment are the primary 'verify' arm's receipts; every arm's own receipts remain under kernel/<arm>/."
+}

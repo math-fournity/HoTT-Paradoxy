@@ -1,0 +1,299 @@
+# Workflow：Repo Cognition Governance
+
+## 目标
+
+把任务全过程产生的持久新认知、修正、退休、replacement、索引和状态写回唯一正确真值源，
+让当前 AI 重新激活新版本，也让未来 AI 可以发现、区分、验证和更新。
+
+## 认知闭包前置
+
+写回前必须已有本任务认知闭包，并在执行中/执行后审计新增、变更、失效和不再相关的事实是否改变
+闭包边界。治理不是只在 final 前运行的“收工清单”：用户修正、关键证据变化、自然工作单元、压缩/
+交接前都可能触发；写回后必须重新激活受影响 owner。治理的产出不是文档数量，而是让当前与下一次
+闭包更快、更准、更可证；无法说明这一作用的写回不应制造。
+
+## 持续闭包写回循环
+
+标识：`COGNITIVE_CLOSURE_CONTINUITY_V1`。每次触发先形成差分：
+
+```text
+new facts / changed facts / invalidated facts / no-longer-relevant facts
+conflicts / unknowns / decisions / evidence / next action / reopen-or-stop triggers
+```
+
+随后执行增删改查：新增持久认知进入唯一 owner；错误、被替代或失去任务资格的内容退出 active set，
+默认以 closed/superseded/replacement/Git 保留；current owner 原位修改并传播 stale；索引只路由，材料事实
+回读 owner。物理删除仍需独立授权。完成后更新当前 working set，确认后续推理不再消费旧复述、旧状态或
+旧证据版本。
+
+## 任务闭包持久化路由
+
+标识：`TASK_CLOSURE_ADMISSION_V1`。治理写回前复核来源 verdict 与持久化 projection。两者互相独立：
+复用了已有 Capsule 不表示不能更新 owner；建立了新逻辑闭包也不表示必须创建文件。
+
+- `CONTEXT_ONLY`：没有持久事实变化，不写文件或索引；
+- `OWNER_UPDATE`：用户原意进 rulings，要求进 Feature，稳定合同进 design/ADR，实现进 code/config，证据进
+  test/quality/run，当前态/下一动作进 MEMORY；必要位置只加薄指针；
+- `SEED`：只在未来/远端 Topic 跨 Session 需要保存 purpose/depends_on/entry_points/unknowns/reopen_if 时写入
+  Topic owner，不预写答案；
+- `CAPSULE`：只在 high fan-out/risk/frequency、多 Session 重复成本、复杂 negative/history 或用户显式复用审计，
+  且 Topic READY、当前证据可回答闭包问题时物化；保存 snapshot、claims/evidence/conflicts/unknowns、边界、
+  freshness/invalidation 和 owner pointers，不复制 current truths；
+- `AUDIT_CLOSURE`：只在用户显式要求或高风险裁决需独立 claim-evidence-conflict-unknown artifact 时使用现有
+  auditable closure 路由。
+
+README/docs index 只在出现新的可发现入口时更新；MEMORY 只保存 current queue/recovery/next pointers，不能演化成
+全部闭包 registry。若新内容跨 requirement/evidence/next action，分别写各自 owner，再用 pointer 连接。完整合同见
+`../design/detailed/任务到认知闭包选择与持久化合同.md`。
+
+## 步骤
+
+1. 对全部现有目标文件运行 Git baseline；保留其他 Session 的 dirty 变化。
+2. 确认用户明确需求、探索想法、AI 建议、实现选择和临时参数的不同身份。
+3. 对 T01-T26 做完整影响检查，加载受影响领域 Skill；答案可以是“不变化”。
+4. 按职责写回：rulings=原意，Feature=当前要求，design=稳定设计，代码/测试/运行=实际证据，
+   README=路由，MEMORY=current queue/open/closed/当前态，history=谱系/替代；同时确认 projection 是
+   `CONTEXT_ONLY/OWNER_UPDATE/SEED/CAPSULE/AUDIT_CLOSURE` 中相称的一项。
+5. 所有正式 repo 若缺出生骨架，执行 bootstrap workflow；小 repo 不例外。
+6. dev-docs 定型时只抽取仍成立结论；旧文档标历史/替代，不维护两份当前规范。
+7. 实现、验证和运行观察分别更新，不能因文档或测试文件存在提高状态。
+8. 更新旧入口、废止关系、路径和 README；不机械修改无变化文件。
+9. 运行相称测试/直接证据、布局/链接/`git diff --check`。
+10. 报告哪些认知资产变了、哪些 lane 不变、哪些事实仍未知。
+11. 搜索本轮涉及的旧状态和“状态修正/最新版/以此为准”等覆盖语句；当前 owner 仍冲突时必须
+    原位收敛，不能把后置声明当作冲突已解决。
+12. 新建或改变 Feature 语义/交付状态时，原位更新 `SRC/DES/IMP/VER/EVD`，并确认 evidence bundle
+    逐 Feature 映射且反向列出 ID；无法证明的类别保持 gap，不能因版本发布自动补齐。
+13. 将被修正、被否定或已无任务资格的认知从当前 active/queue/working assumption 移出；保留历史与
+    replacement，检查依赖旧认知的计划、结论和证据状态是否需要 stale/降级。
+14. 写回后回读 current owner，刷新 closure 的直接激活集与索引延迟集；若恢复材料仍指向旧版本，
+    报 `RECOVERY_SOURCE_MISMATCH` 并停止相关工作。
+
+## 意图归一
+
+- 用户明确要求/修正 -> accepted Feature/constraint；
+- 用户探讨 -> candidate/dev-doc；
+- AI 推导 -> proposal；
+- 稳定实现选择 -> design/ADR，除非有独立产品语义；
+- 临时参数 -> experiment/config fact；
+- bug -> 实现偏离既有需求，通常不重写需求；
+- 运行发现 -> MEMORY/incident/evidence，稳定后再沉淀 docs。
+
+裁定状态与交付状态分开；documented、implemented、verified、one-run observed 不互相替代。
+
+## docs、设计与系统岛屿
+
+- 稳定 doc 只在跨组件/精确/高风险/重复误解/用户明确要求/证据定型时展开；完整 topic README
+  可以先存在，但不得编造事实。
+- dev-docs 沉淀只抽取仍成立结论，更新 Feature/README 锚点，旧文档标历史/替代，不双写当前规范。
+- system design 管组件/拓扑/生命周期/失败域/非功能取舍；detailed design 管接口/schema/状态机/
+  并发/幂等/恢复/迁移/测试合同。语义不变量和版本字段分开。
+- 超级 repo 根 README 只登记系统岛屿生命周期和路由；活跃岛有完整认知包，历史岛保留最小
+  遗产包，不批量迁移全部历史。
+
+## Feature 认知锚点写回
+
+- Feature row 只保存 current requirement/status 和紧凑 `SRC/DES/IMP/VER/EVD` 路由；
+- quality/release report、显式 auditable closure 或等价 evidence bundle 保存完整 claim-to-asset map；
+- 多个相关 Features 可以共享 evidence bundle，但每个 ID 的 claim、实现、验证和 verdict 必须可分；
+- `已验证` 只有在实现、验证和证据包都与当前 snapshot 对齐时成立；测试文件存在不够；
+- 旧自由文本锚点按 `LEGACY_PARTIAL` 迁移，高风险/current queue/touch-on-change 优先；
+- 路径移动/删除时同步 owner、消费者、Feature anchors 和 replacement，不只依赖 Trace rename 推断；
+- derived Trace 若存在，由原资产和显式语义锚点重建；治理写回不手改 parser-generated rows。
+
+## 长治理文档写回
+
+创建或重写一份重要治理文档之前，先判断其预期主题、维护方式和导航路径。若已可预见会有多个稳定主题、
+大量章节或长期顺序记录，在创作第一版前就规划 canonical index + shards，不先制造巨型 monolith。已判定过长、
+持续增长、频繁追加或导航困难的活跃文档应转为索引与分片；迁移是有基线、consumer 扫描和内容对账的有界工作，
+不是无差别全库批处理。
+
+单 shard 建议不超过约 300 行；这只触发自然语义边界判断，不是 cap、失败、发布 Gate 或压缩目标。内容过多时
+优先继续按可命名的自然边界分片，绝不为数字压缩、删减、改写、过密排版或拆散必须整体理解的内容。
+
+采用分片后，canonical path 保留为 index。新 v2 逻辑文档的 shard root 必须与 index 文件 stem 同名，例如
+`MEMORY.md` -> `MEMORY/`；文件使用 `NNN - 子主题.md`，子主题与 index 链接标题、shard H1 一致，通常沿用原章节标题。
+Topical 写 owner shard；sequential 写 `append_target`。创建新 shard 时，在同一 commit 增加 table row 并更新
+`last_shard`；sequential 还同步 `append_target`。不得先写 shard、以后再补索引，也不得只读/只写最后一片就声称处理完整文档。
+已发布 v1 保留兼容读取；新建文档使用 v2，旧文档只在有可恢复边界和链接对账的结构迁移中升级。
+
+Topical/current-truth 载体必须修改 owner 本身。若 Feature 当前行、current design 或 owner shard 的
+旧状态已失效，不能因为原行很长就追加“状态修正/最新版/以此为准”覆盖块；这会让同一逻辑文档
+同时保留冲突的当前结论。旧状态由 Git、MEMORY/history、rulings 或 sequential 日志保留。Sequential
+只负责历史追加，不能让日志替代当前 owner。长行难维护时，按载体职责路由历史证据或在自然边界
+分片，不为 300 行压缩内容。
+
+既有单文件迁移前先 baseline/commit/annotated tag；迁移后检查标题/内容覆盖、链接、orphan、backlink
+和末分片。Validator 对超出软目标只能 NOTICE，不得为了求绿删除或压缩内容。行数单独不创建机械待办，
+但已被判定过长的活跃文档不得因历史身份永久豁免。无基线的批量分片、自动摘要器、shard 数据库和语义 Hook 仍属过度设计。
+
+## 遗留重建与结构迁移写回
+
+- `repo-legacy-reconstruction` 的 commit ledger/registries 是调查 coverage，不是第二份 current truth；
+- first-pass group/candidate 只留在 dev-docs，只有 exact diff + tip evidence 定型的结论进入稳定 docs；
+- system islands/generations、experiments、implementations、research 各自有唯一 registry identity；
+- reconstruction PASS 前不写最终 path action，不把“历史已读”冒充“当前已验证”；
+- `repo-structure-migration` 的 manifest 只拥有 path coverage/action/receipt，不复制系统规范；
+- 每个 migration wave 同步 README/Feature/MEMORY/docs/history/operations 中真实变化的职责；
+- move/retire/externalize 保留 replacement、consumer、rollback、commit/tag 和 evidence；
+- 收工检查 orphan concept/experiment/research/component/consumer、UNCLASSIFIED 和 collision remainder。
+
+## 闭合事项写回与当前队列
+
+- MEMORY 顶部先维护 current execution queue、开放问题/阻塞和开放事故，再记录 closed registry、
+  已验证事实与长日志；“当前状态一句话”不得无限追加完整历史。
+- 事故关闭时从 current/open lane 移出，保留 `CLOSED_INCIDENT`、closed_at、closure evidence、
+  still-valid lesson、reopen_if 和 current route；历史不删除。
+- superseded fact 保留 replacement pointer；draft/proposal 不进入 current queue。
+- 新证据触发重开时，保留旧关闭史并记录新 evidence/时间/范围，不能静默把 CLOSED 改回 OPEN。
+- README 只索引 queue/registry，Feature 只维护当前要求与交付状态，rulings 只保存用户原意。
+- 收工前检查：近期/高频 closed history 是否仍污染 current queue；未变化 closed items 保持不动。
+
+只有当前工作区文件存在但未进入可恢复 commit 时，状态必须写成 `implemented locally,
+not version-closed`，不能声称跨 worktree/机器可恢复。
+
+## 自然工作单元、压缩与交接
+
+自然工作单元、用户修正、上下文压缩前、Session 结束或交接时，使用现有 owner 保留：当前目标/阶段、
+已接受与已失效判断、决定性证据及版本、冲突/未知、下一动作和复审条件。普通任务不为此强制创建
+新的“闭包报告”；MEMORY/Feature/rulings/design/Topic/Goal/Git 已能承担时必须复用。
+
+没有持久事实变化时明确 `NO_CHANGE(reason)`，不为证明“做过治理”制造文件。只有对话中复述改变但
+current truth 未改变时，更新当前 working set 即可；反之，持久事实变化不得只留在模型上下文。
+
+## 并行 Worktree 写回与单一 Current-Truth 集成
+
+标识：`PARALLEL_WORKTREE_COGNITION_V1`。多 worktree 能隔离 working files/index，却不能为 Feature、
+MEMORY、current design、STATE、checkpoint、revision 或 projection generation 自动建立单一顺序。存在并行
+写者时，写回前必须把当前角色定为唯一 `CANONICAL_INTEGRATOR`、`CONTRIBUTOR` 或 `AUDITOR`，并冻结
+canonical target、expected target HEAD、共同 base、candidate source OID 和 current-owner path set。
+
+Contributor 只提交独占实现/证明/测试/证据路径及必要的 branch-local relay。Relay 必须标
+`CANDIDATE_NOT_CURRENT`，保存 base/source OID、范围、变更路径、测试/运行、冲突/未知、建议写回和集成状态；
+它用于自身跨 Session 恢复和交付，不修改 canonical queue，不分配项目 revision/checkpoint，不把候选 Feature/
+MEMORY/STATE 变成第二 current truth。普通短任务可用 commit message/既有任务记录承载同一信息，不强建文件。
+
+Integrator 的顺序是：
+
+1. 核对 candidate exact OID、base、write-root/path ownership、dirty/index 和 expected target HEAD；
+2. 复核 diff、需求、证据、失败和目标分支自 candidate base 后的变化；
+3. 只集成被接受的独占实物；merge/cherry-pick/manual extraction 由历史和语义决定；
+4. 在 canonical target 上原位更新 current owners，并为每个接受的逻辑变化分配一次且仅一次 revision/checkpoint；
+5. 重跑受影响验证，提交集成结果，并回传 integrated commit、accepted/deferred/rejected 部分和 stale/retry 条件。
+
+Contributor 若误改 current owner，不直接把整提交带入目标，也不删除或重写分支来隐藏分叉。保留候选 commit，
+从 base/source/target 三方提取独占实物，再由 integrator 在 canonical owner 中重述接受的语义。两个分支同号
+revision、同名 checkpoint 或 clean text merge 都不构成集成成功；历史收据不得为求线性而追溯改号。
+
+共享 refs/tags/config 仍由 integrator 协调。Target HEAD、owner schema、依赖或用户要求变化会使旧审查失效；
+重新闭合后再集成。完整合同见 `../design/detailed/Git多Worktree并行认知与Current-Truth集成合同.md`。
+
+## 单元结束后的父级验收与返回主链
+
+BREADTH_FIRST_EXECUTION_V1。每个自然工作单元结束，区分新增可用行为/父集成证据、关键未知或风险消除、纯准备工作。调查和DEFER可以有价值，但数量不累加成父能力完成；写回要说明其真实贡献及可消费的下一动作。
+
+局部已满足当前需要后，回看尚未贯通的主链；新增可选前置不因刚被发现或已有投入而自动升级。需要继续深入时给出直接必要性、较小替代和返回条件，在已有授权内自主判断，不新增用户审批Gate。
+
+当前结果/未完成范围/返回条件原位进入已有owner、plan或MEMORY；历史不冒充当前，无变化职责不改。父任务完成仍以全部已接受范围的实际集成验收为准，不以子项勾选或报告齐全代替。
+
+### 切片完成后的范围与演进记录
+
+以Iterative and Incremental Development / Evolutionary Design回看Walking Skeleton、Tracer Bullets与Vertical Slicing的增量：技术路径已通不代表所有已接受用户活动已覆盖。复用User Story Mapping的范围视角，在原plan/Topic/MEMORY写明实际可用结果或关键未知减少、父范围剩余及下一最小可验结果；小任务不强建地图或记录平台。
+
+局部达到当前需要后返回父目标，不以YAGNI为由省略当前质量/恢复，也不因已有投入保留错误抽象。共同语义、变化原因和维护成本决定抽象，不设重复次数Gate。骨架、完整旅程、全部accepted范围和生产发布分别报告；第一版可重构/替换，ADR仍保留理由、替代、后果及复审条件。研究与审计按原授权交付，术语和报告数量不证明行为收益。
+
+## 防过度设计
+
+不默认建立每需求文件、手工全函数 trace、repo 镜像数据库、工作包平台、文档状态机、语义 Gate、
+常驻审计 AI、每 Session 完整交接或语义 Hook。新增机制需要重复真实失败/重大事故、直接预防
+关系、维护者、最小试点、验证和退役条件。
+
+有边界、可重建的 parser/indexer-derived Trace 不因名称自动被禁止，但必须先满足真实失败、owner、
+coverage、incremental/full parity、收益和退役 Gate；它不能成为手工第二真值或所有 repo 默认平台。
+
+完整历史重建的一行一 commit ledger 和全路径 migration manifest 是用户目标要求的有界 coverage
+authority，不属于禁止的通用 trace 平台；不得扩展成每函数、每 Session 或所有普通 repo 的常驻账本。
+
+## 治理自身变化
+
+治理方法、理念、Skill、Hook、模板或版本变化时：
+
+1. 先判断真值职责：产品无关共享方法进 `/Users/aurolafly/codex`；产品机制和 host 专属方法进
+   对应产品主库；OpenCode 使用 `/Users/aurolafly/opencode`；
+2. 先更新职责内主库，再同步本次受影响的 host runtime；
+3. OpenCode 自身治理额外完整加载 `opencode-governance-maintainer` 并执行 G01-G12；
+4. 各受影响 repo 分别验证、精确 commit、clean；
+5. 分别打同名 annotated governance tag 或记录显式兼容关系；
+6. 不自动 push。
+
+瘦身/拆分治理内容时，还要与上一 tag 做概念对照；非显然冗余信息没有明确去向时不得删除，
+并用指导力验收问题证明未来 AI 仍能正确建立闭包和写回。
+
+## 治理框架自维护 Gate
+
+本 Gate 在修改治理原则、AGENTS、核心/领域 Skill、workflow、模板、validator、Rule/Hook/Plugin、
+真值职责、host adapter 或版本合同时强制触发。它复用 `repo-cognition-governance`，不另建职责
+重叠的 Codex maintainer Skill。
+
+### 必读认知包
+
+1. `/Users/aurolafly/codex/AGENTS.md`、根 README、MEMORY、相关 Feature/ruling/ADR；
+2. 当前 system/detailed design、完整技术说明中的限制与不可变量；
+3. 真值同步、Git/tag、指导力完整性和发布合同；
+4. 受影响产品专属主库及 runtime AGENTS/Skills/config/validator；
+5. 上一治理 tag/diff、当前 status、并行改动和真实验证证据。
+
+当前 cwd 不在主库也不能跳过其 AGENTS。索引负责定位，不能用 README/MEMORY 摘要替代设计、
+runtime 或产品限制原文。缺失、损坏、dirty 冲突或时效不明时，继续调查或降低/阻塞发布。
+
+### C01-C10 固定影响清单
+
+| ID | 必须判断的资产组 |
+|---|---|
+| C01 | 用户裁定、Feature、验收与候选/已采纳身份 |
+| C02 | 共享 system/detailed design、ADR、真值职责、限制与开放风险 |
+| C03 | canonical workflow/reference 与 host 自包含 Skill 副本 |
+| C04 | global/project AGENTS、启动恢复协议、description 与确定性路由 |
+| C05 | templates/bootstrap、README/docs/MEMORY/Feature 认知锚点/认知闭包路由、替代指针 |
+| C06 | validators、启动恢复负向测试、fresh/comprehension/behavior probes |
+| C07 | Codex config/context/Rules/Hooks/plugins、权限与 secret 边界 |
+| C08 | 受共享事实影响的产品专属主库和 host adapter |
+| C09 | VERSION/marker、CHANGELOG、releases、commit/tag/rollback |
+| C10 | history、superseded 资产、未知与未变化 lane |
+
+每组必须写出 `UPDATE`、`NO_CHANGE(reason)` 或 `NOT_APPLICABLE(reason)`，remainder=0。该清单是
+影响闭包，不要求机械修改全部文件。方法主库先更新，runtime 后同步；不受影响的产品/host 不改，
+但发布证据保留具体 NO_CHANGE 理由。完成后运行正向、负向和相称行为验证，再逐 repo commit/tag。
+
+## 完成判据
+
+一类当前事实一个真值源；当前路由可达；状态与证据一致；旧入口不误导；并行工作未覆盖；
+没有借治理制造工作包、全量 trace、文档状态机或语义 Hook。
+
+## 整备清单与Git行为写回
+
+PREPARATION_CLOSURE_V1。当前整备/交接范围的设计选择必须落定到唯一owner，逐项维护文档、实现、真实验收与运行状态；同时覆盖未来接管者和按需审计者的入口、工具、责任与恢复。自然单元、角色/版本/依赖变化、失败/修订和压缩前检查失效。缺凭据、批准和证据保持准确状态；清单勾选不产生READY，交接READY不产生父业务完成。完整方法见`/Users/aurolafly/codex-worktrees/git-ops-prep-3.13.0/docs/governance/整备工程与交接认知闭包规范.md`。
+
+GIT_OPERATIONS_V1。工作结束核actual commit/tree、精确路径、完整index、剩余dirty所有权、集成/tag/push/发布状态和恢复consumer；不把他人staged混入、不为clean丢资料、不以commit代替验证。复杂协作/冲突/恢复/发布前完整读同目录`Git协作集成与恢复行为规范.md`，沿用当前用户授权；运行与只读审计角色不得临场开发或取得Git mutation权。
+
+
+## vNext 合同消费点（VNEXT-007 skill 层，v3.21.0）
+
+标识：`VNEXT_SKILL_CONSUMPTION_V1`。本节不改变既有步骤，只声明 vNext 合同的读取与消费位置；合同位于
+`/Users/aurolafly/codex/docs/design/detailed/`（八份合同均为 `v1.0 stable`；`main` 工作树是研究快照，
+P1 单一 current 线收敛后改为稳定路径）。
+
+- 稳定引用形式（不依赖任何 worktree）：`git -C /Users/aurolafly/codex show governance-v3.25.0:<docs 下相对路径>`；工作树路径只是可读副本，tag 随治理版本更新。
+- 对象与 locator（一类当前事实一个 owner、指针不承载第二份全文）：
+  `Codex下一代治理框架VNEXT-004-对象与唯一Owner合同-v1.0.md` §二/§三/§四。
+- Brownfield 深度选择（ordinary onboarding vs 垂直重建）与 baseline 失效：
+  `Codex下一代治理框架VNEXT-002-Brownfield合同-v1.0.md` §六/§七/§十。
+- Greenfield Topic Map / Seed / Capsule / relay：
+  `Codex下一代治理框架VNEXT-003-Greenfield合同-v1.0.md` §二/§三/§七/§十。
+- Topic 事务、relay 字段、Goal 完成与 false-positive/negative：
+  `Codex下一代治理框架VNEXT-005-Topic执行与Goal完成合同-v1.0.md` §二–§五。
+- 证据等级、freshness/失效、CaseEnvelope 绑定（R-086）：
+  `Codex下一代治理框架VNEXT-006-验证与证据系统合同-v1.0.md` §二/§四/§五。
+
+边界：R-102只把Task→Closure、Seed/Capsule与owner语义编译进current persistence；其余合同仍为**可选消费点**。
+这不授权完整vNext runtime迁移、发布或删除。

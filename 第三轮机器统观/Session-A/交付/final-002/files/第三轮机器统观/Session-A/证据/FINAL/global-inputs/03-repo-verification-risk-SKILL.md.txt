@@ -1,0 +1,123 @@
+---
+name: repo-verification-risk
+description: Design, run, and govern evidence for tests, evals, acceptance, security, reliability, recovery, performance, capacity, cost, observability, golden data, and fault injection. Use when deciding whether a claim is implemented or verified, when risk changes, or when release evidence is required. Do not use merely because a low-risk local test file changed with no broader quality contract impact.
+---
+
+# Repo Verification And Risk
+
+## Cognitive Closure Prerequisite
+
+Before applying this Skill, fully load and execute `repo-cognitive-closure` for the current task. Direct or
+implicit invocation must recover the actual requirements, design, implementation, environment, and risks;
+existing tests do not define the closure or the whole specification.
+
+Preflight quality docs, tests, fixtures, benchmarks, audit files, and run evidence.
+
+Fully read and follow:
+
+`/Users/aurolafly/codex-worktrees/breadth-terms-3.12.1/docs/workflows/repo-verification-risk.md`
+
+Derive checks from requirements and design, scale evidence to blast radius, preserve failures, and record
+environment/version. Keep documented, implemented-pending-verification, verified, and runtime-observed states
+distinct. Report residual risk and unknowns instead of converting test volume into confidence.
+
+## Use And Do Not Use
+
+Use when defining/running acceptance, tests, evals, security/reliability/performance/capacity/cost/observability
+evidence, release readiness, or any claim that something is implemented/verified/complete. Do not load solely
+because a low-risk local test file changed and no quality/risk contract or status claim changes.
+
+## Authoritative Inputs
+
+- Current accepted requirements and design invariants/contracts.
+- Actual implementation/config/schema/dependencies and environment identity.
+- Existing test/eval/benchmark/audit/fault artifacts and their actual execution results.
+- Runtime/data/incident evidence, threat/failure/capacity model, user acceptance boundary.
+
+## Decision Rules
+
+- Derive claims/checks from requirements/design; existing tests do not define the whole specification.
+- Scale evidence to blast radius, reversibility, observability, and uncertainty.
+- Distinguish static inspection, test pass, integration, end-to-end, runtime observation, and independent audit.
+- A pass covers only its assertions, fixtures, environment, versions, and sample; record all.
+- Preserve failures and negative results; change a test only after proving the specification/assumption changed.
+- Security/reliability/performance quality includes prevention, detection, response/recovery, and residual risk.
+- AI evals require model/prompt/tool/data versions, leakage/judge controls, baseline, sample and uncertainty.
+
+## Integrated Outcomes And Necessary-Depth Counterexamples
+
+BREADTH_FIRST_EXECUTION_V1. For cross-component/control/data changes, qualify the actual public input, entry point, consumer and oracle early. Helper, shape and receipt checks do not substitute for behavior. Keep low-risk local checks proportionate rather than imposing an end-to-end suite on every edit.
+
+Test usable integration, rejection of optional deepening, allowance for necessary depth, authorization/safety, accepted-scope completion and handoff. Never score policy keywords, file/line counts or reasoning length as engineering success. Freeze inputs, permissions, budget and oracle before runs; preserve failures and incomparable outcomes. One success or latency difference is not general economic evidence.
+
+### 术语消费与反例的验证边界
+
+Walking Skeleton、Tracer Bullets、Vertical Slicing、User Story Mapping及YAGNI / Simple Design是Iterative and Incremental Development / Evolutionary Design的工程参照；词语存在只能证明结构，不能证明行为、泛化或因果收益。技术路径贯通与用户活动覆盖分别观察，骨架、完整旅程、accepted全范围与生产发布分别验收；旧试点不能自动证明新的术语增量。
+
+相称反例包括：已有链路应复用；首条切片完成后应回父范围；安全/原子性/性能风险允许先深入；重复代码语义不同不应机械抽象；fake核心边界不算真实集成；过细切分增加成本时应调整粒度；研究任务不能强转编码。删除设施后既有测试仍绿不证明它无用，核accepted义务与oracle覆盖。
+
+保留当前所需质量、重构、测试和恢复；允许明确学习用途的原型/test double，但只声明它实际证明的边界。比较真实结果、首次集成、全部范围、返工及总维护成本，不用术语次数、代码行数、文件数或思考长度替代。没有同义对照，不宣称专业名字本身改善模型表现。
+
+## Execution Workflow
+
+1. Establish closure over requirements, design, implementation, environment, current evidence, incidents, and risks.
+2. Preflight quality docs/tests/fixtures/benchmarks/audits/run assets; protect historical failures.
+3. Build a claim-to-evidence matrix: material claim, failure consequence, evidence needed, current gap.
+4. Select unit/property/contract/integration/end-to-end/regression/golden/fault/real-run/independent checks.
+5. Cover negative/edge/permission/secret/input/supply-chain/security paths proportional to threat.
+6. Cover retry/idempotency/crash/recovery/backup/DR/stale-asset/partial-failure reliability paths.
+7. Cover latency/throughput/concurrency/capacity/degradation/resource/cost with environment/sample controls.
+8. Cover logs/metrics/traces/alerts/SLO and prove operators can detect and localize failures.
+9. Execute reproducibly; retain commands, exits, outputs, artifacts, versions and unexplained anomalies.
+10. Update delivery/evidence status only to supported level; report unknowns/residual risk and release blockers.
+11. For multi-worktree integration, cover four counterexamples: two branches allocate the same revision/checkpoint,
+    a text-clean merge contains competing current truths, the target advances after candidate review, and a
+    contributor edits current-owner paths. Branch-local passes prove only each candidate snapshot. Canonical
+    verification requires the integrator to recompute owners, sequence identities, consumers, and integration
+    tests on the expected target HEAD.
+
+## Failure Modes
+
+- Test count/coverage percentage mistaken for requirement completeness.
+- Tests pass because mocks bypass the real adapter, permission, storage, or concurrency path.
+- Stale fixtures/artifacts prove an old version while status claims current behavior.
+- Benchmark without controlled environment/sample or cost tradeoff.
+- AI judge leakage/correlation treated as independent truth.
+- Failed evidence deleted or test weakened to make a release green.
+
+## Outputs
+
+Claim/evidence matrix, risk-based verification plan, actual run evidence, failure analysis, residual risk, release
+readiness/verdict, Feature delivery updates, and reproducible commands/artifact paths.
+
+## Completion Criteria
+
+Every high-impact claim has matching evidence; negative/failure/recovery paths are proportionate; environment and
+versions are reproducible; failures/unknowns remain visible; evidence status is not overstated; residual risk and
+next decision are clear.
+
+## Repository Impact
+
+T02/T07/T09-T10/T12-T20/T22-T25; requirements change only if evidence disproves the requirement/assumption and
+the user or authority revises it, not merely because implementation fails.
+
+
+## vNext 合同消费点（VNEXT-007 skill 层，v3.21.0）
+
+标识：`VNEXT_SKILL_CONSUMPTION_V1`。本节不改变既有步骤，只声明 vNext 合同的读取与消费位置；合同位于
+`/Users/aurolafly/codex/docs/design/detailed/`（八份合同均为 `v1.0 stable`；`main` 工作树是研究快照，
+P1 单一 current 线收敛后改为稳定路径）。
+
+- 稳定引用形式（不依赖任何 worktree）：`git -C /Users/aurolafly/codex show governance-v3.25.0:<docs 下相对路径>`；工作树路径只是可读副本，tag 随治理版本更新。
+- 对象与 locator（一类当前事实一个 owner、指针不承载第二份全文）：
+  `Codex下一代治理框架VNEXT-004-对象与唯一Owner合同-v1.0.md` §二/§三/§四。
+- Brownfield 深度选择（ordinary onboarding vs 垂直重建）与 baseline 失效：
+  `Codex下一代治理框架VNEXT-002-Brownfield合同-v1.0.md` §六/§七/§十。
+- Greenfield Topic Map / Seed / Capsule / relay：
+  `Codex下一代治理框架VNEXT-003-Greenfield合同-v1.0.md` §二/§三/§七/§十。
+- Topic 事务、relay 字段、Goal 完成与 false-positive/negative：
+  `Codex下一代治理框架VNEXT-005-Topic执行与Goal完成合同-v1.0.md` §二–§五。
+- 证据等级、freshness/失效、CaseEnvelope 绑定（R-086）：
+  `Codex下一代治理框架VNEXT-006-验证与证据系统合同-v1.0.md` §二/§四/§五。
+
+边界：合同为**可选消费点**；未声明采用前 current 行为不变；本节不授权 runtime 安装、迁移、发布或删除。

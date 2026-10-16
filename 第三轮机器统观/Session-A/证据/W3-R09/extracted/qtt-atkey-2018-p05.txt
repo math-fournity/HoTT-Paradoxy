@@ -1,0 +1,119 @@
+Syntax and Semantics of Quantitative Type Theory LICS ’18, July 9–12, 2018, Oxford, United Kingdom
+is no way to reconstruct the resource usage, and some constructs
+such as fst and snd only live in theσ= 0 fragment.
+Lemma 2.3 (Zero needs nothing). If Γ ⊢ M 0: S, then 0Γ = Γ.
+Note that the “other direction” of this lemma does not hold. If we
+have 0Γ ⊢ M σ: S, then it is not necessarily the case thatσ= 0. For
+example, the Tm-Bool-True rule produces judgements of arbitrary
+usage from no resources.
+Weakening Weakening allows the insertion of variables into con-
+texts, provided they are 0 usage.
+Lemma 2.4. Weakening is admissible:
+Γ, Γ′ ⊢ J 0Γ ⊢ U
+Γ, x 0: U , Γ′ ⊢ J
+Weaken
+where J is “is context”,S, S ≡ T , M σ: S, or M ≡ N σ: S.
+Substitution Substitution (Lemma 2.5) allows for a variablex
+ρ
+: S
+to be replaced by a term of type S, as long as, in the case of the
+term judgements, we add the resources it requires multiplied byρ
+to the resources already present.
+Lemma 2.5. The following substitution rules are admissible:
+Γ, x
+ρ
+: S, Γ′ ⊢ 0Γ ⊢ N 0: S
+Γ, Γ′[N /x] ⊢
+0Γ1, x 0: S, 0Γ′ ⊢ T Γ2 ⊢ N 0: S 0Γ1 = 0Γ2
+0Γ1, 0Γ′[N /x] ⊢ T [N /x]
+0Γ1, x 0: S, 0Γ′ ⊢ T ≡ T ′ Γ2 ⊢ N 0: S 0Γ1 = 0Γ2
+0Γ1, 0Γ′[N /x] ⊢ T [N /x] ≡ T ′[N /x]
+Γ1, x
+ρ
+: S, Γ′ ⊢ M σ: T
+Γ2 ⊢ N σ′
+: S 0Γ1 = 0Γ2 σ′ = 0 ⇔ρ= 0
+(Γ1 +ρΓ2), Γ′[N /x] ⊢ M[N /x] σ: T [N /x]
+Γ1, x
+ρ
+: S, Γ′ ⊢ M ≡ M ′ σ: T
+Γ2 ⊢ N σ′
+: S 0Γ1 = 0Γ2 σ′ = 0 ⇔ρ= 0
+(Γ1 +ρΓ2), Γ′[N /x] ⊢ M[N /x] ≡ M ′[N /x] σ: T [N /x]
+2.3 Inadmissibility of Substitution in McBride’s system
+McBride’s original system allowed for term judgements of the form
+Γ ⊢ M
+ρ
+: T whereρis an arbitrary element of the semiring. We now
+show that such a formulation with the semiring {0, 1,ω} yields a
+system that is not closed under substitution. A proof attempt to
+show that substitution is admissible fails on App because we need
+to take the term Γ ⊢ O
+ρ1+ρ2
+: U that is being substituted in, and
+split it into some Γ1 ⊢ O
+ρ1
+: U and Γ2 ⊢ O
+ρ2
+: U such that Γ1 + Γ2 = Γ.
+This is not possible in general. We illustrate the problem with:
+f ω: (x 1: A) → A ⊢λxω: A.f x ω: (x ω: A) → A (4)
+This term coerces some function f from a type that states it uses its
+argument once to a type where it uses its argument multiple times.
+This is despite McBride’s system not explicitly allowing subusaging.
+The following derivation gives a context into which substitution
+of Judgement 4 fails. Let D1 and D2 stand for uses of the V arrule
+to derive y 0: A,д1: (x ω: A) → A ⊢ д1: (x ω: A) → A and
+y ω: A,д0: (x ω: A) → A ⊢y ω: A.
+D1
+y 0: A,дω: (x ω: A) → A ⊢дω: (x ω: A) → A D 2
+y ω: A,дω: (x ω: A) → A ⊢дyω: A
+y ω: A,дω: (x ω: A) → A ⊢д(дy) 1: A
+If we attempt to substituteλxω: A.f x forд, then to push the term
+into the two halves of the top level application, we need to split
+Judgement 4 according to the equationω= 1 +ω. We already have
+a version of usageω, but the following judgement is not derivable:
+f 1: (x 1: A) → A ⊬λx ω: A.f x 1: (x ω: A) → A
+Indeed, it is not possible to derive y ω: A, f ω: (x 1: A) → A ⊢
+f ( fy) ω: A due to the mismatch between y’sωannotation, and
+f ’s1 requirement. The implicit weakening in Judgement 4 is not
+accessible without an interveningλ-abstraction. This problem is
+fixed by only allowing 0 or 1 usage on terms, which prohibits this
+kind of implicit “subusaging”. An alternative solution would be to
+allow subusaging. This is something we plan to investigate.
+3 Quantitative Categories with Families
+Giving a model for dependent Type Theory is a delicate affair due
+to the complex mutual definition of contexts, types and terms. We
+build on the existing notion of Categories with Families (CwFs)
+[11, 15] to define Quantitative Categories with Families (QCwFs)
+suitable for modelling QTT. Every QCwF contains a CwF, so we
+first recall their definition.
+Definition 3.1. A Category with Families (CwF) is a six-tuple
+(C, Ty, Tm, ⊤, −.−, ⟨−, −⟩), where:
+1. C is a category with a chosen terminal object ⊤;
+2. For ∆ ∈ ObC, a collection Ty(∆) of semantic types;
+3. For ∆ ∈ ObC and S ∈ Ty(∆), a collection Tm(∆, S ) of seman-
+tic terms;
+4. For every f : ∆ → ∆′ in C, a function −{ f } : Ty(∆′) →
+Ty(∆), and for S ∈ Ty(∆′) a function −{ f } : Tm(∆′, S ) →
+Tm(∆, S { f }), such that both assignments preserve identities
+and composition.
+5. For each object ∆ in C and S ∈ Ty(∆) an object ∆.S (called
+the comprehension of S) such that there is a bijection natural
+in ∆′:
+C(∆′, ∆.S )  {( f , M ) | f : ∆′ → ∆, M ∈ Tm(∆′, S { f })}
+Given f : ∆′ → ∆ and M ∈ Tm(∆′, S { f }), we write ⟨f , M⟩
+for the associated morphism ∆′ → ∆.S in C. Conversely,
+given a morphism f : ∆′ → ∆.S in C, we write f #1 : ∆′ → ∆
+and f #2 ∈ Tm(∆′, S { f #1}) for the associated morphism and
+semantic term.
+The following definitions derive projection and weakening from
+Definition 3.1, and also define the semantic counterpart of a sub-
+stitution of a term for a variable. We will require usage annotated
+counterparts of these below.
+1. For ∆ ∈ ObC and S ∈ Ty(∆), the first projection morphism
+p∆.S : ∆.S → ∆ is defined as p∆.S = id#1
+∆.S .
+2. For ∆ ∈ C and S ∈ Ty(∆), the second projection v∆.S ∈
+Tm(∆.S, S {p∆.S }) is defined as v∆.S = id#2
+∆.S .

@@ -1,0 +1,35 @@
+{
+  "base_snapshot": "9cb5b31e8acafce94aa4c274dfd4a01f047b4163cbfde115c9f90567b3f3951c",
+  "checkpoint_result": ".codex/cognition/checkpoints/S-GOV-20260930-CLAUDE-PHASE-CLOSE-SOURCE-CORRECTION/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "--output <payload>",
+      "status": "PREPARED",
+      "tool": "scripts/audit/prepare_claude_phase_close_source_correction_checkpoint.py"
+    },
+    {
+      "command": "checkpoint --snapshot <base_snapshot> --payload <payload> --apply",
+      "status": "CHECKPOINT_COMMITTED expected; only the canonical result.json proves it",
+      "tool": ".codex/tools/cognition_runtime.py"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "note": "Source correction right after the phase close; no mathematical claim is delivered by this checkpoint.",
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-GOV-20260930-CLAUDE-PHASE-CLOSE-SOURCE-CORRECTION",
+  "session_kind": "GOVERNANCE_SOURCE_CORRECTION",
+  "source_checks": [
+    {
+      "finding": "universe not an n-type for any n: expected, 'has not yet been done'; Example 8.8.6 is the product",
+      "source": "HoTT Book (2013), arXiv version, end of section 8.8",
+      "via": "sciverse full text doc 05a533d30addb060a89fba1d1bef15d1f6f115c1f01c8b7f6ed3b2660608179a"
+    },
+    {
+      "finding": "U_n is not an n-type in a hierarchy of univalent universes, without higher inductive types",
+      "source": "Kraus and Sattler, ACM TOCL 2015",
+      "via": "sciverse doc 9db35c429e8ec03544f94874ce8628658f08a3a8966b0067dc025d7031286377 (abstract)"
+    }
+  ]
+}

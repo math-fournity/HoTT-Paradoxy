@@ -1,0 +1,118 @@
+{
+  "schema_version": "evidence-hygiene-batch3-post-evidence/v1",
+  "captured_at_utc": "2026-09-13T03:45:00+00:00",
+  "session_id": "S-RES-20260912-060-EVIDENCE-HYGIENE-BATCH3",
+  "state_revision": 60,
+  "latest_session": "S-RES-20260912-060-EVIDENCE-HYGIENE-BATCH3",
+  "head_revision": 60,
+  "post_checks": [
+    {
+      "name": "fresh-three-way-regeneration",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "revision": 60,
+        "governance_documents": 15,
+        "research_documents": 20,
+        "negative_cases": ["wrong_snapshot", "incomplete_coverage", "tampered_chunk", "profile_snapshot_mismatch"],
+        "model_behavior": "NOT_RUN_NO_FRESH_MODEL_INVOCATION_AUTHORIZED"
+      }
+    },
+    {
+      "name": "projection-freshness",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "state_revision": 60,
+        "core_units": 36,
+        "merge_entries": 35,
+        "fresh_receipt_revision": 60,
+        "reconciliation_entries": 22226,
+        "model_context": "NOT_CERTIFIED_BY_TOOL"
+      }
+    },
+    {
+      "name": "three-way",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {"state_revision": 60, "direction_count": 27, "outcome_count": 55, "core_units_declared": 36}
+    },
+    {
+      "name": "core-cognition",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {
+        "core_units": 36,
+        "generation": "core-cognition-generation-4",
+        "core_sha256": "7548bd1716915319932a3e5b7ba4df8fc13c8f4812df6e3f7a933f70b354877b"
+      }
+    },
+    {
+      "name": "math-proof-governance",
+      "exit_code": 0,
+      "status": "PASS_WITH_SCOPE",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "name": "understanding-merge",
+      "exit_code": 0,
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "union_files": 35,
+        "same_name_pairs": 24,
+        "identical_pairs": 15,
+        "different_pairs": 9,
+        "nonidentical_union_entries": 20,
+        "unresolved_nontrivial": 0
+      }
+    }
+  ],
+  "test_suites": [
+    {"name": "cognition-runtime", "tests": 28, "status": "OK"},
+    {"name": "full-closure-loading-reader", "tests": 17, "status": "OK"},
+    {"name": "three-way-cognition", "tests": 4, "status": "OK"},
+    {"name": "core-cognition", "tests": 7, "status": "OK"},
+    {"name": "math-proof-delivery-governance", "tests": 4, "status": "OK"}
+  ],
+  "source_verifiers": [
+    {"name": "history-ledgers", "status": "PASS"},
+    {"name": "cross-source-reconciliation", "status": "PASS"}
+  ],
+  "evidence_hygiene": {
+    "drift_repair": {
+      "tool": "scripts/audit/verify_claim_ledger_anchors.py",
+      "sidecar": "audit/claim-ledger-owner-hashes-20260912.json",
+      "report": "audit/claim-ledger-drift-check-20260912.json",
+      "totals": {"MATCH": 327, "PREFIX": 550, "CONTAINED": 1490, "DRIFTED": 29, "LINE_OUT_OF_RANGE": 0, "MISSING_FILE": 0},
+      "issue": "A-CLAIM-LEDGER-DRIFT-001",
+      "issue_status": "CLOSED_WITH_SCOPE"
+    },
+    "batch3": {
+      "sample_size": 32,
+      "verdicts": {"SUPPORTED": 22, "SUPERSEDED_BY_MACHINE_RESULT": 0, "UNSUPPORTED": 0, "PENDING": 10},
+      "cumulative": {"sampled": 122, "coverage": "5.09%", "SUPPORTED": 65, "SUPERSEDED": 12, "UNSUPPORTED": 0, "PENDING": 45},
+      "e6_found": false
+    },
+    "verdict": "BOUNDED_DRIFT_REPAIR_AND_BATCH3_REVIEW",
+    "next": "N15: caliber unification + queue continuation by sampling ratio; fallback ERCF-3 T3 (gated)"
+  },
+  "hash_hygiene": {
+    "stale_source_hashes_repaired": 0,
+    "unexpected_stale_remainder": 0,
+    "claim_matrix_sha256": "22e1c54c02d26e76d6b60309d9f4c1c68418fe6890aef6a4a4f7dbfd3dfda0b4",
+    "merge_manifest_rebuilt": false
+  },
+  "checkpoint_payload_sha256": "6d7be0b312e9b20e0fb1f841fb7ea7104d9387fb4b481339bd27462afa0faf26",
+  "git_diff_check": "CLEAN",
+  "write_lock_present": false,
+  "transaction_present": false,
+  "pending_transaction_present": false,
+  "failures": [],
+  "status": "PASS"
+}

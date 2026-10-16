@@ -1,0 +1,38 @@
+{
+ "search_run": "SEARCH-GEN001-DIVISIBILITY-001",
+ "family": "TASK-FAMILY-DIVISIBILITY-CONDITION-OR-CAPABILITY",
+ "premise_ref": "PREMISE-D-01 / PREMISE-E-04 / PREMISE-G-03 (AI-adjudicated pending external audit; the continuity triple)",
+ "denominator": {
+  "atoms": 7,
+  "contexts": 440,
+  "contexts_examined": 440,
+  "equivalent_pair_context_checks_planned": 5280,
+  "checks_executed": 5280
+ },
+ "enumeration": {
+  "separations_seen": 916,
+  "raw_witnesses_captured": 916,
+  "grammar_violations": 0,
+  "truncated": false,
+  "complete_within_declared_grammar": true,
+  "remainder": 0
+ },
+ "grammar_preserving_reduction": {
+  "reduced_canonical_witnesses": 58,
+  "witnesses_binding_new_continuation_divisibility_verdict_capability_is_unbounded": 8,
+  "witnesses_binding_new_continuation_divisibility_verdict_no_object_for_condition": 8,
+  "witnesses_binding_new_continuation_divisibility_verdict_same_frontier_opposite": 16
+ },
+ "out_of_envelope_witnesses": 32,
+ "kernel_verified_witnesses": [
+  "VERIFY-GEN001-DIVISIBILITY-WV-0025",
+  "VERIFY-GEN001-DIVISIBILITY-WV-0026",
+  "VERIFY-GEN001-DIVISIBILITY-WV-0027",
+  "VERIFY-GEN001-DIVISIBILITY-WV-0051"
+ ],
+ "main_repo_independent_reproduction": {
+  "all_four_exit_0": true,
+  "command": "agda --ignore-interfaces --library-file=AGDA_LIBRARIES -l cubical-0.9 -i . Verify.agda at HoTT/formal/partiality-race-timeout/"
+ },
+ "exit_reason": "COMPLETED_WITHIN_BUDGET"
+}

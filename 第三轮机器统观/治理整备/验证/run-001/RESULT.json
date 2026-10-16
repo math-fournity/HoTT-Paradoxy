@@ -1,0 +1,248 @@
+{
+  "schema_version": "goal-task-integration-evidence/v1",
+  "status": "PASS_WITH_SCOPE",
+  "checks": {
+    "goal-route-tests": true,
+    "v5-invariants": true,
+    "three-way-tests": true,
+    "shards": true,
+    "shared-guidance": true,
+    "shared-purpose": true,
+    "old-seal": true,
+    "shared-diff": true,
+    "runtime-diff": true,
+    "project-diff": true,
+    "hott-machine-overview-execution": true,
+    "hott-machine-overview-audit": true,
+    "global_discovery_copy_parity": true,
+    "prompt_limit": true,
+    "local_links": true
+  },
+  "commands": [
+    {
+      "label": "goal-route-tests",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/audit",
+        "-p",
+        "test_goal_task_governance.py",
+        "-v"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 0.2728631669888273
+    },
+    {
+      "label": "v5-invariants",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_v5_invariants.py"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 0.05268683399481233
+    },
+    {
+      "label": "three-way-tests",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/audit",
+        "-p",
+        "test_three_way_cognition.py",
+        "-v"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 0.07518595800502226
+    },
+    {
+      "label": "shards",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "scripts/audit/verify_governance_shards.py"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 8.435887457992067
+    },
+    {
+      "label": "shared-guidance",
+      "argv": [
+        "bash",
+        "/Users/aurolafly/codex-worktrees/goal-task-governance-20260923/tools/validate_guidance_completeness.sh",
+        "/Users/aurolafly/codex-worktrees/goal-task-governance-20260923",
+        "/Users/aurolafly/.codex"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 3.837811125005828
+    },
+    {
+      "label": "shared-purpose",
+      "argv": [
+        "bash",
+        "/Users/aurolafly/codex-worktrees/goal-task-governance-20260923/tools/validate_cognitive_closure_purpose.sh",
+        "/Users/aurolafly/codex-worktrees/goal-task-governance-20260923",
+        "/Users/aurolafly/.codex"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 0.22511670799576677
+    },
+    {
+      "label": "old-seal",
+      "argv": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-B",
+        "第三轮机器统观/整备/handoff_snapshot.py",
+        "verify",
+        "--seal",
+        "第三轮机器统观/整备/验证/preparation-seal",
+        "--expected-sha",
+        "091a1d1548c1248602458dd96570857d586f184d92624e6a3825ee95a2b06e1e"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 0.06424333299219143
+    },
+    {
+      "label": "shared-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/Users/aurolafly/codex-worktrees/goal-task-governance-20260923",
+      "exit": 0,
+      "seconds": 0.01533658299013041
+    },
+    {
+      "label": "runtime-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/Users/aurolafly/.codex",
+      "exit": 0,
+      "seconds": 0.01261970799532719
+    },
+    {
+      "label": "project-diff",
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "AGENTS.md",
+        ".codex/AGENTS.md",
+        ".codex/cognition/LOAD_SET.json",
+        ".codex/cognition/PROTOCOL.md",
+        ".codex/skills",
+        "最高指示.md",
+        "README/001 - 当前入口与关键文件.md",
+        "feature-list.md",
+        "rulings.md",
+        "dev-docs/README.md",
+        "docs/ai/README.md"
+      ],
+      "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+      "exit": 0,
+      "seconds": 0.020145832997513935
+    }
+  ],
+  "prompt_counts": {
+    "A": {
+      "unicode_codepoints": 1226,
+      "utf8_bytes": 2512,
+      "sha256": "9113ac04b01faecb7cdb1e147d9e9d5805c42b470910cc6fffa81d10e8d45232"
+    },
+    "B": {
+      "unicode_codepoints": 1179,
+      "utf8_bytes": 2497,
+      "sha256": "85378320dce1739db5cadfcc2ac439336b91b1a22c4134125478263f7c449bf2"
+    }
+  },
+  "links_checked": 46,
+  "broken_links": [],
+  "mirror_parity": [
+    {
+      "name": "repo-cognitive-closure",
+      "runtime_sha256": "cee5e90506bb74476341563c5dad835839b051951931d521b5a781ee5de0e1fa",
+      "discovery_copy_sha256": "cee5e90506bb74476341563c5dad835839b051951931d521b5a781ee5de0e1fa",
+      "identical": true
+    },
+    {
+      "name": "repo-cognition-governance",
+      "runtime_sha256": "bbcffdcfbda6f088c59516a95ac71db71616e03212c680989e623417e730f4c5",
+      "discovery_copy_sha256": "bbcffdcfbda6f088c59516a95ac71db71616e03212c680989e623417e730f4c5",
+      "identical": true
+    }
+  ],
+  "plans": {
+    "governance": {
+      "snapshot": "044a84f76027b0e9ba663509bb7aab0340502baa29ef80e0f5d4c3622491e724",
+      "documents": 47,
+      "full_set_documents": [
+        "核心认知.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "扩展认知.md"
+      ],
+      "promoted": [],
+      "mandatory": {
+        ".codex/cognition/TASK_ROUTING.md": "78a9af1c4e731d738531d0ece152f0ed5ec46838e7379586174cee99c21325d5",
+        "最高指示.md": "357ef4c5f54c564b1245e14246514daadfbc4af6970bcfba1b392ef679700596"
+      }
+    },
+    "research": {
+      "snapshot": "357525d565943dea67be3bc612b8852504992b6b557ae62eed99cfc8f397c274",
+      "documents": 52,
+      "full_set_documents": [
+        "核心认知.md",
+        "方向追踪.md",
+        "全景视野.md",
+        "扩展认知.md"
+      ],
+      "promoted": [],
+      "mandatory": {
+        ".codex/cognition/TASK_ROUTING.md": "78a9af1c4e731d738531d0ece152f0ed5ec46838e7379586174cee99c21325d5",
+        "最高指示.md": "357ef4c5f54c564b1245e14246514daadfbc4af6970bcfba1b392ef679700596"
+      }
+    }
+  },
+  "state": {
+    "revision": 268,
+    "latest_session": "S-RES-20260923-ASTRA-P47-SYNTHESIS",
+    "sha256": "b80812646e69a9c9b55944c8292c43a2060819f3c2a9a67f16d1bb2cbce69936"
+  },
+  "identities": {
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/goal-6.md": "aa069071bb54b3a75223603141e0e59cb8c791eb830de83cc75b13980cf11d81",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/goal-6-audit.md": "d4d16002f7d14f308ea2463d00bfc1e7b0c31004e5b8e14075d22b53bde402ce",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/第三轮机器统观/README.md": "a3629a5b13e7e341d260367c7047300f4a73694bbbf416c8d30f0b24ab21f1d8",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/最高指示.md": "357ef4c5f54c564b1245e14246514daadfbc4af6970bcfba1b392ef679700596",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/dev-docs/Goal任务项目治理化与全局复用方案-20260923.md": "91fdbef49111d03165f00771a1fc24776c21d5665ee4c41ebd492d7497da4d76",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-execution/SKILL.md": "6b54f6dc3d07b58eb22aedfde3fb9cb6c4b15c0e5f12882f1c86bbc6b555bec8",
+    "/Volumes/D/HoTT_AI_HANDOFF_20260911/.codex/skills/hott-machine-overview-audit/SKILL.md": "a393809c07e0f22585b5bb230e59eb255204e4f600cb97f36058bfa02d6f9461",
+    "/Users/aurolafly/codex-worktrees/goal-task-governance-20260923/docs/design/detailed/Goal任务项目治理化合同.md": "7574e2dac0782e6d45f9b238f0e8a60de3a1c20ee2a66a338e473648489e811f"
+  },
+  "limits": [
+    "mechanical and current-session evidence only",
+    "fresh/actual compaction behavior NOT_RUN",
+    "A/B research NOT_STARTED",
+    "no commit/tag/release",
+    "project STATE unchanged by this verifier"
+  ]
+}

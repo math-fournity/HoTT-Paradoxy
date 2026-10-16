@@ -1,0 +1,274 @@
+{
+  "status": "VERIFIED_FINAL_FILES_AND_GIT",
+  "revision": 26,
+  "head": "298ebb0861358f25ff850bafb207d72ae4eccfb6",
+  "previous_head": "067053a5a99ece46030dbb9de3cf72e051503f53",
+  "inherited_head": "0d7ef5e48c67ee3586606dc45fb9f4ef4a30a685",
+  "workspace": "/mnt/data/HoTT_early_reassessment_rev26",
+  "line_metrics": {
+    "bytes": 32478,
+    "LF_count": 497,
+    "ends_with_LF": false,
+    "bytes_splitlines": 498,
+    "unicode_splitlines": 498,
+    "other_line_separator_counts": {
+      "'\\r'": 0,
+      "'\\x0b'": 0,
+      "'\\x0c'": 0,
+      "'\\x1c'": 0,
+      "'\\x1d'": 0,
+      "'\\x1e'": 0,
+      "'\\x85'": 0,
+      "'\\u2028'": 0,
+      "'\\u2029'": 0
+    },
+    "note": "The original has 497 LF separators and 498 lines because the last line has no trailing LF. No Unicode-only separator difference is claimed. The source is unchanged."
+  },
+  "core_checks_passed": 44,
+  "prior_validation_sha256": "d82cb4d51ceecf6a429d5efac1c71ef96a6b96c60965c168e6d52b4f5a252d6e",
+  "final_roundtrip": true,
+  "restored_clean": true,
+  "bundle_same_head": true,
+  "same_cognition_snapshot": "2b994322d31f2a89287429fc209706cc7fda3e6c96a0d8d821b84a7227fb71b8",
+  "outputs": [
+    {
+      "path": "/mnt/data/HoTT_early_reassessment_rev26_final_with_git.zip",
+      "bytes": 18730377,
+      "sha256": "33a1c9331018b8afb30e8cc5af1b4491910468a981b222e880f9afe868483e67"
+    },
+    {
+      "path": "/mnt/data/HoTT_early_reassessment_rev26_final.bundle",
+      "bytes": 4892496,
+      "sha256": "947cb235912e30e743de2d275e510288006029b667fe1f2eca615c50809614dd"
+    },
+    {
+      "path": "/mnt/data/HoTT_early_Gemini_review_R026_final.zip",
+      "bytes": 60545,
+      "sha256": "a15da96ca436a87c9556e05ac5e44f812465464e4de07b1469882ba3d79a0860"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "067053a5a99ece46030dbb9de3cf72e051503f53\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/mnt/data/HoTT_early_reassessment_rev26/scripts/session/r026_plan_check.py"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "{\n  \"revision\": 26,\n  \"latest_session\": \"S-AUD-20260911-026-EARLY-GEMINI\",\n  \"snapshot\": \"2b994322d31f2a89287429fc209706cc7fda3e6c96a0d8d821b84a7227fb71b8\",\n  \"required_paths_present\": true,\n  \"documents\": 275,\n  \"bytes\": 2479802,\n  \"full_model_cognition\": \"NOT_CERTIFIED_BY_TOOL\",\n  \"native_kernel\": \"NOT_RUN\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "add",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "commit",
+        "-m",
+        "Correct source line-count metadata without altering original or research results"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "[main 298ebb0] Correct source line-count metadata without altering original or research results\n 5 files changed, 142 insertions(+), 2 deletions(-)\n create mode 100644 artifacts/r026/LINE_METRICS_CORRECTION.json\n create mode 100644 artifacts/r026/LINE_METRICS_SUPERSEDED.json\n create mode 100644 scripts/tools/r026_finalize_correction.py\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "298ebb0861358f25ff850bafb207d72ae4eccfb6\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "fsck",
+        "--full"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "create",
+        "/mnt/data/HoTT_early_reassessment_rev26_final.bundle",
+        "--all"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "bundle",
+        "verify",
+        "/mnt/data/HoTT_early_reassessment_rev26_final.bundle"
+      ],
+      "cwd": "/mnt/data/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "The bundle contains these 3 refs:\n298ebb0861358f25ff850bafb207d72ae4eccfb6 refs/heads/main\n320d5362a8c96f597d0d6458ec70802f35384239 refs/tags/checkpoint-rev15-import\n298ebb0861358f25ff850bafb207d72ae4eccfb6 HEAD\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n",
+      "stderr": "/mnt/data/HoTT_early_reassessment_rev26_final.bundle is okay\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r026-final-d83w8r3h/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "298ebb0861358f25ff850bafb207d72ae4eccfb6\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r026-final-d83w8r3h/HoTT_early_reassessment_rev26",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/opt/pyvenv/bin/python3",
+        "-B",
+        "/tmp/hott-r026-final-d83w8r3h/HoTT_early_reassessment_rev26/scripts/session/r026_plan_check.py"
+      ],
+      "cwd": "/tmp/hott-r026-final-d83w8r3h",
+      "exit_code": 0,
+      "stdout": "{\n  \"revision\": 26,\n  \"latest_session\": \"S-AUD-20260911-026-EARLY-GEMINI\",\n  \"snapshot\": \"2b994322d31f2a89287429fc209706cc7fda3e6c96a0d8d821b84a7227fb71b8\",\n  \"required_paths_present\": true,\n  \"documents\": 275,\n  \"bytes\": 2479802,\n  \"full_model_cognition\": \"NOT_CERTIFIED_BY_TOOL\",\n  \"native_kernel\": \"NOT_RUN\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "clone",
+        "/mnt/data/HoTT_early_reassessment_rev26_final.bundle",
+        "/tmp/hott-r026-final-d83w8r3h/from-bundle"
+      ],
+      "cwd": "/tmp/hott-r026-final-d83w8r3h",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/tmp/hott-r026-final-d83w8r3h/from-bundle'...\nhint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/hott-r026-final-d83w8r3h/from-bundle",
+      "exit_code": 0,
+      "stdout": "298ebb0861358f25ff850bafb207d72ae4eccfb6\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "-c",
+        "core.hooksPath=/dev/null",
+        "-c",
+        "core.fsmonitor=false",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/tmp/hott-r026-final-d83w8r3h/from-bundle",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "native_hott_kernel": "NOT_RUN",
+  "full_business_cognition": "NOT_CLAIMED"
+}

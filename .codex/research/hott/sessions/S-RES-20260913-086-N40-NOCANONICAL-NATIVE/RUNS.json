@@ -1,0 +1,38 @@
+{
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260913-086-N40-NOCANONICAL-NATIVE",
+  "work_kind": "n40_no_canonical_point_native_replay",
+  "mathematical_claim_added": true,
+  "proof_package": {
+    "proof_id": "MP-NOCANONICAL-001",
+    "source": "HoTT/formal/truncation-no-recovery/NoCanonicalPoint.agda",
+    "bridge": "HoTT/formal/truncation-no-recovery/NoCanonicalFinite.agda",
+    "claims": ["C-142", "C-143", "C-144", "C-145", "C-146", "C-147", "C-148"],
+    "superseded_run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-01/",
+    "final_run": "HoTT/verification/runs/20260913-MP-NOCANONICAL-001-02/",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+    "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+    "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+    "verdict": "UNLABELED_FINITE_NO_CANONICAL_POINT"
+  },
+  "corrections": {
+    "n38_false_statement": "The N38 target (s : (b : Bool) -> carrier (boolPresentation b)) -> s false === s true is false (s = id); the real content is the no-uniform-choice coherence obligation, not an eliminator beta issue.",
+    "source_freeze_restore": "TruncationNoRecovery.agda restored byte-identically to SHA-256 934c154cbebb6183195b037476f10c49d3fc505ebe055bf7896f6e24b7879b1b; MP-TRUNC-NORECOVERY-001-03 stays PASS_WITH_SCOPE / ROW_STABLE_AFTER_INDEX_EVOLUTION."
+  },
+  "evidence": {
+    "agda_stdout": "evidence/agda/stdout.txt",
+    "agda_stderr": "evidence/agda/stderr.txt",
+    "source_copy": "evidence/agda/NoCanonicalPoint.agda",
+    "bridge_copy": "evidence/agda/NoCanonicalFinite.agda",
+    "run_receipt_copy": "evidence/agda/RUN.json"
+  },
+  "governance_finding": {
+    "id": "A-KC-AUDIT-GAP-001",
+    "scope": "sessions S-RES-20260913-067 .. S-RES-20260913-085 lack CORE_COGNITION_AUDIT.md",
+    "decision": "restore the required file from this session onward; no retroactive fabrication of semantic per-KC assessments"
+  },
+  "git_commit": "NOT_AUTHORIZED_THIS_TURN"
+}

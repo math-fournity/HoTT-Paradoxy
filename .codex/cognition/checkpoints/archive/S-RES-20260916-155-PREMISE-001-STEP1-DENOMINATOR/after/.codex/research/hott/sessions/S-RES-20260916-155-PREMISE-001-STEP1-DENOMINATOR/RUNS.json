@@ -1,0 +1,38 @@
+{
+  "checkpoint_result": ".codex/research/hott/cognition/checkpoints/S-RES-20260916-155-PREMISE-001-STEP1-DENOMINATOR/result.json",
+  "formal_runs": [],
+  "governance_runs": [
+    {
+      "command": "verify_governance_shards.py (before and after freezing)",
+      "generation": "n/a",
+      "run_id": "20260916-PREMISE-001-STEP1-SHARD-VERIFY-01",
+      "status": "PASS (18 canonical indexes; 1 soft notice: denominator shard 362 lines)",
+      "tool": "scripts/audit/verify_governance_shards.py"
+    },
+    {
+      "command": "cognition_runtime.py plan --profile governance (after new PREMISE-001 index added)",
+      "generation": "n/a",
+      "run_id": "20260916-PREMISE-001-STEP1-PLAN-01",
+      "status": "OK / no errors / 47 documents",
+      "tool": ".codex/tools/cognition_runtime.py"
+    },
+    {
+      "command": "git commit plan-revise(008) then PREMISE-001(step-1)",
+      "generation": "PREMISE_DENOMINATOR_V1 frozen 30 -> 35 items",
+      "run_id": "20260916-PREMISE-001-STEP1-COMMIT-01",
+      "status": "bc0a899 (plan-revise) + 187033c (step-1, reflection=revised-in bc0a899)",
+      "tool": "git"
+    }
+  ],
+  "math_status_change": "NONE",
+  "new_math_claims": [],
+  "next": [
+    "A-PREMISE-001",
+    "A-R4-HOTT-NAT-EFFECTIVITY-001"
+  ],
+  "note": "Execution-step session driven by /goal goal-1.md and the hott-paradox-search-sop skill: PREMISE-001 step-1 froze the HoTT premise denominator (A-G, 35 items) with P1 verbatim premise and provenance. The S-4 reflection found the 008 A-class list omitted five type formers, so plan-revise(008) preceded the freeze. No mathematical claim was delivered or adjudicated.",
+  "push_policy": "NOT_AUTHORIZED",
+  "schema_version": "hott-session-runs/v2",
+  "session_id": "S-RES-20260916-155-PREMISE-001-STEP1-DENOMINATOR",
+  "session_kind": "PREMISE_001_STEP1_DENOMINATOR_FREEZE"
+}

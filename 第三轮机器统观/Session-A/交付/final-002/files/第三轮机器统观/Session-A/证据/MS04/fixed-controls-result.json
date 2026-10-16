@@ -1,0 +1,891 @@
+{
+  "schema": "mo3-fixed-method-controls/v1",
+  "status": "FIXED_FIXTURES_MATCHED_ORACLE",
+  "input_hashes": {
+    "CONTROL-SCOPE.md": "16194b1d34373ef891fea00ca6f20f76557354a8f2980097ed8fc47a8019ea1c",
+    "expected-oracle.json": "f5250ce4a82f602b354e76201f18f2bc1116ab42f59363ef881650e23d80d7f5",
+    "run_fixed_controls.py": "19ef71fd152208f829963b23b082d9790733a190c43cc527f6fff4abff5c0f34"
+  },
+  "assignment_denominator": 8,
+  "selection_masks_per_fixture": 8,
+  "enumeration_remainder": 0,
+  "joint": {
+    "negative": {
+      "single_pair_selection": [
+        {
+          "mask": 0,
+          "selected_constraints": [],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 8
+        },
+        {
+          "mask": 1,
+          "selected_constraints": [
+            "x_eq_y"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 2,
+          "selected_constraints": [
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 3,
+          "selected_constraints": [
+            "x_eq_y",
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 4,
+          "selected_constraints": [
+            "x_ne_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 5,
+          "selected_constraints": [
+            "x_eq_y",
+            "x_ne_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 6,
+          "selected_constraints": [
+            "y_eq_z",
+            "x_ne_z"
+          ],
+          "models": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "model_count": 2
+        }
+      ],
+      "structural_joint_selection": {
+        "mask": 7,
+        "selected_constraints": [
+          "x_eq_y",
+          "y_eq_z",
+          "x_ne_z"
+        ],
+        "models": [],
+        "model_count": 0
+      },
+      "full_rows": [
+        {
+          "mask": 0,
+          "selected_constraints": [],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 8
+        },
+        {
+          "mask": 1,
+          "selected_constraints": [
+            "x_eq_y"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 2,
+          "selected_constraints": [
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 3,
+          "selected_constraints": [
+            "x_eq_y",
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 4,
+          "selected_constraints": [
+            "x_ne_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 5,
+          "selected_constraints": [
+            "x_eq_y",
+            "x_ne_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 6,
+          "selected_constraints": [
+            "y_eq_z",
+            "x_ne_z"
+          ],
+          "models": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 7,
+          "selected_constraints": [
+            "x_eq_y",
+            "y_eq_z",
+            "x_ne_z"
+          ],
+          "models": [],
+          "model_count": 0
+        }
+      ]
+    },
+    "normal": {
+      "single_pair_selection": [
+        {
+          "mask": 0,
+          "selected_constraints": [],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 8
+        },
+        {
+          "mask": 1,
+          "selected_constraints": [
+            "x_eq_y"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 2,
+          "selected_constraints": [
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 3,
+          "selected_constraints": [
+            "x_eq_y",
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 4,
+          "selected_constraints": [
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 5,
+          "selected_constraints": [
+            "x_eq_y",
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 6,
+          "selected_constraints": [
+            "y_eq_z",
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        }
+      ],
+      "structural_joint_selection": {
+        "mask": 7,
+        "selected_constraints": [
+          "x_eq_y",
+          "y_eq_z",
+          "x_eq_z"
+        ],
+        "models": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "model_count": 2
+      },
+      "full_rows": [
+        {
+          "mask": 0,
+          "selected_constraints": [],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 8
+        },
+        {
+          "mask": 1,
+          "selected_constraints": [
+            "x_eq_y"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 2,
+          "selected_constraints": [
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 3,
+          "selected_constraints": [
+            "x_eq_y",
+            "y_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 4,
+          "selected_constraints": [
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 4
+        },
+        {
+          "mask": 5,
+          "selected_constraints": [
+            "x_eq_y",
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 6,
+          "selected_constraints": [
+            "y_eq_z",
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        },
+        {
+          "mask": 7,
+          "selected_constraints": [
+            "x_eq_y",
+            "y_eq_z",
+            "x_eq_z"
+          ],
+          "models": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "model_count": 2
+        }
+      ]
+    }
+  },
+  "order": {
+    "ab": {
+      "order": [
+        "inc",
+        "double"
+      ],
+      "trace": [
+        1,
+        2,
+        4
+      ],
+      "output": 4
+    },
+    "ba": {
+      "order": [
+        "double",
+        "inc"
+      ],
+      "trace": [
+        1,
+        2,
+        3
+      ],
+      "output": 3
+    }
+  },
+  "boundary": "provided fixtures and explicit selection modes; not proof of autonomous grouping, real HoTT result, general mathematical completeness, or C04 completion"
+}

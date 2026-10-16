@@ -1,0 +1,44 @@
+{
+  "schema_version": "p35-fiberwise-trace-source-freeze/v1",
+  "task_id": "P35-P1-FIBERWISE-TRACE-COVERAGE-001",
+  "frozen_at_utc": "2026-09-22T01:43:00Z",
+  "base_commit_before_checkpoint": "47f282f3e75d512a8f2b99546228d69f73287427",
+  "fixed_contract": {
+    "input": "nInOpenFiber and transportedMInOpenFiber : PresentationFiber OpenRealInterval",
+    "operation": "CurveRun (pr1 source) (pr1 target)",
+    "observation": "closedAt, agreesInterior, slice, initial/final closed images, and P34 endpoint coincidence",
+    "done": "CurveRun.final only; neither finite AmbientStep Success nor SourceContract.Satisfies is substituted"
+  },
+  "coverage_decision": {
+    "classification": "EXACT_COVERAGE_WITH_SCOPE",
+    "reason": "The existing P34 fiber memberships, CurveRun fields/instance, and fullTransportPath jointly give every field of the declared P35 contract. A named PresentationRun would only repackage those existing fields.",
+    "non_goals": [
+      "No new P35 wrapper source, kernel run, or claim row is created.",
+      "No complete origin/provenance theory, actual K, HoTT defect, implementation discrepancy, or reality bridge follows."
+    ]
+  },
+  "local_asset_classification": {
+    "PresentationFiber_C326": "EXACT_INPUT_COVERAGE",
+    "NativeTaskIntegration_C320": "EXACT_OPERATION_OBSERVATION_DONE_COVERAGE",
+    "NativeRichCurve_fullTransportPath": "EXACT_TARGET_SPECIALIZATION_COVERAGE",
+    "NativeSourceContract": "BOUNDARY_CONTROL_NOT_MERGED",
+    "NativeCurveTask_Success": "STRONG_COUNTEREXPLANATION",
+    "OriginDirectedDiagram_C325": "NEARBY_ONLY"
+  },
+  "public_search": "NOT_SEARCHED_WITH_REASON: this is a fixed local source-field coverage audit; no external publication can change whether the declared local CurveRun fields exist.",
+  "sha256": {
+    "audit/p35-fiberwise-trace-coverage-20260922/P35-FIBERWISE-TRACE-COVERAGE-REPORT.md": "1ec731645b550439f5deb8bad3d34bd17222e9e94029853f2f91aa99aa92cc4d",
+    "HoTT/formal/agda-unimath/hott-z/PresentationFiber.agda": "4e030aab93b5430a62d6ef58e857636405b4f65f158b2af4320ea30743aaee9f",
+    "HoTT/formal/agda-unimath/hott-z/NativeTaskIntegration.agda": "2a7b1c704b9a19cf781f14a71689559953150efad01f1089356817d65c1827a1",
+    "HoTT/formal/agda-unimath/hott-z/NativeRichCurve.agda": "5dd9656984c437297d85a6504ee8f211f2e391adf5d4901b8869f71f6d9bdd1f",
+    "HoTT/formal/agda-unimath/hott-z/NativeSourceContract.agda": "2c713073bb05c29980d76be51b054ff2fa1422b650bbeab5d2b8f0e4f8c6e151",
+    "HoTT/formal/agda-unimath/hott-z/NativeCurveTask.agda": "3573f3413a0b91409096ab14f0ee6a4c443b9a922b99c8daa8dacae790725ecc",
+    "HoTT/verification/runs/20260921-MP-ASTRA-NATIVE-TASK-INTEGRATION-001-01/RUN.json": "1a0947d9032016d2755ed2c5c8df028838d1ee3fbda9dbba911e6199415ec854",
+    "HoTT/verification/runs/20260922-MP-ASTRA-PRESENTATION-FIBER-001-01/RUN.json": "ae77ceed47bf4bffb8778df270b0255774a57b2149465b57f36ef807a52f9aa6",
+    "audit/p34-presentation-fiber-20260922/P34-PRESENTATION-FIBER-REPORT.md": "16654a762b4b4f1828c7fa4ecb44fa0e2a97a54f5bd0b2916a97a558f4a26a7b",
+    "audit/p34-presentation-fiber-20260922/P34-PRESENTATION-FIBER-VERIFICATION.json": "563f01cdbf64bfd6f558e583b9fe808f6baf5a0420040a5f485a3f9a7f78a75b",
+    "goal-3.md": "6610fdc6e1816f1d94ae1ebabde65493c7bfa78d814d790fe7e3bb54d34e1cf1",
+    "goal-3-工作路径树/001 - 原初目标与当前工作树.md": "0883fe31a34ab3407265bfc65709de7d151184b0e513e485a9b28243a0a923e3"
+  },
+  "falsifier": "A missing P35 field in CurveRun plus the listed fiber inputs, a failed C-320 or C-326 receipt, a mismatch between the saved source hashes and current files, or an existing source that already defines a different P35 contract would revise this coverage decision."
+}

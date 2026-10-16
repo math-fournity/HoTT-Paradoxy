@@ -1,0 +1,88 @@
+{
+  "audit_notes": [],
+  "audit_session": "Claude CG-007 W8 continuation, session d58e0c0d (main checkout), branch dev, 2026-10-12",
+  "claim_ids": [
+    "CG001-C-398",
+    "CG001-C-399"
+  ],
+  "command_argv": [
+    "/Users/aurolafly/miniconda3/bin/python3",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/godel-q-zfc-z0-full",
+    "GodelQ/ProcessObservation.lean",
+    "GodelQ/EffectiveTheory.lean",
+    "GodelQ/GodelZenoRunner.lean",
+    "GodelQ/FoundationArith.lean",
+    "GodelQ/ZFC/SetLanguage.lean",
+    "GodelQ/ZFC/SchemaDelta1.lean",
+    "GodelQ/ZFC/ReplacementDelta1.lean",
+    "GodelQ/ZFC/ZFCDelta1.lean",
+    "GodelQ/ZFC/NumeralCode.lean",
+    "GodelQ/ZFC/NeverRE.lean",
+    "GodelQ/ZFC/OmegaArith.lean",
+    "GodelQ/ZFC/NumeralSemantics.lean",
+    "GodelQ/ZFC/ArithInterp.lean",
+    "GodelQ/ZFC/R0Model.lean",
+    "GodelQ/ZFC/Effective.lean",
+    "GodelQ/ZFC/Soundness.lean",
+    "GodelQ/ZFC/OmegaLaws.lean",
+    "GodelQ/ZFC/PAModel.lean",
+    "GodelQ/ZFC/Z0Shadow.lean",
+    "GodelQ/ZFC/Z0PA.lean",
+    "GodelQ/ZFC/ShRE.lean",
+    "GodelQ/ZFC/InternalTranslate.lean",
+    "GodelQ/ZFC/TranslateRE.lean",
+    "GodelQ/ZFC/SeqTranslate.lean",
+    "GodelQ/ZFC/SeqTranslateFormula.lean",
+    "GodelQ/ZFC/NegInvolutionBranches.lean",
+    "GodelQ/ZFC/Z0Full.lean",
+    "GodelQ/ZFC/ShCraigElimPredicate.lean",
+    "GodelQ/ZFC/ShCraigElimBranches.lean",
+    "GodelQ/ZFC/ShCraigElimNegFilled.lean",
+    "GodelQ/ZFC/NegInvolution.lean",
+    "GodelQ/ZFC/ShCraigElimNegLaw.lean"
+  ],
+  "completed_at_utc": "2026-10-12T20:56:40.052503+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 122.436302,
+  "environment": {
+    "bytes": 1051,
+    "path": "environment.txt",
+    "sha256": "6dd0044effd45f8a4a85525707ccc7c3219c0e51eb6961104bd42aa4a2dd81dc"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "does not prove D3 (zfcTr_D3_internalize), derivable_translateSeq, the axm branch, keyE, or the bridge; those remain open and Z0's complete form still takes zfcTr_D3_internalize as an explicit hypothesis",
+    "does not change CG001-C-120: the unconditional shadow form stands on its own"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-Z0-W8-NEG-INVOLUTION-LAW-001",
+  "run_id": "20261012-CG001-Z0-W8-NEG-INVOLUTION-LAW-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG-007 W8 layer 2 (CG001-C-398, C-399): the two remaining compatibility laws of the internal translation. (C-398) NegInvolution.neg_neg_code: the code-level involution neg (neg p) = p for every formula code p in V, by UformulaRec1.Construction.semiformula_result_induction with the predicate IsUFormula q and neg q = p; the all/exs branches unfold result_all/result_exs and use nth_adjoin_zero; the atom branches use neg_rel/neg_nrel with IsSemitermVec.isUTerm. (C-399) ShCraigElimNegLaw.iT_neg: the general compatibility law iT n (neg p) = neg (iT n p) for every formula code p (level n) in V, by IsSemiformula.pi1_structural_induction (the same shape as Foundation's substs_neg); the five easy branches come from ShCraigElimNegFilled, the nrel branch from neg_neg_code, and the all/exs branches raise the level n -> n+1 (matching iT_all/iT_exs) and eliminate the double negation with IsUFormula.neg_neg.",
+  "source_manifest": {
+    "bytes": 206847,
+    "path": "source-manifest.json",
+    "sha256": "6d1103b4f78aee75bad7fcea2f097744d722cfbfc0e537a4075336b97daa696c"
+  },
+  "started_at_utc": "2026-10-12T20:54:37.615521+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 18795,
+    "path": "stdout.txt",
+    "sha256": "4486123acda257d0f7a94cd70b1d5c8247b3a243184ab69c52fe2cd8ffadce0e"
+  },
+  "theory_variant": "Lean 4 kernel with Mathlib and FormalizedFormalLogic/Foundation (classical); first-order ZFC over ℒₛₑₜ, arithmetic, computability and abstract proof theory; never HoTT paths"
+}

@@ -1,0 +1,38 @@
+{
+ "schema_version": "cognition-runs/v1",
+ "session_id": "S-RES-20260916-166-V2-STAGE1-FRAGMENT-EXTENDED",
+ "runs": [
+  {
+   "id": "v2-canonical-denominator-single-source",
+   "kind": "git",
+   "commit": "4428c48",
+   "note": "V2 declared denominator moved into the semantics module as the SINGLE source: ground_values() (289 ground values) and declared_op_lists() (11 op-lists incl. DECLARED_PARTNER/DECLARED_CONTINUATION) now live in machine_overview/v2_cofibration.py; self-test and stage-1 generator both derive from them. Full selftest 142/142 (94 baseline + 48 V2), 63.6s, no regression. Fixes 4 NameErrors exposed when the self-test still held its own literals; reflection=canonical-denominator-single-source"
+  },
+  {
+   "id": "v2-stage1-ground-agreement",
+   "kind": "git",
+   "commit": "9729d9f",
+   "note": "V2 stage-1 ground agreement PASS (FRAGMENT_EXTENDED_WITH_SCOPE, engineering acceptance, registers_new_claim:false): 289 ground values x 11 declared op-lists = 3179 applyOps checks rendered into V2GroundAgreement.agda and type-checked by the native Cubical Agda 2.8.0 + cubical v0.9 kernel (KERNEL_ACCEPTED, exit 0, 30.8s); groundAgreement : checkAll = true and sepAgreement : sepAll = true both discharged by refl (definitional, not sampled). Separates checked on the 11 designated controls only (3 positive G-b/G-c/G-a + 5 negative + 3 L1-shared reachability), NOT the 289x289 pair matrix (~918k literals infeasible); control set pinned in self-test and generator. Faithfulness caveat machine-confirmed: point-set model is SOUND but NOT COMPLETE for the interval I (De Morgan algebra); mirror sec 8-9 + dm3NonBoolean counter-model; enumerator-only role for Python, oracle verdicts only from the real interval I (F-011 tightened); reflection=stage1-itemwise-agreement"
+  },
+  {
+   "id": "revision-shard-016",
+   "kind": "git",
+   "commit": "e36bdd4",
+   "note": "revision shard 016: stage-1 acceptance receipt-ified (3179/3179 + selftest 142/142), scope disclosure registered (exhaustive applyOps / designated-controls-only separates), faithfulness caveat upgraded to machine proof, and DENOMINATOR_SINGLE_SOURCE discipline added (any item-by-item or remainder=0 acceptance must derive expected and actual from ONE canonical semantic source); shard validator FAIL->PASS after H1/index title alignment"
+  }
+ ],
+ "session_records": [
+  {
+   "kind": "session",
+   "lifecycle_status": "HISTORICAL",
+   "path": ".codex/research/hott/sessions/S-RES-20260916-166-V2-STAGE1-FRAGMENT-EXTENDED/SESSION.md",
+   "related_records": [
+    "S-RES-20260916-165-PREMISE-001-STEP5-GEN001-EXISTENCE",
+    "A-PREMISE-001",
+    "A-HOTT-MACHINE-OVERVIEW-GOAL-002"
+   ],
+   "dependency_semantics": "verification_staleness",
+   "evidence_status": "GOVERNANCE_CHECKPOINT_COMMITTED / FRAGMENT_EXTENDED_WITH_SCOPE / ENGINEERING_ACCEPTANCE_ONLY / NO_NEW_MATH_CLAIM"
+  }
+ ]
+}

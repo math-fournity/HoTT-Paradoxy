@@ -1,0 +1,25 @@
+{
+  "schema_version": "post-checkpoint/v1",
+  "session_id": "S-RES-20260913-072-N26-T3-CODE-IDENTITY",
+  "state_revision": 72,
+  "checkpoint_applied": true,
+  "verification": {
+    "fresh_three_way": {"status": "PASS_WITH_SCOPE", "revision": 72},
+    "projection_freshness": {"status": "PASS_WITH_SCOPE", "state_revision": 72},
+    "three_way_cognition": {"status": "PASS", "directions": 27, "outcomes": 71},
+    "core_cognition": {"status": "PASS_WITH_SCOPE"},
+    "math_proof_delivery_governance": {"status": "PASS_WITH_SCOPE"}
+  },
+  "tests": {"cognition_runtime": "28/28 OK"},
+  "t3_pulse_5": {
+    "source": "HoTT/formal/ercf3-t3/CodeCommutation.agda",
+    "agda_exit": 0,
+    "stderr_bytes": 0,
+    "warnings": 0,
+    "claim_rows_added": 0,
+    "ercf3_status": "GATED",
+    "proved": ["comm-bot (refl)", "comm-eq (refl)"],
+    "remaining": "comparison-dependent cases (mutual induction)"
+  },
+  "boundaries": {"git_commit": "NOT_AUTHORIZED_THIS_TURN"}
+}

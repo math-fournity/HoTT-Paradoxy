@@ -1,0 +1,61 @@
+{
+  "audit_notes": [
+    "QuestioningDelay.agda is listed in the manifest as the source of the three equations, not compiled by this run"
+  ],
+  "audit_session": "Claude CG001 line, Claude Code cloud session 01FJANnV, branch claude/charming-pasteur-mvzlio, 2026-09-30",
+  "claim_ids": [
+    "CG001-C-80"
+  ],
+  "command_argv": [
+    "/usr/local/bin/python3",
+    "-B",
+    ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
+    "--toolchain",
+    "HoTT/formal/cloud-opus-glm-audit/LEAN_TOOLCHAIN.linux-x86_64.json",
+    "--leanchecker",
+    "HoTT/formal/claude-cg001/questioning-delay-lean/QuestioningLean.lean"
+  ],
+  "completed_at_utc": "2026-09-30T13:46:04.909290+00:00",
+  "cwd": "/home/user/HoTT-Paradoxy",
+  "duration_seconds": 105.497663,
+  "environment": {
+    "bytes": 753,
+    "path": "environment.txt",
+    "sha256": "9923c4f1df76172a2ab05395fe861dc63832b6667db75713d4b6afdc254b6664"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "set-level statements only; Lean equality has uniqueness of identity proofs, never HoTT paths",
+    "same defining equations as the Agda program; no claim that the two definitions are one object across systems"
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-QUESTIONING-DELAY-LEAN-001",
+  "rejection_stage": null,
+  "run_id": "20260930-CG001-QUESTIONING-DELAY-LEAN-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "CG001-C-80: the fact-world instance of the questioning process Q in Lean 4, written as its fuel-bounded run defined by the three fuel equations of CG001-C-77 (a); every type is of every h-level from 2 on (Lean equality has UIP), so for every judge and every fuel the questioning of Type returns 1 (stops at stage 1); a judge for Type exists; all theorems depend on no axioms; replayed with leanchecker --fresh",
+  "source_manifest": {
+    "bytes": 5037,
+    "path": "source-manifest.json",
+    "sha256": "287d157e6e0b54608b120a7df9114887d2262c33cd75c6ba0a1ca44e09a03261"
+  },
+  "started_at_utc": "2026-09-30T13:44:19.411521+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "status_vocabulary_note": "KERNEL_REJECTED is the repository-wide status word for 'the proof checker rejected the target'. For Lean, rejection_stage says which stage: KERNEL_ERROR_IN_TARGET means the kernel itself refused a declaration (a '(kernel)' error); ELABORATION_ERROR_IN_TARGET means the elaborator refused the target and the term never reached the kernel.",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 736,
+    "path": "stdout.txt",
+    "sha256": "5eab4190deebb8e7b4af1bf3c9228d69d63c5900a196b0e43fd8b7486255ff47"
+  },
+  "theory_variant": "Lean 4 kernel; set-level model statements only"
+}

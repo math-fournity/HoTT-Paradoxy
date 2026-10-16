@@ -1,0 +1,82 @@
+Mathlib4 caching CLI
+Usage: cache [OPTIONS] [COMMAND]
+
+Commands:
+  get  [ARGS]    Download linked files missing on the local cache and decompress
+  get! [ARGS]    Download all linked files and decompress
+  get- [ARGS]    Download linked files missing to the local cache, but do not decompress
+  pack           Compress non-compressed build files into the local cache
+  pack!          Compress build files into the local cache (no skipping)
+  unpack         Decompress linked already downloaded files
+  unpack!        Decompress linked already downloaded files (no skipping)
+  clean          Delete non-linked files
+  clean!         Delete everything on the local cache
+  lookup [ARGS]  Show information about cache files for the given Lean files
+  query [REF]    Without REF: find most recent cached commit on this branch.
+                 With REF (e.g. HEAD, a SHA): boolean probe; exit 0 if cached, 1 if not.
+
+  # Staging
+  stage        Move files not already 'pack'ed to an output directory
+  stage!       Move all linked cache files to an output directory
+  unstage      Copy *.ltar files from the staging directory to the local cache
+  unstage!     Copy *.ltar files from the staging directory to the local cache (overwrite existing files)
+
+The upload commands (put, put!, put-staged) and their options and variables
+are internal to mathlib CI. To operate an external cache, 'stage' the
+artifacts, upload the staging directory under your endpoint's `f/` path with
+any storage client, and serve it to readers via MATHLIB_CACHE_GET_URL.
+
+Options:
+  --repo=OWNER/REPO  Override the repository to fetch cache for
+  --staging-dir=<output-directory> Required for 'stage', 'stage!', 'unstage'
+                     and 'unstage!': staging directory.
+  --cache-from=LIST  Comma-separated, trust-ordered list of containers to read from
+                     (e.g. `--cache-from=master,forks`). Overrides the per-repo default.
+                     Known containers: master, forks, nightly-testing, pr-toolchain-tests, legacy.
+  --scope=REF        The per-commit namespace (any git ref `git rev-parse`
+                     accepts: HEAD, branch, tag, SHA). For reads: the fork
+                     SHA-scoped namespace to read instead of the default, the
+                     checked-out HEAD. Use the SHA reported by `cache query`.
+                     Reading another commit's scope means trusting the
+                     artifacts produced at that commit; `cache get` prints a
+                     security notice when the scope differs from HEAD.
+  --unsafe           (get only) Instead of pinning one --scope, automatically walk
+                     this branch's history and try the most recent cached fork
+                     commits as scopes, in order, until the cache is satisfied.
+                     Trusts the artifacts of every commit it tries. Mutually
+                     exclusive with --scope; always prints a security notice.
+  --unsafe-window=N  Number of cached fork commits --unsafe will try (default
+                     1). Implies --unsafe.
+
+* Linked files refer to local cache files with corresponding Lean sources
+* Commands that end with '!' do not skip files: use them manually when a
+  hot-fix must force a re-download, a re-pack, or an overwrite
+
+# The arguments for 'get', 'get!', 'get-' and 'lookup'
+
+'get', 'get!', 'get-' and 'lookup' can process a list of module names or file names.
+
+'get [ARGS]' will only get the cache for the specified Lean files and all files imported by one.
+
+Valid arguments are:
+
+* Module names like 'Mathlib.Init'
+* Module globs like 'Mathlib.Data.+' (find all Lean files inside `Mathlib/Data/`)
+* Module globs like 'Mathlib.Data.*' (both of the above)
+* File names like 'Mathlib/Init.lean'
+* Folder names like 'Mathlib/Data/' (find all Lean files inside `Mathlib/Data/`)
+* With bash's automatic glob expansion one can also write things like
+  'Mathlib/**/Order/*.lean'. However, one would need to write `Mathlib.Data.\*`
+  to prevent glob expansion.
+
+# Environment variables
+
+* MATHLIB_CACHE_DIR       Local cache directory (default: ~/.cache/mathlib)
+* MATHLIB_CACHE_DEBUG_USE_LEGACY
+                          Set to 1 or true to read from the Azure storage
+                          account instead of https://cache.mathlib.org.
+                          For troubleshooting only.
+* MATHLIB_CACHE_GET_URL   Download from this single URL as a flat namespace.
+                          Allows third parties to use their own cache endpoint.
+                          An empty value means unset.
+

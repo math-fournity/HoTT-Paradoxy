@@ -1,0 +1,234 @@
+{
+  "artifacts": {
+    "build.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build.stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "environment.txt": {
+      "bytes": 666,
+      "sha256": "ff2f018cf506b4775cefccf45688ec11327ad501ad0184ae0a872b88df787fe8"
+    },
+    "fixtures/Hole.checker.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/Hole.checker.stdout.txt": {
+      "bytes": 444,
+      "sha256": "f42f0c038b5dd91f2401a0874bdd33127e88e11cd11bfc6755b08b171f05968d"
+    },
+    "fixtures/Hole.profile.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/Hole.profile.stdout.txt": {
+      "bytes": 239,
+      "sha256": "673c80fbd8ccd192afaffa9a60f5bdb716c8bb29b67d6ba240e440165db3e9f3"
+    },
+    "fixtures/Positive.checker.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/Positive.checker.stdout.txt": {
+      "bytes": 127,
+      "sha256": "e1f32c18996b4aeb377a629fd92c142c0a3d254268d59a2700bf52d697180ce8"
+    },
+    "fixtures/Positive.profile.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/Positive.profile.stdout.txt": {
+      "bytes": 332,
+      "sha256": "09816b994c1e0fb96917386b3e9f45b9361c14f0404f507c6fa1ac9cdea28777"
+    },
+    "fixtures/Recursive.checker.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/Recursive.checker.stdout.txt": {
+      "bytes": 126,
+      "sha256": "ce04214f756b7079d1ccb496ce48f55c42092120ccc82ad5d5f5699e9c6702ab"
+    },
+    "fixtures/Recursive.normalization.stderr.txt": {
+      "bytes": 15,
+      "sha256": "c1588e16e6d498ae40052914b594d67e7f0b8aaa4b2189bb730980e2d9a3bb0c"
+    },
+    "fixtures/Recursive.normalization.stdout.txt": {
+      "bytes": 75,
+      "sha256": "e590698fa0e6f06a1953b37aa4b52dfe59764598873d916d7215a876ad21fce5"
+    },
+    "fixtures/Recursive.profile.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/Recursive.profile.stdout.txt": {
+      "bytes": 264,
+      "sha256": "64dad15a1fb2b7f20bc8b4aac28860be419b0b27a04e6da29bebcf9e998a17d4"
+    },
+    "fixtures/TypeError.checker.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/TypeError.checker.stdout.txt": {
+      "bytes": 238,
+      "sha256": "bb5e9771041cbd8d2e92d0ad34159d56f3f325edba3d5a1adce61ad4ce2d7f2a"
+    },
+    "fixtures/TypeError.profile.stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixtures/TypeError.profile.stdout.txt": {
+      "bytes": 230,
+      "sha256": "ccaf3080c032240f876d2765dc3e875ac63c23a35d65d3927792500f8305b1b0"
+    },
+    "source-manifest.json": {
+      "bytes": 3665,
+      "sha256": "2b89e169399c3653a8a67e7d0e211f49e8ce1cefb199a4990174298096db063d"
+    }
+  },
+  "build": {
+    "argv": [
+      "/opt/homebrew/Cellar/haskell-stack/3.11.1/bin/stack",
+      "--system-ghc",
+      "build"
+    ],
+    "exit_code": 0
+  },
+  "checker_acceptance_contract": {
+    "does_not_use_alone": "The cctt CLI may report a type error while returning process exit code 0.",
+    "requires": [
+      "process completion",
+      "no upstream ERROR diagnostic",
+      "a checked-definitions success marker"
+    ]
+  },
+  "completed_at_utc": "2026-10-05T03:22:23.935015+00:00",
+  "duration_seconds": 5.760026,
+  "fixtures": {
+    "Hole": {
+      "checker": {
+        "diagnostic_accepted": true,
+        "has_checked_definitions_marker": true,
+        "has_error_diagnostic": false,
+        "process_exit_code": 0
+      },
+      "profile": {
+        "accepted": false,
+        "definition_names": [
+          "hole"
+        ],
+        "path": "/Users/aurolafly/.codex/worktrees/godel-zfc-r3-replay/HoTT_AI_HANDOFF_20260911/HoTT/formal/external-cctt-r4/Hole.cctt",
+        "process_exit_code": 1,
+        "reasons": [
+          "HOLE_TOKEN"
+        ],
+        "top_level_definition_count": 1
+      },
+      "source": {
+        "bytes": 51,
+        "path": "HoTT/formal/external-cctt-r4/Hole.cctt",
+        "sha256": "5d0694d266b91cfd33c1df1e16ba001c3a1c0f699824dcc0e5375c2ef6b255bb"
+      }
+    },
+    "Positive": {
+      "checker": {
+        "diagnostic_accepted": true,
+        "has_checked_definitions_marker": true,
+        "has_error_diagnostic": false,
+        "process_exit_code": 0
+      },
+      "profile": {
+        "accepted": true,
+        "definition_names": [
+          "coeId",
+          "equiv",
+          "glueElim",
+          "glueIntro",
+          "glueLine",
+          "hcomId",
+          "idEquiv",
+          "isEquiv",
+          "natCase",
+          "natRefl"
+        ],
+        "path": "/Users/aurolafly/.codex/worktrees/godel-zfc-r3-replay/HoTT_AI_HANDOFF_20260911/HoTT/formal/external-cctt-r4/Positive.cctt",
+        "process_exit_code": 0,
+        "reasons": [],
+        "top_level_definition_count": 10
+      },
+      "source": {
+        "bytes": 1000,
+        "path": "HoTT/formal/external-cctt-r4/Positive.cctt",
+        "sha256": "9195a166d7b22992b0cdef0395e62627b09f59246b7d9d8503706a6626f3b3a9"
+      }
+    },
+    "Recursive": {
+      "checker": {
+        "diagnostic_accepted": true,
+        "has_checked_definitions_marker": true,
+        "has_error_diagnostic": false,
+        "process_exit_code": 0
+      },
+      "normalization_observation": {
+        "contains_recursive_thunk_diagnostic": true,
+        "observation": "PROCESS_EXITED_WITHIN_2_SECONDS",
+        "process_exit_code": 1
+      },
+      "profile": {
+        "accepted": false,
+        "definition_names": [
+          "loop"
+        ],
+        "path": "/Users/aurolafly/.codex/worktrees/godel-zfc-r3-replay/HoTT_AI_HANDOFF_20260911/HoTT/formal/external-cctt-r4/Recursive.cctt",
+        "process_exit_code": 1,
+        "reasons": [
+          "TOP_LEVEL_RECURSION_CYCLE:loop"
+        ],
+        "top_level_definition_count": 1
+      },
+      "source": {
+        "bytes": 54,
+        "path": "HoTT/formal/external-cctt-r4/Recursive.cctt",
+        "sha256": "826a448fddb3550e107f8badb7c2dcd45b2f287b0fc81f5aeaa7c50e446e34d6"
+      }
+    },
+    "TypeError": {
+      "checker": {
+        "diagnostic_accepted": false,
+        "has_checked_definitions_marker": false,
+        "has_error_diagnostic": true,
+        "process_exit_code": 0
+      },
+      "profile": {
+        "accepted": true,
+        "definition_names": [
+          "bad"
+        ],
+        "path": "/Users/aurolafly/.codex/worktrees/godel-zfc-r3-replay/HoTT_AI_HANDOFF_20260911/HoTT/formal/external-cctt-r4/TypeError.cctt",
+        "process_exit_code": 0,
+        "reasons": [],
+        "top_level_definition_count": 1
+      },
+      "source": {
+        "bytes": 50,
+        "path": "HoTT/formal/external-cctt-r4/TypeError.cctt",
+        "sha256": "74bb69dee628c77c1589d1332e808bd5a06ac5d1f47844c7ae51005e8be27fe7"
+      }
+    }
+  },
+  "non_goals": [
+    "No cctt CLI exit code alone is treated as checker acceptance.",
+    "No finite observation of recursive normalization proves global nontermination.",
+    "No project-defined restricted profile is called an actual mathematical-community or ZFC acceptance interface."
+  ],
+  "route": "G1-R4",
+  "run_id": "20261005-CCTT-R4-INPUT-DOMAIN-002",
+  "schema_version": "cctt-r4-checker-run/v1",
+  "scope": "Demonstrates a bounded restricted cctt input contract with explicit controls. It does not establish a total proof checker, termination, Gödel representability, exact HoTT incompleteness, or any bare-ZFC result.",
+  "started_at_utc": "2026-10-05T03:22:18.174989+00:00",
+  "status": "CHECKER_INPUT_DOMAIN_CONTROLS_PASS_WITH_SCOPE",
+  "unit_id": "GZ-005"
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "copus-lean-toolchain/v1",
+  "compatible_with": "field names of claude-cg001-lean-toolchain/v1 (prefix, pinned_files, version_line), so the CG-001 driver .claude/goals/CG-001-targeted-overview/tools/lean_check.py can be used unchanged",
+  "tool": "lean",
+  "version": "4.34.0",
+  "version_line": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "same_source_commit_as": "HoTT/formal/claude-cg001/pedometer-ablation-lean/LEAN_TOOLCHAIN.json (macOS arm64 toolchain of the Opus runs: commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b)",
+  "theory": "Lean 4 kernel (dependent type theory with inductive types, proof-irrelevant Prop, definitional UIP); used only to replay the set-level contrast CG001-C-72, never for HoTT paths",
+  "prefix": "/home/user/toolchain/lean-4.34.0-linux",
+  "pinned_files": [
+    {
+      "relative_path": "bin/lean",
+      "bytes": 9024,
+      "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550"
+    },
+    {
+      "relative_path": "bin/leanchecker",
+      "bytes": 51080,
+      "sha256": "ccef1bfe9bfeecea65137d94a69033c1a89f360711f50fa3178e7ba3e696fcbe"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared.so",
+      "bytes": 233656768,
+      "sha256": "ab523f803d805db2c08eb755f0fa8189345bf6ae9b408664cdf3cf67fa0112d9"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared_1.so",
+      "bytes": 6264,
+      "sha256": "69e900c025f40bf05c14f5b9ec48071b3130e34c96a7c45ee2eb5b6f307e19e6"
+    },
+    {
+      "relative_path": "lib/lean/libleanshared_2.so",
+      "bytes": 6264,
+      "sha256": "38d0a03750b2e8d51161885ad597a8b4f6d3b85215c5a52aecd2b3753273cf3f"
+    },
+    {
+      "relative_path": "lib/lean/libInit_shared.so",
+      "bytes": 6264,
+      "sha256": "07f8c1156271ab6ec36c14c3031b5572329325d5f73dde3e89a1615d88f4e5cb"
+    },
+    {
+      "relative_path": "lib/lean/libLake_shared.so",
+      "bytes": 12545496,
+      "sha256": "ef0eb8942cd68ffb61ae573850a7181f70860580959e296c6e1a0e31ec50a38a"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean",
+      "bytes": 5888,
+      "sha256": "36f732d9cbfce0cbd1234dec6144186944c2580be32c13d942f8eb4b703d8f5c"
+    },
+    {
+      "relative_path": "lib/lean/Init/Prelude.olean",
+      "bytes": 3397592,
+      "sha256": "582efca88f372de1718ec8549e2501e7d29808822518cb72535b34f53866ad91"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean.server",
+      "bytes": 96,
+      "sha256": "01e09d116ee44883818d3a15635099fbf4512cd74caa4ec9d41541f43da3768e"
+    },
+    {
+      "relative_path": "lib/lean/Init.olean.private",
+      "bytes": 96,
+      "sha256": "3d9e3a0c1b8342a50db7804856617f0bf53fff3203ab42f94629e2d7c1031fb1"
+    },
+    {
+      "relative_path": "lib/lean/Init.ir",
+      "bytes": 5784,
+      "sha256": "442314eef485172915c732ce7f188ee221658e16168b8c68bc06e02cd67010e2"
+    },
+    {
+      "relative_path": "lib/lean/Init.ir.sig",
+      "bytes": 176,
+      "sha256": "a772815d5d1721b99e7e0098d928b830e62a875af488cc1498908a6bb6a4b77a"
+    },
+    {
+      "relative_path": "lib/lean/Init.ilean",
+      "bytes": 1643,
+      "sha256": "d1ef48eba0e0c02a69d28f6f004167077a2a9f823b2c49cf0d667d2649f94b0e"
+    }
+  ],
+  "init_tree": {
+    "relative_path": "lib/lean/Init",
+    "file_count": 3888,
+    "total_bytes": 410268280,
+    "tree_sha256": "22163fab423b929ab493291f016574ea564ac68acc1b32144d5f6fdf7693c98a",
+    "checked_by": "Cloud-Opus审计并补完GLM/tools/capture_copus_lean_run.py at capture time (the canonical verifier re-checks only pinned_files through the driver)"
+  },
+  "release_asset": {
+    "url": "https://github.com/leanprover/lean4/releases/download/v4.34.0/lean-4.34.0-linux.zip",
+    "bytes": 904153842,
+    "sha256": "5f14e0f3762058a529b1598f4355e6787c5f155be1bcce72ae288b9c35e3adb4",
+    "sha256_is_publisher_digest": false,
+    "local_archive": "/home/user/toolchain/lean-4.34.0-linux.zip"
+  },
+  "provenance": "Downloaded 2026-09-27 by the Cloud-Opus session directly from the GitHub release page of leanprover/lean4 (no fork, no elan). The GitHub API that would show a publisher digest is not reachable from this session, so the asset hash above is the hash computed on download.",
+  "extraction": "Selective unzip: bin/lean, bin/leanchecker, lib/lean/*.so, lib/lean/Init.* (Init.olean with its companions .olean.server, .olean.private, .ir, .ir.sig, .ilean), lib/lean/Init/**, lib/glibc/*, lib/libc++*.so, lib/libunwind.so, lib/libgcc_s.so, lib/libatomic.so, lib/libz.so (clang/LLVM and the Lean/Lake/Std libraries are not needed to elaborate an Init-only file).",
+  "isolation": "The driver calls the pinned binaries by absolute path with PATH=<prefix>/bin:/usr/bin:/bin, LEAN_SYSROOT=<prefix>, LEAN_PATH=<temporary build dir>; no elan is installed in this container.",
+  "source_policy": "enforced by the driver: no sorry, admit, native_decide, axiom declarations, unsafe, implemented_by, extern, opaque or kernel-skipping options",
+  "extraction_incident": "2026-09-27: the first selective extraction took only lib/lean/Init.olean and Init.ilean at top level; Lean 4.34 also reads Init.olean.server, so both first captures failed with 'failed to open file ... Init.olean.server' before reaching any proof. Those receipts are archived under Cloud-Opus审计并补完GLM/附件/失败捕获-20260927-Lean缺Init配套文件/; the companions are now extracted and pinned."
+}

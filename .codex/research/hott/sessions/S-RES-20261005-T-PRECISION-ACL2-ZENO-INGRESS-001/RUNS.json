@@ -1,0 +1,25 @@
+{
+  "next": "Current T source denominator remains closed; reopen only on the version-fixed same-source payment recorded in the audit.",
+  "role": "RESEARCH_GENERATION",
+  "schema_version": "hott-research-runs/v1",
+  "session_id": "S-RES-20261005-T-PRECISION-ACL2-ZENO-INGRESS-001",
+  "status": "ACL2_ZENO_SOURCE_INGRESS_AUDITED_WITH_SCOPE",
+  "tier": "T2",
+  "verification": [
+    {
+      "command": "git -C /private/tmp/tprecision-acl2-zeno-ingress-3451a080 rev-parse HEAD; shasum -a 256 README.md iris_number_system.lisp",
+      "scope": "frozen public repository source identity",
+      "status": "PASS / 3451a080… / README and Lisp hashes match the ingress audit"
+    },
+    {
+      "command": "rg -n -C 4 'zeno-dichotomy|finite-duration|certify-book|physical path|finite rational' README.md iris_number_system.lisp",
+      "scope": "source-level Process/Accept/OriginDone/Bridge payment audit",
+      "status": "PASS / README claim and actual theorem inspected; no same-task bridge supplied"
+    },
+    {
+      "command": "command -v acl2 sbcl ccl clisp",
+      "scope": "local replay availability only",
+      "status": "NOT_AVAILABLE / no ACL2 or Common Lisp runtime found; no installation attempted"
+    }
+  ]
+}

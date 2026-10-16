@@ -1,0 +1,54 @@
+{
+  "status": "PASS_WITH_SCOPE",
+  "schema_version": "formal-proof-run-verification/v1",
+  "run_id": "20260915-MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001-01",
+  "proof_id": "MP-COQ-SYNTHETIC-INCOMPLETENESS-R3-001",
+  "claim_ids": [
+    "C-244",
+    "C-245",
+    "C-246",
+    "C-247",
+    "C-248",
+    "C-249"
+  ],
+  "source_paths": [
+    "HoTT/formal/external-coq-synthetic-incompleteness/README.md",
+    "HoTT/formal/external-coq-synthetic-incompleteness/CLAIM-R3-SYNTHETIC-INCOMPLETENESS.md",
+    "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_TREE_MANIFEST.json",
+    "HoTT/formal/external-coq-synthetic-incompleteness/SOURCE_ARCHIVE.json",
+    "HoTT/formal/external-coq-synthetic-incompleteness/TOOLCHAIN.json",
+    "HoTT/formal/external-coq-synthetic-incompleteness/Qualification.v",
+    "HoTT/formal/external-coq-synthetic-incompleteness/Dockerfile",
+    "HoTT/formal/external-coq-synthetic-incompleteness/CeCILL_LICENSE.txt",
+    "HoTT/formal/external-coq-synthetic-incompleteness/IMPORT.json",
+    "scripts/audit/import_coq_synthetic_incompleteness.py",
+    "scripts/audit/replay_coq_synthetic_incompleteness.py",
+    "scripts/audit/capture_coq_synthetic_incompleteness_run.py",
+    "scripts/audit/verify_formal_proof_run.py",
+    ".codex/research/hott/R3-R4-GODEL-RETURN-001.md",
+    "audit/imports/machine-overview-ce-map-20260915/source/evaluations/COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001/BUILD-RECEIPT.json",
+    "audit/imports/machine-overview-ce-map-20260915/source/evaluations/COQ-SYNTHETIC-INCOMPLETENESS-REPLAY-001/REPORT.md"
+  ],
+  "audit_tool_provenance_drift": [
+    {
+      "path": "scripts/audit/verify_formal_proof_run.py",
+      "captured_sha256": "e32302cd6b01afd10ca562c1f94ef030e1b2c656136a9a1500d50fb77bc125c9",
+      "current_sha256": "5d88c1054373c42dd508251a55d8230876b1c397abea19ace7a7b7f90119c397"
+    }
+  ],
+  "external_dependencies": [
+    "coq-synthetic-incompleteness-source-archive"
+  ],
+  "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+  "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+  "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "scope": "Freshly build the exact CSL 2023 first-order incompleteness target and replay theorem signatures/assumptions for recursive-separation divergence, abstract essential incompleteness, EPF-mu-to-CTQ, and conditional Robinson-Q independence.",
+  "non_goals": [
+    "The theorem types retain is_universal, strong separation, Peirce, CTQ, Q containment, enumerability, and consistency premises.",
+    "The object theory is first-order arithmetic, not an exact HoTT calculus.",
+    "The run does not establish HoTT essentiality, ambient Church thesis, internal inconsistency, novelty, or an empirical same-task reality bridge.",
+    "A bounded or observed proof search is not used as evidence of independence; the kernel-checked conditional theorem is the evidence."
+  ]
+}

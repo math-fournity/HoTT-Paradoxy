@@ -1,0 +1,424 @@
+{
+  "recorded_at": "2026-09-24T09:10:22.241170+00:00",
+  "purpose": "R0 input identity and pre-checkpoint working state only",
+  "model_context": "NOT_CERTIFIED_BY_TOOL",
+  "research_coverage": "NOT_ESTABLISHED",
+  "head": "b9ddf18b937edd3e623e24393866db9d854907d4",
+  "snapshot": "ac0d73e85ae9afbcf32d0fde5d2766ccbe771748058d950b8c51bd2e13a16f06",
+  "revision": 283,
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "1a859b85b7dc7b728168854b9cbcdf9198e29cc414f5842f208222a898e1933d",
+      "bytes": 25133,
+      "lines": 179
+    },
+    {
+      "path": ".codex/AGENTS.md",
+      "sha256": "b775591217c01200539e58789ab948004909c73620edb4db913543af319f0b25",
+      "bytes": 2498,
+      "lines": 28
+    },
+    {
+      "path": "goal-7.md",
+      "sha256": "a1686c52b956d39a7855ff70d390118f98bb199391467f07503b3695f9e3b4fb",
+      "bytes": 22188,
+      "lines": 152
+    },
+    {
+      "path": "最高指示.md",
+      "sha256": "a6cb0ea0b8d23205e5f4e03e0c844f142a50ce11e7fc229b33ae569c0b1f9ba9",
+      "bytes": 83629,
+      "lines": 503
+    },
+    {
+      "path": ".codex/cognition/TASK_ROUTING.md",
+      "sha256": "1ad767bac0abb77ec994661dde6e75b90bc1ac0de55150c93e1fe94a19183d1b",
+      "bytes": 5361,
+      "lines": 30
+    },
+    {
+      "path": ".codex/cognition/LOAD_SET.json",
+      "sha256": "d7cfa4cf42697bfdfa25dd3aba99178cf9869890ae129432ee394b44d389821e",
+      "bytes": 8087,
+      "lines": 217
+    },
+    {
+      "path": ".codex/cognition/PROTOCOL.md",
+      "sha256": "02e606b79d2485133fcbf5a31f0a8d0dee91148082ee87a944a7bd9a6efd2c33",
+      "bytes": 23808,
+      "lines": 170
+    },
+    {
+      "path": ".codex/skills/SKILL_ROLES.json",
+      "sha256": "85066937f089622163ca3ef356cb22b515ae3a1582c53203b2de8f0fe3c21fcf",
+      "bytes": 1264,
+      "lines": 30
+    },
+    {
+      "path": ".codex/skills/hott-local-session-governance/SKILL.md",
+      "sha256": "a69970e8faa57ef1174bcc4f6eccfcf3e75a241e0f5b35408c6ba8f9c51e767a",
+      "bytes": 7499,
+      "lines": 91
+    },
+    {
+      "path": ".codex/skills/hott-machine-overview-execution/SKILL.md",
+      "sha256": "dbbd1336785d635862f03d6064cfc699310d1679d49fab73af8f208b8d619039",
+      "bytes": 7613,
+      "lines": 60
+    },
+    {
+      "path": ".codex/research/hott/STATE.json",
+      "sha256": "18fc033da7e2453872eb01d461b83dccda6ac1d6fcf7cb6218b43a7524917b3b",
+      "bytes": 1457485,
+      "lines": 19326
+    }
+  ],
+  "four_set": [
+    {
+      "path": "核心认知.md",
+      "sha256": "6a94bec28b18a05e268bf82e55add1a030b086b73773874bc34dc82f0dd014cf",
+      "bytes": 40926,
+      "lines": 441,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "fixed-full-set"
+      ],
+      "logical_id": null,
+      "logical_role": null,
+      "full_load": false
+    },
+    {
+      "path": "方向追踪.md",
+      "sha256": "4d7664972f8eaa7d35d85c08dcda23734e1314bf85944f3ee1810a7ec387f107",
+      "bytes": 3048,
+      "lines": 49,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "fixed-full-set",
+        "shard-index:fixed-full-set",
+        "active:I-DIRECTION-PORTFOLIO-20260912"
+      ],
+      "logical_id": "DIRECTION",
+      "logical_role": "index",
+      "full_load": true
+    },
+    {
+      "path": "方向追踪/001 - 三方职责与状态语义.md",
+      "sha256": "524f35a501863ec41326c10c9f05939bc6c52ba476f36a0273a79e941671b3dc",
+      "bytes": 2644,
+      "lines": 45,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:DIRECTION"
+      ],
+      "logical_id": "DIRECTION",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "方向追踪/002 - 治理与用户方向.md",
+      "sha256": "9aa63b847f041ec5860041be970eda40142a59aacd7492dd042f7cff07a82a9f",
+      "bytes": 14664,
+      "lines": 31,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:DIRECTION"
+      ],
+      "logical_id": "DIRECTION",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "方向追踪/003 - LocalGPT 与 WebGPT 方向.md",
+      "sha256": "fb10ce3bc55191f3ecc5f6eea207ec0f1b1054e3558684456ca8252fc5db8806",
+      "bytes": 14170,
+      "lines": 29,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:DIRECTION"
+      ],
+      "logical_id": "DIRECTION",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "方向追踪/004 - 证据与覆盖方向及 STATE 覆盖表.md",
+      "sha256": "b96f4a4ff776d73a1de48126ef97f7e8d48142168d1896de093754876ff25912",
+      "bytes": 3050,
+      "lines": 31,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:DIRECTION"
+      ],
+      "logical_id": "DIRECTION",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "方向追踪/005 - 交叉审视、优先级与更新规则.md",
+      "sha256": "77e8db844d2102d8a36455c0479c30e5a0e0e1c160a4009fbb3189ace54a57ac",
+      "bytes": 7552,
+      "lines": 57,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:DIRECTION"
+      ],
+      "logical_id": "DIRECTION",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野.md",
+      "sha256": "a3fa2b9a713cbb9b5fb3dd7a89ad44edb6053799f1a1a4db402b60a3aa32e139",
+      "bytes": 3607,
+      "lines": 52,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "fixed-full-set",
+        "shard-index:fixed-full-set",
+        "active:I-OUTCOME-PANORAMA-20260912"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "index",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/001 - 使用规则与状态语义.md",
+      "sha256": "63d9313cc3ae182023ad831ea53e820a63ae8583c174a4e8138f7bd9e56a3c0a",
+      "bytes": 4883,
+      "lines": 60,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/002 - 治理、门禁与骨架结果.md",
+      "sha256": "2b787f683640d0bed211e6303e7a70b39509c5b4c35a01ae2a6fb811a85bc8a5",
+      "bytes": 28111,
+      "lines": 72,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/003 - 当前机器证明包与原生重放.md",
+      "sha256": "671a840fa1714d8d7d690bd7e17ca02896c1be33159b89e4cc8711596c94d06f",
+      "bytes": 55064,
+      "lines": 93,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/004 - 距离综合与消费者审计.md",
+      "sha256": "fc752fc746a797ebae8c3cea36d14210c502daaadd7015873facb849ce0fb21b",
+      "bytes": 22524,
+      "lines": 35,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/005 - 证据队列抽样与证据卫生.md",
+      "sha256": "a585333aa4a4b06e3dc3091a0221a80554eccc41ce1292992749f9d1120ae9bd",
+      "bytes": 15404,
+      "lines": 28,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/006 - ERCF-3 与 T3 脉冲及失败台账.md",
+      "sha256": "3958508c0d7ab0abad744572987381d19914d5cea16677744ea2e61eb17189e1",
+      "bytes": 24527,
+      "lines": 74,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/007 - 历史来源结果与关系.md",
+      "sha256": "19b296327404f92fcd07aa0f83830af34cc0a8cb0d2e9e20ced910cca0ff2963",
+      "bytes": 16513,
+      "lines": 57,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "全景视野/008 - 当前未完成.md",
+      "sha256": "d4aed2b497b5782879641fefd7042033d2370fe3deaf7167b2e343f771b50177",
+      "bytes": 8231,
+      "lines": 40,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:PANORAMA"
+      ],
+      "logical_id": "PANORAMA",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知.md",
+      "sha256": "7079c5c4bc7dfe1ad8796144fd381e0882b3a191c3f21cbe7268b822712d0ee4",
+      "bytes": 4771,
+      "lines": 44,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "fixed-full-set",
+        "shard-index:fixed-full-set"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "index",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/001 - 问题意识与理论的简化.md",
+      "sha256": "38b6d188f0022cd66cd3a482d446bee09ef177ad64d3dc1bcb4ac516e1bcce80",
+      "bytes": 10688,
+      "lines": 72,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/002 - 前提改变、结果与时间.md",
+      "sha256": "6993561ff9374f1ffe513b1f2c0032552494e35959cf8fb1fcba21fc9232a198",
+      "bytes": 15830,
+      "lines": 113,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/003 - 芝诺、圆环、ASK 与两种方向.md",
+      "sha256": "d2bb1814e73c9c182408c0a84a1ab6d68dd912c53638f6296e731e2a3bfa68dd",
+      "bytes": 24107,
+      "lines": 176,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/004 - 走进 HoTT 与理论自反.md",
+      "sha256": "0df18118e04d98923d71fc1cc47a8c13bc515401250186c4b6ba752ff089f5d2",
+      "bytes": 11950,
+      "lines": 112,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/005 - 表达界限、文章作为起点与编写说明.md",
+      "sha256": "44a5aeec2d0849f98812973a34ebf72829f7d3fbee90af574658f06f7585a93e",
+      "bytes": 12477,
+      "lines": 99,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/006 - 第三条发现路径：把知识谱当作被考察对象.md",
+      "sha256": "77cf160dfa3f2bbe201ead85dc3fb0a1825be7ab52e5f7d478bf6672202e2ea7",
+      "bytes": 8131,
+      "lines": 69,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/007 - AI数学的两件事：助力、阻力与符号翻转.md",
+      "sha256": "4411b471051c39af7733a102042bf4a01e0b034b92d077507ac58ee664708318",
+      "bytes": 4723,
+      "lines": 53,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/008 - 现实对齐：理论是现实的骨架式模仿.md",
+      "sha256": "5b86e21f7c6e5e2297c55e6ee8989b994badf01effbdf31e760ed387c35432bc",
+      "bytes": 7471,
+      "lines": 55,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    },
+    {
+      "path": "扩展认知/009 - 从可疑前提到针对性过程.md",
+      "sha256": "d9e5035a94477b7c7cf141749b7c7cc344d01a10a068d65985dc9b5c8426c298",
+      "bytes": 4466,
+      "lines": 35,
+      "layer": "always_full_documents",
+      "selected_by": [
+        "shard:CORE-ESSAY"
+      ],
+      "logical_id": "CORE-ESSAY",
+      "logical_role": "shard",
+      "full_load": true
+    }
+  ],
+  "actual_read_attestation": "../../执行记录/001 - R0接手与启动读取.md",
+  "checkpoint": "NOT_APPLIED"
+}

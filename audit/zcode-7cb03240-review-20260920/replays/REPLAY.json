@@ -1,0 +1,186 @@
+[
+  {
+    "run": "20260919-MP-G4-RING-ORIGIN-02",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-G4-RING-ORIGIN-02",
+      "--rerun"
+    ],
+    "started": "2026-09-20T06:32:29.502381+00:00",
+    "exit_code": 0,
+    "completed": "2026-09-20T06:33:04.215124+00:00",
+    "stdout_sha256": "9df63139288a78cf83101524c32c0672fd142ea7a267a11eee49e083ef5e7c63",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification": {
+      "status": "PASS_WITH_SCOPE",
+      "schema_version": "formal-proof-run-verification/v1",
+      "run_id": "20260919-MP-G4-RING-ORIGIN-02",
+      "proof_id": "MP-G4-RING-ORIGIN",
+      "claim_ids": [
+        "CAND-G4-RING-ORIGIN"
+      ],
+      "source_paths": [
+        "HoTT/formal/flash-first-hunt/RingOrigin.agda",
+        "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+        "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+      ],
+      "audit_tool_provenance_drift": [],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "scope": "圆环主线单元一（Flash 第一次寻找尝试；隔离命名空间 flash-first-hunt，模块以 capture 兼容裸名 RingOrigin 定义——capture 的 -i root=source 父目录，见 -01 的失败教训）。纯 Cubical Agda（--safe --cubical --guardedness --two-level，零公理）：R 判据形式化第一步——「来源携带胚型」最小类型化：(1) SourceCarrier C p := Σ x:C, ¬(x≡p)——去点载体每点携带「不是断点」的来源证据；(2) 正控制：来源携带构造零 postulate（postulate-free-build / instance-witness 于 ℤ，pos1≢pos0 经 injPos+sym+znots 构造性给出）；(3) 靶形：BreakoutFromM 以 p 为显式来源参数——裸载体缺来源记录的类型差异以参数化陈述（不可定义性证明留下一单元，无 ∀ 新主张）。",
+      "non_goals": [
+        "不声称 S¹(HIT) 等同点集圆；不声称找到 HoTT 共同体的实际植入现场；不声称圆环悖论完整形式化；不声称不可定义性已证；registers_new_claim:false"
+      ]
+    }
+  },
+  {
+    "run": "20260919-MP-G4-BREAKPOINT-BRIDGE-03",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-G4-BREAKPOINT-BRIDGE-03",
+      "--rerun"
+    ],
+    "started": "2026-09-20T06:33:04.215601+00:00",
+    "exit_code": 0,
+    "completed": "2026-09-20T06:33:37.783261+00:00",
+    "stdout_sha256": "1d8034ac833325761fcbdf788e3676d934de8203abc466cf4ec07534e502b5e1",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification": {
+      "status": "PASS_WITH_SCOPE",
+      "schema_version": "formal-proof-run-verification/v1",
+      "run_id": "20260919-MP-G4-BREAKPOINT-BRIDGE-03",
+      "proof_id": "MP-G4-BREAKPOINT-BRIDGE",
+      "claim_ids": [
+        "CAND-G4-BREAKPOINT-BRIDGE"
+      ],
+      "source_paths": [
+        "HoTT/formal/flash-first-hunt/BreakpointBridge.agda",
+        "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+        "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+      ],
+      "audit_tool_provenance_drift": [],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "scope": "圆环线↔ℝ层线连通件（Flash 单元一后续，用户四项指令之③）。纯 Cubical Agda（--safe 零公理）：ExcludedCarrier C r := Σ q:C, ¬(q≡r)——与 RingOrigin.SourceCarrier 同型的「排除证据」载体在 ℝ 层线的形态；桥命题 bridge : ExcludedCarrier C r → ExcludedCarrier C r（同一 Σ 类型的两线重述）；实例正控 ℤ∖{0}：排除证据 pos1≢pos0 经 injPos+sym+znots 构造性给出。圆环悖论的「断点排除」与 Dedekind cut 的「无理排除」在类型层为同一构造。",
+      "non_goals": [
+        "不声称 GOLD L/U 全谓词族已重表述（谓词族级工程列下一单元）；不声称圆环=实数（两线共用检查方式，对象不同）；无 ∀ 新主张；registers_new_claim:false"
+      ]
+    }
+  },
+  {
+    "run": "20260919-MP-G4-NO-BREAKOUT-02",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-G4-NO-BREAKOUT-02",
+      "--rerun"
+    ],
+    "started": "2026-09-20T06:33:37.783697+00:00",
+    "exit_code": 0,
+    "completed": "2026-09-20T06:33:45.959905+00:00",
+    "stdout_sha256": "de6c730af88bd05b3b36ca9cd0ff411942b81ae64e1cdfa64283b432fb468a38",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification": {
+      "status": "PASS_WITH_SCOPE",
+      "schema_version": "formal-proof-run-verification/v1",
+      "run_id": "20260919-MP-G4-NO-BREAKOUT-02",
+      "proof_id": "MP-G4-NO-BREAKOUT",
+      "claim_ids": [
+        "CAND-G4-NO-BREAKOUT"
+      ],
+      "source_paths": [
+        "HoTT/formal/flash-first-hunt/NoBreakoutFromBare.agda",
+        "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+        "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+      ],
+      "audit_tool_provenance_drift": [],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "index_validation": "EXACT_INDEX_SNAPSHOT_MATCH",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "scope": "同 NO-BREAKOUT-01（参数多态定理 ∀ C p → ¬((x:C)→¬(x≡p))，Unit/tt 具体化）+ 元层边界节落地（回应 Astra 二审 005「精确演算」要求）：定理精确强度 = Agda 参数多态的 closed-term 不可行性；显式排除 (a) 任意外部实现元定理 (b) 归约不可终止证明 (c) HoTT 命题独立性结果——(a)-(c) 登记为开放义务。",
+      "non_goals": [
+        "同 -01，且新增：不以边界注记冒充 (a)(b)(c) 的完成；registers_new_claim:false"
+      ]
+    }
+  },
+  {
+    "run": "20260919-MP-G4-CUT-AS-SOURCE-01",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "scripts/audit/verify_formal_proof_run.py",
+      "--run-dir",
+      "HoTT/verification/runs/20260919-MP-G4-CUT-AS-SOURCE-01",
+      "--rerun"
+    ],
+    "started": "2026-09-20T06:33:45.960373+00:00",
+    "exit_code": 0,
+    "completed": "2026-09-20T06:34:16.262563+00:00",
+    "stdout_sha256": "5b5ed5a147cdb603e1cce0315ce6a111a306328e19c8e39b1b0b26e4c2c7adce",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verification": {
+      "status": "PASS_WITH_SCOPE",
+      "schema_version": "formal-proof-run-verification/v1",
+      "run_id": "20260919-MP-G4-CUT-AS-SOURCE-01",
+      "proof_id": "MP-G4-CUT-AS-SOURCE",
+      "claim_ids": [
+        "CAND-G4-CUT-AS-SOURCE"
+      ],
+      "source_paths": [
+        "HoTT/formal/flash-first-hunt/CutAsSourceCarrier.agda",
+        "HoTT/formal/dedekind-omega-missile/TOOLCHAIN.json",
+        "HoTT/formal/dedekind-omega-missile/AGDA_LIBRARIES"
+      ],
+      "audit_tool_provenance_drift": [],
+      "external_dependencies": [
+        "agda-release-asset",
+        "agda-binary",
+        "cubical-release-asset",
+        "cubical-library-file",
+        "cubical-extracted-tree"
+      ],
+      "kernel_status": "KERNEL_ACCEPTED_WITH_SCOPE",
+      "index_status": "INDEXED_IN_CLAIM_EVIDENCE_MATRIX",
+      "index_validation": "ROW_STABLE_AFTER_INDEX_EVOLUTION",
+      "replay": "EXACT_EXIT_STDOUT_STDERR_MATCH",
+      "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+      "scope": "圆环主线单元三（Flash；用户四项指令之③′ GOLD 谓词族→SourceCarrier 重表述的第一件）。纯 Cubical Agda（--safe 零公理）：谓词族一般化 ExclFamily C r q := ¬(q≡r) + FamilyCarrier C r（族形态载体）+ family-to-point（族→单点桥，与 RingOrigin.SourceCarrier 类型学同一）。完成「cut 的每个成员都携带排除证据」这一类型学同一性的机器检查；完整 L/U 序结构谓词族重表述（含 le-ℚ 链）列下一单元。",
+      "non_goals": [
+        "不声称 GOLD L/U 全谓词族已重表述；不声称圆环=实数；无 ∀ 新主张；registers_new_claim:false"
+      ]
+    }
+  }
+]

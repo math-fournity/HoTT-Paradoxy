@@ -1,0 +1,33 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-RES-20261003-P-DAG-H033-H034-ZORN-TFIN",
+  "tier": "T2",
+  "mathematical_claim": "NONE",
+  "checkpoint": "NOT_APPLIED",
+  "runs": [
+    {
+      "id": "P-DAG-ZFC-SOURCE-033-ZORN-POWERSET-P3",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "max",
+      "source_sha256": "f0b42dcea6638ce5a85b2c5393ecc6d9875283508ff0c56b6259e23785e24c3a",
+      "prompt_sha256": "2a7d38201b05239176a58cf43f070524d1475e3de5f06b832a0ca9cfd47dfff2",
+      "wire_sha256": "68a73d0572a1ab10c4e30dbf19b251a181e3e76b3fb6814aa14edf4910ff0943",
+      "status": "STATIC_OBJECT_LANGUAGE_INDUCTIVE_CLOSURE_CONSTRUCTION_SEMANTICS_NOT_SUPPLIED"
+    },
+    {
+      "id": "P-DAG-ZFC-SOURCE-034-ZORN-POWERSET-P1",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "max",
+      "source_sha256": "f0b42dcea6638ce5a85b2c5393ecc6d9875283508ff0c56b6259e23785e24c3a",
+      "prompt_sha256": "6262f9fd26d91b6dd6fcc772d2d77ccb28f02041376de8cc8157e7e8b0557050",
+      "wire_sha256": "72e8727c0bcf1b7b93f5048aa9e977bf3d66bc67612ecdce107ae44aed20ab33",
+      "status": "SOURCE_CONSUMER_GAP_NO_NATIVE_Q"
+    },
+    {
+      "id": "P-DAG-H033-H034-DOCUMENT-VALIDATION",
+      "status": "PASS_WITH_NONBLOCKING_SHARD_NOTICES",
+      "commands": ["git diff --check", "verify_governance_shards.py", "session_trajectory catalog/tree/coverage/search/inspect"],
+      "result": "62-KC audit count=62; governance-shard validation PASS with 14 nonblocking soft-target notices"
+    }
+  ]
+}

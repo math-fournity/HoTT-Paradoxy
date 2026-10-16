@@ -1,0 +1,27 @@
+{
+  "schema_version": "hott-session-runs/v1",
+  "session_id": "S-GOV-20260912-007-PROJECTION-CAPACITY",
+  "runs": [
+    {
+      "command": "rtk python3 .codex/tools/cognition_runtime.py plan",
+      "status": "PASS_PRE_REPAIR",
+      "scope": "revision-6 plan exposed raw-ledger capacity inflation"
+    },
+    {
+      "command": "rtk python3 scripts/audit/verify_three_way_cognition.py",
+      "status": "PASS_POST_REPAIR",
+      "scope": "three-way projection and revision 7"
+    },
+    {
+      "command": "rtk python3 scripts/audit/test_three_way_cognition.py",
+      "status": "PASS",
+      "scope": "3/3 positive and negative tests"
+    },
+    {
+      "command": "rtk git diff --check",
+      "status": "PASS",
+      "scope": "repair patch whitespace"
+    }
+  ],
+  "model_context": "NOT_CERTIFIED_BY_TOOL"
+}
