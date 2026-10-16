@@ -29,6 +29,11 @@ AUDIT_TOOL_PROVENANCE_PATHS = {
     # but it is not read by RUN.command_argv and is not a proof input.  Its
     # evolution must not masquerade as theorem-source drift.
     "scripts/audit/verify_formal_proof_run.py",
+    # Capture programs determine how a historical receipt was written but are
+    # not invoked by that receipt's command.  Preserve their old hash in the
+    # manifest while allowing later capture-tool maintenance to be reported as
+    # provenance drift rather than theorem-source drift.
+    "scripts/audit/capture_agda_proof_run.py",
 }
 
 
