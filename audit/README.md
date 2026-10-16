@@ -1,5 +1,11 @@
 # 审计资产入口
 
+- [P-DAG H077–H080：极限、完成定义与圆环 Q0 的来源 Battle（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-077-080-Terra-Max.md)：Norton的实际completion合同、Bathfield/Sierpińska的bridge批评、H079采样前marker失败及H080独立裁决共同显示：争点是`Done_strict / Done_revised / Done_formal`的任务契约，不是数学事实冲突或ZFC矛盾；全局Q1仍未会合。
+
+- [P-DAG H076：ZFC-CIRCLE-Q0 completion bridge 来源匹配（Terra / Max，2026-10-03）](20261003-P-DAG-ZFC-CIRCLE-076-Terra-Max.md)：隔离 source-match 核对四条冻结标准来源及连续变形控制。P1仅形成 completion object，P2不适用，P3-C发现标准来源明确保留数学—过程桥；判`SOURCE_BRIDGE_DEFENSE / NO_C_LANE_CONSUMER`，全局Q1不升级。
+
+- [ZFC-CIRCLE-Q0：连续统完成与圆环复原候选卡（2026-10-03）](20261003-ZFC-CIRCLE-Q0-连续统完成与圆环复原候选卡.md)：研究发起人选择圆环作为审视 ZFC 支撑的实数／极限／连续框架的候选入口。它分开bare ZFC、数学completion和原过程Done，并用C-269/C-272/C-291/C-292及标准来源做强反控制；不是ZFC不一致或数学结论。
+
 - [P-FORGE：P/Q共同锻造逐轮兵棋审计（2026-10-03，粗粒度历史）](20261003-P-FORGE-PQ-WARGAME.md)：R00--R15保留原初目标、13个粗粒度自然单元与当时的R14综合；它是父级因果图，不能代替原子分母。
 
 - [P-FORGE 原子锻打全量审计：A0--A3（2026-10-03，完成）](20261003-P-FORGE-ATOMIC-SYNTHESIS.md)：在精确冻结的130个历史单位内，完成A0分母、A1逐卡回放、A2父级回接和A3跨卡综合。结果是`ATOMIC_AUDIT_COMPLETE_WITH_SCOPE`、`ZFC_SITE_SELECTED / Q-0 UNFORMED / ZFC_Q_NOT_LOCATED`；不宣称ZFC无问题、站位切换、新刀或数学结论。原子卡、分母与父级证据分别由[原子campaign](20261003-P-FORGE-ATOMIC-AUDIT.md)、[原子账本](20261003-P-FORGE-ATOMIC-LEDGER.md)和[父级回接](20261003-P-FORGE-PARENT-RECONCILIATION.md)拥有。
