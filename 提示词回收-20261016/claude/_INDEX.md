@@ -1,0 +1,67 @@
+# Claude 侧用户提示词索引
+
+项目目录 15 个（含 HoTT），会话 61 个，用户消息共 685 条。
+
+| 日期 | 会话 | 条数 | 项目目录 | 文件 |
+|---|---|---|---|---|
+| 2026-09-24 | `4e388b7f` | 3 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-24-4e388b7f-3p.md |
+| 2026-09-24 | `6fd0312a` | 5 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-24-6fd0312a-5p.md |
+| 2026-09-24 | `bb204ea1` | 7 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-24-bb204ea1-7p.md |
+| 2026-09-25 | `91a6cdaa` | 22 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-25-91a6cdaa-22p.md |
+| 2026-09-26 | `7f138325` | 8 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-26-7f138325-8p.md |
+| 2026-09-30 | `0591e49f` | 20 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-30-0591e49f-20p.md |
+| 2026-09-30 | `69660900` | 27 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-30-69660900-27p.md |
+| 2026-09-30 | `eadb3381` | 21 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-09-30-eadb3381-21p.md |
+| 2026-10-01 | `5330b78a` | 3 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-01-5330b78a-3p.md |
+| 2026-10-01 | `a2f379c2` | 2 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-01-a2f379c2-2p.md |
+| 2026-10-01 | `e449c395` | 9 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-01-e449c395-9p.md |
+| 2026-10-02 | `940e79ff` | 6 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-02-940e79ff-6p.md |
+| 2026-10-07 | `01796cd9` | 39 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-01796cd9-39p.md |
+| 2026-10-07 | `43345aa3` | 23 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-43345aa3-23p.md |
+| 2026-10-07 | `4e78bb74` | 27 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-4e78bb74-27p.md |
+| 2026-10-07 | `91beaf35` | 38 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-91beaf35-38p.md |
+| 2026-10-07 | `95a1a81b` | 43 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-95a1a81b-43p.md |
+| 2026-10-07 | `d4584736` | 7 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-d4584736-7p.md |
+| 2026-10-07 | `d58e0c0d` | 21 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-07-d58e0c0d-21p.md |
+| 2026-10-08 | `187a6754` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-187a6754-1p.md |
+| 2026-10-08 | `57ac0827` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-57ac0827-1p.md |
+| 2026-10-08 | `58158afb` | 1 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-08-58158afb-1p.md |
+| 2026-10-08 | `5a50de9e` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-5a50de9e-1p.md |
+| 2026-10-08 | `8dfc2b3f` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-8dfc2b3f-1p.md |
+| 2026-10-08 | `be9b1df4` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-be9b1df4-1p.md |
+| 2026-10-08 | `d21cd54a` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-d21cd54a-1p.md |
+| 2026-10-08 | `e3c75d6e` | 1 | `private-tmp-claude-501--Volumes-D-HoTT-AI-HANDOFF-20260911-43345aa3-34f4-420f-9b5e-37f4840ffa91-scratchpad-probe` | 2026-10-08-e3c75d6e-1p.md |
+| 2026-10-11 | `0711de8c` | 2 | `Volumes-D-HoTT-worktrees-cg007-w8-d3` | 2026-10-11-0711de8c-2p.md |
+| 2026-10-11 | `171a4930` | 12 | `Volumes-D-HoTT-Git-Worktree` | 2026-10-11-171a4930-12p.md |
+| 2026-10-11 | `248c824a` | 3 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-248c824a-3p.md |
+| 2026-10-11 | `35e57fea` | 12 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-nice-lovelace-ab1147` | 2026-10-11-35e57fea-12p.md |
+| 2026-10-11 | `3a404120` | 1 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-3a404120-1p.md |
+| 2026-10-11 | `3a740c62` | 12 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-11-3a740c62-12p.md |
+| 2026-10-11 | `3ccc6e22` | 26 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-11-3ccc6e22-26p.md |
+| 2026-10-11 | `44b3c5e2` | 6 | `Volumes-D-HoTT-Git-Worktree` | 2026-10-11-44b3c5e2-6p.md |
+| 2026-10-11 | `4dac36e1` | 1 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-4dac36e1-1p.md |
+| 2026-10-11 | `6c7b9172` | 1 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-6c7b9172-1p.md |
+| 2026-10-11 | `77d1ad24` | 11 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-77d1ad24-11p.md |
+| 2026-10-11 | `78361108` | 4 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-frosty-jepsen-0c3ebe` | 2026-10-11-78361108-4p.md |
+| 2026-10-11 | `7947b06e` | 11 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-nice-lovelace-ab1147` | 2026-10-11-7947b06e-11p.md |
+| 2026-10-11 | `82aeefc9` | 5 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-11-82aeefc9-5p.md |
+| 2026-10-11 | `896edebf` | 12 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-11-896edebf-12p.md |
+| 2026-10-11 | `9ffd4c57` | 14 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-9ffd4c57-14p.md |
+| 2026-10-11 | `bb07d31e` | 1 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-bb07d31e-1p.md |
+| 2026-10-11 | `cb7b0a4a` | 20 | `Volumes-D-HoTT-AI-HANDOFF-20260911` | 2026-10-11-cb7b0a4a-20p.md |
+| 2026-10-11 | `cf1eb529` | 1 | `Volumes-D-HoTT-Git-Worktree` | 2026-10-11-cf1eb529-1p.md |
+| 2026-10-11 | `d69224b0` | 15 | `Users-aurolafly-WorkBuddy-Worktrees-HoTT-AI-HANDOFF-20260911-dev-ef7e5239-HoTT-formal-claude-cg001-godel-q-zfc-z0-full` | 2026-10-11-d69224b0-15p.md |
+| 2026-10-11 | `df35a2ea` | 6 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-11-df35a2ea-6p.md |
+| 2026-10-11 | `e2c509da` | 8 | `Volumes-D-HoTT-worktrees-cg007-w8-d3` | 2026-10-11-e2c509da-8p.md |
+| 2026-10-11 | `fdaa14c7` | 1 | `Users-aurolafly--codex-worktrees-9276-HoTT-AI-HANDOFF-20260911` | 2026-10-11-fdaa14c7-1p.md |
+| 2026-10-11 | `ff795e5e` | 14 | `Volumes-D-HoTT-worktrees-cg007-w8-d3` | 2026-10-11-ff795e5e-14p.md |
+| 2026-10-12 | `2dfdc1cf` | 20 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-12-2dfdc1cf-20p.md |
+| 2026-10-12 | `46f91561` | 9 | `Volumes-D-HoTT-Git-Worktree` | 2026-10-12-46f91561-9p.md |
+| 2026-10-12 | `5c02fca6` | 15 | `Volumes-D-HoTT-worktrees-cg007-w8-d3` | 2026-10-12-5c02fca6-15p.md |
+| 2026-10-12 | `5d046446` | 3 | `Volumes-D-HoTT-worktrees-cg007-w8-d3` | 2026-10-12-5d046446-3p.md |
+| 2026-10-12 | `6fc39d93` | 13 | `Volumes-D-HoTT-Git-Worktree` | 2026-10-12-6fc39d93-13p.md |
+| 2026-10-12 | `ae67fd34` | 6 | `Volumes-D-HoTT-worktrees-cg007-w8-d3` | 2026-10-12-ae67fd34-6p.md |
+| 2026-10-12 | `f6dfa4b5` | 73 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-12-f6dfa4b5-73p.md |
+| 2026-10-14 | `234c54a8` | 3 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-14-234c54a8-3p.md |
+| 2026-10-14 | `9389c683` | 1 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-14-9389c683-1p.md |
+| 2026-10-14 | `b69a8201` | 4 | `Volumes-D-HoTT-AI-HANDOFF-20260911--claude-worktrees-elegant-mclaren-767fb0` | 2026-10-14-b69a8201-4p.md |
