@@ -8,6 +8,12 @@ Markdown transcript containing only GUI-visible content:
   * the assistant's visible text replies (verbatim, Markdown unchanged);
   * AskUserQuestion interactions (question, options, the user's selection).
 
+A turn whose assistant reply failed (rate limit, cancellation, provider error)
+renders the GUI-visible error notice as a marked blockquote capsule, so a
+failed turn is never silently rendered as "no reply". Intermediate streaming
+retry errors (StreamRecoveryDiscarded) are not user-visible failures and are
+skipped with a receipt counter.
+
 It deliberately omits reasoning, tool calls/results (other than the
 AskUserQuestion capsule), system injections (todo reminders, agent listing
 deltas), fork markers, context snapshots, and any credentials.
@@ -37,7 +43,9 @@ from pathlib import Path
 DB_PATH = Path.home() / ".zcode" / "cli" / "db" / "db.sqlite"
 OUTPUT_DIR = Path.home() / ".zcode" / "trajectory-ref-exports"
 OUTPUT_MODES = frozenset({"gui", "audit"})
-TOOL_VERSION = "1.0.0"
+TOOL_VERSION = "1.1.0"
+ERROR_INTERMEDIATE_NAMES = frozenset({"StreamRecoveryDiscarded"})
+ERROR_MESSAGE_MAX = 400
 
 
 class ExportError(RuntimeError):
@@ -80,6 +88,21 @@ class MsgRow:
         meta = self.data.get("metadata") or {}
         fo = meta.get("forkOrigin")
         return fo if isinstance(fo, dict) else {}
+
+    @property
+    def error_info(self) -> dict | None:
+        err = self.data.get("error")
+        if not isinstance(err, dict):
+            return None
+        d = err.get("data") or {}
+        name = str(err.get("name") or "")
+        if name in ERROR_INTERMEDIATE_NAMES:
+            return None
+        return {
+            "name": name,
+            "code": str(d.get("code") or ""),
+            "message": str(d.get("message") or ""),
+        }
 
 
 def ts_to_local(ms: int) -> str:
@@ -229,13 +252,19 @@ class Turn:
     user_time: int = 0
     assistant_texts: list = field(default_factory=list)  # (time, text, msg_id)
     askuser: list = field(default_factory=list)
+    errors: list = field(default_factory=list)  # (time, error_info, msg_id)
     audit_user: dict = field(default_factory=dict)
 
 
 def build_turns(msgs: list[MsgRow]) -> list[Turn]:
     turns: list[Turn] = []
     cur: Turn | None = None
-    stats = {"user_real": 0, "user_injected": 0, "assistant": 0}
+    stats = {
+        "user_real": 0,
+        "user_injected": 0,
+        "assistant": 0,
+        "errors_intermediate_skipped": 0,
+    }
     for m in msgs:
         if m.role == "user":
             if m.is_synthetic:
@@ -258,6 +287,12 @@ def build_turns(msgs: list[MsgRow]) -> list[Turn]:
                 cur.user_text = "（会话开头，无用户消息）"
                 turns.append(cur)
             stats["assistant"] += 1
+            info = m.error_info
+            if info is None:
+                if isinstance(m.data.get("error"), dict):
+                    stats["errors_intermediate_skipped"] += 1
+            else:
+                cur.errors.append((m.time_created, info, m.id))
             for p in m.parts:
                 d = p["data"]
                 if d.get("type") == "text":
@@ -276,12 +311,15 @@ def build_turns(msgs: list[MsgRow]) -> list[Turn]:
 
 def render_header(sess: dict, turns: list[Turn], mode: str, stats: dict) -> str:
     times = [t.user_time for t in turns if t.user_time] or [0]
-    end_times = [
-        tt[0] for t in turns for tt in t.assistant_texts
-    ] or times
+    end_times = (
+        [tt[0] for t in turns for tt in t.assistant_texts]
+        + [te[0] for t in turns for te in t.errors]
+    ) or times
     fork_note = ""
     if sess["parent_id"]:
         fork_note = f"\n> - **Fork 来源**：`{sess['parent_id']}`（本会话是该会话的 Fork）"
+    failed = sum(1 for t in turns if t.errors)
+    failed_note = f"，其中回复失败 {failed} 轮" if failed else ""
     lines = [
         f"# ZCode GUI 会话转录：{sess['id']}",
         "",
@@ -289,7 +327,7 @@ def render_header(sess: dict, turns: list[Turn], mode: str, stats: dict) -> str:
         f"> - **会话**：`{sess['id']}`",
         f"> - **项目**：{sess['project_id'] or '-'}",
         f"> - **时间范围**：{ts_to_local(min(times))} 至 {ts_to_local(max(end_times))}（本地时区）",
-        f"> - **轮次**：{len(turns)} 轮真实用户消息；assistant 消息 {stats['assistant']} 条（其中系统注入 {stats['user_injected']} 条已剔除）",
+        f"> - **轮次**：{len(turns)} 轮真实用户消息{failed_note}；assistant 消息 {stats['assistant']} 条（其中系统注入 {stats['user_injected']} 条已剔除）",
         f"> - **导出模式**：{mode}（gui＝仅 GUI 可见；audit＝附原始定位）",
         f"> - **导出时间/工具**：{datetime.now().astimezone().strftime('%Y-%m-%d %H:%M:%S')} / v{TOOL_VERSION}",
         fork_note,
@@ -327,6 +365,18 @@ def render_turn(t: Turn, mode: str) -> str:
         for _time, text, _mid in t.assistant_texts:
             out.append(text.rstrip())
             out.append("")
+    if t.errors:
+        out.append("### 回复失败（GUI 可见错误提示）")
+        out.append("")
+        for _time, info, mid in t.errors:
+            label = info["code"] or info["name"] or "UNKNOWN_ERROR"
+            msg = info["message"][:ERROR_MESSAGE_MAX]
+            suffix = "…" if len(info["message"]) > ERROR_MESSAGE_MAX else ""
+            out.append(f"> ⚠️ **{label}**：{msg}{suffix}")
+            if mode == "audit":
+                out.append(">")
+                out.append(f"> assistant message: `{mid}`")
+            out.append("")
     if mode == "audit":
         out.append("<details><summary>audit 定位</summary>")
         out.append("")
@@ -341,6 +391,8 @@ def render_turn(t: Turn, mode: str) -> str:
             out.append(f"- askuser part: `{cap['part_id']}`")
         for _time, _text, mid in t.assistant_texts:
             out.append(f"- assistant text in message: `{mid}`")
+        for _time, _info, mid in t.errors:
+            out.append(f"- assistant error in message: `{mid}`")
         out.append("")
         out.append("</details>")
         out.append("")
@@ -379,6 +431,9 @@ def export(sess_key: str, mode: str) -> dict:
         "user_injected_skipped": stats["user_injected"],
         "assistant_messages": stats["assistant"],
         "askuser_count": sum(len(t.askuser) for t in turns),
+        "failed_turns": sum(1 for t in turns if t.errors),
+        "error_capsules": sum(len(t.errors) for t in turns),
+        "errors_intermediate_skipped": stats["errors_intermediate_skipped"],
     }
 
 
