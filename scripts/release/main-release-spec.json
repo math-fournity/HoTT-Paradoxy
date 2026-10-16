@@ -105,6 +105,38 @@
     {
       "path": ".claude/goals/CG-001-targeted-overview/tools/lean_check.py",
       "reason": "Lean build-and-check driver named in the Lean receipts; it stays on dev with the other goal-local tools. tools/replay.py on main repeats its steps (compile the sources in order into a temporary build directory, optionally leanchecker --fresh) with the user's own toolchain."
+    },
+    {
+      "path": ".claude/goals/CG-005-godel-q-synthesis/tools/godelq_lean_check.py",
+      "reason": "Build-and-check driver named in the godel-q receipts (Lean 4.34.0 against a pinned Mathlib build); it stays on dev with the other goal-local tools. tools/replay.py on main repeats its steps (compile the sources in order inside the package into a temporary build directory) with the user's own toolchain and a built Foundation/Mathlib."
+    },
+    {
+      "path": ".claude/goals/CG-005-godel-q-synthesis/tools/capture_godelq_run.py",
+      "reason": "Capture tool that wrote the godel-q receipts; it stays on dev. Replaying does not need it."
+    },
+    {
+      "path": ".claude/goals/CG-005-godel-q-synthesis/tools/make_godelq_pins.py",
+      "reason": "Tool that wrote the godel-q package's LEAN_TOOLCHAIN.json and MATHLIB_CLOSURE.json (both included in the package); it stays on dev. Replaying does not need it."
+    },
+    {
+      "path": ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+      "reason": "Build-and-check driver named in the receipts of the packages that import Foundation or Mathlib (Lean 4.34.0, pinned Foundation 1fb01b72 and Mathlib 5ed29652); it stays on dev with the other goal-local tools. tools/replay.py on main repeats its steps with the user's own toolchain and a built Foundation checkout."
+    },
+    {
+      "path": ".claude/goals/CG-006-zfc-complete-formalization/tools/capture_zfc_run.py",
+      "reason": "Capture tool that wrote the godel-q-zfc receipts; it stays on dev. Replaying does not need it."
+    },
+    {
+      "path": ".claude/goals/CG-006-zfc-complete-formalization/tools/make_zfc_pins.py",
+      "reason": "Tool that wrote the godel-q-zfc package's LEAN_TOOLCHAIN.json and MATHLIB_CLOSURE.json (both included in the package); it stays on dev. Replaying does not need it."
+    },
+    {
+      "path": ".claude/goals/CG-007-formalization-completion/tools/capture_run.py",
+      "reason": "Capture tool that wrote the CG-007 and CG-010 Lean receipts (each records the zfc_lean_check.py command it ran); it stays on dev. Replaying does not need it."
+    },
+    {
+      "path": ".claude/goals/CG-007-formalization-completion/tools/make_pins.py",
+      "reason": "Tool that wrote the LEAN_TOOLCHAIN.json and MATHLIB_CLOSURE.json of the CG-007 and CG-010 Lean packages (included in each package); it stays on dev. Replaying does not need it."
     }
   ],
   "runs": [
