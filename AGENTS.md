@@ -153,6 +153,59 @@ proof_index: HoTT/CLAIM_EVIDENCE_MATRIX.md
 - `.codex/tools/cognition_runtime.py` 的 `plan/read/check` 是只读加载器；checkpoint 默认 dry-run，只有用户已授予的写权限和显式 `--apply` 才能写入状态。每个 applied checkpoint 必须在同一事务中写入 `SESSION.md`、`RUNS.json` 和通过当前 generation 全量/顺序检查的 `CORE_COGNITION_AUDIT.md`，并产生 `.codex/cognition/checkpoints/<session-id>/transaction.json`、before/after 副本和 `result.json`。只有 canonical `result.json.status=CHECKPOINT_COMMITTED` 才能证明 checkpoint 已应用；Session 自写的 `POST-CHECKPOINT.json` 只能引用该收据，不能自我证明。历史缺收据只能登记缺口，禁止追溯伪造事务。
 - Git 操作遵守全局基线规范：精确检查 dirty/index，保留既有嵌套 repo 与用户修改，精确 stage，提交后回读 HEAD、hash、验证结果。顶层 repo 的本次初始化与提交由用户本轮明确授权；不自动 push、发布、恢复已移走目录或删除历史。
 
+## 形式化与机器证明追踪（Codex 接手 CG-007 后的强制路由）
+
+标识：`FORMALIZATION_TRACKING_ROUTING_V1`。2026-10-09 起，本 repo 的“形式化与机器证明”主推进线
+由 Codex 会话接手 Claude Opus 会话 d58e0c0d 的 CG-007 目标包。两边共用同一套 repo，不共用启动文件
+（Claude 用根 `CLAUDE.md` + `.claude/`，Codex 用本文件 + `.codex/`）；本节的目的是让接手不在
+“没读到追踪文档”上再次断掉。
+
+**唯一入口**：`形式化追踪/README.md`。每条形式化线路一章，每节一个文件；工具链与重放命令在
+`90-工具链与重放.md`；每次变化追加在 `99-更新日志.md`。
+
+- 回答“某条线做到哪了、下一步是什么、为什么停在这里”之前，先读 `形式化追踪/README.md` 的总览，
+  再读该线 README 与相关节文件。不凭记忆，也不从对话里拼凑。发现它与实物冲突时，以实物为准，
+  并当场改正该文件夹。
+- `AGENTS.md` 不复制各线的状态。这里只固定路由、编号空间与完成判据。
+
+**编号空间**（三条并行，互不占用）：
+
+| 前缀 | 归属 | 当前最大值 |
+|---|---|---|
+| `C-NNN` | 共享编号，`dev` 上的命题 | 下一个从 `C-387` 起 |
+| `CG001-C-NN` | Claude 线（含 Claude 与 Codex 接手后的 CG-007 单元） | 见 `HoTT/CLAIM_NAMESPACE_LEDGER.md` |
+| `D01-/D02-/D09-C-NNN` | GPT 各分支的命题，按 `CLAIM_NAMESPACE_LEDGER.md` §2 换算 | 只读，不改号 |
+
+分支命题一律加前缀；分支包的文件一字不改。并入 `dev` 前先看 `HoTT/CLAIM_NAMESPACE_LEDGER.md` §3
+的理由与逐文件差异。
+
+**机器证明门禁（F-011）在形式化线上的完成判据**：一个工作单元结束时，下面五件事要么都做到，
+要么照实写明缺哪一条，不得以“做完了”代之：
+
+1. 命题的类型逐字落在包的 `.lean` 源里（不在对话、不在内存）；
+2. 主运行与至少一个负控制用 `.claude/goals/CG-007-formalization-completion/tools/capture_run.py`
+   抓成 `HoTT/verification/runs/<run-id>/` 的正式收据（`RUN.json`、`stdout.txt`、`stderr.txt`、
+   `environment.txt`、`source-manifest.json`）；
+3. `verify_cg001_run.py --rerun` 精确重放一致。**必须在 CG-001 证据索引
+   `.claude/goals/CG-001-targeted-overview/证据索引.md` 里先有该 proof/run/claim 的行**，否则校验器
+   报 `GOAL_INDEX_ROW_COUNT`；先写索引行，再校验；
+4. 共享矩阵 `HoTT/CLAIM_EVIDENCE_MATRIX.md` 追加一节，含 Package 表与 Claim 表；
+5. 更新 `形式化追踪/`：该线 README 的状态表与“下一步”、总览中该行、`99-更新日志.md` 追加一行。
+
+**未证明内容的处置**：不能作为数学结论交付。若某命题证不完，把它写成一条精确的 Lean 命题，
+放进包内一个带未证标记的文件（驱动与双重校验器都会拒收含禁用标记的源，因此它自动不进收据），
+并在 `CLAIM.md` 中说明它为什么是实的缺口、缺的是什么、由谁可以继续。CG-007 W8 的
+`GodelQ/ZFC/Z0Blocked.lean:zfcTr_D3_internalize` 是当前的样例。
+
+**Claude 线与其目标包的边界**：Claude 会话的硬规则在根 `CLAUDE.md`（实用主义一节优先），
+其中保护真实与安全的几条对 Codex 同样适用，本文件不复制：
+
+- 只按精确路径提交；`main` 只由 `scripts/release/build_main_release.py` 从 `dev` 生成；推送与发布
+  以研究发起人的授权为准；不强推，不删分支与 worktree；删除只进废纸篓；
+- 不调用 Sub Agent（研究发起人 2026-09-17 裁定）；模式 P 的 P-DAG 已由研究发起人 2026-10-08
+  决定暂停，见本文件该节的历史保留说明；
+- `sources/` 快照只读；`private-audit/` 只读；不恢复研究发起人移走的目录。
+
 ## 模式 P 动态 DAG 的任务限定授权（用户 2026-10-02）
 
 2026-09-17 的 blanket Sub Agent 禁令保留为历史规则，并继续约束本项目的一般工作；用户 2026-10-02 对**模式 P 的 P1/P2/P3 共同锻造、ZFC 定位与 HoTT 盲重放**作出任务限定的后续授权：Master 可以按证据依赖建立动态 DAG，启动不同刀具、来源核对、控制和 Battle 节点，并逐节点决定是否允许联网、只读 `dev`／`main`／其它分支或保持无泄漏盲态。
