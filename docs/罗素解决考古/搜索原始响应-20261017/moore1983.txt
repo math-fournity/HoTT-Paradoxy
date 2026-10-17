@@ -1,0 +1,1291 @@
+Lebesgue’s Measure Problem and
+Zermelo’s Axiom of Choice:
+The Mathematical Effects
+of a Philosophical Dispute“
+GREGORY H. MOORE
+Department of Mathematics
+University of Toronto
+Toronto, Canada MSS I A1
+
+INTRODUCTION
+During the early years of the twentieth century there arose an intriguing
+historical contradiction. This was not a contradiction within mathematics per
+se. such as was furnished during the same period by Russell’s paradox,
+Burali-Forti’s paradox, and the paradox of the largest cardinal. Rather, it was
+a contradiction between the expressed philosophy of a group of mathematicians and the type of mathematics that they developed. The contradiction was
+so fundamental that, if these mathematicians had understood it properly, their
+philosophical beliefs would have forced them to reject their life’s work. At the
+very least, they would have had to recast it in a form that would destroy its
+usefulness to the mainstream of twentieth-century mathematics.
+In order to understand this contradiction and its effects on the subsequent
+development of mathematics, we must first consider how Georg Cantor’s set
+theory influenced French analysis late in the nineteenth century. In 1870
+Cantor began to publish his findings on trigonometric series and, in particular,
+on what are now called their sets of uniqueness (i.e., sets on which a real
+function can be represented by a unique trigonometric series). Little by little,
+this research led him to introduce his infinite ordinal and cardinal numbers as
+well as various concepts in point-set topology. Yet his ideas had a negligible
+impact on French mathematics until 1883 when Costa Mittag-Leffler, editor
+of the new Swedish journal Acta Mathematica, printed French translations of
+several of Cantor’s articles.* At the same time Cantor published in Acta a new
+but related paper [ 1883k], written in French.
+The introduction of Cantor’s ideas into France was largely due to two
+brothers, Jules and Paul Tannery. In the Bulletin des sciences mathtmatiques
+et astronomiques, whose audience consisted primarily of mathematicians,
+Jules Tannery [ 18841 favorably reviewed both the French translations of
+“This paper was presented at a meeting held jointly by the Section of History, Philosophy and
+Ethical Issues of Science and Technology and the Section of Mathematics of The New York
+Academy of Sciences on March 25, I98 I .
+bThe articles were Cantor, 1871, 1872, 1874, 1878, 1879, 1880, 1882, 1883, 1883a, and the
+corresponding translations were Cantor, I 8 8 3 b j . For a detailed and insightful study of Cantor’s
+life and work, see Dauben, 1979.
+
+I29
+0077-8923/83/0412~,129 $01.7512 6 1983. NYAS
+
+130
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+Cantor’s work and his new paper. Indeed, Jules Tannery described Cantor’s
+researches as constituting “a theory which, undoubtedly, is neither finished
+nor perfect but which is interesting from a philosophical viewpoint and which,
+from a mathematical perspective, is intimately connected to recent discoveries
+in the theory of [complex] functions . . .” [ 1884, p. 1621. In particular, Jules
+Tannery did not object to Cantor’s infinite ordinal numbers or to the
+corresponding infinite cardinal numbers, as many later mathematicians were
+to do. Meanwhile, Paul Tannery was stimulated by one of the translations
+[Cantor, 1883~1to attempt a proof of Cantor’s Continuum Hypothesis, which
+stated that every uncountable set of real numbers has the same cardinality as
+the set of all real numbers [P. Tannery, 18841. Unfortunately, this proof was
+erroneous. The following year he introduced Cantor’s work to a philosophical
+audience (the readers of the Revue philosophique de la France er de
+l’etranger) by describing how Cantor had characterized the notion of a
+continuum and by characterizing Cantor himself as “a pure idealist as to
+principles and methods” [P. Tannery, 1885, p. 4061. On the other hand, this
+Tannery had some reservations about Cantor’s infinite ordinal numbers
+[ 1885, p. 4101. The following year Jules Tannery published a textbook on the
+theory of functions, in which he mentioned Cantor’s construction of the real
+numbers, his derived sets, and his discovery that the rational numbers are
+countable-“a result which appears somewhat paradoxical” [J. Tannery,
+1886, pp. x, 43, 581. Much later he took pleasure in pointing out how his
+review of 1884 and his textbook of 1886 had “contributed to making G.
+Cantor’s ideas known in France. . .” [J. Tannery, 1901, p. 291.
+Several years passed between the contributions of the Tannerys and the
+next occasion on which a French mathematician utilized Cantor’s work. In
+I892 Camille Jordan proposed to study the role played by an arbitrary set E in
+the plane when a real functionf(x,y) is integrated over E. With this in mind,
+he remarked that earlier researchers had presupposed that every such E has a
+unique measure (ttendue) and that this measure is finitely additive. That is, if
+E l U E, = E , where E l and E2 are disjoint, then the measure of E equals the
+sum of the measure of E , and the measure of E, [1892, p. 691. After
+establishing that an arbitrary E has a unique inner Jordan measure and a
+unique outer Jordan measure, he defined a set in the plane to be Jordanmeasurable if its inner and outer Jordan measures are equal. In order to study
+Jordan measure more deeply, he utilized a number of Cantor’s topological
+concepts such as limit point, derived set, and closed set [Jordan, 1892, p. 721.
+When the second edition of Jordan’s Cours dhnalyse appeared the following
+year, it included both a substantial discussion of these Cantorian concepts and
+Jordan’s theory of measure [ 1893, pp. 18-30].
+Beginning in 1895, a number of French philosophers who were not also
+mathematicians became interested in Cantor’s work. Arthur Hannequin, a
+young Kantian philosopher, wrote a book criticizing the use of “atoms” in
+physics and mathematics. Influenced by the philosopher Benno Kerry [ 18851,
+Hannequin devoted some twenty-four pages to Cantor and described in some
+detail the notion of derived set, the infinite ordinals, the characterization of
+the continuum as perfect and connected, and the status of the Continuum
+Hypothesis. Although Hannequin was willing to concede the existence of the
+
+MOORE: LEBESCUE A N D ZERMELO
+
+131
+
+least infinite ordinal w , he found Cantor’s definition of a continuum to be
+inadequate, particularly because of its inability to deal with metric considerations such as length: “Thus Cantor’s researches have served only to render
+more obvious the ancient conflict between the continuum on the one hand and
+the notion of [real] number on the other” [Hannequin 1895, p. 691. The
+following year Cantor obtained a more sympathetic hearing from the philosopher Louis Couturat, whose doctoral dissertation [ 18961 contained seventyfive pages devoted to “the researches, so original and so profound, of Georg
+Cantor on the theory of infinite sets” [Couturat, 1896, p. 1181. Indeed,
+Couturat regarded the Continuum Hypothesis as already demonstrated
+[1896, p. 6551, a position that he would modify the following year when
+reviewing Hannequin’s book [Couturat, 1897, p. 7811. It is not surprising,
+however, that most of the other philosophers who criticized Cantor, such as
+Georges Lechalas [1897, pp. 627-6291 and FranCois Evellin [1898, pp.
+115-1 161, did so by rejecting the actual infinite in favor of the potential
+infinite.
+Until the mid- 1890s, the philosophical views of French mathematicians
+had little effect on their usage of Cantorian notions. Then there emerged three
+French mathematicians-Emile
+Borel, Rent Baire, and Henri Lebesgue-who vigorously applied Cantorian notions while maintaining a
+philosophical position that would seriously undermine the usefulness of these
+notions. In this fashion, as we shall see, the contradiction mentioned at the
+beginning of this section was able to take root.
+BOREL, BAIRE, AND LEBESGUE
+In 1893 Emile Borel graduated from the Ecofe Normafe SupCrieure in Paris.
+The following year, while teaching at the University of Lille, he completed a
+doctoral dissertation on the analytic continuation of a complex function, and
+soon was offered a teaching position at his alma mater. Various measuretheoretic ideas, including the notion of a set of measure zero, were implicit in
+this thesis [ 18951. However, he first developed these ideas in detail within his
+book Lecons sur fa thtorie des fonctions [ 18981, which was dedicated to Jules
+Tannery. The first half of the book was devoted to Cantorian set theory.
+Reflecting on this period more than a decade later, Borel wrote: “I must admit
+that, like many young mathematicians, I was at first seduced by the Cantorian
+theory. I do not regret this, for it is a subject which renders the mind singularly
+flexible” [ 19 12, p. 21.
+Borel’s monograph developed those parts of set theory which he deemed
+useful in complex analysis, in particular, elementary cardinal arithmetic and
+certain topological notions. Although he expressed some reservations about
+cardinal numbers greater than c (the power of the set of all real numbers), he
+accepted various theorems of Cantor’s, such as the following:
+
+If a family A of sets has power c and if every set
+in A has power c, then the union of A also has
+power c [Borel, 1898, pp. 16-17].
+
+132
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+If Borel had carefully examined his proof of this theorem, he would have
+found that it depended on the arbitrary choice, for each set E in A, of a
+one-one function from B onto c. The use of such arbitrary choices, which was
+becoming widespread late in the nineteenth century, raised few doubts at the
+time.c Yet such choices concealed a potent new mathematical assumption that
+was not formulated explicitly until 1904: the Axiom of Choice. This axiom
+states that if A is a family of non-empty sets, then there exists a functionfsuch
+that f ( E ) E E for every set E in A. In more psychological terms, such a
+functionf “chooses” an element from each set E in A. What remained unclear
+was how to specify such a function uniquely for a given family A.
+It was this fact which made Borel an opponent of the Axiom of Choice
+when it was first stated explicitly in 1904. Indeed, Borel held definite
+philosophical views on the subject of what kind of mathematics was legitimate. In his opinion, mathematical objects had to be determined by a rule,
+that is, by a construction that uniquely specifies the object constructed. Yet in
+his monograph, unbeknownst to himself, Borel had repeatedly violated his
+own philosophical dictum by implicitly using the Axiom of Choice at several
+junctures, including theorem (1) above.
+Eventually, although this was not apparent at first, the Axiom of Choice
+would greatly affect the theory of measure that Borel developed in his
+monograph. This theory of measure, he stressed, originated from quite
+different problems than had Jordan’s theory. Restricting himself to the real
+interval [0,1], Borel wrote:
+When a set consists of all the points in a denumerable infinity of disjoint
+intervals having total length s, we say that the set has measure s. When two
+disjoint sets have measures s and s‘, their union has measure s + s’. . . . More
+generally, if we have a denumerable infinity of disjoint sets having respectively
+the measures s,. s2. . . . ,snr. . . , their union . . . has measure
+s,+s,+
+
+- - +s,+...
+
+[countable additivity]. If a set E has measure s and contains every point in a set
+E’ whose measure is s’, the set E - E’ . . . will be said to have measure s - s’
+. . . . The sets that can be defined by the preceding definitions will be said to be
+measurable sets . . . [ 1898, pp. 47-48].
+
+In this fashion Borel introduced a class of measurable sets, which, following
+later usage, we shall call the Borel sets. At the time he did not develop their
+theory much further, except to prove that every closed set is a Borel set and
+that every countable set, as well as some uncountable sets, has measure zero.d
+It could easily be shown, he insisted in a note at the end of his book, that the
+‘At the time such choices raised doubts only in the mind of Giuseppe Peano [ 1890, p. 2101 at
+Turin, and subsequently in the minds of two of his colleagues, Rodolfo Bettazzi [ 18961 and Beppo
+Levi [ 19021. For a discussion of this matter, see Moore, 1982, pp. 26-29 and 76-82.
+the present context a set is said to be finite if it is empty or has the same cardinality as the set
+{ I , 2,. . . ,n)for some natural number n; to be denumerable if it has the same cardinality as the set
+of all natural numbers; to be countable if it is either finite or denumerable; and to be uncountable
+if it is not countable.
+
+MOORE: LEBESCUE AND ZERMELO
+
+133
+
+following proposition is true:
+The set 3 of all Borel sets has the power c of the
+continuum [1898, p. 1101.
+
+(2)
+
+Much later, however, mathematicians discovered that if the Axiom of Choice
+were false, it could happen that the set 3 has a power greater than c, that
+every set of real numbers is a Borel set, and that the hierarchy of the Borel sets
+collapses to the first three levels beyond the closed sets.‘
+The admiring but somewhat ambivalent attitude that Borel held toward
+Cantor can be seen in two articles which Borel wrote for the Revue
+philosophique. The first of these, published in October 1899, was stimulated
+by FranGois Evellin’s article [ 18981 in the same journal. Evellin had objected
+not only to Cantor’s sequence of infinite cardinals of ever higher power but
+even to his use of the actual infinite at all. He wrote: “If, in order to define the
+irrational numbers, one introduces the notion of set in Cantor’s sense, then one
+acts in a futile and dangerous manner . . .” [Evellin, 1898, p. 1161. In fact,
+Evellin asserted, the notion of the actual infinite is betrayed by an internal
+contradiction. Borel, on the other hand, approved of Cantor’s notion of
+denumerable set (and hence of the actual infinite) but held certain reservations about the transfinite (i.e., uncountable cardinals and ordinals):
+When, some twenty years ago, G. Cantor published his ideas on the enumeration
+of numbers larger than the infinite, the mathematical public greeted them
+mistrustfully. Nevertheless, many analysts were struck by the beauty of these
+speculations and did not let themselves be stopped by the form, intentionally
+paradoxical in places, of Cantor’s exposition. . . . His new ideas have now . . .
+become classic, both for the mathematicians and for the philosophers [Borel,
+1899, p. 3831.
+The remainder of this article was devoted to discussing du Bois-Reymond’s
+theorem that, given any sequence of increasing real functions, there is a real
+function that increases still faster. By way of conclusion, Borel offered some
+reflections on the significance of that theorem for Cantor’s work:
+One may . . . ask, quite simply, whether we can have a conception of the
+uncountable sequence of ever larger increasing functions. The difficulty in
+acquiring this conception comes from the fact that any determinate process of
+forming this sequence, since it is expressed by means of a finite number of words,
+leads only to a denumerable sequence. But, on the other hand, the theorem of
+Paul du Bois-Reymond tells us how to exceed this denumerable sequence once it
+is formed. Here is an antinomy which analysis appears incapable of resolving. It
+seems clear, however, that the subsequent development of mathematics will
+necessarily lead to a choice-to accept or to proscribe the transfinite (or
+uncountable infinity) [Borel, 1899, pp. 389-3901.
+
+I n a second philosophical article, published the following year, Borel
+‘See Feferman and Levy, 1963, and the discussion in Moore. 1982, pp. 102-103. In particular,
+there is a model of Zermelo-Fraenkel set theory in which every set of real numbers is a countable
+union of countable sets.
+
+134
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+expressed his reservations about the uncountable even more directly: “It
+seems to me that those who refuse to consider the notion of transfinite to be as
+clear at present as that of the indefinite [i.e.. the denumerable] are in the
+right” [ 1900, p. 3821. With the appearance in 1904 of Zermelo’s Axiom of
+Choice, Borel’s reservations would become much more pronounced.
+Like his compatriot Borel, RenC Baire attended the Ecole Normale
+Suptrieure. After graduating in 1895, Baire taught in various lyckes and
+simultaneously completed his doctoral thesis, which was published in 1899. As
+Lebesgue later pointed out [ 1922, pp. 16-17], Baire “was the first to devote all
+his mathematical activity to the theory of real functions. . . .” Until the work
+of Baire, nineteenth-century analysts-particularly
+those in Franceconcerned themselves principally with the theory of complex functions.
+Baire’s researches, which were influenced by the Italian analyst Vito Volterra,
+influenced Lebesgue in turn, and thereby brought about the flowering of the
+modern theory of real functions.
+Baire shared with Borel a somewhat ambivalent attitude toward
+Cantorian set theory. In the conclusion to his thesis, which relied heavily on
+Cantor’s results, Baire wrote:
+The theory of point-sets plays a very important role. . . . One can even say . . .
+that, from the perspective which we have adopted, every problem in the theory of
+[real] functions leads to certain problems in set theory; and it is to the extent that
+progress is made, or can be made, on these latter questions that it is possible to
+resolve more or less completely the given problem [ 1899, p. 1211.
+
+At the same time Baire refused to grant the existence of transfinite ordinals,
+which, however, he continued to use as superscripts of derived sets:
+On this subject I remark once and for all that we shall not be concerned with the
+difficulties that the abstract notion of transfinite [ordinal]number may involve,
+even though we may employ this expression in the rest of this work. In the
+present case, for example, the set P“ (where a is a definite number in the second
+number-class) represents something perfectly definite, independent of any
+abstract considerations relative to Cantor’s symbols. Thus, in the usage that we
+make of the term transfinite number there is nothing more than a convenient
+language [ 1899, p. 361.
+In his dissertation Baire introduced a hierarchy of classes of real functions.
+The essential feature of his hierarchy was that it treated discontinuous
+functions as the iterated limit of sequences of continuous functions. More
+precisely, he defined Baire class zero to be the set of all continuous real
+functions; for any other countable ordinal a, Bake class a was defined to be
+the set of all those real functionsf, not in any previous class, such that
+
+for every real x , where f,.fi,. . . was some sequence of real functions in
+previous classes. Thus, in particular, Baire class one was the set of all real
+functions that are the pointwise limit of a sequence of continuous functions. As
+a result, Cantor’s ordinal numbers were essential to Baire’s approach.
+
+MOORE: LEBESGUE A N D ZERMELO
+
+135
+
+-
+
+Moreover, by way of a framework for his classification, he explicitly accepted
+Dirichlet’s general definition of a real function as any correspondence x
+f ( x ) between real numbers. “In this definition,” Baire observed, “it is beside
+the point to ask how the correspondence can be determined effectively or
+whether it is even possible to determine it effectively” [ 1899, p. 11. This easy
+tolerance of non-constructive methods disappeared from Baire’s work in the
+aftermath of Zermelo’s introduction of the Axiom of Choice.
+In order to derive results about his classification of real functions, Baire
+indirectly relied on the Axiom of Choice several times. One of the propositions
+that served as a conduit for such indirect uses of this axiom was the Countable
+Union Theorem, due to Cantor: The union of a countable family of countable
+sets is countable [ 1878, p. 243; 1883c, p. 31 31. This theorem proved useful in
+establishing the basic properties of sets of first and second category,
+introduced by Baire the year before he published his thesis. Baire defined a set
+A of real numbers to be of first category if A is the union of countably many
+nowhere dense sets; otherwise, A was said to be of second category [ 18981.
+Baire’s thesis relied on the Countable Union Theorem to obtain the following
+elementary result:
+The union of countably many sets, each of first
+category, is also of first category [ 1899, p. 651.
+
+(3)
+
+Furthermore, he used the Countable Union Theorem to establish that no new
+functions would be added to his classification by extending it beyond the
+countable ordinals [ 1899, p. 701. Finally, he relied implicitly on the Axiom to
+show that this classification did not exhaust all the real functions, since the set
+of functions in classification had cardinality c while the set of all real functions
+had a higher cardinality [1898, p. 16231. If the Axiom of Choice were false,
+then all of Baire’s results mentioned here could be false as well.
+It is intriguing that Baire, who largely shared Borel’s constructivist
+philosophy of mathematics, had a premonition that non-constructive methods
+might affect his own research. At first, Baire centered his investigations on
+Baire classes one and two. On 25 October 1898 he wrote to Volterra, whom he
+had visited in Italy not long before, in order to express his uncertainty about
+the existence of Baire class three and higher classes. Furthermore, Baire
+wondered whether it was possible to define a real function escaping from his
+classification:
+We would know how to obtain a function beyond all the [Baire] classes if we
+knew how to partition the continuum [of real numbers] into two sets, each of
+second category on every interval. We would let f = 0 for the first set and f = 1
+for the second. I have not succeeded in definingsuch a partition, and I have come
+to wonder whether it is even possible to define such a partition. Clearly, it is a
+delicate matter not only to answer but even to pose such a question. The meaning
+of the phrase “to define a set” would have to be made more precise. Yet 1 am
+convinced that the act of imposing on a set [of real numbers] the condition of
+being definable must restrict the notion of set to a considerable degree. . . . I
+would not be surprised if it were impossible, with the means that we have
+
+136
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+available, to define a property partitioning the real numbers into two sets A and
+B such that both sets are of second category on every interval. We would have a
+proposition like the following, which is rather unexpected: If a set A and its
+complement B can be defined, then there exists a closed nowhere dense set P
+such that either A or B is of first category on any interval not intersecting P. . . .
+All of this is closely related to Borel’s reflections in the notes at the end of his
+book on functions [1898]. . . . May we not hope to learn in this way how far we
+are permitted to use the notion of arbitrary real function? [Baire, quoted in
+Dugac, 1976, pp. 347-3481
+
+In a sense, Baire’s qualms were justified. The existence of such a partition
+as described in this quotation would imply the existence of a set of real
+numbers lacking what was later called the Baire property. By definition, a set
+A of real numbers has the Baire property if there is no interval such that A and
+its complement both intersect the interval in sets that are of second category.
+Around 1900, Baire pointed out to Lebesgue that it would be very interesting
+to define a set of real numbers that lacked the Baire property and hence to
+define a real function escaping from Baire’s classification [ Lebesgue, 1905, p.
+1861. As later became clear, however, the existence of a set of real numbers
+lacking the Baire property, of a real function not in Baire’s classification, and
+even of a real function not belonging to Baire class zero, one, or two, depend on
+the Axiom of Choice.
+As Borel and Baire had done earlier, Henri Lebesgue attended the Ecole
+Normale Suptrieure. After graduating in 1897, Lebesgue published a number of short papers, one of which generalized some of Baire’s results to
+functions of several real variables [Lebesgue, 18991. Shortly afterward, he
+made his first contribution to measure theory and gave the first version of his
+Measure Problem:
+The Measure Problem for plane regions bounded by simple closed curves can be
+posed in the following manner. . . :To associate with each such region a number,
+to be called area, such that congruent regions have equal areas and such that the
+region formed from the union of finitely or infinitely many regions, which have
+part of their boundary in common and which do not overlap, has as its area the
+sum of the areas of the component regions . . . [ 1899a, p. 8701.
+
+Here, in effect, Lebesgue adopted Borel’s proposal that a measure should be
+countably additive.
+Lebesgue’s doctoral dissertation [ 19021 elaborated his new theory of
+measure and integration! There he presented his notion of measurable set,
+which generalized the Borel sets: If A is a bounded set of real numbers in some
+fixed interval I of length k, the outer measure of A is defined to be the least
+upper bound of the sum of the lengths of countably many intervals covering A;
+the inner measure of A is defined to be k - b, where b is the outer measure of
+I - A. If the outer measure of A and the inner measure of A are equal, then A
+is said to be measurable [ 1902, pp. 237-2381.
+It was specifically in order to solve what he called the Measure Problem
+’For an incisive historical treatment of Lebesgue’s theory and its origins, see Hawkins, 1975.
+
+MOORE: LEBESCUE A N D ZERMELO
+
+137
+
+that Lebesgue introduced his measurable sets. He posed this problem in a
+form that was quite general for his time:
+We propose to assign to each set [in n-dimensional space] a non-negative [real]
+number, which we shall call its measure, satisfying the following conditions:
+(i) There is a set whose measure is not zero.
+(ii) Congruent sets have equal measure.
+(iii) The measure of the sum [union] of a finite or denumerable infinity of
+disjoint sets is the sum of the measures of these sets.
+We shall resolve this Measure Problem only for the sets that we call measurable.g
+
+To show that the measurable sets of real numbers are countably additive
+(condition (iii)). he first had to establish that the union of denumerably many
+disjoint measurable sets is measurable. He began by supposing that A , , A * , . . .
+is a sequence of disjoint measurable sets included in some real interval [a, b].
+Next, he enclosed each set A, in the union of some countable family 3, of
+open intervals, and each set [a, b] - A, in the union of another countable
+family 9, of open intervals, in such a way that each set El = ( U3,)n ( U9,)
+had a total length d,; here the families were chosen so that the sum of the d,
+was an arbitrarily small positive number [ 1902, p. 2391. Nevertheless,
+Lebesgue provided no rule for choosing the families 3,and 9, for each i. Nor
+could he have done so, thereby avoiding arbitrary choices, since the Axiom of
+Choice is necessary to ensure the countable additivity of Lebesgue measure.
+More than a decade later, thanks to the researches of Wadaw Sierpihski
+[1916; 19181, Lebesgue was faced with the dilemma of either accepting a
+limited form of the Axiom of Choice or else restricting his theory of measure
+and integration in an essential way. For, if the Axiom of Choice were false, it
+could happen that Lebesgue measure is not countably additive.h
+From the additivity of his measure, Lebesgue concluded that every Borel
+set is measurable. Since, Lebesgue argued, there are only as many Borel sets
+as there are real numbers, and since there is a perfect nowhere dense set of
+measure zero, say A, then there is a measurable set that is not a Borel set. For
+the subsets of A are all measurable, being of measure zero, and the set of these
+subsets has a power greater than that of the real numbers, since A is perfect
+[Lebesgue, 1902, pp. 240-2411. Nevertheless, if the Axiom of Choice were
+false, then there could be just as many Borel sets as measurable sets, but there
+could also be a Borel set that is non-measurable.
+Lebesgue also asserted that every real function in Baire's classification is a
+measurable function, where a real function f is said to be measurable if
+{x: a < f (x) < b } is a measurable set for every real a and b. Indeed, Lebesgue
+showed that the sum of two measurable functions is measurable, and similarly
+for the product. However, when he proved that the pointwise limit f of a
+sequence f; of measurable functions is measurable (provided that f is
+
+'Lebesgue, 1902. p. 236. In his book on integration 11904, p. 1031. he replaced condition (i) by
+the equivalent requirement that the n-dimensional unit cube have measure one.
+'This is the case in the Feferman-Levy model mentioned in footnote e.
+
+138
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+bounded), he used the proposition that the intersection of a countable family
+of measurable sets is measurable, and so relied indirectly on the countable
+additivity of Lebesgue measure. Hence his proof, whose immediate consequence was that every function in Baire’s classification is measurable [Lebesgue, 1902, p. 2571, used the Axiom of Choice in an essential way.
+The measurable sets might not solve the Measure Problem, Lebesgue
+observed, since there might exist a bounded set of real numbers that was
+non-measurable. Moreover, he entertained the possibility that the Measure
+Problem might have a solution even if there existed a non-measurable set: “It
+has not been shown in any way that the Measure Problem is unsolvable for
+those sets (if any exist) whose outer and inner measures are unequal” [ 1902, p.
+2391. In his book on the theory of integration Lebesgue maintained this
+viewpoint [1904, p. 1061. Furthermore, in an article published in 1905 but
+written early the previous year, he attempted to define a specific measurable
+set that is not a Bore1 set (not realizing that arbitrary choices had crept into his
+proof), and concluded by noting: “But the much more interesting questioncan one specify a non-measurable set?-remains unanswered” [ 1905, p. 2161.
+The existence of such a non-measurable set turned out to be intimately related
+to Zermelo’s Axiom of Choice.
+
+ERNST ZERMELO AND THE WELL-ORDERING PROBLEM
+I n 1883Cantor introduced the notion of a well-ordered set, that is, a linearly
+ordered set such that every non-empty subset has a least element.’ Impressed
+by the properties of well-ordered sets and especially by the alephs (the
+cardinal numbers of infinite well-ordered sets), he asserted as a “law of
+thought” the proposition that every set can be well-ordered. By 1895 he had
+come to believe that this proposition required a proof. Not long afterward, he
+found an argument for this proposition and sent it to David Hilbert in 1896 or
+1897, then to Richard Dedekind in 1899. However, Cantor would not permit
+this argument to be published, even though Philip Jourdain, who had found a
+similar argument [ 19041, asked permission to do so [Grattan-Guinness 197 1,
+p. 1151.
+In August 1904 Julius Konig, a Hungarian mathematician, gave a lecture
+to the International Congress of Mathematicians at Heidelberg and purported
+to show that the set of all real numbers cannot be well-ordered. Cantor, who
+was present at Konig’s lecture, could not find the gap in the argument. By the
+following day, however, Zermelo had isolated this gap [Kowalewski, 1950, p.
+2021.
+Zermelo set to work in order to establish that Cantor’s claim was correct:
+every set can be well-ordered. A month after Konig’s lecture, Zermelo
+succeeded [ 19041. He based his demonstration of this Well-Ordering Theo‘Cantor, 1883a. p. 550. Strictly speaking, Cantor did not state this definition at the time, but
+one that was equivalent to it and considerably more complicated.
+
+MOORE: LEBESGUE A N D ZERMELO
+
+139
+
+rem on a new postulate which soon came to be known as Zermelo’s Axiom, or
+the Axiom of Choice. The proof gave rise to a controversy that, over the next
+four years, involved mathematicians in England, France, Germany, Holland,
+Hungary, Italy, and the United States [see Moore, 1978 and 19821.
+This controversy entered France primarily via Hilbert, then an editor of
+Mathematische Annalen, to whom Zermelo had first sent his proof. On behalf
+of the Annalen, Hilbert asked Borel to prepare a reply to Zermelo’s proof.
+Completed on 1 December 1904, Borel’s brief article rejected the proof. What
+Zermelo had actually shown, Borel noted, was that the following two problems
+are equivalent for a given set M :
+(A) to well-order M ;
+(B) to choose an element from every non-empty subset of M .
+What Zermelo had not done, Borel insisted, was to prove that the equivalence
+of (A) and (B) provides a general solution for problem (A). To resolve (B)
+required “a means, at least a theoretical one, for determining a distinguished
+element m‘ from an arbitrary subset M‘”of M [ 1905, p. 1941. In particular,
+Zermelo had supplied no such means for arbitrary sets of real numbers and
+hence had not shown that the set of all real numbers can be well-ordered. Borel
+closed his article by quoting part of a letter that he had received from Baire on
+the same subject. Baire doubted that it would ever be possible to well-order the
+set of all real numbers, since he considered this set and Cantor’s infinite
+ordinals to be mere potentialities.
+Borel’s article stimulated a lively exchange of letters among those French
+mathematicians who at the time were applying Cantorian notions to other
+parts of mathematics. Writing to Borel, the analyst Jacques Hadamard
+disagreed with the conclusions of Borel’s article. Hadamard accepted Zermelo’s proof of the Well-Ordering Theorem because the proof used simultaneous choices, rather than successive choices depending on those made
+previously. Borel had claimed that “any argument which supposes an
+arbitrary choice to be made uncountably many times . . . [is] outside the
+domain of mathematics” [ 1905, p. 1951. Hadamard, on the other hand, found
+uncountably many arbitrary choices to be quite as acceptable as countably
+many. For Hadamard, the essential distinction was not one of cardinality, but
+the difference between showing that there exists a function with a given
+property and that a function with this property can be specified uniquely
+[Baire et alii, 1905, pp. 261-2631.
+Borel forwarded Hadamard’s letter to Baire, who elaborated on his own
+previous letter. On the whole, Baire agreed with Borel, but considered himself
+to be more radical when he regarded every infinite set as merely a potential
+infinity established by convention. For a given infinite set A , Baire insisted, it
+was false to regard every subset of A as given. Consequently it made no sense
+to assume, as Zermelo had done, that an element was chosen from every
+non-empty subset of A. Zermelo’s Axiom, Baire continued, was not contradictory but simply meaningless; and, in the final analysis, everything in
+mathematics must be reduced to the finite [Baire et alii, 1905, pp. 263-2641.
+
+140
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+Borel next solicited Lebesgue’s opinion. Although at first he seemed to
+take the middle ground between Borel and Hadamard, Lebesgue gradually
+formulated a distinct but subtle position rejecting the Axiom of Choice. For
+Lebesgue, the principal question was whether one can prove the existence of a
+mathematical object without defining it. He admitted that it was a matter of
+convention how one answered this question, and conceded that sometimes he
+had published demonstrations in which he did not define a unique object of the
+type shown to exist. Nevertheless, he remained convinced that one could prove
+the existence of a given kind of mathematical object only by defining a unique
+particular instance of such an object. It was not enough to show that the class
+of all such objects was non-empty, In conclusion, Lebesgue differed from
+Borel by rejecting the Axiom of Choice not only for uncountable families of
+sets but for denumerable families as well [Baire et alii, 1905, pp. 264-2691.
+A NEGATIVE SOLUTION TO LEBESGUE’S MEASURE PROBLEM
+
+In 1905, not long after this exchange of letters was published, an Italian
+mathematician applied the Axiom of Choice to Lebesgue’s Measure Problem.
+Giuseppe Vitali, who had discovered the measurable sets independently of
+Lebesgue, familiarized himself with Lebesgue’s book of 1904 on integration.
+By using the Axiom of Choice, Vitali established that there exists a subset of
+the real line which is not Lebesgue-measurable, i x . , a non-measurable set.
+Vitali had a broader goal, however: to prove that Lebesgue’s Measure
+Problem has no solution. In particular, he set out to show that there is no
+translation-invariant, countably additive, positive real measure defined on all
+bounded subsets of the real line and such that the unit interval has measure
+one.
+Vitali began his proof by supposing that there was such a measure. For
+each real x , he let
+A, = { x + b: b is rational}
+
+.
+
+and then designated H as the set of all such A,. Selecting an element p in
+A, n (0,yz) for each distinct A, in H, an act justified by the Axiom of Choice,
+he termed Gothe set of all such p. Then he defined
+G, = Ip + q : p E Go1
+for each rational number q. Since the G, are disjoint congruent sets, they all
+have the same measure. Moreover, each of Go, G , / * ,G,,,, . . . is a subset of the
+closed interval [0, I ] and hence the sum of their measures is at most one. Yet
+by the countable additivity of the measure, each of them has measure zero. As
+a result, the measure of G, is zero for every rational q. and so the measure of
+the real line (the union of all the G,) is likewise zero-a contradiction.
+Consequently, Lebesgue’s Measure Problem had no solution. Lebesgue’s
+particular measure did not apply to every bounded set of real numbers, and so
+did not fulfill all the conditions that he had demanded of it. Vitali concluded
+
+MOORE: LEBESCUE A N D ZERMELO
+
+141
+
+by noting that the set Go required some comment. This set certainly existed if
+the real numbers could be well-ordered. Those who did not grant the existence
+of such a well-ordering, he added, could conclude instead that there cannot be
+both a solution to the Measure Problem and a well-ordering of the real line
+[ 1905, pp. 3-51.
+Two years later Lebesgue himself supplied an example of a set that is not
+Lebesgue-measurable, and simultaneously revealed how his philosophical
+presuppositions affected his attitude toward the existence of such a set. During
+1905 he had written a monograph (not published until 1971) in which he
+adopted a distinction that had first been introduced some years earlier by Paul
+du Bois-Reymond [ 1887, p. 641, the distinction between “Idealists” and
+“Empiricists.” According to Lebesgue, the Empiricists admitted the existence
+only of those real functions that could be uniquely defined, whereas the
+Idealists accepted the existence of real functions whose existence had been
+“proved” in some sense but which could not be uniquely defined [Lebesgue,
+1971, pp. 37-39]. It is clear from the context that he regarded Zermelo and
+Hadamard as Idealists, while he considered Baire, Borel, and himself to be
+Empiricists. When he provided an example of a non-measurable set in 1907,
+and credited Vitali with an earlier example, Lebesgue insisted that its
+existence was established for Idealists, who accepted the Axiom of Choice, but
+not for Empiricists, who rejected this axiom (1907a, pp. 32-39]. Indeed,
+Lebesgue continued to doubt that a non-measurable set of real numbers would
+ever be defined uniquely [ 1907, pp. 202-2031.
+In 1914 Felix Hausdorff, a German-Jewish astronomer turned set theorist, investigated Lebesgue’s Measure Problem in greater depth. Hausdorff,
+who accepted the Axiom of Choice completely, published an article [ 19 141 in
+which he modified that problem. As a first step, he gave a demonstration
+somewhat different from Vitali’s that the Measure Problem has no solution
+for the real line and hence lacks a solution for n-dimensional space whenever
+n 2 I . He then inquired whether this problem would have a solution if the
+requirement (iii) of countable additivity were weakened to that of finite
+additivity:
+(iv) m ( A u B ) = m ( A ) + m ( B ) if A and B a r e disjoint.
+While he was unable to resolve this weakened problem for n = 1 or n = 2, he
+succeeded in proving that there is no solution whenever n 2 3.
+Hausdorff’s proof, which extended earlier arguments yielding a set that is
+not Lebesgue-measurable, showed that the existence of a solution for n = 3
+would imply that one half of a sphere is congruent to one third of the same
+sphere. His strategy was to assume that there existed a measure satisfying (i),
+(ii), and (iv), and then to decompose a given sphere S into four sets A, B, C, D
+such that A, B, C, and B u C were congruent to each other while D had
+measure zero. To obtain this decomposition, he let $I and $ be rotations of S ,
+through I80 and 120 degrees respectively, on distinct axes passing through the
+center of S . With 4, $, and $2 treated as different formal factors, a group G of
+motions was generated. Each member of G had a unique representation either
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+I42
+
+as 4 or as
+$
+,
+I
+
+$ il 4h $ i l . . . 4Ll $in.,
+
+for some n, where i, and in equaled zero or one, ik equaled one if 1 < k < n, and
+j , equaled one or two. (What Hausdorff had obtained here, although he did
+not speak in these terms, was a free group with two generators.) The set D of
+those points fixed under members of G was denumerable, and was shown to
+have measure zero.
+Finally, Hausdorff determined the sets A, B, and C. For each point x of
+S - D,he defined P, = { g(x): g E GI,and thus for every x and y in S - D,P,
+and P,,were equal or disjoint. Using the Axiom of Choice to select a point from
+each distinct P,, he called the resulting choice set M. Then S - D was the
+union of the images of M under all g i n C , and he partitioned S - D into three
+sets A, B, and C by means of these images: For each gin G , exactly one of the
+two images g“M and (g4)”M was included in A and the other in B u C, while
+exactly one of the three images g“M, (g$)”M, and (g$’)”M was included in
+A , one in B, and one in C. It followed that A, B, C, and B u C were all
+congruent to each other since $”A = B, ($’)”A = C, and &‘A = B u C. But
+then A had the measure of one half and of one third of the same sphere, a
+contradiction, completing the proof [ 1914, pp. 430-4331.
+Thanks to Borel, this result soon became known as Hausdorff’s paradox.
+In the second edition [ 19141 of his book on set theory and complex functions,
+Borel included an exposition of Hausdorffs counterintuitive result, and
+concluded that the culprit was the Axiom of Choice:
+If. then, we designate by a, b, c, the probability that a point in S belongs to A , B,
+or C respectively and if we grant that the probability of a point belonging to a set
+E is not changed by a rotation about a diameter (this is what Lebesgue expresses
+by saying that two congruent sets have the same measure), one obtains the
+contradictory equalities: a + b + c = I , a = b, a = c, a = b + c.
+The contradiction has its origin in the application. . . of Zermelo’s Axiom of
+Choice. The set A is homogeneous on the sphere; but it is at the same time a half
+and a third of it. . . . The paradox results from the fact that A is not defined, in
+the logical and precise sense of the word defined. If one scorns precision and
+logic, one arrives at contradictions [Borel, 1914, pp. 255-2561.
+
+At last, Borel was convinced, his decade of opposition to the Axiom of Choice
+had been fully vindicated. Since this axiom generated a contradiction, its
+illogical character could not help but be obvious to mathematicians. In time,
+Borel’s view came to be shared by a number of mathematicians who regarded
+Hausdorff’s paradox (or its successor, the Banach-Tarski paradox) as sufficient reason to be wary of the Axiom of Choice.
+
+LEBESGUE AND SIERPINSKI
+It was Wacl’aw Sierpihki who first realized how deeply the Axiom of Choice
+was entangled with Baire’s classification of functions and with Lebesgue’s
+theory of measure. On 4 December 1916, Emile Picard submitted to the Paris
+
+MOORE: LEBESCUE A N D Z E R M E L O
+
+I43
+
+Academy of Sciences a brief note by Sierpihski on the role of the Axiom of
+Choice in real analysis. There Sierpihski pointed out how the Denumerable
+Axiom of Choice (i.e.,the Axiom of Choice restricted to denumerable families
+of sets) was used in Baire’s proof [ 1899, p. 691 that every function f in Baire
+class two is the iterated limit of some double sequence fn.k of continuous
+functions. Furthermore, Sierpihski observed that Lebesgue had implicitly
+used the Denumerable Axiom to show that Lebesgue measure is countably
+additive [Sierpihski, 1916, p. 6901.
+The following year the Paris Academy of Sciences printed another note by
+Sierpihski, who demonstrated that certain seemingly innocuous assumptions
+(having no obvious connection with the Axiom of Choice) implied the
+existence of a non-measurable set and hence depended on that axiom. In
+particular, he established that there is such a non-measurable set if the set of
+all real functions can be linearly ordered, or if the family of all denumerable
+sets of real numbers has the power c, or even if Baire class two has power c
+[1917].
+Lebesgue [1918, p. 2381 responded to Sierpihski’s second article by
+claiming that Sierpihski had inadvertently used the Axiom of Choice to show
+that the existence of a non-measurable set follows from the proposition that
+the family of all denumerable sets of real numbers has power c. Nevertheless,
+Lebesgue was mistaken. As for Sierpihski’s first article and, in particular, his
+assertion that the countable additivity of Lebesgue measure depends on the
+Denumerable Axiom, Lebesgue did not reply. In 1934 Charles de la ValltePoussin, another French analyst whose constructivistic views paralleled
+Lebesgue’s, made a valiant but ultimately futile attempt to prove the
+countable additivity of Lebesgue measure without using the Axiom of Choice
+[de la Vallte-Poussin, 1934, p. 261.
+I n 191 8 Sierpihski published a lengthy article analyzing the relationship
+between the Axiom of Choice and many propositions used in real analysis or
+set theory. Thereby he became the first to explain just how deeply the
+researches of Baire, Borel, and Lebesgue depended on that axiom. In order to
+understand Sierpihski’s results, it will be helpful to return briefly to the article
+that Lebesgue wrote during 1904 and published the following year. In that
+article Lebesgue investigated a class of real functions which he called
+analytically representable. A real function f was said to be analytically
+representable iff is obtained from countably many variables and constants by
+the operations of addition, multiplication, and taking the limit of a sequence of
+functions. He argued that a real function f is in Baire’s classification if and
+only i f f is analytically representable [ 1905, p. 1521. After defining f to be a
+Borel function if and only if the set {x:a s f ( x ) 5 b ] is a Borel set for every
+real number a and b, he demonstrated that f is analytically representable if
+and only i f f is a Borel function [1905, p. 1681. Furthermore, from the
+countable additivity of Lebesgue measure he deduced that every Borel set is
+measurable and that every function in Baire’s classification is a measurable
+function. Finally, Lebesgue supplied an example of a real function that is
+measurable but not in Baire’s classification, and of a measurable set that is not
+a Borel set [ 1905, pp. 2 12-2 161.
+Sierpihski [ 19 181 recognized that Lebesgue’s results were thoroughly
+
+144
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+entangled with the Axiom of Choice. In particular, Sierpiiski observed, this
+axiom was used indirectly to ensure that every function in Baire’s classification is analytically representable and hence measurable. On the other hand, he
+remarked that the Axiom of Choice appeared to be necessary to obtain the
+existence of a real function not in any Baire class or even of a function beyond
+Baire class three. In the absence of this axiom, he added, it was not known how
+to show that iffi(x),f2(x), . . . is a convergent sequence of functions in Baire’s
+classification, then the function f ( x ) = Iim-- fn(x) also belongs to Baire’s
+classification, for such a demonstration relied on Cantor’s Countable Union
+Theorem that the union of a countable family of countable sets is countable, a
+theorem that in turn depended on the Axiom of Choice [Sierpihski, 1918, pp.
+133-1 371.
+As a particularly important case of the Countable Union Theorem,
+Sierpihski focused on the following proposition:
+The set of all real numbers is not a countable union
+of countable sets.
+
+(4)
+
+In fact, he continued, the countable additivity of Lebesgue measure implied
+(4), and so did the apparently weaker proposition that the union of countably
+many sets having Lebesgue measure zero also has Lebesgue measure zero.
+Moreover, the Countable Union Theorem yielded a particular case of the
+Axiom of Choice, namely, the Denumerable Axiom restricted to families
+containing only countable sets [1918, pp. 113-1 141.
+If (4) were false, then the hierarchy of Borel sets would be trivialized, as
+would Baire’s classification of real functions. Instead of extending through all
+the countable ordinals (and even then including only a negligible portion of all
+sets of real numbers), the Borel hierarchy would be reduced to the first four
+levels. Every set of real numbers would be A! in modern notation, that is, a
+countable union of a countable intersection of a countable union of closed sets,
+as well as the complement of such a set. Every real function would be in some
+Baire class. Furthermore, every measurable set would be a Borel set, but
+Lebesgue measure would not be countably additive.
+Not until 1963 was it shown that there is a model of Zermelo-Fraenkel set
+theory in which (4) is false. Using Paul Cohen’s [1963] method of forcing,
+Solomon Feferman and Azriel Levy [1963] obtained such a model in which
+the Axiom of Choice is strongly violated. Thanks to recent research by Juris
+Steprgns, it is now known that in the Feferman-Levy model there is a Borel set
+that is non-measurable. In this way Sierpihski’s intuition about the role of the
+Axiom of Choice in the researches of Baire, Borel, and Lebesgue was fully
+corroborated.
+As late as 1938, Lebesgue actively continued to oppose the Axiom of
+Choice. In December of that year, a conference on the foundations of
+mathematics was held in Zurich. Among the participants were Lebesgue and
+Sierpihski, who gave consecutive lectures about the Axiom of Choice.
+Lebesgue congratulated Sierpihski and his students on their extensive
+researches on the axiom. All the same, Lebesgue remained a subtle adversary
+
+MOORE: LEBESCUE A N D ZERMELO
+
+145
+
+of this assumption. When the controversy over the axiom began in 1905, he
+observed, the opposing sides could not make themselves understood, because
+they lacked a common logic; indeed, logic itself was at stake [Lebesgue, 1941,
+p. 1161.
+Yet Lebesgue knew quite well that the issues involved were not limited to
+the underlying logic. Despite the fact that during three decades of active use
+the Axiom of Choice had not led to a contradiction, there remained a sense of
+unease. For logic did not create confidence in a proposition, he insisted, unless
+one had already accepted the proposition as plausible. By way of conclusion,
+he argued that “in the studies on the foundations and methods of mathematics, there must be a large place for psychology and even for esthetics” [ 194 1,
+p. 1221. Thereby he underlined the psychologistic perspective that he had
+shared with Baire and Borel at least since 1905.
+What is surprising in this controversy is how little effort Baire, Borel, and
+Lebesgue appear to have made to understand precisely how the Axiom of
+Choice affected their discoveries. Lebesgue, in particular, seems never to have
+attempted seriously to grasp how essential this axiom was to the countable
+additivity of his measurable sets and hence to the countable additivity of the
+Lebesgue integral. Only Leonida Tonelli in Italy endeavored to develop a
+version of the Lebesgue integral without the Axiom of Choice and consequently without countable additivity. However, Tonelli’s research [ 19211
+attracted little interest.
+
+GENERALIZING LEBESGUE’S MEASURE PROBLEM
+Hausdorff’s research of 1914 on the Measure Problem was continued by a
+young Polish mathematician, Stefan Banach, who had recently written his
+doctoral thesis [ 19221 at Lwow on linear operators and who was soon to
+develop a school of functional analysis there. Banach published in 1923 an
+article devoted to what he called Hausdorff’s Extended Measure Problem:
+To find a non-negative function m, defined on every bounded subset A of
+n-dimensional Euclidean space, such that
+( I ) m ( A ) is positive for some A.
+(2) Congruent sets have equal measures.
+(3) m ( A u B ) = m ( A ) + m ( B ) if A and Bare disjoint.
+
+Like the majority of Polish mathematicians, Banach accepted the Axiom of
+Choice. Consequently, he accepted as well Hausdorffs result that the
+Extended Measure Problem has no solution for n z 3.
+All the same, the Extended Measure Problem remained open for the cases
+n = 1 and n = 2: the Euclidean line and plane. By means of the Well-Ordering
+Theorem Banach established that the Extended Measure Problem has a
+positive solution in these two cases [1923, p. 191. Thus an additive,
+congruence-preserving measure could be defined on all subsets of the line, and
+another such measure on all subsets of the plane. Moreover, in each case this
+measure could be assigned so as to agree with Lebesgue measure for all
+
+146
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+Lebesgue-measurable sets, or so as to assign the measure one to some set with
+Lebesgue measure zero. As a result, Banach obtained two types of integral,
+each of which was defined on all subsets of the line or of the plane. One of
+these extended the Lebesgue integral, whereas the other extended the
+Riemann integral but differed at times from the Lebesgue integral. Both of
+Banach’s integrals were additive but, necessarily, neither was countably
+additive!
+Because of the disparity of the Extended Measure Problem between the
+cases n = 1 and n = 2 on the one hand and n 2 3 on the other, Banach
+attempted to come to a deeper understanding of Hausdorff’s proof for the
+latter case. During the same period Alfred Tarski, one of Sierpihski’s former
+students at Warsaw, undertook some related research. Banach and Tarski
+wrote a joint paper showing, among other things, that it is impossible to
+partition a plane polygon P into a finite number of pieces and reassemble them
+to obtain a polygon strictly including P [1924]. By contrast, they established
+that in three dimensions a polyhedron-and indeed every bounded set with
+non-empty interior+an be partitioned into a finite number of pieces and
+reassembled to give any other bounded set with non-empty interior. Thus, in
+particular, a sphere of unit radius could be partitioned into a finite number of
+pieces and reassembled into two spheres, each of unit radius. This implausible
+result became known to later mathematicians as the Banach-Tarski paradox.k
+As for the role of the Axiom of Choice in their two decomposition
+theorems, the first for polyhedra in space and the second for polygons in the
+plane, Banach and Tarski were very explicit. They gave no encouragement to
+opponents of this axiom:
+One does not know how to establish either of these two theorems without relying
+on the Axiom of Choice-neither the first, which seems paradoxical, nor the
+second, which completely agrees with one’s intuition. Furthermore, by analyzing
+their respective proofs, one can verify that the Axiom of Choice plays a much
+less substantial role in the paradoxical theorem than it does in the theorem
+agreeing with intuition [ 1924, p. 2451.
+
+Eventually, however, A. P. Morse [ 19491 established that the non-existence of
+paradoxical decompositions in the line and on the plane could be proved
+without this axiom.
+In 1929 John von Neumann shed light on the Banach-Tarski paradox and,
+at the same time, proposed a more far-reaching generalization of the Measure
+Problem. It might appear, von Neumann observed, that the existence of a
+’Banach, 1923, pp. 23-33. When he returned to these questions in his well-known book The
+Theory of Linear Operators, he derived his solution to the Extended Measure Problem from the
+Hahn-Banach Theorem [Banach, 1932, pp. 29-33]. It should be noted that this theorem too
+requires the Axiom of Choice.
+‘According to a personal communication in March 1982 from Tarski to the author, Banach and
+Tarski independently discovered the Banach-Tarski paradox, and then they decided to write a
+joint paper on the subject [ 19241; however, the more general result on three-dimensional bounded
+sets with non-empty interiors was developed by Tarski alone.
+
+MOORE: LEBESGUE A N D ZERMELO
+
+147
+
+suitable measure in one or two dimensions-as contrasted with the nonexistence of such a measure i n three or more dimensions-revealed a
+fundamental dichotomy between the nature of the Euclidean line or plane and
+that of Euclidean space. As he hastened to point out, this was not true. The
+essential difference did not arise from the dimensionality of the space but from
+the underlying group of motions. In order to clarify the matter, he revised
+Hausdorff’s Extended Measure Problem by letting M be any set, W be any
+subset of M , and G be any group of one-one mappings of M onto itself. Then
+he defined m to be an ( M , W , G)-measure if m assigned a non-negative real
+number to each subset A of M and if m had the following three properties:
+(a) m ( W ) = 1 .
+(b) lffis in G, then m ( A ) = m ( f ” A ) ,wheref”A is the image of A under
+
+f.
+
+(c) m ( A u B ) = m ( A ) + m ( B ) if A and B are disjoint.
+Here he altered Hausdorff’s problem in two essential respects, first by
+replacing n-dimensional Euclidean space with an arbitrary set, and second by
+considering an arbitrary group instead of the congruence-preserving group of
+Euclidean motions. After he stated a sufficient condition (which involved
+Abelian factor groups) for an ( M , W , G)-measure to exist, he proved that this
+condition is satisfied by the group of Euclidean motions in n-dimensional
+space for n = 1 and n = 2, but not for n 2 3. On the other hand, he
+demonstrated that if G has a free subgroup with two generators and without
+fixed points (as was the case for the group of Euclidean motions in ndimensional space whenever n 2 3), then an ( M , M , G)-measure does not
+exist. Finally, he showed that an ( M ,
+M , G)-measure fails to exist for the plane
+too if the group G is taken to be the affine group.’ In all of these results, the
+Axiom of Choice played an essential role [ 1929, p. 73-87].
+Later the same year, the Measure Problem was generalized in a different
+direction by Banach, who regarded the problem as essentially set-theoretic
+rather than geometric or even group-theoretic. By means of his generalization,
+he placed the problem (which he called the Generalized Measure Problem)
+squarely in the abstract theory of measure. This problem asked for a function
+m that assigns a non-negative real number to each subset A of the closed real
+interval [0, I ] and satisfies the following conditions:
+
+( I ) m ( A ) f 0 for some A.
+(11) m ( A ) = 0 if A contains exactly one element.
+(Ill) m is countably additive.
+Thereby Banach dispensed with the geometric requirement that congruent
+sets have equal measure and replaced it by the requirement that a point have
+’Von Neumann also showed that a certain plausible choice of G, which. however, was not
+measure-preserving, led to a paradoxical decomposition of any line segment. During the summer
+of 1982 Stanley Wagon succeeded in showing that for the proper choice of G there fails to exist a
+( M ,M ,G)-measure on any line segment M .Wagon’s proof was substantially simplified by Jan
+Mycielski during the fall (personal communication from S. Wagon).
+
+148
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+measure zero. Without this latter requirement there would have been a trivial
+solution, namely, m ( A ) = 1 if A contains a certain predetermined point and
+m ( A ) = 0 otherwise. By weakening the geometric requirement of preserving
+congruence to an essentially set-theoretic condition, Banach was able to
+inquire if countable additivity could be reinstated.
+In 1929 Banach published a joint article with another of SierpiAski’s
+former students, Kazimierz Kuratowski. After Banach posed the Generalized
+Measure Problem, he found that he could solve it negatively if he could
+demonstrate a certain cornbinatorial lemma on countable unions. Banach and
+Kuratowski independently arrived at a proof of this lemma, by means of the
+Continuum Hypothesis, and so they published their results in a joint paper
+[ 19291. Consequently, no measure of the desired sort existed if the Continuum
+Hypothesis was true.
+Soon Banach took cognizance of the fact that the Generalized Measure
+Problem did not really concern the interval [0, I ] in particular but rather any
+set with the cardinality c of the continuum. As a result, one could pose the
+same problem for sets of arbitrary infinite cardinality. Thus in 1930 Banach
+introduced the Generalized Measure Problem for Abstract Sets: to find, for a
+given set E of cardinality K,, a function m that assigns a non-negative real
+number to each subset A of E such that conditions (I), (11), and (111) hold. By
+using transfinite induction on a and by assuming the Generalized Continuum
+Hypothesis (2’0 = N,,, for all ordinals @),he was able to show that the
+cardinal of the smallest E to have such a measure was weakly inaccessible
+[ 19301. That is, the cardinal of E was uncountable, not the successor of any
+cardinal, and not the sum of a smaller number of smaller cardinals.
+Meanwhile, Tarski had weakened Banach’s Generalized Measure Problem for Abstract Sets by replacing condition (111) of countable additivity with
+condition (iv) of finite additivity. By means of the Axiom of Choice, Tarski
+showed that every infinite set E has such a measure and, furthermore, that the
+measure can be restricted to take only the values zero and one [1930]. In
+effect, Tarski obtained his result by constructing a maximal ideal on the
+family of subsets of E.
+As Tarski acknowledged at the end of his paper [ 1930, p. 501, Kuratowski
+had pointed out to him that his result also followed easily from the argument
+in an earlier article by Stanisraw Ulam [1929]. At that time Ulam was a
+twenty-year-old student at Lwow who, as a result of his paper of 1929, had
+decided to become a mathematician [1976, p. 301. Encouraged by Kuratowski, Ulam attempted to improve Banach’s result. Without assuming the
+Generalized Continuum Hypothesis or even the Continuum Hypothesis,
+Ulam showed that the cardinal of the smallest set E satisfying the Generalized
+Measure Problem for Abstract Sets must be weakly inaccessible and that the
+Generalized Measure Problem has no solution if there is no weakly inaccessible cardinal less than or equal to c [ 1930, p. 1411. As in the results of Banach
+and Kuratowski, the Axiom of Choice was essential here.
+In more recent terminology, the cardinal of a set E satisfying the
+Generalized Measure Problem for Abstract Sets is said to be a real-valued
+measurable cardinal, whereas such a cardinal whose measure takes only the
+
+MOORE: LEBESCUE AND ZERMELO
+
+149
+
+values zero and one is called a measurable cardinal. Thus Ulam established
+that the first measurable cardinal is strongly inaccessible (i.e., weakly
+inaccessible and not the product of a smaller number of smaller sets) and that
+the first real-valued measurable cardinal is likewise strongly inaccessible if
+every weakly inaccessible cardinal is greater than c [ 1930, p. 1501. Independently, Tarski had shown that if a cardinal is non-measurable, then the
+cardinal of its power set is non-measurable [Ulam, 1930, p. 1461.
+Yet the question remained open as to whether there exists a measurable
+cardinal or even a real-valued measurable cardinal. Not until 1960 did Tarski
+(relying heavily on the work of his student William Hanf) establish that the
+first measurable cardinal K , if it exists, must be extraordinarily large. In
+particular, there must be K strongly inaccessible cardinals less than K [Tarski,
+19621.
+
+CONCLUSION
+In the absence of the Axiom of Choice, however, there were other possibilities.
+Indeed, it could then happen, as Thomas Jech demonstrated [1968], that
+aleph-one is a measurable cardinal-provided that there is a model of set
+theory with the Axiom of Choice in which there is a measurable cardinal.
+Moreover, Robert Solovay established that c may be a real-valued measurable
+cardinal since every set of real numbers can be Lebesgue-measurable [ 1965;
+19701. To obtain this result, Solovay had to postulate the existence of a
+strongly inaccessible cardinal-hardly an agreeable assumption to constructivists such as Baire, Borel, and Lebesgue."'
+Thus Lebesgue's Measure Problem, which originated as a technical
+problem in mathematics, acquired philosophical ramifications-thanks to the
+Axiom of Choice. Subsequently, the philosophical problems existed side by
+side with new mathematical results. Lebesgue's philosophical scruples prevented him from pursuing fully the questions that his Measure Problem led
+others to raise. At the same time, his work reveals how a mathematician of the
+first rank may subtly fail to see how he is fundamentally violating his
+philosophical scruples in his own work. By contrast, Sierpihski and his Polish
+colleagues, without insisting that one accept the Axiom of Choice, explored its
+effects on the Measure Problem with clarity, depth, and consistency.
+ACKNOWLEDGMENTS
+
+A preliminary version of this paper was read at the University of Toronto on
+22 March 1978. The present version was read at the New York Academy of
+Sciences on 25 March 1981, at Iowa State University on 9 February 1982, and
+"'The necessity of the inaccessible cardinal (provided that the Denumerable Axiom holds or at
+least that aleph-one is regular) is due to Saharon Shelah (1980). Solovay (1971) had also shown
+that, in set theory with the Axiom of Choice. the existence of a measurable cardinal is
+equiconsistent with the existence of a real-valued measurable cardinal.
+
+150
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+at t h e University of Waterloo on 13 February 1982. I would like t o t h a n k Ivor
+Grattan-Guinness, Esther R. Phillips, and Stanley Wagon for their suggestions, both stylistic a n d substantive.
+REFERENCES
+BAIRE,R.
+1898 Sur les fonctions discontinues qui se rattachent aux fonctions continues.
+Comptes Rendus Hebdomadaires des Stances de I’Acadtmie des Sciences,
+Paris 1 2 9 1621-1623.
+1899 Sur les fonctions de variables rtelles. Annali di matematica pura ed applicata
+(3)3 1-123.
+BAIRE,R., et alii
+1905 Cinq lettres sur la thtorie des ensembles. Bulletin de la Socittt Mathtmatique
+de France 3 3 261-273; translated in Moore, 1982, pp. 31 1-320.
+S.
+BANACH,
+1922 Sur les optrations dans les ensembles abstraits et leur application aux iquations
+inttgrales. Fundamenta Mathematicae 3 133-1 8 1.
+1923 Sur le probltme de la mesure. ibid. 4 7-33.
+1930 Uber additive Massfunktionen in abstrakten Mengen. ibid. 1 5 97-101.
+1932 Thtorie des optrations lintaires. Monografje Matematyczne, vol. 1 (Warsaw:
+Garasihki); reprinted by Chelsea, New York, 1963.
+S. & K. KURATOWSKI
+BANACH,
+1929 Sur une gtntralisation du p r o b l h e de la mesure. Fundamenta Mathematicae
+1 4 127-131.
+S. & A. TARSKI
+BANACH,
+1924 Sur la dtcomposition des ensembles de points en parties respectivement
+congruentes. Fundamenta Mathematicae 6 244-277.
+BETTAZZI,R.
+1896 Gruppi finiti ed infiniti de enti. Accademia delle Scienze di Torino, Classe di
+Scienze Fisiche, Matematiche, e Naturale (Atti) 31: 506-51 2.
+BOREL,E.
+I895 Sur quelques points de la thtorie des fonctions. Annales scientifiques de I’Ecole
+Normale Suptrieure 12: 9-55.
+1898 Leqons sur la thtorie des fonctions. Gauthier-Villars. Paris.
+1899 A propos de ‘I’infini nouveau.’ Revue philosophique de la France et de
+I’ttranger 4 8 383-390.
+1900 L’antinomie du transfini. ibid. 4 9 378-383.
+1905 Quelques remarques sur les principes de la thtorie des ensembles. Mathematische Annalen 6 0 194-1 95.
+1912 Notice sur les travaux scientifiques de M. Emile Borel. Gauthier-Villars.
+Paris.
+1914 Second edition of LeGons sur la thCorie des fonctions, 1898.
+CANTOR,
+G.
+187 1 Uber trigonometrische Reihen. Mathematische Annalen 4: 139-143.
+1872 Uber die Ausdehnung eines Satzes aus der Theorie der trigonometrischen
+Reihen. ibid. 5 123-1 32.
+1874 Uber eine Eigenschaft des Inbegriffes aller reellen algebraischen Zahlen.
+Journal fur die reine und angewandte Mathematik (Crelle) 77: 258-262.
+I878 Ein Beitrag zur Mannigfaltigkeitslehre. ibid. 8 4 242-258.
+
+MOORE: LEBESCUE A N D ZERMELO
+
+151
+
+Uber unendliche lineare Punktmannichfaltigkeiten, I. Mathematische Annalen 1 5 1-7.
+1880 Part I I of [1879]. ibid. 17: 355-358.
+1882 Part lIlof[1879].ibid.20 113-121.
+1883 Part IVof [1879]. ibid. 21: 51-58.
+1883a Part V of [ 18791. ibid. 21: 545-586.
+1883b Sur une proprittt du systhne de tous les nombres algtbriques rtels. Acta
+Mathematica 2: 305-3 10 (French translation of [ 18741).
+1883c Une contribution B la thtorie des ensembles. ibid.: 31 1-328 (French translation of [ 18781).
+I883d Sur les stries trigonomttriques. ibid.: 329-335 (French translation of
+[1871]).
+1883e Extension d’un thtortme de la thtorie des stries trigonomttriques. ibid.:336348 (French translation of [1872]).
+1883f Sur les ensembles infinis et lintaires de points, I. ibid.: 349-356 (French
+translation of [ 18791).
+18838 Part I I of [1883F]. ibid.: 357-360 (French translation of [1880]).
+1883h Part I I I of [1883f]. ibid.: 361-371 (French translation of [1882]).
+18831 Part I V of [1883fl. ibid.: 372-380 (French translation of [1883]).
+1883j Fondements d’une thtorie gtntrale des ensembles. ibid.: 38 1-408 (French
+translation of [ 1883al).
+1883k S u r divers thtortmes de la thtorie des ensembles de points situts dans u n
+espace continu B n dimensions. Premitre communication. Extrait d’une
+lettre addresste B I’tditeur. ibid.: 409-414.
+COHEN,P. J.
+1963 The Independence of the Continuum Hypothesis, I. Proceedings of the
+National Academy of Sciences USA 5 0 1 143-1 148.
+COUTURAT,
+L.
+1896 De I’infini mathtmatique. Alcan. Paris.
+1896a Review of Hannequin, 1895. Revue de Mttaphysique et de Morale 4: 778797.
+1897 Continuation of I896a. ibid. 5 87-1 13, 220-247.
+DAUBEN,
+J. W.
+1979 Georg Cantor: His Mathematics and Philosophy of the Infinite. Harvard
+University Press. Cambridge, MA.
+DE LA VALLEE-POUSSIN,
+C.
+I934 lntigrales de Lebesgue, fonctions d’ensembles, classes de Baire, second edition.
+Gauthier-Villars. Paris.
+DUGAC,P.
+I976 Notes et documents sur la vie et I’oeuvre de Rent Baire. Archive for History of
+Exact Sciences 1 5 297-383.
+EVELLIN, F.
+I898 L’infini nouveau. Revue philosophique de la France et de I’ttranger 45: 1 13119.
+S. & A. LEVY
+FEFERMAN.
+1963 Independence Results in Set Theory by Cohen’s Method, 11. Notices of the
+American Mathematical Society 1 0 593.
+GRATTAN-GUINNESS,
+1.
+197 I The Correspondence between Georg Cantor and Philip Jourdain. Jahresbericht
+der Deutschen Mathematiker-Vereinigung 73: 1 1 1-130.
+I879
+
+152
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+HANNEQUIN,
+A.
+1895 Essai critique sur I’hypothtse des atomes dans la science contemporaine.
+Masson. Paris.
+HAUSDORFF,
+F.
+1914 Bemerkung iiber den lnhalt von Punktmengen. Mathematische Annalen
+75 428-433.
+1914a Grundziige der Mengenlehre. Veit. Leipzig.
+HAWKINS,
+T.
+1975 Lebesgue’s Theory of Integration, second edition. Chelsea. New York.
+JECH,T.
+1968 w , Can Be Measurable. Israel Journal of Mathematics 6 363-367.
+JORDAN,
+C.
+I892 Remarques sur les inttgrales dtfinies. Journal de mathtmatiques pures et
+appliqukes (4) 8 69-99.
+1893 Cours d’analyse de I’Ecole Polytechnique: Tome premier, Calcul diffkrentiel,
+second edition. Gauthier-Villars. Paris.
+JOURDAIN,
+P. E. B.
+1904 On the Transfinite Cardinal Numbers of Well-ordered Aggregates. Philosophical Magazine (6)7: 61-75.
+KERRY,.B.
+1885 Uber G. Cantor’s Mannigfaltigkeitsuntersuchungen. Vierteljahrsschrift fur
+wissenschaftliche Philosophie 9 191-232.
+G.
+KOWALEWSKI,
+1950 Bestand und Wandel. Oldenbourg. Munich.
+LEBESGUE,H.
+1899 Sur les fonctions de plusieurs variables. Comptes Rendus Hebdomadaires des
+Skances de I’Acadtmie des Sciences, Paris 128 81 1-813.
+1899a Sur la dtfinition de I’aire d’une surface. ibid. 129 870-873.
+1902 IntCgrale, longueur, aire. Annali di matematica pura ed applicata (3)7: 231359.
+1904 LeGons sur I’intkgration et la recherche des fonctions primitives. GauthierVillars. Paris.
+1905 Sur les fonctions reprksentables analytiquement. Journal de mathkmatiques
+pures et appliqubes. 60: 139-216.
+1907 Contribution i I’ttude des correspondances de M. Zermelo. Bulletin de la
+Sociktt Mathkmatique de France 3 5 202-212.
+1907a Sur les transformations ponctuelles, transformant les plans en plans, qu’on
+peut dtfinir par des proc6dks analytiques. Accademia delle Scienze di
+Torino, Classe di Scienze Fisiche, Matematiche, e Naturale (Atti) 4 2 532539.
+1918 Remarques sur les thhries de la mesure et de I’intkgration. Annales scientifiques de I’Ecole Normale SupCrieure (3)3 5 191-250.
+1922 Notice sur les travaux scientifiques. E. Privat. Toulouse.
+1941 Les controverses sur la thkorie des ensembles et la question des fondements. Les
+entretiens de Zurich, F. Gonseth, Ed.: 109-122. Leeman. Zurich.
+LECHELAS,
+G.
+1897 Review of Couturat, 1896. Revue de Mttaphysique et de Morale 5 462-488,
+620-643.
+LEVI,B.
+1902 lntorno alla teoria degli aggregati. lstituto Lombard0 di Scienze e Lettere,
+Rendiconti (2)3 5 863-868.
+
+MOORE: LEBESGUE AND ZERhfELO
+
+153
+
+MOORE,G. H.
+1978 The Origins of Zermelo’s Axiomatization of Set Theory. Journal of Philosophical Logic 7: 307-329.
+1982 Zermelo’s Axiom of Choice: Its Origins, Development, and Influence.
+Springer. New York.
+MORSE,A. P.
+I949 Squares are normal. Fundamenta Mathematicae 3 6 35-39.
+PEANO,G.
+1890 Demonstration de I’intCgrabilitCdes Cquations differentielles ordinaires. Mathematische Annalen 37: 182-228.
+SHELAH,
+S.
+1980 Going to Canossa. Abstracts of the American Mathematical Society 1: 630.
+SIERPINSKI,
+W.
+1916 Sur le rBle de I’axiome de M. Zermelo dans l’analyse moderne. Comptes
+Rendus Hebdomadaires des Sdances de I’AcadCmie des Sciences, Paris
+163 688-691.
+191 7 Sur quelques p r o b l h e s qui impliquent des fonctions non-mesurables. ibid.
+164: 882-884.
+1918 L’axiome de M. Zermelo et son rBle dans la t h b r i e des ensembles et I’analyse.
+Bulletin de I’AcadCmie des Sciences de Cracovie, Classe des Sciences
+Mathtmatiques, SCrie A: 97-1 52.
+1941 L’axiome du choix et I’hypothtse du continu. Les entretiens de Zurich. F.
+Gonseth. Ed.: 125-143. Leeman. Zurich.
+SOLOVAY,
+R.
+1965 The Measure Problem. Notices of the American Mathematical Society
+12: 217.
+1970 A Model of Set Theory in which Every Set of Reals Is Lebesgue Measurable.
+Annals of Mathematics 92: 1-56.
+I97 1 Real-Valued Measurable Cardinals. Axiomatic set theory. Proc. Symp. Pure
+Math. (Amer. Math. SOC.)13( I): 397-428.
+STEPRANS,
+J.
+1982 Some Results in Set Theory. Ph.D. dissertation, University of Toronto.
+TANNERY,
+.I.
+I884 Review of Cantor, 1883b-k. Bulletin des sciences mathkmatiques et astronomiques (2) 2: 162-1 7 1.
+1886 Introduction A la thCorie des fonctions d’une variable. Hermann. Paris.
+I901 Notice sur les travaux scientifiques. Gauthier-Villars. Paris.
+TANNERY,
+P.
+1884 Review of Cantor, 1883b-k. Bulletin des sciences mathkmatiques et astronomiques(2)2: 162-171.
+1885 Le concept scientifique du continu: ZCnon d’ElCe et Georg Cantor. Revue
+philosophique de la France et de I’etranger 2 0 385-410.
+TARSKI,
+A.
+1930 Une contribution A la thkorie de la mesure. Fundamenta Mathematicae
+1 5 42-50.
+1962 Some Problems and Results Relevant to the Foundations of Set Theory. Logic,
+Methodology, and Philosophy of Science (Proceedings of the 1960 International Congress). Stanford University Press. Stanford, CA.: 125-1 35.
+TONELLI, L.
+1921 Fondamenti di calcolo delle variazioni, vol. 1. Zanichelli. Bologna.
+
+154
+
+ANNALS NEW YORK ACADEMY OF SCIENCES
+
+ULAM,S.
+I929 Concerning Functions of Sets. Fundamenta Mathematicae 1 4 23 1-233.
+1930 Zur Masstheorie in der allgemeinen Mengenlehre. ibid. 16: 140-1 50.
+1976 Adventures of a Mathematician. Scribner’s. New York.
+VITALI,
+G.
+1905 Sul problema della misura dei gruppi di punti di una retta. Tio. Gamberini e
+Parmeggiani. Bologna.
+ZERMELO,
+E.
+1904 Beweis, dass jede Menge wohlgeordnet werden kann (Aus einem an Herrn
+Hilbert gerichteten Briefe). Mathematische Annalen 59: 5 14-5 16.
+
+
