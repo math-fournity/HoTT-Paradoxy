@@ -1,0 +1,19 @@
+## lean GodelQ/Russell/Basic.lean
+## lean GodelQ/Russell/Sep.lean
+## lean GodelQ/Russell/Foundation.lean
+GodelQ/Russell/Foundation.lean:57:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+## lean GodelQ/Russell/Unbounded.lean
+## lean GodelQ/Russell/Qualification.lean
+公理审计通过：GodelQ.Russell.noRussellSet；实际公理 []
+公理审计通过：GodelQ.Russell.sep_russell_not_mem；实际公理 []
+公理审计通过：GodelQ.Russell.foundation_irrefl；实际公理 []
+公理审计通过：GodelQ.Russell.unboundedComprehensionFalse；实际公理 []
+公理审计通过：GodelQ.Russell.qual_russell_arch；实际公理 []
+'GodelQ.Russell.qual_russell_arch' does not depend on any axioms

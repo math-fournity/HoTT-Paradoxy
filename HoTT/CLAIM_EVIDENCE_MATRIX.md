@@ -2493,3 +2493,19 @@ Claim 表：
 | Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
 |---|---|---|---|---|
 | CG001-C-431 | 不设门的定义原则 `∀ α : Prop, (α → α) → α`（每个“x := f x”的递归定义都算数）推出 `False` 与一切命题；数据版推出空类型有元素；正控制：良基递归的定义方程有解；负控制：Lean 拒绝 `loop : False := loop` | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261015-CG001-TERMINATION-GATE-01`；负控制 `-NEG-01` | 不说经典数学或 ZFC 不一致；“门＝终止要求”是解释桥；终止检查保守，过了门比会停更严 |
+
+## CodeArts：罗素「解决」考古的形式化面——对角层、分离层、正则层与无界概括负控制（2026-10-16）
+
+> 本机会话 CodeArts（glm-5.3），repo 主检出 `/Volumes/D/HoTT_AI_HANDOFF_20260911`，分支 `dev`。读法：机器证明，四条核心定理与合取定理不依赖任何公理（`#print axioms` 清单为空）。四条命题为教科书级标准内容，**不主张数学内容原创**；机器化是「ZFC 解决了罗素悖论」叙事分层对照的底座。考古结论（该「解决」当初的形式化证明不存在）保持 QUESTION 状态，待文献考古（工作包步骤 2）与三栏对照表（步骤 4）。承接 `docs/罗素解决考古/01-交接文档-20261016.md` §3.1 四命题设计；「宣布 vs 手段」主题第三层（史学层）。
+
+| Package ID | Claim IDs | 源码 | 证据 | 判词 |
+|---|---|---|---|---|
+| `MP-CG001-RUSSELL-ARCHAEOLOGY-001` | `CG001-C-432`、`CG001-C-433`、`CG001-C-434`、`CG001-C-435` | `formal/claude-cg001/russell-archaeology/GodelQ/Russell/Basic.lean`（`noRussellSet`）、`Sep.lean`（`sep_russell_not_mem`、`sep_russell_not_mem'`）、`Foundation.lean`（`foundation_irrefl`、`foundation_irrefl'`）、`Unbounded.lean`（`unboundedComprehensionFalse`）、`Qualification.lean`（`qual_russell_arch` + 公理审计 run_cmd） | `verification/runs/20261016-CG001-RUSSELL-ARCH-01/`；exit 0，stderr 0 B；公理审计五条全过，实际公理清单为空；`--rerun` `PASS_WITH_SCOPE` / `EXACT_EXIT_STDOUT_STDERR_MATCH` | `KERNEL_ACCEPTED_WITH_SCOPE` |
+| `MP-CG001-RUSSELL-ARCHAEOLOGY-NEG-001` | `CG001-C-433`（负控制） | 同目录 `GodelQ/Negative/WrongSepContradiction.lean` | `verification/runs/20261016-CG001-RUSSELL-ARCH-NEG-01/`；exit 1，`hne : R ∉ R` 给不出 `R ∈ A ∧ R ∉ R` | `NEGATIVE_CONTROL_REJECTED` |
+
+| Claim ID | 精确主张 | 状态 | 证据 | 禁止外推 |
+|---|---|---|---|---|
+| CG001-C-432 | 纯逻辑对角：`¬ ∃ R : V, ∀ x : V, x ∈ R ↔ x ∉ x`，环境只有 `SetStructure V`（`Membership V V`），零集合论公理——对角论证是一阶逻辑自身的，不是 ZFC 的贡献 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | run `20261016-CG001-RUSSELL-ARCH-01` | 教科书内容，不主张原创 |
+| CG001-C-433 | 分离层：分离式成员刻画 `∀ z, z ∈ R ↔ (z ∈ A ∧ z ∉ z)` ⇒ `R ∉ A`——定理而非矛盾（准入层拒绝）；𝗭 实例化 `{x ∈ A ; x ∉ x} ∉ A`；负控制把 C-432 的对角结尾照搬过来被 Lean 拒绝，机器化展示「1908 年层面的『解决』≠ 在新系统内证明矛盾」 | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上；负控制 `-NEG-01` | 历史归因（1908 Aussonderung、lösen 措辞）待步骤 2 核实 |
+| CG001-C-434 | 正则层：正则公理（每个非空集合有 ∈-极小元）+ 单元素集存在 ⇒ `∀ x : V, x ∉ x`——准入禁止（1930 年代第二道门） | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 正则时间线（von Neumann 1925 / Zermelo 1930）待核；Foundation 库 𝗭 含正则（Schindler 口径），不是 1908 历史系统 |
+| CG001-C-435 | 负控制核：无界概括（命题形态 hypothesis `∀ P : V → Prop, ∃ S, ∀ z, z ∈ S ↔ P z`）⇒ `False`——爆炸的充分条件是被删除的无界概括，不是对角论证；交接文档方案 B | `FORMAL_CHECKED_WITH_SCOPE / GOAL_LOCAL_INDEXED` | 同上 | 不推出任何 ZFC 一致性主张 |

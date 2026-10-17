@@ -1,0 +1,66 @@
+{
+  "audit_notes": [],
+  "audit_session": "CodeArts (glm-5.3) session, repo root /Volumes/D/HoTT_AI_HANDOFF_20260911, branch dev (package sources committed at d41e561f), 2026-10-16",
+  "claim_ids": [
+    "CG001-C-432",
+    "CG001-C-433",
+    "CG001-C-434",
+    "CG001-C-435"
+  ],
+  "command_argv": [
+    "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "-B",
+    ".claude/goals/CG-006-zfc-complete-formalization/tools/zfc_lean_check.py",
+    "--package",
+    "HoTT/formal/claude-cg001/russell-archaeology",
+    "GodelQ/Russell/Basic.lean",
+    "GodelQ/Russell/Sep.lean",
+    "GodelQ/Russell/Foundation.lean",
+    "GodelQ/Russell/Unbounded.lean",
+    "GodelQ/Russell/Qualification.lean"
+  ],
+  "completed_at_utc": "2026-10-17T00:54:18.164621+00:00",
+  "cwd": "/Volumes/D/HoTT_AI_HANDOFF_20260911",
+  "duration_seconds": 11.621976,
+  "environment": {
+    "bytes": 1178,
+    "path": "environment.txt",
+    "sha256": "ca423f1b0e6d0997455cb55a4d91310ae98e1d3a04d9ee59591098f9160f606f"
+  },
+  "exit_code": 0,
+  "expected_outcome": "ACCEPT",
+  "git_status": "LOCAL_UNCOMMITTED_NOT_VERSION_CLOSED",
+  "index_status": "PENDING_CLAIM_EVIDENCE_MATRIX_UPDATE",
+  "non_goals": [
+    "Does not prove 'ZFC solved Russell's paradox' nor its negation; the archaeology conclusion is delivered by step 4's three-column comparison and needs step-2 literature evidence; the formal layer is only the base.",
+    "The four propositions are textbook-level standard mathematics; no originality claim on mathematical content — the machine formalization exists for layered cross-comparison.",
+    "Historiographical attributions (1908 Aussonderung, 1930s regularity; whether Zermelo 1908 uses loesen) are literature-level claims, unverified at landing time, to be checked in step 2.",
+    "Foundation library's 𝗭 includes regularity (Schindler textbook) and is NOT the historical 1908 system; instantiation sections only provide premises.",
+    "No ZFC consistency claims; C-435's False only shows no pure-membership-structure environment satisfies unbounded comprehension."
+  ],
+  "outcome_matches_expectation": true,
+  "proof_assistant": "Lean 4",
+  "proof_assistant_version": "Lean (version 4.34.0, arm64-apple-darwin24.6.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "proof_id": "MP-CG001-RUSSELL-ARCHAEOLOGY-001",
+  "run_id": "20261016-CG001-RUSSELL-ARCH-01",
+  "schema_version": "formal-proof-run/v1",
+  "scope": "Layered dissection of the 'ZFC solved Russell's paradox' narrative, step-1 formal base of the archaeology work package (docs/罗素解决考古/01-交接文档-20261016.md): C-432 noRussellSet (pure-logic diagonal, environment SetStructure V only, no set-theory axioms); C-433 sep_russell_not_mem (separation-layer membership characterization implies R_A not-in A — a theorem, not a contradiction; Z-instantiation {x in A ; x not-in x} not-in A); C-434 foundation_irrefl (regularity + singleton existence => forall x, x not-in x — admission prohibition); C-435 unboundedComprehensionFalse (unbounded comprehension as proposition-level hypothesis => False — the deleted explosion fuel, handover doc plan B). qual_russell_arch: four-core conjunction with axiom-audit run_cmd; #print axioms reports no axioms for all five theorems.",
+  "source_manifest": {
+    "bytes": 201207,
+    "path": "source-manifest.json",
+    "sha256": "367cf60a6ed13ecbfdb10aac92b46872a7d02872f8fa13ed2673bfc2cca2f0a7"
+  },
+  "started_at_utc": "2026-10-17T00:54:06.542392+00:00",
+  "status": "KERNEL_ACCEPTED_WITH_SCOPE",
+  "stderr": {
+    "bytes": 0,
+    "path": "stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 974,
+    "path": "stdout.txt",
+    "sha256": "561a902279ce86a3867b98498028594a87b7f60af38537b812b2cd28b6cfdade"
+  },
+  "theory_variant": "Lean 4 (v4.34.0) kernel, Mathlib 5ed29652 + FormalizedFormalLogic/Foundation 1fb01b72, classical logic. Core theorems C-432..C-435 and qual_russell_arch depend on NO axioms (#print axioms empty); Foundation's 𝗭 appears only in labeled instantiation sections (sep_russell_not_mem', foundation_irrefl')."
+}

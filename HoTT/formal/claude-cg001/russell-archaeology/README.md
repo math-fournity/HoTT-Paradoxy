@@ -16,7 +16,7 @@
 - 负控制：`GodelQ/Negative/WrongSepContradiction.lean`（照搬无界层对角结尾到
   分离层，预期被 Lean 拒绝：`h.mpr hne` 期望 `R ∈ A ∧ R ∉ R`）。
 - 编译（开发，不进收据）：
-  `python3 .claude/goals/CG-007-formalization-completion/tools/devbuild_ns.py HoTT/formal/russell-archaeology GodelQ/Russell/Basic.lean GodelQ/Russell/Sep.lean GodelQ/Russell/Foundation.lean GodelQ/Russell/Unbounded.lean GodelQ/Russell/Qualification.lean`
+  `python3 .claude/goals/CG-007-formalization-completion/tools/devbuild_ns.py HoTT/formal/claude-cg001/russell-archaeology GodelQ/Russell/Basic.lean GodelQ/Russell/Sep.lean GodelQ/Russell/Foundation.lean GodelQ/Russell/Unbounded.lean GodelQ/Russell/Qualification.lean`
 - 证据与运行：`HoTT/CLAIM_EVIDENCE_MATRIX.md`、`HoTT/verification/runs/`、
   `形式化追踪/`（正式收据按 F-011 五步门禁出）。
 - 详细命题表与禁止外推：`CLAIM.md`。
