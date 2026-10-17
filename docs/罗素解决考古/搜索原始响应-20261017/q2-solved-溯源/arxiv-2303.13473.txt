@@ -1,0 +1,457 @@
+VERY BASIC SET THEORY
+
+arXiv:2303.13473v8 [math.HO] 28 Jan 2026
+
+DOEKO H. HOMAN
+
+Abstract. The naive conception of set is described as ”Any predicate has an
+extension”. Then Russell’s paradox is used to prove the inconsistency of naive
+set theory. If the only constituent of a set is that set itself we call that set an
+‘individual’. We show Russell’s paradox permits sets that are individuals thus
+that is not an inconsistency. Zermelo’s axiomatization also permits individuals.
+Very basic set theory is a set theory with individuals and has a philosophical
+foundation in Ludwig Wittgenstein’s Tractatus Logico-Philosophicus.
+
+Introduction
+Georg Cantor defined a set as (Boolos [1971] p.215)
+• ”a ‘many, which can be thought of as one, i.e. a totality of definite
+elements that can be combined into a whole by a law’.”
+That means a set is ‘determined’ by its elements. Sets are denoted by s, t, u, . . . .
+Symbol ∈ is the ‘membership relation’ symbol. Then s ∈ t means s is a ‘constituent’
+(also called ‘an element’ or ‘a member’) of the totality t. The negation of s ∈ t is
+denoted by s ∈
+/ t. Set s is an ‘individual’ if the only constituent of s is s itself. A
+set with only s and t as constituents is denoted by {s, t} (Zermelo [1908] p.263).
+Often the terminology is: ‘set {s, t} contains only s and t’. But the totality {s, t}
+is ‘thought of as one’ thus a set is a mental picture in your mind. Therefore we
+prefer to write ‘constituent of a set’, not ‘is contained in a set’.
+In (Oliver and Smiley [2006] §5.1) Alex Oliver and Timothy Smiley explain why
+”numerous textbooks” prohibit individuals: individuals are not needed for
+mathematical purposes.
+In (Kanamori [2003] pp.285-288) Akihiro Kanamori describes that with the ‘empty
+extension’ and the ‘axiom of restriction’ there is no need for individuals (also
+known as atoms or urelemente). Individuals ”are objects distinct from the
+null set yet having no members and capable of belonging to sets”.
+In (Boolos [1971] pp.216-217) George Boolos notes ”individuals (= non-sets)”.
+In section 4.6.5 (Mendelson [2015]) Elliott Mendelson explains
+”The words ‘individual’ and ‘atom’ are sometimes used as synonyms for
+‘urelement’. Thus, urelements have no members”. And in a footnote (p.304)
+”Zermelo’s 1908 axiomatization permitted urelements”.
+In (Zermelo [1908] pp.262-265) Ernst Zermelo describes in ”10. Theorem.”
+”Für jedes Element x von M ist es definit, ob x ε x oder nicht; diese Möglichkeit
+x ε x ist an und für sich durch unsere Axiome nicht ausgeschlossen.”
+Thus ‘x ε x or not’ is definite; the possibility ”x ε x” is not excluded by our axioms.
+Therefore Zermelo’s 1908 axiomatization permits sets ‘containing’ themselves.
+Date: January 22, 2026.
+1
+
+The membership relation is definite, that means
+• for every s and for every t applies either s ∈ t or s ∈
+/ t, but not both.
+Then for every set s it is the case s ∈ s or s ∈
+/ s, but not both. Therefore s ∈ s
+is possible. But a set that ‘contains’ itself is considered problematic (Boolos [1971]
+p.217, pp.219-220)
+”perhaps the mind ought to boggle at the idea of something’s containing itself.”
+”It is important to realize how odd the idea of something’s containing itself is.”
+”Here are some things. Now we bind them up into a whole. Now we have a set.”
+However, ‘binding up some things’ or ‘containing something’ is not the definition of
+a set. A set does not ‘contain’ something, the constituents of a set can be thought
+of as one totality.
+Russell’s paradox reads (Boolos [1971] p.217)
+”No set can contain all and only those sets which do not contain themselves.”
+The negation of Russell’s paradox reads
+• for every s exists a set u such that ((u ∈ s and u ∈ u) or (u ∈
+/ s and u ∈
+/ u)).
+If we choose for set u set s then the formula reads ‘for every s (s ∈ s or s ∈
+/ s)’. It
+is the case that ‘for every s (s ∈ s)’ is definite. Therefore Russell’s paradox permits
+sets ‘containing’ themselves.
+In §1 we describe sets and individuals. Atomic facts and elementary propositions
+are defined which gives the foundation of set theory in the Tractatus (Wittgenstein
+[1999]). In §2 we prove the formulas of set theory preserve definiteness. In §3 we
+define equality for sets. Then axioms specification, pairs and union are formulated.
+We prove regularity and some other important theorems. In §7 natural numbers
+are defined.
+1. What are individuals and sets?
+At an early age you develop the mental picture of ‘what is a set’. You belong
+to a family or a clan, to the inhabitants of a village or a particular region. Then
+experience shows there are things that constitute a set. The members of a set are
+the constituents of that set.
+Set theory is a language that follows rules of logic to communicate the mental
+picture of a set with the physical world. Then someone reading, seeing or listening
+that language forms a mental picture of a set. Set theory is made up of ‘formulas’.
+A formula is a proposition or predicate about the facts of sets. For every set s and
+for every set t the fact is the definiteness of s ∈ t. A formula which is not complex
+or not a combination of other formulas is an ‘atomic fact’. Formula s ∈ t is an
+atomic fact, formula t ∈ s is an atomic fact. Formula s ∈
+/ t is the negation of s ∈ t
+thus s ∈
+/ t is a complex formula therefore s ∈
+/ t is not an atomic fact. Atomic facts
+are what makes formulas true or false.
+Definition. Set s is an individual if the only constituent of set s is set s itself.
+A formula presupposes propositions or predicates while propositions or predicates
+presupposes atomic facts. Then if an atomic fact is analyzed as fully as possible the
+constituents finally reached are individuals. Individuals cannot be analyzed further.
+In this way the naming of individuals is what is logically first in logic (Wittgenstein
+[1999] prop. 3.26) and Bertrand Russell (Introduction p.12).
+2
+
+If s is a set then s is not a proposition or predicate. If s is an individual
+then s ∈ s therefore s is the ’propositional connexion’ (Wittgenstein [1999] prop.
+4.221), (Anscombe [1963] p.29-31). Thus individuals are ‘elementary propositions’.
+Therefore in Very basic set theory the naming of individuals is logically first.
+
+2. Logic and definiteness
+In this section we prove logical formulas preserve definiteness. Formulas are
+denoted by Φ, Ψ, . . . and are built up from formulas by means of negation ¬Φ (not
+Φ) and conjunction Φ ∧ Ψ (Φ and Ψ). Negation takes precedence over conjunction.
+If Φ is a formula then (Φ) is a formula. The parenthesis ( and ) preclude ambiguity
+and improve legibility. Then s ∈
+/ t is the formula ¬(s ∈ t).
+If Φ is a formula then ∀s(Φ) and ∃s(Φ) are formulas. ∀s(Φ) means ‘for every set
+it is the case Φ’. The negation of ∀s(¬Φ) is denoted by ∃s(Φ) thus ∃s(Φ) means
+‘exists a set such that Φ’. The parenthesis following ∀s and ∃s are mandatory.
+However, e.g. without ambiguity ∀s∃t(s ∈ t) is short for the formula ∀s(∃t(s ∈ t)).
+If there is s in Φ not guided in Φ by ∀s or by ∃s then ‘s is free in Φ’. Thus s is
+free and t is not free in formula ∀t(s ∈ t).
+Set s in ∀s or in ∃s is not a ‘variable’. ∀s means ‘for every set’, thus also for a set
+denoted by s. And ∃s means ‘exists a set’ denoted by s. Set theory is a language.
+We define the logical connectives ∨, → and ↔.
+: Φ ∨ Ψ (Φ or Ψ or both) is short for the formula ¬(¬Φ ∧ ¬Ψ),
+: Φ → Ψ (Φ implies Ψ) is short for the formula (¬Φ ∨ Ψ),
+: Φ ↔ Ψ (Φ if and only if Ψ) is short for the formula ((Φ → Ψ) ∧ (Ψ → Φ)).
+There are many rewrite rules: ¬(¬Φ) is logically equivalent to Φ, ¬(Φ ↔ Ψ) is
+logically equivalent to (Φ ↔ ¬Ψ) and ((Φ ∧ Ψ) ∧ ¬(Φ ∧ Ψ)) is logically equivalent
+to ((Φ ∧ Ψ) ∧ (¬Φ ∨ ¬Ψ)). More rewrite rules in (Mendelson [2015] p.15).
+Definition. Formula Φ is ‘definite’ if it is not the case that both Φ and ¬Φ.
+
+2
+
+Theorem. The building up of formulas preserve definiteness.
+Proof. For every s and for every t it is not the case that both s ∈ t and ¬(s ∈ t)
+therefore atomic facts and elementary propositions are definite.
+If Φ is definite then it is not the case that both Φ and ¬Φ. Thus it is not the
+case that both ¬(¬Φ) and ¬Φ therefore ¬Φ is definite.
+If Φ is definite then ∀s(Φ) and ∃s(Φ) are definite otherwise (∀s(Φ) ∧ ¬∀s(Φ)) or
+(∃s(Φ) ∧ ¬∃s(Φ)) thus ∃s(Φ ∧ ¬Φ).
+And (Φ ∧ Ψ) ∧ ¬(Φ ∧ Ψ) is logically equivalent to
+((Φ ∧ ¬Φ) ∧ Ψ) ∨ (Φ ∧ (Ψ ∧ ¬Ψ)) therefore if Φ and Ψ are definite then
+(Φ ∧ Ψ) is definite.
+The logical connectives ‘or’, ‘implies’ and ‘if and only if’ are expressed in terms
+of logical ‘not’ and logical ‘and’. Thus if Φ and Ψ are definite then (Φ ∨ Ψ),
+(Φ → Ψ) and (Φ ↔ Ψ) are definite.
+If an atomic fact is analyzed as fully as possible constituents finally reached are
+individuals. Atomic facts and elementary propositions are definite.
+Therefore the building up of formulas preserve definiteness.
+2
+3
+
+3. Equality for sets
+Experience shows a set ‘is equal to’ or ‘is not equal to’ another set. A set is
+determined by its constituents. Thus sets with different constituents are different
+sets, and the constituents of different sets are different. We define equality for sets.
+Definition. Set s ‘is equal to’ set t, denoted by s = t if ∀u(u ∈ s ↔ u ∈ t).
+Set s ‘is not equal to’ set t, denoted by s ̸= t if ¬(s = t).
+
+2
+
+The axioms for equality are
+• (equality) ∀s∀t(s = t → ∀u(s ∈ u ↔ t ∈ u)),
+• (individuals) ∀s(s ∈ s → ∀u(u ̸= s → u ∈
+/ s)).
+Thus if s = t then s and t have the same constituents and s and t are members of
+the same sets. And the only constituent of an individual is that individual itself.
+Then ∀s∀t((s ∈ s ∧ t ∈
+/ t) → (s ̸= t ∧ t ∈
+/ s)).
+4. Axiom ‘specification’
+If Φ is definite and if exists set u ∈ s such that Φ then it is not the case that for
+every set u (u ∈ s → ¬Φ). Thus we can postulate a set v whose constituents are all
+and only those constituents of s such that for every constituent of v it is the case
+Φ. That is axiom specification (also known as ‘separation’).
+• if u is free in Φ and Φ is definite then
+∀s(∃u(u ∈ s ∧ Φ) → ∃v∀u(u ∈ v ↔ (u ∈ s ∧ Φ))).
+Thus the conjunction of mutually exclusive properties does not constitute a set.
+Theorem. If an individual is a constituent of set s then exists set v whose
+constituents are all and only those individuals that are constituent of s.
+Proof. Formula (u ∈ s ∧ u ∈ u) is definite and is not the conjunction of mutually
+exclusive properties. Apply specification to set s to find set v
+∃v∀u(u ∈ v ↔ (u ∈ s ∧ u ∈ u)). Then an individual is a constituent of v.
+The formula applies to every u thus we can choose v
+∃v(v ∈ v ↔ (v ∈ s ∧ v ∈ v)) therefore
+∃v((v ∈
+/ v ∨ (v ∈ s ∧ v ∈ v)) ∧ ((v ∈
+/ s∨v ∈
+/ v) ∨ v ∈ v)).
+Then ∃v(v ∈
+/ v ∨ v ∈ s).
+Therefore v is not an individual, or v is an individual and a constituent of s. 2
+Theorem. The set of all sets is nonexisting.
+Proof. If ∃u(u ∈ s ∧ u ∈
+/ u) then formula (u ∈ s ∧ u ∈
+/ u) is definite and is not the
+conjuction of mutually exclusive properties.
+Apply specification to set s to find set v
+∃v∀u(u ∈ v ↔ (u ∈ s ∧ u ∈
+/ u)). Then a set is a constituent of v.
+The formula applies to every u thus we can choose v
+∃v(v ∈ v ↔ (v ∈ s ∧ v ∈
+/ v)) therefore
+∃v((v ∈
+/ v ∨ (v ∈ s ∧ v ∈
+/ v)) ∧ ((v ∈
+/ s ∨ v ∈ v) ∨ v ∈ v)).
+Then ∃v(v ∈
+/ v∧v ∈
+/ s).
+Thus v is not an individual and v is not a constituent of s.
+Therefore the set of all sets is nonexisting.
+2
+4
+
+5. Axiom ‘pairs’
+Any pair of sets constitute a set. We postulate ‘pairs’.
+• (pairs) ∀s∀t∃v∀u(u ∈ v ↔ (u = s ∨ u = t)).
+Set v is denoted by {s, t}, s and t are the only constituents of {s, t}.
+Then {s, t} = {t, s} thus {s, t} is also called ‘an unordered pair’.
+The ‘singleton’ {s} of set s is {s, s}. Then
+s∈
+/ s → {s} ̸= s otherwise s ∈ s. Therefore s ∈
+/ s → {s} ∈
+/ {s},
+s ∈ s → {s} = s, the singleton of an individual is that individual itself,
+s ̸= t → {s, t} ∈
+/ {s, t}. Thus a pair of different sets is not an individual.
+However, if s ̸= t and (s ∈ t ∧ t ∈ s) then s ∈
+/ s and t ∈
+/ t. Then exists set {s, t}
+and the ‘vicious membership circle’ (s ∈ t ∧ t ∈ s). That is contradictory to ‘the
+naming of individuals is logically first’. Therefore if s ̸= t it is not the case that
+∀v(v ∈ {s, t} → ∃u((u ∈ {s, t} ∧ u ∈ v) ∧ u ∈
+/ u)).
+The naming of individuals is logically first. Thus vicious membership circles do not
+exist. We prove ‘regularity’.
+Theorem. It is not the case that exists set w such that
+∀v(v ∈ w → ∃u((u ∈ w ∧ u ∈ v) ∧ u ∈
+/ u)).
+Proof. A finite sequence of sets s, t, u, . . . , z such that s ∈ t, t ∈ u, . . . , z ∈ s
+is nonexisting otherwise there are vicious membership circles. And an ‘infinite’
+sequence of sets s, t, u, v, . . . such that each term is a member of the previous
+one t ∈ s, u ∈ t, v ∈ u . . . is nonexisting otherwise for every set x belonging to
+the sequence exists set y belonging to that sequence such that y ∈ x.
+That is contradictory to ‘the naming of individuals is logically first’.
+2
+Formula ¬∃w∀v(v ∈ w → ∃u((u ∈ w ∧ u ∈ v) ∧ u ∈
+/ u)) is definite. Therefore
+• (regularity) ∀w∃v(v ∈ w ∧ ∀u((u ∈ w ∧ u ∈ v) → u ∈ u)).
+The formula applies to every u thus we can choose v. Then the formula reads
+∀w∃v(v ∈ w ∧ ((v ∈
+/ w∨v ∈
+/ v) ∨ v ∈ v)), that is ∀w∃v(v ∈ w).
+Therefore an ‘empty set’ is nonexisting. If an individual is a constituent of w then
+v is an individual. And if ∃v(v ∈
+/ v ∧ v ∈ w) then ∃v(v ∈
+/ v ∧ v ∈ w) such that v
+and w only have individuals in common.
+6. Axiom ‘union’
+The constituents of the members of a set constitute a set. We postulate ‘union’.
+• (union) ∀s∃v∀u(u ∈ v ↔ ∃t(t ∈ s ∧ u ∈ t)).
+S
+S
+Set v is denoted by s. If s is an individual
+individuals then s = s.
+S or a set of S
+The ‘union s ∪ t’ is defined by s ∪ t = {s, t}. Then {{s}, {t}} = {s, t} and
+s ∪ (t ∪ u) = (s ∪ t) ∪ u. If s and t are individuals then s ∪ t = {s, t}.
+S SS
+Theorem. Any sequence of different sets s, s, ( s), . . . is finite.
+S
+S
+Proof.
+/ t) otherwise s = s.
+S Then
+S Ss ̸= s → ∃t(t ∈ s ∧ t ∈
+S
+SS
+/ u∧t∈
+/ t) otherwise s = ( s),
+S sS̸= ( Ss)S→S∃u∃t(u ∈ t ∧ t ∈ s ∧ u ∈
+( s) ̸= ( ( s)) → ∃v∃u∃t(v ∈ u ∧ u ∈ t ∧ t ∈ s ∧ v ∈
+/ v∧u∈
+/ u∧t∈
+/ t),
+... .
+Thus there is a rule to construct for every set z ̸= s belonging to the sequence a
+series of sets t, u, v, . . . , x, y, z such that each term is a member of the previous
+5
+
+one: t ∈ s, u ∈ t, v ∈ u, . . . , x ∈ v, y ∈ x, z ∈ y contradictory to regularity if
+the sequence is ‘infinite’: the naming of individuals is logically first.
+Therefore S
+the sequence terminates.
+Thus
+S
+S S exists set w belonging to the sequence
+such that w = w. Then s ∪ s ∪ ( s) ∪ . . . w is a set, and is called ‘the
+transitive closure of s’.
+2
+The definitions of equality and axiom pairs are only meaningful if exist sets the
+naming of which are logically first. Thus with individuals and regularity. And
+regularity is used with axiom union to prove that for every set the transitive closure
+exists. The proof requires no other axioms or no ‘set of all natural numbers’.
+7. Natural numbers
+In (Halmos [1974] p.47) the Peano Axioms for the set of all natural numbers
+”used to be considered as the fountainhead of all mathematical knowledge”. In
+this section we define ‘transitive sets’ and ‘number sequences’ satisfying the Peano
+Axioms for natural numbers.
+Definition. Set s is a ‘subset’ of t, denoted by s ⊆ t, if
+S ∀u(u ∈ s → u ∈ t).
+s is transitive if ∀u(u ∈ s → u ⊆ s), or equivalently s ⊆ s.
+
+2
+
+Every
+individual and every set of individuals is transitive. If s is transitive then
+S
+s and s ∪ {s} are transitive.
+Theorem. If s is transitive and ∃u(u ∈ s ∧ u ∈
+/ u) then a set of individuals is a
+member of s: ∃v(v ∈ s ∧ v ∈
+/ v ∧ ∀u(u ∈ v → u ∈ u)).
+Proof. Apply regularity to s to find v ∈ s ∧ v ∈
+/ v such that
+∀u((u ∈ s∧u ∈ v) → u ∈ u). Set s is transitive and v ∈ s thus ∀u(u ∈ v → u ∈ s).
+Therefore ∃v(v ∈ s ∧ v ∈
+/ v ∧ ∀u(u ∈ v → u ∈ u)).
+2
+If the only individuals that are constituent of transitive set s are u and v then {u, v}
+is the only possible set of individuals that is a member of s therefore {u, v} ∈ s∪{s}.
+If s and t are transitive sets with transitive members and the only individuals
+that are members of s or of t are u and v, thus ∀w((w ∈ s∪t∧w ∈ w) → w ∈ {u, v}),
+then the ‘law of trichotomy’ for s and t is easily proved and reads
+(s ∈
+/ s∧t∈
+/ t) → (s ∈ t ∨ s = t ∨ t ∈ s).
+S
+If s is a transitive set with transitive
+then s is S
+a transitive set with
+S members
+S
+transitive S
+members and (s
+∈
+/
+s
+→
+s
+∈
+/
+s).
+And
+s
+∈
+/
+s otherwise s ∈ s.
+S
+S
+Therefore s = s or s = s ∪ { s}.
+It is straightforward to define a number sequence satisfying the Peano Axioms
+for natural numbers. The first axiom of the Peano Axioms reads ‘there is a first
+natural number’. Natural numbers are also known as ‘finite ordinals’.
+Definition. Set s is a ‘natural number with first number α’ if s is a transitive
+set with transitive members, α is a pair of individuals and
+[
+[
+α=α∧s∈
+/ α ∧ ∀u(u ∈ s ∪ {s} → (u ∈ α ∪ {α} ∨ u ∈ u)).
+The ‘successor’ of natural number s is s ∪ {s}.
+6
+
+2
+
+Then α is a first natural number. In physical reality a first number is called ‘the
+unit of measurement’. The classical Greek concept of number (arithmos) is ”a finite
+plurality composed of units, where a unit is whatever counts as one thing in the
+number under consideration.” (Mayberry [2000] p.21).
+If z (‘zero’), x and y are individuals then there is number sequence S with first
+number {z, x} (‘x coordinate’) and there is number sequence T with first number
+{z, y} (‘y coordinate’). All elements of both sequences have z in common.
+If u belongs to the S sequence then x ∈ u implies u is an x coordinate, if v belongs
+to the T sequence then y ∈ v implies v is an y coordinate. Then {u, v} is an ‘ordered
+pair’ with an intrinsic intuitive meaning. The Kuratowski ordered pair does not
+have any intrinsic intuitive meaning. It is ”just a convenient way” to define ordered
+pairs (Mendelson [2015] p.235, Kanamori [2003] §5).
+Any pair of individuals is a first number of a natural number sequence. Therefore
+‘the set of all natural numbers’ is nonexisting. However, it is not prohibited
+to
+S
+postulate ‘set ω of all natural numbers with first number α’. Then ω = ω.
+Therefore we can define a number sequence with first number ω analogous to natural
+numbers with first number α. Then there are the finite ordinals (natural numbers)
+with first number α, followed by ‘transfinite
+ordinal numbers with first number ω’.
+S
+And if we define ω + ω = ω · 2 then (ω · 2) = ω · 2 thus the next sequence of
+transfinite ordinals are the ordinals with first number ω · 2, and so on, that is
+α, α + 1, α + 2, . . . , ω, ω + 1, ω + 2, . . . , ω · 2, ω · 2 + 1, ω · 2 + 2, . . . , ω · 3, . . . .
+Thus the logic in Very basic set theory is capable to deal with transfinite numbers.
+Conclusion
+Very basic set theory is a set theory with the philosophical foundation in Ludwig
+Wittgenstein’s Tractatus Logico-Philosophicus. It is a set theory with individuals.
+The atomic facts are the membership relations and the elementary propositions are
+the individuals. The formulas of set theory preserve definiteness. The naming of
+individuals is logically first and the logic is capable to deal with transfinite numbers.
+We list some differences with ‘mainstream set theory’.
+• There is no ‘empty set’ (Kanamori [2003] §1).
+• The singleton of an individual is that individual itself (Kanamori [2003] §2).
+• Regularity is not an axiom but a theorem.
+• The proof that ‘every set has a transitive closure’ requires no other axioms
+or no ‘set of all natural numbers’ (Mendelson [2015] pp.286-287).
+• Cantor’s Theorem (Zermelo [1908] p.276) reads
+for every set s, the ‘number of members’ of s is less than the ‘number of
+members’ of the powerset Ps.
+However, there is no ‘empty set’ therefore P{s} = {{s}}.
+Thus Cantor’s Theorem does not hold.
+• Any pair of individuals is the first number of a sequence
+of natural numbers.
+S
+Then transfinite ordinals are postulated. If e.g. ω = ω then ω is the first
+number of a sequence of transfinite ordinals. Therefore ω is not a ‘limit
+ordinal’, ω is the first number of a sequence satifying the Peano Axioms for
+natural numbers.
+
+7
+
+References
+: G.E.M. Anscombe. An Introduction to Wittgenstein’s Tractatus
+Second Edition, Revised in 1963 (https://archive.org)
+First HARPER TORCHBOOK edition published 1965 by
+Harper & Row, Publishers, Incorporated
+: George Boolos. The iterative conception of set
+The Journal of Philosophy
+Volume LXVIII, no. 8, April 22, 1971.
+: P.R. Halmos. Naive Set Theory
+Springer-Verlag New York Inc., 1974.
+: Akihiro Kanamori. The empty set, the singleton and the ordered pair
+The Bulletin of Symbolic Logic, Volume 9, Number 3, Sept. 2003.
+: Elliott Mendelson. Introduction to Mathematical Logic
+Sixth Edition, 2015.
+: J.P. Mayberry. The Foundations of Mathematics in the Theory of Sets
+Cambridge University Press, 2000.
+: Alex Oliver and Timothy Smiley. What Are Sets and What Are They For?
+Philosophical Perspectives, 2006, Vol. 20, Metaphysics (2006), pp. 123-155
+Stable URL: https://www.jstor.org/stable/4494502
+: Ludwig Wittgenstein. Logisch-philosophische Abhandlung
+Translated by C.K. Ogden. Tractatus Logico-Philosophicus
+With an Introduction by Bertrand Russell, 1922
+Dover Publications, Inc. 1999.
+: Ernst Zermelo. Untersuchungen über die Grundlagen der Mengenlehre I.
+Mathematische Annalen (1908) Vol. 65 (https://eudml.org/doc/158344)
+
+8
+
+

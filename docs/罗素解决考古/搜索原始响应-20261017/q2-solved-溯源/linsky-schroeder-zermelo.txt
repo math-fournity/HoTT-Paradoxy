@@ -1,0 +1,745 @@
+Ernst Schroeder and Zermelo’s
+Anticipation of Russell’s Paradox
+Bernard Linsky
+University of Alberta
+Abstract
+
+Ernst Zermelo presented an argument showing that there is no set of all sets that
+are members of themselves in a letter to Edmund Husserl on April 16th of 1902,
+and so just barely anticipated the same contradiction in Betrand Russell’s letter to
+Frege from June 16th of that year. This paper traces the origins of Zermelo’s
+paradox in Husserl’s criticisms of a peculiar argument in Ernst Schroeder’s 1890
+Algebra der Logik. Frege had also criticized that argument in his 1985 “A
+Critical Elucidation of Some Points in E. Schroeder Vorlesungen über die
+Algebra der Logik”, but did not see the paradox that Zermelo found. Alonzo
+Church, in “Schroeder’s Anticipation of the Simple Theory of Types” from 1939,
+cricized Frege’s treatment of Schroeder’s views, but did not identify the connection
+with Russell’s paradox.
+Bertrand Russell wrote to Gottlob Frege on June 16th, 1902,
+saying that he had found “one point where I have encountered a
+difficulty” in reading over Grundgesetze der Arithmetik in preparation
+for publishing his own Principles of Mathematics. The difficulty is
+described as follows:
+Let w be the predicate: to be a predicate that cannot be
+predicated of itself. Can w be predicated of itself? From
+each answer its opposite follows. Therefore we must
+conclude that w is not a predicate.
+
+Bernard Linsky
+
+Russell immediately follows this with what sounds like the
+different, and more familiar, problem of the class of all classes which
+do not belong to themselves, but is presented as another statement of
+the same point of difficulty:
+Likewise there is no class (as a totality) of those classes
+which, each taken as a totality, do not belong to
+themselves. From this I conclude that under certain
+circumstances a definable collection [Menge] does not
+form a totality.1
+
+These are in fact two different problems. The first involves the
+notion of a predicate that is or is not predicated of itself. As Frege
+pointed out immediately in his response to Russell, if one makes a
+sharp distinction between predicates that are true of individuals, and
+the (higher order) predicates that are true of those predicates, as
+Frege himself did within his theory of concepts and objects, then it
+simply won’t make sense to think of a predicate applying to itself.
+There will be no predicate “to be a predicate that is not predicated of
+itself,” and so the paradox cannot arise. In fact, at the time, Russell
+did not accept the notion that concepts would be distinguished by
+type, and only acknowledged that something of the sort might be
+necessary in Appendix B of Principles of Mathematics. This first paradox
+was the most significant for Russell. He only formulated the second
+when he saw that related versions could be constructed for other
+theories, such as Frege’s. Frege immediately acknowledged that there
+was a problem for his system in the second paradox.
+Frege responded to Russell's letter quite quickly, with a reply
+dated June 22nd, just six days later. Frege concludes as follows:
+It seems, then, that transforming the generalization of an
+equality into an equality of courses-of-values (§9 of my
+Grundgesetze) is not always permitted, that my Rule V (§20,
+p.36) is false, and that my explanations in §31 are not
+sufficient to ensure that my combinations of signs have a
+meaning in all cases.
+______________
+1 Van Heijenoort (1967, pp. 127-128).
+
+8
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+Russell did come to the paradox by considering Cantor’s theorem
+that the set of subsets of a given set, its power set, cannot be put into
+a one-to-one correspondence with that set by considering the
+hypothesis that there is a universal set. If one follows the proof of
+Cantor’s theorem the paradoxical set of all sets that are not members
+of themselves is the set that is added in the power set of the universe.
+Russell himself, however, did not see this as a problem for Cantor’s
+set theory as much as for his own. Russell originally found the
+paradox for his own views in Principles of Mathematics, in which classes
+are represented by “class concepts”, which in fact denote the
+members of a class. The members of the class can be taken “as one”
+or “as many” and it is when we speak of a class as one that it makes
+perfect sense for it to be an instance of a class, and so the concept “is
+not predicated of itself” can perfectly well be applied to itself (as
+one), thus leading to the contradiction.
+In this paper, however, I will follow the earlier history of the
+second version of the paradox, which was anticipated by Zermelo.
+The paradox developed out of an argument of Ernst Schröder, which
+was subsequently discussed by Frege, Edmund Husserl, and it finally
+appeared in a letter from Zermelo to Husserl, although Hilbert also
+had his own version. Finding that this version of the paradox did in
+fact have a long history that preceded Russell’s letter to Frege, if
+anything, will only add to the argument that it was that first version
+that most immediately interested Russell, the problem for his own
+theory, and that he wrote to Frege only to show how a similar
+problem arose in Frege’s Grundgesetze.
+Any discussion of anticipations of the second version of the
+paradox might look like an intervention in a mathematicians’
+Prioritätstreit (priority dispute), but it in fact leads to an interesting
+series of events in the history of logic, pieces of which are familiar,
+but which, it seems, has not been formed into a single story before.
+The most prominent claim of priority is in Ernst Zermelo’s
+famous 1908 paper “A new proof of the possibility of a wellordering.” Zermelo adds a footnote (numbered 9) to a mention of
+Russell's discussion of his “set-theoretic antinomy” in Principles:
+
+9
+
+Bernard Linsky
+
+… I had, however, discovered this antinomy myself,
+independently of Russell, and had communicated it prior
+to 1903 to Professor Hilbert among others.
+
+In a letter of 1903, thanking Frege for a copy of the second
+volume of his Grundgesetze with its discussion of Russell's paradox,
+Hilbert told Frege that he had heard of the paradox from Zermelo
+some years before, confirming Zermelo's claim. In fact, Hilbert had
+his own version of the contradiction, concerning the class of all
+sequences of “self-mappings'” of the numbers onto the numbers,
+using a diagonal argument to show that the set of such self-mappings
+does not exist.2 In his biography of Zermelo, Ebbinghaus claims to
+just be following the “custom” at Göttingen, where the paradox was
+attributed to Zermelo alone. (Ebbinghaus actually more closely
+follows Abraham Fraenkel's terminology and calls it the “Zermelo
+Russell paradox” in the biography.3 )
+“Hilbert's Paradox” is similar to Zermelo's in proving that some
+set does not exist, but in his case it is a set that one would expect
+given certain standard set theoretic operations. The paradox can be
+reconstructed from notes on Hilbert's lecture from 10 July 1905.4
+Hilbert derives a contradiction by taking the set of mappings of the
+numbers into the numbers M and then using two principles of set
+theory. The first principle allows one to unite “several sets and even
+infinitely many into a union.” The other asserts that “in every case
+well-defined sets arise from well-defined sets by the self-mapping
+operation.” Thus from the set M we can formulate the set MM of all
+mappings from M into M. Hilbert then considers the set U derived
+by applying these “operations of addition and mapping an arbitrary
+number of times.” Finally, he applies the mapping principle one more
+time, to U, so F = UU. Now it would appear that F is already a subset
+of U, but, by a familiar diagonal argument based on Cantor's
+theorem, we can show that there is an element in F not in U.
+______________
+2 Ebbinghaus (2007, pp. 45-47) and Peckhaus (2004, pp. 505-506).
+3 Ebbinghaus (2007, pp.46-47) and Fraenkel (1927). Fraenkel, perhaps the
+
+first to use this term in print, puts “Zermelo” in parentheses, and calls it the
+“(Zermelo) Russell” paradox once in his presentation and not again in his
+discussion. He does not give any reason for his usage.
+4 Ebbinghaus (2007, pp. 45-47).
+10
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+Hilbert's words are not precise; in particular it isn't clear what he
+means by applying the two operations an “arbitrary number of
+times.” One guess is that he thinks of F as being the union of an
+infinite number of sets:
+MM , (MM)M , MM ∪ (MM)M , ((MM)M)M), MM ∪ (MM)M ∪
+((MM)M)M), …
+
+It appears that, if we have continued this process an “arbitrary
+number of times”, then anything in UU must have been already
+included in this process and so the process yields nothing more than
+U. Of course we immediately sense that the “arbitrary” number of
+operations must pass through all the ordinals, taking a union after ω
+many iterations of M and beginning again with another process of
+either union or exponentiation for each ordinal number, and so on.
+Seen this way “Hilbert's Paradox” is a proof that there is no set of all
+ordinals. Hilbert was, reportedly, suspicious of the “philosophical”
+notions used in other versions of the paradox, such as the notion of a
+“set of all sets” or even a “set of all ordinal numbers”, and so
+preferred to limit himself to more familiar mathematical notions,
+such as mapping, or the application of an operation an “arbitrary”
+number of times. Thus, the argument can be seen, in Hilbert's way, as
+a contradiction which can be derived from two apparently ordinary
+mathematical operations, considering function spaces and taking
+unions of arbitrary collections of things already constructed. It
+doesn't point to an internal contradiction in the very notion of set or
+class. It may well be an “antinomy”, as Zermelo puts it, a real internal
+contradiction, but it is a contradiction in a theory, one which Hilbert
+held should be prevented by constructing a (provably) consistent
+axiomatic theory of sets.
+Zermelo sent a letter on April 16th, 1902, to his former teacher,
+Edmund Husserl. Husserl's notes on the letter were found among the
+papers in the Husserl archives thirty years ago.5 There, Zermelo
+reports a result that he had obtained some years before.6 The letter
+was occasioned by a review of Schröder’s Algebra der Logik (1890) that
+______________
+5 Rang and Thomas (1981) and Ebbinghaus (2007, p. 46).
+6 See Husserl (1979 p. 399) for Husserl's notes on this letter.
+
+11
+
+Bernard Linsky
+
+Husserl had written in 1891.7 Schröder had presented a proof that a
+universal class, one that contains “everything conceivable”, leads to a
+contradiction. (It thus appears that Schröder joined Cantor in being
+among the first to claim that there is a concept which does not have
+an extension.)
+One primary goal of Schröder’s lectures was to promote the work
+of Charles S. Peirce “and his school” among German logicians
+(Schröder 1890, p.iii). In Lecture IV, devoted to the theory of classes,
+Schröder presents the algebraic account of classes using one primitive
+notion of “subsumption” (Subsumtion). The assertion that a class a
+subsumes a class b, symbolized as a € b which is read as “a is b” or
+“all a are b”, clearly means what we would express as “a is a subset of
+b”, symbolized as a ⊆ b.8 This logic interprets all predications to be of
+this form “a is b”, relating one class to another.
+One part of Schröder's account of sets is a rejection of Boole's
+notion of the universe of discourse, which in this framework will be the
+element 1 in the algebra of classes. The argument below is from page
+245 of Schröder (1890) as quoted by Frege:
+As we have laid down, 0 would have to be contained in
+every class that can be got out of the manifold 1; … 0 would
+have to be the subject of every predicate. Now suppose we
+took a to be the class of those classes of the manifold that are equal
+to 1 (which would certainly be permissible if we could
+bring everything thinkable into the manifold 1), then this
+class of its very nature contains just one class, viz. the
+symbol 1 itself, or alternatively the whole of the manifold,
+which constitutes the reference of the symbol; but therefore
+besides this it would contain “nothing,” i.e. 0. Hence 1 and 0
+would make up the class of the objects that are to be equal
+to 1; and so we should have to admit not only: 1 = 1 but
+also: 0 = 1. For a predicate that applies to a class -- in our
+case, the predicate: to be identically equal to 1 -- must also
+______________
+7 See Husserl (1979 p. 36).
+8
+
+Actually the symbol is the identity sign = with a left parenthesis
+(overwritten, but it is close enough to the readily available Euro sign to
+justify that as the symbol for any revival of interest in Schröder’s logic.
+12
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+apply to every individual in the class, by Principle II.
+(Frege, 1895, p.91)
+
+For Schröder, all predications are assertions of subsumptions, and
+in particular, the predication ‘is equal to 1’, which we would express
+as ‘x = 1’, becomes an assertion about subsumption. Given that the
+empty set, represented by 0, is subsumed by every class a, i.e. 0 € a, it
+is also subsumed by that of the things equal to 0, hence we derive 0 =
+1, a contradiction.9 This he takes to be a proof that there is no
+absolutely universal class 1. There will be sets that are not subsumed
+under 1, in particular, the empty class 0.
+Husserl charged in his review that Schröder had ignored the
+distinction between subsets (the notion of a “subordinate class”) and
+members. While it is true that the empty class 0 is a subset of every
+set, it is not a member of every set. In particular that 0 is a subset of
+the set of entities equal to 1 does not imply that it is equal to 1, the
+supposed contradiction which is derived from the assumption that 1
+is a set of all sets. Zermelo then wrote to Husserl to point out that
+“on the issue, not the method of proof, Schröder is right…”10.
+Translated from the original German Gabelsburger Stenographie
+shorthand, the notes describe the argument as follows:
+A set M, which contains each of its subsets m, m', … as
+elements, is an inconsistent set, i.e., such a set, if at all
+treated as a set, leads to contradictions.
+PROOF. We consider those subsets m which do not
+contain themselves as elements.
+______________
+9 This is a charitable reconstruction. Notice that Schröder argues that the
+
+class of things equal to 1 includes 1 “and nothing else”, i.e., also the empty
+class (“nothing”). This sounds like Carnap’s later interpretation of what
+Heidegger says about “Das Nichts”, or “Nothing”, as something which is
+included in classes. Frege criticizes Schröder’s argument on this point
+(p.98), anticipating Carnap’s criticism of Heidegger: “If we say that the class
+a contains nothing besides the Moon, then we are denying the proposition
+that the class contains something besides the Moon; but we are not thereby
+asserting that the class contains, besides the Moon, an object with the name
+‘nothing’.”
+10 Rang and Thomas (1981, p. 16).
+13
+
+Bernard Linsky
+
+(M contains as elements each of its subsets; hence subsets
+of M will also contain certain subsets as elements,
+themselves [not] being elements, and now we consider just
+those subsets m, which may perhaps contain other subsets,
+but not themselves as elements.)
+These constitute in their totality a set M0 (i.e., the set of all
+subsets of M which do not contain themselves as
+elements), and now I prove of M0,
+(1) that it does not contain itself as an element,
+(2) that it contains itself as an element.
+Concerning (1): M0, being a subset of M, is itself an
+element of M, but not an element of M0. For otherwise,
+M0 would contain as an element a subset of M (namely, M0
+itself) which contains itself as an element, and that would
+contradict the notion of M0.
+Concerning (2): Hence M0 itself is a subset of M which
+does not contain itself as an element. Thus it must be an
+element of M0.11
+
+So stated this is a proof that no set contains all of its own subsets
+as members. A universal set of all things, however, would certainly
+include all of its subsets as members, as those are all sets of things.
+The set M0, then, the set of all subsets of the universal set that do not
+contain themselves, will thus be simply the set of all sets that do not
+contain themselves. M0, in this case, is the Russell set. The proof that
+M0 leads to contradiction is the same argument that Russell gives, if
+M0 is a member of itself then it is not, and if it is not a member of
+itself then it is. We have the same contradiction as in Russell’s letter,
+and both, it seems, come fairly directly from applying Cantor’s
+theorem to a set of all sets (or in Zermelo’s case, a set which contains
+at least all its subsets.)
+But do we have Russell’s paradox? In fact, what we have is a
+theorem to the effect that there is no set which contains all of its
+subsets as members. This is a theorem about sets. Indeed in another
+______________
+11 Rang and Thomas (1981, pp. 16-17).
+
+14
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+paper from 1908, “Investigations in the foundations of set theory”,
+we find it openly listed as a theorem with the following proof:
+10. Theorem. Every set M possesses at least one subset M0
+that is not an element of M. Proof. It is definite for every
+element x of M whether x ∈ x or not; the possibility that x
+∈ x is not in itself excluded by our axioms. If now M0 is
+the subset of M that, in accordance with our Axiom III
+[Zermelo's Axiom of Separation], contains all those
+elements of M for which it is not the case that x ∈ x, then
+M0 cannot be an element of M. For either M0 ∈ M0 or not.
+In the first case, M0 would contain an element x = M0 for
+which x ∈ x, and this would contradict the definition of
+M0. Thus M0 is surely not an element of M0, and in
+consequence M0, if it were an element of M, would also
+have to be an element of M0, which was just excluded.
+
+Zermelo concludes the proof with this remark:
+It follows from the theorem that not all objects x of the
+domain B can be elements of one and the same set; that is,
+the domain B it is not itself a set, and this disposes of the
+Russell antinomy so far as we are concerned.12
+
+So Zermelo “disposes” of Russell's antinomy by presenting it as a
+theorem that a certain collection is not a set, a proof by a reductio ad
+absurdum argument.13 Burali-Forti’s proof from 1897 that the ordinals
+cannot be well-ordered was also taken as such an argument.14 If every
+______________
+12 Van Heijenoort (1967, p. 203).
+13 In particular, there is no set that contains all of its subsets as members.
+
+This might sound a bit like the Axiom of Foundation, which says that there
+is no non-empty set that overlaps with every one of its members, and so
+shares a member with every one of its subsets. They are clearly very different
+claims, but do sound alike in the sense of saying that there is no set of a
+given sort.
+14 See Moore and Garciadiego (1981) for an account of how Burali-Forti's
+original theorem came to be seen as a “paradox”. It started life as a claim
+that the set of all ordinals could not be well-ordered. After Burali-Forti's
+15
+
+Bernard Linsky
+
+set can be well ordered then it follows that there is no set of ordinals.
+Indeed Zermelo's proof would seem to be also a proof related to the
+idea of “absolute infinities,” or of classes that are in some sense “too
+big” to be sets. A “set of all sets” would certainly contain all of its
+subsets as members, and so one immediate result from Zermelo's
+theorem is that there is no set of all sets.
+Zermelo considers that he has “disposed” of Russell’s paradox by
+showing it to be a simple non-existence proof, although a surprising
+one. But there is no “antinomy” in that. A proof that there is no set
+with a certain description is different from proving that nothing
+satisfies a given description, so that the set of things satisfying the
+description is empty. It is really a proof that some expression, which
+seems to refer to a set, in fact doesn't, because there is no such set.
+For every counter-example to the unrestricted comprehension
+principle, that is, a case of a predicate without a set as its extension,
+there will surely be a corresponding proof that there is no such set,
+that is, that no set that contains just the objects which satisfy that
+predicate. But there is no trivial reformulation of every non-existence
+theorem into a counter-example to the unrestricted comprehension
+principle. To think that would be to make a logical mistake. Suppose
+one thought that “there is no set y which contains all of its (y's) own
+subsets” directly provides a predicate which does not correspond
+with a set, thus a counter-instance to the unrestricted comprehension
+principle:
+∃y∀x (x ∈ y ≡ ... x ...)
+Such an instance would have to say that there exists a y such that
+any x is an element of y if and only if … what? If and only if x is a
+subset of y? That would violate the clause in the comprehension
+principle stated above which bans free occurrences of y in the
+formula … x … that determines membership in the putative set. It is
+not possible to formulate the claim that no set contains all its own
+subsets as members as a claim that there is no set of all things
+
+incorrect definition of the relevant notion of well-ordering was corrected,
+the result was not seen as a paradox until Russell first so presented it in
+Principles of Mathematics §301.
+16
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+satisfying a certain formula.15 So Zermelo does indeed propose that
+Russell should be seen as only proving a non-existence theorem
+rather than as proposing a counter-example to a comprehension
+principle that was presumably implausible from the beginning. There
+might be some surprise in discovering that there is no set of all sets
+and, in fact, that no set can contain all of its subsets as members, but
+it is not clear that that should count as a “paradox.” In fact, Zermelo
+himself preferred the term “antinomy” for the result rather than
+paradox.16 He says that “paradox” means “… a statement
+contradicting the common opinion; it doesn't contain anything of the
+inner contradiction as in the case for the paradoxes of Russell and
+Burali-Forti, and expressed by the term ‘antinomy’.” On the other
+hand, that an “antinomy”, as Zermelo uses the term, can be derived
+within a formal theory is simply a proof that one of its axioms is
+incorrect and must be discarded. It doesn't mean necessarily that the
+very concepts or basic notions of a theory are at fault and lead to the
+contradiction. So far, then, it appears that while Zermelo had indeed
+anticipated the very mathematical argument that Russell later
+included in his letter, he did not see that it was a “paradox” which
+might affect several approaches to sets, including Frege’s.
+There is more to be said about Schröder’s argument, however.17
+In fact, Frege discusses the argument in his essay “A critical
+elucidation of some points in E. Schröder’s Vorlesungen über die Algebra
+der Logik” (1895). Frege begins his discussion with the quote above.
+He then continues as follows:
+On p. 246 the author shows that we can apply these
+considerations to any class b of the manifold, instead of 1,
+and thus reaches the conclusion 0 = b.
+______________
+15 It is possible to present the proof that there is no set of all things as a
+
+counter-example to an instance of the comprehension principle: ∃y∀x (x ∈ y
+≡ x = x), but this can't be done for every non-existence theorem.
+16 See Peckhaus and Kahle (2002, p.158). He says this in correspondence
+with Leonard Nelson in response to a paper about the “paradoxes” of
+Russell and Burali-Forti. Peckhaus and Kahle cite a postcard to Nelson,
+postmarked 22 December 1907, in the Nelson Papers in Bonn.
+17 I am grateful to Allen Hazen who reminded me that the Church and Frege
+papers explicitly discuss Schröder’s argument.
+17
+
+Bernard Linsky
+
+This contradiction comes like a thunderbolt from a clear
+sky. How could we be prepared for anything like this in
+exact logic! Who can go surety for it that we shall not again
+suddenly encounter a contradiction as we go on? The
+possibility of such a thing points to a mistake in the
+original design. Herr Schröder derives from this the
+conclusion that the original manifold 1 must be so made
+up that, among the elements given as individuals within it,
+there are found no classes that, for their part, contain
+within themselves as individuals any elements of the same
+manifold. This expedient, as it were, belatedly gets the ship
+off the sandbank; but had she been properly steered, she
+could have kept off it altogether. It now becomes clear
+why at the very outset, in shrewd prevision of the
+imminent danger, a certain manifold was introduced as the
+theatre of operation, although there was no reason for this
+in the pure domain-calculus. The subsequent restriction of
+this field for our logical activities is by no means elegant.
+Whereas elsewhere logic may claim to have laws of
+unrestricted validity, we are here required to begin by
+delimiting a manifold with careful tests, and it is only then
+that we can move around inside it.
+
+A few lines later:
+When Herr Schröder stipulates (p. 248), as regards the
+original manifold, that among the elements given as
+‘individuals’ there shall be found no classes that, for their
+part, comprise within them as individuals any elements of
+the same manifold, he is obviously distinguishing the case
+where something is given as an individual belonging to a
+manifold or class, where something is comprised within a
+class as an individual, from the case where something is
+contained as a class within a manifold or class. Herr
+Husserl makes a similar distinction, in his review of
+Schröder’s work, between the expressions ‘a class contains
+something as an element’ and ‘a class contains something
+as a sub-class,’ and by this he tries to remove the difficulty.
+(Frege 1895, p. 92)
+18
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+Note that Zermelo's theorem 10, that “Every set M possesses at
+least one subset M0 that is not an element of M”, in effect proves that
+one must distinguish the notions of subset ( ⊆ ) and member ( ∈ )
+for the subsets of a given set are distinct from its members. While
+“disposing” of Russell's paradox by showing that the argument
+proves a perfectly sound theorem about sets, Zermelo’s proof also
+shows that Schröder’s conception of sets is fundamentally flawed.
+While avoiding the paradox by relying on his own axiomatic
+formulation of set theory, Zermelo also finds an important lesson
+about the nature of sets in the argument that produces the paradox.
+Frege had also carefully studied Schröder’s argument, but missed the
+consequence for his own theory. Zermelo’s argument properly
+deserves to be called an “anticipation” of Russell’s paradox and he
+discovered it by studying the very passage that Frege criticized in
+Schröder.
+Schröder’s contradictory conclusion that 0 = 1 is, of course, part
+of a reductio ad absurdum argument. Schröder does not draw the
+conclusion that every class must contain some classes that aren't
+members of that class, but rather that every class must contain only
+classes that in turn do not contain members of the original class.
+These will be the classes that serve as “elements” of the original class.
+Frege sees this as an ad hoc solution. It “gets the ship off the
+sandbank.”18 Frege sees laws of logic as having “unrestricted
+validity”, and so presumably, the universal quantifier ranges over
+everything, without restriction.
+In a paper delivered in 1939, but not published until 1976, Alonzo
+Church presents Schröder’s proposal as an anticipation of the simple
+theory of types. While the “elements” of a given set a will not
+subsume any classes which are also members of a, they may well
+subsume members of some other class b. Church proposes that we
+might see a and b as belonging to different types, where a is one type
+higher than b, as the elements of a are all classes containing members
+from the type of b. Frege's opposition to these restrictions, and his
+insistence that the laws of logic are unrestricted is seen by Church as
+a repetition of his view that all objects, including the “courses of
+______________
+18 Frege (1895, pp. 339-340), discussed in Church (1976, p. 410).
+
+19
+
+Bernard Linsky
+
+values” which are Frege's sets, are of the same type, and fall within
+the range of the universal quantifier for objects.19
+Frege cites the same review of Schröder that Zermelo corrects in
+his letter from 1902. There is no evidence that Zermelo had read
+Frege's paper. At the least it appears that both had read Husserl's
+review, and reacted to it. Frege and Husserl had both identified the
+conflation of membership and the subset relation in Schröder’s
+notion of subsumption. Frege, however, also noticed, with Zermelo,
+that the point of the argument was to show that there is no universal
+set, or unrestricted “domain of discourse.” Indeed, as Church notes,
+Frege was to fall for the very sort of paradox that he accuses
+Schröder of trying to avoid, namely one that follows from assuming
+that there is a class of all things. It is tempting to speculate that
+Zermelo was aware of this dispute among the logicians about the
+“universe of discourse” and saw Cantor's idea of “absolute” infinities
+and the non-existence of a set of all cardinal numbers, as a clearer
+account of these same issues. As a consequence his diagonal
+argument, mathematically the same as Russell's, would also have
+seemed to him to be an anticipation of the use to which Russell put
+his argument. But, to continue the speculation, of course, one would
+have to accuse Zermelo of not seeing the simple theory of types as an
+alternative resolution to the set theoretic “antinomy” he had
+discovered. But, in fact, Zermelo and Russell seem to have been
+working in different worlds in set theory; Zermelo within the
+tradition of Cantor's set theory at Göttingen, and Russell, as always,
+refining and abandoning his own earlier views.
+There is no direct evidence that Russell studied Schröder’s
+argument, or saw in it either the idea of a contradiction in the notion
+of a set of all sets, or an anticipation of the theory of types in its
+conclusion. Russell, did, however, study Frege's “A Critical
+Elucidation …” and made extensive notes on it as part of his
+preparation for adding “Appendix A: The Logical and Arithmetical
+Doctrines of Frege” to The Principles of Mathematics in the summer of
+1902, the same preparation that led to his letter to Frege.20 Nothing
+______________
+19 Church argues that Frege's theory of “Stufe” of concepts and concepts
+
+that apply to first level concepts, etc., is not a theory of types of objects in the
+sense in which a genuine theory of simple types of classes is.
+20 See Linsky (2004a and 2004b).
+20
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+relevant to this argument appears in the notes or in the ultimate
+appendix.
+However, there is evidence about Russell's general ideas about
+Schröder which comes from his interaction with Norbert Wiener in
+1913.21 In September 1913, Norbert Wiener, then just eighteen years
+old, visited Russell in Cambridge. He had just completed his PhD
+thesis at Harvard University, entitled A comparison between the treatment
+of the algebra of relatives by Schröder and that by Whitehead and Russell. Ivor
+Grattan-Guinness (1975) found several pages of comments by
+Russell and replies by Wiener, following a series of discussions the
+two had in September and October of that year. Wiener also attended
+Russell's lectures and some letters home report on the interchange.
+Russell wrote about the discussions as well, including this in a
+letter to Lucy Donnelly from 19 October 1913:
+At the end of Sept. an infant prodigy named Wiener, Ph.D.
+(Harvard), aged 18, turned up with his father... The youth
+has been flattered, and thinks himself God Almighty –
+there is a perpetual contest between him and me as to
+which is to do the teaching. (Grattan-Guinness 1975,
+p.105)
+
+Wiener brought a copy of his thesis, and he and Russell discussed
+it in a series of meetings, with an exchange of letters between
+meetings.22 The thesis and letters include a number of points about
+Schröder’s logic. The topic of the thesis was a defense of the merits
+of Schröder’s logic in comparison with Principia Mathematica. Two
+passages singled out by Grattan-Guinness are particularly relevant to
+the issues introduced above:
+______________
+21 What follows is based on Grattan-Guinness (1975).
+22 This correspondence
+
+clarifies Wiener's often cited remark that Russell
+later was not particularly impressed with the reduction of relations to sets of
+ordered pairs that was Wiener's first published contribution to mathematics.
+(Wiener 1953, p. 191). In fact Russell had told Wiener that he did not
+identify relations with sets of “couples”, as was common in the tradition of
+Schröder and Peirce that Wiener was defending. See Grattan-Guinness,
+1975, p. 122.
+21
+
+Bernard Linsky
+
+A major point of contrast between Schröder's and
+Russell’s systems is that Schröderian individuals
+correspond to unit classes of Russellian individuals. Thus
+Schröder has no analogue to Russell's relation of
+membership of an individual to a class. But it does not
+matter, since Schröder has no need of such a relation,
+contrary to the opinion of Padoa that he conflated
+membership and inclusion, and to the opinion of Russell
+that all predecessors of Peano and Frege regarded
+membership as a special case of inclusion. (GrattanGuinness 1975, p. 124)
+
+Russell does not accept Wiener's claim that Schröder didn’t need
+the distinction between membership and subset. In one of his replies,
+he asks “Have you any evidence that Schröder knew that there was a
+difference between Peter and the class whose only member is Peter?”
+to which Wiener replies by repeating that Schröder is simply “not
+concerned” with that distinction. (Grattan-Guinness 1975, p. 128)
+Wiener credits Schröder with an anticipation of Russell’s theory of
+types in his discussion of the argument about the universal class
+under discussion above:
+No individual in a manifold can itself be composed of a
+collection of other individuals of that manifold. Instead,
+classes of individuals belong to the first ‘derived’ (abgeleitete)
+manifold of the ‘original’ (ursprüngliche) one. Classes of
+classes of individuals belong to the second derived
+manifold and so on. This creates a hierarchy of types
+corresponding to Russell's theory. The difference is that,
+while Russell can use more than one type at once,
+Schröder can speak only of one type at a time. (GrattanGuinness 1975, p. 128)
+
+(This is the very same as Church’s analysis of Schröder's position,
+only expressed twenty-six years earlier.) There is no record of
+Russell's reaction to this part of the thesis, but it is clear that Russell
+had read in Wiener an expression of the view that Schröder had
+anticipated the theory of types in response to an argument that there
+cannot be a universal class to which everything belongs. It appears
+22
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+that Russell did not think that he alone had seen that a diagonal
+argument like that in Cantor’s proof would establish that there can be
+no universal set of all sets. Although he studied and cited Zermelo's
+papers from 1908 as well, there is also no record of any response to
+the claim that others had anticipated the paradox. Schröder’s logic
+was so alien to Russell’s that it is understandable that he did not find
+anticipations of his own theory of types in it. Russell does not cite
+any sources for the notion of types that appears first in Appendix A
+of Principles of Mathematics, although clearly it was Frege's notion of
+Stufe or the hierarchy of concepts, concepts of concepts, etc. that
+must have inspired it.
+As with the anticipation of the theory of types, Russell was also
+close to Zermelo’s version of the paradox in Schröder's arguments,
+but clearly didn't arrive at it through that route. Russell’s own
+paradox was the first paradox of predicates. He saw that the paradox
+of the set of all sets that are members of themselves was a result of
+similar thinking. His interest in the first paradox made him blind to
+the possibility of the second paradox raised by Schröder’s argument,
+which Zermelo had identified. But then Frege, who also read
+Schröder’s argument carefully didn’t see the argument either. Their
+thoughts were somewhere else.
+
+23
+
+Bernard Linsky
+
+References
+
+CHURCH, A., 1976. Schröder’s Anticipation of the Simple Theory of
+Types, Erkenntnis, vol. 10, pp. 407-411.
+CANTOR, G., 1899. Letter to Dedekind. In van Heijenoort 1967, pp.
+113-117.
+EBBINGHAUS, H.-D., (with Volker PECKHAUS), 2007. Ernst Zermelo:
+An Approach to his Life and Work, Berlin: Springer-Verlag.
+FRAENKEL, A. A., 1927. Zehn Vorlesungen über die Grundlegung der
+Mengenlehre, Teubner: Leipzig and Berlin.
+FREGE, G., 1893. Grundgesetze der Arithmetik, Band I/II, Jena: Verlag
+Hermann Pohle.
+FREGE, G., 1895. Kritische Beleuchtung einiger Punkte in E.
+Schröder's Vorlesungen über die Algebra der Logik, Archiv für
+systematische Philosophie, Vol.1 (1895), pp. 433-456. Translated as, A
+Critical Elucidation of Some Points in E. Schroeder, Vorlesungen
+über die Algebra der Logik, in McGuinness, pp. 210-28.
+FREGE, G,. 1902. Letter to Russell, in van Heijenoort (1967), pp.
+127-28.
+GRATTAN-GUINNESS, I., 1975. Wiener on the Logics of Russell and
+Schröder. An Account of his Doctoral Thesis, and of his
+Discussion of it with Russell, Annals of Science, 32, pp. 103-132.
+HUSSERL, E., 1979. Aufsätze und Rezensionen (1890-1910), Bernhard
+Rang, ed., Husserliana XXII.
+LINSKY, B., 2004a. Russell's Marginalia in his Copies of Frege's
+Works, Russell: The Journal of Bertrand Russell Studies, n.s. 24(1), pp.
+5-36.
+LINSKY, B. 2004b., Russell's Notes on Frege for Appendix A of The
+Principles of Mathematics, Russell: The Journal of Bertrand Russell Studies,
+n.s. 24(2), pp. 133-72.
+MOORE, G. and GARCIADIEGO, A. 1981. Burali-Forti's Paradox: A
+Reappraisal of its Origins, Historia Mathematica 8, pp. 319-350.
+PECKHAUS, V. 2004. Paradoxes in Göttingen, in G. Link, ed., One
+Hundred Years of Russell's Paradox, Berlin: de Gruyter, pp. 501-516.
+PECKHAUS, V. and Kahle, R., 2002. Hilbert's Paradox, Historia
+Mathematica 29, pp. 157-175.
+24
+
+Ernst Schroeder and Zermelo’s Anticipation of Russell’s Paradox
+
+RANG, B. and THOMAS, W., 1981. Zermelo's Discovery of the
+“Russell Paradox”, Historia Mathematica 8, pp. 15-22.
+RUSSELL, B., 1902. Letter to Frege, in van Heijenoort (1967), pp.
+124-25.
+RUSSELL, B., 1903. The Principles of Mathematics, Cambridge:
+Cambridge University Press.
+SCHRÖDER, E., 1890. Vorlesungen über die Algebra der Logik (Exacte
+Logik), Vol. I, Leipzig: Tuebner. Reprinted Bristol: Thoemmes,
+2001.
+VAN HEIJENOORT, J., 1967. From Frege to Gödel: A Source Book in
+Mathematical Logic, 1879-1931, Cambridge: Harvard University
+Press.
+WEINER, N., 1953. Ex-Prodigy: My Childhood and Youth, MIT Press.
+ZERMELO, E. 1908a. A New Proof of the Possibility of a Well-Ordering, in
+VAN HEIJENOORT (1967), pp. 183-98.
+ZERMELO, E., 1908b. Investigations in the Foundations of Set Theory I, in
+VAN HEIJENOORT (1967), pp. 199-215.
+
+25
+
+
