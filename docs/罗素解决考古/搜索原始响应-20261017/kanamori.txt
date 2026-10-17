@@ -1,0 +1,1684 @@
+The Mathematical Import of Zermelo's Well-Ordering Theorem
+Author(s): Akihiro Kanamori
+Source: The Bulletin of Symbolic Logic, Vol. 3, No. 3 (Sep., 1997), pp. 281-311
+Published by: Association for Symbolic Logic
+Stable URL: http://www.jstor.org/stable/421146 .
+Accessed: 23/05/2011 07:45
+Your use of the JSTOR archive indicates your acceptance of JSTOR's Terms and Conditions of Use, available at .
+http://www.jstor.org/page/info/about/policies/terms.jsp. JSTOR's Terms and Conditions of Use provides, in part, that unless
+you have obtained prior permission, you may not download an entire issue of a journal or multiple copies of articles, and you
+may use content in the JSTOR archive only for your personal, non-commercial use.
+Please contact the publisher regarding any further use of this work. Publisher contact information may be obtained at .
+http://www.jstor.org/action/showPublisher?publisherCode=asl. .
+Each copy of any part of a JSTOR transmission must contain the same copyright notice that appears on the screen or printed
+page of such transmission.
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide range of
+content in a trusted digital archive. We use information technology and tools to increase productivity and facilitate new forms
+of scholarship. For more information about JSTOR, please contact support@jstor.org.
+
+Association for Symbolic Logic is collaborating with JSTOR to digitize, preserve and extend access to The
+Bulletin of Symbolic Logic.
+
+http://www.jstor.org
+
+THE BULLETIN()F SYMB()LICLOGIC
+
+Volume 3, Number 3, Sept. 1997
+
+THE MATHEMATICAL IMPORT
+OF ZERMELO'S WELL-ORDERING THEOREM
+
+AKIHIRO KANAMORI
+
+Dedicated to Frau GertrudZermelo on the occasion of her 95th birthday
+Set theory, it has been contended,' developed from its beginnings through
+a progression of mathematical moves, despite being intertwined with pronounced metaphysical attitudes and exaggerated foundational claims that
+have been held on its behalf. In this paper, the seminal results of set theory
+are woven together in terms of a unifying mathematical motif, one whose
+transmutations serve to illuminate the historical development of the subject. The motif is foreshadowed in Cantor's diagonal proof, and emerges
+in the interstices of the inclusion vs. membership distinction, a distinction
+only clarified at the turn of this century, remarkablethough this may seem.
+Russell runs with this distinction, but is quickly caught on the horns of his
+well-known paradox, an early expression of our motif. The motif becomes
+fully manifest through the study of functions f: P(X) -> X of the power
+set of a set into the set in the fundamental work of Zermelo on set theory.
+His first proof in 1904 of his Well-OrderingTheorem is a central articulation
+containing much of what would become familiar in the subsequent development of set theory. Afterwards, the motif is cast by Kuratowski as a fixed
+point theorem, one subsequently abstracted to partial orders by Bourbaki
+in connection with Zorn's Lemma. Migrating beyond set theory, that generalization becomes cited as the strongest of fixed point theorems useful in
+computer science.
+Section 1 describes the emergence of our guiding motif as a line of development from Cantor's diagonal proof to Russell's Paradox, fueled by the
+clarification of the inclusion vs. membership distinction. Section 2 engages
+Received May 2, 1997; revised June 20, 1997.
+The author gratefully acknowledges the generous support of the Volkswagen-Stiftung
+during his stay at the Mathematischen Forschungsinstitut Oberwolfach under the Research
+in Pairs program. This paper was partly inspired by a conversation with the late George
+Boolos and a reading of Moschovakis [1994]. The author would like to express his gratitude
+to Burton Dreben for his careful reading and numerous suggestions for improvement.
+'See Kanamori [1996] for the mathematical development of set theory from Cantor to
+Cohen.
+(
+
+281
+
+1997, Association tor Symbolic Logic
+1079-8986/97/0303-0001/$4. 10
+
+282
+
+AKIHIRO KANAMORI
+
+the motif as fully participating in Zermelo's work on the Well-Ordering
+Theorem and as newly informing on Cantor's basic result that there is no bijection f: 'P(X) -- X. Then Section 3 describes in connection with Zorn's
+Lemma the transformation of the motif into an abstractfixed point theorem,
+one accorded significance in computer science.
+? 1. Cantor's diagonal proof to Russell's paradox. Georg Cantor in [1891]
+gave his now famous diagonal proof, showing in effect that for any set X the
+collection of functions from X into a two-element set is of a strictly higher
+cardinality than that of X. Much earlier in [1874], the paper that began
+set theory, Cantor had established the uncountability of the real numbers
+by using their completeness under limits. In retrospect the diagonal proof
+can be drawn out from the [1874] proof, but in any case Cantor could now
+dispense with its topological trappings. Moreover, he could affirm "the
+general theorem, that the powers [cardinalities]of well-defined sets have no
+maximum."
+Cantor's diagonal proof is regarded today as showing how the power set
+operation leads to higher cardinalities, and as such it is the root of our
+guiding motif. However, it would be an exaggeration to assert that Cantor
+himself used power sets. Rather, he was expanding the 19th Century concept
+of function by ushering in arbitraryfunctions. His theory of cardinality was
+based on one-to-one correspondence[Beziehung], and this had led him to
+the diagonal proof which in [1891] is first rendered in terms of sequences
+"that depend on infinitely many coordinates". By the end of [1891] he did
+deal explicitly with "all" functions with a specified domain L and range
+{0, 1}; regarded these as being enumerated by one super-function ?(x, )
+with enumerating variable z; and formulated the diagonalizing function
+g(x) = 1 - q(x,x). In his mature presentation [1895] of his theory of
+cardinality Cantor defined cardinal exponentiation in terms of the set of
+all functions from a set N into a set M, but such arbitrary functions were
+described in a convoluted way, reflecting the novelty of the innovation.2
+'Cantor wrote [1895, ?4]: " ... by a 'covering [Belegung] of N with M,' we understand
+a law by which with every element n of N a definite element of M is bound up, where one
+and the same element of M can come repeatedly into application. The element of M bound
+up with n is, in a way, a one-valued function of n, and may be denoted by f(n); it is called
+a 'covering function [Belegungsfunktion] of n.' The corresponding covering of N will be
+called f(N)."
+A convoluted description, one emphasizing the generalization from one-to-one correspondence [Beziehung]. Arbitrary functions on arbitrary domains are now of course commonplace in mathematics, but several authors at the time referred specifically to the concept of
+covering, most notably Zermelo [1904] (see Section 2). Jourdain in the introduction to his
+English translation [1915, p. 82] of Cantor's [1895, 1897] wrote: "The introduction of the
+concept of 'covering' is the most striking advance in the principles of the theory of transfinite
+numbers from 1885 to 1895 ... ."
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+283
+
+The recasting of Cantor's diagonal proof in terms of sets could not be carried out without drawing the basic distinction between C, inclusion, and c,
+membership. Surprisingly,neither this distinction nor the related distinction
+between a class a and the class {a} whose sole member is a was generally
+appreciated in logic at the time of Cantor [1891]. This was symptomatic of
+a general lack of progress in logic on the traditional problem of the copula
+(how does "is" function?), a problem with roots going back to Aristotle.
+The first to draw these distinctions clearly was Gottlob Frege, the greatest
+philosopher of logic since Aristotle. Indeed, the inclusion vs. membership
+distinction is fundamental to the development of logic in Frege's Begriffsschrift [1879], and the a vs. {a} distinction is explicit in his Grundgesetze
+[1893]. These distinctions for sets are also basic for Cantor's theory of cardinality and are evident from the beginning of his [1895], starting with its
+oft-quoted definition of set [Menge].3
+Of other pioneers, Ernst Schroder in the first volume [1890] of his major
+work on the algebra of logic held to a traditional view that a class is merely
+a collection of objects (without the { }, so to speak), so that inclusion and
+membershipcould not be clearly distinguished and e.g., the existence of a null
+class was disputable. Frege in his review [1895] of Schr6der's[1890] soundly
+took him to task for these shortcomings.4 Richard Dedekind in his classic
+essay on arithmetic Wassind und was sollen die Zahlen? [1888, ?3] used the
+same symbol for inclusion and membership and subsequently identified an
+individual a with {a}.5 In a revealing note found in his Nachlass Dedekind
+was to draw attention to the attendant danger of such an identification and
+showed how this leads to a contradiction in the context of his essay.6
+3While we use the now familiar notation {a} to denote the class whose sole member is
+a, it should be kept in mind that the notation varied through this period. Cantor [1895]
+wrote M = {m} to indicate that M consists of members typically denoted by m, i.e., m was
+a variable ranging over the possibly many members of M. Of those soon to be discussed,
+Peano [1890, p. 192] used ia to denote the class whose sole member is a. Russell [1903,
+p. 517] followed suit, but from his [1908] on he used I'a. It was Zermelo [1908a, p. 262] who
+introduced the now familiar use of {a}, having written just before: "The set that contains
+only the elements a, b, c,..., r will often be denoted briefly by {a, b, c,... r}."
+4Edmund Husserl in his review [1891] of Schr6der's [1890] also criticized him for not
+distinguishing between inclusion and membership (cf. Rang-Thomas [1981, p. 19] and the
+beginning of Section 2 below).
+5For a set [System] S and transformation [Abbildung] 0: S -- S, Dedekind [1888, ?37]
+defined K to be a chain [Kette] iff K C S and for every x e K, 0(x) e K; for any A C S,
+he [1888, ?44] then defined A,, to be the intersection of all chains K D A. In the crucial
+definition of "simply infinite system", one isomorphic to the natural numbers, Dedekind
+[1888, ?71] wrote N = 1,,, where 1 is a distinguished element of N. Hence, we would now
+write N = {1},.
+6See Sinaceur [1971]. In the note Dedekind proposed various emendations to his essay
+to clarify the situation; undercutting a comment in the essay ([1888, ?2]) he pointed out
+the necessity of having the empty set [Nullsystem]. He also mentioned raising these issues,
+
+284
+
+AKIHIRO KANAMORI
+
+Giuseppe Peano in his essay [1889] distinguished inclusion and membership with different signs, and it is to him that we owe "c" for membership.
+In the preface he warned against confusing "E" with the sign for inclusion.
+However, at the end of part IV he wrote, "Let s be a class and k a class
+contained in s; then we say that k is an individual of class s if k consists of
+just one individual. Thus," and proceeded to give his Formula 56, which in
+modern terms is:
+k C s
+
+(k E s -> (k + 0 & Vx C kVy c k(x = y))).
+
+Unfortunately, this way of having membership follow from inclusion undercuts the very distinction that he had so emphasized. For example, suppose
+that a is any class, and let s = {a}. Then Formula 56 implies that s C s.
+But then s = a, and so {a} = a. This was not intended by Peano; in [1890,
+p. 192] he carefully distinguished between a and {a}.7
+The equivocation between inclusion and membership in the closing years
+of the 19th Century reflected a traditional reluctance to comprehend a collection as a unity and was intertwined with the absence of the liberal, iterative
+use of the set formation { } operation. Of course, set theory as a mathematical study of that operation could only develop after a sharp distinction
+between inclusion and membership had been made. This development in
+turn would depend increasingly on rules and proceduresprovided by axiomatization, an offshoot of the motif being traced here (see Section 2).
+The turn of the century saw Bertrand Russell make the major advances
+in the development of his mathematical logic. As he later wrote in [1944]:
+"The most important year in my intellectual life was the year 1900, and the
+most important event in this year was my visit to the International Congress
+of Philosophy in Paris." There in August he met Peano and embraced his
+symbolic logic, particularlyhis use of different signs for inclusion and membership. During September Russell extended Peano's symbolic approach to
+the logic of relations. Armed with the new insights Russell in the rest of
+the year completed most of the final draft of The Principles of Mathematics
+[1903], a book he had been working on in various forms from 1898. However, the sudden light would also cast an abiding shadow, for by May 1901
+quaint as this may now seem, in conversation with Felix Bernstein on 13 June 1897 and with
+Cantor himself on 4 September 1899. However, the emendations were never incorporated
+into any later editions of [1888].
+7Having a such that a = {a} can serve certain technical purposes. For W. V. Quine
+[1940, p. 136] such a are the individuals for a theory of sets, now known as Mathematical
+Logic. Paul Bernays [1954] based a proof of the independence of the Axiom of Foundation
+on such a. For Ernst Specker [1957] such a serve as the atoms of his Fraenkel-Mostowski
+permutation models for independence results related to the Axiom of Choice. Since Dana
+Scott [1962] "Quinean atoms" a = {a} have figured in the model-theoretic investigation of
+Quine's best known set theory, New Foundations; see Forster [1995, Chapter 3].
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+285
+
+Russell had transformed Cantor's diagonal proof into Russell's Paradox.8 In
+reaction he would subsequently formulate a complex logical system of orders
+and types in Russell [1908] which multiplied the inclusion vs. membership
+distinction many times over and would systematically develop that system
+in Whitehead and Russell's Principia Mathematica [1910-3].
+Soon after meeting Peano, Russell prepared an article singing his praises,
+writing [1901, p. 354] of the symbolic differentiation between inclusion and
+membership as "the most important advance which Peano has made in
+logic."9 At first, it seems anomalous that Russell had not absorbed the basic
+inclusion vs. membership distinction from either Frege or Cantor. However,
+Russell only became fully aware of Frege's work in 1902.10 Also, Russell had
+rejected Cantor's work on infinite numbers when he had first learned of it in
+1896 and came to accept it only after meeting Peano."l
+Much can be and has been written about Russell's predisposition in 1900
+to embrace Peano's "ideography" and Cantor's theory, both in terms of
+Russell's rejection a few years earlier of a neo-Hegelian idealism in favor
+8See Garciadiego [1992] and Moore [1995] for the evolution of Russell's Paradox.
+9Russell had first mentioned Peano in a letter dated 9 October 1899 to the philosopher
+Louis Couturat. There Russell had expressed agreement with Couturat's review of Peano's
+work, the main thrust of which was Couturat's contention [1899, pp. 628-9] that Peano's
+introduction of C was an unnecessary complication beyond Schroder's system of logic.
+Russell's [1901] was meant to be a counterpart to Couturat [1899], though it was never
+published. See Moore's comments in Russell [1993, pp. 350-1].
+Years later, Russell [1959, pp. 66-7] wrote: "The enlightenment that I derived from Peano
+came mainly from two purely technical advances of which it is very difficult to appreciate
+the importance unless one has (as I had) spent years in trying to understand arithmetic
+... The first advance consisted in separating propositions of the form 'Socrates is mortal'
+from propositions of the form'All Greeks are mortal' [i.e., distinguishing membership from
+inclusion] ... neither logic nor arithmetic can get far until the two forms are seen to be
+completely different ... The second important advance that I learnt from Peano was that a
+class consisting of one member is not identical with that one member."
+On this last point however, Russell of The Principles [1903] was not so clear; see the
+discussion of the book toward the end of this section.
+'?Frege does not appear in Russell's reading list through March 1902, What shall I read?
+[1983, p. 347ff.]. Russell's first and now famous letter to Frege of 16 June 1902, informing
+him of an inconsistency in his mature system, starts: "For a year and a half I have been
+acquainted with your Grundgesetzeder Arithmetik,but it is only now that I have been able to
+find the time for the thorough study I intended to make of your work."
+'' See Moore [1995,
+?3]. Russell in a letter to Jourdain of 11 September 1917 (see GrattanGuinness [1977, p. 144]) reminisced: "I read all the articles in 'Acta Mathematica' [mainly
+those in vol. 2, 1883, French translations of various of Cantor's papers] carefully in 1898, and
+also 'Mannigfaltigkeitslehre' [for example Cantor [1883]]. At that time I did not altogether
+follow Cantor's arguments, and I thought he had failed to prove some of his points. I did not
+read [Cantor [1895] and Cantor [1897]] until a good deal later." Cantor [1895] only appears
+in Russell's reading list What shall I read? [1983, p. 364] for November 1900, when Russell
+was suffused with the new insights from Peano.
+
+286
+
+AKIHIRO KANAMORI
+
+of a Platonic atomism,12 and in terms of Leibniz's lingua characteristica
+for logical reasoning.13 Newly inspired and working prodigiously, Russell
+used Peano's symbolic approach to develop the logic of relations, to define
+cardinal number, and to recast some of Cantor's work. However, in the
+course of this development a fundamental tension emerged, as we shall soon
+see, between Cantor's one-to-one correspondences and Peano's inclusion vs.
+membership distinction, a tension fueled by Russell's metaphysical belief in
+the existence of the class of all classes.
+At first, Russell was convinced that he had actually found an error in Cantor's work. In a letter to the philosopher Louis Couturat dated 8 December
+1900 Russell wrote:
+I have discovered an error in Cantor, who maintains that there is
+no largest cardinal number. But the number of classes is the largest
+number. The best of Cantor's proofs to the contrary can be found
+in [Cantor [1891]]. In effect, it amounts to showing that if u is a
+class whose number is a, the number of classes included in u (which
+is 2a) is larger than a. The proof presupposes that there are classes
+included in u which are not individuals [i.e., members] of u; but if
+u = Class [i.e., the class of all classes], that is false: every class of
+classes is a class.14
+Also, in a popular article completed in January 1901, Russell [1901a, p. 87]
+wrote:
+Cantor had a proof that there is no greatest number, and if this
+proof were valid, the contradictions of infinity would reappear in a
+sublimated form. But in this one point, the master has been guilty of
+a very subtle fallacy, which I hope to explain in some future work.15
+'2See Hylton [1990, p. 103ff.], and generally for the metaphysics underlying Russell's logic.
+13Russell had just completed a book on Leibniz.
+14This passage, originally in French, is quoted in Moore [1995, p. 231], and by Moore in
+
+Russell [1993, p. xxxii].
+In a subsequent letter to Couturat dated 17 January 1901, Russell pointedly praised Peano's
+introduction of C and then wrote: "... there is a concept Class and there are classes. Hence
+Class is a class. But it can be proved (and this is essential to Cantor's theory) that every class
+has a cardinal number. Hence there is a number of classes, i.e., a number of the class Class.
+But this does not result in a contradiction, since the proof which Cantor gives that
+ca Nc . D .2
+
+> a
+
+presupposes that there is at least one class contained in the given class u (whose number is
+a) which is not itself a member of u .... If we put u = Cls [Class, the class of all classes],
+this is false. Thus the proof no longer holds."
+This letter, originally in French, is quoted in large part in Russell [1992, pp. 210-2]; see
+also Moore [1995, p. 233].
+15However, as a foretaste of things to come we note that Russell added the following
+footnote to this passage in 1917: "Cantor was not guilty of a fallacy on this point. His
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+287
+
+Russell was shifting the weight of the argumentation away from (Cantor's) result through (Cantor's) 'error' to (Russell's) paradox. By May 1901
+Russell had formulated a version of his now famous paradox in terms of selfpredication in a draft of his book The Principles of Mathematics.'6 In the
+published book Russell discussed the paradox extensively in various forms,
+and described [1903, p. 364ff.] in some detail how he had arrived at his
+paradox from Cantor's [1891] proof. Having developed the logic of relations
+Russell made the basic move of correlating subclasses of a class with the relations on the class to 0 and 1. By this means he converted Cantor's functional
+argument to one about inclusion and membership for classes, concluding
+that [1903, p. 366] "the number of classes contained in any class exceeds the
+number of terms belonging to the class."
+It is here that our mathematical motif emerges and begins to guide the
+historical description. Cantor's argument is usually presented nowadays
+as showing that no function f: X -> P(X) is bijective, since the set {x C
+X I x 1 f (x) } is not in the range of f. Cantor [ 1891 ] himself first established
+(in equivalent terms with characteristic functions as we would now say) the
+positive result that for any f: X -> P(X) there is a subset of X, namely the
+set just defined, which is not in the range of f.17 Russell's remark starting
+"The proof presupposes ... " in the penultimate displayed quotation above
+may at first be mystifying, until one realizes what concerned Russell about
+the class of all classes. In modern terms, if U is that class and P( U) the class
+of its subclasses, then 7P(U) C U. Thus, the identity map on P(U) is an
+injection of P( U) into U. However, Cantor's argument also shows that no
+function F: P(X) - X is injective.'8 This will be our guiding mathematical
+motif, the study of functions F: P(X) - X.
+For the Russell of The Principles mathematics was to be articulated in an
+all-encompassing logic, a complex philosophical system based on universal
+categories.19 He had drawn distinctions within his widest category of "term"
+proof that there is no greatest number is valid. The solution of the puzzle is complicated
+and depends upon the theory of types, which is explained in Principia Mathematica, Vol. 1
+(Camb. Univ. Press, 1910)."
+'6See Russell [1993, p. 195].
+'7As emphasized by Gray [1994], Cantor [1874] similarly established first a positive result,
+that for any countable sequence of real numbers there is a real number not in the sequence,
+and only then drew the conclusion that the reals are uncountable. Cantor's main purpose in
+[1874] was actually to show that the algebraic real numbers are countable and then to apply
+his positive result to get a new proof that there are transcendental numbers.
+'8Generally,from an injection g: A - B a surjection B -> A can be defined by inverting
+g on its range and extending that inversion to all of B. However, Cantor's result established
+-Y P(X).
+that there is no surjection X
+19Russell[1903, p. 129] wrote: "The distinction of philosophy and mathematics is broadly
+one of point of view: mathematics is constructive and deductive, philosophy is critical, and
+in a certain impersonal sense controversial. Whereverwe have deductive reasoning, we have
+
+288
+
+AKIHIRO KANAMORI
+
+(but with "object" wider still20) among "propositions" about terms and
+"classes" of various kinds corresponding to propositions. Because of this,
+Russell's Paradox became a central concern, for it forced him to face the
+threat of both the conflation of his categories and the loss of their universality.
+Discussing his various categories, Russell [1903, pp. 366-7] first described
+the problem of "the class of all terms": "If we are to assume ... that
+every constituent of every proposition is a term, then classes will be only
+some among terms. And conversely, since there is, for every term, a class
+consisting of that term only, there is a one-one correlation of all terms
+with some classes. Hence, the number of classes should be the same as the
+number of terms." For this last, Russell explicitly appealed to the Schr6derBernsteinTheorem. However, classes consist of terms, so Cantor's argument
+shows that there are more classes than terms! To (most) contemporary eyes,
+this is a remarkablemixing of mathematics and metaphysics. Russell then
+observed with analogous arguments that: there are more classes of objects
+than objects; there are more classes of propositions than propositions; and
+there are more propositional functions than objects.
+Russell next made the closest connection in The Principles [1903, p. 367]
+between Cantor's argument and Russell's Paradox: Let V be the class of all
+terms, and U the class of all classes; for Russell U is a proper subclass of V.
+Russell defined a function f: V -- U by stipulating that if x is not a class
+then f (x) is the class {x}, and if x is a class then f(x) = x, i.e., f restricted
+to U is the identity. What is now seen as the Cantorian {x E U I x V f (x)}
+U I x V x}. However, Cantor's
+then becomes the Russellian w - {x
+argument implies that w is not in the range of f, yet for Russell f (w) = w
+is in the range.2'
+As emphasized above, Cantor's argument has a positive content in the
+generation of sets not in the range of functions f: X -P P(X). For Russell
+however, P(U) c U with the identity map being an injection, and so the
+Russellian w C U must satisfy w c U, arrivingnecessarilyat a contradiction.
+Having absorbed the inclusion vs. membership distinction, Russell had to
+confront the dissolution of that very distinction for his universal classes.
+Russell soon sought to resolve his paradox with his theory of types, adumbrated in The Principles. Although the inclusion vs. membership distinction
+mathematics; but the principles of deduction, the recognition of indefinable entities, and the
+distinguishing between such entities, are the business of philosophy. Philosophy is, in fact
+mainly a question of insight and perception."
+20Russell[1903, p. 55n] wrote: "I shall use the word object in a wider sense than term, to
+cover both singular and plural, and also cases of ambiguity, such as 'a man.' The fact that a
+word can be framed with a wider meaning than term raises grave logical problems."
+21Theformal transition from {x x V f(x)} to { xx x} was pointed out by Crossley
+[1973]. Though not so explicit in The Principles, the analogy is clearly drawn in 1905 letters
+from Russell to G. H. Hardy and to Philip Jourdain (as quoted in Grattan-Guinness [1978]).
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+289
+
+was central to The Principles, the issues of whether the null-class exists and
+whether a term should be distinct from the class whose sole member is that
+term became part and parcel of the considerations leading to types. First,
+Russell [1903, p. 68] distinguished between "class" and "class-concept", and
+asserted that "there is no such thing as the null-class, though there are null
+class-concepts ... [and] that a class having only one term is to be identified,
+contrary to Peano's usage, with that one term." Russell then distinguished
+between "class as one" and "class as many" (without the { }, so to speak),
+and asserted [1903, p. 76] "an ultimate distinction between a class as many
+and a class as one, to hold that the many are only many, and are not also
+one."
+In an early chapter (X, "The Contradiction") discussing his paradox Russell decided that propositional functions, while defining classes as many, do
+not always define classes as one, else they could participate qua terms for
+self-predication as in the paradox. There he first proposed a resolution by
+resorting to a difference in type [1903, pp. 104-5]:
+We took it to be axiomatic that the class as one is to be found wherever
+there is a class as many; but this axiom need not be universally
+admitted, and appears to have been the source of the contradiction.
+... A class as one, we shall say, is an object of the same type as its
+terms ....
+
+But the class as one does not always exist, and the class
+
+as many is of a different type from the terms of the class, even when
+the class has only one term ...
+
+He consequently decided [1903, p. 106]: "that it is necessary to distinguish
+a single term from the class whose only member it is, and that consequently
+the null-class may be admitted."
+In an appendix to the Principlesdevoted to Frege'swork, Russell described
+an argument of Frege's showing that a should not be identified with {a (in
+the case of a having many members, {a } would still have only one member),
+and wrote [1903, p. 513]: " ...
+
+I contended that the argument was met
+
+by the distinction between the class as one and the class as many, but this
+contention now appears to me mistaken." He continued [1903, p. 514]:
+"...
+
+it must be clearly grasped that it is not only the collection as many, but
+
+the collection as one, that is distinct from the collection whose only term it
+is." Russell went on to conclude [1903, p. 515] that "the class as many is the
+only object that can play the part of a class", writing [1903, p. 516]:
+Thus a class of classes will be many many's;its constituents will each
+be only many, and cannot thereforein any sense, one might suppose,
+be single constituents. Now I find myself forced to maintain, in spite
+of the apparentlogical difficulty,that this is preciselywhat is required
+for the assertion of number.
+Russell was then led to infinitely many types [1903, p. 517]:
+
+290
+
+AKIHIRO KANAMORI
+
+It will now be necessary to distinguish (1) terms, (2) classes, (3)
+classes of classes, and so on ad infinitum;we shall have to hold that
+no member of one set is a member of any other set, and that x E u
+requires that x should be of a set of a degree lower by one than
+the set to which u belongs. Thus x c x will become a meaningless
+proposition; in this way the contradiction is avoided.
+And he wrote further down the page:
+Thus, although we may identify the class with the numerical conjunction of its terms [class as many], whereverthere are many terms,
+yet where there is only one term we shall have to accept Frege'srange
+[Werthverlauf]as an object distinct from its only term.
+Today, these shifting metaphysical distinctions concerning classes and worries focusing on the difference between a and {a} may seem strange and
+convoluted. But for us logic is mathematical, and we are heir to the development of set theory based on the iterated application of the { } operation and
+axioms governing it. Of Russell's concerns and formulations, his theory of
+types has found technical uses in set theory.22But ultimately,the ontological
+question "What is a class?", like the ontological questions "What is a set?"
+and "What is a number?", has little bearing on mathematics and has not
+contributed substantially to its development.
+?2. Zermelo's well-orderingtheorem. The first decade of the new century
+saw Ernst Zermelo at G6ttingen make his major advances in the development
+of set theory.23Hisfirst substantial result was his independent discovery of
+the argument for Russell's Paradox. He then established the Well-Ordering
+Theorem, provoking an open controversy about this initial use of the Axiom
+of Choice. After providing a second proof of the Well-OrderingTheorem in
+response, Zermelo also provided the first full-fledged axiomatization of set
+theory. In the process, he ushered in a new abstract, generativeview of sets,
+one that would dominate in the years to come.
+Zermelo's independent discovery of the argument for Russell's Paradox is
+substantiated in a note dated 16 April 1902 found in the Nachlass of the
+philosopher Edmund Husserl.24Accordingto the note, Zermelo pointed
+out that any set M containing all of its subsets as members, i.e., with
+P(M) C M, is "inconsistent" by considering {x E M I x V x}. Schroder
+[1890, p. 245] had argued that Boole's "class 1" regarded as consisting of
+everything conceivable is inconsistent, and Husserl in a review [1891] had
+criticized Schroder'sargument for not distinguishing between inclusion and
+22SeeDreben-Kanamori [1997] for the line of development from Russell's theory of types
+to Godel's constructible universe.
+23Peckhaus[1990] provides a detailed account of Zermelo's years 1897-1910 at G6ttingen.
+24See Rang-Thomas [1981].
+
+291
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+membership.Zermelowaspointingout an inherentproblemwheninclusion
+impliesmembershipas in the case of a universalclass, but he did not push
+the argumentin the directionof paradoxas Russellhaddone. Also, Zermelo
+presumablycameto his argumentindependentlyof Cantor'sdiagonalproof
+with functions.ThatP(M) has highercardinalitythanM is evidentlymore
+centralthan P(M) g M, but the connectionbetweensubsetsand characteristicfunctionswas hardlyappreciatedthen,and Zermelowasjust making
+the firstmovestowardhis abstractview of sets.25
+to theidentity
+ReversingRussell'sprogressfromCantor'scorrespondences
+
+map inclusion P(U) C U, Zermelo considered functions F: P(X)
+
+-
+
+X,
+
+specificallyin the form of choicefunctions,those F satisfyingF(Y) E Y
+for Y $ 0. This of course was the basic ingredientin Zermelo's[1904]
+formulationof what he soon called the Axiom of Choice for the purpose
+of establishinghis Well-Ordering
+Theorem. Russellthe metaphysicianhad
+drawnelaboratephilosophicaldistinctionsand was forcedby Cantor'sdiagonalargumentinto a dialecticalconfrontationwith them,as well as with
+the concomitantissues of whetherthe null class exists and whethera term
+shouldbe distinctfromthe class whose sole memberis that term. Zermelo
+the mathematiciannever quibbledover these issues for sets and pushing
+the Cantorianextensionaland operationalview proceededto resolvethe
+problemof well-orderingsets mathematically.As noted in Footnote 2, in
+describing abstract functions Cantor had written [1895, ?4]: "... by a 'covering [Belegung] of N with M,' we understand a law ... ", and thus had
+
+continuedhis frequentuse of the term "law"to referto functions.Zermelo
+[1904,p. 514]specificallyusedthe term"covering",butwithhis choicefunctions any residual sense of "law" was abandoned by him [1904]: " ... we
+
+takean arbitrarycoveringy andderivefromit a definitewell-orderingof the
+elementsof M." It is herethatabstractset theorybegan.
+That part of Zermelo'sproof which does not depend on the Axiom of
+Choicecan be isolatedin the followingresult,the centralarticulationof our
+guidingmotif. The resultestablishesa basic correlationbetweenfunctions
+F: P(X) -+ X and canonically defined well-orderings. For notational
+
+convenience,we takewell-orderingsto be strict,i.e., irreflexive,relations.
+25Inthe earliest notes about axiomatization found in his Nachlass, written around 1905,
+Zermelo took the assertion M V M as an axiom, as well as the assertion that any "welldefined" set M has a subset not a member of M (see Moore [1982, p. 155]). In Zermelo's
+axiomatization paper [1908a], the first result of his axiomatic theory was just the result in
+the Husserl note, that every set M has a subset {x E M I x ~ x} not a member of M,
+with the consequence that there is no universal set. Modern texts of set theory usually take
+the opposite tack, showing that there is no universal set by reductio to Russell's Paradox.
+Zermelo [1908a] applied his first result positively to generate specific sets disjoint from given
+sets for his recasting of Cantor's theory of cardinality.
+
+292
+
+AKIHIROKANAMORI
+
+THEOREM
+2.1. Suppose that F: P(X)
+
+-
+
+X. Then there is a unique (W, <)
+
+such that W C X, < is a well-orderingof W, and:
+(a) For every x E W, F({y E W y < x}) = x, and
+(b) F(W)
+
+C W.
+
+REMARKS.The picture here is that F generates a well-ordering of W which
+according to (a) starts with
+ao =F(0),
+
+al
+
+F({ao)
+
+= F({F(0)}),
+
+a2 = F({ao, a }) = F({F(0),F({F(0)})})
+
+and so continues as long as F applied to an initial segment of W constructed
+thus far produces a new element. W is the result when according to (b) an
+old element is again named. Note that if X is transitive, i.e., X C P(X),
+
+and F is the identity on at least the elementsin the above display,then
+we are generatingthe first severalvon Neumann ordinals.26But as was
+much discussed in Section 1, F cannot be the identity on all of PP(X).
+Whereas Russell's Paradox grew out of the insistence that inclusion implies
+membership, membership in a transitive set implies inclusion in that set. This
+later and positive embodiment of the inclusion vs. membership distinction
+became important in set theory after the work of John von Neumann [1923]
+on ordinals, and central to the subject since the work of Kurt Godel [1938]
+on the constructible universe L.
+The claim that Theorem 2.1 anticipates later developments is bolstered by
+its proof being essentially the argument for the Transfinite Recursion Theorem, the theorem that justifies definitions by recursion along well-orderings.
+This theorem was articulated and established by von Neumann [1923, 1928]
+in his system of set theory. However, the argument as such first appeared in
+Zermelo's [1904]:
+2.1. Call Y C X an F-set iff there is a well-ordering
+PROOFOFTHEOREM
+R of Y such that for each x E Y, F({y E Y I yRx}) = x. The following
+are thus F-sets (some of which may be the same):
+
+{F(0)};
+
+{(),F(0)
+
+F(0))};
+
+{F(0),F({F(0)}),F({F(0),F({F(0)})})}.
+
+We shall establish:
+
+(*)
+
+If Y is an F-set with a witnessing well-ordering R and Z is an
+
+F-set with a witnessingwell-orderingS, then (Y,R) is an initial
+segmentof (Z, S), or conversely.
+
+Zermeloin unpublished1915worksketchedtherudimentsof thevonNeumann
+26Notably,
+ordinals.See Hallett[1984,p. 278ff.].
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+293
+
+(Taking Y = Z it will follow that any F-set has a unique witnessing wellordering.)
+For establishing (*), we continue to follow Zermelo: By the comparability
+of well-orderings, we can assume without loss of generality that there is an
+order-preservinginjection e: Y - Z with range an S-initial segment of Z.
+It then suffices to show that e is in fact the identity map: If not, let t be the
+R-least member of Y such that e(t) 5 t. It follows that {y E Y IyRt}
+{z e Z | zSe(t)}. But then,
+e(t) = F({z E Z I zSe(t)})
+
+= F({y
+
+C Y yRt}) = t,
+
+a contradiction.
+To conclude the proof, let W be the union of all the F-sets. Then W is
+itself an F-set by (*) and so, with < its witnessing well-ordering, satisfies
+(a). For (b), note that if F ( W) ? W, then W U {F( W)} would be an F-set,
+contradicting the definition of W. Finally, that (a) and (b) uniquely specify
+-]
+(W,<) also follows from (*).
+Zermelo of course focused on choice functions as given by the Axiom of
+Choice to well-order the entire set:
+2.2 (The Well-OrderingTheorem, Zermelo [1904]). If P(X)
+COROLLARY
+has a choicefunction, then X can be well-ordered.
+PROOF.Suppose that G: P(X) - X is a choice function, and define
+a function F: P(X)
+
+-> X to "choose from complements" by: F(Y)
+
+=
+
+G(X - Y) e X - Y for Y + X, and F(X) some specified member of X.
+-1
+Then the resulting W of the theorem must be X itself.
+It is noteworthy that Theorem 2.1 leads to a new proof and a positive form
+of Cantor's basic result that there is no bijection between P(X) and X:
+2.3. For any F: P(X) COROLLARY
+
+X, there are two distinct sets W and
+
+Y both definablefrom F such that F(W) = F(Y).
+PROOF.Let (W,<) be as in Theorem 2.1, and let Y = {x E W I x <
+F(W)}. Then by Theorem 2.1(a) F(Y) = F(W), yet F(W) E W - Y. -I
+This corollary provides a definablecounterexample (W, Y) to injectivity.
+In the F: P(X) -* X version of Cantor's diagonal argument, one would
+consider the definable set
+A = {x c X I3Z(x = F(Z) A F(Z) ? Z)}.
+By querying whether or not F(A) E A, one deduces that there must be
+some Y -- A such that F(Y) = F(A). However, no such Y is provided
+with a definition. This is also the main thrust of Boolos [1997], in which the
+
+294
+
+AKIHIRO KANAMORI
+
+argument for Theorem 2.1 is given ab initio and not connected with Zermelo
+[1904].
+Another notable consequence of the argument for Theorem 2.1 is that
+since the F there need only operate on the well-orderablesubsets of X, the
+P(X) in Corollary 2.3 can be replaced by the following set:
+Pwo(X) = {Z C X I Z is well-orderable} .
+That this set, like P(X), is not bijective with X was first shown by Alfred
+Tarski [1939] through a less direct proof. Tarski [1939] (Theorem 3) did
+have a version of Theorem 2.1; substantially the same version appeared
+in the expository work of Nicolas Bourbaki [1956, p. 43] (Chapter 3, ?2,
+Lemma 3).27
+Zermelo's main contribution with his Well-Ordering Theorem was the
+introduction of choice functions, leading to the postulation of the Axiom of
+Choice. But besides this, Theorem 2.1 brings out Zermelo'sdelineation of the
+power set as a sufficient domain of definition for generating well-orderings.
+Also, Theorem 2.1 rests on the argument for establishing the Transfinite
+Recursion Theorem; here however, it is the well-ordering itself that is being
+defined. The argument is avowedly impredicative: After specifying the
+collection of F-sets its union is taken to specify a member of the collection,
+namely the largest F-set. All these were significant advances, seminal for
+modern set theory, especially when seen against the backdrop of how wellorderabilitywas being investigated at the time.
+Cantor [1883, p. 550] had propounded the basic principle that every "welldefined" set can be well-ordered. However, he came to believe that this
+principle had to be established, and in 1899 correspondence with Dedekind
+gave a remarkable argument.28 He first defined an "absolutely infinite or
+inconsistent multiplicity" as one into which the class fQof all ordinal numbers can be injected and proposed that these collections be exactly the ones
+that are not sets. He then proceeded to argue that every set can be wellordered through a presumably recursiveprocedure whereby a well-ordering
+is defined through successive choices. The set must get well-ordered, otherwise Q would be injected into it. G. H. Hardy [1903] and Philip Jourdain
+[1904,1905] also gave arguments involving the injection of all the ordinal
+27Bourbaki'sversion is weighted in the direction of the application to the Well-Ordering
+Theorem (cf. Corollary 2.2). It supposes that for some Z C P(X), F: Z -- X with
+F(Y) v Y for every Y E Z, and concludes that there is a (W, <) as in Theorem 2.1 except
+that its (b) is replaced by W ? Z. From this version Bell [1995] developed a version in a
+many-sorted first-orderlogic and used it to recast Frege's work on the number concept.
+28The 1899 correspondence appeared in Cantor [1932] and Noether-Cavailles [1937] and,
+translated into French, in Cavailles [1962]. The main letter is translated into English in van
+Heijenoort [1967, p. 113ff.].
+
+THE MATHEMATICAL
+IMPORTOF ZERMELO'SWELL-ORDERING
+THEOREM
+
+295
+
+numbers,but such an approachwould only get codifiedat a laterstage in
+the developmentof set theoryin the workof von Neumann[1925].
+Consonantwithhis observationon Schr6der'sinconsistentclassesthatno
+X can satisfyP(X) C X, Zermelo'sadvancewas to precludethe appealto
+inconsistentmultiplicitiesby shiftingthe weight awayfrom Cantor'swellorderingswith their successivechoices to the use of functions on power
+setsmakingsimultaneous
+choices. Zermelo,wheneditingCantor'scollected
+him
+criticized
+for
+his relianceon successivechoices and the doubts
+works,
+the
+raisedby possibleintrusionof inconsistentmultiplicities.Zermelonoted
+that "it is preciselydoubts of this kind that impelledthe editor [Zermelo]
+a few yearslaterto base his own proof of the well-orderingtheorempurely
+upon the axiomof choicewithoutusinginconsistentmultiplicities."29
+Cantor'srealizationthattakingthe classQ of all ordinalnumbersas a set
+is problematicwas an earlyemanationof the now well-knownBurali-Forti
+Paradox,generatedquaparadoxby Russellin ThePrinciples[1903,p. 323]
+afterreadingCesareBurali-Forti's[1897].30It is notablethat Russell[1906,
+p. 35ff.] later provideda unifiedapproachto both Russell'sParadoxand
+the Burali-FortiParadoxthat can be seen as reformulatingthe heartof the
+argumentfor Theorem2.1 to yield a contradiction.31He consideredthe
+followingschemafor a propertyX5and a functionf:
+Vu(Vx(x E u -- ((x))
+
+>
+
+(3z(z = f(u)) & f(u) V u & ((f(u)))).
+
+It followsthat if w = {x | b(x)}and w is in the variablerangeof Vu,then
+both ((f (w)) and - (f (w)), a contradiction.Russell'sParadoxis the case
+of (x) being "x 9 x" and f(x) = x. The Burali-FortiParadoxis the
+case of q5(x)being "x is an ordinalnumber"and f(x) = the least ordinal
+numbergreaterthaneveryordinalnumberin x. Russellwenton to describe
+how to define"a seriesordinallysimilarto that of all ordinals"via Cantor's
+principlesfor generatingthe ordinalnumbers:
+Starting with a function f and an x such that 3z(z = f(x)),
+
+the first term
+
+of the seriesis to be f (x). Havingrecursivelydefinedan initial segment
+u of the series and assuming 3z(z = f (u)) & f (u) q u, the next term of
+
+the seriesis to be f (u). Thus, Russellwas describingwhatcorrespondsto
+the definingpropertyof the F-sets in the proof of Theorem2.1 exceptfor
+insistingthat f(u) u.
+The aboveschemaconsequentlyimpliesthat w = {x I q$(x)}containsa
+seriessimilarto all the ordinalnumbers.In particular,as Russellobserved,
+29SeeCantor [1932, p. 451] or van Heijenoort [1967, p. 117].
+30Moore-Garciadiego[1978] and Garciadiego [1992] describe the evolution of the BuraliForti paradox.
+31See also the discussion in Hallett [1984, pp. 180-1]. While Russell [1906] discussed
+Zermelo [1904], it is unlikely that Russell made a conscious adaptation along the lines of
+Theorem 2.1.
+
+296
+
+AKIHIRO KANAMORI
+
+{x Ix ? x} containsa seriessimilarto all the ordinalnumbers,and "the
+series as a whole does not form a class."32 Hence, Russell had interestingly
+correlated the structured Theorem 2.1 idea anew with the possibility of
+injecting all the ordinal numbers. Whereas Theorem 2.1 with its positing
+of a power set domain led to the positive conclusion that there is a wellordered set W satisfying F(W) E W, Russell's positing that f(u) V u
+illuminated the paradoxes as necessarily generating series similar to all the
+ordinal numbers.
+With its new approach via choice functions on power sets, Zermelo's [1904]
+proof of the Well-OrderingTheorem provoked considerable controversy,33
+and in response to his critics Zermelo published a second proof [1908] of
+his theorem. The general objections raised against Zermelo's first [1904]
+proof of the Well-OrderingTheorem had to do mainly with its exacerbation
+of a growing conflict among mathematicians about the use of arbitrary
+functions. But there were also specific objections raised about the possible
+role of ordinal numbers through rankings in the proof, and the possibility
+that again the class of all ordinal numbers might be lurking. To preclude
+these objections Zermelo in his second [1908] proof resorted to an approach
+with roots in Dedekind [1888]. Instead of initial segments of the desired
+well-ordering, Zermelo switched to final segments and proceeded to define
+the maximal reverse inclusion chain by taking an intersection in a larger
+setting:
+To well-ordera set M using a choice function p on P(M), Zermelo defined
+a 0-chain to be a collection 0 of subsets of M such that: (a) M E 0; (b)
+if A E O, then A - {<p(A)} C ; and (c) if Z C 0, then nZ E 0. He
+then took the intersection I of all O-chains, and observed that I is again a
+0-chain. Finally, he showed that I provides a well-ordering of M given by:
+a -< b iff there is an A C I such that a ? A and b E A. Thus, I consists
+of the final segments of the desired well-ordering, and the construction is
+"dual" to the one provided by Theorem 2.1 and Corollary 2.2.
+With the intersection approach no question could arise, presumably,about
+intrusions by classes deemed too large, such as the class of all ordinal numbers. While his first [1904] proof featured a (transfinite) recursiveconstruction of a well-ordering, Zermelo in effect now took that well-ordering to
+be inclusion, the natural ordering for sets. He thus further emphasized the
+various set theoretic operations, particularly the power set. As set theory
+would develop, however, the original [1904] approach would come to be
+regarded as unproblematic and more direct, leading to incisive proofs of
+related results (see Section 3).
+32Russell attributed this observation to G. G. Berry of the Bodleian Library, well-known
+for Berry's Paradox, given in Russell [1906a, p. 645].
+33See Moore [1982, Chapter 2].
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+297
+
+The main purpose of Zermelo's [1908a] axiomatization of set theory, the
+first full-scale such axiomatization, was to buttress his [1908] proof by making explicit its underlying set-existence assumptions.34 The salient axioms
+were the generative Power Set and Union Axioms, the Axiom of Choice of
+course, and the Separation Axiom. These incidentally could just as well have
+been motivated by the first [1904] proof. With his axioms Zermelo advanced
+his new view of sets as structuredsolely by E and generated by simple operations, the Axiom of Infinity and the Power Set Axiom furnishing a sufficient
+setting for the set-theoretic reduction of all ongoing mathematics. In this
+respect, it is a testament to Zermelo's approach that the argument of Theorem 2.1 would, with the Axiom of Infinity in lieu of the Power Set Axiom
+furnishing the setting, become the standard one for establishing the Finite
+Recursion Theorem, the theorem for justifying definitions by recursion on
+the natural numbers.35
+In his axiomatization paper [1908a] Zermelo provided a new proof of the
+Schroder-Bernstein Theorem, and it is noteworthy that themes of Kuratowski [1922], to be discussed in Section 3, were foreshadowed by the proof.
+Zermelo focused on the following formulation: If M' C M1 C M and there
+is a bijection g: M -+ M', then there is a bijection h: M
+
+-*
+
+M1. The
+
+following is his proof in brief, where c denotes proper inclusion:
+For A C M, define f(A)
+
+= (M1 - M') U {g(x)
+
+I x E A}.
+
+Since g
+
+is injective, f is monotonic in the following sense: if A c B C M, then
+f(A) c f(B). Set T = {A C M f(A) C A}, and noting that T is
+not empty since M E T, let Ao = n T. Then Ao E T (and this step
+makes the proof impredicative, like Zermelo's argument used for Theorem 2.1). Moreover, f(Ao) C Ao would imply by the monotonicity of f
+that f(f(Ao)) c f(Ao) c Ao, contradicting the definition of Ao. Consequently, we must have f(Ao) = Ao. It is now straightforward to see that
+Ml = Ao U (M' - {g(x) I x E Ao}), a disjoint union, and so if h: M -4 M1
+is defined by h(x) = x if x c Ao and h(x) = g(x) otherwise, then h is a
+bijection.
+
+34Moore [1982, p. 155ff.] supports this contention using items from Zermelo's Nachlass.
+35TheFinite Recursion Theorem first appeared in the classic Dedekind [1888, ?125], and
+his argument can be carried out rigorously in Zermelo's axiomatization of set existence
+principles. The theorem does not seem to appear in the work of Peano, who was mainly
+interested in developing an efficientsymbolic system. Nor does the Finite Recursion Theorem
+always appear in the subsequent genetic accounts of the numbers starting with the natural
+numbers and proceeding through the rational numbers to the real numbers. A significantly
+late example where the theorem does not appear is Landau [1930], with its equivocating
+preface. We would now say that without the Finite Recursion Theorem the arithmetical
+properties of the natural numbers would remain at best schemas, inadequate for a rigorous
+definition of the rational and real numbers.
+
+298
+
+AKIHIRO KANAMORI
+
+Zermelo himself did not define the function f explicitly,but he did define
+T and Ao = n T, and his argument turned on Ao being a "fixedpoint of f",
+i.e., f(Ao) = Ao. This anticipated the formulations of Kuratowski [1922],
+as we shall see. Another connection is to the general aim of that paper, to
+avoid numbers and recursion, which Zermelo did for a specific mathematical
+purpose:
+The first correct proof of the Schr6der-Bernstein Theorem to appear in
+print was due to Felix Bernstein and appeared in Borel [1898, pp. 1046]. However, like proofs often given today Bernstein's proof depended on
+defining a countable sequence of functions by recursion. One of Henri
+Poincare's criticisms of the logicists36 was that "logical" developments of
+
+the natural numbers and their arithmetic inevitably presuppose the natural
+numbers and mathematical induction, and in connection with this Poincare
+[1905, p. 24ff.] pointed out the circularity of developing the theory of
+cardinalitywith the Schr6der-BernsteinTheorem based on Bernstein'sproof,
+and therefore on the natural numbers. This point had mathematicalweight,
+and in 1906 Zermelo sent his new proof of Schr6der-Bernsteinto Poincare.
+Zermelo in a footnote in [1908a, pp. 272-3] emphasized how his proof
+avoids numbers and induction altogether. He also observed that the proof
+"rests solely upon Dedekind's chain theory [1888, IV]", and that Peano
+[1906] published a proof that was "quite similar".37Russell on first reading
+Zermelo [1908a] expressed delight with his proof of Schr6der-Bernsteinbut
+
+36SeeGoldfarb [1988] for more about Poincare against the logicists.
+37Zermelo'sfootnote is Footnote 11 of van Heijenoort [1967, p. 209]. The reference to
+Dedekind [1888] raises two points: First, Dedekind [1888] had arguments that can also be
+construed as getting fixed points by taking intersections, but the fixed points were always
+(isomorphic to) the set of natural numbers; Zermelo's proof of Schr6der-Bernstein used
+the fixed point idea to get a mathematical result, and so can be regarded as mathematically
+midway between Dedekind [1888] and the explicit fixed point formulations of Kuratowski
+[1922], to be discussed below. Second, it turns out that Dedekind in fact had a proof like
+Zermelo's of Schr6der-Bernsteinalready in 1887, but the proof only appeared in 1932, both
+in a manuscript of 11 July 1887 appearing in Dedekind's collected works [1932, pp. 447-9]
+and in a letter of 29 August 1899 from Dedekind to Cantor appearing in Cantor's collected
+works [1932, p. 449]. As editor for the latter, Zermelo noted in a footnote that Dedekind's
+proof is "not essentially different" from that appearing in Zermelo [1908a]; while we might
+today regard this to be the case, the fixed point idea is much less evident in Dedekind's
+formulation.
+The referenceto Peano [1906] is part of a contretemps involving Poincare. Poincar6 [1906,
+pp. 314-5] published Zermelo's proof, but then proceeded to make it part of his criticism
+of Zermelo's work based on the use of impredicative notions, the main front of Poincare's
+critique of the logicists. Zermelo in a footnote to his [1908, p. 118] (Footnote 8 of van
+Heijenoort [1967, p. 191]) expressed annoyance that Peano when referringto Poincar6 [1906]
+only mentioned Peano [1906], not Zermelo, in connection with the new proof of SchrbderBernstein but went on to argue against Zermelo's use of the Axiom of Choice.
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+299
+
+went on to criticize his axiomatization of set theory.38 In the first volume
+of Whitehead and Russell's Principia Mathematica [1910-13] there was no
+formal use of the class of natural numbers, and indeed the Axiom of Infinity
+was avoided; while this would not satisfy Poincare, the theory of cardinals
+was developed using Zermelo's proof.39
+The Zermelian abstract generative view of sets as set forth by his [1908a]
+axiomatization would become generally accepted by the mid-1930's, the process completed by adjunction of the Axioms of Replacement and Foundation
+and the formalization of the axiomatization in first-orderlogic. But as with
+the Well-OrderingTheorem itself, the [1908a] axiomatization from early on
+served to ground the investigation of well-orderings, with the incisive result of Friedrich Hartogs [1915] on the comparability of cardinals being a
+prominent example. The early work also led to a new transformation of our
+motif.
+?3. Fixed point theorems. Kazimierz Kuratowski [1922] provided a fixed
+point theorem which can be seen as a refocusing of Theorem 2.1, and thereby
+recast our guiding motif. Fixed point theorems assert, for functions f: X X satisfying various conditions, the existence of a fixed point off, i.e., an
+x E X such that f (x) = x. With solutions to equations becoming construed
+as fixed points of iterative procedures, a wide-ranging theory of fixed points
+has emerged with applications in analysis and topology.40Of the pioneering
+work, fixed points figuredcrucially in Poincare'sclassic analysis [1884] of the
+three-body problem. The best-known fixed point theorem in mathematics,
+due to L. E. J. Brouwer [1909], is fundamental to algebraic topology.41And
+a few pages after Kuratowski's [1922] in the same journal, Stefan Banach
+[1922] published work from his thesis including what has become another
+basic fixed point theorem, a result Banach used to provide solutions for
+integral equations.
+Kuratowski'soverall purpose in [1922] was heralded by its title, "Amethod
+for the elimination of the transfinitenumbersfrom mathematicalreasoning".
+At a time when Zermelo's abstract generative view of sets had shifted the
+38Russell'sletter to Jourdain of 15 March 1908 (see Grattan-Guinness [1977, p. 109])
+began: "I have only read Zermelo's article once as yet, and not carefully, except his new
+proof of Schr6der-Bernstein, which delighted me." Russell then criticized the Axiom of
+Separation as being "so vague as to be useless". For Russell, the paradoxes cannot be
+avoided in this way but had to be solved through his theory of types.
+39The Schr6der-Bernstein Theorem in Principia is *73-88. In *94 the Bernstein and
+Zermelo proofs are compared.
+40Seefor example the account Dugundji-Granas [1982].
+41The Brouwer fixed point theorem asserts that any continuous function from a closed
+simplex into itself must have a fixed point; to illustrate without bothering to define these
+terms, any continuous function on a closed triangle into itself must have a fixed point.
+
+300
+
+AKIHIROKANAMORI
+
+focus awayfrom Cantor's transfinitenumbersbut the von Neumann ordinals
+had not yet been incorporated into set theory, Kuratowski provided an approach for replacing definitions by transfinite recursion on ordinal numbers
+by a set-theoretic procedure carried out within Zermelo's [1908a] axiomatization. Kuratowski'sfixed point theorem served as a basis for that approach
+and can be viewed as a corollary of Theorem 2.1:
+For a function f and set X, f"X = {f(x) I x E X} is the image of X
+under f. Again to affirm, c is proper inclusion.
+3.1 (Kuratowski'sFixed Point Theorem [1922, p. 83]). Suppose
+THEOREM
+that X C P(E) for some E, and wheneverC C X, U C E X. Suppose
+also that f: X -+ X satisfies x C f (x) for every x c X. Then there is a
+fixedpoint off. Infact, thereis aunique W C X well-orderedby C satisfying:
+(a) Foreveryx E W, x = U f"{y E W y C x}, and
+(b) W contains exactly onefixed point off, namely Uf" W.
+PROOF.Adapting the proof of Theorem 2.1, call Y C X an f-set iff Y is
+well-orderedby c, and for each x E Y, Uf"{y E Y Iy C x} = x. This last
+condition devolves to two cases: either x has an immediate c-predecessor y
+in which case x = f(y), or else x has no immediate c-predecessor and so
+inductively x = U{y c Y y c x}.
+As in the proof of Theorem 2.1, the union W of all the f-sets is again an
+f-set and so satisfies (a) above. Corresponding to Theorem 2.1(b) we have
+U f" W E W, and so Uf"W is the c-maximumelementof W. Next, if
+a y E W has an c-successor in W, then by previous remarks about f-sets,
+f (y) is the immediate c-successor of y, and so y cannot be a fixed point.
+Also, the c-maximum element Uf" W of W must be a fixed point of f, else
+W U {f(U f" W)} would have been an f-set, contradicting the definition
+of W. Hence, we have (b) above. Finally, the uniqueness of W follows as in
+Theorem 2.1.
+This theorem could also have been established by applying Theorem 2.1
+directly to F: P(X) -+ X given by: F(Y) - U(f" Y). For the resulting
+(W, <) it follows by induction along < that < and c coincide on W. With
+that, Theorem 3.1(b) can be verified for W. However, as our proof emphasizes, Theorem 3.1 is based on an underlying ordering, namely C, which can
+be used directly.
+Kuratowski'sTheorem 3.1 strictly speaking involves two levels: It is about
+members of a set X, but those members are also subsets of a fixed set E and
+so are naturally ordered by C. Theorem 2.1 had also featured an interplay
+between levels: subsets of a set (corresponding to E in Theorem 3.1) and
+its members. However, with maps f: X -+ X satisfying x C f(x) and
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+301
+
+their fixed points Kuratowski refocused the setting to a single level of sets
+mediated by C.
+Kuratowski actually dealt more with a dual form of Theorem 3.1 resulting
+from replacing"U" by "n";"c" by "D"; and "x c f(x)" by "f(x) c
+x". His argument for this dual form generalized Zermelo's second [1908]
+proof of the Well-OrderingTheorem, which together with related work of
+Gerhard Hessenberg [1909] Kuratowski acknowledged.42 In terms of the
+0-chains of Zermelo [1908] as described toward the end of Section 2, the
+generalization corresponds to replacing the condition (b) "if A E 0, then
+A-{(p(A)} E 0" where p is achoice function by "if x E 0, thenf(x) E 0".
+Indeed, Kuratowski'sfirst application was to derive Zermelo'sWell-Ordering
+Theorem as a special case.
+Kuratowski went on to use Theorem 3.1 and its dual form to carry out the
+"elimination of the transfinitenumbers"from various arguments, especially
+those in descriptive set theory that had depended on explicit transfinite
+recursions. Most notably, Kuratowski established with the Axiom of Choice
+the following proposition:
+Let A C E be sets, R a property, and Z = {X C E I A C
+X & X has property R}. Suppose that for every C C Z wellordered by C, U C E Z. Then there is a C-maximal member of
+Z.
+This proposition can be seen as a version of Zorn's Lemma as originally
+formulated by Max Zorn [1935]:
+Suppose that Z is a collection of sets such that for every C C Z
+linearly ordered by C, U C E Z. Then there is an C-maximal
+member of Z.
+Although Kuratowski'sproposition is ostensibly strongerthan Zorn'sLemma
+in that it only required U C E Z for well-orderedC, it is equivalent by the
+proof of Theorem 3.3 below.43Zorn's Lemma is more generally accessible in
+that its statement does not mention well-orderings.
+Set theory was veritablytransformedin the decades following Kuratowski's
+work in ways not related to Theorem 3.1, but our motif emerged again in
+connection with Zorn's Lemma. In a now familiar generalization in terms of
+partially ordered sets Zorn's Lemma soon made its way into the expository
+work of Nicolas Bourbaki, first appearing in his summary of results in set
+theory [1939, p. 37] (?6, Item 10) for his series Elements de Mathematique.
+in set theoryin termsof D occurredin Hessenberg
+42Theidea of renderingwell-orderings
+[1906]and waspursuedby Kuratowski[1921].SeeHallett[1984,p. 256ff.]for an analysisof
+Zermelo's[1908]proofin this light.
+43Thefirstto providea propositionsimilarlyrelatedto Zorn'sLemmawasFelixHausdorff
+[1909,p. 300]. See Campbell[1978]and Moore[1982,p. 220ff.]for moreon Zorn'sLemma
+and relatedpropositions.
+
+302
+
+AKIHIRO KANAMORI
+
+ThereBourbakiin fact formulateda partialordergeneralizationof Theorem3.1 whichhe calledthe "fundamentallemma".To set the stage,we first
+developsome terminology:
+Suppose that (P, <p) is a partiallyorderedset, i.e., <p is a reflexive,
+transitive,and anti-symmetricrelationon P. <p is the strictorderderived
+from <p. C C P is a chain iff C is linearly ordered by <p. For A C P,
+
+supp(A)is the least upperbound of A with respectto <p, assumingthat it
+exists.
+(P, <p) is inductiveiff for everychain C C P, supp(C) exists.
+
+Note thateveryinductivepartiallyorderedset (P, <p) hasa <p-leastelement,
+namelysupp(0). Finally,a functionf: P - P is expansiveiff foranyx E P,
+x <p f(x).
+
+THEOREM
+3.2 (Bourbaki'sFixedPointTheorem[1939,p. 37]). Suppose
+that (P, <p) is an inductivepartially orderedset, and f: P -* P is expansive.
+Then there is afixedpoint off. Infact, there is a unique W C P well-ordered
+by <p satisfying:
+(a) For every x E W, x = supp(f"{y e W Iy <p x}), and
+(b) W contains exactly onefixedpoint off, namely supp(f" W).
+PROOF.The proof is essentiallythe same as for Theorem3.1, with <p
+
+replacingc and suppreplacingU.
+
+-
+
+Thistheoremcompletedthetransformationof ourguidingmotifbegunby
+Kuratowski's
+Theorem3.1. Withan abstractformulationin termsof partial
+orders,the two levelsof Theorem3.1 (E and X c P(E)) wereleft behind.
+Stressingthe innovationof bringingin thefixedpointidea,Bourbakiwrotea
+paper[1949/50]44givinga proofof Theorem3.2 and showingmoreoverhow
+both Zermelo'sWell-Ordering
+Theoremand Zorn'sLemma(in Bourbaki's
+order
+from
+Theorem3.2. Nevertheless,we might
+follow
+version)
+partial
+this
+work
+as
+a
+straightforward
+generalizationof Kuratowski
+today regard
+[1922],even to the extentthat Bourbaki'sproof of Theorem3.2 was along
+the lines of Zermelo'ssecond [1908]proof of the Well-Ordering
+Theorem.
+In latereditionsof Bourbaki's1939 summary,Theorem3.2 is intriguingly
+deleted, surfacingonly as an exercisein his full treatmentof set theory
+[1956, p. 49] (Chapter3, ?2, exercise6). Interestingly,the exercisegives
+a formulationin the style of Zermelo'ssecond [1908]proof of the WellOrderingTheorem,but then suggestsa use of a lemma (Chapter3, ?2,
+Lemma3 and a versionof Theorem2.1) along the lines of Zermelo'sfirst
+[1904]proof.
+44In[1949/50] Bourbaki referredto himself as "a Nancago".
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+303
+
+Referringto Bourbaki's[1939]"fundamentallemma"and Zermelo'stwo
+Theorem,HelmuthKneser[1950],a studentof
+proofsfor the Well-Ordering
+David Hilbert,provideda proof of Theorem3.2 muchas givenabove,i.e.,
+in the style of Zermelo'sfirst[1904]proof. Kneseralso pointedout thatthe
+partiallyorderedset neednot be quiteinductive;it sufficesto havea function
+g thatchoosesfor eachchain C C P an upperboundg(C).45 Thiswaspart
+means
+of Kneser'sobservationthatTheorem3.2 providesa straightforward
+to prove (a partial order version of) Zorn'sLemmafrom the Axiom of
+Choice. However,Szele [1950]and Weston[1957]pointedout that a more
+directproofis possible;essentially,theproofof Theorem2.1 can be adapted,
+and we give suchan argument:
+THEOREM
+3.3 (AC). Suppose that (P, <p) is apartially orderedsetsuch that
+C P has a <p-upperbound. ThenP has a < p-maximalelement.
+C
+chain
+every
+PROOF.Fix x0 E P. Using the Axiom of Choice, let g: P(P) -+ P satisfy
+g(C) = xo, unless C is a chain with <p-least element xo and a <p-upper
+
+boundin P - C, in whichcase g(C) is suchan upperbound. Adaptingthe
+proof of Theorem2.1, call Y C P a g-set iff Y is well-orderedby <p, has
+xo as its <p-leastmember,and for each x E Y, g({y E Y I y <p x}) = x.
+Thenas in the proofof Theorem2.1, the union W of all the g-sets is againa
+g-set, andg( W) = xo. Thislastimpliesthat W has a <p-maximumelement
+-4
+whichthen is also a <p-maximalelementof P.
+This shortproof with its interplaybetweenP(P) and P harkensback to
+Theorem2.1 again. Thus, our motif has come full circle after progressing from Theorem2.1 (sets and members)throughTheorem3.1 (sets and
+inclusion)to Theorem3.2 (partialorders).
+The followingversionof Zorn'sLemmafollowsanalogously:
+(t) Supposethat (P, <p) is an inductivepartiallyorderedset. Then
+P has a <p-maximalelement.
+It is now well-knownthat this versionalso impliesTheorem3.3: Given a
+(P, <p) as in Theorem3.3, let Q be the set of chainsof P. Then (Q, C) is an
+inductivepartiallyorderedset. Hence,by (t), Q has an C-maximalelement
+M. But then, any <p-upperboundof M mustbe a <p-maximalelement.
+In a newchapterof the seventheditionof Bartelvan derWaerden's
+classic
+Algebra[1966,p. 206ff.],Theorem3.2 is establishedand fromit both Zorn's
+Theoremarederived.
+Lemmain the (t) versionandZermelo'sWell-Ordering
+45Bourbaki [1939] defined "inductive" partially ordered sets as we have done. However,
+with his penchant for generalization and perhaps influenced by Kneser [1950], Bourbaki in
+the later editions of his full treatment of set theory weakened the definition of "inductive"
+to chains just having upper bounds, not necessarily least upper bounds. This caused an
+ambiguity, for the hint to their aforementioned exercise (Chapter 3, ?2, exercise 6) no longer
+works unless a function g choosing upper bounds for chains is given beforehand.
+
+304
+
+AKIHIRO KANAMORI
+
+Van der Waerden acknowledged following Kneser [1950], and according to
+the foreword this was one of the main changes from the previous edition.
+In Serge Lang's popular Algebra [1971], Theorem 3.2 is established with
+the proof of Bourbaki [1949/50], and from Theorem 3.2 both the (t) and
+Theorem 3.3 versions of Zorn's Lemma are derived. Notably, with the
+argument so structured Lang did not even point out the essential use of the
+Axiom of Choice.46
+Moving forward to the present, we see that our motif has spread beyond
+set theory in several guises and in new roles. In general, the existence of
+a fixed point as in Theorem 3.2 underlies all modern theories of inductive
+definitions.47 With the rise of computer science such theories have gained
+a wide currency, and a variant of Theorem 3.2 has become particularly
+pertinent.
+Suppose that (P, <p) is a partially ordered set and f: P -* P. f is monotonic iff for any x <p y E P, f(x) <p f(y). There can be expansive maps
+which are not monotonic, and monotonic maps which are not expansive. w
+is a leastfixedpoint off (with respect to <p) iff w is a fixed point of f, and
+whenever f (y) <p y, w <p y. Clearly there is at most one least fixed point
+
+of f.
+
+THEOREM
+3.4. Suppose that (P, <p) is an inductivepartially orderedset and
+->
+P
+P
+is
+monotonic. Then there is a leastfixedpoint off. Infact, there
+f:
+is a W C P well-orderedby <p satisfying:
+(a) For every x E W, x = supp(f"{y c W I y <p x}), and
+(b) supp(f" W) is the leastfixedpoint of f.
+PROOF.The proof is essentially the same as for Theorems 3.1 and 3.2.48Theorem 3.4 can also be seen as a corollary of Theorem 3.2: From the
+hypotheses of Theorem 3.4 it follows by straightforwardarguments that
+Q = {x E P x <p f(x) &y(f(y)
+
+<p y -- x <p y)}
+
+46Earlierin his text Lang [1971, p. 507] had written: "We show how one can prove Zorn's
+Lemma from other properties of sets which everyone would immediately grant as acceptable
+psychologically." In the argument corresponding to Theorem 3.3, Lang [1971, p. 510] then
+blithely wrote: "Suppose A does not have a maximal element. Then for each x C A there
+exists an element y, E A such that x < y,." It is as if the mighty struggles of the past never
+took place!
+47See Aczel [1977] for a survey of the theory of inductive definitions in extensions of
+recursion theory and Moschovakis [1974] for a detailed development (for the "positive"
+case) in abstract structures.
+48Kuratowski [1922, p. 83] in the context of sets and inclusion had in fact considered
+monotonic functions leading to least fixed points, but with the standing assumption of
+expansiveness for functions.
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+305
+
+ordered by <p is an inductive partially ordered subset (with the same
+suprema of chains as P) such that f"Q c Q. But since f is expansive
+on Q, the conclusions of Theorem 3.4 follow from those of Theorem 3.2.
+In the early 1970's Dana Scott and Christopher Strachey developed the
+now standard denotational semantics for programming languages in terms
+of algebraic structures, devised by Scott, called continuous lattices.49 The
+theory was then generalized to what has come to be called complete partially
+ordered sets (CPO's), but what we called inductive partially ordered sets. In
+the language of CPO's a weak form of Theorem 3.4, where the function
+f in the hypothesis is required to satisfy a continuity condition subsuming
+monotonicity, has become a cornerstone of denotational semantics. This
+weak form is simple to establish because of the imposed continuity condition
+and suffices for theories of computation. As Scott himself pointed out, this
+weak form is in fact a "semantic"version of the First Recursion Theorem of
+Kleene [1952, p. 348] on least fixed point, recursive solutions for recursive
+functionals.50
+Although their full strength is not required, stronger fixed point theorems
+have nonetheless come to be cited in computer science, perhaps for historical
+contextualization or in anticipation of mathematical generalizations. One
+such theorem was established by Alfred Tarski in 1939 (see his [1955, p. 286])
+and is the version of Theorem 3.4 for complete lattices (i.e., partially ordered
+sets in which every subset, not only chains, has a least upper bound, and
+hence, it can be shown, every subset also has a greatest lower bound). The
+version of Tarski's result corresponding to Theorem 3.1, i.e., for sets and
+inclusion, had been established earlier by Bronislaw Knaster [1928]. But
+in these results the existence of a well-ordered chain is not necessary for
+the proofs. On the other hand, well-orderings are intrinsic to the proofs
+of Theorems 3.2 and 3.4 as is made explicit in their (a)'s and (b)'s; in
+the general set-theoretic context transfinite well-orderings are necessarily
+involved. Nonetheless, the fixed point results of Theorems 3.2 and 3.4
+themselves have come to be cited in computer science, even though transfinite
+well-orderings are only relevant in the higher reaches of abstract theories of
+computation.51
+denotationalsemantics.
+49See Stoy [1977]for an authoritativeaccountof Scott-Strachey
+The algebraictheoryof continuouslattices,withmotivationsfroma varietyof quarters,has
+sincebeenconsiderablyelaborated;see Gierzet al. [1980].
+50SeeScott [1975]for the interplayof denotationalsemanticsand recursiontheory.The
+(Second)RecursionTheoremof Kleene [1938],[1952,p. 352ff.] is a fixedpoint theorem
+muchdeeperthanweakversionsof Theorem3.4 in thatit providesfixedpointsfor (partial)
+recursiveprocedureswhicheven dependon theirnumericalcodes and as such is a central
+resultof RecursionTheory.The theoremis a generalizationof the core of G6del'sproofof
+his IncompletenessTheorem.
+51
+Surveyingrecenttreatmentsof Theorems3.2 and 3.4 by those emphasizingthe significanceof theseresultsin computerscience,the textDavey-Priestley
+[1990,p. 94ff.]establishes
+
+306
+
+AKIHIRO
+KANAMORI
+
+Today, of course, Zorn's Lemma provides the most general setting for algebra, although in various constructive contexts a closer examination shows
+that special cases of the lemma suffice. Analogously, our guiding motif as
+embodied in Theorems 3.2 and 3.4 is coming to play a background role for
+computer science.
+REFERENCES
+ACZEL, An introductionto inductivedefinitions, Handbook of mathematical
+[1977] PETER
+logic (K. Jon Barwise, editor), North-Holland, Amsterdam, pp. 739-782.
+[1922] STEFANBANACH, Sur les operations dans les ensemblesabstraits et leur application
+aux equations integrales, FundamentaMathematicae, vol. 3, pp. 133-181.
+[1995] JOHNL. BELL,Type reducingcorrespondencesand well-orderings:Frege's and Zermelo's constructionsre-examined, The Journalof Symbolic Logic, vol. 60, pp. 209-221.
+[1954] PAULBERNAYS,A system of axiomatic set theory VII, TheJournalof Symbolic Logic,
+vol. 19, pp. 81-96.
+[1997] GEORGEBoOLOS,ConstructingCantoriancounterexamples,Journalof Philosophical
+Logic, vol. 26, pp. 237-239.
+BOREL,
+Lefons sur la theorie desfonctions, Gauthier-Villars, Paris.
+[1898] EMILE
+L Theoriedes ensembles.Fascicule
+[1939] NIcoLAsBOURBAKI,Elements de mathedmatique.
+de resultats, Actualit6s Scientifiques et Industrielles, no. 846, Hermann, Paris.
+, Sur le theoremede Zorn, Archivder Mathematik, vol. 2, pp. 434-437.
+[1949/50]
+, Elements de mathematique.L Theoriedes ensembles. ChapterIkII:Ensem[1956]
+bles ordonnes,cardinaux, nombresentiers, Actualites Scientifiques et Industrielles, no. 1243,
+Hermann, Paris.
+E. J. BROUWER,On continuous one-one transformationsof surfaces into
+[1909] LUITZEN
+themselves, KoninklijkeNederlandse Akademie van Wetenschappente Amsterdam, Proceedings, vol. 11, reprinted in [1976] below, pp. 195-206.
+, Collected works (Hans Freudenthal, editor), vol. 2, North-Holland, Am[1976]
+sterdam.
+BURALI-FORTI,Una questione sui numeri transfini, Rendiconti del Circolo
+[1897] CESARE
+Matematico di Palermo, vol. 11, pp. 154-164, translated in van Heijenoort [1967], pp. 104111.
+[1978] PAULJ. CAMPBELL,The origin of "Zorn'slemma", Historia Mathematica, vol. 5,
+pp. 77-89.
+[1874] GEORGCANTOR, Uber eine Eigenschaft des Inbegriffes aller reellen algebraischen
+Zahlen, Journalfur die reine und angewandteMathematik (Crelle'sJournal), vol. 77, pp. 258262, reprinted in [1932] below, pp. 115-118.
+
+Theorem 3.2 in the style of Zermelo's second [1908] proof of the Well-OrderingTheorem,
+presumably following Bourbaki [1949/50] though without mentioning well-orderings, and
+derives Theorem 3.4 from Theorem 3.2 essentially as described in the paragraph above
+following Theorem 3.4. Moschovakis [1994, p. 108] points out the same route to get to
+Theorem 3.4 from Theorem 3.2, but before that establishes Theorem 3.2 (and notes that the
+proof also gives Theorem 3.4) after first establishing Hartogs's Theorem and then applying
+it. More heavyhandedly, Phillips [1992, ?3] establishes Theorem 3.4 only after developing
+the elementary theory of ordinals and implicitly using the Axiom of Replacement.
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+307
+
+, Uber unendliche,linearepunktmannigfaltigkeiten.V, Mathematische An[1883]
+nalen, vol. 21, pp. 545-591, published separately as Grundlageneiner allgemeinen Mannigfaltigkeitslehre. Ein mathematisch-philosophischerVersuchin der Lehre des Unendlichen,
+B. G. Teubner, Leipzig, 1883; reprinted in [1932] below, pp. 165-209.
+, Uber eine elementare Frage der Mannigfaltigkeitslehre,Jahresberichtder
+[1891]
+Deutschen Mathematiker-Vereinigung,vol. 1, pp. 75-78, reprinted in [1932] below, pp. 278280.
+, Beitrdge zur Begriindungder transfinitenMengenlehre.I, Mathematische
+[1895]
+Annalen, vol. 46, pp. 481-512, translated in [1915] below; reprinted in [1932] below, pp. 282311.
+, Beitrdge zur Begriindungder transfinitenMengenlehre.II, Mathematische
+[1897]
+Annalen, vol. 49, pp. 207-246, translated in [1915] below; reprinted in [1932] below, pp. 312351.
+, Contributionsto the founding of the theory of transfinitenumbers, Open
+[1915]
+Court, Chicago, translation of [1895] and [1897] above with introduction and notes by Philip
+E. B. Jourdain; reprinted Dover, New York, 1965.
+, GesammelteAbhandlungenmathematicschenund philosophischen Inhalts
+[1932]
+(Ernst Zermelo, editor), Julius Springer, Berlin, reprinted in Springer-Verlag,Berlin, 1980.
+[1962] JEANCAVAILLtS,
+Philosophiemathematique,Hermann, Paris, includes French translation of Noether-Cavailles [1937].
+La logique mathematiquede M. Peano, Revue de Metaphysique
+[1899] Louis COUTURAT,
+et de Morale, vol. 7, pp. 616-646.
+A note on Cantor's theoremand Russell'sparadox, Australasian
+[1973] JOHNN. CROSSLEY,
+Journalof Philosophy, vol. 51, pp. 70-71.
+A. PRIESTLEY,
+Introduction to lattices and order,
+[1990] BRIANA. DAVEYand HILARY
+Cambridge University Press, Cambridge.
+Wassindund wassollen die Zahlen?,F. Vieweg, Braunschweig,
+[1888] RICHARDEDEKIND,
+sixth, 1930 edition reprinted in [1932] below, vol. 3, pp. 335-390; second, 1893 edition
+translated in [1963] below, pp. 29-115.
+, Gesammelte mathematische Werke(Robert Fricke, Emmy Noether, and
+[1932]
+Oystein Ore, editors), F. Vieweg, Baunschweig, reprinted in Chelsea, New York, 1969.
+, Essays on the theory of numbers, Dover, New York, translation by
+[1963]
+Wooster W. Beman (reprint of original edition, Open Court, Chicago, 1901).
+DREBEN
+and AKIHIRO
+Hilbertand set theory,Synthese, vol. 110,
+KANAMORI,
+[1997] BURTON
+pp. 77-125.
+[1982] JAMESDUGUNDJIand ANDRZEJGRANAS,Fixed point theory, Panistwowe
+Wydawnictwo, Naukowe, Warsaw.
+E. FORSTER,
+Set theory with a universal set, second ed., Logic Oxford
+[1995] THOMAS
+Guides, no. 31, Clarendon Press, Oxford.
+FREGE,Begriffsschrift, eine der arithmetischen nachgebildete Formel[1879] GOTTLOB
+sprache des reinen Denkens, Nebert, Halle, reprinted Hildesheim, Olms, 1964; translated
+in van Heijenoort [1967], pp. 1-82.
+, GrundgesetzederArithmetik,Begriffsschriftlichabgeleitet, vol. 1, Hermann
+[1893]
+Pohle, Jena, reprinted Olms, Hildesheim, 1962.
+, KritischeBeleuchtungeiniger Punkte in E. Schr6dersVorlesungenfiber die
+[1895]
+Algebra der Logik, Archivfur systematische Philosophie, vol. 1, pp. 433-456, translated in
+[1952] below, pp. 86-106.
+, Translationsfromthe Philosophical Writingsof GottlobFrege, Peter Geach
+[1952]
+and Max Black (translators and editors), Blackwell, Oxford, second, revised edition 1960;
+latest edition, Rowland & Littlewood, Totowa, 1980.
+
+AKIHIROKANAMORI
+
+308
+
+R. GARCIADIEGO,
+BertrandRussell and the origins of the set-theoretic
+[1992] ALEJANDRO
+"paradoxes",Birkhauser, Boston.
+D. LAWSON,MICHAEL
+[1980] GERHARDGIERZ,KARL H. HOFMANN,KLAUSKEIMEL,JIMMIE
+
+A compendiumof continuouslattices, Springer-Verlag,Berlin.
+and DANAS. SCOTT,
+MISLOVE,
+[1938] KURTF. GODEL,The consistency of the Axiom of Choice and of the Generalized
+Continuum-Hypothesis,Proceedings of the National Academy of Sciences U.S.A., vol. 24,
+pp. 556-557, reprinted in [1990] below, pp. 26-27.
+, Collected works (Solomon Feferman et al., editors), vol. 2, Oxford Uni[1990]
+versity Press, New York.
+Poincare against the logicists, History andphilosophy of modGOLDFARB,
+[1988] WARREN
+ern mathematics (William Aspray and Philip Kitcher, editors), Minnesota Studies in the
+Philosophy of Science, vol. 11, University of Minnesota Press, Minneapolis, pp. 61-81.
+Dear RussellDear Jourdain, Duckworth & Co., Lon[1977] IVORGRATTAN-GUINNESS,
+
+don, and Columbia University Press, New York.
+How BertrandRussell discoveredhis paradox, Historia
+[1978] IVORGRATTAN-GUINNESS,
+Mathematica, vol. 5, pp. 127-137.
+GRAY,Georg Cantor and transcendentalnumbers,American Mathematical
+[1994] ROBERT
+Monthly, vol. 101, pp. 819-832.
+Cantorianset theoryand limitationofsize, Logic Guides, no. 10,
+HALLETT,
+[1984] MICHAEL
+Clarendon Press, Oxford.
+
+H. HARDY,A theoremconcerningthe infinitecardinalnumbers,The Quar[1903] GODFREY
+terly Journalof Pure and Applied Mathematics, vol. 35, pp. 87-94, reprinted in [1979] below,
+vol. 7, pp. 427-434.
+, Collected papers of G. H. Hardy (I. W Busbridge and R. A. Rankin,
+[1979]
+editors), Clarendon, Oxford.
+Uberdas Problemder Wohlordnung,MathematischeAnnalen,
+HARTOGS,
+[1915] FRIEDRICH
+vol. 76, pp. 436-443.
+Die GraduierungnachdemEndverlauf,Berichtefiberdie Verhand[1909] FELIXHAUSDORFF,
+lungender KoniglichSdchsischen Gesellschaftder Wissenschaftenzu Leipzig, MathematischePhysische Klasse, vol. 61, pp. 297-334.
+[1906] GERHARDHESSENBERG,
+Grundbegriffe der mengenlehre, Vandenhoeck & Ruprecht,
+
+Gottingen, reprinted from Abhandlungender Fries'schenSchule, Neue Folge, vol. 1 (1906),
+pp. 479-706.
+, Kettentheorie und Wohlordnung,Journal fur die reine und angewandte
+[1909]
+Mathematik (Crelle's Journal), vol. 135, pp. 81-133.
+[1891] EDMUNDHUSSERL,
+Besprechung von E. Schroder, Vorlesungeniiber die Algebra
+der Logic (Exakte logik), Gottingische Gelehrte Anzeigen, vol. I, Leipzig 1890, pp. 243278; reprinted in EDMUNDHUSSERL,
+Aufsatze und Rezensionen (1890-1910), Husserliana,
+vol. XXII, Nijhoff, The Hague, 1978, pp. 3-43.
+HYLTON,
+Russell, idealism, and the emergenceof analyticphilosophy, Claren[1990] PETER
+don Press, Oxford.
+
+On the transfinitecardinalnumbersof well-orderedaggre[1904] PHILIPE. B. JOURDAIN,
+gates, Philosophical Magazine, vol. 7, pp. 61-75.
+, On a proof that every aggregate can be well-ordered,Mathematische An[1905]
+nalen, vol. 60, pp. 465-470.
+The mathematical developmentof set theoryfrom Cantor to
+KANAMORI,
+[1996] AKIHIRO
+Cohen, this BULLETIN,vol. 2, pp. 1-71.
+
+C. KLEENE,On notation for ordinal numbers, The Journal of Symbolic
+[1938] STEPHEN
+Logic, vol. 3, pp. 150-155.
+, Introductionto metamathematics,Van Nostrand, Princeton.
+[1952]
+
+THE MATHEMATICAL
+IMPORTOF ZERMELO'SWELL-ORDERING
+THEOREM
+
+309
+
+KNASTER,Un theoreme sur les fonctions d'ensembles, Annales de la
+[1928] BRONISLAW
+Societe Polonaise de Mathematique, vol. 6, pp. 133-134.
+[1950] HELMUTH KNESER, Eine direkte Ableitung des Zornschen Lemmas aus dem
+Auswahlaxiom,Mathematische Zeitschrift, vol. 53, pp. 110-113.
+Sur la notion de l'ordre dans la theorie des ensembles,
+[1921] KAZIMIERZKURATOWSKI,
+FundamentaMathematicae, vol. 2, pp. 161-171.
+, Une methode d'elimination des nombres transfinis des raisonnements
+[1922]
+mathematiques,FundamentaMathematicae, vol. 3, pp. 76-108.
+[1930] EDMUNDLANDAU, Grundlagender analysis, Akademische Verlagsgesellschaft,
+Leipzig, translated as Foundationsof analysis, Chelsea, New York, 1951.
+LANG,Algebra, Addison-Wesley, Reading, revised printing of original 1965
+[1971] SERGE
+edition.
+H. MOORE,Zermelo's Axiom of Choice. its origins, development and
+[1982] GREGORY
+influence, Springer-Verlag,New York.
+The origins of Russell's paradox: Russell, Couturat, and the antimony of
+[1995] infinite number, From Dedekind to Godel (Jaakko Hintikka, editor), Synthese Library, vol.
+251, Kluwer, Dordrecht, pp. 215-239.
+H. MOORE
+R. GARCIADIEGO,
+and ALEJANDRO
+Burali-Forti'sparadox: A
+[1981] GREGORY
+reappraisalof its origins, Historia Mathematica, vol. 8, pp. 319-350.
+[1974] YIANNISN. MOSCHOVAKIS,
+Elementary induction on abstract structures, NorthHolland, Amsterdam.
+, Notes on set theory, Springer-Verlag,New York.
+[1994]
+[1937] Emmy Noether and Jean Cavailles (editors), Briefwechsel Cantor-Dedekind,Hermann, Paris.
+[1889] GUISEPPE
+PEANO,Arithmetices principia nova methodo exposita, Bocca, Turin,
+reprinted in [1957-9] below, vol. 2, pp. 20-55; partially translated in van Heijenoort [1967],
+pp. 85-97; translated in [1973] below, pp. 101-134.
+, Demonstration de l'integrabilite des equations differentielles ordinaires,
+[1890]
+Mathematische Annalen, vol. 37, pp. 182-228, reprinted in [1957] below, vol. 1, pp. 119-170.
+, Super theorema de Cantor-Bernstein,Rendiconti del Circolo Matematico
+[1906]
+di Palermo, vol. 21, pp. 360-366, reprinted in [1957-9] below, vol. 1, pp. 337-344.
+, Operescelte (U. Cassina, editor), Edizioni Cremonese, Rome, three
+[1957-1959]
+volumes.
+, Selected worksof GiuseppePeano (Hubert C. Kennedy, editor), University
+[1973] of Toronto Press, Toronto, translated by Hubert C. Kennedy.
+[1990] VOLKERPECKHAUS,"Ich habe mich wohl gehiitet, alle Patronen auf einmal zu verschiessen".Ernst Zermelo in G6ttingen,History and Philosophy of Logic, vol. 11, pp. 19-58.
+[1992] I. C. C. PHILLIPS, Recursion theory, Handbook of logic in computer science
+(S. Abramsky, Dov M. Gabbay, and T. S. E. Maibaum, editors), vol. 1, Clarendon Press,
+Oxford, pp. 80-187.
+[1884] HENRIPOINCARI,Sur certaines solutions particulieres du probleme des trois corps,
+Bulletin Astronomique,vol. 1, pp. 65-74, reprinted in [1952] below, pp. 253-261.
+, Les mathematiques et la logique, Revue de Metaphysique et de Morale,
+[1905]
+vol. 13, pp. 815-835, also vol. 14 (1906), pp. 17-34.
+, Les mathematiques et la logique, Revue de Mitaphysique et de Morale,
+[1906]
+vol. 14, pp. 294-317.
+, Oeuvresde Henri Poincare, vol. 7, Gauthier-Villars, Paris.
+[1952]
+[1940] WILLARD V. O. QUINE,Mathematical logic, Norton, New York.
+[1981] BERNHARDRANG and WOLFGANGTHOMAS,Zermelo's discovery of the "Russell
+paradox", Historia Mathematica, vol. 8, pp. 15-22.
+
+310
+
+AKIHIROKANAMORI
+
+A. W. RUSSELL,
+Recent Italian work on thefoundations of mathematics,
+[1901] BERTRAND
+in [1993] below, pp. 350-362 (page references are to these).
+, Recent work on the principles of mathematics, International Monthly,
+[1901a]
+vol. 4, pp. 83-101, reprinted as "Mathematics and the Metaphysicians" (with six footnotes
+added in 1917) in [1918] below, Chapter V, pp. 74-94 (page references are to these); this
+version reprinted in [1993] below, pp. 363-379.
+, Theprinciples of mathematics, Cambridge University Press, Cambridge,
+[1903]
+later editions, George Allen & Unwin, London.
+, On some difficulties in the theory of transfinitenumbersand order types,
+[1906]
+Proceedings of the London Mathematical Society, vol. (2)4, pp. 29-53, reprinted in [1973]
+below, pp. 135-164.
+, Les paradoxes de la logique, Revuede Metaphysiqueet de Morale, vol. 14,
+[1906a]
+pp. 627-650, translated in [1973] below, pp. 190-214.
+, Mathematical logic as based on the theory of types, American Journal of
+[1908]
+Mathematics, vol. 30, pp. 222-262, reprinted in van Heijenoort [1967], pp. 150-182.
+, Mysticism and logic, and other essays, Longmans, Green & Co., New
+[1918]
+York.
+, My mental development, The philosophy of Bertrand Russell (Paul A.
+[1944]
+Schilpp, editor), The Library of Living Philosophers, vol. 5, Northwestern University,
+Evanston, pp. 3-20.
+, My philosophical development,George Allen & Unwin, London.
+[1959]
+, Essays in analysis (Douglas Lackey, editor), George Braziller,New York.
+[1973]
+, Cambridge essays, 1888-99 (Kenneth Blackwell et al., editors), The Col[1983]
+lected Works of Bertrand Russell, vol. 1, George Allen & Unwin, London.
+
+, The selected letters of Bertrand Russell, Volume1: The private years,
+[1992]
+1884-1914 (Nicholas Griffin, editor), Houghton Mifflin, Boston.
+, Towardthe "principlesof mathematics", 1900-1902 (Gregory H. Moore,
+[1993]
+editor), The Collected Works of Bertrand Russell, vol. 3, Routledge, London.
+[1890] ERNST SCHRODER,Vorlesungenuber die Algebra der Logik (exakte Logik), vol. 1,
+
+B. G. Teubner, Leipzig, reprinted in [1966] below.
+, Vorlesungeniiberdie Algebrader Logik, Chelsea, New York, three volumes.
+[1966]
+[1962] DANA S. SCOTT,Quine's individuals, Logic, methodology and the philosophy of
+science (Ernst Nagel, editor), Stanford University Press, Stanford, pp. 111-115.
+, Data types as lattices, Logic conference,Kiel 1974 (Gert H. Muller, Arnold
+[1975]
+Oberschelp, and Klaus Potthoff, editors), Lecture Notes in Mathematics, no. 499, SpringerVerlag, Berlin, pp. 579-651.
+A. SINACEUR,Appartenanceet inclusion. un ineditde RichardDedekind,
+[1971] MOHAMMED
+Revue d'Histoire des Sciences et de leurs Applications,vol. 24, pp. 247-255.
+Zur Axiomatik der Mengenlehre (Fundierungs-und Auswahlax[1957] ERNSTSPECKER,
+iom), Zeitschriftfur mathematischeLogik und Grundlagender Mathematik, vol. 3, pp. 173210.
+E. STOY,Denotational semantics. The Scott-Strachey approachto program[1977] JOSEPH
+ming language theory, MIT Press, Cambridge, third printing, 1985.
+[1949-50] T. SZELE,On Zorn's lemma, Publicationes Mathematicae Debrecen, vol. 1,
+pp. 254-256, cf. Errata, p. 257.
+[1939] ALFREDTARSKI,On well-orderedsubsets of any set, FundamentaMathematicae,
+vol. 32, pp. 176-183.
+, A lattice-theoreticalfixpoint theorem and its applications, Pacific Journal
+[1955]
+of Mathematics, vol. 5, pp. 285-309.
+[1966] BARTEL. VANDER WAERDEN,Algebra I, seventh ed., Springer-Verlag, Berlin,
+
+THE MATHEMATICAL IMPORT OF ZERMELO'S WELL-ORDERING THEOREM
+
+311
+
+translated into English, Ungar, New York 1970; this translation reprintedby Springer-Verlag,
+Berlin 1991.
+[1967] Jean van Heijenoort (editor), From Frege to Godel: A source book in mathematical
+logic, 1879-1931, Harvard University Press, Cambridge.
+Zur Einfiihrungder transfinitenZahlen, Acta Litterarumac
+[1923] JOHNVONNEUMANN,
+Scientiarum Regiae UniversitatisHungaricae Francisco-Josephinae,sectio scientiarummathematicarum, vol. 1, pp. 199-208, reprinted in [1961] below, pp. 24-33; translated in van
+Heijenoort [1967], pp. 346-354.
+, Eine Axiomatisierungder Mengenlehre,Journalfurdie reineundangewandte
+[1925]
+Mathematik (Crelle'sJournal), vol. 154, pp. 219-240, Berichtigung, vol 155, p. 128; reprinted
+in [1961] below, pp. 34-56; translated in van Heijenoort [1967], pp. 393-413.
+, Uber die Definition durch transfiniteInduktion und verwandteFragen der
+[1928] allgemeinen Mengenlehre,Mathematische Annalen, vol. 99, pp. 373-391, reprinted in [1961]
+below, pp. 320-338.
+, John von Neumann. Collected works (Abraham H. Taub, editor), vol. 1,
+[1961] Pergamon Press, New York.
+D. WESTON,
+A shortproof of Zorn's lemma, Archivder Mathematik, vol. 8,
+[1954] JEFFREY
+279.
+p.
+N. WHITEHEAD
+A. W. RUSSELL,
+and BERTRAND
+Principia mathematica,
+[1910-3] ALFRED
+Cambridge University Press, Cambridge, three volumes.
+Beweis, dassjede Menge wohlgeordnetwerdenkann (Aus einem an
+[1904] ERNSTZERMELO,
+Herrn Hilbert gerichteten Briefe), Mathematische Annalen, vol. 59, pp. 514-516, translated
+in van Heijenoort [1967], pp. 139-141.
+, Neuer Beweisfiir die Moglichkeit einer Wohlordnung,Mathematische An[1908]
+nalen, vol. 65, pp. 107-128, translated in van Heijenoort [1967], pp. 183-198.
+, Untersuchungeniiber die Grundlagender MengenlehreI, Mathematische
+[1908a]
+Annalen, vol. 65, pp. 261-281, translated in van Heijenoort [1967], pp. 199-215.
+[1935] MAXZORN,A remark on method in transfinitealgebra, Bulletin of the American
+Mathematical Society, vol. 41, pp. 667-670.
+DEPARTMENTOF MATHEMATICS
+BOSTON UNIVERSITY
+
+BOSTON,MA 02215,USA
+E-mail: aki@math.bu.edu
+
+
