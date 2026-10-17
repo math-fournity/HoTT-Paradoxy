@@ -1,0 +1,324 @@
+# 审计账本：enderton1977（二值化页图，2026-10-17）
+
+## 0. 批次身份
+
+- **对应 MinerU markdown**：本 PDF 对应**两份** md，页码区段不同：
+  - `mineru_md/enderton1977_part01_p001-150.md`（对应产物 page-001 至 page-150）
+  - `mineru_md/enderton1977_part02_p151-289.md`（对应产物 page-151 至 page-289）
+  - md 文件名中的 p 编号即产物页码（PDF 物理页序），书内印刷页码与之有固定偏移（如 PDF page-100 对应书页 p.90），逐页对照时以产物页码为准。
+- **源 PDF**：`搜索原始响应-20261017/enderton1977.pdf`（319.44×549.36 pts，缩印版式）。
+- **产物目录**：`_audit-binary/enderton1977/`，`page-001.png` 起，页码统一 3 位。
+- **转换执行**：ConvertAgent-B，2026-10-17（开始 07:09:56 -0400），工作根 `/Volumes/D/HoTT_AI_HANDOFF_20260911`（dev）。
+
+## 1. 定参引用（探针定参，全项目统一，不得更改）
+
+- 渲染分辨率：**`-r 300`**。
+- 管线（两步）：`pdftoppm -png -gray -r 300`（抗锯齿灰度渲染）→ `magick -threshold 50% -strip -define png:bit-depth=1 -compress zip`（二值化 + 真 1-bit PNG zip 压缩）。
+- 不用 `-mono` 直出（8-bit 存储致 4 MB+/页）；不加 `compression-strategy`（实测反而变大）。
+- 依据：`_visualcheck-audit/探针定参记录.md`（已提交 2e7fcd88），§5 最终定参。
+
+## 2. 转换与自检
+
+- **转换时间**：2026-10-17 07:09:56 -0400（批内逐页循环，每份 PDF 一批）。
+- **源 PDF 页数（pdfinfo）**：289。
+- **产物页数自检**：289 个 `page-*.png` 文件，`ls | wc -l` = 289 = pdfinfo Pages。✅ **PASS，无缺失无缺页**。
+- **位深自检**（抽查 page-100 IHDR 字节偏移 24）：`01` = 真 1-bit，灰度色彩类型。✅
+- **抽查清晰度**（analyzeImage，page-100 裁剪局部 1474×1600，两次调用一致）：正文清晰可读（抄录验证成功：Chapter 5 INTEGERS 开篇，ω 构造与 ℤ 整数集扩展段），数学符号（ω/ℤ/⟨2,3⟩/−）可辨认，笔画无断裂无粘连无丢失。✅ **达标**。
+
+## 3. 逐页 SHA-256（前 16 位）
+
+| 页 | SHA-256（前 16 位） |
+|---|---|
+| page-001 | 0bbf550fae0cd60f |
+| page-002 | ef14d21be855aabd |
+| page-003 | cdbb5b440f015ad2 |
+| page-004 | 8b5b2201a4a7687e |
+| page-005 | c6d56d078b63cf97 |
+| page-006 | 086e37ac176cc3ed |
+| page-007 | 8b943c5e1024fcf3 |
+| page-008 | f604f22a45d4894f |
+| page-009 | 2e366bf143d3607c |
+| page-010 | 4a092d5a8d4371e2 |
+| page-011 | 5ae48c2d240d7338 |
+| page-012 | ecc5e00644a80124 |
+| page-013 | 24deb79ccfb621ce |
+| page-014 | 06fb4254f8534fe3 |
+| page-015 | b488d59be7c82339 |
+| page-016 | 82496c03c1c21f82 |
+| page-017 | 56841e022886364b |
+| page-018 | 74cad67a62e101b7 |
+| page-019 | 2a6cf812e24067d0 |
+| page-020 | 38e8e0286e62b81a |
+| page-021 | 0acd8f37dea6d702 |
+| page-022 | d216159847dd98db |
+| page-023 | b7761b9bb803d818 |
+| page-024 | b82994cb40b98299 |
+| page-025 | b6a3361c2fc87f42 |
+| page-026 | b0481b234db4813e |
+| page-027 | 25685bdd59e94315 |
+| page-028 | ac17245e97c01470 |
+| page-029 | 45109c2bfb47c46c |
+| page-030 | d134c8773564b9d6 |
+| page-031 | 008ac52859e913c3 |
+| page-032 | e2dbf19b19f5ce01 |
+| page-033 | 58fc4bca5863546d |
+| page-034 | 9a043b05acd793a9 |
+| page-035 | 29910dddb07fd06b |
+| page-036 | 59450b1989a41426 |
+| page-037 | bf77e862f0b337ea |
+| page-038 | c036dccd6ce19f57 |
+| page-039 | 11f4bc9c7da6df23 |
+| page-040 | 2cc67236da78cc47 |
+| page-041 | 2a5d031cf9df0426 |
+| page-042 | 8708c5aaa1cf0ec4 |
+| page-043 | 7d72321754315238 |
+| page-044 | c31d456a4d93a37d |
+| page-045 | 092e8fbeb031dd86 |
+| page-046 | 721a4af0cb396ffd |
+| page-047 | ae974615a9ba1755 |
+| page-048 | a92e66fd0322d85f |
+| page-049 | 0a9cd911259622fd |
+| page-050 | 48db4ee9024c38db |
+| page-051 | 91ec91b4856c4c17 |
+| page-052 | c5fb7ee774deed04 |
+| page-053 | 3b7d55f6f1186197 |
+| page-054 | 4237666535851e8f |
+| page-055 | 3833fd527b6ea968 |
+| page-056 | 818839a14da84aef |
+| page-057 | e377c44363ccadf1 |
+| page-058 | 7fce3710e5616c19 |
+| page-059 | 4916222558539de1 |
+| page-060 | 3c0911276f22a6d2 |
+| page-061 | 79ebb99a8d52e532 |
+| page-062 | 417ffb7c0c2eeda5 |
+| page-063 | 106bdc5115137e99 |
+| page-064 | 14ced773a262eddf |
+| page-065 | 598ea823be0bbab9 |
+| page-066 | 6d067f2295407e9a |
+| page-067 | 66cd35655c3e59aa |
+| page-068 | 6974af85739b15ba |
+| page-069 | 89072679486f939c |
+| page-070 | 3eae24c856935935 |
+| page-071 | c537dbfedda1450f |
+| page-072 | e23d36aefbad45ac |
+| page-073 | a796c3ab7f7dfb28 |
+| page-074 | b4de6a91c01a091c |
+| page-075 | 3b2d5c1d4ade1eda |
+| page-076 | 1029e6b260f0f13e |
+| page-077 | d5bab2ef63a086be |
+| page-078 | 3d434c4f25ccedae |
+| page-079 | 340cb576c3cffd7e |
+| page-080 | 2977347893b102a5 |
+| page-081 | 9ea8f1dbbea16329 |
+| page-082 | 6279e462e26c19c9 |
+| page-083 | aacf6050081c1013 |
+| page-084 | 6484ab235f18171d |
+| page-085 | 77322e408e96aa5c |
+| page-086 | 3f070af91290d554 |
+| page-087 | 0f87a196b4c7342e |
+| page-088 | fd0ce456eebecce9 |
+| page-089 | edd888ae390ad1a4 |
+| page-090 | 0cfeaf426a030de9 |
+| page-091 | 439a06e87b0f0fa4 |
+| page-092 | 4610ea76bf126aaa |
+| page-093 | d37c083f2d8f260b |
+| page-094 | 503cc61df236fb5e |
+| page-095 | 9c263d3a01333277 |
+| page-096 | 8a42b13d17948a13 |
+| page-097 | 922f5a43f2e86bef |
+| page-098 | 14543cd05ac9ea94 |
+| page-099 | 14b4f0c6b81371fc |
+| page-100 | 6832d716e9ee14da |
+| page-101 | ba38e752d0b0704e |
+| page-102 | e47e1f8e4af39138 |
+| page-103 | 955bcacefef17825 |
+| page-104 | fd6ec1584a239a67 |
+| page-105 | 66e1d42e9959d62c |
+| page-106 | 476ec35e2e953a19 |
+| page-107 | 4bb2f12a552714cb |
+| page-108 | ce9a24614cf24515 |
+| page-109 | 2fd5520dac040c35 |
+| page-110 | 669dd3cda082d70c |
+| page-111 | 6d394295bc33be5f |
+| page-112 | 83dbfaa2619e000a |
+| page-113 | 673204ddf9836eb2 |
+| page-114 | 29e785e4381ad4ee |
+| page-115 | 00ed536ff5405922 |
+| page-116 | 6ea588a0c089a70f |
+| page-117 | 462d4a6ad13028cb |
+| page-118 | 982e09a1d516fbde |
+| page-119 | 315dddbc2836ed66 |
+| page-120 | a256b7c394a7352f |
+| page-121 | 966fe33e6efeb15c |
+| page-122 | e0c3b8d4a901f274 |
+| page-123 | 594e30702da6717e |
+| page-124 | 4b7b57352b3ba5ca |
+| page-125 | 8d21eb70db63ef92 |
+| page-126 | 061a81d6499f2fc0 |
+| page-127 | ab9290bc70ac80b9 |
+| page-128 | 046ae8d391c6d500 |
+| page-129 | d0361a5332b62006 |
+| page-130 | 1fe9617a764c76f3 |
+| page-131 | 43ffd362480f574a |
+| page-132 | c358e694abe0470c |
+| page-133 | 0414fccf3701ba58 |
+| page-134 | 4a65cb57f77c36a9 |
+| page-135 | dd1d6a7b95404505 |
+| page-136 | ef29bd87d6728a43 |
+| page-137 | 53aad527cc6adbef |
+| page-138 | 3864fc00e0b455bd |
+| page-139 | 3f4b2d5ea31a4ab0 |
+| page-140 | 2b91d303e348a861 |
+| page-141 | cecbfdb0d65b840d |
+| page-142 | 3bc928985bf0f679 |
+| page-143 | 8e06054280f4aea3 |
+| page-144 | b58c4f9da59f8793 |
+| page-145 | cba3e80f504909d6 |
+| page-146 | 84a026c172b9f39d |
+| page-147 | 9c5e3e39718d4dea |
+| page-148 | ccce9bdf49daf303 |
+| page-149 | 644b3c3ac6812ac1 |
+| page-150 | cf5202e8b90ab716 |
+| page-151 | d646eb85c0adde78 |
+| page-152 | 1cfae433ca26848f |
+| page-153 | 6b10cacbd950eb85 |
+| page-154 | fd65dd224ef4ffb0 |
+| page-155 | e353eecbbc29eaff |
+| page-156 | f68ef5db981ea12b |
+| page-157 | 5c2fca0aa69e111b |
+| page-158 | 1fe3fc6c4a8cc783 |
+| page-159 | bc47f976355a18d3 |
+| page-160 | ecd85a2a0c198aea |
+| page-161 | f8539fa8600c7105 |
+| page-162 | 80e5c4babcb16f5a |
+| page-163 | d024f8df9a210825 |
+| page-164 | b3a49c8024bc0d3a |
+| page-165 | da2b25e0b3518b2e |
+| page-166 | 3316689f655ef18b |
+| page-167 | ae7ea02c3860df50 |
+| page-168 | da3942653f2e52db |
+| page-169 | 34d0344f4992b3f5 |
+| page-170 | 7e86675db9eca962 |
+| page-171 | 9997194cac4f186c |
+| page-172 | 1d6f83edb5536fad |
+| page-173 | de62de929d6392bb |
+| page-174 | 4ea8756d77749499 |
+| page-175 | 38a0f849d84f4e70 |
+| page-176 | 98ce834813595745 |
+| page-177 | 6b32d516a168d6e5 |
+| page-178 | 5cc257d549a2cde1 |
+| page-179 | eeeb12f7b02c9ac6 |
+| page-180 | bef011d7e04eb32a |
+| page-181 | c0e9bc0c2b6233d8 |
+| page-182 | 22adea93b1c7e3ba |
+| page-183 | 815382064517286f |
+| page-184 | 517260897adc3774 |
+| page-185 | d096506d2b7ce6ba |
+| page-186 | 1871239545084219 |
+| page-187 | e36e3760d79eba48 |
+| page-188 | 40f3c565b9c4074c |
+| page-189 | 37ee4a33a735b2c6 |
+| page-190 | f3ccdbbe8312ceee |
+| page-191 | c70cbd9f7f7c8ff3 |
+| page-192 | c88e8c73662cf015 |
+| page-193 | 8e8550d548fa4f09 |
+| page-194 | be66a2af45568910 |
+| page-195 | 072a514afbe21799 |
+| page-196 | 75700adcf01645e7 |
+| page-197 | 51852dd38375b1e6 |
+| page-198 | 44297efb2b3fba1f |
+| page-199 | b6eff9569910fe5e |
+| page-200 | 382fc0e114474e6a |
+| page-201 | 090b6ad3bdf68990 |
+| page-202 | 5d492af1e10227ed |
+| page-203 | 16118ecad574987f |
+| page-204 | 428d5651f3a3c1f3 |
+| page-205 | 9cd3ef8062046d9d |
+| page-206 | 12919a82c6ecfc24 |
+| page-207 | c0b5a3759e905242 |
+| page-208 | 2858ce1f85c14111 |
+| page-209 | 4a21729e068e62ac |
+| page-210 | 331be8d225f00bbc |
+| page-211 | 9f1533bca1ceafab |
+| page-212 | 42aa12889af4e948 |
+| page-213 | be2171afa33f06d3 |
+| page-214 | d527c6c16b13bee7 |
+| page-215 | c20e4f23a3171129 |
+| page-216 | b8180c3fe9c5ea58 |
+| page-217 | 0cc69beb86b68d93 |
+| page-218 | fa039c59c5448919 |
+| page-219 | f4a8ce748c829d0d |
+| page-220 | 5de650a84093e812 |
+| page-221 | 724701dd7bc37e89 |
+| page-222 | be687854b4511425 |
+| page-223 | a3bae65b46889862 |
+| page-224 | 15ed31eb63f2ca23 |
+| page-225 | e82d58c73469c0d6 |
+| page-226 | b60306bd0567717d |
+| page-227 | 1e1d5b9695b7b070 |
+| page-228 | 25bb5a4ee2e05321 |
+| page-229 | 8aa54824062af110 |
+| page-230 | 627ea927b4aa8a9f |
+| page-231 | 803586306ac65c3c |
+| page-232 | 7bebb7adb18a9d48 |
+| page-233 | 402d085795e3d0cd |
+| page-234 | 400d619a3edc9242 |
+| page-235 | 66b63098d554c957 |
+| page-236 | 842d46bcc69936fa |
+| page-237 | 922b277d118176bd |
+| page-238 | e8370cf0e8d28739 |
+| page-239 | b039d91e2236aefd |
+| page-240 | 4a4ebbf7f4aa3060 |
+| page-241 | 09ef1207ccee92b5 |
+| page-242 | ce967ca556d738c2 |
+| page-243 | e1c3de6cca3beefb |
+| page-244 | 16c30dbe46632799 |
+| page-245 | a252a3d296794615 |
+| page-246 | defc426b35a9256e |
+| page-247 | b0ebfb587192e86c |
+| page-248 | 027f138a430abf1c |
+| page-249 | 836779b85f9dad6c |
+| page-250 | 751d075abd3ba50b |
+| page-251 | e40024102e54496e |
+| page-252 | 3b6e858ae5c0f307 |
+| page-253 | 5e8a173c9ba62626 |
+| page-254 | 2c933f86b41e9fa7 |
+| page-255 | 2bbe51ed25a7a5c3 |
+| page-256 | a6b2590c8adb56ae |
+| page-257 | 253282ed33dac595 |
+| page-258 | 43595eca02030602 |
+| page-259 | b448cc291f501550 |
+| page-260 | e219984e50a88588 |
+| page-261 | 5e86d3add44750f3 |
+| page-262 | 28086b0248e9ed3c |
+| page-263 | 48f5b2a41e44b334 |
+| page-264 | 24d2efdbf4b1395f |
+| page-265 | 40ce4b53b7b42472 |
+| page-266 | 4b17ec4eda1f4f8b |
+| page-267 | 771c18f66f1c89c9 |
+| page-268 | 77d44ec361c04da5 |
+| page-269 | 70812fdc30aa93e7 |
+| page-270 | a8c29cd937678aff |
+| page-271 | 71ab5fe7119fec75 |
+| page-272 | 2076552fa310377c |
+| page-273 | 31d6bea5d782c5ac |
+| page-274 | d82cba5673cf38e0 |
+| page-275 | c1bc966c317cd5d3 |
+| page-276 | 9b31c366e3d22ef8 |
+| page-277 | d277648fb6f32e10 |
+| page-278 | c993a0e1394d6847 |
+| page-279 | 8f8c2039071b4098 |
+| page-280 | 82fe21d3ee6f94b8 |
+| page-281 | cc6a10402105c208 |
+| page-282 | ab039f6c896eb245 |
+| page-283 | 20b3b2fde0d2905b |
+| page-284 | 71454160633c261e |
+| page-285 | a5f220cda6374f25 |
+| page-286 | b518d01788810392 |
+| page-287 | 2f686314666bc9f1 |
+| page-288 | a56ba5babfe5510f |
+| page-289 | c141759472f2a998 |
+
+## 4. 逐页结论索引（由审计代理填写）
+
+（本区由审计代理填写：逐页视觉审计结论、问题页标记、与 MinerU markdown 两份分卷的对照结果。）
